@@ -103,7 +103,7 @@ export default function Features() {
         {features.map((feature, i) => (
           <div
             key={feature.title}
-            className="scroll-reveal bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
+            className="scroll-reveal bg-[var(--bg-glass)] backdrop-blur-md border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
             style={{ transitionDelay: `${i * 80}ms` }}
           >
             <div className="mb-6">{feature.icon}</div>
