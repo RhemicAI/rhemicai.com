@@ -1,5 +1,16 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+import CobeGlobe from "@/components/CobeGlobe/CobeGlobe";
+
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/Satoshi-Variable.woff2", style: "normal" },
+    { path: "./fonts/Satoshi-VariableItalic.woff2", style: "italic" },
+  ],
+  variable: "--font-satoshi",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Rhemic AI — Dominate AI-Generated Search Results",
@@ -27,8 +38,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+    <html lang="en" className={satoshi.variable} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <CobeGlobe />
+        <div className="relative z-10">{children}</div>
+      </body>
     </html>
   );
 }
