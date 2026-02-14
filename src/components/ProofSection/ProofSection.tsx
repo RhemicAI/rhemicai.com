@@ -57,10 +57,15 @@ export default function ProofSection() {
         <p className="text-lg md:text-xl font-medium text-[var(--text-secondary)] mb-6">
           Don&apos;t get left behind.
         </p>
-        <button className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105">
+        <a
+          href="https://cal.com/rhemic-ai/discovery-call"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+        >
           <span className="relative z-10">Book a Discovery Call</span>
           <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </button>
+        </a>
       </div>
     </section>
   );

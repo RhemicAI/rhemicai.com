@@ -14,8 +14,9 @@ const MARKERS: { location: [number, number]; size: number }[] = [
 ];
 
 function getDpr(): number {
-  if (typeof window === 'undefined') return 2;
-  return window.innerWidth < 768 ? 1 : 2;
+  if (typeof window === 'undefined') return 1;
+  // Cap at 1 — globe is a subtle background element, no need for retina rendering
+  return 1;
 }
 
 function prefersReducedMotion(): boolean {
@@ -50,7 +51,7 @@ export default function CobeGlobe() {
       theta: -0.15,
       dark: 1,
       diffuse: 1.2,
-      mapSamples: 16000,
+      mapSamples: 4000,
       mapBrightness: 6,
       baseColor: [0.15, 0.15, 0.15],
       markerColor: [0.4, 0.4, 0.45],

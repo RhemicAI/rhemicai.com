@@ -68,9 +68,14 @@ export default function Footer() {
 
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
-            <button className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300">
+            <a
+              href="https://cal.com/rhemic-ai/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
+            >
               Book a Demo
-            </button>
+            </a>
           </div>
         </div>
       </div>
