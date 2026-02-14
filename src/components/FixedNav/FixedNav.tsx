@@ -13,10 +13,15 @@ const navLinks = [
 
 export default function FixedNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [showMobileCTA, setShowMobileCTA] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      // Show sticky CTA after scrolling past the hero (~600px)
+      setShowMobileCTA(window.scrollY > 600);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -141,6 +146,28 @@ export default function FixedNav() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Sticky mobile CTA — fixed at bottom, appears after scrolling past hero */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${
+          showMobileCTA && !menuOpen
+            ? 'translate-y-0 opacity-100'
+            : 'translate-y-full opacity-0'
+        }`}
+      >
+        <div className="px-4 pb-[env(safe-area-inset-bottom,8px)] pt-3 bg-[var(--bg-base)]/95 backdrop-blur-xl border-t border-[var(--border-subtle)]"
+          style={{ WebkitBackdropFilter: 'blur(24px)' }}
+        >
+          <a
+            href="https://cal.com/rhemic-ai/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-3.5 text-center text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 font-body tracking-[0.01em]"
+          >
+            Book a Discovery Call
+          </a>
         </div>
       </div>
     </>
