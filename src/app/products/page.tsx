@@ -3,8 +3,6 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
-import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
-import AEOEngine from '@/components/AEOEngine/AEOEngine';
 
 export const metadata: Metadata = {
   title: 'Products | Rhemic AI',
@@ -69,26 +67,15 @@ export default function ProductsPage() {
       <PageHero
         subtitle="Products"
         title="Built for the AI search economy."
-        description="Comprehensive tools to help your business thrive in the age of AI-generated answers."
+        description="Everything you need to win in AI search. Our platform gives startups and enterprises the same powerful infrastructure to compete in the AI-first web."
         showBackLink={false}
       />
 
-      <div className="relative z-10 pb-24">
+      <div className="relative z-10">
         {/* Product Grid */}
-        <section className="pt-4 pb-16 px-6">
+        <section className="pb-16 px-6">
           <div className="mx-auto max-w-5xl">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
-                Everything you need to win in AI search
-              </h2>
-              <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-                Our platform democratizes access to enterprise-grade optimization tools.
-                Whether you're a startup or an enterprise, you get the same powerful
-                infrastructure to compete in the AI-first web.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
+            <div className="grid md:grid-cols-3 gap-6">
               {products.map((product) => (
                 <Link
                   key={product.title}
@@ -127,14 +114,8 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* Live Dashboard Preview */}
-        <DashboardPreview />
-
-        {/* Live Engine Demo */}
-        <AEOEngine />
-
         {/* Education Mission */}
-        <section className="py-12 px-6">
+        <section className="pb-16 px-6">
           <div className="mx-auto max-w-5xl">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
