@@ -3,17 +3,69 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
+import Script from 'next/script';
+import RelatedLinks from '@/components/shared/RelatedLinks';
 
 export const metadata: Metadata = {
   title: 'Start Free Trial - Try AI Engine Optimization',
   description:
     'Get a custom AEO trial for your business. Website audit, competitor benchmarking, and AEO score baseline included. Book a 15-minute discovery call.',
   alternates: { canonical: 'https://rhemicai.com/start-free-trial' },
+  openGraph: {
+    title: 'Start Free Trial - Try AI Engine Optimization',
+    description:
+      'Get a custom AEO trial. Website audit, competitor benchmarking, and AEO score baseline included.',
+    url: 'https://rhemicai.com/start-free-trial',
+  },
 };
 
 export default function StartFreeTrialPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <Script
+        id="start-free-trial-faq-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'How long is my free trial?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "You get 14 days by default, but your trial duration can be customized based on your needs and the complexity of your website. It's about giving you enough time to see real results.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Do I need a credit card to start?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "You may need to provide a card for verification purposes, but you won't be charged during your trial. You're only billed if you decide to continue after the trial ends.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What happens after my trial?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "If you love the results, you'll get a custom pricing plan based on your goals and scale. No pressure — you can cancel anytime. You're in control.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Is my business a good fit for this?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "If you have an existing website and want to improve visibility in AI-generated search results, you're likely a good fit. This works especially well for B2B, SaaS, local businesses, and content publishers.",
+              },
+            },
+          ],
+        })}
+      </Script>
       <FixedNav />
 
       <PageHero
@@ -236,6 +288,27 @@ export default function StartFreeTrialPage() {
           </div>
         </div>
       </div>
+
+      <RelatedLinks
+        heading="Explore more"
+        links={[
+          {
+            title: 'Our Products',
+            description: 'Website auditing, competitor analysis, and code generation tools.',
+            href: '/products',
+          },
+          {
+            title: 'Custom Pricing',
+            description: 'Flexible plans tailored to your business needs and scale.',
+            href: '/pricing',
+          },
+          {
+            title: 'About Rhemic AI',
+            description: 'Meet the team building AI Engine Optimization infrastructure.',
+            href: '/about',
+          },
+        ]}
+      />
 
       <Footer />
     </main>

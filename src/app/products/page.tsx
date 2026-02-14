@@ -3,12 +3,22 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
+import ServiceListSchema from '@/components/SchemaOrg/ServiceListSchema';
+import SubpageFAQ from '@/components/shared/SubpageFAQ';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Products - AI Engine Optimization Tools',
   description:
     'Website Auditing, Competitor Analysis, and Code Generation tools for the AI search economy. Get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
   alternates: { canonical: 'https://rhemicai.com/products' },
+  openGraph: {
+    title: 'Products - AI Engine Optimization Tools',
+    description:
+      'Website Auditing, Competitor Analysis, and Code Generation tools for AI search visibility.',
+    url: 'https://rhemicai.com/products',
+  },
 };
 
 const icons = {
@@ -63,6 +73,7 @@ const products = [
 export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <ServiceListSchema />
       <FixedNav />
 
       <PageHero
@@ -71,6 +82,10 @@ export default function ProductsPage() {
         description="Everything you need to win in AI search. Our platform gives startups and enterprises the same powerful infrastructure to compete in the AI-first web."
         showBackLink={false}
       />
+
+      <div className="mx-auto max-w-5xl px-6 mb-8">
+        <UpdatedDate date="2026-02-14" />
+      </div>
 
       <div className="relative z-10">
         {/* Product Grid */}
@@ -146,7 +161,54 @@ export default function ProductsPage() {
             </div>
           </div>
         </section>
+
+        {/* FAQ */}
+        <div className="px-6">
+          <div className="mx-auto max-w-5xl">
+            <SubpageFAQ
+              heading="Product FAQ"
+              faqs={[
+                {
+                  question: 'What is AI Engine Optimization (AEO)?',
+                  answer:
+                    'AEO is the practice of optimizing your website so AI answer engines like ChatGPT, Claude, Perplexity, and Gemini can understand, cite, and recommend your business in their responses. It goes beyond traditional SEO by focusing on structured data, content clarity, and schema markup.',
+                },
+                {
+                  question: 'How do Rhemic AI products work together?',
+                  answer:
+                    'Our three tools form a complete AEO workflow. Website Auditing identifies optimization gaps. Competitor Analysis reveals what rivals do differently. Code Generation produces deployment-ready schema markup and metadata to fix those gaps — all in one platform.',
+                },
+                {
+                  question: 'Do I need technical skills to use Rhemic AI?',
+                  answer:
+                    'No. Our platform is designed for marketers, founders, and business owners. The code generation tool produces copy-paste-ready schema markup, and our audits provide plain-language recommendations anyone can follow.',
+                },
+              ]}
+            />
+          </div>
+        </div>
       </div>
+
+      <RelatedLinks
+        heading="Learn more"
+        links={[
+          {
+            title: 'Custom Pricing',
+            description: 'Flexible plans tailored to your business needs and goals.',
+            href: '/pricing',
+          },
+          {
+            title: 'Start Free Trial',
+            description: 'Get a personalized trial with website audit and AEO score baseline.',
+            href: '/start-free-trial',
+          },
+          {
+            title: 'About Rhemic AI',
+            description: 'Meet the team building AI Engine Optimization infrastructure.',
+            href: '/about',
+          },
+        ]}
+      />
 
       <Footer />
     </main>

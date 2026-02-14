@@ -4,12 +4,22 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
+import ProductSchema from '@/components/SchemaOrg/ProductSchema';
+import SubpageFAQ from '@/components/shared/SubpageFAQ';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Website Auditing - AI Engine Optimization Audits',
   description:
     'Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business.',
   alternates: { canonical: 'https://rhemicai.com/products/website-auditing' },
+  openGraph: {
+    title: 'Website Auditing - AI Engine Optimization Audits',
+    description:
+      'Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals.',
+    url: 'https://rhemicai.com/products/website-auditing',
+  },
 };
 
 const features = [
@@ -45,6 +55,11 @@ const benefits = [
 export default function WebsiteAuditingPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <ProductSchema
+        name="Rhemic AI Website Auditing"
+        description="Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business."
+        url="https://rhemicai.com/products/website-auditing"
+      />
       <FixedNav />
 
       <PageHero
@@ -52,6 +67,10 @@ export default function WebsiteAuditingPage() {
         title="Ensure your site is technically optimized for AI discovery."
         description="Comprehensive audits that show you exactly how AI engines see your website - and how to fix what's broken."
       />
+
+      <div className="mx-auto max-w-5xl px-6 mb-8">
+        <UpdatedDate date="2026-02-14" />
+      </div>
 
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">
@@ -173,7 +192,53 @@ export default function WebsiteAuditingPage() {
             </div>
           </div>
         </section>
+        {/* FAQ */}
+        <div className="px-6">
+          <div className="mx-auto max-w-5xl">
+            <SubpageFAQ
+              heading="Website Auditing FAQ"
+              faqs={[
+                {
+                  question: 'What does an AI website audit check?',
+                  answer:
+                    'Our audit analyzes schema markup validity, content structure for AI comprehension, technical SEO signals like crawlability and site speed, and AI readability scoring. It shows you exactly how AI engines like ChatGPT and Claude interpret your website.',
+                },
+                {
+                  question: 'How long does an audit take?',
+                  answer:
+                    'Most website audits complete within minutes. Enterprise-scale sites with thousands of pages may take longer. You receive a full report with actionable recommendations immediately after the audit finishes.',
+                },
+                {
+                  question: 'How is this different from a traditional SEO audit?',
+                  answer:
+                    'Traditional SEO audits check Google ranking factors. Our AI Engine Optimization audit checks how AI answer engines parse, understand, and cite your content — including schema markup, content semantics, and structured data that AI models rely on.',
+                },
+              ]}
+            />
+          </div>
+        </div>
       </div>
+
+      <RelatedLinks
+        heading="Related products"
+        links={[
+          {
+            title: 'Competitor Analysis',
+            description: 'Track rivals across ChatGPT, Claude, Perplexity, and Gemini.',
+            href: '/products/competitor-analysis',
+          },
+          {
+            title: 'Code Generation',
+            description: 'Auto-generate valid schema markup and metadata for AI search.',
+            href: '/products/code-generation',
+          },
+          {
+            title: 'Custom Pricing',
+            description: 'Flexible plans tailored to your business needs and goals.',
+            href: '/pricing',
+          },
+        ]}
+      />
 
       <Footer />
     </main>

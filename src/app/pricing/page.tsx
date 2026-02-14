@@ -3,12 +3,21 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
+import SubpageFAQ from '@/components/shared/SubpageFAQ';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Pricing - Custom AI Engine Optimization Plans',
   description:
     'Custom AEO pricing tailored to your business. Monthly retainers, project-based, or audit-only packages. Book a free discovery call.',
   alternates: { canonical: 'https://rhemicai.com/pricing' },
+  openGraph: {
+    title: 'Pricing - Custom AI Engine Optimization Plans',
+    description:
+      'Custom AEO pricing tailored to your business. Monthly retainers, project-based, or audit-only packages.',
+    url: 'https://rhemicai.com/pricing',
+  },
 };
 
 export default function PricingPage() {
@@ -22,6 +31,10 @@ export default function PricingPage() {
         description="Every company has unique needs. We create custom pricing based on your goals, scale, and industry."
         showBackLink={false}
       />
+
+      <div className="mx-auto max-w-5xl px-6 mb-8">
+        <UpdatedDate date="2026-02-14" />
+      </div>
 
       <div className="relative z-10 py-12 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
@@ -169,8 +182,56 @@ export default function PricingPage() {
               Custom pricing · No long-term contracts
             </p>
           </section>
+
+          {/* FAQ */}
+          <SubpageFAQ
+            heading="Pricing FAQ"
+            faqs={[
+              {
+                question: 'How much does Rhemic AI cost?',
+                answer:
+                  'Rhemic AI uses custom pricing based on your business size, goals, and industry. We offer monthly retainers, project-based work, and audit-only packages. Book a discovery call to get a transparent proposal with no hidden fees.',
+              },
+              {
+                question: 'Is there a free trial?',
+                answer:
+                  'Yes. We offer a personalized free trial that includes a website audit, competitor benchmarking, and an AEO score baseline. Book a 15-minute discovery call to get started.',
+              },
+              {
+                question: 'Do I need a long-term contract?',
+                answer:
+                  'No. Rhemic AI offers flexible engagements with no long-term contracts required. You can choose monthly retainers, project-based work, or one-time audits depending on your needs.',
+              },
+              {
+                question: 'What is included in every plan?',
+                answer:
+                  'Every plan includes AI engine audits, competitor analysis, automated code generation, AEO score tracking, priority support, and custom reporting. The scope and frequency are tailored to your plan.',
+              },
+            ]}
+          />
         </div>
       </div>
+
+      <RelatedLinks
+        heading="Explore more"
+        links={[
+          {
+            title: 'Our Products',
+            description: 'Website auditing, competitor analysis, and code generation tools.',
+            href: '/products',
+          },
+          {
+            title: 'Start Free Trial',
+            description: 'Get a personalized trial with a custom website audit and AEO score.',
+            href: '/start-free-trial',
+          },
+          {
+            title: 'About Rhemic AI',
+            description: 'Meet the team building AI Engine Optimization infrastructure.',
+            href: '/about',
+          },
+        ]}
+      />
 
       <Footer />
     </main>

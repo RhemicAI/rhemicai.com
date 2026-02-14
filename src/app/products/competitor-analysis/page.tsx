@@ -4,12 +4,22 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import AEOEngine from '@/components/AEOEngine/AEOEngine';
+import ProductSchema from '@/components/SchemaOrg/ProductSchema';
+import SubpageFAQ from '@/components/shared/SubpageFAQ';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Competitor Analysis - Track Rivals in AI Search',
   description:
     'Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals in AI-generated answers.',
   alternates: { canonical: 'https://rhemicai.com/products/competitor-analysis' },
+  openGraph: {
+    title: 'Competitor Analysis - Track Rivals in AI Search',
+    description:
+      'Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals.',
+    url: 'https://rhemicai.com/products/competitor-analysis',
+  },
 };
 
 const features = [
@@ -45,6 +55,11 @@ const benefits = [
 export default function CompetitorAnalysisPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <ProductSchema
+        name="Rhemic AI Competitor Analysis"
+        description="Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals in AI-generated answers."
+        url="https://rhemicai.com/products/competitor-analysis"
+      />
       <FixedNav />
 
       <PageHero
@@ -53,13 +68,17 @@ export default function CompetitorAnalysisPage() {
         description="Know exactly where your competitors appear in AI answers - and how to beat them."
       />
 
+      <div className="mx-auto max-w-5xl px-6 mb-8">
+        <UpdatedDate date="2026-02-14" />
+      </div>
+
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">
           {/* Overview */}
           <section className="mb-24">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12">
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                Win by learning from your competition
+                How does competitor analysis improve AI visibility?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
                 In the AI search economy, visibility isn't about ranking #1 on Google.
@@ -172,7 +191,53 @@ export default function CompetitorAnalysisPage() {
             </div>
           </div>
         </section>
+        {/* FAQ */}
+        <div className="px-6">
+          <div className="mx-auto max-w-5xl">
+            <SubpageFAQ
+              heading="Competitor Analysis FAQ"
+              faqs={[
+                {
+                  question: 'Which AI engines do you track?',
+                  answer:
+                    'We track competitor visibility across ChatGPT, Claude, Perplexity, Gemini, and other major AI answer engines. Our multi-engine tracking shows which competitors appear in AI-generated answers for your target queries.',
+                },
+                {
+                  question: 'How many competitors can I track?',
+                  answer:
+                    'Our platform supports tracking 5 or more competitors simultaneously across all major AI engines. You receive automated weekly reports showing ranking changes and new opportunities.',
+                },
+                {
+                  question: 'What insights does competitor analysis provide?',
+                  answer:
+                    'You get citation analysis showing which sources AI engines prefer, gap identification revealing queries competitors miss, and strategy reverse engineering that reveals their content, schema, and technical optimizations.',
+                },
+              ]}
+            />
+          </div>
+        </div>
       </div>
+
+      <RelatedLinks
+        heading="Related products"
+        links={[
+          {
+            title: 'Website Auditing',
+            description: 'Comprehensive audits to ensure AI engines can discover your site.',
+            href: '/products/website-auditing',
+          },
+          {
+            title: 'Code Generation',
+            description: 'Auto-generate valid schema markup and metadata for AI search.',
+            href: '/products/code-generation',
+          },
+          {
+            title: 'Start Free Trial',
+            description: 'Get a personalized trial with competitor benchmarking included.',
+            href: '/start-free-trial',
+          },
+        ]}
+      />
 
       <Footer />
     </main>

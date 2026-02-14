@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Rhemic AI",
   description:
     "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect your information.",
+  alternates: { canonical: "https://rhemicai.com/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy | Rhemic AI",
+    description:
+      "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect your information.",
+    url: "https://rhemicai.com/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

@@ -34,7 +34,7 @@ html {
 
 html,
 body {
-  background: transparent;
+  background: var(--bg-base);
   color: var(--text-primary);
   overflow-x: hidden;
   scroll-behavior: auto;

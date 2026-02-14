@@ -43,7 +43,7 @@ export default function Hero() {
             <span style={{ display: 'block', overflow: 'hidden' }}>
               <span
                 className="block hero-animate"
-                style={{ animation: 'lineSlideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.4s both' }}
+                style={{ animation: 'lineSlideUp 0.7s cubic-bezier(0.16,1,0.3,1) both' }}
               >
                 The New Search
               </span>
@@ -51,7 +51,7 @@ export default function Hero() {
             <span style={{ display: 'block', overflow: 'hidden' }}>
               <span
                 className="block hero-animate"
-                style={{ animation: 'lineSlideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.6s both' }}
+                style={{ animation: 'lineSlideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}
               >
                 Runs on AI.
               </span>
@@ -59,7 +59,7 @@ export default function Hero() {
             <span style={{ display: 'block', overflow: 'hidden' }}>
               <span
                 className="block hero-animate"
-                style={{ animation: 'lineSlideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.8s both' }}
+                style={{ animation: 'lineSlideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.4s both' }}
               >
                 Be the Answer.
               </span>
