@@ -82,13 +82,16 @@ export default function Hero() {
 
         {/* CTA — spring scale pop */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
+          <a
+            href="https://cal.com/rhemic-ai/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hero-animate group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 font-body tracking-[0.01em]"
             style={{ animation: 'springScalePop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.5s both' }}
           >
             <span className="relative z-10">Book a Demo</span>
             <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+          </a>
           <button
             className="hero-animate px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300 font-body tracking-[0.01em]"
             style={{ animation: 'springScalePop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.65s both' }}

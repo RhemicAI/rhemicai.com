@@ -71,9 +71,14 @@ export default function FixedNav() {
 
         {/* Right — CTA (desktop) + Hamburger (mobile) */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-all duration-300 font-body tracking-[0.01em]">
+          <a
+            href="https://cal.com/rhemic-ai/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-all duration-300 font-body tracking-[0.01em]"
+          >
             Book a Demo
-          </button>
+          </a>
 
           {/* Hamburger button (mobile only) */}
           <button
@@ -125,12 +130,15 @@ export default function FixedNav() {
               </Link>
             ))}
             <div className="mt-8">
-              <button
+              <a
+                href="https://cal.com/rhemic-ai/discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-all duration-300 font-body tracking-[0.01em]"
               >
                 Book a Demo
-              </button>
+              </a>
             </div>
           </div>
         </div>

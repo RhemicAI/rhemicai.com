@@ -4,6 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const linkRoutes: Record<string, string> = {
+  // Product
+  'Website Auditing': '/products/website-auditing',
+  'Competitor Analysis': '/products/competitor-analysis',
+  'Code Generation': '/products/code-generation',
+  'Pricing': '/pricing',
+  // Company
+  'About': '/about',
+  'Blog': '/blog',
+  'Careers': '/careers',
+  'Contact': '/contact',
+  // Legal
   'Privacy Policy': '/privacy-policy',
   'Terms of Service': '/terms-of-service',
 };
@@ -16,7 +27,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="scroll-reveal border-t border-[var(--border-subtle)] bg-[var(--bg-base)]/80 backdrop-blur-md" data-animation="simple-fade">
+    <footer className="relative border-t border-[var(--border-subtle)] bg-[var(--bg-base)] backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}
@@ -68,9 +79,14 @@ export default function Footer() {
 
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
-            <button className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300">
+            <a
+              href="https://cal.com/rhemic-ai/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
+            >
               Book a Demo
-            </button>
+            </a>
           </div>
         </div>
       </div>

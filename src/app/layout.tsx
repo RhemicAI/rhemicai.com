@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import CobeGlobe from "@/components/CobeGlobe/CobeGlobe";
+import ScrollRevealInit from "@/components/ScrollRevealInit";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="en" className={`${ibmPlexMono.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <CobeGlobe />
+        <ScrollRevealInit />
         <div className="relative z-10">{children}</div>
       </body>
     </html>
