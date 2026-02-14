@@ -16,7 +16,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="scroll-reveal border-t border-[var(--border-subtle)] bg-[var(--bg-base)]/80 backdrop-blur-md" data-animation="simple-fade">
+    <footer className="relative border-t border-[var(--border-subtle)] bg-[var(--bg-base)] backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}

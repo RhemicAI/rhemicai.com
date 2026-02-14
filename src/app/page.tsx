@@ -9,7 +9,6 @@ import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Pricing from '@/components/Pricing/Pricing';
 import CTA from '@/components/CTA/CTA';
 import Footer from '@/components/Footer/Footer';
-import ScrollRevealInit from '@/components/ScrollRevealInit';
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
       <Pricing />
       <CTA />
       <Footer />
-      <ScrollRevealInit />
     </main>
   );
 }
