@@ -104,8 +104,7 @@ export default function DashboardPreview() {
 
         {/* window */}
         <div
-          className="relative bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-2xl overflow-hidden shadow-2xl"
-          style={{ transform: 'rotateX(2deg) rotateY(-1deg)' }}
+          className="relative bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-2xl overflow-hidden shadow-2xl md:[transform:rotateX(2deg)_rotateY(-1deg)]"
         >
           {/* title bar */}
           <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
@@ -120,7 +119,7 @@ export default function DashboardPreview() {
           {/* body */}
           <div className="flex min-h-[360px] md:min-h-[420px]">
             {/* sidebar */}
-            <aside className="w-16 md:w-[72px] shrink-0 border-r border-[var(--border-subtle)] py-4 flex flex-col gap-1">
+            <aside className="hidden sm:flex w-16 md:w-[72px] shrink-0 border-r border-[var(--border-subtle)] py-4 flex-col gap-1">
               {navItems.map((n, i) => (
                 <button
                   key={n.label}
@@ -149,18 +148,18 @@ export default function DashboardPreview() {
               {/* sites table */}
               <div className="rounded-lg border border-[var(--border-subtle)] overflow-hidden">
                 {/* table header */}
-                <div className="grid grid-cols-[1fr_60px_56px_80px] md:grid-cols-[1fr_60px_56px_100px] gap-2 px-3 md:px-4 py-2 text-[10px] text-[var(--text-faint)] uppercase tracking-wider border-b border-[var(--border-subtle)] bg-[var(--bg-glass)]">
+                <div className="grid grid-cols-[1fr_50px_44px] sm:grid-cols-[1fr_60px_56px_80px] md:grid-cols-[1fr_60px_56px_100px] gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-2 text-[10px] text-[var(--text-faint)] uppercase tracking-wider border-b border-[var(--border-subtle)] bg-[var(--bg-glass)]">
                   <span>Domain</span>
                   <span className="text-center">Score</span>
                   <span className="text-center">Trend</span>
-                  <span className="text-right">Last Audit</span>
+                  <span className="text-right hidden sm:block">Last Audit</span>
                 </div>
 
                 {/* rows */}
                 {sites.map((s) => (
                   <div
                     key={s.domain}
-                    className="grid grid-cols-[1fr_60px_56px_80px] md:grid-cols-[1fr_60px_56px_100px] gap-2 px-3 md:px-4 py-3 items-center border-b border-[var(--border-subtle)] last:border-0 hover:bg-[var(--bg-glass)] transition-colors"
+                    className="grid grid-cols-[1fr_50px_44px] sm:grid-cols-[1fr_60px_56px_80px] md:grid-cols-[1fr_60px_56px_100px] gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-3 items-center border-b border-[var(--border-subtle)] last:border-0 hover:bg-[var(--bg-glass)] transition-colors"
                   >
                     {/* domain + status */}
                     <span className="flex items-center gap-2 text-xs text-[var(--text-secondary)] font-medium truncate">
@@ -183,7 +182,7 @@ export default function DashboardPreview() {
                     </span>
 
                     {/* last audit */}
-                    <span className="text-right text-[10px] text-[var(--text-faint)]">
+                    <span className="text-right text-[10px] text-[var(--text-faint)] hidden sm:block">
                       {s.lastAudit}
                     </span>
                   </div>

@@ -32,7 +32,7 @@ export default function Footer() {
               alt="Rhemic AI Logo"
               width={120}
               height={120}
-              className="mt-6 object-contain"
+              className="mt-6 object-contain w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
             />
           </div>
 
