@@ -4,6 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const linkRoutes: Record<string, string> = {
+  // Product
+  'Website Auditing': '/products/website-auditing',
+  'Competitor Analysis': '/products/competitor-analysis',
+  'Code Generation': '/products/code-generation',
+  'Pricing': '/pricing',
+  // Company
+  'About': '/about',
+  'Blog': '/blog',
+  'Careers': '/careers',
+  'Contact': '/contact',
+  // Legal
   'Privacy Policy': '/privacy-policy',
   'Terms of Service': '/terms-of-service',
 };
