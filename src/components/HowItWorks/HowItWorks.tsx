@@ -200,7 +200,7 @@ export default function HowItWorks() {
                 <div
                   className="scroll-reveal text-over-globe space-y-4"
                   data-animation="step-reveal"
-                  data-delay={`${0.2 + i * 0.3}`}
+                  data-delay="0"
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -221,7 +221,7 @@ export default function HowItWorks() {
                 <div
                   className="scroll-reveal"
                   data-animation="scale-in"
-                  data-delay={`${0.4 + i * 0.3}`}
+                  data-delay="0.15"
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <Visual />
