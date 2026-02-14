@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import CobeGlobe from "@/components/CobeGlobe/CobeGlobe";
 
-const satoshi = localFont({
-  src: [
-    { path: "./fonts/Satoshi-Variable.woff2", style: "normal" },
-    { path: "./fonts/Satoshi-VariableItalic.woff2", style: "italic" },
-  ],
-  variable: "--font-satoshi",
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -38,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={satoshi.variable} suppressHydrationWarning>
+    <html lang="en" className={`${ibmPlexMono.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <CobeGlobe />
         <div className="relative z-10">{children}</div>

@@ -29,12 +29,12 @@ function AuditVisual() {
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
         <span className="ml-2">AEO Audit Tool</span>
       </div>
-      <div className="flex items-center gap-2">
-        <div className="flex-1 flex items-center gap-2 bg-[var(--bg-glass)] border border-[var(--border-strong)] rounded-lg px-3 py-2.5">
-          <span className="text-[var(--text-faint)]">https://</span>
-          <span className="text-[var(--text-tertiary)]">yourbusiness.com</span>
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+        <div className="flex-1 flex items-center gap-2 bg-[var(--bg-glass)] border border-[var(--border-strong)] rounded-lg px-3 py-2.5 min-w-0">
+          <span className="text-[var(--text-faint)] shrink-0">https://</span>
+          <span className="text-[var(--text-tertiary)] truncate">yourbusiness.com</span>
         </div>
-        <div className="px-4 py-2.5 bg-violet-600/80 text-white text-xs font-semibold rounded-lg whitespace-nowrap">
+        <div className="px-4 py-2.5 bg-violet-600/80 text-white text-xs font-semibold rounded-lg text-center shrink-0">
           Run Audit
         </div>
       </div>
@@ -143,10 +143,10 @@ export default function HowItWorks() {
     <section id="how-it-works" className="relative py-32 md:py-40 px-6 overflow-hidden">
       {/* Section header */}
       <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32" data-animation="title-fade">
-        <p className="text-sm font-medium tracking-[0.3em] uppercase text-violet-400/90 mb-4">
+        <p className="text-sm font-medium tracking-[0.15em] uppercase text-violet-400/90 mb-4 font-body">
           How It Works
         </p>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)]">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
           Three steps to AI visibility
         </h2>
       </div>
@@ -161,7 +161,7 @@ export default function HowItWorks() {
             <div key={step.number} className="relative">
               {/* Oversized background number */}
               <div
-                className="absolute -top-8 md:-top-12 pointer-events-none select-none text-[10rem] md:text-[14rem] lg:text-[18rem] font-bold leading-none text-[var(--text-primary)] opacity-[0.03]"
+                className="absolute -top-4 md:-top-12 pointer-events-none select-none text-[6rem] md:text-[14rem] lg:text-[18rem] font-bold leading-none text-[var(--text-primary)] opacity-[0.03]"
                 style={{ [isReversed ? 'right' : 'left']: 0 }}
                 aria-hidden="true"
               >
@@ -170,9 +170,7 @@ export default function HowItWorks() {
 
               {/* Content grid */}
               <div
-                className={`relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${
-                  isReversed ? 'md:direction-rtl' : ''
-                }`}
+                className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
                 style={isReversed ? { direction: 'rtl' } : undefined}
               >
                 {/* Text column */}
@@ -188,10 +186,10 @@ export default function HowItWorks() {
                     </span>
                     <span className="h-px flex-1 bg-[var(--border-default)]" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] tracking-[-0.02em] font-display">
                     {step.heading}
                   </h3>
-                  <p className="text-base md:text-lg text-[var(--text-primary)] font-normal leading-relaxed max-w-lg opacity-80">
+                  <p className="text-base md:text-lg text-[var(--text-primary)] font-normal leading-[1.6] max-w-lg opacity-80 font-body">
                     {step.description}
                   </p>
                 </div>

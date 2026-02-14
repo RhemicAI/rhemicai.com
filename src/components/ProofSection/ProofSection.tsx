@@ -1,23 +1,23 @@
 const stats = [
-  { value: '5x', label: 'Higher conversion from AI search vs Google', source: 'Semrush' },
-  { value: '$750B', label: 'AI search revenue by 2028', source: 'McKinsey' },
-  { value: '80%', label: 'Of consumers rely on AI summaries', source: 'Bain & Company' },
-  { value: '#2', label: 'Most influential shopping source', source: 'IAB' },
-  { value: '25%', label: 'Traditional search volume drop by 2026', source: 'Gartner' },
-  { value: 'Only 16%', label: 'Of brands track AI search performance', source: 'McKinsey' },
+  { value: '5x', label: 'Higher conversion from AI search vs Google', source: 'Semrush', url: 'https://www.semrush.com/blog/ai-overviews/' },
+  { value: '$750B', label: 'AI search revenue by 2028', source: 'McKinsey', url: 'https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier' },
+  { value: '80%', label: 'Of consumers rely on AI summaries', source: 'Bain & Company', url: 'https://www.bain.com/insights/the-age-of-ai-search/' },
+  { value: '#2', label: 'Most influential shopping source', source: 'IAB', url: 'https://www.iab.com/insights/' },
+  { value: '25%', label: 'Traditional search volume drop by 2026', source: 'Gartner', url: 'https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026' },
+  { value: 'Only 16%', label: 'Of brands track AI search performance', source: 'McKinsey', url: 'https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai' },
 ];
 
 export default function ProofSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
-        <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#8B5CF6] mb-4">
+        <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           The Shift
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
           The AI Search Shift Is Already Here
         </h2>
-        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80">
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
           Consumers are making buying decisions through AI — and brands that show up win.
         </p>
       </div>
@@ -30,15 +30,25 @@ export default function ProofSection() {
             data-animation="card-rise"
             data-delay={`${(i + 1) * 0.12}`}
           >
-            <span className="block text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-2">
+            <span className="block text-3xl md:text-4xl font-bold tracking-[-0.02em] text-[var(--text-primary)] mb-2 font-display">
               {stat.value}
             </span>
             <span className="block text-sm text-[var(--text-tertiary)] leading-relaxed mb-4">
               {stat.label}
             </span>
-            <span className="inline-block text-[10px] font-medium tracking-[0.15em] uppercase text-[var(--text-faint)] border border-[var(--border-subtle)] rounded-full px-3 py-1">
+            <a
+              href={stat.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[10px] font-medium tracking-[0.15em] uppercase text-[var(--text-faint)] border border-[var(--border-subtle)] rounded-full px-3 py-1 hover:border-[var(--border-strong)] hover:text-[var(--text-tertiary)] transition-colors duration-200"
+            >
               {stat.source}
-            </span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
           </div>
         ))}
       </div>

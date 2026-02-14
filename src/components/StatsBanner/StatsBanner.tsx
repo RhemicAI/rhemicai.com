@@ -13,10 +13,10 @@ export default function StatsBanner() {
   const track = stats.map((s, i) => (
     <span key={i} className="inline-flex items-center gap-16 shrink-0">
       <span className="flex flex-col items-center">
-        <span className="text-2xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)] font-[family-name:var(--font-satoshi)]">
+        <span className="text-2xl md:text-4xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
           {s.value}
         </span>
-        <span className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--text-tertiary)] mt-1">
+        <span className="text-xs md:text-sm uppercase tracking-[0.12em] text-[var(--text-tertiary)] mt-1 font-body">
           {s.label}
         </span>
       </span>

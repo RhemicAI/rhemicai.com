@@ -1,6 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+
+const linkRoutes: Record<string, string> = {
+  'Privacy Policy': '/privacy-policy',
+  'Terms of Service': '/terms-of-service',
+};
 
 const footerLinks = {
   Product: ['Website Auditing', 'Competitor Analysis', 'Code Generation', 'Pricing'],
@@ -15,10 +21,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-4">
-            <p className="text-xl font-bold tracking-tight text-[var(--text-primary)]">
+            <p className="text-xl font-bold tracking-tight text-[var(--text-primary)] font-display">
               Rhemic AI
             </p>
-            <p className="mt-3 text-sm text-[var(--text-muted)] font-light leading-relaxed max-w-xs">
+            <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
               Visibility reimagined for the AI age.
             </p>
             <Image
@@ -26,25 +32,34 @@ export default function Footer() {
               alt="Rhemic AI Logo"
               width={120}
               height={120}
-              className="mt-6 object-contain"
+              className="mt-6 object-contain w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
             />
           </div>
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading} className="md:col-span-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-tertiary)] mb-4 font-body">
                 {heading}
               </p>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors duration-200"
-                    >
-                      {link}
-                    </a>
+                    {linkRoutes[link] ? (
+                      <Link
+                        href={linkRoutes[link]}
+                        className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors duration-200"
+                      >
+                        {link}
+                      </Link>
+                    ) : (
+                      <a
+                        href="#"
+                        className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors duration-200"
+                      >
+                        {link}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
