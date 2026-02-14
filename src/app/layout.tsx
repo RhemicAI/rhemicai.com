@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import CobeGlobe from "@/components/CobeGlobe/CobeGlobeLazy";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 
@@ -87,6 +88,9 @@ export default function RootLayout({
         <SchemaOrg />
         <Breadcrumbs />
         <div className="relative z-10">{children}</div>
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );

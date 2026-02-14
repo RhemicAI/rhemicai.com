@@ -491,6 +491,6 @@ export const TOTAL_SUMMARIES = ENGINE_SUMMARIES.length;
 /**
  * Validate that we have exactly 50 summaries
  */
-if (ENGINE_SUMMARIES.length !== 50) {
-  console.warn(`Expected 50 summaries, got ${ENGINE_SUMMARIES.length}`);
+if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development' && ENGINE_SUMMARIES.length !== 50) {
+  throw new Error(`Expected 50 summaries, got ${ENGINE_SUMMARIES.length}`);
 }

@@ -12,7 +12,7 @@ export default function BlogPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
+    // TODO: Integrate with email subscription service
     setSubscribed(true);
     setEmail('');
   };

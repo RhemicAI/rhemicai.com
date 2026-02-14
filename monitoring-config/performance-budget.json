@@ -1,0 +1,26 @@
+{
+  "budgets": [
+    {
+      "resourceSizes": [
+        { "resourceType": "script", "budget": 300, "unit": "KB", "note": "Total JS bundle (gzipped)" },
+        { "resourceType": "stylesheet", "budget": 50, "unit": "KB", "note": "Total CSS" },
+        { "resourceType": "image", "budget": 500, "unit": "KB", "note": "Total images per page" }
+      ],
+      "resourceCounts": [
+        { "resourceType": "script", "budget": 15, "note": "Max JS files" },
+        { "resourceType": "third-party", "budget": 5, "note": "Max third-party requests" }
+      ],
+      "timings": [
+        { "metric": "first-contentful-paint", "budget": 1500, "unit": "ms" },
+        { "metric": "largest-contentful-paint", "budget": 2500, "unit": "ms" },
+        { "metric": "cumulative-layout-shift", "budget": 0.1 },
+        { "metric": "total-blocking-time", "budget": 200, "unit": "ms" }
+      ],
+      "chunkLimits": {
+        "maxChunkSize": 100,
+        "unit": "KB",
+        "note": "Individual chunk limit"
+      }
+    }
+  ]
+}

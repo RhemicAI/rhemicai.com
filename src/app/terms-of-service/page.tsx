@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   title: "Terms of Service | Rhemic AI",
   description:
     "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of our AI Engine Optimization and digital marketing services.",
+  alternates: { canonical: "https://rhemicai.com/terms-of-service" },
+  openGraph: {
+    title: "Terms of Service | Rhemic AI",
+    description:
+      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of our AI Engine Optimization and digital marketing services.",
+    url: "https://rhemicai.com/terms-of-service",
+  },
 };
 
 export default function TermsOfService() {

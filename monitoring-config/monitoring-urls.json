@@ -1,0 +1,20 @@
+{
+  "baseUrl": "https://rhemicai.com",
+  "urls": [
+    { "path": "/", "name": "Homepage", "critical": true, "expectedStatus": 200 },
+    { "path": "/about", "name": "About", "critical": false, "expectedStatus": 200 },
+    { "path": "/pricing", "name": "Pricing", "critical": true, "expectedStatus": 200 },
+    { "path": "/contact", "name": "Contact", "critical": true, "expectedStatus": 200 },
+    { "path": "/blog", "name": "Blog Index", "critical": true, "expectedStatus": 200 },
+    { "path": "/blog/what-is-aeo", "name": "AEO Pillar Post", "critical": true, "expectedStatus": 200 },
+    { "path": "/careers", "name": "Careers", "critical": false, "expectedStatus": 200 },
+    { "path": "/start-free-trial", "name": "Start Free Trial", "critical": true, "expectedStatus": 200 },
+    { "path": "/products", "name": "Products", "critical": true, "expectedStatus": 200 },
+    { "path": "/products/website-auditing", "name": "Website Auditing", "critical": false, "expectedStatus": 200 },
+    { "path": "/products/competitor-analysis", "name": "Competitor Analysis", "critical": false, "expectedStatus": 200 },
+    { "path": "/products/code-generation", "name": "Code Generation", "critical": false, "expectedStatus": 200 },
+    { "path": "/privacy-policy", "name": "Privacy Policy", "critical": false, "expectedStatus": 200 },
+    { "path": "/terms-of-service", "name": "Terms of Service", "critical": false, "expectedStatus": 200 },
+    { "path": "/sitemap.xml", "name": "Sitemap", "critical": true, "expectedStatus": 200 }
+  ]
+}

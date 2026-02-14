@@ -1,0 +1,35 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/about",
+        "http://localhost:3000/pricing",
+        "http://localhost:3000/contact",
+        "http://localhost:3000/blog",
+        "http://localhost:3000/blog/what-is-aeo",
+        "http://localhost:3000/careers",
+        "http://localhost:3000/start-free-trial",
+        "http://localhost:3000/products",
+        "http://localhost:3000/products/website-auditing",
+        "http://localhost:3000/products/competitor-analysis",
+        "http://localhost:3000/products/code-generation",
+        "http://localhost:3000/privacy-policy",
+        "http://localhost:3000/terms-of-service"
+      ],
+      "numberOfRuns": 3,
+      "startServerCommand": "npm start"
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.9 }],
+        "categories:seo": ["error", { "minScore": 1.0 }],
+        "categories:accessibility": ["error", { "minScore": 0.9 }],
+        "categories:best-practices": ["warn", { "minScore": 0.9 }]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
