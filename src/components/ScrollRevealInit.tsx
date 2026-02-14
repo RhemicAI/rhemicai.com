@@ -8,11 +8,23 @@ export default function ScrollRevealInit() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            const el = entry.target as HTMLElement;
+
+            // Set per-element delay from data-delay attribute
+            const delay = el.dataset.delay;
+            if (delay) {
+              el.style.setProperty('--reveal-delay', delay + 's');
+            }
+
+            // Add both classes for backwards compatibility
+            el.classList.add('revealed', 'is-visible');
+
+            // Observe once — no re-trigger on scroll up
+            observer.unobserve(el);
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
     );
 
     document.querySelectorAll('.scroll-reveal').forEach((el) => {

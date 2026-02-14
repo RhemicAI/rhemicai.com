@@ -1,5 +1,3 @@
-import TypewriterText from '@/components/TypewriterText/TypewriterText';
-
 const steps = [
   {
     number: '01',
@@ -24,7 +22,7 @@ const steps = [
 /* ── Mini Visual: URL Input + Run Audit Button ── */
 function AuditVisual() {
   return (
-    <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-xl p-5 font-mono text-sm space-y-3">
+    <div className="bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-xl p-5 font-mono text-sm space-y-3">
       <div className="flex items-center gap-2 text-[var(--text-faint)] text-xs">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
@@ -70,7 +68,7 @@ function CompetitorVisual() {
   ];
 
   return (
-    <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-xl p-5 font-mono text-sm space-y-3">
+    <div className="bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-xl p-5 font-mono text-sm space-y-3">
       <div className="flex items-center gap-2 text-[var(--text-faint)] text-xs">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
@@ -105,7 +103,7 @@ function CompetitorVisual() {
 /* ── Mini Visual: Code Editor with JSON-LD ── */
 function DeployVisual() {
   return (
-    <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-xl p-5 font-mono text-sm space-y-3">
+    <div className="bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-xl p-5 font-mono text-sm space-y-3">
       <div className="flex items-center gap-2 text-[var(--text-faint)] text-xs">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
@@ -144,16 +142,13 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="relative py-32 md:py-40 px-6 overflow-hidden">
       {/* Section header */}
-      <div className="max-w-5xl mx-auto text-center mb-24 md:mb-32">
-        <p className="text-sm font-medium tracking-[0.3em] uppercase text-violet-400/70 mb-4">
+      <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32" data-animation="title-fade">
+        <p className="text-sm font-medium tracking-[0.3em] uppercase text-violet-400/90 mb-4">
           How It Works
         </p>
-        <TypewriterText
-          lines={['Three steps to AI visibility']}
-          speed={25}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)]"
-          tag="h2"
-        />
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)]">
+          Three steps to AI visibility
+        </h2>
       </div>
 
       {/* Steps */}
@@ -182,11 +177,13 @@ export default function HowItWorks() {
               >
                 {/* Text column */}
                 <div
-                  className="scroll-reveal space-y-4"
+                  className="scroll-reveal text-over-globe space-y-4"
+                  data-animation="step-reveal"
+                  data-delay={`${0.2 + i * 0.3}`}
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-sm font-mono text-violet-400/60 tracking-wider">
+                    <span className="text-sm font-mono text-violet-400/80 tracking-wider">
                       Step {step.number}
                     </span>
                     <span className="h-px flex-1 bg-[var(--border-default)]" />
@@ -194,7 +191,7 @@ export default function HowItWorks() {
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
                     {step.heading}
                   </h3>
-                  <p className="text-base md:text-lg text-[var(--text-tertiary)] leading-relaxed max-w-lg">
+                  <p className="text-base md:text-lg text-[var(--text-primary)] font-normal leading-relaxed max-w-lg opacity-80">
                     {step.description}
                   </p>
                 </div>
@@ -202,6 +199,8 @@ export default function HowItWorks() {
                 {/* Visual column */}
                 <div
                   className="scroll-reveal"
+                  data-animation="scale-in"
+                  data-delay={`${0.4 + i * 0.3}`}
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <Visual />

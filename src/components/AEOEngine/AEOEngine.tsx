@@ -387,20 +387,20 @@ export default function AEOEngine() {
       className="relative py-24 md:py-32 px-6 overflow-hidden"
     >
       {/* Section header */}
-      <div className="scroll-reveal max-w-5xl mx-auto text-center mb-16">
-        <p className="text-xs md:text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-muted)] mb-4 font-mono">
+      <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-16" data-animation="title-fade">
+        <p className="text-xs md:text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-secondary)] mb-4 font-mono">
           The Engine
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] mb-4">
           Watch your visibility transform
         </h2>
-        <p className="text-base md:text-lg text-[var(--text-tertiary)] max-w-xl mx-auto font-light leading-relaxed">
+        <p className="text-base md:text-lg text-[var(--text-primary)] max-w-xl mx-auto font-normal leading-relaxed opacity-80">
           From website crawl to AI recommendation — see how Rhemic AI makes your business the answer.
         </p>
       </div>
 
       {/* 3-column engine visualization */}
-      <div className="max-w-6xl mx-auto">
+      <div className="scroll-reveal max-w-6xl mx-auto" data-animation="scale-in" data-delay="0.3">
         {/* Flow arrows for md+ screens */}
         <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-stretch" style={{ minHeight: '420px' }}>
           {/* Input */}
@@ -410,7 +410,7 @@ export default function AEOEngine() {
 
           {/* Arrow */}
           <div className="flex items-center justify-center px-3">
-            <div className="text-[var(--text-faint)] text-2xl font-mono select-none" aria-hidden="true">→</div>
+            <div className="text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">→</div>
           </div>
 
           {/* Engine */}
@@ -420,7 +420,7 @@ export default function AEOEngine() {
 
           {/* Arrow */}
           <div className="flex items-center justify-center px-3">
-            <div className="text-[var(--text-faint)] text-2xl font-mono select-none" aria-hidden="true">→</div>
+            <div className="text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">→</div>
           </div>
 
           {/* Output */}
@@ -432,9 +432,9 @@ export default function AEOEngine() {
         {/* Mobile: stacked layout */}
         <div className="md:hidden space-y-6">
           <InputColumn active={active} reduced={reduced} key={`input-m-${cycle}`} />
-          <div className="text-center text-[var(--text-faint)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
+          <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
           <EngineColumn active={active} reduced={reduced} key={`engine-m-${cycle}`} />
-          <div className="text-center text-[var(--text-faint)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
+          <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
           <OutputColumn active={active} reduced={reduced} key={`output-m-${cycle}`} />
         </div>
       </div>

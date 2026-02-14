@@ -74,25 +74,20 @@ const features = [
   },
 ];
 
-import TypewriterText from '@/components/TypewriterText/TypewriterText';
-
 export default function Features() {
   return (
     <section id="solutions" className="relative py-32 md:py-40 px-6">
       {/* Header */}
-      <div className="scroll-reveal max-w-5xl mx-auto text-center mb-20">
-        <p className="text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-muted)] mb-6">
+      <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-20" data-animation="title-fade">
+        <p className="text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-secondary)] mb-6">
           Solutions
         </p>
         <div className="mb-6">
-          <TypewriterText
-            lines={['AEO platform for modern businesses']}
-            speed={25}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-[var(--text-primary)]"
-            tag="h2"
-          />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-[var(--text-primary)]">
+            AEO platform for modern businesses
+          </h2>
         </div>
-        <p className="text-base md:text-lg text-[var(--text-muted)] max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-relaxed opacity-80">
           Rhemic AI gives your brand the tools to appear in every AI-generated answer.
           Audit, analyze, and optimize — all from one platform.
         </p>
@@ -104,7 +99,8 @@ export default function Features() {
           <div
             key={feature.title}
             className="scroll-reveal bg-[var(--bg-glass)] backdrop-blur-md border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
-            style={{ transitionDelay: `${i * 80}ms` }}
+            data-animation="card-rise"
+            data-delay={`${(i + 1) * 0.12}`}
           >
             <div className="mb-6">{feature.icon}</div>
             <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">

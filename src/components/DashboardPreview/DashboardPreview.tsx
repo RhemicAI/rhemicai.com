@@ -1,5 +1,3 @@
-import TypewriterText from '@/components/TypewriterText/TypewriterText';
-
 /* ── data ── */
 
 const sites = [
@@ -81,17 +79,14 @@ export default function DashboardPreview() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       {/* heading */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
         <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#8B5CF6] mb-4">
           Product
         </span>
-        <TypewriterText
-          lines={['Our engine under the hood']}
-          speed={25}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight"
-          tag="h2"
-        />
-        <p className="mt-4 text-base md:text-lg text-[var(--text-tertiary)] max-w-xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+          Our engine under the hood
+        </h2>
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80">
           We run enterprise-grade audits, track your competitors, and deliver
           actionable optimizations — you just book a call and we handle the&nbsp;rest.
         </p>
@@ -100,6 +95,8 @@ export default function DashboardPreview() {
       {/* mockup container */}
       <div
         className="scroll-reveal relative mx-auto max-w-4xl"
+        data-animation="scale-in"
+        data-delay="0.3"
         style={{ perspective: '1200px' }}
       >
         {/* purple glow */}
