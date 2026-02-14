@@ -286,7 +286,7 @@ h6 {
 }
 
 .scroll-reveal.is-visible[data-animation="scale-in"] {
-  animation: scaleInCenter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scaleInCenter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .scroll-reveal.is-visible[data-animation="card-rise"] {
