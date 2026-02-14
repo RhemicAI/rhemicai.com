@@ -1,5 +1,3 @@
-import TypewriterText from '@/components/TypewriterText/TypewriterText';
-
 const stats = [
   { value: '5x', label: 'Higher conversion from AI search vs Google', source: 'Semrush' },
   { value: '$750B', label: 'AI search revenue by 2028', source: 'McKinsey' },
@@ -12,17 +10,14 @@ const stats = [
 export default function ProofSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
         <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#8B5CF6] mb-4">
           The Shift
         </span>
-        <TypewriterText
-          lines={['The AI Search Shift Is Already Here']}
-          speed={25}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight"
-          tag="h2"
-        />
-        <p className="mt-4 text-base md:text-lg text-[var(--text-tertiary)] max-w-xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+          The AI Search Shift Is Already Here
+        </h2>
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80">
           Consumers are making buying decisions through AI — and brands that show up win.
         </p>
       </div>
@@ -32,7 +27,8 @@ export default function ProofSection() {
           <div
             key={stat.value}
             className="scroll-reveal relative p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] backdrop-blur-sm hover:border-[var(--border-strong)] transition-colors duration-300"
-            style={{ transitionDelay: `${i * 60}ms` }}
+            data-animation="card-rise"
+            data-delay={`${(i + 1) * 0.12}`}
           >
             <span className="block text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-2">
               {stat.value}

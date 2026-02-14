@@ -22,6 +22,10 @@
   --btn-primary-text: #000000;
 }
 
+html {
+  scroll-padding-top: 5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -56,16 +60,161 @@ body {
   border-radius: 2px;
 }
 
-/* ── Scroll Reveal ── */
+/* ── Text over globe readability ── */
+.text-over-globe {
+  text-shadow: 0 0 20px rgba(10, 10, 10, 0.95), 0 0 40px rgba(10, 10, 10, 0.8), 0 0 80px rgba(10, 10, 10, 0.4);
+}
+
+/* ── Scroll Reveal (base state) ── */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(24px);
+  animation-fill-mode: both;
+}
+
+/* Default fade-in for elements without data-animation (backwards compatible) */
+.scroll-reveal.is-visible:not([data-animation]),
+.scroll-reveal.revealed:not([data-animation]) {
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
+/* Elements without data-animation need an initial transform for the transition */
+.scroll-reveal:not([data-animation]) {
+  transform: translateY(24px);
+}
+
+/* ============================================
+   SECTION ENTRANCE ANIMATIONS
+   ============================================ */
+
+/* Hero: Letter blur resolve */
+@keyframes letterBlurResolve {
+  from { opacity: 0; filter: blur(4px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+/* Hero: Line slide up from mask */
+@keyframes lineSlideUp {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0); }
+}
+
+/* Hero: Fade + float up (subtitle) */
+@keyframes fadeFloatUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero: Spring scale pop (CTAs) */
+@keyframes springScalePop {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Section 2: Horizontal sweep for badges */
+@keyframes horizontalSweep {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Section 3: Scale in from center */
+@keyframes scaleInCenter {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Section 4: Staggered card rise */
+@keyframes staggeredRise {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section 5: Step reveal from left */
+@keyframes stepReveal {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Section 6: Unified fade + drift up */
+@keyframes unifiedFadeDrift {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section 7: Simple fade */
+@keyframes simpleFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Section title fade in (reused across sections) */
+@keyframes titleFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pricing: Featured card border glow pulse (runs once) */
+@keyframes borderGlowPulse {
+  0% { box-shadow: 0 0 0 rgba(139, 92, 246, 0); }
+  50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1); }
+  100% { box-shadow: 0 0 0 rgba(139, 92, 246, 0); }
+}
+
+/* ============================================
+   SCROLL-REVEAL ANIMATION BINDINGS
+   ============================================ */
+
+.scroll-reveal.is-visible[data-animation="title-fade"] {
+  animation: titleFadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="horizontal-sweep"] {
+  animation: horizontalSweep 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="scale-in"] {
+  animation: scaleInCenter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="card-rise"] {
+  animation: staggeredRise 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="step-reveal"] {
+  animation: stepReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="fade-drift"] {
+  animation: unifiedFadeDrift 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="simple-fade"] {
+  animation: simpleFade 0.8s ease forwards;
+}
+
+.scroll-reveal.is-visible[data-animation="border-glow"] {
+  animation: borderGlowPulse 1.2s ease forwards;
+}
+
+/* Per-element stagger delay via --reveal-delay custom property */
+.scroll-reveal.is-visible {
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  [data-animation],
+  .hero-animate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 /* ── CTA glow pulse ── */
@@ -76,32 +225,6 @@ body {
 
 .animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
-}
-
-/* ── Typewriter Cursor ── */
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.typewriter-cursor {
-  display: inline;
-  font-weight: 300;
-  color: var(--text-primary);
-  margin-left: 2px;
-  transition: opacity 0.5s ease;
-}
-
-.typewriter-cursor-blink {
-  animation: cursor-blink 800ms step-end infinite;
-}
-
-.typewriter-cursor-hidden {
-  opacity: 0;
-}
-
-.typewriter-container {
-  min-height: 1em;
 }
 
 /* ── AEO Engine fade-in ── */
