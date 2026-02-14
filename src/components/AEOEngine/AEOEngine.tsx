@@ -74,7 +74,12 @@ function useInView(ref: React.RefObject<HTMLElement | null>, threshold = 0.15) {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => setInView(e.isIntersecting),
+      ([e]) => {
+        if (e.isIntersecting) {
+          setInView(true);
+          obs.unobserve(el);
+        }
+      },
       { threshold }
     );
     obs.observe(el);
@@ -83,27 +88,13 @@ function useInView(ref: React.RefObject<HTMLElement | null>, threshold = 0.15) {
   return inView;
 }
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
-  return reduced;
-}
-
 // ── Left Column: Streaming website data with realistic typing ──
 function InputColumn({
   active,
-  reduced,
   onComplete,
   isActive
 }: {
   active: boolean;
-  reduced: boolean;
   onComplete?: () => void;
   isActive: boolean;
 }) {
@@ -114,10 +105,7 @@ function InputColumn({
   const hasCompletedRef = useRef(false);
 
   useEffect(() => {
-    if (!active || reduced) {
-      if (reduced) {
-        setLines(CRAWL_LINES.slice(0, 8).map(line => ({ full: line, typed: line })));
-      }
+    if (!active) {
       return;
     }
 
@@ -176,7 +164,7 @@ function InputColumn({
       clearInterval(intervalRef.current);
       clearInterval(typingIntervalRef.current);
     };
-  }, [active, reduced, onComplete]);
+  }, [active, onComplete]);
 
   return (
     <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
@@ -217,12 +205,10 @@ function InputColumn({
 // ── Center Column: Processing engine ──
 function EngineColumn({
   active,
-  reduced,
   onComplete,
   isActive
 }: {
   active: boolean;
-  reduced: boolean;
   onComplete?: () => void;
   isActive: boolean;
 }) {
@@ -233,11 +219,7 @@ function EngineColumn({
   const hasCompletedRef = useRef(false);
 
   useEffect(() => {
-    if (!active || reduced) {
-      if (reduced) {
-        setStageIndex(ENGINE_STAGES.length - 1);
-        setProgress(100);
-      }
+    if (!active) {
       return;
     }
 
@@ -281,7 +263,7 @@ function EngineColumn({
 
     runStage();
     return () => cancelAnimationFrame(animFrameRef.current);
-  }, [active, reduced, onComplete]);
+  }, [active, onComplete]);
 
   const currentStage = ENGINE_STAGES[stageIndex];
   const isComplete = stageIndex === ENGINE_STAGES.length - 1 && progress >= 100;
@@ -358,12 +340,10 @@ function EngineColumn({
 // ── Right Column: AI output cards ──
 function OutputColumn({
   active,
-  reduced,
   onComplete,
   isActive
 }: {
   active: boolean;
-  reduced: boolean;
   onComplete?: () => void;
   isActive: boolean;
 }) {
@@ -374,10 +354,6 @@ function OutputColumn({
   useEffect(() => {
     if (!active) {
       setVisibleCards([]);
-      return;
-    }
-    if (reduced) {
-      setVisibleCards(OUTPUT_CARDS.map((_, i) => i));
       return;
     }
 
@@ -403,7 +379,7 @@ function OutputColumn({
     });
 
     return () => timeoutRefs.current.forEach(clearTimeout);
-  }, [active, reduced, onComplete]);
+  }, [active, onComplete]);
 
   return (
     <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-violet-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
@@ -448,38 +424,31 @@ function OutputColumn({
 // ── Main Section ──
 export default function AEOEngine() {
   const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef);
-  const reduced = useReducedMotion();
+  const vizRef = useRef<HTMLDivElement>(null);
+  // Observe the visualization container (Step 1), not the section header
+  const vizInView = useInView(vizRef, 0.1);
 
   // Sequential workflow state
   const [workflowPhase, setWorkflowPhase] = useState<'idle' | 'input' | 'engine' | 'output' | 'complete'>('idle');
   const hasStarted = useRef(false);
 
-  // Start workflow when section comes into view (once per page load)
+  // Start workflow when the visualization enters view (once per page load)
   useEffect(() => {
-    if (inView && !hasStarted.current && !reduced) {
+    if (vizInView && !hasStarted.current) {
       hasStarted.current = true;
       setWorkflowPhase('input');
     }
-  }, [inView, reduced]);
+  }, [vizInView]);
 
-  // Pause when tab hidden
-  const [tabVisible, setTabVisible] = useState(true);
-  useEffect(() => {
-    const handler = () => setTabVisible(!document.hidden);
-    document.addEventListener('visibilitychange', handler);
-    return () => document.removeEventListener('visibilitychange', handler);
-  }, []);
-
-  const active = inView && tabVisible;
+  const active = vizInView;
 
   // Phase callbacks - called when each phase completes
   const handleInputComplete = useCallback(() => {
-    setWorkflowPhase('engine'); // Instant transition to engine
+    setWorkflowPhase('engine');
   }, []);
 
   const handleEngineComplete = useCallback(() => {
-    setWorkflowPhase('output'); // Instant transition to output
+    setWorkflowPhase('output');
   }, []);
 
   const handleOutputComplete = useCallback(() => {
@@ -511,15 +480,14 @@ export default function AEOEngine() {
         </div>
       </div>
 
-      {/* 3-column engine visualization */}
-      <div className="scroll-reveal max-w-6xl mx-auto" data-animation="scale-in" data-delay="0.3">
+      {/* 3-column engine visualization — vizRef triggers the animation */}
+      <div ref={vizRef} className="scroll-reveal max-w-6xl mx-auto" data-animation="scale-in" data-delay="0.3">
         {/* Flow arrows for md+ screens */}
         <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-stretch" style={{ minHeight: '420px' }}>
           {/* Input */}
           <div className="min-w-0">
             <InputColumn
               active={active && workflowPhase === 'input'}
-              reduced={reduced}
               onComplete={handleInputComplete}
               isActive={workflowPhase === 'input'}
             />
@@ -534,7 +502,6 @@ export default function AEOEngine() {
           <div className="min-w-0">
             <EngineColumn
               active={active && (workflowPhase === 'engine' || workflowPhase === 'output' || workflowPhase === 'complete')}
-              reduced={reduced}
               onComplete={handleEngineComplete}
               isActive={workflowPhase === 'engine'}
             />
@@ -549,32 +516,28 @@ export default function AEOEngine() {
           <div className="min-w-0">
             <OutputColumn
               active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
-              reduced={reduced}
               onComplete={handleOutputComplete}
               isActive={workflowPhase === 'output'}
             />
           </div>
         </div>
 
-        {/* Mobile: stacked layout */}
+        {/* Mobile: stacked layout — same sequential animation as desktop */}
         <div className="md:hidden space-y-6">
           <InputColumn
             active={active && workflowPhase === 'input'}
-            reduced={reduced}
             onComplete={handleInputComplete}
             isActive={workflowPhase === 'input'}
           />
           <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
           <EngineColumn
             active={active && (workflowPhase === 'engine' || workflowPhase === 'output' || workflowPhase === 'complete')}
-            reduced={reduced}
             onComplete={handleEngineComplete}
             isActive={workflowPhase === 'engine'}
           />
           <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
           <OutputColumn
             active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
-            reduced={reduced}
             onComplete={handleOutputComplete}
             isActive={workflowPhase === 'output'}
           />

@@ -41,7 +41,8 @@ export default function CobeGlobe() {
 
     const w = window.innerWidth;
     const h = window.innerHeight;
-    const rotationSpeed = prefersReducedMotion() ? 0 : 0.003;
+    // Always rotate — globe is a subtle background, not a motion-sickness trigger
+    const rotationSpeed = prefersReducedMotion() ? 0.001 : 0.003;
 
     globeRef.current = createGlobe(canvas, {
       devicePixelRatio: getDpr(),
