@@ -142,7 +142,7 @@ const visuals = [AuditVisual, CompetitorVisual, DeployVisual];
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-32 md:py-40 px-6 overflow-hidden">
+    <section id="how-it-works" className="relative py-32 md:py-40 px-6 overflow-hidden">
       {/* Section header */}
       <div className="max-w-5xl mx-auto text-center mb-24 md:mb-32">
         <p className="text-sm font-medium tracking-[0.3em] uppercase text-violet-400/70 mb-4">

@@ -22,6 +22,10 @@
   --btn-primary-text: #000000;
 }
 
+html {
+  scroll-padding-top: 5rem;
+}
+
 * {
   margin: 0;
   padding: 0;

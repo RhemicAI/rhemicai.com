@@ -78,7 +78,7 @@ import TypewriterText from '@/components/TypewriterText/TypewriterText';
 
 export default function Features() {
   return (
-    <section className="relative py-32 md:py-40 px-6">
+    <section id="solutions" className="relative py-32 md:py-40 px-6">
       {/* Header */}
       <div className="scroll-reveal max-w-5xl mx-auto text-center mb-20">
         <p className="text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-muted)] mb-6">

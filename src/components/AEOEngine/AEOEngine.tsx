@@ -382,6 +382,7 @@ export default function AEOEngine() {
 
   return (
     <section
+      id="product"
       ref={sectionRef}
       className="relative py-24 md:py-32 px-6 overflow-hidden"
     >
