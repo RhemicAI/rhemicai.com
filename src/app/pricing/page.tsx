@@ -5,9 +5,10 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Pricing | Rhemic AI',
+  title: 'Pricing - Custom AI Engine Optimization Plans',
   description:
-    'Custom AEO pricing tailored to your business. Book a discovery call to learn how Rhemic AI can help you dominate AI-generated search results.',
+    'Custom AEO pricing tailored to your business. Monthly retainers, project-based, or audit-only packages. Book a free discovery call.',
+  alternates: { canonical: 'https://rhemicai.com/pricing' },
 };
 
 export default function PricingPage() {

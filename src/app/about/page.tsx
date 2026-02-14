@@ -5,9 +5,10 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
-  title: 'About | Rhemic AI',
+  title: 'About Rhemic AI - AI Engine Optimization Team & Mission',
   description:
-    'Learn about Rhemic AI, our mission to bridge the gap between businesses and the AI-first web, and the team building the future of AI search optimization.',
+    'Meet the team building the future of AI search visibility. Rhemic AI bridges businesses and AI answer engines like ChatGPT, Claude, and Perplexity.',
+  alternates: { canonical: 'https://rhemicai.com/about' },
 };
 
 const founders = [
