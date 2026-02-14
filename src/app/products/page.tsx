@@ -5,9 +5,10 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Products | Rhemic AI',
+  title: 'Products - AI Engine Optimization Tools',
   description:
-    'Discover Rhemic AI\'s suite of AI Engine Optimization tools - Website Auditing, Competitor Analysis, and Code Generation for the AI search economy.',
+    'Website Auditing, Competitor Analysis, and Code Generation tools for the AI search economy. Get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
+  alternates: { canonical: 'https://rhemicai.com/products' },
 };
 
 const icons = {

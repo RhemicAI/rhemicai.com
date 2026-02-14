@@ -8,6 +8,7 @@ import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Pricing from '@/components/Pricing/Pricing';
 import CTA from '@/components/CTA/CTA';
+import FAQ from '@/components/FAQ/FAQ';
 import Footer from '@/components/Footer/Footer';
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <DashboardPreview />
       <HowItWorks />
       <Pricing />
+      <FAQ />
       <CTA />
       <Footer />
     </main>
