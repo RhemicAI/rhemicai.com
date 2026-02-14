@@ -14,10 +14,25 @@ const organizationSchema = JSON.stringify({
     { '@type': 'Person', name: 'Shifat Santo', jobTitle: 'CTO' },
     { '@type': 'Person', name: 'Raahil Shaik', jobTitle: 'COO/CFO' },
   ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dallas',
+    addressRegion: 'TX',
+    addressCountry: 'US',
+  },
+  email: 'contact@rhemicai.com',
   sameAs: [],
+  knowsAbout: [
+    'AI Engine Optimization',
+    'SEO',
+    'Schema Markup',
+    'AI Answer Engines',
+  ],
+  areaServed: 'Worldwide',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
+    email: 'contact@rhemicai.com',
     url: 'https://cal.com/rhemic-ai/discovery-call',
   },
 });

@@ -1,14 +1,24 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
+import SubpageFAQ from '@/components/shared/SubpageFAQ';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'About Rhemic AI - AI Engine Optimization Team & Mission',
   description:
     'Meet the team building the future of AI search visibility. Rhemic AI bridges businesses and AI answer engines like ChatGPT, Claude, and Perplexity.',
   alternates: { canonical: 'https://rhemicai.com/about' },
+  openGraph: {
+    title: 'About Rhemic AI - AI Engine Optimization Team & Mission',
+    description:
+      'Meet the team building the future of AI search visibility. Rhemic AI bridges businesses and AI answer engines.',
+    url: 'https://rhemicai.com/about',
+  },
 };
 
 const founders = [
@@ -62,9 +72,39 @@ const values = [
   },
 ];
 
+const professionalServiceSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Rhemic AI',
+  url: 'https://rhemicai.com',
+  description:
+    'AI Engine Optimization platform that makes businesses visible in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
+  foundingDate: '2025',
+  areaServed: 'Worldwide',
+  knowsAbout: [
+    'AI Engine Optimization',
+    'SEO',
+    'Schema Markup',
+    'AI Answer Engines',
+  ],
+  employee: founders.map((f) => ({
+    '@type': 'Person',
+    name: f.name,
+    jobTitle: f.role,
+    sameAs: f.linkedin,
+  })),
+});
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <Script
+        id="professional-service-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {professionalServiceSchema}
+      </Script>
       <FixedNav />
 
       <PageHero
@@ -73,6 +113,10 @@ export default function AboutPage() {
         description="We're building the infrastructure that makes businesses visible in the AI-first web."
         showBackLink={false}
       />
+
+      <div className="mx-auto max-w-5xl px-6 mb-8">
+        <UpdatedDate date="2026-02-14" />
+      </div>
 
       <div className="relative z-10 py-12 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
@@ -185,8 +229,56 @@ export default function AboutPage() {
               ))}
             </div>
           </section>
+
+          {/* FAQ */}
+          <SubpageFAQ
+            heading="About Rhemic AI — FAQ"
+            faqs={[
+              {
+                question: 'What is Rhemic AI?',
+                answer:
+                  'Rhemic AI is an AI Engine Optimization (AEO) platform that helps businesses become visible in AI-generated search results from ChatGPT, Claude, Perplexity, and Gemini. We provide website auditing, competitor analysis, and automated code generation tools.',
+              },
+              {
+                question: 'Who founded Rhemic AI?',
+                answer:
+                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO). The team combines engineering expertise with a mission to make AI search visibility accessible to businesses of all sizes.',
+              },
+              {
+                question: 'Where is Rhemic AI based?',
+                answer:
+                  'Rhemic AI is headquartered in Dallas, Texas, United States. We serve businesses worldwide with our AI Engine Optimization platform.',
+              },
+              {
+                question: 'How is AEO different from traditional SEO?',
+                answer:
+                  'Traditional SEO optimizes for Google\'s ranking algorithm. AEO optimizes for how AI answer engines like ChatGPT and Claude synthesize and cite information. AI doesn\'t rank pages — it generates answers, so visibility requires structured data, content clarity, and schema markup optimized for AI comprehension.',
+              },
+            ]}
+          />
         </div>
       </div>
+
+      <RelatedLinks
+        heading="Explore more"
+        links={[
+          {
+            title: 'Our Products',
+            description: 'Website auditing, competitor analysis, and code generation for AI search.',
+            href: '/products',
+          },
+          {
+            title: 'Custom Pricing',
+            description: 'Flexible plans tailored to your business needs and goals.',
+            href: '/pricing',
+          },
+          {
+            title: 'Contact Us',
+            description: 'Book a demo or ask a question about AI Engine Optimization.',
+            href: '/contact',
+          },
+        ]}
+      />
 
       <Footer />
     </main>

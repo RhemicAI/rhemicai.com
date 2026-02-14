@@ -1,3 +1,5 @@
+import Script from 'next/script';
+
 const steps = [
   {
     number: '01',
@@ -138,9 +140,30 @@ function DeployVisual() {
 
 const visuals = [AuditVisual, CompetitorVisual, DeployVisual];
 
+const howToSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to optimize for AI answer engines',
+  description:
+    'Three steps to improve your business visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.heading,
+    text: s.description,
+  })),
+});
+
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="relative py-32 md:py-40 px-6 overflow-hidden">
+      <Script
+        id="howto-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {howToSchema}
+      </Script>
       {/* Section header */}
       <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32" data-animation="title-fade">
         <p className="text-sm font-medium tracking-[0.15em] uppercase text-violet-400/90 mb-4 font-body">

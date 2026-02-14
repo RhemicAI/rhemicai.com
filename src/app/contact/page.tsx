@@ -1,7 +1,7 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { useState } from 'react';
+import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -216,6 +216,36 @@ export default function ContactPage() {
                   <p>United States</p>
                 </address>
               </div>
+            </div>
+          </div>
+
+          {/* Related Resources */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
+              Explore our platform
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-6">
+              <Link
+                href="/products"
+                className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
+              >
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Our Products</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Website auditing, competitor analysis, and code generation tools for AI search.</p>
+              </Link>
+              <Link
+                href="/pricing"
+                className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
+              >
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Custom Pricing</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Flexible plans tailored to your business needs and goals.</p>
+              </Link>
+              <Link
+                href="/about"
+                className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
+              >
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">About Rhemic AI</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Meet the team building AI Engine Optimization infrastructure.</p>
+              </Link>
             </div>
           </div>
         </div>

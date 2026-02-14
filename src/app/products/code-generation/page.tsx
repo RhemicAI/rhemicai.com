@@ -3,12 +3,22 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
+import ProductSchema from '@/components/SchemaOrg/ProductSchema';
+import SubpageFAQ from '@/components/shared/SubpageFAQ';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Code Generation - AI-Generated Schema & Metadata',
   description:
     'Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click.',
   alternates: { canonical: 'https://rhemicai.com/products/code-generation' },
+  openGraph: {
+    title: 'Code Generation - AI-Generated Schema & Metadata',
+    description:
+      'Auto-generate valid JSON-LD schema markup, meta tags, and structured data for AI answer engines.',
+    url: 'https://rhemicai.com/products/code-generation',
+  },
 };
 
 const features = [
@@ -64,6 +74,11 @@ const benefits = [
 export default function CodeGenerationPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <ProductSchema
+        name="Rhemic AI Code Generation"
+        description="Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click."
+        url="https://rhemicai.com/products/code-generation"
+      />
       <FixedNav />
 
       <PageHero
@@ -72,13 +87,17 @@ export default function CodeGenerationPage() {
         description="Schema markup, JSON-LD, and optimized metadata generated automatically - no coding skills required."
       />
 
+      <div className="mx-auto max-w-5xl px-6 mb-8">
+        <UpdatedDate date="2026-02-14" />
+      </div>
+
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">
           {/* Overview */}
           <section className="mb-24">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12">
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                Stop hand-coding schema markup
+                Why should you stop hand-coding schema markup?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
                 Writing valid JSON-LD and schema markup is tedious, error-prone, and
@@ -204,8 +223,51 @@ export default function CodeGenerationPage() {
               </div>
             </div>
           </section>
+
+          {/* FAQ */}
+          <SubpageFAQ
+            heading="Code Generation FAQ"
+            faqs={[
+              {
+                question: 'What types of schema markup can you generate?',
+                answer:
+                  'We generate JSON-LD structured data for products, services, local businesses, articles, FAQs, organizations, events, and more. All output complies with schema.org standards and is pre-validated against Google\'s Rich Results Test.',
+              },
+              {
+                question: 'Do I need coding experience to use the generated code?',
+                answer:
+                  'No. All generated code is copy-paste ready with clear installation instructions. You paste the JSON-LD snippet into your website\'s HTML head section — no programming knowledge required.',
+              },
+              {
+                question: 'How does code generation improve AI visibility?',
+                answer:
+                  'AI answer engines rely on structured data to understand your business. Properly formatted schema markup helps ChatGPT, Claude, and Perplexity accurately describe and cite your services in their responses, increasing the chance they recommend you.',
+              },
+            ]}
+          />
         </div>
       </div>
+
+      <RelatedLinks
+        heading="Related products"
+        links={[
+          {
+            title: 'Website Auditing',
+            description: 'Comprehensive audits to ensure AI engines can discover your site.',
+            href: '/products/website-auditing',
+          },
+          {
+            title: 'Competitor Analysis',
+            description: 'Track rivals across ChatGPT, Claude, Perplexity, and Gemini.',
+            href: '/products/competitor-analysis',
+          },
+          {
+            title: 'Custom Pricing',
+            description: 'Flexible plans tailored to your business needs and goals.',
+            href: '/pricing',
+          },
+        ]}
+      />
 
       <Footer />
     </main>
