@@ -1,5 +1,3 @@
-import TypewriterText from '@/components/TypewriterText/TypewriterText';
-
 export default function CTA() {
   return (
     <section className="relative py-32 md:py-44 overflow-hidden">
@@ -13,22 +11,20 @@ export default function CTA() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
-        <div className="scroll-reveal">
-          <TypewriterText
-            lines={['Stop being invisible to AI.', 'Start being recommended.']}
-            speed={25}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]"
-            tag="h2"
-          />
+      <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center px-6">
+        <div className="scroll-reveal" data-animation="title-fade">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
+            <span className="block">Stop being invisible to AI.</span>
+            <span className="block">Start being recommended.</span>
+          </h2>
         </div>
 
-        <p className="scroll-reveal mt-6 text-base md:text-lg text-[var(--text-tertiary)] font-light max-w-xl mx-auto leading-relaxed">
+        <p className="scroll-reveal mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80" data-animation="simple-fade" data-delay="0.2">
           Join the brands already dominating AI-generated search results
           with Rhemic AI&apos;s adaptive engagement platform.
         </p>
 
-        <div className="scroll-reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="scroll-reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-animation="simple-fade" data-delay="0.4">
           <button className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105">
             <span className="relative z-10">Book a Demo</span>
             <div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -39,7 +35,7 @@ export default function CTA() {
           </button>
         </div>
 
-        <p className="scroll-reveal mt-6 text-sm text-[var(--text-faint)] tracking-wide">
+        <p className="scroll-reveal mt-6 text-sm text-[var(--text-secondary)] tracking-wide" data-animation="simple-fade" data-delay="0.6">
           No credit card required &middot; 5-minute setup &middot; Cancel anytime
         </p>
       </div>
