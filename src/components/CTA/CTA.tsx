@@ -13,13 +13,13 @@ export default function CTA() {
       {/* Content */}
       <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center px-6">
         <div className="scroll-reveal" data-animation="title-fade">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
             <span className="block">Stop being invisible to AI.</span>
             <span className="block">Start being recommended.</span>
           </h2>
         </div>
 
-        <p className="scroll-reveal mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80" data-animation="simple-fade" data-delay="0.2">
+        <p className="scroll-reveal mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-[1.6] opacity-80 font-body" data-animation="simple-fade" data-delay="0.2">
           Join the brands already dominating AI-generated search results
           with Rhemic AI&apos;s adaptive engagement platform.
         </p>

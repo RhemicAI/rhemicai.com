@@ -143,10 +143,10 @@ export default function HowItWorks() {
     <section id="how-it-works" className="relative py-32 md:py-40 px-6 overflow-hidden">
       {/* Section header */}
       <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32" data-animation="title-fade">
-        <p className="text-sm font-medium tracking-[0.3em] uppercase text-violet-400/90 mb-4">
+        <p className="text-sm font-medium tracking-[0.15em] uppercase text-violet-400/90 mb-4 font-body">
           How It Works
         </p>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)]">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
           Three steps to AI visibility
         </h2>
       </div>
@@ -188,10 +188,10 @@ export default function HowItWorks() {
                     </span>
                     <span className="h-px flex-1 bg-[var(--border-default)]" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] tracking-[-0.02em] font-display">
                     {step.heading}
                   </h3>
-                  <p className="text-base md:text-lg text-[var(--text-primary)] font-normal leading-relaxed max-w-lg opacity-80">
+                  <p className="text-base md:text-lg text-[var(--text-primary)] font-normal leading-[1.6] max-w-lg opacity-80 font-body">
                     {step.description}
                   </p>
                 </div>

@@ -79,15 +79,15 @@ export default function Features() {
     <section id="solutions" className="relative py-32 md:py-40 px-6">
       {/* Header */}
       <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-20" data-animation="title-fade">
-        <p className="text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-secondary)] mb-6">
+        <p className="text-sm font-medium tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-6 font-body">
           Solutions
         </p>
         <div className="mb-6">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-[var(--text-primary)]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.1] text-[var(--text-primary)] font-display">
             AEO platform for modern businesses
           </h2>
         </div>
-        <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-relaxed opacity-80">
+        <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] opacity-80 font-body">
           Rhemic AI gives your brand the tools to appear in every AI-generated answer.
           Audit, analyze, and optimize — all from one platform.
         </p>

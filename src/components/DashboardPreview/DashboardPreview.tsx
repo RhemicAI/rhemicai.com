@@ -80,13 +80,13 @@ export default function DashboardPreview() {
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       {/* heading */}
       <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
-        <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#8B5CF6] mb-4">
+        <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           Product
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
           Our engine under the hood
         </h2>
-        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80">
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
           We run enterprise-grade audits, track your competitors, and deliver
           actionable optimizations — you just book a call and we handle the&nbsp;rest.
         </p>

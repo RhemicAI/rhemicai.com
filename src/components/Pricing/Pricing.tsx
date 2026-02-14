@@ -4,23 +4,23 @@ export default function Pricing() {
       <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center">
         {/* Header */}
         <div className="scroll-reveal" data-animation="title-fade">
-          <p className="text-sm font-medium tracking-[0.25em] uppercase text-[var(--text-secondary)] mb-6">
+          <p className="text-sm font-medium tracking-[0.12em] uppercase text-[var(--text-secondary)] mb-6 font-body">
             Pricing
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
             <span className="block">Every business is different.</span>
             <span className="block">Let&apos;s build your plan.</span>
           </h2>
         </div>
 
-        <p className="scroll-reveal mt-8 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80" data-animation="fade-drift" data-delay="0.2">
+        <p className="scroll-reveal mt-8 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-[1.6] opacity-80 font-body" data-animation="fade-drift" data-delay="0.2">
           We tailor our AEO platform to your industry, scale, and goals.
           Book a quick call and we&apos;ll walk you through what Rhemic AI
           can do for your brand.
         </p>
 
         {/* Value highlights */}
-        <div className="scroll-reveal mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm font-medium text-[var(--text-primary)] opacity-70" data-animation="fade-drift" data-delay="0.4">
+        <div className="scroll-reveal mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm font-medium text-[var(--text-primary)] opacity-70 font-body" data-animation="fade-drift" data-delay="0.4">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
             No long-term contracts

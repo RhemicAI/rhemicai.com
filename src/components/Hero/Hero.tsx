@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         {/* Tag — staggered letter blur resolve */}
         <p
-          className="hero-animate text-sm md:text-base font-medium tracking-[0.3em] uppercase text-[var(--text-secondary)] mb-8"
+          className="hero-animate text-sm md:text-base font-medium tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-8 font-body"
           style={{ textShadow: '0 0 30px rgba(10, 10, 10, 0.9), 0 0 60px rgba(10, 10, 10, 0.6), 0 0 100px rgba(10, 10, 10, 0.3)' }}
           aria-label={eyebrowText}
         >
@@ -37,7 +37,7 @@ export default function Hero() {
         {/* Title — clip slide up per line */}
         <div className="mb-8">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tighter text-[var(--text-primary)] font-[family-name:var(--font-satoshi)]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)] font-display"
             style={{ textShadow: '0 0 30px rgba(10, 10, 10, 0.9), 0 0 60px rgba(10, 10, 10, 0.6), 0 0 100px rgba(10, 10, 10, 0.3)' }}
           >
             <span style={{ display: 'block', overflow: 'hidden' }}>
@@ -69,7 +69,7 @@ export default function Hero() {
 
         {/* Subtitle — fade + float up */}
         <p
-          className="hero-animate text-base md:text-lg lg:text-xl text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-relaxed mb-12 opacity-80"
+          className="hero-animate text-base md:text-lg lg:text-xl text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] mb-12 opacity-80 font-body"
           style={{
             textShadow: '0 0 30px rgba(10, 10, 10, 0.9), 0 0 60px rgba(10, 10, 10, 0.6), 0 0 100px rgba(10, 10, 10, 0.3)',
             animation: 'fadeFloatUp 0.8s cubic-bezier(0.25,0.46,0.45,0.94) 1.2s both',
@@ -83,14 +83,14 @@ export default function Hero() {
         {/* CTA — spring scale pop */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
-            className="hero-animate group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+            className="hero-animate group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 font-body tracking-[0.01em]"
             style={{ animation: 'springScalePop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.5s both' }}
           >
             <span className="relative z-10">Book a Demo</span>
             <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
           <button
-            className="hero-animate px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300"
+            className="hero-animate px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300 font-body tracking-[0.01em]"
             style={{ animation: 'springScalePop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.65s both' }}
           >
             See How It Works

@@ -11,13 +11,13 @@ export default function ProofSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
-        <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#8B5CF6] mb-4">
+        <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           The Shift
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
           The AI Search Shift Is Already Here
         </h2>
-        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80">
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
           Consumers are making buying decisions through AI — and brands that show up win.
         </p>
       </div>
@@ -30,7 +30,7 @@ export default function ProofSection() {
             data-animation="card-rise"
             data-delay={`${(i + 1) * 0.12}`}
           >
-            <span className="block text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-2">
+            <span className="block text-3xl md:text-4xl font-bold tracking-[-0.02em] text-[var(--text-primary)] mb-2 font-display">
               {stat.value}
             </span>
             <span className="block text-sm text-[var(--text-tertiary)] leading-relaxed mb-4">

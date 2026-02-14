@@ -7,8 +7,13 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['var(--font-ibm-plex-mono)', 'monospace'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-ibm-plex-mono)', 'monospace'],
+      },
+    },
   },
   plugins: [],
 }
-
