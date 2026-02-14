@@ -12,27 +12,52 @@ export const metadata: Metadata = {
     'Discover Rhemic AI\'s suite of AI Engine Optimization tools - Website Auditing, Competitor Analysis, and Code Generation for the AI search economy.',
 };
 
+const icons = {
+  audit: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      <line x1="11" y1="8" x2="11" y2="14" />
+      <line x1="8" y1="11" x2="14" y2="11" />
+    </svg>
+  ),
+  competitor: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="20" x2="18" y2="10" />
+      <line x1="12" y1="20" x2="12" y2="4" />
+      <line x1="6" y1="20" x2="6" y2="14" />
+    </svg>
+  ),
+  code: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+      <line x1="14" y1="4" x2="10" y2="20" />
+    </svg>
+  ),
+};
+
 const products = [
   {
     title: 'Website Auditing',
     description:
       'Ensure your site is technically optimized for AI discovery with comprehensive audits of schema markup, content structure, and technical SEO signals.',
     href: '/products/website-auditing',
-    icon: '🔍',
+    icon: icons.audit,
   },
   {
     title: 'Competitor Analysis',
     description:
       'Decode rival strategies and outrank them in AI responses by tracking what your competitors appear in and identifying gaps you can exploit.',
     href: '/products/competitor-analysis',
-    icon: '📊',
+    icon: icons.competitor,
   },
   {
     title: 'Code Generation',
     description:
       'AI-generated schema markup, JSON-LD, and optimized metadata ready to deploy with one click - no manual coding required.',
     href: '/products/code-generation',
-    icon: '⚡',
+    icon: icons.code,
   },
 ];
 
@@ -50,9 +75,9 @@ export default function ProductsPage() {
 
       <div className="relative z-10 pb-24">
         {/* Product Grid */}
-        <section className="py-16 px-6">
+        <section className="pt-4 pb-16 px-6">
           <div className="mx-auto max-w-5xl">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
                 Everything you need to win in AI search
               </h2>
@@ -70,7 +95,9 @@ export default function ProductsPage() {
                   href={product.href}
                   className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8 hover:border-[var(--border-default)] transition-all duration-300 hover:scale-105"
                 >
-                  <div className="text-4xl mb-4">{product.icon}</div>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-tertiary)] mb-4 group-hover:text-white group-hover:border-[var(--border-default)] transition-colors">
+                    {product.icon}
+                  </div>
                   <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-white transition-colors">
                     {product.title}
                   </h3>
@@ -107,7 +134,7 @@ export default function ProductsPage() {
         <AEOEngine />
 
         {/* Education Mission */}
-        <section className="py-16 px-6">
+        <section className="py-12 px-6">
           <div className="mx-auto max-w-5xl">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
