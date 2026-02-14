@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import SummaryModal from '@/components/SummaryModal/SummaryModal';
 
 // ── Streaming data for left column ──
 const CRAWL_LINES = [
@@ -26,12 +27,8 @@ const CRAWL_LINES = [
 
 // ── Engine processing stages ──
 const ENGINE_STAGES = [
-  { label: 'Crawling site...', duration: 3000 },
-  { label: 'Parsing schema markup...', duration: 2250 },
-  { label: 'Analyzing content depth...', duration: 2700 },
-  { label: 'Scoring AEO readiness...', duration: 2400 },
-  { label: 'Generating recommendations...', duration: 2100 },
-  { label: 'Complete ✓', duration: 3000 },
+  { label: 'AI Audit', duration: 2500 },
+  { label: 'Complete ✓', duration: 2000 },
 ];
 
 // ── Output cards for right column ──
@@ -98,53 +95,113 @@ function useReducedMotion() {
   return reduced;
 }
 
-// ── Left Column: Streaming website data ──
-function InputColumn({ active, reduced }: { active: boolean; reduced: boolean }) {
-  const [lines, setLines] = useState<string[]>([]);
+// ── Left Column: Streaming website data with realistic typing ──
+function InputColumn({
+  active,
+  reduced,
+  onComplete,
+  isActive
+}: {
+  active: boolean;
+  reduced: boolean;
+  onComplete?: () => void;
+  isActive: boolean;
+}) {
+  const [lines, setLines] = useState<Array<{ full: string; typed: string }>>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
-  const indexRef = useRef(0);
+  const typingIntervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
+  const lineIndexRef = useRef(0);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
     if (!active || reduced) {
-      if (reduced) setLines(CRAWL_LINES.slice(0, 8));
+      if (reduced) {
+        setLines(CRAWL_LINES.slice(0, 8).map(line => ({ full: line, typed: line })));
+      }
       return;
     }
-    setLines([]);
-    indexRef.current = 0;
 
-    intervalRef.current = setInterval(() => {
+    setLines([]);
+    lineIndexRef.current = 0;
+    hasCompletedRef.current = false;
+
+    // Start typing animation - calm and smooth like a real developer
+    const typeNextChar = () => {
       setLines(prev => {
-        const next = [...prev, CRAWL_LINES[indexRef.current % CRAWL_LINES.length]];
-        if (next.length > 10) next.shift();
+        if (prev.length === 0) return prev;
+
+        const lastLineIndex = prev.length - 1;
+        const lastLine = prev[lastLineIndex];
+
+        // If current line is fully typed, don't change anything
+        if (lastLine.typed === lastLine.full) {
+          return prev;
+        }
+
+        // Type next character
+        const nextTyped = lastLine.full.slice(0, lastLine.typed.length + 1);
+        const updated = [...prev];
+        updated[lastLineIndex] = { ...lastLine, typed: nextTyped };
+        return updated;
+      });
+    };
+
+    // Character-by-character typing (40ms = calm, smooth pace)
+    typingIntervalRef.current = setInterval(typeNextChar, 40);
+
+    // Add new lines periodically (1200ms = calm pace between lines)
+    intervalRef.current = setInterval(() => {
+      // Stop after 10 lines (one complete cycle)
+      if (lineIndexRef.current >= 10) {
+        clearInterval(intervalRef.current);
+        // Brief pause for last line to finish typing, then complete
+        setTimeout(() => {
+          if (!hasCompletedRef.current) {
+            hasCompletedRef.current = true;
+            onComplete?.();
+          }
+        }, 300); // Quick transition after last line
+        return;
+      }
+
+      setLines(prev => {
+        const newLine = CRAWL_LINES[lineIndexRef.current % CRAWL_LINES.length];
+        const next = [...prev, { full: newLine, typed: '' }];
+        lineIndexRef.current++;
         return next;
       });
-      indexRef.current++;
-    }, 600);
+    }, 1200);
 
-    return () => clearInterval(intervalRef.current);
-  }, [active, reduced]);
+    return () => {
+      clearInterval(intervalRef.current);
+      clearInterval(typingIntervalRef.current);
+    };
+  }, [active, reduced, onComplete]);
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] mb-3 font-mono">
-        Website Data
+    <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
+      <div className="flex items-center gap-2 mb-3">
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-all duration-500 ${isActive ? 'bg-emerald-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+          Step 1
+        </span>
+        <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono">
+          Website Data
+        </div>
       </div>
-      <div className="flex-1 border border-[var(--border-default)] rounded-lg bg-black/75 backdrop-blur-xl p-3 overflow-hidden font-mono text-xs leading-relaxed relative">
+      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-all duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/20 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/75'}`}>
         {/* Fade overlay at top */}
         <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none rounded-t-lg" />
         <div className="space-y-1">
           {lines.map((line, i) => (
             <div
-              key={`${i}-${line}`}
+              key={`${i}-${line.full}`}
               className="text-emerald-400/90 whitespace-nowrap overflow-hidden"
-              style={{
-                opacity: reduced ? 1 : 0,
-                animation: reduced ? 'none' : 'aeo-fade-in 0.3s ease forwards',
-                animationDelay: '0ms',
-              }}
             >
               <span className="text-[var(--text-faint)] mr-2 select-none">{String(i + 1).padStart(2, '0')}</span>
-              {line}
+              {line.typed}
+              {line.typed !== line.full && (
+                <span className="inline-block w-1.5 h-3 bg-emerald-400/70 ml-0.5 animate-cursor-blink" />
+              )}
             </div>
           ))}
         </div>
@@ -158,11 +215,22 @@ function InputColumn({ active, reduced }: { active: boolean; reduced: boolean })
 }
 
 // ── Center Column: Processing engine ──
-function EngineColumn({ active, reduced }: { active: boolean; reduced: boolean }) {
+function EngineColumn({
+  active,
+  reduced,
+  onComplete,
+  isActive
+}: {
+  active: boolean;
+  reduced: boolean;
+  onComplete?: () => void;
+  isActive: boolean;
+}) {
   const [stageIndex, setStageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const animFrameRef = useRef<number>(0);
   const startTimeRef = useRef(0);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
     if (!active || reduced) {
@@ -175,17 +243,19 @@ function EngineColumn({ active, reduced }: { active: boolean; reduced: boolean }
 
     setStageIndex(0);
     setProgress(0);
+    hasCompletedRef.current = false;
     let stage = 0;
 
     const runStage = () => {
+      // Stop after all stages complete (no loop)
       if (stage >= ENGINE_STAGES.length) {
-        // Loop after pause
-        setTimeout(() => {
-          setStageIndex(0);
-          setProgress(0);
-          stage = 0;
-          runStage();
-        }, 2000);
+        if (!hasCompletedRef.current) {
+          hasCompletedRef.current = true;
+          // Quick completion after final stage
+          setTimeout(() => {
+            onComplete?.();
+          }, 300);
+        }
         return;
       }
 
@@ -211,17 +281,22 @@ function EngineColumn({ active, reduced }: { active: boolean; reduced: boolean }
 
     runStage();
     return () => cancelAnimationFrame(animFrameRef.current);
-  }, [active, reduced]);
+  }, [active, reduced, onComplete]);
 
   const currentStage = ENGINE_STAGES[stageIndex];
   const isComplete = stageIndex === ENGINE_STAGES.length - 1 && progress >= 100;
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] mb-3 font-mono text-center">
-        AEO Engine
+    <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-blue-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-all duration-500 ${isActive ? 'bg-blue-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+          Step 2
+        </span>
+        <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-center">
+          AEO Engine
+        </div>
       </div>
-      <div className="flex-1 border border-[var(--border-strong)] rounded-lg bg-black/80 backdrop-blur-xl p-4 font-mono text-sm relative overflow-hidden">
+      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-4 font-mono text-sm relative overflow-hidden transition-all duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/20 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/80'}`}>
         {/* ASCII border decoration */}
         <div className="text-[var(--text-faint)] text-[10px] mb-3 select-none" aria-hidden="true">
           ╔══════════════════════════╗
@@ -281,9 +356,20 @@ function EngineColumn({ active, reduced }: { active: boolean; reduced: boolean }
 }
 
 // ── Right Column: AI output cards ──
-function OutputColumn({ active, reduced }: { active: boolean; reduced: boolean }) {
+function OutputColumn({
+  active,
+  reduced,
+  onComplete,
+  isActive
+}: {
+  active: boolean;
+  reduced: boolean;
+  onComplete?: () => void;
+  isActive: boolean;
+}) {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
     if (!active) {
@@ -296,41 +382,46 @@ function OutputColumn({ active, reduced }: { active: boolean; reduced: boolean }
     }
 
     setVisibleCards([]);
+    hasCompletedRef.current = false;
     timeoutRefs.current.forEach(clearTimeout);
     timeoutRefs.current = [];
 
-    // Stagger card reveals
-    const reveal = (index: number) => {
+    // Stagger card reveals (no loop - one time only)
+    OUTPUT_CARDS.forEach((_, i) => {
       const t = setTimeout(() => {
-        setVisibleCards(prev => [...prev, index]);
-      }, 4500 + index * 1800);
+        setVisibleCards(prev => [...prev, i]);
+
+        // If this is the last card, notify completion
+        if (i === OUTPUT_CARDS.length - 1 && !hasCompletedRef.current) {
+          hasCompletedRef.current = true;
+          setTimeout(() => {
+            onComplete?.();
+          }, 200); // Quick completion after last card
+        }
+      }, i * 800); // 800ms between cards (calm pace)
       timeoutRefs.current.push(t);
-    };
-
-    OUTPUT_CARDS.forEach((_, i) => reveal(i));
-
-    // Loop: hide all and restart after all cards shown
-    const loopTimeout = setTimeout(() => {
-      setVisibleCards([]);
-      // Re-trigger by toggling — handled by parent cycle
-    }, 4500 + OUTPUT_CARDS.length * 1800 + 3000);
-    timeoutRefs.current.push(loopTimeout);
+    });
 
     return () => timeoutRefs.current.forEach(clearTimeout);
-  }, [active, reduced]);
+  }, [active, reduced, onComplete]);
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] mb-3 font-mono text-right">
-        AI Answers
+    <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-violet-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
+      <div className="flex items-center justify-end gap-2 mb-3">
+        <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-right">
+          AI Answers
+        </div>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-all duration-500 ${isActive ? 'bg-violet-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+          Step 3
+        </span>
       </div>
-      <div className="flex-1 space-y-2 overflow-hidden">
+      <div className={`flex-1 space-y-2 overflow-hidden transition-all duration-700 rounded-lg ${isActive ? 'p-2 bg-violet-950/10 border border-violet-500/30' : ''}`}>
         {OUTPUT_CARDS.map((card, i) => {
           const visible = visibleCards.includes(i);
           return (
             <div
               key={card.source}
-              className="border border-[var(--border-default)] rounded-lg bg-black/75 backdrop-blur-xl p-3 font-mono text-xs leading-relaxed transition-all duration-700"
+              className="border border-[var(--border-default)] rounded-lg bg-black/95 backdrop-blur-xl p-3 font-mono text-xs leading-relaxed transition-all duration-700"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateX(0)' : 'translateX(20px)',
@@ -359,15 +450,17 @@ export default function AEOEngine() {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef);
   const reduced = useReducedMotion();
-  const [cycle, setCycle] = useState(0);
 
-  // Restart the animation cycle periodically
+  // Sequential workflow state
+  const [workflowPhase, setWorkflowPhase] = useState<'idle' | 'input' | 'engine' | 'output' | 'complete'>('idle');
+  const hasStarted = useRef(false);
+
+  // Start workflow when section comes into view (once per page load)
   useEffect(() => {
-    if (!inView || reduced) return;
-    const interval = setInterval(() => {
-      setCycle(c => c + 1);
-    }, 24000); // Full cycle duration
-    return () => clearInterval(interval);
+    if (inView && !hasStarted.current && !reduced) {
+      hasStarted.current = true;
+      setWorkflowPhase('input');
+    }
   }, [inView, reduced]);
 
   // Pause when tab hidden
@@ -379,6 +472,19 @@ export default function AEOEngine() {
   }, []);
 
   const active = inView && tabVisible;
+
+  // Phase callbacks - called when each phase completes
+  const handleInputComplete = useCallback(() => {
+    setWorkflowPhase('engine'); // Instant transition to engine
+  }, []);
+
+  const handleEngineComplete = useCallback(() => {
+    setWorkflowPhase('output'); // Instant transition to output
+  }, []);
+
+  const handleOutputComplete = useCallback(() => {
+    setWorkflowPhase('complete');
+  }, []);
 
   return (
     <section
@@ -397,6 +503,12 @@ export default function AEOEngine() {
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-xl mx-auto font-normal leading-relaxed opacity-80">
           From website crawl to AI recommendation — see how Rhemic AI makes your business the answer.
         </p>
+        <div className="mt-6">
+          <SummaryModal
+            buttonText="Summarize and Understand our Engine"
+            modalTitle="Understand our Engine"
+          />
+        </div>
       </div>
 
       {/* 3-column engine visualization */}
@@ -405,7 +517,12 @@ export default function AEOEngine() {
         <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-stretch" style={{ minHeight: '420px' }}>
           {/* Input */}
           <div className="min-w-0">
-            <InputColumn active={active} reduced={reduced} key={`input-${cycle}`} />
+            <InputColumn
+              active={active && workflowPhase === 'input'}
+              reduced={reduced}
+              onComplete={handleInputComplete}
+              isActive={workflowPhase === 'input'}
+            />
           </div>
 
           {/* Arrow */}
@@ -415,7 +532,12 @@ export default function AEOEngine() {
 
           {/* Engine */}
           <div className="min-w-0">
-            <EngineColumn active={active} reduced={reduced} key={`engine-${cycle}`} />
+            <EngineColumn
+              active={active && (workflowPhase === 'engine' || workflowPhase === 'output' || workflowPhase === 'complete')}
+              reduced={reduced}
+              onComplete={handleEngineComplete}
+              isActive={workflowPhase === 'engine'}
+            />
           </div>
 
           {/* Arrow */}
@@ -425,17 +547,37 @@ export default function AEOEngine() {
 
           {/* Output */}
           <div className="min-w-0">
-            <OutputColumn active={active} reduced={reduced} key={`output-${cycle}`} />
+            <OutputColumn
+              active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
+              reduced={reduced}
+              onComplete={handleOutputComplete}
+              isActive={workflowPhase === 'output'}
+            />
           </div>
         </div>
 
         {/* Mobile: stacked layout */}
         <div className="md:hidden space-y-6">
-          <InputColumn active={active} reduced={reduced} key={`input-m-${cycle}`} />
+          <InputColumn
+            active={active && workflowPhase === 'input'}
+            reduced={reduced}
+            onComplete={handleInputComplete}
+            isActive={workflowPhase === 'input'}
+          />
           <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
-          <EngineColumn active={active} reduced={reduced} key={`engine-m-${cycle}`} />
+          <EngineColumn
+            active={active && (workflowPhase === 'engine' || workflowPhase === 'output' || workflowPhase === 'complete')}
+            reduced={reduced}
+            onComplete={handleEngineComplete}
+            isActive={workflowPhase === 'engine'}
+          />
           <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
-          <OutputColumn active={active} reduced={reduced} key={`output-m-${cycle}`} />
+          <OutputColumn
+            active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
+            reduced={reduced}
+            onComplete={handleOutputComplete}
+            isActive={workflowPhase === 'output'}
+          />
         </div>
       </div>
     </section>
