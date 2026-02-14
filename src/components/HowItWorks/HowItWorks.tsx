@@ -29,12 +29,12 @@ function AuditVisual() {
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
         <span className="ml-2">AEO Audit Tool</span>
       </div>
-      <div className="flex items-center gap-2">
-        <div className="flex-1 flex items-center gap-2 bg-[var(--bg-glass)] border border-[var(--border-strong)] rounded-lg px-3 py-2.5">
-          <span className="text-[var(--text-faint)]">https://</span>
-          <span className="text-[var(--text-tertiary)]">yourbusiness.com</span>
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+        <div className="flex-1 flex items-center gap-2 bg-[var(--bg-glass)] border border-[var(--border-strong)] rounded-lg px-3 py-2.5 min-w-0">
+          <span className="text-[var(--text-faint)] shrink-0">https://</span>
+          <span className="text-[var(--text-tertiary)] truncate">yourbusiness.com</span>
         </div>
-        <div className="px-4 py-2.5 bg-violet-600/80 text-white text-xs font-semibold rounded-lg whitespace-nowrap">
+        <div className="px-4 py-2.5 bg-violet-600/80 text-white text-xs font-semibold rounded-lg text-center shrink-0">
           Run Audit
         </div>
       </div>
@@ -161,7 +161,7 @@ export default function HowItWorks() {
             <div key={step.number} className="relative">
               {/* Oversized background number */}
               <div
-                className="absolute -top-8 md:-top-12 pointer-events-none select-none text-[10rem] md:text-[14rem] lg:text-[18rem] font-bold leading-none text-[var(--text-primary)] opacity-[0.03]"
+                className="absolute -top-4 md:-top-12 pointer-events-none select-none text-[6rem] md:text-[14rem] lg:text-[18rem] font-bold leading-none text-[var(--text-primary)] opacity-[0.03]"
                 style={{ [isReversed ? 'right' : 'left']: 0 }}
                 aria-hidden="true"
               >
@@ -170,9 +170,7 @@ export default function HowItWorks() {
 
               {/* Content grid */}
               <div
-                className={`relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${
-                  isReversed ? 'md:direction-rtl' : ''
-                }`}
+                className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
                 style={isReversed ? { direction: 'rtl' } : undefined}
               >
                 {/* Text column */}

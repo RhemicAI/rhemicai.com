@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         {/* Tag — staggered letter blur resolve */}
         <p
-          className="hero-animate text-sm md:text-base font-medium tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-8 font-body"
+          className="hero-animate text-[11px] sm:text-sm md:text-base font-medium tracking-[0.08em] sm:tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-8 font-body"
           style={{ textShadow: '0 0 30px rgba(10, 10, 10, 0.9), 0 0 60px rgba(10, 10, 10, 0.6), 0 0 100px rgba(10, 10, 10, 0.3)' }}
           aria-label={eyebrowText}
         >
@@ -99,29 +99,29 @@ export default function Hero() {
       </div>
 
       {/* Floating badges */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-        <p className="text-xs tracking-[0.2em] uppercase text-[var(--text-secondary)]">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full px-6 sm:px-0 sm:w-auto flex flex-col items-center gap-2 sm:gap-3">
+        <p className="text-[10px] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center">
           Where your customers are already searching
         </p>
-        <div className="flex items-center gap-6 text-[var(--text-tertiary)] text-xs tracking-wider uppercase">
-          <span className="flex items-center gap-2">
+        <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-1 sm:gap-6 text-[var(--text-tertiary)] text-[10px] sm:text-xs tracking-wider uppercase">
+          <span className="flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
             ChatGPT
           </span>
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-500/60" />
             Claude
           </span>
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500/60" />
             Perplexity
           </span>
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60" />
             Gemini
           </span>
         </div>
-        <p className="text-xs text-[var(--text-secondary)]">
+        <p className="text-[10px] sm:text-xs text-[var(--text-secondary)] text-center">
           Millions ask these AI tools for business recommendations every day.
         </p>
       </div>
