@@ -10,7 +10,7 @@ const stats = [
 export default function ProofSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
-      <div className="text-over-globe max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-16">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           The Shift
         </span>
@@ -59,7 +59,7 @@ export default function ProofSection() {
           href="https://cal.com/rhemic-ai/discovery-call"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+          className="group relative inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
         >
           <span className="relative z-10">Book a Discovery Call</span>
           <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

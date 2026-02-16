@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+
 const stats = [
   { value: 'Get Recommended', label: 'By AI Answer Engines' },
   { value: 'Be the Answer', label: 'When AI Gets Asked' },
@@ -10,6 +12,21 @@ const stats = [
 ];
 
 export default function StatsBanner() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        el.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+      },
+      { threshold: 0 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   const track = stats.map((s, i) => (
     <span key={i} className="inline-flex items-center gap-16 shrink-0">
       <span className="flex flex-col items-center">
@@ -38,6 +55,7 @@ export default function StatsBanner() {
 
       <div className="border-y border-[var(--border-subtle)] py-6 md:py-8 overflow-hidden bg-[var(--bg-base)]">
         <div
+          ref={trackRef}
           className="flex whitespace-nowrap gap-16"
           style={{
             animation: 'stats-scroll 30s linear infinite',

@@ -165,7 +165,7 @@ export default function HowItWorks() {
         {howToSchema}
       </Script>
       {/* Section header */}
-      <div className="text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32">
+      <div className="max-w-5xl mx-auto text-center mb-24 md:mb-32">
         <p className="text-sm font-medium tracking-[0.15em] uppercase text-violet-400/90 mb-4 font-body">
           How It Works
         </p>
@@ -198,7 +198,7 @@ export default function HowItWorks() {
               >
                 {/* Text column */}
                 <div
-                  className="text-over-globe space-y-4"
+                  className="space-y-4"
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <div className="flex items-center gap-3 mb-2">
