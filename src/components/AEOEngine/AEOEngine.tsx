@@ -177,7 +177,7 @@ function InputColumn({
           Website Data
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-all duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/20 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/75'}`}>
+      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-all duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/90'}`}>
         {/* Fade overlay at top */}
         <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none rounded-t-lg" />
         <div className="space-y-1">
@@ -279,7 +279,7 @@ function EngineColumn({
           AEO Engine
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-4 font-mono text-sm relative overflow-hidden transition-all duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/20 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/80'}`}>
+      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-4 font-mono text-sm relative overflow-hidden transition-all duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/90'}`}>
         {/* ASCII border decoration */}
         <div className="text-[var(--text-faint)] text-[10px] mb-3 select-none" aria-hidden="true">
           ╔══════════════════════════╗
@@ -392,7 +392,7 @@ function OutputColumn({
           Step 3
         </span>
       </div>
-      <div className={`flex-1 space-y-2 overflow-hidden transition-all duration-700 rounded-lg ${isActive ? 'p-2 bg-violet-950/10 border border-violet-500/30' : ''}`}>
+      <div className={`flex-1 space-y-2 overflow-hidden transition-all duration-700 rounded-lg ${isActive ? 'p-2 bg-violet-950/30 border border-violet-500/30' : ''}`}>
         {OUTPUT_CARDS.map((card, i) => {
           const visible = visibleCards.includes(i);
           return (
