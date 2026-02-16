@@ -31,10 +31,9 @@ export default function CTA() {
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
+            className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105"
           >
-            <span className="relative z-10">Book a Demo</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            Book a Demo
           </a>
 
           <Link

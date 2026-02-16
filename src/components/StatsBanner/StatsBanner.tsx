@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-
 const stats = [
   { value: 'Get Recommended', label: 'By AI Answer Engines' },
   { value: 'Be the Answer', label: 'When AI Gets Asked' },
@@ -12,62 +10,20 @@ const stats = [
 ];
 
 export default function StatsBanner() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        el.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
-      },
-      { threshold: 0 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  const track = stats.map((s, i) => (
-    <span key={i} className="inline-flex items-center gap-16 shrink-0">
-      <span className="flex flex-col items-center">
-        <span className="text-2xl md:text-4xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
-          {s.value}
-        </span>
-        <span className="text-xs md:text-sm uppercase tracking-[0.12em] text-[var(--text-tertiary)] mt-1 font-body">
-          {s.label}
-        </span>
-      </span>
-
-      <span className="text-[var(--text-faint)] text-lg select-none" aria-hidden="true">
-        &times;
-      </span>
-    </span>
-  ));
-
   return (
-    <>
-      <style>{`
-        @keyframes stats-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-      `}</style>
-
-      <div className="border-y border-[var(--border-subtle)] py-6 md:py-8 overflow-hidden bg-[var(--bg-base)]">
-        <div
-          ref={trackRef}
-          className="flex whitespace-nowrap gap-16"
-          style={{
-            animation: 'stats-scroll 30s linear infinite',
-            width: 'max-content',
-          }}
-        >
-          {/* First pass */}
-          {track}
-          {/* Second pass for seamless loop */}
-          {track}
-        </div>
+    <div className="border-y border-[var(--border-subtle)] py-4 md:py-5 bg-[var(--bg-base)]">
+      <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 px-4">
+        {stats.map((s, i) => (
+          <span key={i} className="flex flex-col items-center shrink-0">
+            <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
+              {s.value}
+            </span>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.12em] text-[var(--text-tertiary)] mt-0.5 font-body">
+              {s.label}
+            </span>
+          </span>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
