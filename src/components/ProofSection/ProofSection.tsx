@@ -10,7 +10,7 @@ const stats = [
 export default function ProofSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
-      <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
+      <div className="text-over-globe max-w-3xl mx-auto text-center mb-16">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           The Shift
         </span>
@@ -26,9 +26,7 @@ export default function ProofSection() {
         {stats.map((stat, i) => (
           <div
             key={stat.value}
-            className="scroll-reveal relative p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] backdrop-blur-sm hover:border-[var(--border-strong)] transition-colors duration-300"
-            data-animation="card-rise"
-            data-delay={`${(i + 1) * 0.12}`}
+            className="relative p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] backdrop-blur-sm hover:border-[var(--border-strong)] transition-colors duration-300"
           >
             <span className="block text-3xl md:text-4xl font-bold tracking-[-0.02em] text-[var(--text-primary)] mb-2 font-display">
               {stat.value}

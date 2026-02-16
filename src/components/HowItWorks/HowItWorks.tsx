@@ -165,7 +165,7 @@ export default function HowItWorks() {
         {howToSchema}
       </Script>
       {/* Section header */}
-      <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32" data-animation="title-fade">
+      <div className="text-over-globe max-w-5xl mx-auto text-center mb-24 md:mb-32">
         <p className="text-sm font-medium tracking-[0.15em] uppercase text-violet-400/90 mb-4 font-body">
           How It Works
         </p>
@@ -198,9 +198,7 @@ export default function HowItWorks() {
               >
                 {/* Text column */}
                 <div
-                  className="scroll-reveal text-over-globe space-y-4"
-                  data-animation="step-reveal"
-                  data-delay="0"
+                  className="text-over-globe space-y-4"
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -219,9 +217,6 @@ export default function HowItWorks() {
 
                 {/* Visual column */}
                 <div
-                  className="scroll-reveal"
-                  data-animation="scale-in"
-                  data-delay="0.15"
                   style={isReversed ? { direction: 'ltr' } : undefined}
                 >
                   <Visual />
