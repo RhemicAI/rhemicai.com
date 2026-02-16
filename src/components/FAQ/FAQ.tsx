@@ -82,7 +82,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[var(--bg-glass)] hover:border-[var(--border-default)] transition-colors"
+              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[rgba(15,15,15,0.85)] hover:border-[var(--border-default)] transition-colors"
             >
               <button
                 onClick={() => toggle(index)}
