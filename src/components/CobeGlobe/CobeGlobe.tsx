@@ -30,6 +30,8 @@ export default function CobeGlobe() {
   const phiRef = useRef(0);
   const resizeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isBuilding = useRef(false);
+  const scrollIdleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const isScrollingRef = useRef(false);
 
   const buildGlobe = useCallback(() => {
     if (isBuilding.current) return;
@@ -59,8 +61,8 @@ export default function CobeGlobe() {
       theta: -0.15,
       dark: 1,
       diffuse: 1.2,
-      mapSamples: 4000,
-      mapBrightness: 6,
+      mapSamples: 2000,
+      mapBrightness: 4,
       baseColor: [0.15, 0.15, 0.15],
       markerColor: [0.4, 0.4, 0.45],
       glowColor: [0.05, 0.05, 0.08],
@@ -126,6 +128,41 @@ export default function CobeGlobe() {
       clearTimeout(resizeTimer.current);
     };
   }, [buildGlobe]);
+
+  // Pause globe during scroll to avoid main-thread contention (fixes INP/scroll jank)
+  const SCROLL_IDLE_MS = 180;
+  useEffect(() => {
+    const onScrollStart = () => {
+      if (isScrollingRef.current) return;
+      isScrollingRef.current = true;
+      clearTimeout(scrollIdleTimer.current);
+      globeRef.current?.toggle(false);
+    };
+    const onScrollIdle = () => {
+      clearTimeout(scrollIdleTimer.current);
+      scrollIdleTimer.current = setTimeout(() => {
+        isScrollingRef.current = false;
+        if (globeRef.current && canvasRef.current) {
+          const rect = canvasRef.current.getBoundingClientRect();
+          const inView = rect.top < window.innerHeight && rect.bottom > 0;
+          globeRef.current.toggle(inView);
+        }
+      }, SCROLL_IDLE_MS);
+    };
+    window.addEventListener('wheel', onScrollStart, { passive: true });
+    window.addEventListener('touchstart', onScrollStart, { passive: true });
+    window.addEventListener('wheel', onScrollIdle, { passive: true });
+    window.addEventListener('touchend', onScrollIdle, { passive: true });
+    window.addEventListener('scroll', onScrollIdle, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', onScrollStart);
+      window.removeEventListener('touchstart', onScrollStart);
+      window.removeEventListener('wheel', onScrollIdle);
+      window.removeEventListener('touchend', onScrollIdle);
+      window.removeEventListener('scroll', onScrollIdle);
+      clearTimeout(scrollIdleTimer.current);
+    };
+  }, []);
 
   return (
     <canvas
