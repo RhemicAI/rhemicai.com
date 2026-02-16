@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
       company: body.company.trim().substring(0, 100),
       role: body.role.trim(),
       message: body.message.trim().substring(0, 2000),
+      source: body.source === 'waitlist' ? 'waitlist' : 'contact',
     };
 
     // Get webhook URL from environment
