@@ -78,7 +78,7 @@ export default function Features() {
   return (
     <section id="solutions" className="relative py-32 md:py-40 px-6">
       {/* Header */}
-      <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-20" data-animation="title-fade">
+      <div className="text-over-globe max-w-5xl mx-auto text-center mb-20">
         <p className="text-sm font-medium tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-6 font-body">
           Solutions
         </p>
@@ -98,9 +98,7 @@ export default function Features() {
         {features.map((feature, i) => (
           <div
             key={feature.title}
-            className="scroll-reveal bg-[var(--bg-glass)] backdrop-blur-md border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
-            data-animation="card-rise"
-            data-delay={`${(i + 1) * 0.12}`}
+            className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
           >
             <div className="mb-6">{feature.icon}</div>
             <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">

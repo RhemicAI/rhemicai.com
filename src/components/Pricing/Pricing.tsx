@@ -3,7 +3,7 @@ export default function Pricing() {
     <section id="pricing" className="relative py-20 md:py-28 px-6">
       <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center">
         {/* Header */}
-        <div className="scroll-reveal" data-animation="title-fade">
+        <div>
           <p className="text-sm font-medium tracking-[0.25em] uppercase text-[var(--text-secondary)] mb-6">
             Pricing
           </p>
@@ -13,14 +13,14 @@ export default function Pricing() {
           </h2>
         </div>
 
-        <p className="scroll-reveal mt-8 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80" data-animation="fade-drift" data-delay="0.2">
+        <p className="mt-8 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80">
           We tailor our AEO platform to your industry, scale, and goals.
           Book a quick call and we&apos;ll walk you through what Rhemic AI
           can do for your brand.
         </p>
 
         {/* Value highlights */}
-        <div className="scroll-reveal mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm font-medium text-[var(--text-primary)] opacity-70" data-animation="fade-drift" data-delay="0.4">
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm font-medium text-[var(--text-primary)] opacity-70">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
             No long-term contracts
@@ -36,7 +36,7 @@ export default function Pricing() {
         </div>
 
         {/* CTA */}
-        <div className="scroll-reveal mt-12" data-animation="fade-drift" data-delay="0.6">
+        <div className="mt-12">
           <a
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
@@ -48,7 +48,7 @@ export default function Pricing() {
           </a>
         </div>
 
-        <p className="scroll-reveal mt-6 text-sm text-[var(--text-secondary)] tracking-wide" data-animation="simple-fade" data-delay="0.8">
+        <p className="mt-6 text-sm text-[var(--text-secondary)] tracking-wide">
           Free consultation &middot; No commitment &middot; 15 minutes
         </p>
       </div>

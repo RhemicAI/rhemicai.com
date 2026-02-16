@@ -79,7 +79,7 @@ export default function DashboardPreview() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       {/* heading */}
-      <div className="scroll-reveal text-over-globe max-w-3xl mx-auto text-center mb-16" data-animation="title-fade">
+      <div className="text-over-globe max-w-3xl mx-auto text-center mb-16">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           Product
         </span>
@@ -94,9 +94,7 @@ export default function DashboardPreview() {
 
       {/* mockup container */}
       <div
-        className="scroll-reveal relative mx-auto max-w-4xl"
-        data-animation="scale-in"
-        data-delay="0.3"
+        className="relative mx-auto max-w-4xl"
         style={{ perspective: '1200px' }}
       >
         {/* purple glow */}

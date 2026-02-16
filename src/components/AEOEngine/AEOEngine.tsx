@@ -470,7 +470,7 @@ export default function AEOEngine() {
       className="relative py-24 md:py-32 px-6 overflow-hidden"
     >
       {/* Section header */}
-      <div className="scroll-reveal text-over-globe max-w-5xl mx-auto text-center mb-16" data-animation="title-fade">
+      <div className="text-over-globe max-w-5xl mx-auto text-center mb-16">
         <p className="text-xs md:text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-secondary)] mb-4 font-mono">
           The Engine
         </p>
@@ -489,7 +489,7 @@ export default function AEOEngine() {
       </div>
 
       {/* 3-column engine visualization — vizRef triggers the animation */}
-      <div ref={vizRef} className="scroll-reveal max-w-6xl mx-auto" data-animation="scale-in" data-delay="0.3">
+      <div ref={vizRef} className="max-w-6xl mx-auto">
         {/* Flow arrows for md+ screens */}
         <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-stretch" style={{ minHeight: '420px' }}>
           {/* Input */}

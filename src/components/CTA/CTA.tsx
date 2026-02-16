@@ -5,7 +5,7 @@ export default function CTA() {
     <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Warm radial glow */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[1200px] h-[800px] pointer-events-none animate-pulse-glow"
+        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[1200px] h-[800px] pointer-events-none"
         style={{
           background:
             'radial-gradient(ellipse at top center, rgba(251,146,60,0.15) 0%, rgba(251,146,60,0.05) 30%, transparent 60%)',
@@ -14,19 +14,19 @@ export default function CTA() {
 
       {/* Content */}
       <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center px-6">
-        <div className="scroll-reveal" data-animation="title-fade">
+        <div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
             <span className="block">Stop being invisible to AI.</span>
             <span className="block">Start being recommended.</span>
           </h2>
         </div>
 
-        <p className="scroll-reveal mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80" data-animation="simple-fade" data-delay="0.2">
+        <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80">
           Join the brands already dominating AI-generated search results
           with Rhemic AI&apos;s adaptive engagement platform.
         </p>
 
-        <div className="scroll-reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-animation="simple-fade" data-delay="0.4">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
@@ -45,7 +45,7 @@ export default function CTA() {
           </Link>
         </div>
 
-        <p className="scroll-reveal mt-6 text-sm text-[var(--text-secondary)] tracking-wide" data-animation="simple-fade" data-delay="0.6">
+        <p className="mt-6 text-sm text-[var(--text-secondary)] tracking-wide">
           5-minute setup &middot; Cancel anytime
         </p>
       </div>

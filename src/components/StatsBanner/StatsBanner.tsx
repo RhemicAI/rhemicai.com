@@ -36,7 +36,7 @@ export default function StatsBanner() {
         }
       `}</style>
 
-      <div className="border-y border-[var(--border-subtle)] py-6 md:py-8 overflow-hidden bg-[var(--bg-base)]/60 backdrop-blur-sm">
+      <div className="border-y border-[var(--border-subtle)] py-6 md:py-8 overflow-hidden bg-[var(--bg-base)]">
         <div
           className="flex whitespace-nowrap gap-16"
           style={{

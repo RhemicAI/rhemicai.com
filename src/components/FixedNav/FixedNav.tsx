@@ -17,10 +17,15 @@ export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-      // Show sticky CTA after scrolling past the hero (~600px)
-      setShowMobileCTA(window.scrollY > 600);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        setShowMobileCTA(window.scrollY > 600);
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -42,10 +47,9 @@ export default function FixedNav() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-5 transition-all duration-300 ${
           scrolled
-            ? 'bg-[var(--bg-base)]/80 backdrop-blur-xl border-b border-[var(--border-subtle)]'
+            ? 'bg-[var(--bg-base)]/95 border-b border-[var(--border-subtle)]'
             : 'bg-transparent'
         }`}
-        style={scrolled ? { WebkitBackdropFilter: 'blur(24px)' } : undefined}
       >
         {/* Left — Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
@@ -118,10 +122,9 @@ export default function FixedNav() {
         }`}
       >
         <div
-          className={`absolute inset-0 bg-[var(--bg-base)]/95 backdrop-blur-xl transition-transform duration-300 ease-in-out ${
+          className={`absolute inset-0 bg-[var(--bg-base)] transition-transform duration-300 ease-in-out ${
             menuOpen ? 'translate-y-0' : '-translate-y-full'
           }`}
-          style={{ WebkitBackdropFilter: 'blur(24px)' }}
         >
           <div className="flex flex-col items-center justify-center h-full gap-2 px-8">
             {navLinks.map((link) => (
@@ -157,8 +160,7 @@ export default function FixedNav() {
             : 'translate-y-full opacity-0'
         }`}
       >
-        <div className="px-4 pb-[env(safe-area-inset-bottom,8px)] pt-3 bg-[var(--bg-base)]/95 backdrop-blur-xl border-t border-[var(--border-subtle)]"
-          style={{ WebkitBackdropFilter: 'blur(24px)' }}
+        <div className="px-4 pb-[env(safe-area-inset-bottom,8px)] pt-3 bg-[var(--bg-base)] border-t border-[var(--border-subtle)]"
         >
           <a
             href="https://cal.com/rhemic-ai/discovery-call"
