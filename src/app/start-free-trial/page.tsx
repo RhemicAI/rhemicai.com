@@ -1,25 +1,87 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+'use client';
+
+import { useState } from 'react';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import Script from 'next/script';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 
-export const metadata: Metadata = {
-  title: 'Start Free Trial - Try AI Engine Optimization',
-  description:
-    'Get a custom AEO trial for your business. Website audit, competitor benchmarking, and AEO score baseline included. Book a 15-minute discovery call.',
-  alternates: { canonical: 'https://rhemicai.com/start-free-trial' },
-  openGraph: {
-    title: 'Start Free Trial - Try AI Engine Optimization',
-    description:
-      'Get a custom AEO trial. Website audit, competitor benchmarking, and AEO score baseline included.',
-    url: 'https://rhemicai.com/start-free-trial',
-  },
-};
-
 export default function StartFreeTrialPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    role: '',
+    message: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, source: 'waitlist' }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus({
+          type: 'success',
+          message:
+            "You're on the list! We'll reach out within 24 hours to discuss your custom trial.",
+        });
+
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          role: '',
+          message: '',
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || 'Failed to submit form. Please try again.',
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message:
+          'Unable to submit form. Please try again or email us directly at contact@rhemicai.com',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
       <Script
@@ -75,6 +137,170 @@ export default function StartFreeTrialPage() {
         showBackLink={false}
       />
 
+      {/* Early Access Form */}
+      <div className="relative z-10 py-16">
+        <div className="mx-auto max-w-2xl px-6">
+          <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-8 sm:p-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4 text-center">
+              Get early access
+            </h2>
+            <p className="text-lg text-[var(--text-secondary)] mb-10 text-center max-w-xl mx-auto leading-relaxed">
+              We&apos;re onboarding a limited number of businesses for our beta.
+              Tell us about yours — if it&apos;s a fit, you&apos;ll be first in
+              line.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
+                >
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              {/* Work Email */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
+                >
+                  Work Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
+                  placeholder="john@company.com"
+                />
+              </div>
+
+              {/* Company */}
+              <div>
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
+                >
+                  Company *
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  required
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
+                  placeholder="Acme Corp"
+                />
+              </div>
+
+              {/* Role */}
+              <div>
+                <label
+                  htmlFor="role"
+                  className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
+                >
+                  Role *
+                </label>
+                <select
+                  id="role"
+                  name="role"
+                  required
+                  value={formData.role}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
+                >
+                  <option value="">Select your role</option>
+                  <option value="founder">Founder / CEO</option>
+                  <option value="marketing">Marketing Leader</option>
+                  <option value="product">Product Manager</option>
+                  <option value="engineering">Engineering / Technical</option>
+                  <option value="sales">Sales / Business Development</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              {/* Goals (Message) */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
+                >
+                  Your Goals *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all resize-none"
+                  placeholder="What are your biggest visibility challenges right now?"
+                />
+              </div>
+
+              {/* Success/Error Messages */}
+              {submitStatus.type === 'success' && (
+                <div
+                  className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg"
+                  role="alert"
+                >
+                  <p className="text-green-400 text-sm font-medium">
+                    {submitStatus.message}
+                  </p>
+                </div>
+              )}
+
+              {submitStatus.type === 'error' && (
+                <div
+                  className="p-4 bg-red-900/20 border border-red-500/30 rounded-lg"
+                  role="alert"
+                >
+                  <p className="text-red-400 text-sm font-medium">
+                    {submitStatus.message}
+                  </p>
+                </div>
+              )}
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full px-8 py-4 text-base font-semibold rounded-full transition-all duration-300 ${
+                  isSubmitting
+                    ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                    : 'text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] hover:scale-105'
+                }`}
+              >
+                {isSubmitting ? 'Submitting...' : 'Request Early Access'}
+              </button>
+
+              <p className="text-xs text-[var(--text-muted)] text-center">
+                Limited spots · No credit card required
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-4xl px-6">
           {/* Main CTA Box */}
@@ -103,9 +329,10 @@ export default function StartFreeTrialPage() {
             </h2>
 
             <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-              You deserve a platform that actually fits your business.
-              Your trial is customized based on your industry, your current visibility,
-              and your optimization goals. Book a 15-minute call to get everything set up exactly how you need it.
+              You deserve a platform that actually fits your business. Your
+              trial is customized based on your industry, your current
+              visibility, and your optimization goals. Book a 15-minute call to
+              get everything set up exactly how you need it.
             </p>
 
             <a
@@ -125,7 +352,7 @@ export default function StartFreeTrialPage() {
           {/* What You'll Get */}
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6 text-center">
-              What's included in your free trial
+              What&apos;s included in your free trial
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
@@ -199,18 +426,25 @@ export default function StartFreeTrialPage() {
               </h2>
               <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
                 <p>
-                  You're serious about AI search optimization. That's why your trial needs to be built
-                  around your specific challenges. During the discovery call, you'll get clarity on:
+                  You&apos;re serious about AI search optimization. That&apos;s
+                  why your trial needs to be built around your specific
+                  challenges. During the discovery call, you&apos;ll get clarity
+                  on:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Your current website and visibility challenges</li>
-                  <li>Industry-specific optimization opportunities for your business</li>
-                  <li>Whether AI Engine Optimization makes sense for your goals</li>
-                  <li>How you'll measure success and track ROI</li>
+                  <li>
+                    Industry-specific optimization opportunities for your
+                    business
+                  </li>
+                  <li>
+                    Whether AI Engine Optimization makes sense for your goals
+                  </li>
+                  <li>How you&apos;ll measure success and track ROI</li>
                 </ul>
                 <p>
-                  This ensures you get maximum value from the trial — you only invest time
-                  where you know you'll see results.
+                  This ensures you get maximum value from the trial — you only
+                  invest time where you know you&apos;ll see results.
                 </p>
               </div>
             </div>
@@ -294,17 +528,20 @@ export default function StartFreeTrialPage() {
         links={[
           {
             title: 'Our Products',
-            description: 'Website auditing, competitor analysis, and code generation tools.',
+            description:
+              'Website auditing, competitor analysis, and code generation tools.',
             href: '/products',
           },
           {
             title: 'Custom Pricing',
-            description: 'Flexible plans tailored to your business needs and scale.',
+            description:
+              'Flexible plans tailored to your business needs and scale.',
             href: '/pricing',
           },
           {
             title: 'About Rhemic AI',
-            description: 'Meet the team building AI Engine Optimization infrastructure.',
+            description:
+              'Meet the team building AI Engine Optimization infrastructure.',
             href: '/about',
           },
         ]}
