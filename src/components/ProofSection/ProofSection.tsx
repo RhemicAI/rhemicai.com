@@ -26,7 +26,7 @@ export default function ProofSection() {
         {stats.map((stat, i) => (
           <div
             key={stat.value}
-            className="relative p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] backdrop-blur-sm hover:border-[var(--border-strong)] transition-colors duration-300"
+            className="relative p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] hover:border-[var(--border-strong)] transition-colors duration-300"
           >
             <span className="block text-3xl md:text-4xl font-bold tracking-[-0.02em] text-[var(--text-primary)] mb-2 font-display">
               {stat.value}

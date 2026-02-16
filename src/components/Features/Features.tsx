@@ -98,7 +98,7 @@ export default function Features() {
         {features.map((feature, i) => (
           <div
             key={feature.title}
-            className="bg-[var(--bg-glass)] backdrop-blur-md border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
+            className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-all duration-500 flex flex-col"
           >
             <div className="mb-6">{feature.icon}</div>
             <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">

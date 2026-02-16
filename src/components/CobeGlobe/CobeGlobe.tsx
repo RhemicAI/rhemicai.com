@@ -97,6 +97,26 @@ export default function CobeGlobe() {
     return () => document.removeEventListener('visibilitychange', onVisibility);
   }, []);
 
+  // Pause when scrolled past hero — globe is only visible at top of page
+  const visibleRef = useRef(true);
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const shouldBeVisible = window.scrollY < window.innerHeight;
+        if (shouldBeVisible !== visibleRef.current) {
+          visibleRef.current = shouldBeVisible;
+          globeRef.current?.toggle(shouldBeVisible);
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   // Debounced resize
   useEffect(() => {
     const onResize = () => {
