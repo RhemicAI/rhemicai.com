@@ -1,3 +1,6 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
 import StatsBanner from '@/components/StatsBanner/StatsBanner';
@@ -12,10 +15,11 @@ import FAQ from '@/components/FAQ/FAQ';
 import Footer from '@/components/Footer/Footer';
 
 export default function Home() {
+  const pathname = usePathname();
   return (
     <main className="min-h-screen selection:bg-violet-500/20 selection:text-white">
       <FixedNav />
-      <Hero />
+      <Hero key={pathname} />
       <StatsBanner />
       <AEOEngine />
       <ProofSection />

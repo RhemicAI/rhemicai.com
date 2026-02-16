@@ -29,10 +29,17 @@ export default function CobeGlobe() {
   const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null);
   const phiRef = useRef(0);
   const resizeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const isBuilding = useRef(false);
 
   const buildGlobe = useCallback(() => {
+    if (isBuilding.current) return;
+    isBuilding.current = true;
+
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      isBuilding.current = false;
+      return;
+    }
 
     if (globeRef.current) {
       globeRef.current.destroy();
@@ -65,6 +72,8 @@ export default function CobeGlobe() {
         phiRef.current += rotationSpeed;
       },
     });
+
+    isBuilding.current = false;
   }, []);
 
   // Init

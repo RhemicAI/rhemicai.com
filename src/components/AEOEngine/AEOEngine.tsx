@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import SummaryModal from '@/components/SummaryModal/SummaryModal';
 
 // ── Streaming data for left column ──
@@ -427,10 +428,17 @@ export default function AEOEngine() {
   const vizRef = useRef<HTMLDivElement>(null);
   // Observe the visualization container (Step 1), not the section header
   const vizInView = useInView(vizRef, 0.1);
+  const pathname = usePathname();
 
   // Sequential workflow state
   const [workflowPhase, setWorkflowPhase] = useState<'idle' | 'input' | 'engine' | 'output' | 'complete'>('idle');
   const hasStarted = useRef(false);
+
+  // Reset animation state on route change so it replays
+  useEffect(() => {
+    hasStarted.current = false;
+    setWorkflowPhase('idle');
+  }, [pathname]);
 
   // Start workflow when the visualization enters view (once per page load)
   useEffect(() => {

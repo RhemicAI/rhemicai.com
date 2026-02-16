@@ -1,9 +1,17 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ScrollRevealInit() {
+  const pathname = usePathname();
+
   useEffect(() => {
+    // Reset classes so animations replay on client-side navigation
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+      el.classList.remove('revealed', 'is-visible');
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,7 +40,7 @@ export default function ScrollRevealInit() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }
