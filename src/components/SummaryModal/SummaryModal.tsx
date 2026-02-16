@@ -223,7 +223,7 @@ export default function SummaryModal({
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2.5 px-5 py-2.5 text-sm font-semibold rounded-full bg-[var(--bg-glass)] border border-[var(--border-default)] text-[var(--text-secondary)] hover:bg-[var(--bg-glass-hover)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-all duration-200"
+        className="inline-flex items-center gap-2.5 px-5 py-2.5 text-sm font-semibold rounded-full bg-[var(--bg-glass)] border border-[var(--border-default)] text-[var(--text-secondary)] hover:bg-[var(--bg-glass-hover)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-colors duration-200"
       >
         <svg
           width="16"

@@ -79,7 +79,7 @@ export default function DashboardPreview() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       {/* heading */}
-      <div className="text-over-globe max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-16">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           Product
         </span>
@@ -95,14 +95,16 @@ export default function DashboardPreview() {
       {/* mockup container */}
       <div
         className="relative mx-auto max-w-4xl"
-        style={{ perspective: '1200px' }}
       >
         {/* purple glow */}
-        <div className="absolute -inset-8 bg-[#8B5CF6]/10 blur-3xl rounded-3xl pointer-events-none" />
+        <div
+          className="absolute -inset-16 rounded-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15), transparent 70%)' }}
+        />
 
         {/* window */}
         <div
-          className="relative bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-2xl overflow-hidden shadow-2xl md:[transform:rotateX(2deg)_rotateY(-1deg)]"
+          className="relative bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-2xl overflow-hidden shadow-2xl"
         >
           {/* title bar */}
           <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
