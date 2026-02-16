@@ -50,13 +50,13 @@ export default function Hero() {
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 font-body tracking-[0.01em]"
+            className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 font-body tracking-[0.01em]"
           >
             <span className="relative z-10">Book a Demo</span>
             <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <button
-            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300 font-body tracking-[0.01em]"
+            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body tracking-[0.01em]"
           >
             See How It Works
           </button>

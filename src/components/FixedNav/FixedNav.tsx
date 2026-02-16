@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,23 +12,53 @@ const navLinks = [
 ];
 
 export default function FixedNav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [showMobileCTA, setShowMobileCTA] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
+  // IntersectionObserver sentinels — zero JS during scroll
   useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 50);
-        setShowMobileCTA(window.scrollY > 600);
-        ticking = false;
-      });
+    const navSentinel = document.createElement('div');
+    navSentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
+    document.body.prepend(navSentinel);
+
+    const ctaSentinel = document.createElement('div');
+    ctaSentinel.style.cssText = 'position:absolute;top:600px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
+    document.body.prepend(ctaSentinel);
+
+    const navObs = new IntersectionObserver(([e]) => {
+      const nav = navRef.current;
+      if (!nav) return;
+      if (e.isIntersecting) {
+        nav.classList.remove('nav-scrolled');
+        nav.classList.add('nav-transparent');
+      } else {
+        nav.classList.add('nav-scrolled');
+        nav.classList.remove('nav-transparent');
+      }
+    });
+
+    const ctaObs = new IntersectionObserver(([e]) => {
+      const cta = ctaRef.current;
+      if (!cta) return;
+      if (e.isIntersecting) {
+        cta.classList.remove('cta-visible');
+        cta.classList.add('cta-hidden');
+      } else {
+        cta.classList.add('cta-visible');
+        cta.classList.remove('cta-hidden');
+      }
+    });
+
+    navObs.observe(navSentinel);
+    ctaObs.observe(ctaSentinel);
+
+    return () => {
+      navObs.disconnect();
+      ctaObs.disconnect();
+      navSentinel.remove();
+      ctaSentinel.remove();
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -45,11 +75,8 @@ export default function FixedNav() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-5 transition-all duration-300 ${
-          scrolled
-            ? 'bg-[var(--bg-base)]/95 border-b border-[var(--border-subtle)]'
-            : 'bg-transparent'
-        }`}
+        ref={navRef}
+        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-5 transition-[background-color,border-color] duration-300 nav-transparent"
       >
         {/* Left — Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
@@ -84,7 +111,7 @@ export default function FixedNav() {
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-all duration-300 font-body tracking-[0.01em]"
+            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
           >
             Book a Demo
           </a>
@@ -97,17 +124,17 @@ export default function FixedNav() {
             aria-expanded={menuOpen}
           >
             <span
-              className={`absolute w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300 ease-in-out ${
+              className={`absolute w-6 h-0.5 bg-[var(--text-primary)] transition-[transform,opacity] duration-300 ease-in-out ${
                 menuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
               }`}
             />
             <span
-              className={`absolute w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300 ease-in-out ${
+              className={`absolute w-6 h-0.5 bg-[var(--text-primary)] transition-[transform,opacity] duration-300 ease-in-out ${
                 menuOpen ? 'opacity-0' : 'opacity-100'
               }`}
             />
             <span
-              className={`absolute w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300 ease-in-out ${
+              className={`absolute w-6 h-0.5 bg-[var(--text-primary)] transition-[transform,opacity] duration-300 ease-in-out ${
                 menuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
               }`}
             />
@@ -117,7 +144,7 @@ export default function FixedNav() {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 md:hidden transition-[visibility,opacity] duration-300 ease-in-out ${
           menuOpen ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
@@ -143,7 +170,7 @@ export default function FixedNav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-all duration-300 font-body tracking-[0.01em]"
+                className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
               >
                 Book a Demo
               </a>
@@ -154,10 +181,9 @@ export default function FixedNav() {
 
       {/* Sticky mobile CTA — fixed at bottom, appears after scrolling past hero */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${
-          showMobileCTA && !menuOpen
-            ? 'translate-y-0 opacity-100'
-            : 'translate-y-full opacity-0'
+        ref={ctaRef}
+        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-[transform,opacity] duration-300 cta-hidden ${
+          menuOpen ? 'translate-y-full opacity-0' : ''
         }`}
       >
         <div className="px-4 pb-[env(safe-area-inset-bottom,8px)] pt-3 bg-[var(--bg-base)] border-t border-[var(--border-subtle)]"
@@ -166,7 +192,7 @@ export default function FixedNav() {
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full py-3.5 text-center text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 font-body tracking-[0.01em]"
+            className="block w-full py-3.5 text-center text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
             Book a Discovery Call
           </a>

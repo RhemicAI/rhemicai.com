@@ -93,11 +93,13 @@ function useInView(ref: React.RefObject<HTMLElement | null>, threshold = 0.15) {
 function InputColumn({
   active,
   onComplete,
-  isActive
+  isActive,
+  isOnScreenRef
 }: {
   active: boolean;
   onComplete?: () => void;
   isActive: boolean;
+  isOnScreenRef: React.RefObject<boolean>;
 }) {
   const [lines, setLines] = useState<Array<{ full: string; typed: string }>>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
@@ -116,6 +118,7 @@ function InputColumn({
 
     // Start typing animation - calm and smooth like a real developer
     const typeNextChar = () => {
+      if (!isOnScreenRef.current) return;
       setLines(prev => {
         if (prev.length === 0) return prev;
 
@@ -140,6 +143,7 @@ function InputColumn({
 
     // Add new lines periodically (1200ms = calm pace between lines)
     intervalRef.current = setInterval(() => {
+      if (!isOnScreenRef.current) return;
       // Stop after 10 lines (one complete cycle)
       if (lineIndexRef.current >= 10) {
         clearInterval(intervalRef.current);
@@ -168,16 +172,16 @@ function InputColumn({
   }, [active, onComplete]);
 
   return (
-    <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
+    <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center gap-2 mb-3">
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-all duration-500 ${isActive ? 'bg-emerald-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-emerald-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 1
         </span>
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono">
           Website Data
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-all duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/90'}`}>
+      <div className={`flex-1 border rounded-lg p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/90'}`}>
         {/* Fade overlay at top */}
         <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none rounded-t-lg" />
         <div className="space-y-1">
@@ -207,11 +211,13 @@ function InputColumn({
 function EngineColumn({
   active,
   onComplete,
-  isActive
+  isActive,
+  isOnScreenRef
 }: {
   active: boolean;
   onComplete?: () => void;
   isActive: boolean;
+  isOnScreenRef: React.RefObject<boolean>;
 }) {
   const [stageIndex, setStageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -250,7 +256,9 @@ function EngineColumn({
       const tick = (now: number) => {
         const elapsed = now - startTimeRef.current;
         const pct = Math.min((elapsed / duration) * 100, 100);
-        setProgress(pct);
+        if (isOnScreenRef.current) {
+          setProgress(pct);
+        }
         if (pct < 100) {
           animFrameRef.current = requestAnimationFrame(tick);
         } else {
@@ -270,16 +278,16 @@ function EngineColumn({
   const isComplete = stageIndex === ENGINE_STAGES.length - 1 && progress >= 100;
 
   return (
-    <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-blue-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
+    <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-blue-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center justify-center gap-2 mb-3">
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-all duration-500 ${isActive ? 'bg-blue-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-blue-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 2
         </span>
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-center">
           AEO Engine
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg backdrop-blur-xl p-4 font-mono text-sm relative overflow-hidden transition-all duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/90'}`}>
+      <div className={`flex-1 border rounded-lg p-4 font-mono text-sm relative overflow-hidden transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/90'}`}>
         {/* ASCII border decoration */}
         <div className="text-[var(--text-faint)] text-[10px] mb-3 select-none" aria-hidden="true">
           ╔══════════════════════════╗
@@ -342,11 +350,13 @@ function EngineColumn({
 function OutputColumn({
   active,
   onComplete,
-  isActive
+  isActive,
+  isOnScreenRef
 }: {
   active: boolean;
   onComplete?: () => void;
   isActive: boolean;
+  isOnScreenRef: React.RefObject<boolean>;
 }) {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -383,22 +393,22 @@ function OutputColumn({
   }, [active, onComplete]);
 
   return (
-    <div className={`flex flex-col h-full transition-all duration-700 ${isActive ? 'ring-2 ring-violet-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
+    <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-violet-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center justify-end gap-2 mb-3">
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-right">
           AI Answers
         </div>
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-all duration-500 ${isActive ? 'bg-violet-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-violet-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 3
         </span>
       </div>
-      <div className={`flex-1 space-y-2 overflow-hidden transition-all duration-700 rounded-lg ${isActive ? 'p-2 bg-violet-950/30 border border-violet-500/30' : ''}`}>
+      <div className={`flex-1 space-y-2 overflow-hidden transition-[border-color,background-color] duration-700 rounded-lg ${isActive ? 'p-2 bg-violet-950/30 border border-violet-500/30' : ''}`}>
         {OUTPUT_CARDS.map((card, i) => {
           const visible = visibleCards.includes(i);
           return (
             <div
               key={card.source}
-              className="border border-[var(--border-default)] rounded-lg bg-black/95 backdrop-blur-xl p-3 font-mono text-xs leading-relaxed transition-all duration-700"
+              className="border border-[var(--border-default)] rounded-lg bg-black/95 p-3 font-mono text-xs leading-relaxed transition-[opacity,transform] duration-700"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateX(0)' : 'translateX(20px)',
@@ -429,6 +439,20 @@ export default function AEOEngine() {
   // Observe the visualization container (Step 1), not the section header
   const vizInView = useInView(vizRef, 0.1);
   const pathname = usePathname();
+
+  // Two-way visibility tracking (ref, not state — no re-renders from this)
+  // Columns check this before calling setState to avoid React work while offscreen
+  const isOnScreenRef = useRef(true);
+  useEffect(() => {
+    const el = vizRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { isOnScreenRef.current = e.isIntersecting; },
+      { threshold: 0, rootMargin: '100px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   // Sequential workflow state
   const [workflowPhase, setWorkflowPhase] = useState<'idle' | 'input' | 'engine' | 'output' | 'complete'>('idle');
@@ -468,6 +492,7 @@ export default function AEOEngine() {
       id="product"
       ref={sectionRef}
       className="relative py-24 md:py-32 px-6 overflow-hidden"
+      style={{ contain: 'layout style paint' }}
     >
       {/* Section header */}
       <div className="text-over-globe max-w-5xl mx-auto text-center mb-16">
@@ -498,6 +523,7 @@ export default function AEOEngine() {
               active={active && workflowPhase === 'input'}
               onComplete={handleInputComplete}
               isActive={workflowPhase === 'input'}
+              isOnScreenRef={isOnScreenRef}
             />
           </div>
 
@@ -512,6 +538,7 @@ export default function AEOEngine() {
               active={active && (workflowPhase === 'engine' || workflowPhase === 'output' || workflowPhase === 'complete')}
               onComplete={handleEngineComplete}
               isActive={workflowPhase === 'engine'}
+              isOnScreenRef={isOnScreenRef}
             />
           </div>
 
@@ -526,6 +553,7 @@ export default function AEOEngine() {
               active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
               onComplete={handleOutputComplete}
               isActive={workflowPhase === 'output'}
+              isOnScreenRef={isOnScreenRef}
             />
           </div>
         </div>
@@ -536,18 +564,21 @@ export default function AEOEngine() {
             active={active && workflowPhase === 'input'}
             onComplete={handleInputComplete}
             isActive={workflowPhase === 'input'}
+            isOnScreenRef={isOnScreenRef}
           />
           <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
           <EngineColumn
             active={active && (workflowPhase === 'engine' || workflowPhase === 'output' || workflowPhase === 'complete')}
             onComplete={handleEngineComplete}
             isActive={workflowPhase === 'engine'}
+            isOnScreenRef={isOnScreenRef}
           />
           <div className="text-center text-[var(--text-muted)] text-2xl font-mono select-none" aria-hidden="true">↓</div>
           <OutputColumn
             active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
             onComplete={handleOutputComplete}
             isActive={workflowPhase === 'output'}
+            isOnScreenRef={isOnScreenRef}
           />
         </div>
       </div>

@@ -91,6 +91,27 @@ h6 {
   }
 }
 
+/* ── FixedNav scroll classes (DOM-driven, no React re-renders) ── */
+.nav-transparent {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.nav-scrolled {
+  background-color: rgba(10, 10, 10, 0.95);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cta-hidden {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.cta-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

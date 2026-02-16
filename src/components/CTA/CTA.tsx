@@ -13,7 +13,7 @@ export default function CTA() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center px-6">
+      <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
         <div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
             <span className="block">Stop being invisible to AI.</span>
@@ -31,7 +31,7 @@ export default function CTA() {
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+            className="group relative px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
           >
             <span className="relative z-10">Book a Demo</span>
             <div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -39,7 +39,7 @@ export default function CTA() {
 
           <Link
             href="/start-free-trial"
-            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300"
+            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
             Start Free Trial
           </Link>

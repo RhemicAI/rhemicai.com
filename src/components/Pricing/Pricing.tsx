@@ -1,7 +1,7 @@
 export default function Pricing() {
   return (
     <section id="pricing" className="relative py-20 md:py-28 px-6">
-      <div className="relative z-10 text-over-globe max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         {/* Header */}
         <div>
           <p className="text-sm font-medium tracking-[0.25em] uppercase text-[var(--text-secondary)] mb-6">
@@ -41,7 +41,7 @@ export default function Pricing() {
             href="https://cal.com/rhemic-ai/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-block px-10 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+            className="group relative inline-block px-10 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
           >
             <span className="relative z-10">Book a Discovery Call</span>
             <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
