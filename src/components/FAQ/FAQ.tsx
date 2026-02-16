@@ -82,7 +82,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[var(--bg-glass)] hover:border-[var(--border-default)] transition-colors"
+              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[rgba(15,15,15,0.85)] hover:border-[var(--border-default)] transition-colors"
             >
               <button
                 onClick={() => toggle(index)}
@@ -97,7 +97,7 @@ export default function FAQ() {
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
-                  className={`shrink-0 text-[var(--text-tertiary)] transition-transform duration-300 ${
+                  className={`shrink-0 text-[var(--text-tertiary)] ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 >
@@ -111,17 +111,13 @@ export default function FAQ() {
                 </svg>
               </button>
 
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
+              {openIndex === index && (
                 <div className="px-6 pb-5">
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-body">
                     {faq.answer}
                   </p>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>
