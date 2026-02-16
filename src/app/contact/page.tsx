@@ -15,9 +15,58 @@ export default function ContactPage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with form submission service
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message,
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          role: '',
+          message: '',
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || 'Failed to submit form. Please try again.',
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Unable to submit form. Please try again or email us directly at contact@rhemicai.com',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -155,12 +204,40 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Success/Error Messages */}
+                {submitStatus.type === 'success' && (
+                  <div
+                    className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg"
+                    role="alert"
+                  >
+                    <p className="text-green-400 text-sm font-medium">
+                      {submitStatus.message}
+                    </p>
+                  </div>
+                )}
+
+                {submitStatus.type === 'error' && (
+                  <div
+                    className="p-4 bg-red-900/20 border border-red-500/30 rounded-lg"
+                    role="alert"
+                  >
+                    <p className="text-red-400 text-sm font-medium">
+                      {submitStatus.message}
+                    </p>
+                  </div>
+                )}
+
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
+                  disabled={isSubmitting}
+                  className={`w-full px-8 py-4 text-base font-semibold rounded-full transition-all duration-300 ${
+                    isSubmitting
+                      ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                      : 'text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] hover:scale-105'
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
