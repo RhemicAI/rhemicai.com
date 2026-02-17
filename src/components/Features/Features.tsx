@@ -95,7 +95,7 @@ export default function Features() {
 
       {/* Cards */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {features.map((feature, i) => (
+        {features.map((feature) => (
           <div
             key={feature.title}
             className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-[background-color,border-color] duration-500 flex flex-col"

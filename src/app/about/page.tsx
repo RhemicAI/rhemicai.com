@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import Link from 'next/link';
+
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -128,13 +128,13 @@ export default function AboutPage() {
             <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
               <p>
                 The web is changing. Search engines are becoming answer engines.
-                Businesses that don't adapt will disappear from AI-generated
+                Businesses that don&apos;t adapt will disappear from AI-generated
                 results.
               </p>
               <p>
                 We saw this shift coming. As engineers who built high-performance
-                systems at scale, we knew traditional SEO wasn't enough. AI
-                doesn't rank pages — it synthesizes answers. Visibility in this
+                systems at scale, we knew traditional SEO wasn&apos;t enough. AI
+                doesn&apos;t rank pages — it synthesizes answers. Visibility in this
                 new world requires a fundamentally different approach.
               </p>
               <p>
@@ -145,7 +145,7 @@ export default function AboutPage() {
                 outcomes.
               </p>
               <p>
-                We're not here to replace traditional SEO. We're here to evolve
+                We&apos;re not here to replace traditional SEO. We&apos;re here to evolve
                 it for the AI age.
               </p>
             </div>

@@ -81,12 +81,12 @@ export default function CompetitorAnalysisPage() {
                 How does competitor analysis improve AI visibility?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
-                In the AI search economy, visibility isn't about ranking #1 on Google.
-                It's about being cited in AI-generated answers when customers ask
+                In the AI search economy, visibility isn&apos;t about ranking #1 on Google.
+                It&apos;s about being cited in AI-generated answers when customers ask
                 questions about your industry.
               </p>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                Our competitor analysis shows you who's winning in AI search, why they're
+                Our competitor analysis shows you who&apos;s winning in AI search, why they&apos;re
                 winning, and exactly what you need to do to outrank them.
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function CompetitorAnalysisPage() {
                 See where your competitors are winning
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a demo and we'll show you a live competitor analysis for your
+                Book a demo and we&apos;ll show you a live competitor analysis for your
                 industry. See which rivals dominate AI answers and how to beat them.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

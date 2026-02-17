@@ -85,7 +85,7 @@ export default function PricingPage() {
           {/* What's Included */}
           <section className="mb-16 sm:mb-24">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              What's included
+              What&apos;s included
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
@@ -160,7 +160,7 @@ export default function PricingPage() {
               Ready to get started?
             </h2>
             <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
-              Book a 15-minute discovery call and we'll walk you through what Rhemic AI can do for your brand.
+              Book a 15-minute discovery call and we&apos;ll walk you through what Rhemic AI can do for your brand.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
