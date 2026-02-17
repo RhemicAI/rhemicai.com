@@ -59,8 +59,8 @@ export default function CareersPage() {
             </h2>
 
             <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-              We're a small, fast-moving team building the infrastructure for
-              AI-native search optimization. As we grow, we'll be looking for
+              We&apos;re a small, fast-moving team building the infrastructure for
+              AI-native search optimization. As we grow, we&apos;ll be looking for
               world-class engineers, designers, and go-to-market talent who share
               our vision.
             </p>
@@ -75,7 +75,7 @@ export default function CareersPage() {
                 Remote-first with periodic in-person collaboration
               </p>
               <p className="text-sm">
-                <strong className="text-[var(--text-primary)]">What we're building:</strong>{' '}
+                <strong className="text-[var(--text-primary)]">What we&apos;re building:</strong>{' '}
                 Enterprise-grade AI search optimization at accessible pricing
               </p>
             </div>

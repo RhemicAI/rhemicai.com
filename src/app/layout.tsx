@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import CobeGlobe from "@/components/CobeGlobe/CobeGlobeLazy";
+import CobeGlobeHome from "@/components/CobeGlobe/CobeGlobeHome";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
@@ -82,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${ibmPlexMono.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <CobeGlobe />
+        <CobeGlobeHome />
         <SchemaOrg />
         <Breadcrumbs />
         <div className="relative z-10">{children}</div>

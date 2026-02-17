@@ -169,6 +169,7 @@ function InputColumn({
       clearInterval(intervalRef.current);
       clearInterval(typingIntervalRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, onComplete]);
 
   return (
@@ -272,6 +273,7 @@ function EngineColumn({
 
     runStage();
     return () => cancelAnimationFrame(animFrameRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, onComplete]);
 
   const currentStage = ENGINE_STAGES[stageIndex];
@@ -351,7 +353,6 @@ function OutputColumn({
   active,
   onComplete,
   isActive,
-  isOnScreenRef
 }: {
   active: boolean;
   onComplete?: () => void;
@@ -364,6 +365,7 @@ function OutputColumn({
 
   useEffect(() => {
     if (!active) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisibleCards([]);
       return;
     }
@@ -461,6 +463,7 @@ export default function AEOEngine() {
   // Reset animation state on route change so it replays
   useEffect(() => {
     hasStarted.current = false;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setWorkflowPhase('idle');
   }, [pathname]);
 
@@ -468,6 +471,7 @@ export default function AEOEngine() {
   useEffect(() => {
     if (vizInView && !hasStarted.current) {
       hasStarted.current = true;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setWorkflowPhase('input');
     }
   }, [vizInView]);

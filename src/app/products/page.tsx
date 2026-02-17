@@ -138,8 +138,8 @@ export default function ProductsPage() {
                 Learn the AI search economy
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                We're not just building tools — we're helping businesses understand
-                how AI answer engines work and why they're rapidly replacing traditional
+                We&apos;re not just building tools — we&apos;re helping businesses understand
+                how AI answer engines work and why they&apos;re rapidly replacing traditional
                 Google search. Knowledge is power in this new landscape.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

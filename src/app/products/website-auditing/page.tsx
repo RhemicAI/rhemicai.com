@@ -81,13 +81,13 @@ export default function WebsiteAuditingPage() {
                 Why website audits matter in the AI age
               </h2>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
-                Traditional SEO audits check for Google's algorithms. AI Engine
+                Traditional SEO audits check for Google&apos;s algorithms. AI Engine
                 Optimization audits check for how ChatGPT, Claude, Perplexity, and
                 other answer engines understand your content.
               </p>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                If AI can't parse your schema markup, understand your content structure,
-                or crawl your pages efficiently, you're invisible in AI-generated answers
+                If AI can&apos;t parse your schema markup, understand your content structure,
+                or crawl your pages efficiently, you&apos;re invisible in AI-generated answers
                 — even if you rank well in traditional Google search.
               </p>
             </div>
@@ -170,8 +170,8 @@ export default function WebsiteAuditingPage() {
                 Ready to see how AI engines view your site?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a demo and we'll run a live audit on your website. See exactly
-                what needs fixing and how much visibility you're leaving on the table.
+                Book a demo and we&apos;ll run a live audit on your website. See exactly
+                what needs fixing and how much visibility you&apos;re leaving on the table.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
