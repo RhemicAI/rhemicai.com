@@ -105,7 +105,7 @@ export default function CodeGenerationPage() {
               </p>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
                 Our code generation engine creates production-ready, validated structured
-                data in seconds. Just describe your business and we'll handle the rest.
+                data in seconds. Just describe your business and we&apos;ll handle the rest.
               </p>
             </div>
           </section>
@@ -202,7 +202,7 @@ export default function CodeGenerationPage() {
                 Get deployment-ready code in minutes
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a demo and we'll generate live schema markup for your business.
+                Book a demo and we&apos;ll generate live schema markup for your business.
                 See how easy it is to optimize for AI search.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

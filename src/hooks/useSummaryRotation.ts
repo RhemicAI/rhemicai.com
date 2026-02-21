@@ -108,7 +108,7 @@ export function useSummaryRotation() {
    */
   const getNextSummary = useCallback((): string => {
     setState((prevState) => {
-      let nextIndex = prevState.currentIndex;
+      const nextIndex = prevState.currentIndex;
 
       // If we've shown all summaries, reshuffle and restart
       if (nextIndex >= TOTAL_SUMMARIES) {
