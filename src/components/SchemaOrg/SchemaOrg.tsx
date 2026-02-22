@@ -5,7 +5,7 @@ const organizationSchema = JSON.stringify({
   '@type': 'Organization',
   name: 'Rhemic AI',
   url: 'https://rhemicai.com',
-  logo: 'https://rhemicai.com/Rhemic logo(:bg).png',
+  logo: 'https://rhemicai.com/rhemic-logo.svg',
   description:
     'Rhemic AI optimizes your business visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
   foundingDate: '2025',
