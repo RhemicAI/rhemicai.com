@@ -39,7 +39,7 @@ export default function Footer() {
               Visibility reimagined for the AI age.
             </p>
             <Image
-              src="/Rhemic logo(:bg).png"
+              src="/rhemic-logo.svg"
               alt="Rhemic AI Logo"
               width={120}
               height={120}

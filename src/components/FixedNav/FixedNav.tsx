@@ -81,7 +81,7 @@ export default function FixedNav() {
         {/* Left — Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/Rhemic logo(:bg).png"
+            src="/rhemic-icon.svg"
             alt="Rhemic AI"
             width={32}
             height={32}

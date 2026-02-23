@@ -357,7 +357,6 @@ function OutputColumn({
   active: boolean;
   onComplete?: () => void;
   isActive: boolean;
-  isOnScreenRef: React.RefObject<boolean>;
 }) {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -557,7 +556,6 @@ export default function AEOEngine() {
               active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
               onComplete={handleOutputComplete}
               isActive={workflowPhase === 'output'}
-              isOnScreenRef={isOnScreenRef}
             />
           </div>
         </div>
@@ -582,7 +580,6 @@ export default function AEOEngine() {
             active={active && (workflowPhase === 'output' || workflowPhase === 'complete')}
             onComplete={handleOutputComplete}
             isActive={workflowPhase === 'output'}
-            isOnScreenRef={isOnScreenRef}
           />
         </div>
       </div>
