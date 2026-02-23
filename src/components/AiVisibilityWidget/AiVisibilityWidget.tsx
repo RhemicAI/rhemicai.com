@@ -557,14 +557,14 @@ export default function AiVisibilityWidget() {
     <section className="relative px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-8 text-center sm:mb-10">
-          <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
+          <div className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
             PUBLIC AI VISIBILITY INDEX
           </div>
-          <h2 className="mx-auto max-w-4xl text-3xl leading-tight text-white sm:text-4xl lg:text-6xl">
-            Public AI Visibility Index
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-white/70 sm:text-lg">
+          <p className="mx-auto max-w-2xl text-sm text-white/70 sm:text-lg">
             See if AI recommends your brand
+          </p>
+          <p className="mx-auto mt-2 max-w-2xl text-xs text-white/45 sm:text-sm">
+            Public scan can take up to two minutes.
           </p>
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0D1012] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_24px_80px_rgba(0,0,0,0.45)]">
@@ -649,9 +649,6 @@ export default function AiVisibilityWidget() {
                       <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                       <span className="relative">Scan My Website</span>
                     </button>
-                    <p className="text-xs leading-relaxed text-white/50">
-                      Public scan can take up to two minutes.
-                    </p>
                   </div>
                 </form>
 
