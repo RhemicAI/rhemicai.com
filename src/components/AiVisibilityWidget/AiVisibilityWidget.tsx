@@ -560,10 +560,10 @@ export default function AiVisibilityWidget() {
           <div className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
             PUBLIC AI VISIBILITY INDEX
           </div>
-          <p className="mx-auto max-w-2xl text-sm text-white/70 sm:text-lg">
+          <p className="mx-auto max-w-2xl text-base font-semibold text-white/80 sm:text-xl">
             See if AI recommends your brand
           </p>
-          <p className="mx-auto mt-2 max-w-2xl text-xs text-white/45 sm:text-sm">
+          <p className="mx-auto mt-2 max-w-2xl text-xs font-semibold text-white/55 sm:text-sm">
             Public scan can take up to two minutes.
           </p>
         </div>
