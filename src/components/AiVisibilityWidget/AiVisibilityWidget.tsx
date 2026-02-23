@@ -275,6 +275,13 @@ export default function AiVisibilityWidget() {
     const script = document.createElement('script');
     script.src = 'https://app.cal.com/embed/embed.js';
     script.async = true;
+    script.onload = () => {
+      if (typeof window !== 'undefined' && (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal) {
+        (window as unknown as { Cal: (...args: unknown[]) => void }).Cal('init', {
+          origin: 'https://app.cal.com',
+        });
+      }
+    };
     document.head.appendChild(script);
 
     return () => {
@@ -858,41 +865,47 @@ export default function AiVisibilityWidget() {
                       </p>
                     </div>
                   </div>
-                </div>
-
-                <div
-                  className={`rounded-2xl border border-[#00D4AA]/20 bg-gradient-to-br from-[#00D4AA]/8 via-white/[0.02] to-transparent p-5 transition-all duration-700 sm:p-6 ${
-                    resultsVisible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-                  }`}
-                  style={{ transitionDelay: '450ms' }}
-                >
-                  <h3 className="text-xl text-white sm:text-2xl">
-                    Unlock your full visibility report
-                  </h3>
-                  <p className="mt-2 text-sm text-white/70 sm:text-base">
-                    Free trial available for qualified teams
-                  </p>
-                  <div className="mt-5">
+                  <div className="mt-5 rounded-xl border border-[#00D4AA]/20 bg-gradient-to-br from-[#00D4AA]/8 via-white/[0.02] to-transparent p-4 sm:p-5">
+                    <h4 className="text-lg text-white sm:text-xl">
+                      Unlock your full visibility report
+                    </h4>
+                    <p className="mt-2 text-sm text-white/70 sm:text-base">
+                      Free trial available for qualified teams
+                    </p>
+                    <div className="mt-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (
+                            typeof window !== 'undefined' &&
+                            (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal
+                          ) {
+                            (window as unknown as { Cal: (...args: unknown[]) => void }).Cal(
+                              'modal',
+                              {
+                                calLink: 'rhemic-ai/discovery-call',
+                                config: { layout: 'month_view' },
+                              }
+                            );
+                          }
+                        }}
+                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[#00D4AA] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[#22e7c0] hover:shadow-[0_8px_30px_rgba(0,212,170,0.25)]"
+                      >
+                        <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
+                        <span className="relative">Unlock Full Insights</span>
+                      </button>
+                    </div>
                     <button
                       type="button"
-                      data-cal-link="rhemic-ai/discovery-call"
-                      data-cal-config='{"layout":"month_view"}'
-                      className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-[#00D4AA] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[#22e7c0] hover:shadow-[0_8px_30px_rgba(0,212,170,0.25)]"
+                      onClick={() => {
+                        setErrorMessage(null);
+                        resetToInput();
+                      }}
+                      className="mt-4 text-sm text-white/70 underline decoration-white/20 underline-offset-4 transition hover:text-white"
                     >
-                      <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
-                      <span className="relative">Book a Demo</span>
+                      Scan another domain
                     </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setErrorMessage(null);
-                      resetToInput();
-                    }}
-                    className="mt-4 text-sm text-white/70 underline decoration-white/20 underline-offset-4 transition hover:text-white"
-                  >
-                    Scan another domain
-                  </button>
                 </div>
               </div>
             )}
