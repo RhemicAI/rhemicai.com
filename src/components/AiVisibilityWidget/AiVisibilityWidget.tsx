@@ -563,7 +563,7 @@ export default function AiVisibilityWidget() {
           <div className="relative p-5 sm:p-8 lg:p-10">
             <div className="mb-8">
               <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
-                AI VISIBILITY INDEX
+                PUBLIC AI VISIBILITY INDEX
               </div>
               <h2 className="max-w-2xl text-2xl leading-tight text-white sm:text-3xl lg:text-4xl">
                 See if AI recommends your brand
@@ -647,6 +647,9 @@ export default function AiVisibilityWidget() {
                       <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                       <span className="relative">Scan My Website</span>
                     </button>
+                    <p className="text-xs leading-relaxed text-white/50">
+                      Public scan can take up to two minutes.
+                    </p>
                   </div>
                 </form>
 
