@@ -3,6 +3,9 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 const API_BASE_URL = 'https://api.rhemicai.com';
+const CAL_EMBED_SRC = 'https://app.cal.com/embed/embed.js';
+const CAL_BOOKING_LINK = 'rhemic-ai/discovery-call';
+const CAL_BOOKING_URL = 'https://cal.com/rhemic-ai/discovery-call';
 const POLL_INTERVAL_MS = 5000;
 const POLL_TIMEOUT_MS = 3 * 60 * 1000;
 
@@ -272,32 +275,47 @@ export default function AiVisibilityWidget() {
     const maybeCal = (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal;
     if (!maybeCal) return false;
     if (!calInitializedRef.current) {
-      maybeCal('init', { origin: 'https://app.cal.com' });
+      maybeCal('init', { origin: 'https://cal.com' });
+      maybeCal('preload', { calLink: CAL_BOOKING_LINK });
       calInitializedRef.current = true;
     }
     return true;
   };
 
   const openCalModal = () => {
-    if (!initCal()) return;
-    const cal = (window as unknown as { Cal: (...args: unknown[]) => void }).Cal;
-    cal('modal', {
-      calLink: 'rhemic-ai/discovery-call',
-      config: { layout: 'month_view' },
-    });
+    if (typeof window === 'undefined') return;
+
+    try {
+      if (!initCal()) {
+        window.open(CAL_BOOKING_URL, '_blank', 'noopener,noreferrer');
+        return;
+      }
+
+      const cal = (window as unknown as { Cal: (...args: unknown[]) => void }).Cal;
+      cal('modal', {
+        calLink: CAL_BOOKING_LINK,
+        config: { layout: 'month_view' },
+      });
+    } catch {
+      window.open(CAL_BOOKING_URL, '_blank', 'noopener,noreferrer');
+    }
   };
 
   useEffect(() => {
     const existing = document.querySelector<HTMLScriptElement>(
-      'script[src="https://app.cal.com/embed/embed.js"]'
+      `script[src="${CAL_EMBED_SRC}"]`
     );
     if (existing) {
+      if (!existing.getAttribute('data-rhemic-cal-init-listener')) {
+        existing.addEventListener('load', initCal, { once: true });
+        existing.setAttribute('data-rhemic-cal-init-listener', 'true');
+      }
       initCal();
       return;
     }
 
     const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
+    script.src = CAL_EMBED_SRC;
     script.async = true;
     script.onload = () => {
       initCal();
