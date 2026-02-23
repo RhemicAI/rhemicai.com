@@ -556,20 +556,22 @@ export default function AiVisibilityWidget() {
   return (
     <section className="relative px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-8 text-center sm:mb-10">
+          <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
+            PUBLIC AI VISIBILITY INDEX
+          </div>
+          <h2 className="mx-auto max-w-4xl text-3xl leading-tight text-white sm:text-4xl lg:text-6xl">
+            Public AI Visibility Index
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-white/70 sm:text-lg">
+            See if AI recommends your brand
+          </p>
+        </div>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0D1012] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_24px_80px_rgba(0,0,0,0.45)]">
           <div className="pointer-events-none absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:18px_18px]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(0,212,170,0.13),transparent_42%),radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.05),transparent_38%),linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_28%)]" />
           <div className="pointer-events-none absolute inset-y-0 right-[-20%] w-[55%] bg-[radial-gradient(circle_at_center,rgba(0,212,170,0.08),transparent_68%)] blur-3xl" />
           <div className="relative p-5 sm:p-8 lg:p-10">
-            <div className="mb-8">
-              <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
-                PUBLIC AI VISIBILITY INDEX
-              </div>
-              <h2 className="max-w-2xl text-2xl leading-tight text-white sm:text-3xl lg:text-4xl">
-                See if AI recommends your brand
-              </h2>
-            </div>
-
             {phase === 'input' && (
               <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
                 <form
