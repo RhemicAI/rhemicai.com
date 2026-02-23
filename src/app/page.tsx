@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
 import StatsBanner from '@/components/StatsBanner/StatsBanner';
-import AEOEngine from '@/components/AEOEngine/AEOEngine';
+import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import ProofSection from '@/components/ProofSection/ProofSection';
 import Features from '@/components/Features/Features';
 import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
@@ -21,7 +21,7 @@ export default function Home() {
       <FixedNav />
       <Hero key={pathname} />
       <StatsBanner />
-      <AEOEngine />
+      <AiVisibilityWidget />
       <ProofSection />
       <Features />
       <DashboardPreview />
