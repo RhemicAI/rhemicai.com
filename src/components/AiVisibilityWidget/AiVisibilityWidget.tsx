@@ -557,7 +557,7 @@ export default function AiVisibilityWidget() {
     <section className="relative px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-8 text-center sm:mb-10">
-          <div className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)]">
+          <div className="mb-4 inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)] sm:px-6 sm:text-sm sm:tracking-[0.22em]">
             PUBLIC AI VISIBILITY INDEX
           </div>
           <p className="mx-auto max-w-2xl text-base font-semibold text-white/80 sm:text-xl">
