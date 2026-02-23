@@ -265,22 +265,42 @@ export default function AiVisibilityWidget() {
 
   const pollIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollStartedAtRef = useRef<number | null>(null);
+  const calInitializedRef = useRef(false);
+
+  const initCal = () => {
+    if (typeof window === 'undefined') return false;
+    const maybeCal = (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal;
+    if (!maybeCal) return false;
+    if (!calInitializedRef.current) {
+      maybeCal('init', { origin: 'https://app.cal.com' });
+      calInitializedRef.current = true;
+    }
+    return true;
+  };
+
+  const openCalModal = () => {
+    if (!initCal()) return;
+    const cal = (window as unknown as { Cal: (...args: unknown[]) => void }).Cal;
+    cal('modal', {
+      calLink: 'rhemic-ai/discovery-call',
+      config: { layout: 'month_view' },
+    });
+  };
 
   useEffect(() => {
     const existing = document.querySelector<HTMLScriptElement>(
       'script[src="https://app.cal.com/embed/embed.js"]'
     );
-    if (existing) return;
+    if (existing) {
+      initCal();
+      return;
+    }
 
     const script = document.createElement('script');
     script.src = 'https://app.cal.com/embed/embed.js';
     script.async = true;
     script.onload = () => {
-      if (typeof window !== 'undefined' && (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal) {
-        (window as unknown as { Cal: (...args: unknown[]) => void }).Cal('init', {
-          origin: 'https://app.cal.com',
-        });
-      }
+      initCal();
     };
     document.head.appendChild(script);
 
@@ -856,55 +876,35 @@ export default function AiVisibilityWidget() {
                       </div>
                     </div>
 
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#0D1012]/50 via-[#0D1012]/75 to-[#0D1012]/85 px-4 text-center">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#0D1012]/45 via-[#0D1012]/78 to-[#0D1012]/92 px-4 text-center">
                       <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 backdrop-blur-sm">
                         <LockIcon />
                       </div>
-                      <p className="max-w-sm text-sm text-white/85 sm:text-base">
-                        See which AI engines mention you — and which don&apos;t
+                      <h4 className="max-w-xl text-lg text-white sm:text-xl">
+                        Unlock your Full Visibility report
+                      </h4>
+                      <p className="mt-2 max-w-xl text-sm text-white/70 sm:text-base">
+                        Free trial available for qualified teams
                       </p>
-                    </div>
-                  </div>
-                  <div className="mt-5 rounded-xl border border-[#00D4AA]/20 bg-gradient-to-br from-[#00D4AA]/8 via-white/[0.02] to-transparent p-4 sm:p-5">
-                    <h4 className="text-lg text-white sm:text-xl">
-                      Unlock your full visibility report
-                    </h4>
-                    <p className="mt-2 text-sm text-white/70 sm:text-base">
-                      Free trial available for qualified teams
-                    </p>
-                    <div className="mt-4">
                       <button
                         type="button"
-                        onClick={() => {
-                          if (
-                            typeof window !== 'undefined' &&
-                            (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal
-                          ) {
-                            (window as unknown as { Cal: (...args: unknown[]) => void }).Cal(
-                              'modal',
-                              {
-                                calLink: 'rhemic-ai/discovery-call',
-                                config: { layout: 'month_view' },
-                              }
-                            );
-                          }
-                        }}
-                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[#00D4AA] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[#22e7c0] hover:shadow-[0_8px_30px_rgba(0,212,170,0.25)]"
+                        onClick={openCalModal}
+                        className="group relative mt-4 inline-flex w-full max-w-xl items-center justify-center overflow-hidden rounded-xl bg-[#00D4AA] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[#22e7c0] hover:shadow-[0_8px_30px_rgba(0,212,170,0.25)]"
                       >
                         <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                         <span className="relative">Unlock Full Insights</span>
                       </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setErrorMessage(null);
+                          resetToInput();
+                        }}
+                        className="mt-4 text-sm text-white/70 underline decoration-white/20 underline-offset-4 transition hover:text-white"
+                      >
+                        Scan another domain
+                      </button>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setErrorMessage(null);
-                        resetToInput();
-                      }}
-                      className="mt-4 text-sm text-white/70 underline decoration-white/20 underline-offset-4 transition hover:text-white"
-                    >
-                      Scan another domain
-                    </button>
                   </div>
                 </div>
               </div>
