@@ -32,18 +32,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-4">
-            <p className="text-xl font-bold tracking-tight text-[var(--text-primary)] font-display">
-              Rhemic AI
-            </p>
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              Visibility reimagined for the AI age.
+              AI competitive visibility intelligence for agencies.
             </p>
             <Image
-              src="/rhemic-logo.svg"
+              src="/rhemic-footer-logo.png"
               alt="Rhemic AI Logo"
-              width={120}
-              height={120}
-              className="mt-6 object-contain w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
+              width={110}
+              height={110}
+              className="mt-6 object-contain w-[80px] h-[80px] md:w-[110px] md:h-[110px]"
             />
           </div>
 
@@ -80,9 +77,7 @@ export default function Footer() {
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
             <a
-              href="https://cal.com/rhemic-ai/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#" data-cal-link="rhemic-ai/discovery-call"
               className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book a Demo
@@ -101,7 +96,9 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             {/* LinkedIn */}
             <a
-              href="#"
+              href="https://www.linkedin.com/company/rhemic-ai"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="text-[var(--text-muted)] hover:text-[var(--text-tertiary)] transition-colors duration-200"
             >
@@ -112,7 +109,9 @@ export default function Footer() {
 
             {/* Twitter / X */}
             <a
-              href="#"
+              href="https://x.com/rhemicai"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Twitter"
               className="text-[var(--text-muted)] hover:text-[var(--text-tertiary)] transition-colors duration-200"
             >

@@ -5,6 +5,7 @@ import CobeGlobeHome from "@/components/CobeGlobe/CobeGlobeHome";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
+import CalEmbed from "@/components/CalEmbed/CalEmbed";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -85,6 +86,7 @@ export default function RootLayout({
         <CobeGlobeHome />
         <SchemaOrg />
         <Breadcrumbs />
+        <CalEmbed />
         <div className="relative z-10">{children}</div>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

@@ -15,7 +15,7 @@ const MARKERS: { location: [number, number]; size: number }[] = [
 
 function getDpr(): number {
   if (typeof window === 'undefined') return 1;
-  // Cap at 1 — globe is a subtle background element, no need for retina rendering
+  // Cap at 1, globe is a subtle background element, no need for retina rendering
   return 1;
 }
 
@@ -30,8 +30,7 @@ export default function CobeGlobe() {
   const phiRef = useRef(0);
   const resizeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isBuilding = useRef(false);
-  const scrollIdleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const isScrollingRef = useRef(false);
+  const scrollVelocityRef = useRef(0);
 
   const buildGlobe = useCallback(() => {
     if (isBuilding.current) return;
@@ -50,7 +49,7 @@ export default function CobeGlobe() {
 
     const w = window.innerWidth;
     const h = window.innerHeight;
-    // Always rotate — globe is a subtle background, not a motion-sickness trigger
+    // Always rotate, globe is a subtle background, not a motion-sickness trigger
     const rotationSpeed = prefersReducedMotion() ? 0.001 : 0.003;
 
     globeRef.current = createGlobe(canvas, {
@@ -71,7 +70,8 @@ export default function CobeGlobe() {
       markers: MARKERS,
       onRender: (state) => {
         state.phi = phiRef.current;
-        phiRef.current += rotationSpeed;
+        phiRef.current += rotationSpeed + scrollVelocityRef.current;
+        scrollVelocityRef.current *= 0.92;
       },
     });
 
@@ -89,7 +89,7 @@ export default function CobeGlobe() {
     };
   }, [buildGlobe]);
 
-  // Visibility API — pause when tab hidden
+  // Visibility API, pause when tab hidden
   useEffect(() => {
     const onVisibility = () => {
       if (!globeRef.current) return;
@@ -100,7 +100,7 @@ export default function CobeGlobe() {
   }, []);
 
 
-  // IntersectionObserver toggle — pause WebGL when globe canvas is offscreen
+  // IntersectionObserver toggle, pause WebGL when globe canvas is offscreen
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -129,39 +129,15 @@ export default function CobeGlobe() {
     };
   }, [buildGlobe]);
 
-  // Pause globe during scroll to avoid main-thread contention (fixes INP/scroll jank)
-  const SCROLL_IDLE_MS = 180;
+  // Scroll-driven rotation: scroll down = spin right, scroll up = spin left
   useEffect(() => {
-    const onScrollStart = () => {
-      if (isScrollingRef.current) return;
-      isScrollingRef.current = true;
-      clearTimeout(scrollIdleTimer.current);
-      globeRef.current?.toggle(false);
+    const onWheel = (e: WheelEvent) => {
+      scrollVelocityRef.current += e.deltaY * 0.0003;
+      // clamp so fast scrolling doesn't overshoot
+      scrollVelocityRef.current = Math.max(-0.04, Math.min(0.04, scrollVelocityRef.current));
     };
-    const onScrollIdle = () => {
-      clearTimeout(scrollIdleTimer.current);
-      scrollIdleTimer.current = setTimeout(() => {
-        isScrollingRef.current = false;
-        if (globeRef.current && canvasRef.current) {
-          const rect = canvasRef.current.getBoundingClientRect();
-          const inView = rect.top < window.innerHeight && rect.bottom > 0;
-          globeRef.current.toggle(inView);
-        }
-      }, SCROLL_IDLE_MS);
-    };
-    window.addEventListener('wheel', onScrollStart, { passive: true });
-    window.addEventListener('touchstart', onScrollStart, { passive: true });
-    window.addEventListener('wheel', onScrollIdle, { passive: true });
-    window.addEventListener('touchend', onScrollIdle, { passive: true });
-    window.addEventListener('scroll', onScrollIdle, { passive: true });
-    return () => {
-      window.removeEventListener('wheel', onScrollStart);
-      window.removeEventListener('touchstart', onScrollStart);
-      window.removeEventListener('wheel', onScrollIdle);
-      window.removeEventListener('touchend', onScrollIdle);
-      window.removeEventListener('scroll', onScrollIdle);
-      clearTimeout(scrollIdleTimer.current);
-    };
+    window.addEventListener('wheel', onWheel, { passive: true });
+    return () => window.removeEventListener('wheel', onWheel);
   }, []);
 
   return (

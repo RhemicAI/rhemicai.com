@@ -254,9 +254,7 @@ export default function ContactPage() {
                   visibility in AI-generated search results.
                 </p>
                 <a
-                  href="https://cal.com/rhemic-ai/discovery-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#" data-cal-link="rhemic-ai/discovery-call"
                   className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
                   Book a Demo

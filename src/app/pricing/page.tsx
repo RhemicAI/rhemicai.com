@@ -5,20 +5,73 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
-  title: 'Pricing - Custom AI Engine Optimization Plans',
+  title: 'Pricing - Simple, Transparent AI Engine Optimization Plans',
   description:
-    'Custom AEO pricing tailored to your business. Monthly retainers, project-based, or audit-only packages. Book a free discovery call.',
+    'Three clear AEO pricing plans starting at $499/mo. No hidden fees, no long-term contracts. Starter, Growth, and Scale plans for every stage of growth.',
   alternates: { canonical: 'https://rhemicai.com/pricing' },
   openGraph: {
-    title: 'Pricing - Custom AI Engine Optimization Plans',
+    title: 'Pricing - Simple, Transparent AI Engine Optimization Plans',
     description:
-      'Custom AEO pricing tailored to your business. Monthly retainers, project-based, or audit-only packages.',
+      'Three clear AEO pricing plans starting at $499/mo. No hidden fees, no long-term contracts.',
     url: 'https://rhemicai.com/pricing',
   },
 };
+
+const tiers = [
+  {
+    name: 'Starter',
+    price: 499,
+    description: 'Small businesses getting their first foothold in AI search.',
+    popular: false,
+    calLink: 'rhemic-ai/starter-plan-onboarding',
+    features: [
+      'AI Visibility Audit (monthly)',
+      '1 competitor tracked across ChatGPT, Claude, Gemini, Perplexity',
+      'Schema markup + JSON-LD generation (up to 10 pages)',
+      '1 topic cluster optimized',
+      'Monthly AEO score report',
+      'Email support (48hr response)',
+    ],
+  },
+  {
+    name: 'Growth',
+    price: 899,
+    description: 'Growing brands that want to dominate their category in AI search.',
+    popular: true,
+    calLink: 'rhemic-ai/growth-plan-onboarding',
+    features: [
+      'Everything in Starter, plus:',
+      'AI Visibility Audit (bi-weekly)',
+      '5 competitors tracked',
+      'Schema markup + JSON-LD generation (unlimited pages)',
+      '3 topic clusters optimized',
+      'Bi-weekly AEO score report + recommendations',
+      'Priority email + Slack support',
+      'Monthly 30-min strategy call',
+      'Competitor gap analysis report',
+    ],
+  },
+  {
+    name: 'Scale',
+    price: 1499,
+    description: 'Agencies and multi-location brands managing visibility at scale.',
+    popular: false,
+    calLink: 'rhemic-ai/scale-plan-onboarding',
+    features: [
+      'Everything in Growth, plus:',
+      'AI Visibility Audit (weekly)',
+      'Unlimited competitors tracked',
+      'Unlimited topic clusters',
+      'Weekly AEO score report',
+      'Dedicated account manager',
+      'Weekly 30-min strategy call',
+      'White-label reporting (for agencies)',
+      'Early access to new Rhemic AI features',
+    ],
+  },
+];
 
 export default function PricingPage() {
   return (
@@ -27,131 +80,113 @@ export default function PricingPage() {
 
       <PageHero
         subtitle="Pricing"
-        title="Built for your business."
-        description="Every company has unique needs. We create custom pricing based on your goals, scale, and industry."
+        title="Simple, transparent pricing."
+        description="Three plans built for every stage of growth. No hidden fees, no long-term contracts."
         showBackLink={false}
       />
 
-      <div className="mx-auto max-w-5xl px-6 mb-8">
-        <UpdatedDate date="2026-02-14" />
-      </div>
-
-      <div className="relative z-10 py-12 sm:py-24">
+      <div className="relative z-10 pb-12 sm:pb-24">
         <div className="mx-auto max-w-5xl px-6">
-          {/* How Pricing Works */}
+
+          {/* Pricing Tiers */}
           <section className="mb-16 sm:mb-24">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              How pricing works
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-default)] mb-4">
-                  <span className="text-lg font-bold text-[var(--text-primary)]">1</span>
-                </div>
-                <h3 className="text-lg font-bold text-[var(--text-primary)] mb-3">
-                  Discovery Call
-                </h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                  We learn about your business, goals, and current AI search visibility.
-                </p>
-              </div>
-
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-default)] mb-4">
-                  <span className="text-lg font-bold text-[var(--text-primary)]">2</span>
-                </div>
-                <h3 className="text-lg font-bold text-[var(--text-primary)] mb-3">
-                  Custom Proposal
-                </h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                  We design a plan with specific deliverables, timelines, and transparent pricing.
-                </p>
-              </div>
-
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-default)] mb-4">
-                  <span className="text-lg font-bold text-[var(--text-primary)]">3</span>
-                </div>
-                <h3 className="text-lg font-bold text-[var(--text-primary)] mb-3">
-                  Flexible Engagement
-                </h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                  Monthly retainers, project-based work, or audit-only packages — you choose.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* What's Included */}
-          <section className="mb-16 sm:mb-24">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              What&apos;s included
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: 'AI Engine Audits',
-                  description:
-                    'Full website crawls analyzing schema markup, content structure, and technical SEO signals for AI answer engines.',
-                },
-                {
-                  title: 'Competitor Analysis',
-                  description:
-                    'Track your rivals across ChatGPT, Claude, Perplexity, and Gemini to identify gaps and opportunities.',
-                },
-                {
-                  title: 'Automated Code Generation',
-                  description:
-                    'AI-generated schema markup, JSON-LD, and optimized metadata ready to deploy with one click.',
-                },
-                {
-                  title: 'AEO Score Tracking',
-                  description:
-                    'Monitor your AI search visibility over time with actionable recommendations for continuous improvement.',
-                },
-                {
-                  title: 'Priority Support',
-                  description:
-                    'Direct access to our team via email and Slack for questions, strategy sessions, and troubleshooting.',
-                },
-                {
-                  title: 'Custom Reporting',
-                  description:
-                    'Tailored dashboards and reports designed for your stakeholders and business objectives.',
-                },
-              ].map((item, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {tiers.map((tier) => (
                 <div
-                  key={i}
-                  className="flex gap-4 p-6 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] hover:border-[var(--border-default)] transition-colors"
+                  key={tier.name}
+                  className={`relative flex flex-col bg-[var(--bg-glass)] rounded-2xl p-8 border ${
+                    tier.popular
+                      ? 'border-violet-500/50 ring-1 ring-violet-500/20'
+                      : 'border-[var(--border-default)]'
+                  }`}
                 >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="shrink-0 mt-0.5"
-                  >
-                    <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" className="text-[var(--text-tertiary)]" />
-                    <path
-                      d="M6 10L9 13L14 7"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-[var(--text-primary)]"
-                    />
-                  </svg>
-                  <div>
-                    <h3 className="font-semibold text-[var(--text-primary)] mb-1">
-                      {item.title}
+                  {tier.popular && (
+                    <div className="mb-4">
+                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div className={tier.popular ? '' : 'mt-7'}>
+                    <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
+                      {tier.name}
                     </h3>
-                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                      {item.description}
+
+                    <div className="flex items-baseline gap-1 mb-3">
+                      <span className="text-4xl font-bold text-[var(--text-primary)] font-display">
+                        ${tier.price.toLocaleString()}
+                      </span>
+                      <span className="text-base text-[var(--text-secondary)]">/mo</span>
+                    </div>
+
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">
+                      {tier.description}
                     </p>
+
+                    <a
+                      href="#"
+                      data-cal-link={tier.calLink}
+                      className={`block w-full text-center px-6 py-3 text-sm font-semibold rounded-full transition-all duration-300 mb-8 ${
+                        tier.popular
+                          ? 'text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] hover:scale-105'
+                          : 'text-[var(--text-primary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] hover:bg-[var(--bg-glass-hover)]'
+                      }`}
+                    >
+                      Get Started
+                    </a>
+
+                    <ul className="space-y-3">
+                      {tier.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          {feature.startsWith('Everything in') ? (
+                            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--text-tertiary)] pt-0.5 w-5 shrink-0" />
+                          ) : (
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              className="shrink-0 mt-0.5"
+                            >
+                              <circle
+                                cx="10"
+                                cy="10"
+                                r="9"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                className="text-[var(--text-tertiary)]"
+                              />
+                              <path
+                                d="M6 10L9 13L14 7"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="text-[var(--text-primary)]"
+                              />
+                            </svg>
+                          )}
+                          <span
+                            className={`text-sm leading-relaxed ${
+                              feature.startsWith('Everything in')
+                                ? 'text-[var(--text-tertiary)] font-semibold'
+                                : 'text-[var(--text-secondary)]'
+                            }`}
+                          >
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
             </div>
+
+            <p className="text-center text-xs text-[var(--text-muted)] mt-6">
+              Save 20% with annual billing &middot; Contact us for annual pricing
+            </p>
           </section>
 
           {/* CTA Section */}
@@ -160,13 +195,11 @@ export default function PricingPage() {
               Ready to get started?
             </h2>
             <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
-              Book a 15-minute discovery call and we&apos;ll walk you through what Rhemic AI can do for your brand.
+              Book a 30-minute discovery call and we&apos;ll walk you through what Rhemic AI can do for your brand.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://cal.com/rhemic-ai/discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#" data-cal-link="rhemic-ai/discovery-call"
                 className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
                 Book a Demo
@@ -179,7 +212,7 @@ export default function PricingPage() {
               </Link>
             </div>
             <p className="text-xs text-[var(--text-muted)] mt-6">
-              Custom pricing · No long-term contracts
+              No hidden fees · No long-term contracts
             </p>
           </section>
 
@@ -190,22 +223,22 @@ export default function PricingPage() {
               {
                 question: 'How much does Rhemic AI cost?',
                 answer:
-                  'Rhemic AI uses custom pricing based on your business size, goals, and industry. We offer monthly retainers, project-based work, and audit-only packages. Book a discovery call to get a transparent proposal with no hidden fees.',
+                  'Rhemic AI offers three transparent monthly plans: Starter at $499/mo, Growth at $899/mo, and Scale at $1,499/mo. Each plan is billed monthly with no long-term contracts required. Save 20% by choosing annual billing — contact us for annual pricing.',
               },
               {
                 question: 'Is there a free trial?',
                 answer:
-                  'Yes. We offer a personalized free trial that includes a website audit, competitor benchmarking, and an AEO score baseline. Book a 15-minute discovery call to get started.',
+                  'Yes. We offer a personalized free trial that includes a website audit, competitor benchmarking, and an AEO score baseline. Book a 30-minute discovery call to get started.',
               },
               {
                 question: 'Do I need a long-term contract?',
                 answer:
-                  'No. Rhemic AI offers flexible engagements with no long-term contracts required. You can choose monthly retainers, project-based work, or one-time audits depending on your needs.',
+                  'No. All plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
               },
               {
                 question: 'What is included in every plan?',
                 answer:
-                  'Every plan includes AI engine audits, competitor analysis, automated code generation, AEO score tracking, priority support, and custom reporting. The scope and frequency are tailored to your plan.',
+                  'Every plan includes AI visibility audits, competitor tracking, schema markup + JSON-LD generation, AEO score reporting, and topic cluster optimization. Higher-tier plans increase the frequency, scope, and level of support included.',
               },
             ]}
           />

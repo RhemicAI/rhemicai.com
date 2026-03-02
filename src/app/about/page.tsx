@@ -7,7 +7,6 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'About Rhemic AI - AI Engine Optimization Team & Mission',
@@ -69,7 +68,7 @@ const values = [
   {
     title: 'Trust',
     description:
-      'Your data, your insights, your competitive edge — all protected with enterprise-grade security and transparency.',
+      'Your data, your insights, your competitive edge, all protected with enterprise-grade security and transparency.',
   },
 ];
 
@@ -115,9 +114,6 @@ export default function AboutPage() {
         showBackLink={false}
       />
 
-      <div className="mx-auto max-w-5xl px-6 mb-8">
-        <UpdatedDate date="2026-02-14" />
-      </div>
 
       <div className="relative z-10 py-12 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
@@ -135,7 +131,7 @@ export default function AboutPage() {
               <p>
                 We saw this shift coming. As engineers who built high-performance
                 systems at scale, we knew traditional SEO wasn&apos;t enough. AI
-                doesn&apos;t rank pages — it synthesizes answers. Visibility in this
+                doesn&apos;t rank pages, it synthesizes answers. Visibility in this
                 new world requires a fundamentally different approach.
               </p>
               <p>
@@ -233,7 +229,7 @@ export default function AboutPage() {
 
           {/* FAQ */}
           <SubpageFAQ
-            heading="About Rhemic AI — FAQ"
+            heading="About Rhemic AI, FAQ"
             faqs={[
               {
                 question: 'What is Rhemic AI?',
@@ -253,7 +249,7 @@ export default function AboutPage() {
               {
                 question: 'How is AEO different from traditional SEO?',
                 answer:
-                  'Traditional SEO optimizes for Google\'s ranking algorithm. AEO optimizes for how AI answer engines like ChatGPT and Claude synthesize and cite information. AI doesn\'t rank pages — it generates answers, so visibility requires structured data, content clarity, and schema markup optimized for AI comprehension.',
+                  'Traditional SEO optimizes for Google\'s ranking algorithm. AEO optimizes for how AI answer engines like ChatGPT and Claude synthesize and cite information. AI doesn\'t rank pages, it generates answers, so visibility requires structured data, content clarity, and schema markup optimized for AI comprehension.',
               },
             ]}
           />

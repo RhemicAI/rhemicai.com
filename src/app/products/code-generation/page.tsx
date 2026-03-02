@@ -6,7 +6,6 @@ import PageHero from '@/components/shared/PageHero';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Code Generation - AI-Generated Schema & Metadata',
@@ -87,9 +86,6 @@ export default function CodeGenerationPage() {
         description="Schema markup, JSON-LD, and optimized metadata generated automatically - no coding skills required."
       />
 
-      <div className="mx-auto max-w-5xl px-6 mb-8">
-        <UpdatedDate date="2026-02-14" />
-      </div>
 
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">
@@ -207,9 +203,7 @@ export default function CodeGenerationPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://cal.com/rhemic-ai/discovery-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#" data-cal-link="rhemic-ai/discovery-call"
                   className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
                   Book a Demo
@@ -236,7 +230,7 @@ export default function CodeGenerationPage() {
               {
                 question: 'Do I need coding experience to use the generated code?',
                 answer:
-                  'No. All generated code is copy-paste ready with clear installation instructions. You paste the JSON-LD snippet into your website\'s HTML head section — no programming knowledge required.',
+                  'No. All generated code is copy-paste ready with clear installation instructions. You paste the JSON-LD snippet into your website\'s HTML head section, no programming knowledge required.',
               },
               {
                 question: 'How does code generation improve AI visibility?',

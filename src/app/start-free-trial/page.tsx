@@ -114,7 +114,7 @@ export default function StartFreeTrialPage() {
               name: 'What happens after my trial?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: "If you love the results, you'll get a custom pricing plan based on your goals and scale. No pressure — you can cancel anytime. You're in control.",
+                text: "If you love the results, you'll get a custom pricing plan based on your goals and scale. No pressure, you can cancel anytime. You're in control.",
               },
             },
             {
@@ -146,7 +146,7 @@ export default function StartFreeTrialPage() {
             </h2>
             <p className="text-lg text-[var(--text-secondary)] mb-10 text-center max-w-xl mx-auto leading-relaxed">
               We&apos;re onboarding a limited number of businesses for our beta.
-              Tell us about yours — if it&apos;s a fit, you&apos;ll be first in
+              Tell us about yours, if it&apos;s a fit, you&apos;ll be first in
               line.
             </p>
 
@@ -336,9 +336,7 @@ export default function StartFreeTrialPage() {
             </p>
 
             <a
-              href="https://cal.com/rhemic-ai/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#" data-cal-link="rhemic-ai/discovery-call"
               className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book Discovery Call
@@ -443,7 +441,7 @@ export default function StartFreeTrialPage() {
                   <li>How you&apos;ll measure success and track ROI</li>
                 </ul>
                 <p>
-                  This ensures you get maximum value from the trial — you only
+                  This ensures you get maximum value from the trial, you only
                   invest time where you know you&apos;ll see results.
                 </p>
               </div>
@@ -470,7 +468,7 @@ export default function StartFreeTrialPage() {
                 {
                   question: 'What happens after my trial?',
                   answer:
-                    "If you love the results, you'll get a custom pricing plan based on your goals and scale. No pressure — you can cancel anytime. You're in control.",
+                    "If you love the results, you'll get a custom pricing plan based on your goals and scale. No pressure, you can cancel anytime. You're in control.",
                 },
                 {
                   question: 'Is my business a good fit for this?',
@@ -509,15 +507,13 @@ export default function StartFreeTrialPage() {
           {/* Bottom CTA */}
           <div className="mt-16 text-center">
             <a
-              href="https://cal.com/rhemic-ai/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#" data-cal-link="rhemic-ai/discovery-call"
               className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book Discovery Call
             </a>
             <p className="text-sm text-[var(--text-muted)] mt-4">
-              Takes 15 minutes · Get results in 48 hours
+              Takes 30 minutes · Get results in 48 hours
             </p>
           </div>
         </div>

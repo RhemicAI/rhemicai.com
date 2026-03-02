@@ -1,9 +1,9 @@
 const features = [
   {
-    title: 'Website Auditing',
+    title: 'Client AI Visibility Audit',
     description:
-      'Ensure your site is technically optimized for AI discovery. Our agents crawl your pages, analyze schema markup, content structure, and technical SEO \u2014 delivering an AEO score in under 5 minutes.',
-    tags: ['AI-Ready', 'Schema Analysis', '5-Min Audit'],
+      'Run a full AI visibility audit for any client domain. We analyze how often they\'re recommended across ChatGPT, Claude, Gemini, and Perplexity, and deliver a Brand Share % score in minutes.',
+    tags: ['Brand Share %', 'AI Monitoring', '5-Min Scan'],
     icon: (
       <svg
         width="48"
@@ -24,10 +24,10 @@ const features = [
     ),
   },
   {
-    title: 'Competitor Analysis',
+    title: 'Competitive Gap Intelligence',
     description:
-      'Decode rival strategies and see who\u2019s being recommended by AI answer engines. We query ChatGPT, Claude, and Perplexity for your target keywords \u2014 showing exactly where you stand.',
-    tags: ['ChatGPT Tracking', 'Gap Analysis', 'Real-Time'],
+      'See exactly which competitors are capturing your client\'s AI demand. We run 60–100 buyer prompts and map who\'s winning recommendations, so you can show clients the gap in hard numbers.',
+    tags: ['Visibility Gap', 'Competitor Tracking', 'Real-Time'],
     icon: (
       <svg
         width="48"
@@ -49,10 +49,10 @@ const features = [
     ),
   },
   {
-    title: 'Automated Code Generation',
+    title: 'Structural Visibility Fixes',
     description:
-      'Get AI-generated schema markup, FAQ JSON-LD, and optimized robots.txt \u2014 all tailored to boost your visibility in AI answers. Review, approve, and deploy with one click.',
-    tags: ['Schema Markup', 'JSON-LD', 'One-Click Deploy'],
+      'Get ranked, agency-ready recommendations to close the visibility gap. Structural fixes, schema updates, and content signals, prioritized by impact and ready to present to clients.',
+    tags: ['Ranked Fixes', 'Client-Ready Reports', 'One-Click Deploy'],
     icon: (
       <svg
         width="48"
@@ -84,12 +84,12 @@ export default function Features() {
         </p>
         <div className="mb-6">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.1] text-[var(--text-primary)] font-display">
-            AEO platform for modern businesses
+            AI competitive visibility intelligence for agencies
           </h2>
         </div>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] opacity-80 font-body">
-          Rhemic AI gives your brand the tools to appear in every AI-generated answer.
-          Audit, analyze, and optimize — all from one platform.
+          Rhemic shows agencies exactly where their clients are losing AI demand, and who&apos;s winning
+          instead.
         </p>
       </div>
 

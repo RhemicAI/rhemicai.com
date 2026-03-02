@@ -3,7 +3,6 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import ArticleSchema from '@/components/SchemaOrg/ArticleSchema';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 import KeyTakeaways from '@/components/shared/KeyTakeaways';
 import ComparisonTable from '@/components/shared/ComparisonTable';
 import FurtherReading from '@/components/shared/FurtherReading';
@@ -44,9 +43,6 @@ export default function WhatIsAEOPage() {
       />
 
       <div className="relative z-10">
-        <div className="mx-auto max-w-5xl px-6 mb-8">
-          <UpdatedDate date="2026-02-14" />
-        </div>
 
         <article className="mx-auto max-w-3xl px-6 pb-16">
           {/* Key Takeaways */}
@@ -728,9 +724,7 @@ export default function WhatIsAEOPage() {
                 your website - and what to fix first.
               </p>
               <a
-                href="https://cal.com/rhemic-ai/discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#" data-cal-link="rhemic-ai/discovery-call"
                 className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
                 Book a Discovery Call

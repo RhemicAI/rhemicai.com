@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const navLinks = [
+  { label: 'Home', href: '/' },
   { label: 'Products', href: '/products' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
@@ -16,7 +17,7 @@ export default function FixedNav() {
   const navRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  // IntersectionObserver sentinels — zero JS during scroll
+  // IntersectionObserver sentinels, zero JS during scroll
   useEffect(() => {
     const navSentinel = document.createElement('div');
     navSentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
@@ -78,21 +79,18 @@ export default function FixedNav() {
         ref={navRef}
         className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-5 transition-[background-color,border-color] duration-300 nav-transparent"
       >
-        {/* Left — Logo + Brand */}
+        {/* Left, Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/rhemic-icon.svg"
+            src="/rhemic-icon.png"
             alt="Rhemic AI"
-            width={32}
-            height={32}
+            width={44}
+            height={44}
             className="object-contain"
           />
-          <span className="text-[var(--text-primary)] text-lg font-bold tracking-tight font-display">
-            Rhemic AI
-          </span>
         </Link>
 
-        {/* Center — Nav Links (desktop) */}
+        {/* Center, Nav Links (desktop) */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -105,12 +103,10 @@ export default function FixedNav() {
           ))}
         </div>
 
-        {/* Right — CTA (desktop) + Hamburger (mobile) */}
+        {/* Right, CTA (desktop) + Hamburger (mobile) */}
         <div className="flex items-center gap-4">
           <a
-            href="https://cal.com/rhemic-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#" data-cal-link="rhemic-ai/discovery-call"
             className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
           >
             Book a Demo
@@ -166,9 +162,7 @@ export default function FixedNav() {
             ))}
             <div className="mt-8">
               <a
-                href="https://cal.com/rhemic-ai/discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#" data-cal-link="rhemic-ai/discovery-call"
                 onClick={() => setMenuOpen(false)}
                 className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
               >
@@ -179,7 +173,7 @@ export default function FixedNav() {
         </div>
       </div>
 
-      {/* Sticky mobile CTA — fixed at bottom, appears after scrolling past hero */}
+      {/* Sticky mobile CTA, fixed at bottom, appears after scrolling past hero */}
       <div
         ref={ctaRef}
         className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-[transform,opacity] duration-300 cta-hidden ${
@@ -189,9 +183,7 @@ export default function FixedNav() {
         <div className="px-4 pb-[env(safe-area-inset-bottom,8px)] pt-3 bg-[var(--bg-base)] border-t border-[var(--border-subtle)]"
         >
           <a
-            href="https://cal.com/rhemic-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#" data-cal-link="rhemic-ai/discovery-call"
             className="block w-full py-3.5 text-center text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
             Book a Discovery Call
