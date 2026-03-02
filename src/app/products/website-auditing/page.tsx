@@ -7,7 +7,6 @@ import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Website Auditing - AI Engine Optimization Audits',
@@ -68,9 +67,6 @@ export default function WebsiteAuditingPage() {
         description="Comprehensive audits that show you exactly how AI engines see your website - and how to fix what's broken."
       />
 
-      <div className="mx-auto max-w-5xl px-6 mb-8">
-        <UpdatedDate date="2026-02-14" />
-      </div>
 
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">

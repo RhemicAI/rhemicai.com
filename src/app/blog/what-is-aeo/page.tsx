@@ -3,7 +3,6 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import ArticleSchema from '@/components/SchemaOrg/ArticleSchema';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 import KeyTakeaways from '@/components/shared/KeyTakeaways';
 import ComparisonTable from '@/components/shared/ComparisonTable';
 import FurtherReading from '@/components/shared/FurtherReading';
@@ -44,9 +43,6 @@ export default function WhatIsAEOPage() {
       />
 
       <div className="relative z-10">
-        <div className="mx-auto max-w-5xl px-6 mb-8">
-          <UpdatedDate date="2026-02-14" />
-        </div>
 
         <article className="mx-auto max-w-3xl px-6 pb-16">
           {/* Key Takeaways */}

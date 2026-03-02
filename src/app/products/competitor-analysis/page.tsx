@@ -7,7 +7,6 @@ import AEOEngine from '@/components/AEOEngine/AEOEngine';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Competitor Analysis - Track Rivals in AI Search',
@@ -68,9 +67,6 @@ export default function CompetitorAnalysisPage() {
         description="Know exactly where your competitors appear in AI answers - and how to beat them."
       />
 
-      <div className="mx-auto max-w-5xl px-6 mb-8">
-        <UpdatedDate date="2026-02-14" />
-      </div>
 
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">

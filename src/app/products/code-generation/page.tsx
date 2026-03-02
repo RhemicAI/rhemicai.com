@@ -6,7 +6,6 @@ import PageHero from '@/components/shared/PageHero';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import UpdatedDate from '@/components/shared/UpdatedDate';
 
 export const metadata: Metadata = {
   title: 'Code Generation - AI-Generated Schema & Metadata',
@@ -87,9 +86,6 @@ export default function CodeGenerationPage() {
         description="Schema markup, JSON-LD, and optimized metadata generated automatically - no coding skills required."
       />
 
-      <div className="mx-auto max-w-5xl px-6 mb-8">
-        <UpdatedDate date="2026-02-14" />
-      </div>
 
       <div className="relative z-10 py-24">
         <div className="mx-auto max-w-5xl px-6">
