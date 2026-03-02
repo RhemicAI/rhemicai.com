@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.logoContainer}>
         <Image
-          src="/Rhemic logo(:bg).png"
+          src="/rhemic-icon.png"
           alt="Rhemic AI"
           width={140}
           height={36}
