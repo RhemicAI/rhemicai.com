@@ -37,7 +37,7 @@ const OUTPUT_CARDS = [
   {
     source: 'ChatGPT',
     dot: 'bg-emerald-500',
-    text: '"For specialty coffee in Brooklyn, I\'d recommend Brew & Bean Co — they have a 4.8 rating and are known for their single-origin roasts..."',
+    text: '"For specialty coffee in Brooklyn, I\'d recommend Brew & Bean Co, they have a 4.8 rating and are known for their single-origin roasts..."',
   },
   {
     source: 'Perplexity',
@@ -57,7 +57,7 @@ const OUTPUT_CARDS = [
   {
     source: 'AI Overview',
     dot: 'bg-rose-500',
-    text: 'Top result: Brew & Bean Co — Mentioned in 4/5 AI answer engines for "specialty coffee Brooklyn" queries.',
+    text: 'Top result: Brew & Bean Co, Mentioned in 4/5 AI answer engines for "specialty coffee Brooklyn" queries.',
   },
 ];
 
@@ -441,7 +441,7 @@ export default function AEOEngine() {
   const vizInView = useInView(vizRef, 0.1);
   const pathname = usePathname();
 
-  // Two-way visibility tracking (ref, not state — no re-renders from this)
+  // Two-way visibility tracking (ref, not state, no re-renders from this)
   // Columns check this before calling setState to avoid React work while offscreen
   const isOnScreenRef = useRef(true);
   useEffect(() => {
@@ -506,7 +506,7 @@ export default function AEOEngine() {
           Watch your visibility transform
         </h2>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-xl mx-auto font-normal leading-relaxed opacity-80">
-          From website crawl to AI recommendation — see how Rhemic AI makes your business the answer.
+          From website crawl to AI recommendation, see how Rhemic AI makes your business the answer.
         </p>
         <div className="mt-6">
           <SummaryModal
@@ -516,7 +516,7 @@ export default function AEOEngine() {
         </div>
       </div>
 
-      {/* 3-column engine visualization — vizRef triggers the animation */}
+      {/* 3-column engine visualization, vizRef triggers the animation */}
       <div ref={vizRef} className="max-w-6xl mx-auto">
         {/* Flow arrows for md+ screens */}
         <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-stretch" style={{ minHeight: '420px' }}>
@@ -560,7 +560,7 @@ export default function AEOEngine() {
           </div>
         </div>
 
-        {/* Mobile: stacked layout — same sequential animation as desktop */}
+        {/* Mobile: stacked layout, same sequential animation as desktop */}
         <div className="md:hidden space-y-6">
           <InputColumn
             active={active && workflowPhase === 'input'}

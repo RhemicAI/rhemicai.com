@@ -138,7 +138,7 @@ export default function ProductsPage() {
                 Learn the AI search economy
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                We&apos;re not just building tools — we&apos;re helping businesses understand
+                We&apos;re not just building tools, we&apos;re helping businesses understand
                 how AI answer engines work and why they&apos;re rapidly replacing traditional
                 Google search. Knowledge is power in this new landscape.
               </p>
@@ -150,9 +150,7 @@ export default function ProductsPage() {
                   Read Our Blog
                 </Link>
                 <a
-                  href="https://cal.com/rhemic-ai/discovery-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#" data-cal-link="rhemic-ai/discovery-call"
                   className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
                   Book a Demo
@@ -176,7 +174,7 @@ export default function ProductsPage() {
                 {
                   question: 'How do Rhemic AI products work together?',
                   answer:
-                    'Our three tools form a complete AEO workflow. Website Auditing identifies optimization gaps. Competitor Analysis reveals what rivals do differently. Code Generation produces deployment-ready schema markup and metadata to fix those gaps — all in one platform.',
+                    'Our three tools form a complete AEO workflow. Website Auditing identifies optimization gaps. Competitor Analysis reveals what rivals do differently. Code Generation produces deployment-ready schema markup and metadata to fix those gaps, all in one platform.',
                 },
                 {
                   question: 'Do I need technical skills to use Rhemic AI?',

@@ -5,13 +5,13 @@ const steps = [
     number: '01',
     heading: "Audit Your Client's AI Presence",
     description:
-      'Submit any client domain and we run 60–100 buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity — measuring exactly how often they\'re recommended vs. their competitors.',
+      'Submit any client domain and we run 60–100 buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity, measuring exactly how often they\'re recommended vs. their competitors.',
   },
   {
     number: '02',
     heading: 'Quantify the Competitive Gap',
     description:
-      'We map every competitor capturing AI demand your client is missing. Brand Share % data, side-by-side comparisons, and the exact gaps — all in a format you can drop straight into a client deck.',
+      'We map every competitor capturing AI demand your client is missing. Brand Share % data, side-by-side comparisons, and the exact gaps, all in a format you can drop straight into a client deck.',
   },
   {
     number: '03',

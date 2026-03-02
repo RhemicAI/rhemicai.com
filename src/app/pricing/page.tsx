@@ -76,7 +76,7 @@ export default function PricingPage() {
                   Flexible Engagement
                 </h3>
                 <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                  Monthly retainers, project-based work, or audit-only packages — you choose.
+                  Monthly retainers, project-based work, or audit-only packages, you choose.
                 </p>
               </div>
             </div>
@@ -164,9 +164,7 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://cal.com/rhemic-ai/discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#" data-cal-link="rhemic-ai/discovery-call"
                 className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
                 Book a Demo

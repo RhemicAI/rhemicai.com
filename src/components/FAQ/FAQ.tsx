@@ -7,17 +7,17 @@ const faqs = [
   {
     question: 'What is AEO (AI Engine Optimization)?',
     answer:
-      'AEO is the practice of ensuring your brand — or your clients\' brands — gets recommended when buyers ask AI assistants for suggestions. Rhemic measures this as Brand Share %: how often your brand appears in AI answers compared to competitors across ChatGPT, Claude, Gemini, and Perplexity.',
+      'AEO is the practice of ensuring your brand, or your clients\' brands, gets recommended when buyers ask AI assistants for suggestions. Rhemic measures this as Brand Share %: how often your brand appears in AI answers compared to competitors across ChatGPT, Claude, Gemini, and Perplexity.',
   },
   {
     question: 'How is AEO different from traditional SEO?',
     answer:
-      'Traditional SEO optimizes for search engine rankings — getting your website to appear in a list of blue links. AEO optimizes for AI-generated answers — ensuring your business is recommended when someone asks an AI assistant for advice. AI engines synthesize information differently than search engines, so the strategies are fundamentally different. Rhemic AI bridges both worlds.',
+      'Traditional SEO optimizes for search engine rankings, getting your website to appear in a list of blue links. AEO optimizes for AI-generated answers, ensuring your business is recommended when someone asks an AI assistant for advice. AI engines synthesize information differently than search engines, so the strategies are fundamentally different. Rhemic AI bridges both worlds.',
   },
   {
     question: 'How does Rhemic AI help my business appear in AI answers?',
     answer:
-      'Rhemic runs buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity to measure your clients\' Brand Share % — then identifies exactly which competitors are capturing the demand they\'re missing. You get ranked recommendations and 30-day delta tracking to show clients real progress.',
+      'Rhemic runs buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity to measure your clients\' Brand Share %, then identifies exactly which competitors are capturing the demand they\'re missing. You get ranked recommendations and 30-day delta tracking to show clients real progress.',
   },
   {
     question: 'Which AI platforms does Rhemic AI optimize for?',
@@ -36,7 +36,7 @@ const faqs = [
   },
 ];
 
-// Static JSON-LD — all content is hardcoded, no user input
+// Static JSON-LD, all content is hardcoded, no user input
 const faqSchemaString = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -59,7 +59,7 @@ export default function FAQ() {
 
   return (
     <section className="relative z-10 py-20 md:py-28 px-6">
-      {/* FAQ Schema — static content only */}
+      {/* FAQ Schema, static content only */}
       <Script
         id="faq-schema"
         type="application/ld+json"

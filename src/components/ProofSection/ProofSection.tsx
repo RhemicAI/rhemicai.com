@@ -56,9 +56,7 @@ export default function ProofSection() {
           Your clients can&apos;t afford to be invisible.
         </p>
         <a
-          href="https://cal.com/rhemic-ai/discovery-call"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#ai-visibility-scan"
           className="group relative inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
         >
           <span className="relative z-10">Run AI Visibility Scan</span>

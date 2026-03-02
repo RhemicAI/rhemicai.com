@@ -4,10 +4,10 @@ export default function Pricing() {
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         {/* Header */}
         <div>
-          <p className="text-sm font-medium tracking-[0.25em] uppercase text-[var(--text-secondary)] mb-6">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-violet-400/80 mb-5 font-body">
             Pricing
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
             <span className="block">Every business is different.</span>
             <span className="block">Let&apos;s build your plan.</span>
           </h2>
@@ -38,9 +38,7 @@ export default function Pricing() {
         {/* CTA */}
         <div className="mt-12">
           <a
-            href="https://cal.com/rhemic-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#" data-cal-link="rhemic-ai/discovery-call"
             className="group relative inline-block px-10 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
           >
             <span className="relative z-10">Book a Discovery Call</span>
@@ -49,7 +47,7 @@ export default function Pricing() {
         </div>
 
         <p className="mt-6 text-sm text-[var(--text-secondary)] tracking-wide">
-          Free consultation &middot; No commitment &middot; 15 minutes
+          Free consultation &middot; No commitment &middot; 30 minutes
         </p>
       </div>
     </section>

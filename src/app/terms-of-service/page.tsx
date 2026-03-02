@@ -7,7 +7,7 @@ import SummaryModal from "@/components/SummaryModal/SummaryModal";
 const tosSummary = `Rhemic AI LLC provides AI Engine Optimization (AEO), generative AI search consulting, digital marketing, and analytics services. Specific deliverables and fees are defined in separate agreements.
 
 Key Points:
-- No guaranteed results — AI search rankings depend on third-party platforms and algorithms outside our control.
+- No guaranteed results, AI search rankings depend on third-party platforms and algorithms outside our control.
 - Clients must provide accurate information, comply with platform rules, and approve all published materials.
 - Rhemic AI retains ownership of all proprietary tools, methodologies, and frameworks. Clients retain ownership of their brand assets and data.
 - Both parties maintain confidentiality of non-public information, surviving termination.

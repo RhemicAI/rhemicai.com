@@ -21,17 +21,17 @@ export default function PageHero({ title, subtitle, description, showBackLink = 
         )}
 
         {subtitle && (
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400/80 mb-5 font-body">
             {subtitle}
           </p>
         )}
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] mb-6 font-display">
           {title}
         </h1>
 
         {description && (
-          <p className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+          <p className="text-base md:text-lg text-[var(--text-primary)] opacity-70 leading-[1.6] max-w-2xl font-body">
             {description}
           </p>
         )}

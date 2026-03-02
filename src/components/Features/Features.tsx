@@ -2,7 +2,7 @@ const features = [
   {
     title: 'Client AI Visibility Audit',
     description:
-      'Run a full AI visibility audit for any client domain. We analyze how often they\'re recommended across ChatGPT, Claude, Gemini, and Perplexity — and deliver a Brand Share % score in minutes.',
+      'Run a full AI visibility audit for any client domain. We analyze how often they\'re recommended across ChatGPT, Claude, Gemini, and Perplexity, and deliver a Brand Share % score in minutes.',
     tags: ['Brand Share %', 'AI Monitoring', '5-Min Scan'],
     icon: (
       <svg
@@ -26,7 +26,7 @@ const features = [
   {
     title: 'Competitive Gap Intelligence',
     description:
-      'See exactly which competitors are capturing your client\'s AI demand. We run 60–100 buyer prompts and map who\'s winning recommendations — so you can show clients the gap in hard numbers.',
+      'See exactly which competitors are capturing your client\'s AI demand. We run 60–100 buyer prompts and map who\'s winning recommendations, so you can show clients the gap in hard numbers.',
     tags: ['Visibility Gap', 'Competitor Tracking', 'Real-Time'],
     icon: (
       <svg
@@ -51,7 +51,7 @@ const features = [
   {
     title: 'Structural Visibility Fixes',
     description:
-      'Get ranked, agency-ready recommendations to close the visibility gap. Structural fixes, schema updates, and content signals — prioritized by impact and ready to present to clients.',
+      'Get ranked, agency-ready recommendations to close the visibility gap. Structural fixes, schema updates, and content signals, prioritized by impact and ready to present to clients.',
     tags: ['Ranked Fixes', 'Client-Ready Reports', 'One-Click Deploy'],
     icon: (
       <svg
@@ -88,7 +88,7 @@ export default function Features() {
           </h2>
         </div>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] opacity-80 font-body">
-          Rhemic shows agencies exactly where their clients are losing AI demand — and who&apos;s winning
+          Rhemic shows agencies exactly where their clients are losing AI demand, and who&apos;s winning
           instead.
         </p>
       </div>

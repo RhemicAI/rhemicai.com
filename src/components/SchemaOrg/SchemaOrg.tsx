@@ -43,7 +43,7 @@ const websiteSchema = JSON.stringify({
   name: 'Rhemic AI',
   url: 'https://rhemicai.com',
   description:
-    'AI Engine Optimization platform — get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
+    'AI Engine Optimization platform, get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
   publisher: {
     '@type': 'Organization',
     name: 'Rhemic AI',

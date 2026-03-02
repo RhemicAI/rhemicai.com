@@ -4,8 +4,8 @@ const eyebrowText = "AI VISIBILITY CO-PILOT FOR AGENCIES";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6">
-      {/* Radial gradient overlay — sits between globe (z-0) and content (z-10) */}
+    <section className="relative min-h-screen flex flex-col items-center justify-start pt-28 sm:pt-32 md:pt-36 px-6">
+      {/* Radial gradient overlay, sits between globe (z-0) and content (z-10) */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.5) 50%, transparent 80%)' }}
@@ -26,8 +26,8 @@ export default function Hero() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)] font-display"
             style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
           >
-            <span className="block">Your competitors are winning</span>
-            <span className="block">AI recommendations. Are you?</span>
+            <span className="block">Get Your Business</span>
+            <span className="block">Recommended By AI</span>
           </h1>
         </div>
 
@@ -38,23 +38,19 @@ export default function Hero() {
             textShadow: '0 0 40px rgba(10, 10, 10, 0.9)',
           }}
         >
-          Rhemic tracks buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity
-          <br className="hidden sm:block" />
-          — and shows you exactly who&apos;s getting recommended instead of your clients.
+          We get your business recommended on ChatGPT, Claude, Gemini, and Perplexity.
         </p>
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://cal.com/rhemic-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#ai-visibility-scan"
             className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
           >
             Run AI Visibility Scan
           </a>
           <a
-            href="#product"
+            href="#" data-cal-link="rhemic-ai/discovery-call"
             className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body tracking-[0.01em]"
           >
             See How It Works
@@ -63,9 +59,9 @@ export default function Hero() {
       </div>
 
       {/* Floating badges */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 w-full px-6 sm:px-0 sm:w-auto flex flex-col items-center gap-1.5 sm:gap-2">
+      <div className="relative z-10 mt-16 sm:mt-20 w-full flex flex-col items-center gap-1.5 sm:gap-2">
         <p className="text-[10px] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center">
-          Where your clients&apos; buyers are already asking
+          The AI platforms we specialize in
         </p>
         <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-1.5 sm:gap-x-6 text-[var(--text-tertiary)]">
           {/* OpenAI / ChatGPT */}
@@ -105,7 +101,7 @@ export default function Hero() {
           </span>
         </div>
         <p className="text-[9px] sm:text-[10px] text-[var(--text-secondary)] text-center">
-          Buyers are making decisions through AI answers — not search results.
+          Buyers are making decisions through AI answers, not search results.
         </p>
       </div>
     </section>

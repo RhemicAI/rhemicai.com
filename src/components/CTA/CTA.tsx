@@ -13,24 +13,22 @@ export default function CTA() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
         <div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-[var(--text-primary)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
             <span className="block">Your clients are losing AI recommendations.</span>
             <span className="block">Show them exactly where.</span>
           </h2>
         </div>
 
         <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80">
-          Rhemic benchmarks your clients against competitors across ChatGPT, Claude, Gemini, and Perplexity
-          — and quantifies exactly where they&apos;re losing demand.
+          Rhemic benchmarks your clients against competitors across ChatGPT, Claude, Gemini, and Perplexity,
+          and quantifies exactly where they&apos;re losing demand.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://cal.com/rhemic-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#ai-visibility-scan"
             className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105"
           >
             Run AI Visibility Scan

@@ -88,7 +88,7 @@ export default function DashboardPreview() {
         </h2>
         <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
           We run enterprise-grade audits, track your competitors, and deliver
-          actionable optimizations — you just book a call and we handle the&nbsp;rest.
+          actionable optimizations, you just book a call and we handle the&nbsp;rest.
         </p>
       </div>
 
@@ -112,7 +112,7 @@ export default function DashboardPreview() {
             <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
             <span className="w-3 h-3 rounded-full bg-[#28c840]" />
             <span className="ml-3 text-xs text-[var(--text-muted)] font-medium tracking-wide">
-              Rhemic AI — Internal Audit Engine
+              Rhemic AI, Internal Audit Engine
             </span>
           </div>
 

@@ -12,7 +12,7 @@ Key Points:
 - Client data is never used to train public AI models. Internal improvements use only anonymized, aggregated data.
 - Data is shared only with necessary service providers (cloud hosting, payment processors, advertising platforms) under appropriate safeguards.
 - International transfers are protected by Standard Contractual Clauses.
-- GDPR (EEA/UK) and CCPA/CPRA (California) rights are fully supported — including access, deletion, correction, and data portability.
+- GDPR (EEA/UK) and CCPA/CPRA (California) rights are fully supported, including access, deletion, correction, and data portability.
 - We do not collect data from individuals under 18.
 - Data is retained only as long as needed for contractual and legal obligations.
 - In a data breach, we notify affected parties and regulators as required by law.

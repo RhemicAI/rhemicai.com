@@ -88,7 +88,7 @@ export default function WebsiteAuditingPage() {
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
                 If AI can&apos;t parse your schema markup, understand your content structure,
                 or crawl your pages efficiently, you&apos;re invisible in AI-generated answers
-                — even if you rank well in traditional Google search.
+               , even if you rank well in traditional Google search.
               </p>
             </div>
           </section>
@@ -175,9 +175,7 @@ export default function WebsiteAuditingPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://cal.com/rhemic-ai/discovery-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#" data-cal-link="rhemic-ai/discovery-call"
                   className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
                   Book a Demo
@@ -211,7 +209,7 @@ export default function WebsiteAuditingPage() {
                 {
                   question: 'How is this different from a traditional SEO audit?',
                   answer:
-                    'Traditional SEO audits check Google ranking factors. Our AI Engine Optimization audit checks how AI answer engines parse, understand, and cite your content — including schema markup, content semantics, and structured data that AI models rely on.',
+                    'Traditional SEO audits check Google ranking factors. Our AI Engine Optimization audit checks how AI answer engines parse, understand, and cite your content, including schema markup, content semantics, and structured data that AI models rely on.',
                 },
               ]}
             />
