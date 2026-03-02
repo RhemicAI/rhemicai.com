@@ -445,9 +445,9 @@ export default function AiVisibilityWidget() {
     return () => cancelAnimationFrame(raf);
   }, [statusProgressTarget]);
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     if (phase !== 'results' || !metrics) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayScore(0);
       setResultsVisible(false);
       return;
