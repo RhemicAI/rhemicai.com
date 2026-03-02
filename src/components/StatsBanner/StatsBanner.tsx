@@ -1,12 +1,12 @@
 'use client';
 
 const stats = [
-  { value: 'Get Recommended', label: 'By AI Answer Engines' },
-  { value: 'Be the Answer', label: 'When AI Gets Asked' },
-  { value: 'AEO-Native', label: 'Beyond Traditional SEO' },
-  { value: 'Ranked Actions', label: 'Know What to Fix First' },
-  { value: '5 min', label: 'Full-Site Audit' },
-  { value: 'Fraction of the Cost', label: 'Enterprise-Grade Insights' },
+  { value: 'Brand Share %', label: 'Tracked Across 4 AI Platforms' },
+  { value: 'Visibility Gap', label: 'Quantified for Every Client' },
+  { value: 'Agency-Native', label: 'Built for Client Retainers' },
+  { value: 'Ranked Gaps', label: 'Know Where Clients Are Losing' },
+  { value: '5 min', label: 'Full AI Visibility Scan' },
+  { value: '30-Day Delta', label: 'Track Client Progress Over Time' },
 ];
 
 export default function StatsBanner() {

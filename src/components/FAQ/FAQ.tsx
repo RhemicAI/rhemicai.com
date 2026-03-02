@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'What is AEO (AI Engine Optimization)?',
     answer:
-      'AEO is the practice of optimizing your digital presence so AI answer engines like ChatGPT, Claude, Perplexity, and Gemini recommend your business when users ask for suggestions. Unlike traditional SEO which focuses on ranking in search results, AEO focuses on being the answer that AI systems provide directly to users.',
+      'AEO is the practice of ensuring your brand — or your clients\' brands — gets recommended when buyers ask AI assistants for suggestions. Rhemic measures this as Brand Share %: how often your brand appears in AI answers compared to competitors across ChatGPT, Claude, Gemini, and Perplexity.',
   },
   {
     question: 'How is AEO different from traditional SEO?',
@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'How does Rhemic AI help my business appear in AI answers?',
     answer:
-      'Rhemic AI audits your website for AI-readability signals including schema markup, content structure, and technical SEO factors that AI crawlers use to understand and recommend your business. We then generate optimized code, provide actionable recommendations, and track your visibility across all major AI platforms.',
+      'Rhemic runs buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity to measure your clients\' Brand Share % — then identifies exactly which competitors are capturing the demand they\'re missing. You get ranked recommendations and 30-day delta tracking to show clients real progress.',
   },
   {
     question: 'Which AI platforms does Rhemic AI optimize for?',

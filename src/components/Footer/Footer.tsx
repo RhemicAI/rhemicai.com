@@ -36,7 +36,7 @@ export default function Footer() {
               Rhemic AI
             </p>
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              Visibility reimagined for the AI age.
+              AI competitive visibility intelligence for agencies.
             </p>
             <Image
               src="/rhemic-logo.svg"

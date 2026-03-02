@@ -3,21 +3,21 @@ import Script from 'next/script';
 const steps = [
   {
     number: '01',
-    heading: 'Audit Your Presence',
+    heading: "Audit Your Client's AI Presence",
     description:
-      'Submit your URL and our AI agents crawl every page \u2014 analyzing schema markup, content structure, and technical signals that determine whether AI answer engines recommend you.',
+      'Submit any client domain and we run 60–100 buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity — measuring exactly how often they\'re recommended vs. their competitors.',
   },
   {
     number: '02',
-    heading: 'Analyze Competitors',
+    heading: 'Quantify the Competitive Gap',
     description:
-      'We query ChatGPT, Claude, Perplexity, and Gemini with your target keywords \u2014 mapping exactly which businesses get recommended and identifying the gaps you need to close.',
+      'We map every competitor capturing AI demand your client is missing. Brand Share % data, side-by-side comparisons, and the exact gaps — all in a format you can drop straight into a client deck.',
   },
   {
     number: '03',
-    heading: 'Deploy Optimizations',
+    heading: 'Deliver Results to Clients',
     description:
-      'Review AI-generated schema markup, FAQ content, and technical fixes. Approve with one click and watch your AEO score climb as AI engines start recommending your business.',
+      'Get ranked, prioritized recommendations your team can action. Track 30-day deltas, show clients measurable progress, and use real visibility data to win and retain retainers.',
   },
 ];
 
@@ -170,7 +170,7 @@ export default function HowItWorks() {
           How It Works
         </p>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
-          Three steps to AI visibility
+          Three steps to closing the visibility gap
         </h2>
       </div>
 

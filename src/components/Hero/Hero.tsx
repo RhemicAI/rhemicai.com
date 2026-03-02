@@ -1,6 +1,6 @@
 'use client';
 
-const eyebrowText = "VISIBILITY REIMAGINED FOR THE AI AGE";
+const eyebrowText = "AI VISIBILITY CO-PILOT FOR AGENCIES";
 
 export default function Hero() {
   return (
@@ -26,8 +26,8 @@ export default function Hero() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)] font-display"
             style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
           >
-            <span className="block">Be the Answer</span>
-            <span className="block">When AI Gets Asked</span>
+            <span className="block">Your competitors are winning</span>
+            <span className="block">AI recommendations. Are you?</span>
           </h1>
         </div>
 
@@ -38,9 +38,9 @@ export default function Hero() {
             textShadow: '0 0 40px rgba(10, 10, 10, 0.9)',
           }}
         >
-          When customers ask ChatGPT, Claude, or Perplexity for suggestions,
+          Rhemic tracks buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity
           <br className="hidden sm:block" />
-          Rhemic AI makes sure your business is the answer.
+          — and shows you exactly who&apos;s getting recommended instead of your clients.
         </p>
 
         {/* CTA */}
@@ -51,7 +51,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
           >
-            Book a Demo
+            Run AI Visibility Scan
           </a>
           <a
             href="#product"
@@ -65,7 +65,7 @@ export default function Hero() {
       {/* Floating badges */}
       <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 w-full px-6 sm:px-0 sm:w-auto flex flex-col items-center gap-1.5 sm:gap-2">
         <p className="text-[10px] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center">
-          Where your customers are already searching
+          Where your clients&apos; buyers are already asking
         </p>
         <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-1.5 sm:gap-x-6 text-[var(--text-tertiary)]">
           {/* OpenAI / ChatGPT */}
@@ -105,7 +105,7 @@ export default function Hero() {
           </span>
         </div>
         <p className="text-[9px] sm:text-[10px] text-[var(--text-secondary)] text-center">
-          Millions ask these AI tools for business recommendations every day.
+          Buyers are making decisions through AI answers — not search results.
         </p>
       </div>
     </section>
