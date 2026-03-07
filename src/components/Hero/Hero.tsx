@@ -1,10 +1,12 @@
 'use client';
 
-const eyebrowText = "AI VISIBILITY CO-PILOT FOR AGENCIES";
+import React from 'react';
+
+const eyebrowText = "AI VISIBILITY PLATFORM";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start pt-28 sm:pt-32 md:pt-36 px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20">
       {/* Radial gradient overlay, sits between globe (z-0) and content (z-10) */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -23,11 +25,11 @@ export default function Hero() {
         {/* Title */}
         <div className="mb-8">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)] font-display"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] font-display"
             style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
           >
-            <span className="block">Get Your Business</span>
-            <span className="block">Recommended By AI</span>
+            <span className="block">Your Business Is Invisible to AI.</span>
+            <span className="block">We Fix That.</span>
           </h1>
         </div>
 
@@ -38,7 +40,7 @@ export default function Hero() {
             textShadow: '0 0 40px rgba(10, 10, 10, 0.9)',
           }}
         >
-          We get your business recommended on ChatGPT, Claude, Gemini, and Perplexity.
+          Rhemic AI gets you recommended on ChatGPT, Claude, Gemini, and Perplexity and proves it with data. Built for agencies and the businesses they serve.
         </p>
 
         {/* CTA */}
@@ -47,13 +49,13 @@ export default function Hero() {
             href="#ai-visibility-scan"
             className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
           >
-            Run AI Visibility Scan
+            Run Free AI Scan
           </a>
           <a
             href="#" data-cal-link="rhemic-ai/discovery-call"
             className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body tracking-[0.01em]"
           >
-            See How It Works
+            See a Demo
           </a>
         </div>
       </div>

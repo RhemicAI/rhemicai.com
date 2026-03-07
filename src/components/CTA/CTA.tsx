@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function CTA() {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
@@ -16,14 +14,13 @@ export default function CTA() {
       <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
         <div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
-            <span className="block">Your clients are losing AI recommendations.</span>
-            <span className="block">Show them exactly where.</span>
+            <span className="block">Start Winning AI Recommendations</span>
+            <span className="block">for Your Clients</span>
           </h2>
         </div>
 
         <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80">
-          Rhemic benchmarks your clients against competitors across ChatGPT, Claude, Gemini, and Perplexity,
-          and quantifies exactly where they&apos;re losing demand.
+          Run a free scan on any website in under 5 minutes. No credit card required.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -31,19 +28,19 @@ export default function CTA() {
             href="#ai-visibility-scan"
             className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105"
           >
-            Run AI Visibility Scan
+            Run Free AI Scan
           </a>
 
-          <Link
-            href="/start-free-trial"
+          <a
+            href="#" data-cal-link="rhemic-ai/discovery-call"
             className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
-            Start Free Trial
-          </Link>
+            Book a Demo
+          </a>
         </div>
 
         <p className="mt-6 text-sm text-[var(--text-secondary)] tracking-wide">
-          5-minute setup &middot; Cancel anytime
+          No credit card required &middot; 5-minute setup &middot; Cancel anytime
         </p>
       </div>
     </section>

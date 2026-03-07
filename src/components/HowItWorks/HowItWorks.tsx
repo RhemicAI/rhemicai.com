@@ -3,21 +3,21 @@ import Script from 'next/script';
 const steps = [
   {
     number: '01',
-    heading: "Audit Your Client's AI Presence",
+    heading: "We Scan Your Client's AI Presence",
     description:
-      'Submit any client domain and we run 60–100 buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity, measuring exactly how often they\'re recommended vs. their competitors.',
+      "We run a deep audit across ChatGPT, Claude, Gemini, and Perplexity to find where your client is mentioned — and where they're not.",
   },
   {
     number: '02',
-    heading: 'Quantify the Competitive Gap',
+    heading: 'We Quantify the Gap vs. Competitors',
     description:
-      'We map every competitor capturing AI demand your client is missing. Brand Share % data, side-by-side comparisons, and the exact gaps, all in a format you can drop straight into a client deck.',
+      "You get a Brand Share % score and a ranked list of the exact topics your competitors rank for that your client doesn't.",
   },
   {
     number: '03',
-    heading: 'Deliver Results to Clients',
+    heading: 'We Deliver Fixes That Move the Score',
     description:
-      'Get ranked, prioritized recommendations your team can action. Track 30-day deltas, show clients measurable progress, and use real visibility data to win and retain retainers.',
+      'Structural recommendations, content briefs, and schema changes that agencies can implement to improve AI visibility — with a 30-day delta to prove it.',
   },
 ];
 
@@ -143,9 +143,9 @@ const visuals = [AuditVisual, CompetitorVisual, DeployVisual];
 const howToSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How to optimize for AI answer engines',
+  name: 'How Rhemic AI closes the AI visibility gap',
   description:
-    'Three steps to improve your business visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
+    'Three steps agencies use to improve client visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
   step: steps.map((s, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -170,7 +170,7 @@ export default function HowItWorks() {
           How It Works
         </p>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
-          Three steps to closing the visibility gap
+          How we close the AI visibility gap
         </h2>
       </div>
 
