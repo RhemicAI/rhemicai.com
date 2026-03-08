@@ -7,14 +7,14 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 
 export const metadata: Metadata = {
-  title: 'Pricing - Simple, Transparent AI Engine Optimization Plans',
+  title: 'Pricing - Simple, Transparent AI Visibility Plans',
   description:
-    'Three clear AEO pricing plans starting at $499/mo. No hidden fees, no long-term contracts. Starter, Growth, and Scale plans for every stage of growth.',
+    'Three clear AI visibility pricing plans for agencies and businesses. Starter from $599/mo, Growth $999/mo, Scale $1,499/mo. No hidden fees, no long-term contracts.',
   alternates: { canonical: 'https://rhemicai.com/pricing' },
   openGraph: {
-    title: 'Pricing - Simple, Transparent AI Engine Optimization Plans',
+    title: 'Pricing - Simple, Transparent AI Visibility Plans',
     description:
-      'Three clear AEO pricing plans starting at $499/mo. No hidden fees, no long-term contracts.',
+      'Three clear AI visibility pricing plans for agencies. Starter $599/mo, Growth $999/mo, Scale $1,499/mo. Limited time offer.',
     url: 'https://rhemicai.com/pricing',
   },
 };
@@ -22,8 +22,9 @@ export const metadata: Metadata = {
 const tiers = [
   {
     name: 'Starter',
-    price: 499,
-    description: 'Small businesses getting their first foothold in AI search.',
+    originalPrice: 899,
+    price: 599,
+    description: 'For small businesses getting their first foothold in AI search.',
     popular: false,
     calLink: 'rhemic-ai/starter-plan-onboarding',
     features: [
@@ -37,8 +38,9 @@ const tiers = [
   },
   {
     name: 'Growth',
-    price: 899,
-    description: 'Growing brands that want to dominate their category in AI search.',
+    originalPrice: 1199,
+    price: 999,
+    description: 'For growing brands that want to dominate their category in AI search.',
     popular: true,
     calLink: 'rhemic-ai/growth-plan-onboarding',
     features: [
@@ -55,8 +57,9 @@ const tiers = [
   },
   {
     name: 'Scale',
+    originalPrice: 1999,
     price: 1499,
-    description: 'Agencies and multi-location brands managing visibility at scale.',
+    description: 'For agencies and multi-location brands managing visibility at scale.',
     popular: false,
     calLink: 'rhemic-ai/scale-plan-onboarding',
     features: [
@@ -100,24 +103,32 @@ export default function PricingPage() {
                       : 'border-[var(--border-default)]'
                   }`}
                 >
-                  {tier.popular && (
-                    <div className="mb-4">
+                  <div className="mb-4 flex items-center gap-2 flex-wrap">
+                    {tier.popular && (
                       <span className="text-xs font-semibold uppercase tracking-[0.12em] text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1">
                         Most Popular
                       </span>
-                    </div>
-                  )}
+                    )}
+                    <span className="text-xs font-semibold uppercase tracking-[0.1em] text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1">
+                      Limited Time Offer
+                    </span>
+                  </div>
 
-                  <div className={tier.popular ? '' : 'mt-7'}>
+                  <div>
                     <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
                       {tier.name}
                     </h3>
 
-                    <div className="flex items-baseline gap-1 mb-3">
+                    <div className="flex items-baseline gap-1 mb-1">
                       <span className="text-4xl font-bold text-[var(--text-primary)] font-display">
                         ${tier.price.toLocaleString()}
                       </span>
                       <span className="text-base text-[var(--text-secondary)]">/mo</span>
+                    </div>
+                    <div className="mb-4">
+                      <span className="text-sm text-[var(--text-muted)] line-through">
+                        ${tier.originalPrice.toLocaleString()}/mo
+                      </span>
                     </div>
 
                     <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">

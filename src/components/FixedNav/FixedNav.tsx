@@ -16,8 +16,9 @@ export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const linksRef = useRef<HTMLDivElement>(null);
 
-  // IntersectionObserver sentinels, zero JS during scroll
+  // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {
     const navSentinel = document.createElement('div');
     navSentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
@@ -62,6 +63,33 @@ export default function FixedNav() {
     };
   }, []);
 
+  // Scroll-driven compression: linearly tracks scrollY, stops at threshold
+  useEffect(() => {
+    const THRESHOLD = 180; // px of scroll to reach fully compressed state
+    const PAD_START = 2;   // rem — matches px-8
+    const PAD_END   = 2.75; // rem — how far inward the logo/button travel
+    const GAP_START = 3;   // rem — initial link gap (gap-12)
+    const GAP_END   = 1.75; // rem — compressed link gap
+
+    const update = () => {
+      const nav   = navRef.current;
+      const links = linksRef.current;
+      if (!nav) return;
+
+      const progress = Math.min(window.scrollY / THRESHOLD, 1);
+      const padding  = PAD_START + progress * (PAD_END - PAD_START);
+      const gap      = GAP_START - progress * (GAP_START - GAP_END);
+
+      nav.style.paddingLeft  = `${padding}rem`;
+      nav.style.paddingRight = `${padding}rem`;
+      if (links) links.style.gap = `${gap}rem`;
+    };
+
+    update(); // apply correct state on mount
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -77,7 +105,7 @@ export default function FixedNav() {
     <>
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-5 transition-[background-color,border-color] duration-300 nav-transparent"
+        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between py-5 transition-[background-color,border-color] duration-300 nav-transparent"
       >
         {/* Left, Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
@@ -91,7 +119,7 @@ export default function FixedNav() {
         </Link>
 
         {/* Center, Nav Links (desktop) */}
-        <div className="hidden md:flex items-center gap-8">
+        <div ref={linksRef} className="hidden md:flex items-center">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -180,11 +208,10 @@ export default function FixedNav() {
           menuOpen ? 'translate-y-full opacity-0' : ''
         }`}
       >
-        <div className="px-4 pb-[env(safe-area-inset-bottom,8px)] pt-3 bg-[var(--bg-base)] border-t border-[var(--border-subtle)]"
-        >
+        <div className="flex justify-center pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)] border-t border-[var(--border-subtle)]">
           <a
             href="#" data-cal-link="rhemic-ai/discovery-call"
-            className="block w-full py-3.5 text-center text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
+            className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
             Book a Discovery Call
           </a>

@@ -12,10 +12,10 @@ const stats = [
 export default function StatsBanner() {
   return (
     <div className="border-y border-[var(--border-subtle)] py-4 md:py-5 bg-[var(--bg-base)]">
-      <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-3 md:gap-4 lg:gap-6 px-4">
+      <div className="flex items-center justify-between px-8 md:px-16 lg:px-24">
         {stats.map((s, i) => (
           <span key={i} className="flex flex-col items-center shrink-0">
-            <span className="text-base md:text-lg lg:text-xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display">
+            <span className="text-base md:text-lg lg:text-xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display whitespace-nowrap">
               {s.value}
             </span>
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.1em] text-[var(--text-tertiary)] mt-0.5 font-body whitespace-nowrap">

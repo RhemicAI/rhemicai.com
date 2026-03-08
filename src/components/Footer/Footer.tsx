@@ -7,7 +7,6 @@ const linkRoutes: Record<string, string> = {
   // Product
   'Website Auditing': '/products/website-auditing',
   'Competitor Analysis': '/products/competitor-analysis',
-  'Code Generation': '/products/code-generation',
   'Pricing': '/pricing',
   // Company
   'About': '/about',
@@ -20,7 +19,7 @@ const linkRoutes: Record<string, string> = {
 };
 
 const footerLinks = {
-  Product: ['Website Auditing', 'Competitor Analysis', 'Code Generation', 'Pricing'],
+  Product: ['Website Auditing', 'Competitor Analysis', 'Pricing'],
   Company: ['About', 'Blog', 'Careers', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };

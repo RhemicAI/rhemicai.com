@@ -8,15 +8,39 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 export const metadata: Metadata = {
   title: 'Careers - Join the Rhemic AI Team',
   description:
-    'Join Rhemic AI and help build the future of AI search optimization. We\'re looking for engineers, designers, and go-to-market talent.',
+    "Join Rhemic AI and help build the future of AI search optimization. We're looking for engineers, marketers, and researchers who care about measurable outcomes.",
   alternates: { canonical: 'https://rhemicai.com/careers' },
   openGraph: {
     title: 'Careers - Join the Rhemic AI Team',
     description:
-      'Join Rhemic AI and help build the future of AI search optimization. Engineers, designers, and go-to-market talent.',
+      "Join Rhemic AI and help build the future of AI search optimization.",
     url: 'https://rhemicai.com/careers',
   },
 };
+
+const roles = [
+  {
+    title: 'Growth Marketer',
+    type: 'Full-time · Remote',
+    description:
+      'Drive agency and SMB acquisition through content, partnerships, and performance channels. You understand AI/SEO audiences and can build pipelines from scratch.',
+    tags: ['Marketing', 'Growth', 'SEO'],
+  },
+  {
+    title: 'AI Research Engineer',
+    type: 'Full-time · Remote',
+    description:
+      'Build and improve the systems that measure brand visibility across ChatGPT, Claude, Gemini, and Perplexity. Experience with LLM evaluation and prompt engineering required.',
+    tags: ['Engineering', 'AI/ML', 'Research'],
+  },
+  {
+    title: 'Full-Stack Engineer',
+    type: 'Full-time · Remote',
+    description:
+      'Own product features end-to-end — from data pipelines to the dashboard UI. We work in TypeScript, Next.js, Python, and PostgreSQL.',
+    tags: ['Engineering', 'Full-Stack', 'TypeScript'],
+  },
+];
 
 export default function CareersPage() {
   return (
@@ -25,61 +49,73 @@ export default function CareersPage() {
 
       <PageHero
         subtitle="Careers"
-        title="Build the future with us."
-        description="We're growing our team. Check back soon for open positions."
+        title="We're Growing."
+        description="A small, fast-moving team building the infrastructure for AI-native search optimization. If you care about craftsmanship and measurable outcomes, we want to hear from you."
         showBackLink={false}
       />
 
-      <div className="relative z-10 py-24">
+      <div className="relative z-10 py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-default)] flex items-center justify-center">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[var(--text-primary)]"
-                >
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
+
+          {/* Values */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
+            {[
+              { label: 'Craftsmanship', desc: 'We build things properly, not just quickly.' },
+              { label: 'Speed', desc: 'Ship fast, learn faster, iterate constantly.' },
+              { label: 'Outcomes', desc: 'Everything we do has a measurable result.' },
+            ].map((v) => (
+              <div key={v.label} className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-6">
+                <p className="text-sm font-bold text-[var(--text-primary)] mb-2">{v.label}</p>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{v.desc}</p>
               </div>
-            </div>
+            ))}
+          </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">
-              Coming Soon
-            </h2>
+          {/* Open roles */}
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-6">
+            Open Roles
+          </h2>
+          <div className="space-y-4 mb-16">
+            {roles.map((role) => (
+              <div
+                key={role.title}
+                className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-7 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4"
+              >
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <h3 className="text-lg font-bold text-[var(--text-primary)]">{role.title}</h3>
+                    <span className="text-xs font-semibold uppercase tracking-[0.1em] text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-2.5 py-1">
+                      Coming Soon
+                    </span>
+                  </div>
+                  <p className="text-xs text-[var(--text-muted)] mb-3">{role.type}</p>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">{role.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {role.tags.map((tag) => (
+                      <span key={tag} className="text-xs font-medium text-[var(--text-tertiary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-full px-2.5 py-1">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href="mailto:contact@rhemicai.com"
+                  className="shrink-0 px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-200 self-start"
+                >
+                  Express Interest
+                </a>
+              </div>
+            ))}
+          </div>
 
-            <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-              We&apos;re a small, fast-moving team building the infrastructure for
-              AI-native search optimization. As we grow, we&apos;ll be looking for
-              world-class engineers, designers, and go-to-market talent who share
-              our vision.
+          {/* Speculative applications */}
+          <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 text-center">
+            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
+              Don&apos;t see your role?
+            </h3>
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 max-w-xl mx-auto">
+              We&apos;re always interested in exceptional people. Send us a note with what you&apos;re great at and what problem you want to work on.
             </p>
-
-            <div className="space-y-4 text-[var(--text-secondary)] mb-8">
-              <p className="text-sm">
-                <strong className="text-[var(--text-primary)]">What we value:</strong>{' '}
-                Craftsmanship, speed, clarity, measurable outcomes
-              </p>
-              <p className="text-sm">
-                <strong className="text-[var(--text-primary)]">Where we work:</strong>{' '}
-                Remote-first with periodic in-person collaboration
-              </p>
-              <p className="text-sm">
-                <strong className="text-[var(--text-primary)]">What we&apos;re building:</strong>{' '}
-                Enterprise-grade AI search optimization at accessible pricing
-              </p>
-            </div>
-
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
@@ -107,9 +143,9 @@ export default function CareersPage() {
             href: '/about',
           },
           {
-            title: 'Our Products',
-            description: 'Website auditing, competitor analysis, and code generation tools.',
-            href: '/products',
+            title: 'Pricing',
+            description: 'Transparent plans for agencies and businesses of all sizes.',
+            href: '/pricing',
           },
           {
             title: 'Contact Us',

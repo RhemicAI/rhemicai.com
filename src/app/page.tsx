@@ -4,15 +4,15 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
-import StatsBanner from '@/components/StatsBanner/StatsBanner';
-import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import ProofSection from '@/components/ProofSection/ProofSection';
-import Features from '@/components/Features/Features';
-import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
+import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
+import AEOEngine from '@/components/AEOEngine/AEOEngine';
+import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
+import Testimonials from '@/components/Testimonials/Testimonials';
 import Pricing from '@/components/Pricing/Pricing';
-import CTA from '@/components/CTA/CTA';
 import FAQ from '@/components/FAQ/FAQ';
+import CTA from '@/components/CTA/CTA';
 import Footer from '@/components/Footer/Footer';
 
 function slowScrollTo(id: string, duration = 2200) {
@@ -51,12 +51,12 @@ export default function Home() {
     <main className="min-h-screen selection:bg-violet-500/20 selection:text-white">
       <FixedNav />
       <Hero key={pathname} />
-      <StatsBanner />
-      <AiVisibilityWidget />
       <ProofSection />
-      <Features />
-      <DashboardPreview />
+      <AiVisibilityWidget />
       <HowItWorks />
+      <AEOEngine />
+      <DashboardPreview />
+      <Testimonials />
       <Pricing />
       <FAQ />
       <CTA />
