@@ -11,7 +11,6 @@ import TransformationSection from '@/components/TransformationSection/Transforma
 import VisionSection from '@/components/VisionSection/VisionSection';
 import WhyUsSection from '@/components/WhyUsSection/WhyUsSection';
 import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
-import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
 import AEOEngine from '@/components/AEOEngine/AEOEngine';
 import Testimonials from '@/components/Testimonials/Testimonials';
@@ -63,7 +62,6 @@ export default function Home() {
       <TransformationSection />
       <VisionSection />
       <WhyUsSection />
-      <HowItWorks />
       <DashboardPreview />
       <AEOEngine />
       <Testimonials />

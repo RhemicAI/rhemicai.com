@@ -1,3 +1,7 @@
+'use client';
+
+import Script from 'next/script';
+
 const steps = [
   {
     number: '01',
@@ -16,9 +20,30 @@ const steps = [
   },
 ];
 
+const howToSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Three steps agencies use to get clients recommended in AI answers',
+  description:
+    'Three steps agencies use to improve client visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.heading,
+    text: s.body,
+  })),
+});
+
 export default function TransformationSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
+      <Script
+        id="howto-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {howToSchema}
+      </Script>
       <div className="max-w-3xl mx-auto">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
           The Transformation
