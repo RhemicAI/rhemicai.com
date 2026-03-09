@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'How much does Rhemic AI cost?',
     answer:
-      'We offer custom pricing tailored to your business needs, scale, and goals. Options include monthly retainers, project-based engagements, and one-time audit packages. Book a free 15-minute discovery call to get a custom proposal with transparent pricing and specific deliverables.',
+      'Three founding member plans: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. No setup fees, no long-term contracts. These are limited-time founding member prices — they go up when the founding window closes.',
   },
   {
     question: 'How quickly will I see results?',

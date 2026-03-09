@@ -500,13 +500,13 @@ export default function AEOEngine() {
       {/* Section header */}
       <div className="text-over-globe max-w-5xl mx-auto text-center mb-16">
         <p className="text-xs md:text-sm font-medium tracking-[0.3em] uppercase text-[var(--text-secondary)] mb-4 font-mono">
-          The Engine
+          UNDER THE HOOD
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] mb-4">
-          Watch your visibility transform
+          From Raw Website Data to AI Recommendation
         </h2>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-xl mx-auto font-normal leading-relaxed opacity-80">
-          From website crawl to AI recommendation, see how Rhemic AI makes your business the answer.
+          This is what happens when you run a scan. We crawl your client&apos;s site, process it through our optimization engine, and check whether AI engines start recommending them. Watch the pipeline in real time.
         </p>
         <div className="mt-6">
           <SummaryModal
