@@ -81,14 +81,13 @@ export default function DashboardPreview() {
       {/* heading */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
-          Product
+          YOUR COMMAND CENTER
         </span>
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
-          Our engine under the hood
+          Track Every Client&apos;s AI Visibility in One Dashboard
         </h2>
         <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
-          We run enterprise-grade audits, track your competitors, and deliver
-          actionable optimizations, you just book a call and we handle the&nbsp;rest.
+          AEO scores, competitor rankings, 30-day deltas, and audit history for every client site. The numbers you show in client meetings to prove ROI and justify retainers.
         </p>
       </div>
 

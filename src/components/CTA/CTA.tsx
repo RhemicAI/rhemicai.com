@@ -14,13 +14,13 @@ export default function CTA() {
       <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
         <div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
-            <span className="block">Start Winning AI Recommendations</span>
-            <span className="block">for Your Clients</span>
+            <span className="block">Your Competitors Are Already in the AI Answers.</span>
+            <span className="block">Are Your Clients?</span>
           </h2>
         </div>
 
         <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80">
-          Run a free scan on any website in under 5 minutes. No credit card required.
+          Run a free scan right now. In 5 minutes you&apos;ll know exactly where your clients are invisible to AI — and who&apos;s taking their place.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -40,7 +40,7 @@ export default function CTA() {
         </div>
 
         <p className="mt-6 text-sm text-[var(--text-secondary)] tracking-wide">
-          No credit card required &middot; 5-minute setup &middot; Cancel anytime
+          No credit card required. Results in 5 minutes.
         </p>
       </div>
     </section>

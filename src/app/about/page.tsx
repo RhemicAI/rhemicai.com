@@ -43,32 +43,32 @@ const values = [
   {
     title: 'Precision',
     description:
-      'Every audit, every recommendation, every line of code is built with exactness. We deliver accuracy that drives real outcomes.',
+      "We don't do vague. Every score has a methodology. Every recommendation has a reason. Every delta is measurable.",
   },
   {
     title: 'Speed',
     description:
-      'AI moves fast. So do we. Our platform delivers enterprise-grade analysis in seconds, not weeks.',
+      'First scan results in under 5 minutes. Recommendations in 24 hours. Measurable improvement in 30 days.',
   },
   {
     title: 'Clarity',
     description:
-      'Complex technology, simple explanations. We believe powerful tools should be accessible to everyone.',
+      "If you need a dictionary to understand our reports, we've failed. Our dashboards are built for client meetings, not engineering standups.",
   },
   {
     title: 'Measurable Outcomes',
     description:
-      'Every feature we build, every strategy we deliver, is designed to produce trackable, tangible results.',
+      "We track Brand Share %, not vanity metrics. If the number doesn't move, we haven't done our job.",
   },
   {
     title: 'Craftsmanship',
     description:
-      "We're engineers at heart. We build with pride, test relentlessly, and never ship anything less than excellent.",
+      "We're engineers who take pride in what we ship. Every feature exists because an agency needed it, not because a roadmap said so.",
   },
   {
     title: 'Trust',
     description:
-      'Your data, your insights, your competitive edge, all protected with enterprise-grade security and transparency.',
+      "Founding member pricing is on the website. No hidden fees. No enterprise sales theater. What you see is what you pay.",
   },
 ];
 
@@ -109,8 +109,8 @@ export default function AboutPage() {
 
       <PageHero
         subtitle="About"
-        title="Built by engineers. Focused on outcomes."
-        description="We're building the infrastructure that makes businesses visible in the AI-first web."
+        title="We saw the AI shift before most agencies did."
+        description="Three college students at UTD. One question: what happens to local businesses when people stop Googling and start asking AI?"
         showBackLink={false}
       />
 
@@ -124,26 +124,28 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
               <p>
-                The web is changing. Search engines are becoming answer engines.
-                Businesses that don&apos;t adapt will disappear from AI-generated
-                results.
+                We started Rhemic AI as students at the University of Texas at
+                Dallas. Not in a garage. In a library, between classes, after
+                noticing something that kept us up at night.
               </p>
               <p>
-                We saw this shift coming. As engineers who built high-performance
-                systems at scale, we knew traditional SEO wasn&apos;t enough. AI
-                doesn&apos;t rank pages, it synthesizes answers. Visibility in this
-                new world requires a fundamentally different approach.
+                People were asking ChatGPT for recommendations instead of
+                searching Google. Not tech people. Regular people. Our parents.
+                Our friends. Local business owners we knew. And the businesses
+                those people used to find through search? They weren&apos;t showing
+                up in AI answers at all.
               </p>
               <p>
-                So we built Rhemic AI: an AI-native platform that gives
-                businesses the tools to understand, optimize, and win in
-                AI-generated search results. Enterprise-grade infrastructure at
-                accessible pricing. Precision analytics that drive measurable
-                outcomes.
+                We built Rhemic to answer a simple question: if someone asks an
+                AI &quot;what&apos;s the best coffee shop in Brooklyn&quot; or &quot;which
+                marketing agency should I hire,&quot; will your business be in the
+                answer? For most businesses, the answer is no. We built the tool
+                that changes that.
               </p>
               <p>
-                We&apos;re not here to replace traditional SEO. We&apos;re here to evolve
-                it for the AI age.
+                We&apos;re not a venture-funded startup pretending to be enterprise.
+                We&apos;re three founders who ship fast, price fairly, and care about
+                whether the numbers actually move for your clients.
               </p>
             </div>
           </section>
@@ -154,9 +156,8 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
-              We bridge the gap between businesses and the AI-first web by
-              providing enterprise-grade optimization infrastructure that makes
-              visibility in AI-generated answers accessible and affordable.
+              Make AI visibility measurable, improvable, and affordable for
+              every business — starting with the agencies that serve them.
             </p>
           </section>
 
@@ -239,7 +240,7 @@ export default function AboutPage() {
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO). The team combines engineering expertise with a mission to make AI search visibility accessible to businesses of all sizes.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO) — three students at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool agencies needed to respond to it.',
               },
               {
                 question: 'Where is Rhemic AI based?',
@@ -265,8 +266,8 @@ export default function AboutPage() {
             href: '/products',
           },
           {
-            title: 'Custom Pricing',
-            description: 'Flexible plans tailored to your business needs and goals.',
+            title: 'Pricing',
+            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
             href: '/pricing',
           },
           {

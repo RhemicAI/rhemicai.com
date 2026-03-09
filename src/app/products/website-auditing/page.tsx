@@ -227,8 +227,8 @@ export default function WebsiteAuditingPage() {
             href: '/products/code-generation',
           },
           {
-            title: 'Custom Pricing',
-            description: 'Flexible plans tailored to your business needs and goals.',
+            title: 'Pricing',
+            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
             href: '/pricing',
           },
         ]}

@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-const eyebrowText = "AI VISIBILITY PLATFORM";
+const eyebrowText = "AI VISIBILITY FOR AGENCIES";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20">
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pt-20 pb-8">
       {/* Radial gradient overlay, sits between globe (z-0) and content (z-10) */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -40,7 +40,7 @@ export default function Hero() {
             textShadow: '0 0 40px rgba(10, 10, 10, 0.9)',
           }}
         >
-          Rhemic AI gets you recommended on ChatGPT, Claude, Gemini, and Perplexity and proves it with data. Built for agencies and the businesses they serve.
+          Your clients&apos; customers stopped Googling. They ask ChatGPT. Rhemic shows you exactly which AI answers your clients are missing from — who&apos;s beating them, and how to fix it.
         </p>
 
         {/* CTA */}
@@ -61,7 +61,7 @@ export default function Hero() {
       </div>
 
       {/* Floating badges */}
-      <div className="relative z-10 mt-16 sm:mt-20 w-full flex flex-col items-center gap-1.5 sm:gap-2">
+      <div className="relative z-10 mt-10 sm:mt-12 w-full flex flex-col items-center gap-1.5 sm:gap-2">
         <p className="text-[10px] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center">
           The AI platforms we specialize in
         </p>
@@ -103,7 +103,7 @@ export default function Hero() {
           </span>
         </div>
         <p className="text-[9px] sm:text-[10px] text-[var(--text-secondary)] text-center">
-          Buyers are making decisions through AI answers, not search results.
+          70% of B2B buyers now consult AI before contacting a vendor.
         </p>
       </div>
     </section>

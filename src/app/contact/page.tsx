@@ -310,8 +310,8 @@ export default function ContactPage() {
                 href="/pricing"
                 className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
               >
-                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Custom Pricing</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Flexible plans tailored to your business needs and goals.</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Pricing</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Founding member plans from $599/mo. No setup fees, no contracts.</p>
               </Link>
               <Link
                 href="/about"

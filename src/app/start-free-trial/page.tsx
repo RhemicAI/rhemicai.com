@@ -529,9 +529,9 @@ export default function StartFreeTrialPage() {
             href: '/products',
           },
           {
-            title: 'Custom Pricing',
+            title: 'Pricing',
             description:
-              'Flexible plans tailored to your business needs and scale.',
+              'Founding member plans from $599/mo. No setup fees, no contracts.',
             href: '/pricing',
           },
           {

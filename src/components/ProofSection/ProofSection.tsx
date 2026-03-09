@@ -12,10 +12,10 @@ export default function ProofSection() {
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
-          The Shift
+          The Data
         </span>
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
-          The AI Search Shift Has Already Happened
+          The Numbers Behind the Shift
         </h2>
         <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
           Your clients&apos; buyers are already asking AI. The question is who&apos;s getting recommended.
@@ -51,18 +51,6 @@ export default function ProofSection() {
         ))}
       </div>
 
-      <div className="mt-16 text-center">
-        <p className="text-lg md:text-xl font-medium text-[var(--text-secondary)] mb-6">
-          Your clients can&apos;t afford to be invisible.
-        </p>
-        <a
-          href="#ai-visibility-scan"
-          className="group relative inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
-        >
-          <span className="relative z-10">Run AI Visibility Scan</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </a>
-      </div>
     </section>
   );
 }

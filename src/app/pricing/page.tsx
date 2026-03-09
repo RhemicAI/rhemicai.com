@@ -234,7 +234,7 @@ export default function PricingPage() {
               {
                 question: 'How much does Rhemic AI cost?',
                 answer:
-                  'Rhemic AI offers three transparent monthly plans: Starter at $499/mo, Growth at $899/mo, and Scale at $1,499/mo. Each plan is billed monthly with no long-term contracts required. Save 20% by choosing annual billing — contact us for annual pricing.',
+                  'Three founding member plans: Starter at $599/mo (regular $899), Growth at $999/mo (regular $1,199), and Scale at $1,499/mo (regular $1,999). Month-to-month, no contracts. Save 20% with annual billing — contact us for details.',
               },
               {
                 question: 'Is there a free trial?',

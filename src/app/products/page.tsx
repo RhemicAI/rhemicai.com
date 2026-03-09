@@ -8,7 +8,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 
 export const metadata: Metadata = {
-  title: 'Products - AI Engine Optimization Tools',
+  title: 'Products - AI Visibility Tools for Agencies',
   description:
     'Website Auditing, Competitor Analysis, and Code Generation tools for the AI search economy. Get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
   alternates: { canonical: 'https://rhemicai.com/products' },
@@ -77,8 +77,8 @@ export default function ProductsPage() {
 
       <PageHero
         subtitle="Products"
-        title="Built for the AI search economy."
-        description="Everything you need to win in AI search. Our platform gives startups and enterprises the same powerful infrastructure to compete in the AI-first web."
+        title="See where your clients are invisible. Fix it."
+        description="Three tools that work together: scan your client's AI presence, map the competitor gap, and generate the fixes. Results in the first scan."
         showBackLink={false}
       />
 
@@ -131,7 +131,7 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-5xl">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
-                Learn the AI search economy
+                Help your clients understand the shift
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
                 We&apos;re not just building tools, we&apos;re helping businesses understand
@@ -187,8 +187,8 @@ export default function ProductsPage() {
         heading="Learn more"
         links={[
           {
-            title: 'Custom Pricing',
-            description: 'Flexible plans tailored to your business needs and goals.',
+            title: 'Pricing',
+            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
             href: '/pricing',
           },
           {
