@@ -555,7 +555,7 @@ export default function AiVisibilityWidget() {
   };
 
   return (
-    <section id="ai-visibility-scan" className="relative px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
+    <section id="ai-visibility-scan" className="relative px-4 pt-8 pb-16 sm:px-8 sm:pt-10 sm:pb-24 lg:px-12">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-8 text-center sm:mb-10">
           <div className="mb-4 inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#00D4AA] shadow-[0_0_20px_rgba(0,212,170,0.08)] sm:px-6 sm:text-sm sm:tracking-[0.22em]">
@@ -564,7 +564,10 @@ export default function AiVisibilityWidget() {
           <p className="mx-auto max-w-2xl text-base font-semibold text-white/80 sm:text-xl">
             See if AI recommends your brand
           </p>
-          <p className="mx-auto mt-2 max-w-2xl text-xs font-semibold text-white/55 sm:text-sm">
+          <p className="mx-auto mt-2 max-w-2xl text-xs text-white/55 sm:text-sm">
+            Free preview of what our clients see. Full reports unlock competitor maps, content briefs, and Brand Share tracking.
+          </p>
+          <p className="mx-auto mt-1 max-w-2xl text-[10px] text-white/40 sm:text-xs">
             Public scan can take up to two minutes.
           </p>
         </div>

@@ -4,11 +4,16 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
+import BehaviorShiftSection from '@/components/BehaviorShiftSection/BehaviorShiftSection';
 import ProofSection from '@/components/ProofSection/ProofSection';
+import StakesSection from '@/components/StakesSection/StakesSection';
+import TransformationSection from '@/components/TransformationSection/TransformationSection';
+import VisionSection from '@/components/VisionSection/VisionSection';
+import WhyUsSection from '@/components/WhyUsSection/WhyUsSection';
 import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
-import AEOEngine from '@/components/AEOEngine/AEOEngine';
 import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
+import AEOEngine from '@/components/AEOEngine/AEOEngine';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import Pricing from '@/components/Pricing/Pricing';
 import FAQ from '@/components/FAQ/FAQ';
@@ -51,11 +56,16 @@ export default function Home() {
     <main className="min-h-screen selection:bg-violet-500/20 selection:text-white">
       <FixedNav />
       <Hero key={pathname} />
-      <ProofSection />
       <AiVisibilityWidget />
+      <BehaviorShiftSection />
+      <ProofSection />
+      <StakesSection />
+      <TransformationSection />
+      <VisionSection />
+      <WhyUsSection />
       <HowItWorks />
-      <AEOEngine />
       <DashboardPreview />
+      <AEOEngine />
       <Testimonials />
       <Pricing />
       <FAQ />
