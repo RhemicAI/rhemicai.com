@@ -58,6 +58,15 @@ export default function Hero() {
             See a Demo
           </a>
         </div>
+        <a
+          href="/for-local-businesses"
+          className="group mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-300 hover:border-emerald-400/50 hover:bg-emerald-500/15 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:scale-105 font-body tracking-[0.01em]"
+        >
+          Not an agency? See plans for local businesses
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-1">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </div>
 
       {/* Floating badges */}
