@@ -1,5 +1,3 @@
-'use client';
-
 export default function SmbHero() {
   return (
     <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-6 pt-28 pb-12">

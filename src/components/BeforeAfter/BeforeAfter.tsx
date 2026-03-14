@@ -1,5 +1,3 @@
-'use client';
-
 const competitors = [
   { name: 'Apex Roofing Co.', appearances: 5, total: 5 },
   { name: 'Summit Home Services', appearances: 4, total: 5 },

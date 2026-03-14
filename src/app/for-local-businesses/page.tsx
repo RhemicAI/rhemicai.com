@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import SmbHero from '@/components/SmbHero/SmbHero';
 import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
@@ -9,6 +9,24 @@ import WebsiteOffer from '@/components/WebsiteOffer/WebsiteOffer';
 import SmbPricing from '@/components/SmbPricing/SmbPricing';
 import IndustryTrust from '@/components/IndustryTrust/IndustryTrust';
 import Footer from '@/components/Footer/Footer';
+
+function slowScrollTo(id: string, duration = 2200) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const start = window.scrollY;
+  const end = el.getBoundingClientRect().top + window.scrollY - 80;
+  const startTime = performance.now();
+  function easeInOutCubic(t: number) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+  function step(now: number) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 
 /* ── Section 3: The Shift ── */
 function TheShift() {
@@ -39,15 +57,15 @@ function TheShift() {
         {/* Stats */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-xl mx-auto">
           <div className="rounded-xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 text-center">
-            <p className="text-3xl font-bold text-violet-400 font-display">40%</p>
+            <p className="text-3xl font-bold text-violet-400 font-display">1 in 3</p>
             <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
-              of consumers now use AI assistants to find local services
+              More than 1 in 3 buyers now start their search inside an AI assistant
             </p>
           </div>
           <div className="rounded-xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 text-center">
-            <p className="text-3xl font-bold text-violet-400 font-display">-25%</p>
+            <p className="text-3xl font-bold text-violet-400 font-display">&darr;</p>
             <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
-              projected search engine volume drop by 2027 (Gartner)
+              Search engine volume is projected to decline significantly as AI answers replace traditional results
             </p>
           </div>
         </div>
@@ -191,13 +209,16 @@ function SmbFAQ() {
                 </svg>
               </button>
 
-              {openIndex === index && (
+              <div
+                className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
+                style={{ maxHeight: openIndex === index ? '500px' : '0px' }}
+              >
                 <div className="px-6 pb-5">
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-body">
                     {faq.answer}
                   </p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
@@ -242,6 +263,17 @@ function SmbFooterCTA() {
 
 /* ── Page ── */
 export default function ForLocalBusinesses() {
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const anchor = (e.target as Element).closest('a[href="#ai-visibility-scan"]');
+      if (!anchor) return;
+      e.preventDefault();
+      slowScrollTo('ai-visibility-scan');
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, []);
+
   return (
     <main className="min-h-screen selection:bg-violet-500/20 selection:text-white">
       <FixedNav />

@@ -152,9 +152,11 @@ export default function SmbPricing() {
                       {priceSuffix}
                     </span>
                   </div>
-                  <p className="mt-1 text-sm text-[var(--text-muted)] line-through font-body">
-                    Was ${plan.wasPrice}/mo
-                  </p>
+                  {!annual && (
+                    <p className="mt-1 text-sm text-[var(--text-muted)] line-through font-body">
+                      Was ${plan.wasPrice}/mo
+                    </p>
+                  )}
                   {annual && (
                     <p className="mt-1 text-xs text-violet-400 font-body">
                       Save ${savings}/year

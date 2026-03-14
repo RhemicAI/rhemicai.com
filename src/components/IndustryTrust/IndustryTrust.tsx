@@ -34,12 +34,7 @@ export default function IndustryTrust() {
           Powered by the same AI visibility engine used by marketing agencies — at a price built for local business.
         </p>
 
-        {/* Testimonial placeholder */}
-        <div className="mt-10 rounded-xl border border-dashed border-white/10 bg-white/[0.02] p-6">
-          <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-body">
-            Customer testimonials coming soon
-          </p>
-        </div>
+        {/* TODO: add real testimonials */}
       </div>
     </section>
   );
