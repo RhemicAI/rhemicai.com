@@ -252,7 +252,7 @@ function sparklineHeights(value: number, index: number) {
   });
 }
 
-export default function AiVisibilityWidget() {
+export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: { placeholder?: string }) {
   const [phase, setPhase] = useState<Phase>('input');
   const [domainInput, setDomainInput] = useState('');
   const [industry, setIndustry] = useState<Industry>('Marketing Agency');
@@ -610,7 +610,7 @@ export default function AiVisibilityWidget() {
                             onChange={(e) => setDomainInput(e.target.value)}
                             onFocus={() => setDomainFocused(true)}
                             onBlur={() => setDomainFocused(false)}
-                            placeholder="yourdomain.com"
+                            placeholder={placeholder}
                             autoComplete="off"
                             className="w-full rounded-xl border border-transparent bg-transparent py-3 pl-14 pr-4 text-base text-white placeholder:text-white/35 outline-none"
                           />
