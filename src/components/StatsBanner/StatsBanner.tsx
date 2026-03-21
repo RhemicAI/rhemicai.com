@@ -2,11 +2,11 @@
 
 const stats = [
   { value: 'Brand Share %', label: 'Tracked Across 4 AI Platforms' },
-  { value: 'Visibility Gap', label: 'Quantified for Every Client' },
-  { value: 'Agency-Native', label: 'Built for Client Retainers' },
-  { value: 'Ranked Gaps', label: 'Know Where Clients Are Losing' },
+  { value: 'Visibility Gap', label: 'Quantified in Minutes' },
+  { value: 'AI-Native', label: 'Built for Real Results' },
+  { value: 'Ranked Gaps', label: 'Know Exactly Where You\'re Losing' },
   { value: '5 min', label: 'Full AI Visibility Scan' },
-  { value: '30-Day Delta', label: 'Track Client Progress Over Time' },
+  { value: '30-Day Delta', label: 'Track Your Progress Over Time' },
 ];
 
 export default function StatsBanner() {

@@ -7,10 +7,10 @@ export default function WebsiteOffer() {
             Included with Growth Plan
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] font-display mb-6">
-            No website? We&apos;ll build one — free.
+            No website? We&apos;ll build one. Free.
           </h2>
           <p className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed font-body">
-            Growth plan includes a professional 3-page website (Home, About, Contact) — built for you, no extra charge. You focus on the work. We handle getting you online and visible.
+            Growth plan includes a professional 3-page website (Home, About, Contact), built for you, no extra charge. You focus on the work. We handle getting you online and visible.
           </p>
         </div>
       </div>

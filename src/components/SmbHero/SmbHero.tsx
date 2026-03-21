@@ -18,7 +18,7 @@ export default function SmbHero() {
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] font-display mb-6"
           style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
-          When someone asks AI &ldquo;best roofer near me&rdquo; — do you show up?
+          When someone asks AI &ldquo;best restaurant near me,&rdquo; do you show up?
         </h1>
 
         {/* A/B test variant — uncomment to test */}
@@ -33,14 +33,14 @@ export default function SmbHero() {
           className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] mb-10 opacity-80 font-body"
           style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
-          Find out if AI is sending customers to your competitors instead of you — and get a step-by-step plan to fix it. Free scan, 60 seconds.
+          Find out if AI is sending customers to your competitors instead of you. Get a step-by-step plan to fix it. Free scan, 60 seconds.
         </p>
 
         <a
           href="#ai-visibility-scan"
           className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
         >
-          Run your free scan — no signup, no credit card
+          Run your free scan. No signup, no credit card.
         </a>
       </div>
     </section>

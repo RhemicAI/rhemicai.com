@@ -84,10 +84,10 @@ export default function DashboardPreview() {
           YOUR COMMAND CENTER
         </span>
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
-          Track Every Client&apos;s AI Visibility in One Dashboard
+          Track Your AI Visibility in One Dashboard
         </h2>
-        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
-          AEO scores, competitor rankings, 30-day deltas, and audit history for every client site. The numbers you show in client meetings to prove ROI and justify retainers.
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto opacity-80 font-body">
+          AEO scores, competitor rankings, 30-day deltas, and your full audit history. The numbers that show exactly how your AI visibility grows over time.
         </p>
       </div>
 

@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'What is AEO (AI Engine Optimization)?',
     answer:
-      'AEO is the practice of ensuring your brand, or your clients\' brands, gets recommended when buyers ask AI assistants for suggestions. Rhemic measures this as Brand Share %: how often your brand appears in AI answers compared to competitors across ChatGPT, Claude, Gemini, and Perplexity.',
+      'AEO is the practice of ensuring your brand gets recommended when buyers ask AI assistants for suggestions. Rhemic measures this as Brand Share %: how often your brand appears in AI answers compared to competitors across ChatGPT, Claude, Gemini, and Perplexity.',
   },
   {
     question: 'How is AEO different from traditional SEO?',
@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'How does Rhemic AI help my business appear in AI answers?',
     answer:
-      'Rhemic runs buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity to measure your clients\' Brand Share %, then identifies exactly which competitors are capturing the demand they\'re missing. You get ranked recommendations and 30-day delta tracking to show clients real progress.',
+      'Rhemic runs buyer-intent prompts across ChatGPT, Claude, Gemini, and Perplexity to measure your Brand Share %, then identifies exactly which competitors are capturing the demand you\'re missing. You get ranked recommendations and 30-day delta tracking to see your real progress.',
   },
   {
     question: 'Which AI platforms does Rhemic AI optimize for?',
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'How much does Rhemic AI cost?',
     answer:
-      'Three founding member plans: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. No setup fees, no long-term contracts. These are limited-time founding member prices — they go up when the founding window closes.',
+      'We have two pricing tracks. For small businesses: SMB Starter at $199/mo, SMB Growth at $299/mo, and SMB Scale at $499/mo. For agencies: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. All plans are founding member rates — no setup fees, no contracts, cancel any time.',
   },
   {
     question: 'How quickly will I see results?',
@@ -68,7 +68,7 @@ export default function FAQ() {
         {faqSchemaString}
       </Script>
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4 font-body">
             FAQ

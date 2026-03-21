@@ -47,7 +47,7 @@ function TheShift() {
             More customers now ask AI assistants who to hire before they ever search Google.
           </p>
           <p className="text-[var(--text-muted)] italic">
-            &ldquo;Best plumber in Austin.&rdquo; &ldquo;Top-rated roofer near me.&rdquo; &ldquo;Who does HVAC in my area?&rdquo;
+            &ldquo;Best sushi restaurant downtown.&rdquo; &ldquo;Top-rated dentist near me.&rdquo; &ldquo;Best car dealership in [city]?&rdquo;
           </p>
           <p>
             AI gives them an answer — a short list of businesses it recommends. If you&apos;re not on that list, you don&apos;t exist in that moment. Doesn&apos;t matter how good your work is.
@@ -157,7 +157,7 @@ const smbFaqs = [
   {
     question: 'What kinds of businesses is this built for?',
     answer:
-      'Any local service business — roofing, plumbing, HVAC, electrical, landscaping, legal, dental, auto repair. If customers search for your type of service, they\'re starting to ask AI instead. That\'s who we help.',
+      'Any local business where customers choose you based on reputation — restaurants, dental clinics, auto dealerships, medical practices, hair salons, retail boutiques, and more. If customers search for your type of business, they\'re starting to ask AI instead. That\'s who we help.',
   },
 ];
 

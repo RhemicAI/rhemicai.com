@@ -565,7 +565,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
             See if AI recommends your brand
           </p>
           <p className="mx-auto mt-2 max-w-2xl text-xs text-white/55 sm:text-sm">
-            Free preview of what our clients see. Full reports unlock competitor maps, content briefs, and Brand Share tracking.
+            Free preview of your full report. Full reports unlock competitor maps, content briefs, and Brand Share tracking.
           </p>
           <p className="mx-auto mt-1 max-w-2xl text-[10px] text-white/40 sm:text-xs">
             Public scan can take up to two minutes.
