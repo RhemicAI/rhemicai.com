@@ -1,7 +1,7 @@
 const competitors = [
-  { name: 'Apex Roofing Co.', appearances: 5, total: 5 },
-  { name: 'Summit Home Services', appearances: 4, total: 5 },
-  { name: 'ProTech Contractors', appearances: 3, total: 5 },
+  { name: 'Bella Vista Kitchen', appearances: 5, total: 5 },
+  { name: 'The Harbor Bistro', appearances: 4, total: 5 },
+  { name: 'Oak & Stone Grill', appearances: 3, total: 5 },
   { name: 'Your Business', appearances: 0, total: 5, isProspect: true },
 ];
 
@@ -99,12 +99,12 @@ export default function BeforeAfter() {
           </div>
 
           <p className="mt-4 text-xs text-[var(--text-muted)] text-center">
-            Prompt tested: &ldquo;Who is the best roofer near me?&rdquo; across 5 AI engines
+            Prompt tested: &ldquo;Best restaurant for dinner near me?&rdquo; across 5 AI engines
           </p>
         </div>
 
         <p className="mt-6 text-center text-base text-[var(--text-secondary)] font-body leading-relaxed max-w-xl mx-auto">
-          Your competitor shows up every time someone asks AI who to hire. You&apos;re not on the list — yet.
+          Your competitor shows up every time someone asks AI who to hire. You&apos;re not on the list. Yet.
         </p>
       </div>
     </section>

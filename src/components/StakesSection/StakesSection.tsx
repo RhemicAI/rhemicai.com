@@ -5,7 +5,7 @@ const stakes = [
   },
   {
     stat: '$0',
-    label: 'what it costs the AI to switch from a competitor to your client. It just needs a reason.',
+    label: 'what it costs the AI to switch from a competitor to you. It just needs a reason.',
   },
   {
     stat: '30 days',
@@ -23,8 +23,8 @@ export default function StakesSection() {
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
           Every Day You Wait, a Competitor Takes Your Spot
         </h2>
-        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
-          AI answers don&apos;t have 10 blue links. They have one recommendation. If that&apos;s not your client, it&apos;s someone else. And once they&apos;re in, they&apos;re hard to displace.
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto opacity-80 font-body">
+          AI answers don&apos;t have 10 blue links. They have one recommendation. If that&apos;s not you, it&apos;s someone else. And once they&apos;re in, they&apos;re hard to displace.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function StakesSection() {
           href="#ai-visibility-scan"
           className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body"
         >
-          See Where Your Clients Stand
+          See Where You Stand
         </a>
       </div>
     </section>

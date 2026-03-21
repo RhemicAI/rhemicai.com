@@ -17,8 +17,8 @@ export default function ProofSection() {
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
           The Numbers Behind the Shift
         </h2>
-        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto opacity-80 font-body">
-          Your clients&apos; buyers are already asking AI. The question is who&apos;s getting recommended.
+        <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto opacity-80 font-body">
+          Your buyers are already asking AI. The question is who&apos;s getting recommended.
         </p>
       </div>
 

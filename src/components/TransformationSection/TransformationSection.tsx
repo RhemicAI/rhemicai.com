@@ -6,26 +6,26 @@ const steps = [
   {
     number: '01',
     heading: 'First, we show you the gap.',
-    body: 'We run 200+ real buyer prompts across ChatGPT, Claude, Gemini, and Perplexity. Not keyword checks \u2014 actual questions your clients\u2019 customers ask. You get a Brand Share % score: the percentage of AI answers where your client gets recommended vs. competitors.',
+    body: 'We run 200+ real buyer prompts across ChatGPT, Claude, Gemini, and Perplexity. Not keyword checks \u2014 actual questions your customers ask. You get a Brand Share % score: the percentage of AI answers where you get recommended vs. competitors.',
   },
   {
     number: '02',
     heading: 'Then, we show you who\u2019s winning and why.',
-    body: 'A ranked competitor map. Which brands appear in AI answers for every topic that matters. For each gap, exactly what the competitor has that your client doesn\u2019t \u2014 content depth, schema markup, citation signals.',
+    body: 'A ranked competitor map. Which brands appear in AI answers for every topic that matters. For each gap, exactly what the competitor has that you don\u2019t \u2014 content depth, schema markup, citation signals.',
   },
   {
     number: '03',
     heading: 'Then, we give you the playbook.',
-    body: 'Specific content briefs. Schema code you can copy-paste. Structural changes prioritized by impact. Run the scan again in 30 days. The before-and-after delta is the slide that renews retainers.',
+    body: 'Specific content briefs. Schema code you can copy-paste. Structural changes prioritized by impact. Run the scan again in 30 days. The before-and-after delta shows exactly how far you\u2019ve come.',
   },
 ];
 
 const howToSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'Three steps agencies use to get clients recommended in AI answers',
+  name: 'Three steps to get your business recommended in AI answers',
   description:
-    'Three steps agencies use to improve client visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
+    'Three steps to improve your visibility in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
   step: steps.map((s, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -44,13 +44,15 @@ export default function TransformationSection() {
       >
         {howToSchema}
       </Script>
-      <div className="max-w-3xl mx-auto">
-        <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
-          The Transformation
-        </span>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display mb-16">
-          Rhemic Is the Bridge Between Invisible and Recommended
-        </h2>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
+            The Transformation
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
+            Rhemic Is the Bridge Between Invisible and Recommended
+          </h2>
+        </div>
 
         <div className="space-y-14">
           {steps.map((step) => (

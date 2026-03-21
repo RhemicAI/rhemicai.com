@@ -1,7 +1,7 @@
 const points = [
   {
     statement: 'Built by practitioners, not MBAs.',
-    explanation: 'Three UTD engineers who saw the shift early and built what agencies actually need.',
+    explanation: 'Three UTD engineers who saw the shift early and built what businesses actually need.',
   },
   {
     statement: 'Transparent pricing on the website.',

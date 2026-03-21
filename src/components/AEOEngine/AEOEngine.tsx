@@ -506,7 +506,7 @@ export default function AEOEngine() {
           From Raw Website Data to AI Recommendation
         </h2>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-xl mx-auto font-normal leading-relaxed opacity-80">
-          This is what happens when you run a scan. We crawl your client&apos;s site, process it through our optimization engine, and check whether AI engines start recommending them. Watch the pipeline in real time.
+          This is what happens when you run a scan. We crawl your site, process it through our optimization engine, and check whether AI engines start recommending you. Watch the pipeline in real time.
         </p>
         <div className="mt-6">
           <SummaryModal

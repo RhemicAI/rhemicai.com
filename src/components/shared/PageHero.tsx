@@ -10,7 +10,7 @@ interface PageHeroProps {
 export default function PageHero({ title, subtitle, description, showBackLink = true }: PageHeroProps) {
   return (
     <div className="relative z-10 pt-24 sm:pt-32 pb-12 sm:pb-16">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-5xl px-6 text-center">
         {showBackLink && (
           <Link
             href="/"
@@ -31,7 +31,7 @@ export default function PageHero({ title, subtitle, description, showBackLink = 
         </h1>
 
         {description && (
-          <p className="text-base md:text-lg text-[var(--text-primary)] opacity-70 leading-[1.6] max-w-2xl font-body">
+          <p className="text-base md:text-lg text-[var(--text-primary)] opacity-70 leading-[1.6] max-w-2xl mx-auto font-body">
             {description}
           </p>
         )}

@@ -11,16 +11,15 @@ export default function CTA() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
+      <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
         <div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
-            <span className="block">Your Competitors Are Already in the AI Answers.</span>
-            <span className="block">Are Your Clients?</span>
+            Your Competitors Are Already in the AI Answers. Are You?
           </h2>
         </div>
 
-        <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-xl mx-auto leading-relaxed opacity-80">
-          Run a free scan right now. In 5 minutes you&apos;ll know exactly where your clients are invisible to AI — and who&apos;s taking their place.
+        <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto leading-relaxed opacity-80">
+          Run a free scan right now. In 5 minutes you&apos;ll know exactly where you&apos;re invisible to AI and who&apos;s taking your place.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

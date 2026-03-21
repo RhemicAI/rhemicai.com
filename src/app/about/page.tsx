@@ -53,7 +53,7 @@ const values = [
   {
     title: 'Clarity',
     description:
-      "If you need a dictionary to understand our reports, we've failed. Our dashboards are built for client meetings, not engineering standups.",
+      "If you need a dictionary to understand our reports, we've failed. Our dashboards are built for business owners, not engineers.",
   },
   {
     title: 'Measurable Outcomes',
@@ -63,7 +63,7 @@ const values = [
   {
     title: 'Craftsmanship',
     description:
-      "We're engineers who take pride in what we ship. Every feature exists because an agency needed it, not because a roadmap said so.",
+      "We're engineers who take pride in what we ship. Every feature exists because a business needed it, not because a roadmap said so.",
   },
   {
     title: 'Trust',
@@ -109,7 +109,7 @@ export default function AboutPage() {
 
       <PageHero
         subtitle="About"
-        title="We saw the AI shift before most agencies did."
+        title="We saw the AI shift before most businesses did."
         description="Three college students at UTD. One question: what happens to local businesses when people stop Googling and start asking AI?"
         showBackLink={false}
       />
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <p>
                 We&apos;re not a venture-funded startup pretending to be enterprise.
                 We&apos;re three founders who ship fast, price fairly, and care about
-                whether the numbers actually move for your clients.
+                whether the numbers actually move for your business.
               </p>
             </div>
           </section>
@@ -157,7 +157,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
               Make AI visibility measurable, improvable, and affordable for
-              every business — starting with the agencies that serve them.
+              every business.
             </p>
           </section>
 
@@ -240,7 +240,7 @@ export default function AboutPage() {
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO) — three students at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool agencies needed to respond to it.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO) — three students at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool businesses needed to respond to it.',
               },
               {
                 question: 'Where is Rhemic AI based?',

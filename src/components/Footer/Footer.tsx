@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              AI competitive visibility intelligence for agencies.
+              AI answer engine optimization for your business.
             </p>
             <Image
               src="/rhemic-footer-logo.png"

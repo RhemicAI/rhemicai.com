@@ -1,15 +1,15 @@
 const industries = [
-  'Roofers',
-  'Plumbers',
-  'HVAC',
-  'Electricians',
-  'Landscapers',
-  'Contractors',
-  'Painters',
-  'Pest Control',
-  'Auto Repair',
-  'Dental',
-  'Legal',
+  'Restaurants',
+  'Dental Clinics',
+  'Auto Dealerships',
+  'Medical Practices',
+  'Hair Salons',
+  'Retail Boutiques',
+  'Law Firms',
+  'Spas & Wellness',
+  'Veterinary Clinics',
+  'Optometrists',
+  'Accounting Firms',
 ];
 
 export default function IndustryTrust() {
@@ -31,7 +31,7 @@ export default function IndustryTrust() {
         </div>
 
         <p className="text-sm text-[var(--text-muted)] font-body max-w-xl mx-auto">
-          Powered by the same AI visibility engine used by marketing agencies — at a price built for local business.
+          Powered by the same AI visibility engine used by marketing agencies, at a price built for local business.
         </p>
 
         {/* TODO: add real testimonials */}

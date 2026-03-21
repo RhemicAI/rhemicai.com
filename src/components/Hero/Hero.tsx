@@ -2,21 +2,21 @@
 
 import React from 'react';
 
-const eyebrowText = "AI VISIBILITY FOR AGENCIES";
+const eyebrowText = "AI ANSWER ENGINE OPTIMIZATION";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pt-20 pb-8">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-16">
       {/* Radial gradient overlay, sits between globe (z-0) and content (z-10) */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.5) 50%, transparent 80%)' }}
       />
 
-      <div className="relative z-10 text-center max-w-5xl mx-auto">
+      <div className="relative z-10 text-center max-w-6xl mx-auto w-full">
         {/* Tag */}
         <p
-          className="text-[11px] sm:text-sm md:text-base font-medium tracking-[0.08em] sm:tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-8 font-body"
+          className="text-[11px] sm:text-sm md:text-base font-medium tracking-[0.08em] sm:tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-6 font-body"
           style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
           {eyebrowText}
@@ -35,25 +35,25 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p
-          className="text-base md:text-lg lg:text-xl text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] mb-12 opacity-80 font-body"
+          className="text-base md:text-lg lg:text-xl text-[var(--text-primary)] max-w-3xl mx-auto font-normal leading-[1.6] mb-10 opacity-80 font-body"
           style={{
             textShadow: '0 0 40px rgba(10, 10, 10, 0.9)',
           }}
         >
-          Your clients&apos; customers stopped Googling. They ask ChatGPT. Rhemic shows you exactly which AI answers your clients are missing from — who&apos;s beating them, and how to fix it.
+          When someone asks ChatGPT or Gemini for a recommendation, your business should be in the answer. Rhemic gets you there before your competitors.
         </p>
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#ai-visibility-scan"
-            className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
+            className="px-10 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
           >
             Run Free AI Scan
           </a>
           <a
             href="#" data-cal-link="rhemic-ai/discovery-call"
-            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body tracking-[0.01em]"
+            className="px-10 py-4 text-lg font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body tracking-[0.01em]"
           >
             See a Demo
           </a>
@@ -62,7 +62,7 @@ export default function Hero() {
           href="/for-local-businesses"
           className="group mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-300 hover:border-emerald-400/50 hover:bg-emerald-500/15 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:scale-105 font-body tracking-[0.01em]"
         >
-          Not an agency? See plans for local businesses
+          Local business? See our SMB plans
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-1">
             <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -70,11 +70,11 @@ export default function Hero() {
       </div>
 
       {/* Floating badges */}
-      <div className="relative z-10 mt-10 sm:mt-12 w-full flex flex-col items-center gap-1.5 sm:gap-2">
+      <div className="relative z-10 mt-12 sm:mt-14 w-full flex flex-col items-center gap-1.5 sm:gap-2">
         <p className="text-[10px] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center">
           The AI platforms we specialize in
         </p>
-        <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-1.5 sm:gap-x-6 text-[var(--text-tertiary)]">
+        <div className="flex items-center justify-center flex-wrap gap-x-8 gap-y-2 sm:gap-x-12 text-[var(--text-tertiary)]">
           {/* OpenAI / ChatGPT */}
           <span className="flex flex-col items-center gap-0.5">
             <svg width="16" height="16" viewBox="-1 -.1 949.1 959.8" fill="currentColor" className="opacity-70">

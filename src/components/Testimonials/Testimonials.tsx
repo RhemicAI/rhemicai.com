@@ -1,15 +1,15 @@
 const signals = [
   {
     metricTitle: 'Brand Share % Baseline',
-    body: 'Most agencies discover their clients appear in less than 15% of relevant AI answers. That\'s the gap. Knowing it exists is step one.',
+    body: 'Most businesses discover they appear in less than 15% of relevant AI answers. That\'s the gap. Knowing it exists is step one.',
   },
   {
     metricTitle: 'Competitor Gap Map',
-    body: 'On average, 3–5 competitors are capturing the AI recommendations your clients are missing. We show you exactly who and exactly which topics.',
+    body: 'On average, 3–5 competitors are capturing the AI recommendations you\'re missing. We show you exactly who and exactly which topics.',
   },
   {
     metricTitle: '30-Day Delta Tracking',
-    body: 'After implementing Rhemic recommendations, agencies track improvement with a second scan. The before-and-after delta is the slide that renews retainers.',
+    body: 'After implementing Rhemic recommendations, run a second scan to track your improvement. The before-and-after delta shows exactly how far you\'ve come.',
   },
 ];
 
@@ -23,7 +23,7 @@ export default function Testimonials() {
             EARLY SIGNALS
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
-            What Agencies See in Their First 30 Days
+            What Businesses See in Their First 30 Days
           </h2>
         </div>
 

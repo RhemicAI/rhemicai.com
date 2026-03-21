@@ -1,8 +1,8 @@
 const features = [
   {
-    title: 'Client AI Visibility Audit',
+    title: 'AI Visibility Audit',
     description:
-      'Run a full AI visibility audit for any client domain. We analyze how often they\'re recommended across ChatGPT, Claude, Gemini, and Perplexity, and deliver a Brand Share % score in minutes.',
+      'Run a full AI visibility audit for your business. We analyze how often you\'re recommended across ChatGPT, Claude, Gemini, and Perplexity, and deliver a Brand Share % score in minutes.',
     tags: ['Brand Share %', 'AI Monitoring', '5-Min Scan'],
     icon: (
       <svg
@@ -26,7 +26,7 @@ const features = [
   {
     title: 'Competitive Gap Intelligence',
     description:
-      'See exactly which competitors are capturing your client\'s AI demand. We run 60–100 buyer prompts and map who\'s winning recommendations, so you can show clients the gap in hard numbers.',
+      'See exactly which competitors are capturing your AI demand. We run 60–100 buyer prompts and map who\'s winning recommendations, so you can see the gap in hard numbers.',
     tags: ['Visibility Gap', 'Competitor Tracking', 'Real-Time'],
     icon: (
       <svg
@@ -51,8 +51,8 @@ const features = [
   {
     title: 'Structural Visibility Fixes',
     description:
-      'Get ranked, agency-ready recommendations to close the visibility gap. Structural fixes, schema updates, and content signals, prioritized by impact and ready to present to clients.',
-    tags: ['Ranked Fixes', 'Client-Ready Reports', 'One-Click Deploy'],
+      'Get ranked, actionable recommendations to close the visibility gap. Structural fixes, schema updates, and content signals, prioritized by impact.',
+    tags: ['Ranked Fixes', 'Actionable Reports', 'One-Click Deploy'],
     icon: (
       <svg
         width="48"
@@ -84,11 +84,11 @@ export default function Features() {
         </p>
         <div className="mb-6">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.1] text-[var(--text-primary)] font-display">
-            AI competitive visibility intelligence for agencies
+            AI competitive visibility intelligence for businesses
           </h2>
         </div>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] opacity-80 font-body">
-          Rhemic shows agencies exactly where their clients are losing AI demand, and who&apos;s winning
+          Rhemic shows you exactly where you&apos;re losing AI demand, and who&apos;s winning
           instead.
         </p>
       </div>

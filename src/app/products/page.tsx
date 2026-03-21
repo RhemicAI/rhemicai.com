@@ -8,7 +8,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 
 export const metadata: Metadata = {
-  title: 'Products - AI Visibility Tools for Agencies',
+  title: 'Products - AI Visibility Tools for Your Business',
   description:
     'Website Auditing, Competitor Analysis, and Code Generation tools for the AI search economy. Get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
   alternates: { canonical: 'https://rhemicai.com/products' },
@@ -77,8 +77,8 @@ export default function ProductsPage() {
 
       <PageHero
         subtitle="Products"
-        title="See where your clients are invisible. Fix it."
-        description="Three tools that work together: scan your client's AI presence, map the competitor gap, and generate the fixes. Results in the first scan."
+        title="See where you're invisible to AI. Fix it."
+        description="Three tools that work together: scan your AI presence, map the competitor gap, and generate the fixes. Results in the first scan."
         showBackLink={false}
       />
 
@@ -131,7 +131,7 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-5xl">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
-                Help your clients understand the shift
+                Understand the shift
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
                 We&apos;re not just building tools, we&apos;re helping businesses understand
