@@ -1,52 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-
-const plans = [
-  {
-    name: 'Local Starter',
-    monthlyPrice: 199,
-    annualPrice: 1990,
-    wasPrice: 299,
-    bestFor: 'Single-location businesses getting started',
-    featured: false,
-    features: [
-      '30 buyer-intent prompts',
-      '4 AI engines scanned (ChatGPT, Claude, Gemini, Perplexity)',
-      'Competitive gap report',
-      '5 plain-English fix recommendations',
-    ],
-  },
-  {
-    name: 'Local Growth',
-    monthlyPrice: 299,
-    annualPrice: 2990,
-    wasPrice: 399,
-    bestFor: 'Businesses ready to dominate local AI search + free website',
-    featured: true,
-    features: [
-      'Everything in Starter',
-      'Free 3-page website setup (Home, About, Contact)',
-      'Monthly re-scans',
-      'Progress tracking',
-      'Priority support',
-    ],
-  },
-  {
-    name: 'Local Scale',
-    monthlyPrice: 499,
-    annualPrice: 4990,
-    wasPrice: 699,
-    bestFor: 'Competitive markets or multiple locations',
-    featured: false,
-    features: [
-      'Everything in Growth',
-      'Multi-location scanning',
-      'Weekly re-scans',
-      'Dedicated account review',
-    ],
-  },
-];
+import { smbPlans } from '@/data/pricing';
 
 function CheckIcon() {
   return (
@@ -114,7 +69,7 @@ export default function SmbPricing() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {plans.map((plan) => {
+          {smbPlans.map((plan) => {
             const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
             const priceSuffix = annual ? '/year' : '/mo';
             const savings = plan.monthlyPrice * 12 - plan.annualPrice;

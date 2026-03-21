@@ -11,7 +11,7 @@ export interface PricingPlan {
 
 export const smbPlans: PricingPlan[] = [
   {
-    name: 'Local Starter',
+    name: 'SMB Starter',
     monthlyPrice: 199,
     annualPrice: 1990,
     wasPrice: 299,
@@ -25,7 +25,7 @@ export const smbPlans: PricingPlan[] = [
     ],
   },
   {
-    name: 'Local Growth',
+    name: 'SMB Growth',
     monthlyPrice: 299,
     annualPrice: 2990,
     wasPrice: 399,
@@ -40,7 +40,7 @@ export const smbPlans: PricingPlan[] = [
     ],
   },
   {
-    name: 'Local Scale',
+    name: 'SMB Scale',
     monthlyPrice: 499,
     annualPrice: 4990,
     wasPrice: 699,
