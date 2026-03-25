@@ -44,13 +44,10 @@ function TheShift() {
 
         <div className="space-y-4 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-body max-w-2xl mx-auto">
           <p>
-            More customers now ask AI assistants who to hire before they ever search Google.
-          </p>
-          <p className="text-[var(--text-muted)] italic">
-            &ldquo;Best sushi restaurant downtown.&rdquo; &ldquo;Top-rated dentist near me.&rdquo; &ldquo;Best car dealership in [city]?&rdquo;
+            Your customers aren&apos;t typing into Google anymore. They&apos;re asking ChatGPT, Claude, and Gemini: &ldquo;best sushi restaurant downtown,&rdquo; &ldquo;top-rated dentist near me,&rdquo; &ldquo;reliable plumber in my city.&rdquo;
           </p>
           <p>
-            AI gives them an answer — a short list of businesses it recommends. If you&apos;re not on that list, you don&apos;t exist in that moment. Doesn&apos;t matter how good your work is.
+            AI gives them a short list. If you&apos;re not on it, they never find you. It doesn&apos;t matter how good your reviews are or how long you&apos;ve been in business.
           </p>
         </div>
 
@@ -78,21 +75,21 @@ function TheShift() {
 const steps = [
   {
     number: '01',
-    title: 'We scan',
+    title: 'We Test What Customers Are Asking',
     description:
-      'Test the exact questions your customers are asking right now across ChatGPT, Claude, Gemini, and Perplexity.',
+      'We run the exact questions your customers ask AI across ChatGPT, Claude, Gemini, and Perplexity, and see who gets recommended.',
   },
   {
     number: '02',
-    title: 'We show you',
+    title: 'You See Who\'s Getting Your Customers',
     description:
-      'See which competitors are stealing your leads in AI, name by name.',
+      'A clear, name-by-name breakdown of which competitors AI recommends instead of you, and for which topics.',
   },
   {
     number: '03',
-    title: 'We tell you how to fix it',
+    title: 'You Get a Step-by-Step Fix Plan',
     description:
-      'Plain-English steps, no jargon, no guesswork.',
+      'Plain-English recommendations. No jargon, no guesswork. Do these things, in this order, and AI will start recommending you.',
   },
 ];
 
@@ -105,7 +102,7 @@ function HowItWorks() {
             How It Works
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] font-display">
-            We show you what AI says about your business — and your competitors.
+            We show you what AI says about your business, and your competitors.
           </h2>
         </div>
 
@@ -137,17 +134,17 @@ const smbFaqs = [
   {
     question: 'Will this work if I don\'t have a website?',
     answer:
-      'Yes — and if you don\'t have one, we\'ll build it for you on the Growth plan. Included in the price, no extra charge.',
+      'Yes, and if you don\'t have one, we\'ll build it for you on the Growth plan. Included in the price, no extra charge.',
   },
   {
     question: 'How is this different from SEO?',
     answer:
-      'SEO gets you ranked on Google. This gets you into AI recommendations — where more buyers are starting their search every day. They\'re different systems. Most local businesses are ignoring AI entirely right now. That\'s your window.',
+      'SEO gets you ranked on Google. This gets you into AI recommendations, where more buyers are starting their search every day. They\'re different systems. Most local businesses are ignoring AI entirely right now. That\'s your window.',
   },
   {
     question: 'How fast does it work?',
     answer:
-      'The scan takes 60 seconds. Visibility improvements depend on how quickly you implement the recommendations — most businesses see movement within a few weeks.',
+      'The scan takes 60 seconds. Visibility improvements depend on how quickly you implement the recommendations. Most businesses see movement within a few weeks.',
   },
   {
     question: 'Do I need any tech skills?',
@@ -157,7 +154,7 @@ const smbFaqs = [
   {
     question: 'What kinds of businesses is this built for?',
     answer:
-      'Any local business where customers choose you based on reputation — restaurants, dental clinics, auto dealerships, medical practices, hair salons, retail boutiques, and more. If customers search for your type of business, they\'re starting to ask AI instead. That\'s who we help.',
+      'Any local business where customers choose you based on reputation: restaurants, dental clinics, auto dealerships, medical practices, hair salons, retail boutiques, and more. If customers search for your type of business, they\'re starting to ask AI instead. That\'s who we help.',
   },
 ];
 
@@ -241,7 +238,7 @@ function SmbFooterCTA() {
 
       <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[-0.03em] leading-[1.1] text-[var(--text-primary)] font-display">
-          Your competitors are already in the AI answer. Find out where you stand — free.
+          Your competitors are already in the AI answer. Find out where you stand. Free.
         </h2>
 
         <div className="mt-8">

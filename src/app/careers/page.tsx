@@ -37,7 +37,7 @@ const roles = [
     title: 'Full-Stack Engineer',
     type: 'Full-time · Remote',
     description:
-      'Own product features end-to-end — from data pipelines to the dashboard UI. We work in TypeScript, Next.js, Python, and PostgreSQL.',
+      'Own product features end-to-end, from data pipelines to the dashboard UI. We work in TypeScript, Next.js, Python, and PostgreSQL.',
     tags: ['Engineering', 'Full-Stack', 'TypeScript'],
   },
 ];

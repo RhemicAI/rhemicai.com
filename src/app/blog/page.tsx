@@ -24,7 +24,7 @@ export default function BlogPage() {
       <PageHero
         subtitle="Blog"
         title="Insights on AI search optimization."
-        description="Articles, research, and updates on the future of visibility in AI-generated answers."
+        description="Insights on AI search, visibility strategies, and why businesses that move early win."
         showBackLink={false}
       />
 

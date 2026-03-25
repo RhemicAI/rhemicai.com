@@ -5,18 +5,18 @@ import Script from 'next/script';
 const steps = [
   {
     number: '01',
-    heading: 'First, we show you the gap.',
-    body: 'We run 200+ real buyer prompts across ChatGPT, Claude, Gemini, and Perplexity. Not keyword checks \u2014 actual questions your customers ask. You get a Brand Share % score: the percentage of AI answers where you get recommended vs. competitors.',
+    heading: 'Your AI Visibility Report',
+    body: 'We test 200+ real questions your customers are asking across ChatGPT, Claude, Gemini, and Perplexity. You get a Brand Share score: the percentage of AI answers where you get recommended vs. your competitors. Most businesses score under 15%.',
   },
   {
     number: '02',
-    heading: 'Then, we show you who\u2019s winning and why.',
-    body: 'A ranked competitor map. Which brands appear in AI answers for every topic that matters. For each gap, exactly what the competitor has that you don\u2019t \u2014 content depth, schema markup, citation signals.',
+    heading: 'Your Competitor Map',
+    body: 'A ranked breakdown of every competitor showing up in AI answers for your industry. For each one, we show exactly what they have that you don\'t, and how to close the gap.',
   },
   {
     number: '03',
-    heading: 'Then, we give you the playbook.',
-    body: 'Specific content briefs. Schema code you can copy-paste. Structural changes prioritized by impact. Run the scan again in 30 days. The before-and-after delta shows exactly how far you\u2019ve come.',
+    heading: 'Your Action Plan',
+    body: 'Specific content changes, schema code you can copy-paste, and structural fixes prioritized by impact. Run a scan again in 30 days and watch your Brand Share percentage climb.',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function TransformationSection() {
             The Transformation
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
-            Rhemic Is the Bridge Between Invisible and Recommended
+            How Rhemic Gets You Into the AI Answer
           </h2>
         </div>
 

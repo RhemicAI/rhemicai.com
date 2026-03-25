@@ -118,7 +118,7 @@ export default function SmbPricing() {
                     </p>
                   )}
                   <p className="mt-2 text-[11px] text-violet-400/80 font-body">
-                    Founding member pricing — locks in at signup. Price increases after first 100 customers.
+                    Founding member pricing. Locks in at signup. Price increases after first 100 customers.
                   </p>
                 </div>
 
@@ -128,21 +128,28 @@ export default function SmbPricing() {
                       key={feature}
                       className="flex items-start gap-2 text-sm text-[var(--text-secondary)] font-body"
                     >
-                      <CheckIcon />
-                      <span>{feature}</span>
+                      {feature.startsWith('Everything in') ? (
+                        <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
+                      ) : (
+                        <>
+                          <CheckIcon />
+                          <span>{feature}</span>
+                        </>
+                      )}
                     </li>
                   ))}
                 </ul>
 
                 <a
-                  href="#ai-visibility-scan"
+                  href="#"
+                  data-cal-link={plan.calLink}
                   className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
                     plan.featured
                       ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
                       : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
                   }`}
                 >
-                  Start free scan
+                  Book Your Strategy Call
                 </a>
               </div>
             );

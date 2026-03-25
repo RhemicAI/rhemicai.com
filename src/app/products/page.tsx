@@ -49,21 +49,21 @@ const products = [
   {
     title: 'Website Auditing',
     description:
-      'Ensure your site is technically optimized for AI discovery with comprehensive audits of schema markup, content structure, and technical SEO signals.',
+      'Find out exactly why AI engines aren\'t recommending your business, and get a prioritized checklist to fix it.',
     href: '/products/website-auditing',
     icon: icons.audit,
   },
   {
     title: 'Competitor Analysis',
     description:
-      'Decode rival strategies and outrank them in AI responses by tracking what your competitors appear in and identifying gaps you can exploit.',
+      'See every competitor that shows up when customers ask AI about your industry. Know exactly who\'s winning your leads and why.',
     href: '/products/competitor-analysis',
     icon: icons.competitor,
   },
   {
     title: 'Code Generation',
     description:
-      'AI-generated schema markup, JSON-LD, and optimized metadata ready to deploy with one click - no manual coding required.',
+      'Get the exact code your website needs so AI engines can understand and recommend your business. Copy, paste, done.',
     href: '/products/code-generation',
     icon: icons.code,
   },
@@ -77,8 +77,8 @@ export default function ProductsPage() {
 
       <PageHero
         subtitle="Products"
-        title="See where you're invisible to AI. Fix it."
-        description="Three tools that work together: scan your AI presence, map the competitor gap, and generate the fixes. Results in the first scan."
+        title="Three Tools. One Goal: Get You Recommended by AI."
+        description="Scan your AI presence, map the competitors beating you, and get the exact fixes to overtake them. Results in your first scan."
         showBackLink={false}
       />
 
@@ -131,12 +131,11 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-5xl">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
-                Understand the shift
+                Want to understand why this matters?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                We&apos;re not just building tools, we&apos;re helping businesses understand
-                how AI answer engines work and why they&apos;re rapidly replacing traditional
-                Google search. Knowledge is power in this new landscape.
+                The shift from Google to AI search is the biggest change in how customers
+                find businesses since the internet. We break it down on our blog.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
@@ -188,7 +187,7 @@ export default function ProductsPage() {
         links={[
           {
             title: 'Pricing',
-            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
+            description: 'Plans from $199/mo for businesses. $599/mo for agencies.',
             href: '/pricing',
           },
           {

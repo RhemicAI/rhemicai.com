@@ -82,8 +82,8 @@ export default function CodeGenerationPage() {
 
       <PageHero
         subtitle="Code Generation"
-        title="AI-generated code ready to deploy."
-        description="Schema markup, JSON-LD, and optimized metadata generated automatically - no coding skills required."
+        title="The Code Your Website Needs to Get Recommended by AI"
+        description="AI engines need structured data to understand your business. We generate it automatically. You just copy, paste, and publish. No coding skills needed."
       />
 
 
@@ -93,15 +93,10 @@ export default function CodeGenerationPage() {
           <section className="mb-24">
             <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12">
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                Why should you stop hand-coding schema markup?
+                Why does your website need this?
               </h2>
-              <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
-                Writing valid JSON-LD and schema markup is tedious, error-prone, and
-                time-consuming. A single missing comma can break your entire schema.
-              </p>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                Our code generation engine creates production-ready, validated structured
-                data in seconds. Just describe your business and we&apos;ll handle the rest.
+                AI answer engines don&apos;t read your website the way a person does. They look for structured data: specific code that describes your business, services, location, and reviews in a format they understand. Without it, you&apos;re invisible to them. Our engine generates this code in seconds, validated and ready to paste into your site.
               </p>
             </div>
           </section>
@@ -257,7 +252,7 @@ export default function CodeGenerationPage() {
           },
           {
             title: 'Pricing',
-            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
+            description: 'Plans from $199/mo for businesses. $599/mo for agencies.',
             href: '/pricing',
           },
         ]}

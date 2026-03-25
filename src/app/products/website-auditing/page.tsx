@@ -23,24 +23,24 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    title: 'Schema Markup Analysis',
+    title: 'Business Identity Check',
     description:
-      'Verify your structured data is properly formatted and optimized for AI understanding. We check JSON-LD, microdata, and ensure compliance with schema.org standards.',
+      'We verify that AI engines can read your business name, location, services, hours, and reviews. If this data is missing or broken, AI literally can\'t recommend you.',
   },
   {
-    title: 'Content Structure Review',
+    title: 'Content Clarity Score',
     description:
-      'Analyze how AI engines parse your content. We evaluate heading hierarchy, internal linking, content depth, and semantic relevance for AI comprehension.',
+      'We check whether your pages answer the questions customers actually ask AI. If your content is vague, buried, or disorganized, AI will cite a competitor with clearer answers.',
   },
   {
-    title: 'Technical SEO Signals',
+    title: 'Crawlability Check',
     description:
-      'Audit crawlability, site speed, mobile responsiveness, canonical tags, and all technical factors that influence AI engine indexing.',
+      'We make sure AI bots can actually find and read every page on your site. Broken links, slow pages, and mobile issues all make you invisible.',
   },
   {
-    title: 'AI Readability Scoring',
+    title: 'Your AEO Score',
     description:
-      'Measure how well your content answers common questions in your industry. Get an AEO Score that tracks your optimization progress over time.',
+      'A single number that tells you how AI-ready your site is. Track it over time to see your visibility improve as you implement our fixes.',
   },
 ];
 
@@ -63,8 +63,8 @@ export default function WebsiteAuditingPage() {
 
       <PageHero
         subtitle="Website Auditing"
-        title="Ensure your site is technically optimized for AI discovery."
-        description="Comprehensive audits that show you exactly how AI engines see your website - and how to fix what's broken."
+        title="Find Out Why AI Doesn't Recommend You. And How to Fix It."
+        description="Most businesses have no idea how AI engines see their website. Our audit shows you exactly what's broken, what's missing, and what to fix first."
       />
 
 
@@ -76,15 +76,8 @@ export default function WebsiteAuditingPage() {
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
                 Why website audits matter in the AI age
               </h2>
-              <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
-                Traditional SEO audits check for Google&apos;s algorithms. AI Engine
-                Optimization audits check for how ChatGPT, Claude, Perplexity, and
-                other answer engines understand your content.
-              </p>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                If AI can&apos;t parse your schema markup, understand your content structure,
-                or crawl your pages efficiently, you&apos;re invisible in AI-generated answers
-               , even if you rank well in traditional Google search.
+                Your website might rank great on Google. But AI answer engines read your site completely differently. If they can&apos;t understand your content, find your business details, or parse your page structure, they&apos;ll recommend a competitor instead. Our audit shows you exactly what AI sees and what&apos;s missing.
               </p>
             </div>
           </section>
@@ -228,7 +221,7 @@ export default function WebsiteAuditingPage() {
           },
           {
             title: 'Pricing',
-            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
+            description: 'Plans from $199/mo for businesses. $599/mo for agencies.',
             href: '/pricing',
           },
         ]}

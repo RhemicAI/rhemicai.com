@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'How much does Rhemic AI cost?',
     answer:
-      'We have two pricing tracks. For small businesses: SMB Starter at $199/mo, SMB Growth at $299/mo, and SMB Scale at $499/mo. For agencies: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. All plans are founding member rates — no setup fees, no contracts, cancel any time.',
+      'We have three pricing tracks. For small businesses: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. For agencies: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. For enterprise organizations that need white-label reporting, multi-brand management, or custom integrations, we offer tailored pricing. Book a consultation to discuss your needs. All SMB and Agency plans are founding member rates with no contracts. Cancel any time. Save 2 months with annual billing.',
   },
   {
     question: 'How quickly will I see results?',

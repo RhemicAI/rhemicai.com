@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { smbPlans, agencyTiers, type PricingPlan } from '@/data/pricing';
+import EnterprisePanel from '@/components/Pricing/EnterprisePanel';
 
 function CheckIcon() {
   return (
@@ -60,7 +61,7 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
           <p className="mt-1 text-xs text-violet-400">Save ${savings.toLocaleString()}/year</p>
         )}
         <p className="mt-2 text-[11px] text-violet-400/80">
-          Founding member pricing — locks in at signup.
+          Founding member pricing. Locks in at signup.
         </p>
       </div>
 
@@ -80,22 +81,22 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
       </ul>
 
       <a
-        href={plan.calLink ? '#' : '#ai-visibility-scan'}
-        {...(plan.calLink ? { 'data-cal-link': plan.calLink } : {})}
+        href="#"
+        data-cal-link={plan.calLink}
         className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
           plan.featured
             ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
             : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
         }`}
       >
-        {plan.calLink ? 'Get Started' : 'Start free scan'}
+        Book Your Strategy Call
       </a>
     </div>
   );
 }
 
 export default function PricingSwitch() {
-  const [activeTab, setActiveTab] = useState<'smb' | 'agency'>('smb');
+  const [activeTab, setActiveTab] = useState<'smb' | 'agency' | 'enterprise'>('smb');
   const [annual, setAnnual] = useState(false);
 
   return (
@@ -125,11 +126,22 @@ export default function PricingSwitch() {
           >
             Agency
           </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('enterprise')}
+            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              activeTab === 'enterprise'
+                ? 'bg-white text-black'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+            }`}
+          >
+            Enterprise
+          </button>
         </div>
       </div>
 
-      {/* Monthly/annual toggle */}
-      <div className="flex items-center justify-center gap-3 mb-8">
+      {/* Monthly/annual toggle - hidden on Enterprise tab */}
+      <div className={`flex items-center justify-center gap-3 mb-8 ${activeTab === 'enterprise' ? 'hidden' : ''}`}>
         <span className={`text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
         <button
           type="button"
@@ -152,21 +164,27 @@ export default function PricingSwitch() {
       </div>
 
       {/* Cards */}
-      <div key={activeTab} className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
-        {(activeTab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
-          <PlanCard key={plan.name} plan={plan} annual={annual} />
-        ))}
-      </div>
+      {activeTab === 'enterprise' ? (
+        <div key="enterprise" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
+          <EnterprisePanel />
+        </div>
+      ) : (
+        <div key={activeTab} className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
+          {(activeTab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
+            <PlanCard key={plan.name} plan={plan} annual={annual} />
+          ))}
+        </div>
+      )}
 
       {activeTab === 'smb' && (
         <p className="mt-8 text-center text-base text-[var(--text-secondary)]">
-          60% of diners now use AI to find restaurants. At $47/visit and 4 visits/year, one new regular pays for your entire plan — every month.
+          60% of diners now use AI to find restaurants (Popmenu, 2024). At $47/visit and 4 visits/year, one new regular pays for your entire plan, every month.
         </p>
       )}
 
       {activeTab === 'agency' && (
         <p className="mt-8 text-center text-base text-[var(--text-secondary)]">
-          Built for agencies managing AI visibility at scale — white-label reporting included on Scale.
+          Built for agencies serious about dominating AI search. Need white-label or multi-brand support? Check out our Enterprise plans.
         </p>
       )}
     </section>

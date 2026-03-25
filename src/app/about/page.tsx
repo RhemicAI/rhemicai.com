@@ -110,7 +110,7 @@ export default function AboutPage() {
       <PageHero
         subtitle="About"
         title="We saw the AI shift before most businesses did."
-        description="Three college students at UTD. One question: what happens to local businesses when people stop Googling and start asking AI?"
+        description="Three engineers at UTD. One question: what happens to local businesses when people stop Googling and start asking AI?"
         showBackLink={false}
       />
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
               <p>
-                We started Rhemic AI as students at the University of Texas at
+                We started Rhemic AI at the University of Texas at
                 Dallas. Not in a garage. In a library, between classes, after
                 noticing something that kept us up at night.
               </p>
@@ -240,7 +240,7 @@ export default function AboutPage() {
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO) — three students at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool businesses needed to respond to it.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO), three engineers at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool businesses needed to respond to it.',
               },
               {
                 question: 'Where is Rhemic AI based?',
@@ -267,7 +267,7 @@ export default function AboutPage() {
           },
           {
             title: 'Pricing',
-            description: 'Founding member plans from $599/mo. No setup fees, no contracts.',
+            description: 'Plans from $199/mo for businesses. $599/mo for agencies.',
             href: '/pricing',
           },
           {

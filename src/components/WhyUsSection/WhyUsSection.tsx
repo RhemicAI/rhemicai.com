@@ -4,8 +4,8 @@ const points = [
     explanation: 'Three UTD engineers who saw the shift early and built what businesses actually need.',
   },
   {
-    statement: 'Transparent pricing on the website.',
-    explanation: 'No "schedule a call to learn more." Founding member plans from $599/mo.',
+    statement: 'Every price is on the website.',
+    explanation: 'No "schedule a call to learn pricing." Plans start at $199/mo for local businesses. What you see is what you pay.',
   },
   {
     statement: 'Results in the first scan.',
@@ -25,7 +25,7 @@ export default function WhyUsSection() {
           Why Rhemic
         </span>
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
-          We&apos;re Not Enterprise. That&apos;s the Point.
+          Built for Businesses That Want Results, Not Enterprise Sales Pitches
         </h2>
       </div>
 

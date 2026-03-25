@@ -66,10 +66,10 @@ export default function FixedNav() {
   // Scroll-driven compression: linearly tracks scrollY, stops at threshold
   useEffect(() => {
     const THRESHOLD = 180; // px of scroll to reach fully compressed state
-    const PAD_START = 2;   // rem — matches px-8
-    const PAD_END   = 2.75; // rem — how far inward the logo/button travel
-    const GAP_START = 3;   // rem — initial link gap (gap-12)
-    const GAP_END   = 1.75; // rem — compressed link gap
+    const PAD_START = 2;   // rem - matches px-8
+    const PAD_END   = 2.75; // rem - how far inward the logo/button travel
+    const GAP_START = 3;   // rem - initial link gap (gap-12)
+    const GAP_END   = 1.75; // rem - compressed link gap
 
     const update = () => {
       const nav   = navRef.current;
@@ -213,7 +213,7 @@ export default function FixedNav() {
             href="#" data-cal-link="rhemic-ai/discovery-call"
             className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
-            Book a Discovery Call
+            Book a Demo
           </a>
         </div>
       </div>

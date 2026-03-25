@@ -331,7 +331,7 @@ export default function StartFreeTrialPage() {
             <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
               You deserve a platform that actually fits your business. Your
               trial is customized based on your industry, your current
-              visibility, and your optimization goals. Book a 15-minute call to
+              visibility, and your optimization goals. Book a 30-minute call to
               get everything set up exactly how you need it.
             </p>
 
@@ -531,7 +531,7 @@ export default function StartFreeTrialPage() {
           {
             title: 'Pricing',
             description:
-              'Founding member plans from $599/mo. No setup fees, no contracts.',
+              'Plans from $199/mo for businesses. $599/mo for agencies.',
             href: '/pricing',
           },
           {

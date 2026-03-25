@@ -10,10 +10,7 @@ export default function BehaviorShiftSection() {
         </h2>
         <div className="space-y-6">
           <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-body">
-            It happened faster than anyone predicted. Your customers don&apos;t type keywords into Google anymore. They ask ChatGPT. They ask Claude. They ask Perplexity. And they trust what comes back.
-          </p>
-          <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-body">
-            This isn&apos;t a trend. It&apos;s a permanent behavior change. The same shift that killed Yellow Pages and reshaped SEO is happening again. Except this time, there are no &ldquo;10 blue links.&rdquo; There&apos;s one answer. One recommendation. One brand that gets chosen.
+            Your customers are asking ChatGPT for recommendations right now. Not searching Google. Asking AI. And AI doesn&apos;t give them 10 links to choose from. It gives them one answer. One business name. If that name isn&apos;t yours, it&apos;s a competitor&apos;s. This shift isn&apos;t coming. It already happened.
           </p>
         </div>
         <p className="mt-10 text-base md:text-lg text-[var(--text-tertiary)] italic font-body">

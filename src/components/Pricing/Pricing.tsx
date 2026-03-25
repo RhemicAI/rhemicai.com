@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { smbPlans, agencyTiers, type PricingPlan } from '@/data/pricing';
+import EnterprisePanel from '@/components/Pricing/EnterprisePanel';
 
 function CheckIcon() {
   return (
@@ -81,22 +82,22 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
       </ul>
 
       <a
-        href={plan.calLink ? '#' : '#ai-visibility-scan'}
-        {...(plan.calLink ? { 'data-cal-link': plan.calLink } : {})}
+        href="#"
+        data-cal-link={plan.calLink}
         className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
           plan.featured
             ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
             : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
         }`}
       >
-        {plan.calLink ? 'Get Started' : 'Start free scan'}
+        Book Your Strategy Call
       </a>
     </div>
   );
 }
 
 export default function Pricing() {
-  const [tab, setTab] = useState<'smb' | 'agency'>('smb');
+  const [tab, setTab] = useState<'smb' | 'agency' | 'enterprise'>('smb');
   const [annual, setAnnual] = useState(false);
 
   return (
@@ -136,11 +137,20 @@ export default function Pricing() {
             >
               Agency
             </button>
+            <button
+              type="button"
+              onClick={() => setTab('enterprise')}
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                tab === 'enterprise' ? 'bg-white text-black' : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+            >
+              Enterprise
+            </button>
           </div>
         </div>
 
-        {/* Monthly / Annual toggle */}
-        <div className="flex items-center justify-center gap-3 mb-10">
+        {/* Monthly / Annual toggle - hidden on Enterprise */}
+        <div className={`flex items-center justify-center gap-3 mb-10 ${tab === 'enterprise' ? 'hidden' : ''}`}>
           <span className={`text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
           <button
             type="button"
@@ -156,11 +166,17 @@ export default function Pricing() {
         </div>
 
         {/* Cards */}
-        <div key={tab} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {(tab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
-            <PlanCard key={plan.name} plan={plan} annual={annual} />
-          ))}
-        </div>
+        {tab === 'enterprise' ? (
+          <div key="enterprise" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
+            <EnterprisePanel />
+          </div>
+        ) : (
+          <div key={tab} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {(tab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
+              <PlanCard key={plan.name} plan={plan} annual={annual} />
+            ))}
+          </div>
+        )}
 
         {/* Footer */}
         <div className="mt-10 text-center">
