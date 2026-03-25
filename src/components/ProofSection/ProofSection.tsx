@@ -1,7 +1,7 @@
 const stats = [
-  { value: '5x', label: 'Higher conversion from AI search vs Google', source: 'Semrush', url: 'https://www.semrush.com/blog/ai-overviews/' },
+  { value: '5x', label: 'higher conversion rate when customers find you through AI vs Google', source: 'Semrush', url: 'https://www.semrush.com/blog/ai-overviews/' },
   { value: '$750B', label: 'AI search revenue by 2028', source: 'McKinsey', url: 'https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier' },
-  { value: '80%', label: 'Of consumers rely on AI summaries', source: 'Bain & Company', url: 'https://www.bain.com/insights/the-age-of-ai-search/' },
+  { value: '80%', label: 'of consumers now trust AI recommendations over traditional search results', source: 'Bain & Company', url: 'https://www.bain.com/insights/the-age-of-ai-search/' },
   { value: '#2', label: 'Most influential shopping source', source: 'IAB', url: 'https://www.iab.com/insights/' },
   { value: '25%', label: 'Traditional search volume drop by 2026', source: 'Gartner', url: 'https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026' },
   { value: 'Only 16%', label: 'Of brands track AI search performance', source: 'McKinsey', url: 'https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai' },

@@ -21,19 +21,19 @@ export default function SmbHero() {
           When someone asks AI &ldquo;best restaurant near me,&rdquo; do you show up?
         </h1>
 
-        {/* A/B test variant — uncomment to test */}
+        {/* A/B test variant - uncomment to test */}
         {/* <h1
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] font-display mb-6"
           style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
-          I asked AI &ldquo;best roofer in [city]&rdquo; — here&apos;s whose name came up. Not yours.
+          I asked AI &ldquo;best roofer in [city]&rdquo; and here&apos;s whose name came up. Not yours.
         </h1> */}
 
         <p
           className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] mb-10 opacity-80 font-body"
           style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
-          Find out if AI is sending customers to your competitors instead of you. Get a step-by-step plan to fix it. Free scan, 60 seconds.
+          More customers now ask AI for recommendations before they search Google. If you&apos;re not in the answer, you&apos;re losing business to competitors who are. Free scan takes 60 seconds.
         </p>
 
         <a

@@ -250,7 +250,7 @@ export default function ContactPage() {
                   Ready to see it in action?
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
-                  Book a 15-minute demo and see how Rhemic AI can transform your
+                  Book a 30-minute demo and see how Rhemic AI can transform your
                   visibility in AI-generated search results.
                 </p>
                 <a

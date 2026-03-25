@@ -720,14 +720,14 @@ export default function WhatIsAEOPage() {
                 Ready to optimize for AI search?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a 15-minute discovery call and we&apos;ll show you exactly how AI engines see
+                Book a 30-minute discovery call and we&apos;ll show you exactly how AI engines see
                 your website - and what to fix first.
               </p>
               <a
                 href="#" data-cal-link="rhemic-ai/discovery-call"
                 className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
-                Book a Discovery Call
+                Book a Demo
               </a>
             </div>
           </div>

@@ -23,24 +23,24 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    title: 'Multi-Engine Tracking',
+    title: 'Full AI Engine Coverage',
     description:
-      'Monitor which competitors appear in ChatGPT, Claude, Perplexity, Gemini, and other AI answer engines for your target queries.',
+      'We check who shows up across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Not just one engine. All of them.',
   },
   {
-    title: 'Citation Analysis',
+    title: 'Why They Get Recommended',
     description:
-      "See which sources AI engines cite most frequently. Understand why your competitors get mentioned and you don't.",
+      "We identify exactly what your competitors have that you don't: better content, cleaner data, stronger citations, so you can close the gap.",
   },
   {
-    title: 'Gap Identification',
+    title: 'Your Opportunities',
     description:
-      "Discover opportunities where competitors are weak. Find queries they're missing and claim that visibility for yourself.",
+      'Find the topics and questions where no competitor has a strong answer yet. These are your fastest wins, the places where you can become the top recommendation with the least effort.',
   },
   {
-    title: 'Strategy Reverse Engineering',
+    title: 'Their Playbook, Revealed',
     description:
-      'Analyze what content, schema markup, and technical optimizations your rivals use to dominate AI answers.',
+      'See the content structure, schema markup, and technical setup your top competitors use. Then use the same strategies, but better.',
   },
 ];
 
@@ -63,8 +63,8 @@ export default function CompetitorAnalysisPage() {
 
       <PageHero
         subtitle="Competitor Analysis"
-        title="Decode rival strategies and outrank them in AI responses."
-        description="Know exactly where your competitors appear in AI answers - and how to beat them."
+        title="See Exactly Who AI Recommends Instead of You"
+        description="When a customer asks ChatGPT who to hire in your industry, which names come up? We show you name by name, topic by topic, and tell you how to take their spot."
       />
 
 

@@ -8,13 +8,14 @@ const plans = [
     monthlyPrice: 199,
     annualPrice: 1990,
     wasPrice: 299,
-    bestFor: 'Single-location businesses getting started',
+    bestFor: 'See exactly where you stand in AI search',
     featured: false,
+    calLink: 'rhemic-ai/smb-starter-onboarding',
     features: [
-      '30 buyer-intent prompts',
-      '4 AI engines scanned (ChatGPT, Claude, Gemini, Perplexity)',
-      'Competitive gap report',
-      '5 plain-English fix recommendations',
+      'Full AI visibility audit across ChatGPT, Claude, Gemini & Perplexity',
+      'See which competitors AI recommends instead of you',
+      'Competitive gap report showing exactly why they rank above you',
+      '5 prioritized fixes to start showing up in AI answers',
     ],
   },
   {
@@ -22,14 +23,15 @@ const plans = [
     monthlyPrice: 299,
     annualPrice: 2990,
     wasPrice: 399,
-    bestFor: 'Businesses ready to dominate local AI search + free website',
+    bestFor: 'Start showing up in AI answers and stay there',
     featured: true,
+    calLink: 'rhemic-ai/smb-growth-onboarding',
     features: [
-      'Everything in Starter',
-      'Free 3-page website setup (Home, About, Contact)',
-      'Monthly re-scans',
-      'Progress tracking',
-      'Priority support',
+      'Everything in Starter, plus:',
+      'We build you a professional 3-page website (free, included in your plan)',
+      'Monthly re-scans so you can track your visibility climbing',
+      'Before-and-after progress dashboard showing your AI visibility growth',
+      'Priority support: get answers within hours, not days',
     ],
   },
   {
@@ -37,13 +39,14 @@ const plans = [
     monthlyPrice: 499,
     annualPrice: 4990,
     wasPrice: 699,
-    bestFor: 'Competitive markets or multiple locations',
+    bestFor: 'Dominate your market across every location',
     featured: false,
+    calLink: 'rhemic-ai/smb-scale-onboarding',
     features: [
-      'Everything in Growth',
-      'Multi-location scanning',
-      'Weekly re-scans',
-      'Dedicated account review',
+      'Everything in Growth, plus:',
+      'Every business location audited and optimized separately',
+      'Weekly scans so you catch and fix visibility drops before competitors notice',
+      'Dedicated account review with a real strategist reviewing your progress',
     ],
   },
 ];
@@ -163,7 +166,7 @@ export default function SmbPricing() {
                     </p>
                   )}
                   <p className="mt-2 text-[11px] text-violet-400/80 font-body">
-                    Founding member pricing — locks in at signup. Price increases after first 100 customers.
+                    Founding member pricing. Locks in at signup. Price increases after first 100 customers.
                   </p>
                 </div>
 
@@ -173,21 +176,28 @@ export default function SmbPricing() {
                       key={feature}
                       className="flex items-start gap-2 text-sm text-[var(--text-secondary)] font-body"
                     >
-                      <CheckIcon />
-                      <span>{feature}</span>
+                      {feature.startsWith('Everything in') ? (
+                        <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
+                      ) : (
+                        <>
+                          <CheckIcon />
+                          <span>{feature}</span>
+                        </>
+                      )}
                     </li>
                   ))}
                 </ul>
 
                 <a
-                  href="#ai-visibility-scan"
+                  href="#"
+                  data-cal-link={plan.calLink}
                   className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
                     plan.featured
                       ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
                       : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
                   }`}
                 >
-                  Start free scan
+                  Book Your Strategy Call
                 </a>
               </div>
             );

@@ -8,13 +8,14 @@ const smbPlans = [
     monthlyPrice: 199,
     annualPrice: 1990,
     wasPrice: 299,
-    bestFor: 'Single-location businesses getting started',
+    bestFor: 'See exactly where you stand in AI search',
     featured: false,
+    calLink: 'rhemic-ai/smb-starter-onboarding',
     features: [
-      '30 buyer-intent prompts',
-      '4 AI engines scanned (ChatGPT, Claude, Gemini, Perplexity)',
-      'Competitive gap report',
-      '5 plain-English fix recommendations',
+      'Full AI visibility audit across ChatGPT, Claude, Gemini & Perplexity',
+      'See which competitors AI recommends instead of you',
+      'Competitive gap report showing exactly why they rank above you',
+      '5 prioritized fixes to start showing up in AI answers',
     ],
   },
   {
@@ -22,14 +23,15 @@ const smbPlans = [
     monthlyPrice: 299,
     annualPrice: 2990,
     wasPrice: 399,
-    bestFor: 'Businesses ready to dominate local AI search + free website',
+    bestFor: 'Start showing up in AI answers and stay there',
     featured: true,
+    calLink: 'rhemic-ai/smb-growth-onboarding',
     features: [
-      'Everything in Starter',
-      'Free 3-page website setup (Home, About, Contact)',
-      'Monthly re-scans',
-      'Progress tracking',
-      'Priority support',
+      'Everything in Starter, plus:',
+      'We build you a professional 3-page website (free, included in your plan)',
+      'Monthly re-scans so you can track your visibility climbing',
+      'Before-and-after progress dashboard showing your AI visibility growth',
+      'Priority support: get answers within hours, not days',
     ],
   },
   {
@@ -37,13 +39,14 @@ const smbPlans = [
     monthlyPrice: 499,
     annualPrice: 4990,
     wasPrice: 699,
-    bestFor: 'Competitive markets or multiple locations',
+    bestFor: 'Dominate your market across every location',
     featured: false,
+    calLink: 'rhemic-ai/smb-scale-onboarding',
     features: [
-      'Everything in Growth',
-      'Multi-location scanning',
-      'Weekly re-scans',
-      'Dedicated account review',
+      'Everything in Growth, plus:',
+      'Every business location audited and optimized separately',
+      'Weekly scans so you catch and fix visibility drops before competitors notice',
+      'Dedicated account review with a real strategist reviewing your progress',
     ],
   },
 ];
@@ -54,14 +57,13 @@ const agencyTiers = [
     monthlyPrice: 599,
     annualPrice: 5990,
     wasPrice: 899,
-    bestFor: 'For small businesses getting their first foothold in AI search.',
+    bestFor: 'Get a clear baseline on your agency\'s AI visibility',
     featured: false,
-    calLink: 'rhemic-ai/starter-plan-onboarding',
+    calLink: 'rhemic-ai/rhemic-ai-agency-starter-onboarding',
     features: [
-      'AI Visibility Audit (monthly)',
-      '1 competitor tracked across ChatGPT, Claude, Gemini, Perplexity',
-      'Schema markup + JSON-LD generation (up to 10 pages)',
-      '1 topic cluster optimized',
+      'Monthly AI visibility audit across all major engines',
+      '1 competitor tracked, 1 topic cluster optimized',
+      'Schema markup for up to 10 pages',
       'Monthly AEO score report',
       'Email support (48hr response)',
     ],
@@ -71,19 +73,16 @@ const agencyTiers = [
     monthlyPrice: 999,
     annualPrice: 9990,
     wasPrice: 1199,
-    bestFor: 'For growing brands that want to dominate their category in AI search.',
+    bestFor: 'Accelerate your agency\'s presence across every AI engine',
     featured: true,
-    calLink: 'rhemic-ai/growth-plan-onboarding',
+    calLink: 'rhemic-ai/rhemic-ai-agency-growth-onboarding',
     features: [
       'Everything in Starter, plus:',
-      'AI Visibility Audit (bi-weekly)',
-      '5 competitors tracked',
-      'Schema markup + JSON-LD generation (unlimited pages)',
+      'Bi-weekly audits, 5 competitors tracked',
+      'Unlimited schema generation',
       '3 topic clusters optimized',
-      'Bi-weekly AEO score report + recommendations',
       'Priority email + Slack support',
-      'Monthly 30-min strategy call',
-      'Competitor gap analysis report',
+      'Monthly strategy call with the Rhemic team',
     ],
   },
   {
@@ -91,19 +90,15 @@ const agencyTiers = [
     monthlyPrice: 1499,
     annualPrice: 14990,
     wasPrice: 1999,
-    bestFor: 'For agencies and multi-location brands managing visibility at scale.',
+    bestFor: 'Become the most visible agency in your category',
     featured: false,
-    calLink: 'rhemic-ai/scale-plan-onboarding',
+    calLink: 'rhemic-ai/rhemic-ai-agency-scale-onboarding',
     features: [
       'Everything in Growth, plus:',
-      'AI Visibility Audit (weekly)',
-      'Unlimited competitors tracked',
-      'Unlimited topic clusters',
-      'Weekly AEO score report',
+      'Weekly audits, unlimited competitors and topics',
       'Dedicated account manager',
-      'Weekly 30-min strategy call',
-      'White-label reporting (for agencies)',
-      'Early access to new Rhemic AI features',
+      'Weekly strategy call',
+      'Early access to new features',
     ],
   },
 ];
@@ -126,7 +121,7 @@ function CheckIcon() {
 }
 
 export default function PricingSwitch() {
-  const [activeTab, setActiveTab] = useState<'smb' | 'agency'>('smb');
+  const [activeTab, setActiveTab] = useState<'smb' | 'agency' | 'enterprise'>('smb');
   const [annual, setAnnual] = useState(false);
 
   return (
@@ -156,11 +151,22 @@ export default function PricingSwitch() {
           >
             Agency
           </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('enterprise')}
+            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              activeTab === 'enterprise'
+                ? 'bg-white text-black'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+            }`}
+          >
+            Enterprise
+          </button>
         </div>
       </div>
 
-      {/* Monthly/annual toggle — visible on both tabs */}
-      <div className="flex items-center justify-center gap-3 mb-8">
+      {/* Monthly/annual toggle - visible on SMB and Agency tabs */}
+      <div className={`flex items-center justify-center gap-3 mb-8 ${activeTab === 'enterprise' ? 'hidden' : ''}`}>
         <span className={`text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
         <button
           type="button"
@@ -183,6 +189,49 @@ export default function PricingSwitch() {
       </div>
 
       {/* Cards */}
+      {activeTab === 'enterprise' ? (
+        <div key="enterprise" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
+          <div className="rounded-2xl border border-violet-500/40 bg-violet-500/5 shadow-[0_0_40px_rgba(139,92,246,0.1)] p-5 sm:p-6">
+          <div className="text-center mb-5">
+            <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2">
+              Custom AI Visibility Solutions at Scale
+            </h3>
+            <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
+              For large agencies, multi-brand organizations, and enterprise teams that need tailored AEO infrastructure, white-label capabilities, and dedicated strategic support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+            {[
+              { title: 'White-Label Reporting', desc: 'Present AI visibility reports and audits under your own brand. Your name, your logo, your deliverables.' },
+              { title: 'Multi-Brand Management', desc: 'Manage AI visibility across multiple brands, divisions, or accounts from a single environment.' },
+              { title: 'Dedicated Account Team', desc: 'A named account manager and strategist who understand your business and meet with you weekly.' },
+              { title: 'Custom Audit Frequency', desc: 'Daily, weekly, or custom scan schedules tailored to your operational rhythm.' },
+              { title: 'Custom Integrations', desc: 'API access, custom data exports, and workflow integrations built around how your team operates.' },
+              { title: 'Volume-Based Pricing', desc: 'Pricing structured around your scale. No per-seat surprises, no hidden overages.' },
+            ].map((item) => (
+              <div key={item.title} className="rounded-lg border border-white/10 bg-[rgba(15,15,15,0.85)] p-4 hover:border-violet-500/30 transition-colors duration-300">
+                <h4 className="text-xs font-bold text-[var(--text-primary)] mb-1">{item.title}</h4>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <a
+              href="#"
+              data-cal-link="rhemic-ai/rhemic-ai-enterprise-consultation"
+              className="inline-block px-8 py-3 text-sm font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/30 transition-all duration-200 hover:scale-105"
+            >
+              Book a Consultation
+            </a>
+            <p className="mt-4 text-sm text-[var(--text-muted)]">
+              Every Enterprise engagement starts with a 30-minute consultation to scope your needs. No obligations.
+            </p>
+          </div>
+          </div>
+        </div>
+      ) : (
       <div key={activeTab} className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
         {activeTab === 'smb'
           ? smbPlans.map((plan) => {
@@ -226,28 +275,35 @@ export default function PricingSwitch() {
                       <p className="mt-1 text-xs text-violet-400">Save ${savings}/year</p>
                     )}
                     <p className="mt-2 text-[11px] text-violet-400/80">
-                      Founding member pricing — locks in at signup.
+                      Founding member pricing. Locks in at signup.
                     </p>
                   </div>
 
                   <ul className="mt-6 space-y-3">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                        <CheckIcon />
-                        <span>{feature}</span>
+                        {feature.startsWith('Everything in') ? (
+                          <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
+                        ) : (
+                          <>
+                            <CheckIcon />
+                            <span>{feature}</span>
+                          </>
+                        )}
                       </li>
                     ))}
                   </ul>
 
                   <a
-                    href="#ai-visibility-scan"
+                    href="#"
+                    data-cal-link={plan.calLink}
                     className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
                       plan.featured
                         ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
                         : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
                     }`}
                   >
-                    Start free scan
+                    Book Your Strategy Call
                   </a>
                 </div>
               );
@@ -293,7 +349,7 @@ export default function PricingSwitch() {
                       <p className="mt-1 text-xs text-violet-400">Save ${savings.toLocaleString()}/year</p>
                     )}
                     <p className="mt-2 text-[11px] text-violet-400/80">
-                      Founding member pricing — locks in at signup.
+                      Founding member pricing. Locks in at signup.
                     </p>
                   </div>
 
@@ -321,22 +377,23 @@ export default function PricingSwitch() {
                         : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
                     }`}
                   >
-                    Get Started
+                    Book Your Strategy Call
                   </a>
                 </div>
               );
             })}
       </div>
+      )}
 
       {activeTab === 'smb' && (
         <p className="mt-8 text-center text-base text-[var(--text-secondary)]">
-          60% of diners now use AI to find restaurants. At $47/visit and 4 visits/year, one new regular pays for your entire plan — every month.
+          60% of diners now use AI to find restaurants. At $47/visit and 4 visits/year, one new regular pays for your entire plan, every month.
         </p>
       )}
 
       {activeTab === 'agency' && (
         <p className="mt-8 text-center text-base text-[var(--text-secondary)]">
-          Built for agencies managing AI visibility at scale — white-label reporting included on Scale.
+          Built for agencies serious about dominating AI search. Need white-label or multi-brand support? Check out our Enterprise plans.
         </p>
       )}
     </section>

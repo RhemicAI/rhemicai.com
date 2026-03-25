@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact Rhemic AI - Book a Demo or Get in Touch',
   description:
-    'Book a 15-minute demo, send us a message, or email contact@rhemicai.com. See how Rhemic AI transforms your AI search visibility.',
+    'Book a 30-minute demo, send us a message, or email contact@rhemicai.com. See how Rhemic AI transforms your AI search visibility.',
   alternates: { canonical: 'https://rhemicai.com/contact' },
   openGraph: {
     title: 'Contact Rhemic AI - Book a Demo or Get in Touch',

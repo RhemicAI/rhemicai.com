@@ -1,15 +1,15 @@
 const stakes = [
   {
-    stat: '1',
-    label: 'recommendation per AI answer. Not 10. Not 5. One.',
+    stat: '3-5',
+    label: 'names per AI answer. That\'s the entire shortlist. If you\'re not on it, the customer never sees you.',
   },
   {
-    stat: '$0',
-    label: 'what it costs the AI to switch from a competitor to you. It just needs a reason.',
+    stat: '70%',
+    label: 'of buyers now ask AI before choosing a business. That number is climbing every month.',
   },
   {
     stat: '30 days',
-    label: 'average time to measurable AI visibility improvement after implementing Rhemic fixes.',
+    label: 'to measurable results. Implement Rhemic\'s recommendations and watch your AI visibility improve within a month.',
   },
 ];
 
@@ -21,10 +21,10 @@ export default function StakesSection() {
           The Stakes
         </span>
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
-          Every Day You Wait, a Competitor Takes Your Spot
+          AI Picks a Short List. Are You On It?
         </h2>
         <p className="mt-4 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto opacity-80 font-body">
-          AI answers don&apos;t have 10 blue links. They have one recommendation. If that&apos;s not you, it&apos;s someone else. And once they&apos;re in, they&apos;re hard to displace.
+          When someone asks AI for a business, it doesn&apos;t give them a page of results. It gives them 3 to 5 names. If yours isn&apos;t one of them, you never existed.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function StakesSection() {
           href="#ai-visibility-scan"
           className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body"
         >
-          See Where You Stand
+          Run Free AI Scan
         </a>
       </div>
     </section>

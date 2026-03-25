@@ -55,7 +55,7 @@ export default function Hero() {
             href="#" data-cal-link="rhemic-ai/discovery-call"
             className="px-10 py-4 text-lg font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body tracking-[0.01em]"
           >
-            See a Demo
+            See How It Works
           </a>
         </div>
         <a
