@@ -2,108 +2,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { smbPlans, agencyTiers, type PricingPlan } from '@/data/pricing';
 import EnterprisePanel from '@/components/Pricing/EnterprisePanel';
-
-const smbPlans = [
-  {
-    name: 'Local Starter',
-    monthlyPrice: 199,
-    annualPrice: 1990,
-    wasPrice: 299,
-    bestFor: 'See exactly where you stand in AI search',
-    featured: false,
-    calLink: 'rhemic-ai/smb-starter-onboarding',
-    features: [
-      'Full AI visibility audit across ChatGPT, Claude, Gemini & Perplexity',
-      'See which competitors AI recommends instead of you',
-      'Competitive gap report showing exactly why they rank above you',
-      '5 prioritized fixes to start showing up in AI answers',
-    ],
-  },
-  {
-    name: 'Local Growth',
-    monthlyPrice: 299,
-    annualPrice: 2990,
-    wasPrice: 399,
-    bestFor: 'Start showing up in AI answers and stay there',
-    featured: true,
-    calLink: 'rhemic-ai/smb-growth-onboarding',
-    features: [
-      'Everything in Starter, plus:',
-      'We build you a professional 3-page website (free, included in your plan)',
-      'Monthly re-scans so you can track your visibility climbing',
-      'Before-and-after progress dashboard showing your AI visibility growth',
-      'Priority support: get answers within hours, not days',
-    ],
-  },
-  {
-    name: 'Local Scale',
-    monthlyPrice: 499,
-    annualPrice: 4990,
-    wasPrice: 699,
-    bestFor: 'Dominate your market across every location',
-    featured: false,
-    calLink: 'rhemic-ai/smb-scale-onboarding',
-    features: [
-      'Everything in Growth, plus:',
-      'Every business location audited and optimized separately',
-      'Weekly scans so you catch and fix visibility drops before competitors notice',
-      'Dedicated account review with a real strategist reviewing your progress',
-    ],
-  },
-];
-
-const agencyTiers = [
-  {
-    name: 'Starter',
-    monthlyPrice: 599,
-    annualPrice: 5990,
-    wasPrice: 899,
-    bestFor: 'Get a clear baseline on your agency\'s AI visibility',
-    featured: false,
-    calLink: 'rhemic-ai/rhemic-ai-agency-starter-onboarding',
-    features: [
-      'Monthly AI visibility audit across all major engines',
-      '1 competitor tracked, 1 topic cluster optimized',
-      'Schema markup for up to 10 pages',
-      'Monthly AEO score report',
-      'Email support (48hr response)',
-    ],
-  },
-  {
-    name: 'Growth',
-    monthlyPrice: 999,
-    annualPrice: 9990,
-    wasPrice: 1199,
-    bestFor: 'Accelerate your agency\'s presence across every AI engine',
-    featured: true,
-    calLink: 'rhemic-ai/rhemic-ai-agency-growth-onboarding',
-    features: [
-      'Everything in Starter, plus:',
-      'Bi-weekly audits, 5 competitors tracked',
-      'Unlimited schema generation',
-      '3 topic clusters optimized',
-      'Priority email + Slack support',
-      'Monthly strategy call with the Rhemic team',
-    ],
-  },
-  {
-    name: 'Scale',
-    monthlyPrice: 1499,
-    annualPrice: 14990,
-    wasPrice: 1999,
-    bestFor: 'Become the most visible agency in your category',
-    featured: false,
-    calLink: 'rhemic-ai/rhemic-ai-agency-scale-onboarding',
-    features: [
-      'Everything in Growth, plus:',
-      'Weekly audits, unlimited competitors and topics',
-      'Dedicated account manager',
-      'Weekly strategy call',
-      'Early access to new features',
-    ],
-  },
-];
 
 function CheckIcon() {
   return (
@@ -119,6 +19,80 @@ function CheckIcon() {
     >
       <path d="m5 10 3 3 7-7" />
     </svg>
+  );
+}
+
+function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
+  const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
+  const priceSuffix = annual ? '/year' : '/mo';
+  const savings = plan.monthlyPrice * 12 - plan.annualPrice;
+
+  return (
+    <div
+      className={`relative flex flex-col rounded-2xl border p-6 sm:p-8 ${
+        plan.featured
+          ? 'border-violet-500/40 bg-violet-500/5 shadow-[0_0_40px_rgba(139,92,246,0.1)]'
+          : 'border-white/10 bg-[rgba(15,15,15,0.85)]'
+      }`}
+    >
+      {plan.featured && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span className="inline-block rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+            Most Popular
+          </span>
+        </div>
+      )}
+
+      <h3 className="text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
+      <p className="mt-1 text-sm text-[var(--text-muted)]">{plan.bestFor}</p>
+
+      <div className="mt-6">
+        <div className="flex items-baseline gap-2">
+          <span className="text-4xl font-bold text-[var(--text-primary)]">
+            ${displayPrice.toLocaleString()}
+          </span>
+          <span className="text-sm text-[var(--text-muted)]">{priceSuffix}</span>
+        </div>
+        {!annual && (
+          <p className="mt-1 text-sm text-[var(--text-muted)] line-through">
+            Was ${plan.wasPrice}/mo
+          </p>
+        )}
+        {annual && (
+          <p className="mt-1 text-xs text-violet-400">Save ${savings.toLocaleString()}/year</p>
+        )}
+        <p className="mt-2 text-[11px] text-violet-400/80">
+          Founding member pricing. Locks in at signup.
+        </p>
+      </div>
+
+      <ul className="mt-6 space-y-3 flex-1">
+        {plan.features.map((feature) => (
+          <li key={feature} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+            {feature.startsWith('Everything in') ? (
+              <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
+            ) : (
+              <>
+                <CheckIcon />
+                <span>{feature}</span>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href="#"
+        data-cal-link={plan.calLink}
+        className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+          plan.featured
+            ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
+            : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+        }`}
+      >
+        Book Your Strategy Call
+      </a>
+    </div>
   );
 }
 
@@ -175,7 +149,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Monthly / Annual toggle */}
+        {/* Monthly / Annual toggle - hidden on Enterprise */}
         <div className={`flex items-center justify-center gap-3 mb-10 ${tab === 'enterprise' ? 'hidden' : ''}`}>
           <span className={`text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
           <button
@@ -197,88 +171,17 @@ export default function Pricing() {
             <EnterprisePanel />
           </div>
         ) : (
-        <div key={tab} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {(tab === 'smb' ? smbPlans : agencyTiers).map((plan) => {
-            const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
-            const priceSuffix = annual ? '/year' : '/mo';
-            const savings = plan.monthlyPrice * 12 - plan.annualPrice;
-
-            return (
-              <div
-                key={plan.name}
-                className={`relative flex flex-col rounded-2xl border p-6 sm:p-8 ${
-                  plan.featured
-                    ? 'border-violet-500/40 bg-violet-500/5 shadow-[0_0_40px_rgba(139,92,246,0.1)]'
-                    : 'border-white/10 bg-[rgba(15,15,15,0.85)]'
-                }`}
-              >
-                {plan.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-block rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <h3 className="text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
-                <p className="mt-1 text-sm text-[var(--text-muted)]">{plan.bestFor}</p>
-
-                <div className="mt-6">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-[var(--text-primary)]">
-                      ${displayPrice.toLocaleString()}
-                    </span>
-                    <span className="text-sm text-[var(--text-muted)]">{priceSuffix}</span>
-                  </div>
-                  {!annual && (
-                    <p className="mt-1 text-sm text-[var(--text-muted)] line-through">
-                      Was ${plan.wasPrice}/mo
-                    </p>
-                  )}
-                  {annual && (
-                    <p className="mt-1 text-xs text-violet-400">Save ${savings.toLocaleString()}/year</p>
-                  )}
-                  <p className="mt-2 text-[11px] text-violet-400/80">
-                    Founding member pricing. Locks in at signup.
-                  </p>
-                </div>
-
-                <ul className="mt-6 space-y-3 flex-1">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      {feature.startsWith('Everything in') ? (
-                        <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
-                      ) : (
-                        <>
-                          <CheckIcon />
-                          <span>{feature}</span>
-                        </>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="#"
-                  data-cal-link={plan.calLink}
-                  className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
-                    plan.featured
-                      ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
-                      : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                  }`}
-                >
-                  Book Your Strategy Call
-                </a>
-              </div>
-            );
-          })}
-        </div>
+          <div key={tab} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {(tab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
+              <PlanCard key={plan.name} plan={plan} annual={annual} />
+            ))}
+          </div>
         )}
 
         {/* Footer */}
         <div className="mt-10 text-center">
           <p className="text-xs text-[var(--text-muted)] mb-4">
-            Save 20% with annual billing &middot; No long-term contracts &middot; Cancel anytime
+            Save 2 months with annual billing &middot; No long-term contracts &middot; Cancel anytime
           </p>
           <Link
             href="/pricing"

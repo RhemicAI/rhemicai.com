@@ -1,55 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-
-const plans = [
-  {
-    name: 'Local Starter',
-    monthlyPrice: 199,
-    annualPrice: 1990,
-    wasPrice: 299,
-    bestFor: 'See exactly where you stand in AI search',
-    featured: false,
-    calLink: 'rhemic-ai/smb-starter-onboarding',
-    features: [
-      'Full AI visibility audit across ChatGPT, Claude, Gemini & Perplexity',
-      'See which competitors AI recommends instead of you',
-      'Competitive gap report showing exactly why they rank above you',
-      '5 prioritized fixes to start showing up in AI answers',
-    ],
-  },
-  {
-    name: 'Local Growth',
-    monthlyPrice: 299,
-    annualPrice: 2990,
-    wasPrice: 399,
-    bestFor: 'Start showing up in AI answers and stay there',
-    featured: true,
-    calLink: 'rhemic-ai/smb-growth-onboarding',
-    features: [
-      'Everything in Starter, plus:',
-      'We build you a professional 3-page website (free, included in your plan)',
-      'Monthly re-scans so you can track your visibility climbing',
-      'Before-and-after progress dashboard showing your AI visibility growth',
-      'Priority support: get answers within hours, not days',
-    ],
-  },
-  {
-    name: 'Local Scale',
-    monthlyPrice: 499,
-    annualPrice: 4990,
-    wasPrice: 699,
-    bestFor: 'Dominate your market across every location',
-    featured: false,
-    calLink: 'rhemic-ai/smb-scale-onboarding',
-    features: [
-      'Everything in Growth, plus:',
-      'Every business location audited and optimized separately',
-      'Weekly scans so you catch and fix visibility drops before competitors notice',
-      'Dedicated account review with a real strategist reviewing your progress',
-    ],
-  },
-];
+import { smbPlans } from '@/data/pricing';
 
 function CheckIcon() {
   return (
@@ -117,7 +69,7 @@ export default function SmbPricing() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {plans.map((plan) => {
+          {smbPlans.map((plan) => {
             const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
             const priceSuffix = annual ? '/year' : '/mo';
             const savings = plan.monthlyPrice * 12 - plan.annualPrice;
