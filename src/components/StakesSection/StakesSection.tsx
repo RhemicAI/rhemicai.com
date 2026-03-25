@@ -46,10 +46,11 @@ export default function StakesSection() {
 
       <div className="max-w-3xl mx-auto text-center space-y-6">
         <a
-          href="#ai-visibility-scan"
+          href="#"
+          data-cal-link="rhemic-ai/discovery-call"
           className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body"
         >
-          Run Free AI Scan
+          Book Your Strategy Call
         </a>
       </div>
     </section>
