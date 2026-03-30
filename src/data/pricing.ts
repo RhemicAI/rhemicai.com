@@ -35,7 +35,6 @@ export const smbPlans: PricingPlan[] = [
     calLink: 'rhemic-ai/smb-growth-onboarding',
     features: [
       'Everything in Starter, plus:',
-      'We build you a professional 3-page website (free, included in your plan)',
       'Monthly re-scans so you can track your visibility climbing',
       'Before-and-after progress dashboard showing your AI visibility growth',
       'Priority support: get answers within hours, not days',
@@ -51,6 +50,7 @@ export const smbPlans: PricingPlan[] = [
     calLink: 'rhemic-ai/smb-scale-onboarding',
     features: [
       'Everything in Growth, plus:',
+      'We build you a professional 3-page website (free, included in your plan)',
       'Every business location audited and optimized separately',
       'Weekly scans so you catch and fix visibility drops before competitors notice',
       'Dedicated account review with a real strategist reviewing your progress',
