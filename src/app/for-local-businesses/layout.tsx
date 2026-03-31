@@ -1,24 +1,13 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'AI Visibility for Local Businesses - Roofers, Plumbers, HVAC & More',
+export const metadata: Metadata = buildMetadata({
+  title: 'AI Visibility for Local Businesses: Get Recommended in AI Answers',
   description:
-    'Find out if AI is sending customers to your competitors instead of you. Free 60-second scan across ChatGPT, Claude, Gemini & Perplexity. Plans from $199/mo.',
-  alternates: { canonical: 'https://rhemicai.com/for-local-businesses' },
-  openGraph: {
-    title: 'AI Visibility for Local Businesses - Roofers, Plumbers, HVAC & More',
-    description:
-      'When someone asks AI "best roofer near me" do you show up? Free scan, 60 seconds. No signup required.',
-    url: 'https://rhemicai.com/for-local-businesses',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'AI Visibility for Local Businesses | Rhemic AI',
-    description:
-      'Find out if AI is sending customers to your competitors. Free 60-second scan.',
-  },
-};
+    'Help local businesses show up when customers ask AI for nearby providers, with visibility audits, competitor tracking, and implementation guidance built for service-area brands.',
+  path: '/for-local-businesses',
+  keywords: ['local business AI visibility', 'local AEO', 'ChatGPT local recommendations'],
+});
 
 export default function ForLocalBusinessesLayout({ children }: { children: React.ReactNode }) {
   return children;

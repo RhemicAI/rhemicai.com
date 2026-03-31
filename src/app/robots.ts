@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -34,6 +35,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
+        userAgent: "CCBot",
+        allow: "/",
+      },
+      {
         userAgent: "Googlebot",
         allow: "/",
       },
@@ -58,6 +63,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://rhemicai.com/sitemap.xml",
+    host: absoluteUrl(),
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }
