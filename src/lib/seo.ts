@@ -113,7 +113,10 @@ export function websiteSchema() {
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${siteConfig.url}/blog?query={search_term_string}`,
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/blog?query={search_term_string}`,
+      },
       "query-input": "required name=search_term_string",
     },
   };

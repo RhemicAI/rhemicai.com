@@ -3,8 +3,8 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import PageSchemas from '@/components/seo/PageSchemas';
-import { buildMetadata } from '@/lib/seo';
+import JsonLd from '@/components/seo/JsonLd';
+import { absoluteUrl, buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Glossary: AI Engine Optimization and AI Visibility Terms',
@@ -27,19 +27,26 @@ const terms = [
   ['FAQ JSON-LD', 'Schema markup that turns a page’s questions and answers into a structured FAQPage entity that machines can parse cleanly.'],
 ];
 
+const glossarySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'Rhemic AI Visibility Glossary',
+  description:
+    'Definitions for core AI visibility and answer engine optimization terminology.',
+  url: absoluteUrl('/resources/glossary'),
+  hasDefinedTerm: terms.map(([name, description], index) => ({
+    '@type': 'DefinedTerm',
+    name,
+    description,
+    url: `${absoluteUrl('/resources/glossary')}#term-${index + 1}`,
+    inDefinedTermSet: absoluteUrl('/resources/glossary'),
+  })),
+};
+
 export default function GlossaryPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
-      <PageSchemas
-        id="glossary-schemas"
-        service={{
-          name: 'Rhemic AI glossary',
-          description:
-            'A glossary of AI visibility and answer engine optimization terminology for buyers and operators.',
-          path: '/resources/glossary',
-          audience: 'Teams learning the language of AI visibility',
-        }}
-      />
+      <JsonLd id="glossary-defined-term-set" data={glossarySchema} />
       <FixedNav />
 
       <PageHero
@@ -52,8 +59,12 @@ export default function GlossaryPage() {
       <div className="relative z-10 pb-16 sm:pb-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-6">
-            {terms.map(([term, definition]) => (
-              <section key={term} className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+            {terms.map(([term, definition], index) => (
+              <section
+                key={term}
+                id={`term-${index + 1}`}
+                className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6"
+              >
                 <h2 className="mb-3 text-2xl font-bold text-[var(--text-primary)]">{term}</h2>
                 <p className="text-[var(--text-secondary)] leading-relaxed">{definition}</p>
               </section>

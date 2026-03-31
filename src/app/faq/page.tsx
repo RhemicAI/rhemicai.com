@@ -5,7 +5,6 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
@@ -107,16 +106,6 @@ const faqs = [
 export default function FAQPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
-      <PageSchemas
-        id="faq-page-schemas"
-        service={{
-          name: 'Rhemic AI Answer Engine Optimization FAQ',
-          description:
-            'A knowledge base covering AI Engine Optimization, AI visibility audits, pricing questions, and operational guidance for answer engine visibility.',
-          path: '/faq',
-          audience: 'Businesses evaluating AI visibility software and services',
-        }}
-      />
       <FixedNav />
 
       <PageHero

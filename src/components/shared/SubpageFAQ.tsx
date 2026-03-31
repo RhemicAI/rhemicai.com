@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import JsonLd from '@/components/seo/JsonLd';
 
 interface FAQItem {
   question: string;
@@ -11,7 +11,7 @@ interface SubpageFAQProps {
 }
 
 export default function SubpageFAQ({ faqs, heading = 'Frequently asked questions' }: SubpageFAQProps) {
-  const schemaString = JSON.stringify({
+  const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -22,17 +22,14 @@ export default function SubpageFAQ({ faqs, heading = 'Frequently asked questions
         text: faq.answer,
       },
     })),
-  });
+  };
 
   return (
     <section className="py-16 px-6">
-      <Script
+      <JsonLd
         id={`faq-schema-${heading.toLowerCase().replace(/\s+/g, '-')}`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {schemaString}
-      </Script>
+        data={schema}
+      />
       <div className="mx-auto max-w-3xl">
         <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-8 text-center">
           {heading}
