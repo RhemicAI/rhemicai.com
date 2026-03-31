@@ -7,19 +7,16 @@ import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
+import PageSchemas from '@/components/seo/PageSchemas';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Website Auditing - AI Engine Optimization Audits',
+export const metadata: Metadata = buildMetadata({
+  title: 'Website Auditing for AI Visibility and Answer Engine Readiness',
   description:
-    'Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business.',
-  alternates: { canonical: 'https://rhemicai.com/products/website-auditing' },
-  openGraph: {
-    title: 'Website Auditing - AI Engine Optimization Audits',
-    description:
-      'Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals.',
-    url: 'https://rhemicai.com/products/website-auditing',
-  },
-};
+    'Audit how AI engines read your site, find the structural gaps blocking citations, and get a prioritized plan for improving answer engine visibility.',
+  path: '/products/website-auditing',
+  keywords: ['AI visibility audit', 'AEO audit', 'website audit for ChatGPT', 'schema audit'],
+});
 
 const features = [
   {
@@ -54,6 +51,23 @@ const benefits = [
 export default function WebsiteAuditingPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <PageSchemas
+        id="website-auditing-page-schemas"
+        service={{
+          name: 'AI Visibility Website Auditing',
+          description:
+            'Website audits that evaluate schema, technical signals, entity clarity, and content structure for answer engine visibility.',
+          path: '/products/website-auditing',
+          audience: 'Marketing teams, local businesses, and SaaS companies',
+        }}
+        softwareApplication={{
+          name: 'Rhemic AI Website Auditing',
+          description:
+            'Software for auditing how AI answer engines understand and recommend a website.',
+          path: '/products/website-auditing',
+          offerDescription: 'Book a demo to review a live AI visibility audit and pricing options.',
+        }}
+      />
       <ProductSchema
         name="Rhemic AI Website Auditing"
         description="Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business."

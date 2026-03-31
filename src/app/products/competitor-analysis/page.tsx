@@ -7,19 +7,16 @@ import AEOEngine from '@/components/AEOEngine/AEOEngine';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
+import PageSchemas from '@/components/seo/PageSchemas';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Competitor Analysis - Track Rivals in AI Search',
+export const metadata: Metadata = buildMetadata({
+  title: 'Competitor Analysis for AI Mentions, Citations, and Market Share',
   description:
-    'Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals in AI-generated answers.',
-  alternates: { canonical: 'https://rhemicai.com/products/competitor-analysis' },
-  openGraph: {
-    title: 'Competitor Analysis - Track Rivals in AI Search',
-    description:
-      'Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals.',
-    url: 'https://rhemicai.com/products/competitor-analysis',
-  },
-};
+    'Benchmark which competitors AI engines recommend, where they win, and what structural and content gaps are keeping your brand out of answer results.',
+  path: '/products/competitor-analysis',
+  keywords: ['AI competitor analysis', 'answer engine benchmarking', 'AI mention tracking'],
+});
 
 const features = [
   {
@@ -54,6 +51,22 @@ const benefits = [
 export default function CompetitorAnalysisPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <PageSchemas
+        id="competitor-analysis-page-schemas"
+        service={{
+          name: 'AI Visibility Competitor Analysis',
+          description:
+            'Competitor benchmarking across answer engines with topic-level mention tracking and gap analysis.',
+          path: '/products/competitor-analysis',
+          audience: 'Marketing teams and agencies tracking answer engine market share',
+        }}
+        softwareApplication={{
+          name: 'Rhemic AI Competitor Analysis',
+          description:
+            'Software that tracks which competitors are cited in AI-generated answers and why.',
+          path: '/products/competitor-analysis',
+        }}
+      />
       <ProductSchema
         name="Rhemic AI Competitor Analysis"
         description="Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals in AI-generated answers."

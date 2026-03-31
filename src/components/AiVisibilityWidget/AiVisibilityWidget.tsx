@@ -269,6 +269,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
   const pollIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollStartedAtRef = useRef<number | null>(null);
   const calInitializedRef = useRef(false);
+  const visualProgressRef = useRef(0);
 
   const initCal = () => {
     if (typeof window === 'undefined') return false;
@@ -427,9 +428,13 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
   }, [phase, scanStatus]);
 
   useEffect(() => {
+    visualProgressRef.current = visualProgress;
+  }, [visualProgress]);
+
+  useEffect(() => {
     let raf = 0;
     let start: number | null = null;
-    const from = visualProgress;
+    const from = visualProgressRef.current;
     const to = statusProgressTarget;
     const duration = Math.abs(to - from) < 18 ? 400 : 700;
 

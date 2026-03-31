@@ -6,6 +6,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed/CalEmbed";
+import { siteConfig } from "@/lib/seo";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -21,28 +22,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rhemicai.com"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rhemic AI - Get Recommended by AI Answer Engines | AEO Platform",
+    default: "Rhemic AI | AI Visibility Platform for ChatGPT, Claude, and Perplexity",
     template: "%s | Rhemic AI",
   },
   description:
-    "Ensure your business appears when people ask ChatGPT, Claude, and Perplexity for recommendations. Rhemic AI optimizes your visibility in AI-powered search.",
+    "Rhemic AI helps businesses measure, improve, and track how often they are cited and recommended in AI answer engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI experiences.",
   keywords: [
     "AEO",
-    "AI search optimization",
-    "AI answer engines",
     "AI Engine Optimization",
-    "SEO",
-    "Rhemic AI",
-    "adaptive engagement optimization",
-    "ChatGPT recommendations",
-    "AI visibility",
     "answer engine optimization",
+    "AI answer engines",
+    "AI search optimization",
+    "AI visibility platform",
+    "AI visibility audit",
+    "Rhemic AI",
+    "ChatGPT recommendations",
+    "AI brand mentions",
+    "schema markup",
   ],
-  authors: [{ name: "Rhemic AI" }],
-  creator: "Rhemic AI",
-  publisher: "Rhemic AI",
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   robots: {
     index: true,
     follow: true,
@@ -55,23 +57,21 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Rhemic AI - Get Recommended by AI Answer Engines",
-    description:
-      "Ensure your business appears when people ask ChatGPT, Claude, and Perplexity for recommendations. AI-powered visibility optimization.",
-    url: "https://rhemicai.com",
-    siteName: "Rhemic AI",
+    title: "Rhemic AI | AI Visibility Platform for Answer Engines",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhemic AI - Get Recommended by AI Answer Engines",
-    description:
-      "Ensure your business appears when people ask ChatGPT, Claude, and Perplexity for recommendations.",
-    creator: "@RhemicAI",
+    title: "Rhemic AI | AI Visibility Platform for Answer Engines",
+    description: siteConfig.description,
+    creator: siteConfig.social.twitter,
   },
   alternates: {
-    canonical: "https://rhemicai.com",
+    canonical: siteConfig.url,
   },
 };
 

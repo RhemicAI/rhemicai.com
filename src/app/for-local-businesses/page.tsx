@@ -9,6 +9,8 @@ import WebsiteOffer from '@/components/WebsiteOffer/WebsiteOffer';
 import SmbPricing from '@/components/SmbPricing/SmbPricing';
 import IndustryTrust from '@/components/IndustryTrust/IndustryTrust';
 import Footer from '@/components/Footer/Footer';
+import RelatedLinks from '@/components/shared/RelatedLinks';
+import PageSchemas from '@/components/seo/PageSchemas';
 
 function slowScrollTo(id: string, duration = 2200) {
   const el = document.getElementById(id);
@@ -273,6 +275,16 @@ export default function ForLocalBusinesses() {
 
   return (
     <main className="min-h-screen selection:bg-violet-500/20 selection:text-white">
+      <PageSchemas
+        id="for-local-businesses-schemas"
+        service={{
+          name: 'Rhemic AI for local businesses',
+          description:
+            'AI visibility software and implementation guidance for local businesses that want to be recommended in AI answers.',
+          path: '/for-local-businesses',
+          audience: 'Local service businesses and multi-location brands',
+        }}
+      />
       <FixedNav />
       {/* Section 1: Hero */}
       <SmbHero />
@@ -294,6 +306,26 @@ export default function ForLocalBusinesses() {
       <SmbFAQ />
       {/* Section 10: Footer CTA */}
       <SmbFooterCTA />
+      <RelatedLinks
+        heading="Keep exploring"
+        links={[
+          {
+            title: 'Free AI Visibility Check',
+            description: 'Run the public scan flow for your business or site.',
+            href: '/free-ai-visibility-check',
+          },
+          {
+            title: 'FAQ',
+            description: 'Read the buyer questions around local AI visibility and pricing.',
+            href: '/faq',
+          },
+          {
+            title: 'How It Works',
+            description: 'Understand how the audit and implementation workflow fits local businesses.',
+            href: '/how-it-works',
+          },
+        ]}
+      />
       <Footer />
     </main>
   );

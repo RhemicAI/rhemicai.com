@@ -17,6 +17,21 @@ const labelMap: Record<string, string> = {
   'privacy-policy': 'Privacy Policy',
   'terms-of-service': 'Terms of Service',
   'start-free-trial': 'Start Free Trial',
+  faq: 'FAQ',
+  'how-it-works': 'How It Works',
+  compare: 'Compare',
+  'rhemic-vs-seo-ai': 'Rhemic vs SEO.ai',
+  'rhemic-vs-surferseo': 'Rhemic vs SurferSEO',
+  'rhemic-vs-clearscope': 'Rhemic vs Clearscope',
+  'case-studies': 'Case Studies',
+  'for-agencies': 'For Agencies',
+  resources: 'Resources',
+  glossary: 'Glossary',
+  'free-ai-visibility-check': 'Free AI Visibility Check',
+  'seo-vs-aeo': 'SEO vs AEO',
+  'how-to-audit-your-websites-ai-visibility': 'Audit AI Visibility',
+  'how-marketing-agencies-can-get-recommended-by-ai-tools': 'Agencies and AI Recommendations',
+  'my-business-isnt-showing-up-in-ai-chat-answers': 'Fix Missing AI Mentions',
 };
 
 export default function Breadcrumbs() {
