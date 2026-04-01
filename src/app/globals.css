@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #0a0a0a;
-  --bg-elevated: #111111;
+  --bg-base: #030712;
+  --bg-elevated: #0a1020;
   --bg-glass: rgba(255, 255, 255, 0.08);
   --bg-glass-hover: rgba(255, 255, 255, 0.14);
 
@@ -56,7 +56,7 @@ h6 {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(56, 189, 248, 0.3);
   color: #fff;
 }
 
