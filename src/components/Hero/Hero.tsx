@@ -7,11 +7,17 @@ const eyebrowText = "AI ANSWER ENGINE OPTIMIZATION";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-16">
+      {/* Radial gradient overlay, sits between globe (z-0) and content (z-10) */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.5) 50%, transparent 80%)' }}
+      />
+
       <div className="relative z-10 text-center max-w-6xl mx-auto w-full">
         {/* Tag */}
         <p
           className="text-[11px] sm:text-sm md:text-base font-medium tracking-[0.08em] sm:tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-6 font-body"
-          style={{ textShadow: '0 0 22px rgba(3, 7, 18, 0.5)' }}
+          style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
           {eyebrowText}
         </p>
@@ -20,7 +26,7 @@ export default function Hero() {
         <div className="mb-8">
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] font-display"
-            style={{ textShadow: '0 0 28px rgba(3, 7, 18, 0.52)' }}
+            style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
           >
             <span className="block">Your Business Is Invisible to AI.</span>
             <span className="block">We Fix That.</span>
@@ -31,7 +37,7 @@ export default function Hero() {
         <p
           className="text-base md:text-lg lg:text-xl text-[var(--text-primary)] max-w-3xl mx-auto font-normal leading-[1.6] mb-10 opacity-80 font-body"
           style={{
-            textShadow: '0 0 24px rgba(3, 7, 18, 0.48)',
+            textShadow: '0 0 40px rgba(10, 10, 10, 0.9)',
           }}
         >
           When someone asks ChatGPT or Gemini for a recommendation, your business should be in the answer. Rhemic gets you there before your competitors.
