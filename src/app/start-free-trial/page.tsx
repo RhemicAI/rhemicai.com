@@ -83,7 +83,7 @@ export default function StartFreeTrialPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <Script
         id="start-free-trial-faq-schema"
         type="application/ld+json"

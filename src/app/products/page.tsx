@@ -6,19 +6,15 @@ import PageHero from '@/components/shared/PageHero';
 import ServiceListSchema from '@/components/SchemaOrg/ServiceListSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Products - AI Visibility Tools for Your Business',
+export const metadata: Metadata = buildMetadata({
+  title: 'Products for AI Visibility Auditing, Competitor Analysis, and Schema Deployment',
   description:
-    'Website Auditing, Competitor Analysis, and Code Generation tools for the AI search economy. Get recommended by ChatGPT, Claude, Perplexity, and Gemini.',
-  alternates: { canonical: 'https://rhemicai.com/products' },
-  openGraph: {
-    title: 'Products - AI Engine Optimization Tools',
-    description:
-      'Website Auditing, Competitor Analysis, and Code Generation tools for AI search visibility.',
-    url: 'https://rhemicai.com/products',
-  },
-};
+    'Explore Rhemic AI products for auditing AI visibility, benchmarking competitors, and shipping the technical changes needed to get cited by answer engines.',
+  path: '/products',
+  keywords: ['AI visibility tools', 'AEO software', 'schema generation', 'competitor analysis for AI'],
+});
 
 const icons = {
   audit: (
@@ -71,7 +67,7 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <ServiceListSchema />
       <FixedNav />
 
@@ -84,6 +80,17 @@ export default function ProductsPage() {
 
 
       <div className="relative z-10">
+        <section className="pb-12 px-6">
+          <div className="mx-auto max-w-5xl rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
+              Definition
+            </p>
+            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+              Rhemic’s product stack is designed around a practical sequence: measure how answer engines see you, identify who is beating you, then ship the technical and content fixes that close the gap.
+            </p>
+          </div>
+        </section>
+
         {/* Product Grid */}
         <section className="pb-16 px-6">
           <div className="mx-auto max-w-5xl">
@@ -122,6 +129,29 @@ export default function ProductsPage() {
                   </span>
                 </Link>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-16 px-6">
+          <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Who it is for</h2>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                Teams that already know AI discovery is changing buyer behavior and need a measurable way to respond instead of waiting for rankings alone to explain the shift.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">How the products connect</h2>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                Auditing finds the weak signals, competitor analysis shows what alternatives are winning, and code generation helps teams move from ideas to implementation quickly.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">What success looks like</h2>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                Better answer visibility, stronger mention consistency across engines, and fewer blind spots on the pages buyers actually use to make decisions.
+              </p>
             </div>
           </div>
         </section>
@@ -196,9 +226,9 @@ export default function ProductsPage() {
             href: '/start-free-trial',
           },
           {
-            title: 'About Rhemic AI',
-            description: 'Meet the team building AI Engine Optimization infrastructure.',
-            href: '/about',
+            title: 'How It Works',
+            description: 'See how the product stack turns findings into implementation.',
+            href: '/how-it-works',
           },
         ]}
       />

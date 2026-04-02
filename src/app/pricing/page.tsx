@@ -7,19 +7,16 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
 import { agencyTiers, smbPlans } from '@/data/pricing';
+import PageSchemas from '@/components/seo/PageSchemas';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Pricing - Simple, Transparent AI Visibility Plans',
+export const metadata: Metadata = buildMetadata({
+  title: 'Pricing for AI Visibility Audits, Tracking, and AEO Implementation',
   description:
-    'AI visibility pricing for small businesses ($199/mo) and agencies ($599/mo). No hidden fees, no long-term contracts.',
-  alternates: { canonical: 'https://rhemicai.com/pricing' },
-  openGraph: {
-    title: 'Pricing - Simple, Transparent AI Visibility Plans',
-    description:
-      'AI visibility pricing for small businesses ($199/mo) and agencies ($599/mo). Limited time founding member rates.',
-    url: 'https://rhemicai.com/pricing',
-  },
-};
+    'Transparent Rhemic AI pricing for businesses and agencies, including audit coverage, competitor tracking, implementation support, and what each plan is built for.',
+  path: '/pricing',
+  keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'AEO pricing', 'AI audit pricing'],
+});
 
 const allPlans = [...smbPlans, ...agencyTiers];
 const pricingSchema = {
@@ -44,7 +41,17 @@ const pricingSchema = {
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
+      <PageSchemas
+        id="pricing-page-schemas"
+        service={{
+          name: 'Rhemic AI Pricing and Service Plans',
+          description:
+            'Pricing for AI visibility audits, competitor tracking, schema implementation, and answer engine optimization support.',
+          path: '/pricing',
+          audience: 'Businesses and agencies evaluating AI Engine Optimization software',
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -62,9 +69,50 @@ export default function PricingPage() {
 
       <div className="relative z-10 pb-12 sm:pb-24">
         <div className="mx-auto max-w-5xl px-6">
+          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
+              Definition
+            </p>
+            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+              Rhemic pricing is structured around one question: how much AI visibility support does your team need, from baseline audits to recurring tracking and implementation guidance.
+            </p>
+          </section>
 
           {/* Pricing Tiers */}
           <PricingSwitch />
+
+          <section className="my-12 grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Starter</h2>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                Best for teams that need a baseline, a clean answer to where they are losing visibility, and a manageable implementation queue.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Growth</h2>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                Built for operators who need recurring audits, broader coverage, and faster iteration after each round of changes ships.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
+              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Scale</h2>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                A fit for organizations or agencies that need more brands, more monitoring cadence, and a tighter operating rhythm across multiple stakeholders.
+              </p>
+            </div>
+          </section>
+
+          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
+            <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)]">What you are actually paying for</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                The value is not a dashboard alone. It is the combination of visibility measurement, competitive benchmarking, recommendations, and the implementation momentum that comes from having a clear queue instead of vague AI anxiety.
+              </p>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
+                That is also the ROI framing. The cost is the price of getting operational clarity. The cost of doing nothing is letting competitors become the default names AI keeps recommending in your category.
+              </p>
+            </div>
+          </section>
 
           {/* CTA Section */}
           <section className="text-center py-10 sm:py-16 px-4 sm:px-6 bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl sm:rounded-3xl">
@@ -136,9 +184,9 @@ export default function PricingPage() {
             href: '/start-free-trial',
           },
           {
-            title: 'About Rhemic AI',
-            description: 'Meet the team building AI Engine Optimization infrastructure.',
-            href: '/about',
+            title: 'FAQ',
+            description: 'Answer the buyer questions that usually come up before choosing a plan.',
+            href: '/faq',
           },
         ]}
       />

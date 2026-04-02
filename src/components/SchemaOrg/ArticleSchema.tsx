@@ -1,4 +1,5 @@
-import Script from 'next/script';
+import JsonLd from '@/components/seo/JsonLd';
+import { siteConfig } from '@/lib/seo';
 
 interface ArticleSchemaProps {
   title: string;
@@ -19,7 +20,7 @@ export default function ArticleSchema({
   wordCount,
   image = 'https://rhemicai.com/rhemic-logo.svg',
 }: ArticleSchemaProps) {
-  const schema = JSON.stringify({
+  const schema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
@@ -31,23 +32,20 @@ export default function ArticleSchema({
     wordCount,
     author: {
       '@type': 'Organization',
-      name: 'Rhemic AI',
-      url: 'https://rhemicai.com',
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Rhemic AI',
-      url: 'https://rhemicai.com',
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
-  });
+  };
 
   return (
-    <Script
+    <JsonLd
       id={`article-schema-${title.toLowerCase().replace(/\s+/g, '-').slice(0, 40)}`}
-      type="application/ld+json"
-      strategy="afterInteractive"
-    >
-      {schema}
-    </Script>
+      data={schema}
+    />
   );
 }

@@ -4,19 +4,15 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'About Rhemic AI - AI Engine Optimization Team & Mission',
+export const metadata: Metadata = buildMetadata({
+  title: 'About Rhemic AI: The Team Building AI Visibility Infrastructure',
   description:
-    'Meet the team building the future of AI search visibility. Rhemic AI bridges businesses and AI answer engines like ChatGPT, Claude, and Perplexity.',
-  alternates: { canonical: 'https://rhemicai.com/about' },
-  openGraph: {
-    title: 'About Rhemic AI - AI Engine Optimization Team & Mission',
-    description:
-      'Meet the team building the future of AI search visibility. Rhemic AI bridges businesses and AI answer engines.',
-    url: 'https://rhemicai.com/about',
-  },
-};
+    'Meet the Rhemic AI founding team and learn why we built an AI Engine Optimization platform for businesses that need to be recommended in answer engines.',
+  path: '/about',
+  keywords: ['about Rhemic AI', 'AI Engine Optimization company', 'AI visibility platform team'],
+});
 
 const founders = [
   {
@@ -94,7 +90,7 @@ const professionalServiceSchema = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -155,6 +151,30 @@ export default function AboutPage() {
               Make AI visibility measurable, improvable, and affordable for
               every business.
             </p>
+          </section>
+
+          <section className="mb-16 sm:mb-24">
+            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
+              What we believe about this market
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
+                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
+                  Discovery is fragmenting
+                </h3>
+                <p className="text-[var(--text-secondary)] leading-relaxed">
+                  Businesses can no longer assume discovery happens only through traditional search. Recommendations are becoming conversational, and the brands that are easiest for AI to understand will compound their advantage.
+                </p>
+              </div>
+              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
+                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
+                  Execution matters more than slogans
+                </h3>
+                <p className="text-[var(--text-secondary)] leading-relaxed">
+                  We are biased toward measurable outputs: audits, recommendations, implementation support, and before-versus-after visibility checks. That is the standard we want our own site to meet too.
+                </p>
+              </div>
+            </div>
           </section>
 
           {/* Team */}
@@ -267,9 +287,9 @@ export default function AboutPage() {
             href: '/pricing',
           },
           {
-            title: 'Contact Us',
-            description: 'Book a demo or ask a question about AI Engine Optimization.',
-            href: '/contact',
+            title: 'Case Studies',
+            description: 'See the dogfooding case study for improving rhemicai.com itself.',
+            href: '/case-studies',
           },
         ]}
       />

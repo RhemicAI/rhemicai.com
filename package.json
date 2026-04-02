@@ -12,10 +12,14 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",
+    "@react-three/fiber": "^9.5.0",
+    "@react-three/postprocessing": "^3.0.4",
     "cobe": "^0.6.5",
     "next": "^16.2.1",
+    "postprocessing": "^6.39.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "three": "^0.183.2"
   },
   "overrides": {
     "minimatch": "^10.2.1"
@@ -26,6 +30,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.183.1",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.24",
     "eslint": "^9",

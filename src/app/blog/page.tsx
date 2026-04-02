@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
+import { blogPosts } from '@/lib/content';
 
 export default function BlogPage() {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export default function BlogPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <FixedNav />
 
       <PageHero
@@ -35,41 +36,56 @@ export default function BlogPage() {
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-6">
               Latest
             </h2>
-            <Link
-              href="/blog/what-is-aeo"
-              className="group block bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8 hover:border-[var(--border-default)] transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 text-sm text-[var(--text-muted)] mb-4">
-                <time dateTime="2026-02-14">February 14, 2026</time>
-                <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                <span>15 min read</span>
-              </div>
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-white transition-colors">
-                The Complete Guide to AI Engine Optimization (AEO) in 2026
-              </h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-                Everything you need to know about optimizing your website for AI answer engines
-                - from foundational concepts to platform-specific strategies for ChatGPT, Claude,
-                Perplexity, and Google AI Overviews.
-              </p>
-              <span className="text-sm text-[var(--text-primary)] group-hover:text-white transition-colors inline-flex items-center gap-2">
-                Read article
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="group-hover:translate-x-1 transition-transform"
+            <div className="grid gap-6">
+              {blogPosts.map((post, index) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group block bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8 hover:border-[var(--border-default)] transition-all duration-300"
                 >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </span>
-            </Link>
+                  <div className="flex items-center gap-3 text-sm text-[var(--text-muted)] mb-4">
+                    <time dateTime={post.publishedAt}>
+                      {new Date(`${post.publishedAt}T12:00:00Z`).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </time>
+                    <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
+                    <span>{post.readingTime}</span>
+                    {index === 0 && (
+                      <>
+                        <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
+                        <span>Foundational</span>
+                      </>
+                    )}
+                  </div>
+                  <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-white transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
+                    {post.description}
+                  </p>
+                  <span className="text-sm text-[var(--text-primary)] group-hover:text-white transition-colors inline-flex items-center gap-2">
+                    Read article
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="group-hover:translate-x-1 transition-transform"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </section>
 
           {/* Email Signup */}
@@ -143,18 +159,18 @@ export default function BlogPage() {
               <p className="text-sm text-[var(--text-secondary)]">See how AI engines view your site with a comprehensive audit.</p>
             </Link>
             <Link
-              href="/about"
+              href="/faq"
               className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
             >
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">About Rhemic AI</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Meet the team building the future of AI search visibility.</p>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">FAQ</h3>
+              <p className="text-sm text-[var(--text-secondary)]">See the high-intent buyer questions strong AEO sites answer directly.</p>
             </Link>
             <Link
-              href="/pricing"
+              href="/compare"
               className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
             >
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Pricing</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Custom plans tailored to your business goals and scale.</p>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Compare</h3>
+              <p className="text-sm text-[var(--text-secondary)]">Review the comparison hub for buyers evaluating Rhemic against SEO-first tools.</p>
             </Link>
           </div>
         </div>

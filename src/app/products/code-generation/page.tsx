@@ -5,19 +5,16 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
+import PageSchemas from '@/components/seo/PageSchemas';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Code Generation - AI-Generated Schema & Metadata',
+export const metadata: Metadata = buildMetadata({
+  title: 'Schema and Metadata Code Generation for AI Engines',
   description:
-    'Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click.',
-  alternates: { canonical: 'https://rhemicai.com/products/code-generation' },
-  openGraph: {
-    title: 'Code Generation - AI-Generated Schema & Metadata',
-    description:
-      'Auto-generate valid JSON-LD schema markup, meta tags, and structured data for AI answer engines.',
-    url: 'https://rhemicai.com/products/code-generation',
-  },
-};
+    'Generate deployment-ready JSON-LD, metadata, and structured content changes that help ChatGPT, Claude, Perplexity, and Google understand your business.',
+  path: '/products/code-generation',
+  keywords: ['schema generator', 'JSON-LD generator', 'AI metadata generator', 'AEO implementation'],
+});
 
 const features = [
   {
@@ -87,7 +84,17 @@ const softwareApplicationSchema = {
 
 export default function CodeGenerationPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
+      <PageSchemas
+        id="code-generation-page-schemas"
+        service={{
+          name: 'AI Visibility Code Generation',
+          description:
+            'Generate schema markup, metadata, and implementation-ready technical changes for answer engine optimization.',
+          path: '/products/code-generation',
+          audience: 'Marketing and engineering teams implementing AEO fixes',
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
