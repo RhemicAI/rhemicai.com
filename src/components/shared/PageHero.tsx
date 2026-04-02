@@ -9,18 +9,24 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle, description, showBackLink = true }: PageHeroProps) {
   return (
-    <div className="relative z-10 overflow-hidden pt-24 sm:pt-32 pb-12 sm:pb-16">
+    <div className="relative z-10 overflow-hidden px-6 pt-10 sm:pt-14 pb-14 sm:pb-20">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-full"
+        className="pointer-events-none absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 60% 42% at 50% 0%, rgba(56, 189, 248, 0.1) 0%, rgba(56, 189, 248, 0.04) 34%, transparent 72%),
-            linear-gradient(180deg, rgba(2, 6, 23, 0.12) 0%, rgba(2, 6, 23, 0) 58%)
+            radial-gradient(ellipse 62% 64% at 50% 34%, rgba(56, 189, 248, 0.14) 0%, rgba(56, 189, 248, 0.06) 34%, transparent 72%),
+            radial-gradient(circle at 50% 12%, rgba(147, 197, 253, 0.12), transparent 30%),
+            linear-gradient(180deg, rgba(2, 6, 23, 0.04) 0%, rgba(2, 6, 23, 0.18) 58%, rgba(2, 6, 23, 0) 100%)
           `,
         }}
       />
-      <div className="mx-auto max-w-5xl px-6 text-center">
+      <div className="relative mx-auto flex min-h-[44vh] max-w-5xl items-center justify-center text-center sm:min-h-[50vh]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-8 top-1/2 h-[70%] -translate-y-1/2 rounded-[3rem] border border-white/6 bg-[radial-gradient(ellipse_at_center,rgba(7,18,34,0.18),rgba(7,18,34,0.08),transparent_78%)] backdrop-blur-[1px]"
+        />
+        <div className="relative w-full">
         {showBackLink && (
           <Link
             href="/"
@@ -51,6 +57,7 @@ export default function PageHero({ title, subtitle, description, showBackLink = 
             {description}
           </p>
         )}
+        </div>
       </div>
     </div>
   );

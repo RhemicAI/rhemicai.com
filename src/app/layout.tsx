@@ -89,9 +89,10 @@ export default function RootLayout({
           className="pointer-events-none fixed inset-0 z-[1]"
           style={{
             background: `
-              radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 28%),
-              radial-gradient(circle at 80% 18%, rgba(59, 130, 246, 0.08), transparent 24%),
-              linear-gradient(180deg, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.68) 55%, rgba(2, 6, 23, 0.92) 100%)
+              radial-gradient(circle at 18% 16%, rgba(56, 189, 248, 0.16), transparent 30%),
+              radial-gradient(circle at 82% 14%, rgba(96, 165, 250, 0.12), transparent 26%),
+              radial-gradient(circle at 50% 22%, rgba(14, 165, 233, 0.08), transparent 34%),
+              linear-gradient(180deg, rgba(2, 6, 23, 0.16) 0%, rgba(2, 6, 23, 0.42) 46%, rgba(2, 6, 23, 0.84) 100%)
             `,
           }}
         />
