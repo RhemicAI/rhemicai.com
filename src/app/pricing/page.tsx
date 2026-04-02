@@ -6,6 +6,7 @@ import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
+import { agencyTiers, smbPlans } from '@/data/pricing';
 
 export const metadata: Metadata = {
   title: 'Pricing - Simple, Transparent AI Visibility Plans',
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
+const allPlans = [...smbPlans, ...agencyTiers];
 const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -33,10 +35,10 @@ const pricingSchema = {
   },
   offers: {
     '@type': 'AggregateOffer',
-    lowPrice: '199',
-    highPrice: '1499',
+    lowPrice: String(Math.min(...allPlans.map((plan) => plan.monthlyPrice))),
+    highPrice: String(Math.max(...allPlans.map((plan) => plan.monthlyPrice))),
     priceCurrency: 'USD',
-    offerCount: '6',
+    offerCount: String(allPlans.length),
   },
 };
 
