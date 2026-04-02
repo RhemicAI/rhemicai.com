@@ -57,6 +57,18 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "YouBot",
         allow: "/",
       },
+      {
+        userAgent: "MistralBot",
+        allow: "/",
+      },
+      {
+        userAgent: "MetaAI",
+        allow: "/",
+      },
+      {
+        userAgent: "AnthropicBot",
+        allow: "/",
+      },
     ],
     sitemap: "https://rhemicai.com/sitemap.xml",
   };
