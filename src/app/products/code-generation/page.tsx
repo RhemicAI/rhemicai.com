@@ -3,7 +3,6 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
-import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 
@@ -70,13 +69,37 @@ const benefits = [
   'Update schemas as your business evolves',
 ];
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Rhemic AI Code Generation',
+  description:
+    'Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click.',
+  url: 'https://rhemicai.com/products/code-generation',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'Contact for pricing',
+    url: 'https://cal.com/rhemic-ai/discovery-call',
+  },
+  provider: {
+    '@type': 'Organization',
+    name: 'Rhemic AI',
+    url: 'https://rhemicai.com',
+  },
+};
+
 export default function CodeGenerationPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
-      <ProductSchema
-        name="Rhemic AI Code Generation"
-        description="Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click."
-        url="https://rhemicai.com/products/code-generation"
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema),
+        }}
       />
       <FixedNav />
 
