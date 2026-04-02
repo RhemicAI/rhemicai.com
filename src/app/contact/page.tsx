@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
@@ -80,6 +81,17 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <Head>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Contact Rhemic AI - Book a Demo or Get in Touch"
+        />
+        <meta
+          name="twitter:description"
+          content="Book a 30-minute demo, send us a message, or email contact@rhemicai.com. See how Rhemic AI transforms your AI search visibility."
+        />
+      </Head>
       <FixedNav />
 
       <PageHero
