@@ -59,13 +59,6 @@ const softwareApplicationSchema = {
   url: 'https://rhemicai.com/products/website-auditing',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    description: 'Contact for pricing',
-    url: 'https://cal.com/rhemic-ai/discovery-call',
-  },
   provider: {
     '@type': 'Organization',
     name: 'Rhemic AI',
