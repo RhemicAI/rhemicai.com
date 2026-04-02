@@ -7,6 +7,7 @@ interface ArticleSchemaProps {
   datePublished: string;
   dateModified?: string;
   wordCount?: number;
+  image?: string;
 }
 
 export default function ArticleSchema({
@@ -16,6 +17,7 @@ export default function ArticleSchema({
   datePublished,
   dateModified,
   wordCount,
+  image = 'https://rhemicai.com/rhemic-logo.svg',
 }: ArticleSchemaProps) {
   const schema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -23,6 +25,7 @@ export default function ArticleSchema({
     headline: title,
     description,
     url,
+    image,
     datePublished,
     dateModified: dateModified || datePublished,
     wordCount,
