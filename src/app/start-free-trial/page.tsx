@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Head from 'next/head';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -85,17 +84,6 @@ export default function StartFreeTrialPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
-      <Head>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Start Free Trial - Try AI Engine Optimization"
-        />
-        <meta
-          name="twitter:description"
-          content="Get a custom AEO trial for your business. Website audit, competitor benchmarking, and AEO score baseline included. Book a 30-minute discovery call."
-        />
-      </Head>
       <Script
         id="start-free-trial-faq-schema"
         type="application/ld+json"

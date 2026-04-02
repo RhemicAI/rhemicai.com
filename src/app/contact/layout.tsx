@@ -8,8 +8,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Rhemic AI - Book a Demo or Get in Touch',
     description:
-      'Book a demo, ask questions, or email contact@rhemicai.com about AI Engine Optimization.',
+      'Book a 30-minute demo, send us a message, or email contact@rhemicai.com. See how Rhemic AI transforms your AI search visibility.',
     url: 'https://rhemicai.com/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Rhemic AI - Book a Demo or Get in Touch',
+    description:
+      'Book a 30-minute demo, send us a message, or email contact@rhemicai.com. See how Rhemic AI transforms your AI search visibility.',
   },
 };
 
