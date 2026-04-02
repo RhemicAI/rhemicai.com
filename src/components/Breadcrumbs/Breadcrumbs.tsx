@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Script from 'next/script';
 
 const labelMap: Record<string, string> = {
   products: 'Products',
@@ -47,13 +46,10 @@ export default function Breadcrumbs() {
 
   return (
     <>
-      <Script
-        id="breadcrumb-schema"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {breadcrumbSchema}
-      </Script>
+        dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
+      />
       <nav
         aria-label="Breadcrumb"
         className="relative z-10 pt-20 sm:pt-24 px-6"
