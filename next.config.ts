@@ -1,6 +1,14 @@
+import path from "path";
 import type { NextConfig } from "next";
+import { fileURLToPath } from "url";
+
+const repoRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  outputFileTracingRoot: repoRoot,
+  turbopack: {
+    root: repoRoot,
+  },
   images: {
     formats: ["image/webp", "image/avif"],
   },
