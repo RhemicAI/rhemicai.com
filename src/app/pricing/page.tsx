@@ -20,9 +20,35 @@ export const metadata: Metadata = {
   },
 };
 
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Rhemic AI Platform',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web-based',
+  url: 'https://rhemicai.com/pricing',
+  provider: {
+    '@type': 'Organization',
+    name: 'Rhemic AI',
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    lowPrice: '199',
+    highPrice: '1499',
+    priceCurrency: 'USD',
+    offerCount: '6',
+  },
+};
+
 export default function PricingPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-base)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pricingSchema),
+        }}
+      />
       <FixedNav />
 
       <PageHero
