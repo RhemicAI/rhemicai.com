@@ -19,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="pricing-page-schemas"
         service={{

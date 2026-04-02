@@ -38,7 +38,7 @@ const comparisons = [
 
 export default function CompareHubPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="compare-hub-schemas"
         service={{

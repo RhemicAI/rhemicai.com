@@ -69,7 +69,7 @@ const benefits = [
 
 export default function CodeGenerationPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="code-generation-page-schemas"
         service={{

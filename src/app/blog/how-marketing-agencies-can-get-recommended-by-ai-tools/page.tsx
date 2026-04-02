@@ -20,7 +20,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function AgenciesRecommendedByAiPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <ArticleSchema
         title="How Marketing Agencies Can Get Recommended by AI Tools"
         description="How agencies can improve the odds that AI tools recommend them by strengthening service clarity, proof pages, structured data, and niche positioning."

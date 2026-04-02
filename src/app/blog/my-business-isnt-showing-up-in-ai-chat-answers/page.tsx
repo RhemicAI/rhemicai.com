@@ -20,7 +20,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function MissingInAiAnswersPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <ArticleSchema
         title="My Business Isn’t Showing Up in AI Chat Answers. Here’s How to Fix It"
         description="A direct guide to diagnosing why a business is absent from AI chat answers and the structural, content, and competitive fixes that usually matter most."
