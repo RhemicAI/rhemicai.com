@@ -91,7 +91,7 @@ const professionalServiceSchema = JSON.stringify({
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <Script
         id="professional-service-schema"
         type="application/ld+json"

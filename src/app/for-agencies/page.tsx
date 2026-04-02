@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function ForAgenciesPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="for-agencies-schemas"
         service={{

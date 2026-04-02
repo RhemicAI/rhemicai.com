@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function FreeAiVisibilityCheckPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="free-ai-visibility-check-schemas"
         service={{

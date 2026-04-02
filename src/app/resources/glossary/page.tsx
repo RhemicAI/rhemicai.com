@@ -45,7 +45,7 @@ const glossarySchema = {
 
 export default function GlossaryPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <JsonLd id="glossary-defined-term-set" data={glossarySchema} />
       <FixedNav />
 

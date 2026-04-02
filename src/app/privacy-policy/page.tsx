@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="relative z-10 min-h-screen bg-[var(--bg-base)]">
+    <main className="relative z-10 min-h-screen bg-transparent">
       <FixedNav />
       <div className="mx-auto max-w-4xl px-6 pt-32 pb-24">
         <Link

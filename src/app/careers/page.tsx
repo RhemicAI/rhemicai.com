@@ -44,7 +44,7 @@ const roles = [
 
 export default function CareersPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <FixedNav />
 
       <PageHero

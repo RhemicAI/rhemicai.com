@@ -50,7 +50,7 @@ const benefits = [
 
 export default function WebsiteAuditingPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="website-auditing-page-schemas"
         service={{

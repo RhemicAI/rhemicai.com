@@ -29,7 +29,7 @@ const steps = [
 
 export default function AuditAiVisibilityPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <ArticleSchema
         title="How to Audit Your Website’s AI Visibility (Step-by-Step Guide)"
         description="A step-by-step process for auditing how AI answer engines understand your site, identify competitors, and decide what to fix first."

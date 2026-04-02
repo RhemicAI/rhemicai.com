@@ -21,7 +21,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function SeoVsAeoPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <ArticleSchema
         title="SEO vs AEO: What’s the Difference Between Traditional SEO and AI Engine Optimization?"
         description="A practical explanation of the difference between traditional SEO and AI Engine Optimization, including where they overlap and what teams must change for answer engines."

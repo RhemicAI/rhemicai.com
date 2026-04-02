@@ -24,7 +24,7 @@ const baselineMetrics = [
 
 export default function CaseStudiesPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="case-studies-schemas"
         service={{

@@ -67,7 +67,7 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <ServiceListSchema />
       <FixedNav />
 

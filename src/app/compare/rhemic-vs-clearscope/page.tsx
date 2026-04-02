@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function RhemicVsClearscopePage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
+    <main className="min-h-screen bg-transparent">
       <PageSchemas
         id="rhemic-vs-clearscope-schemas"
         service={{
