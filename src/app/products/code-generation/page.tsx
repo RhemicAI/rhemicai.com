@@ -3,7 +3,6 @@ import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
-import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
@@ -67,6 +66,22 @@ const benefits = [
   'Update schemas as your business evolves',
 ];
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Rhemic AI Code Generation',
+  description:
+    'Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click.',
+  url: 'https://rhemicai.com/products/code-generation',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  provider: {
+    '@type': 'Organization',
+    name: 'Rhemic AI',
+    url: 'https://rhemicai.com',
+  },
+};
+
 export default function CodeGenerationPage() {
   return (
     <main className="min-h-screen bg-transparent">
@@ -79,17 +94,12 @@ export default function CodeGenerationPage() {
           path: '/products/code-generation',
           audience: 'Marketing and engineering teams implementing AEO fixes',
         }}
-        softwareApplication={{
-          name: 'Rhemic AI Code Generation',
-          description:
-            'Software for generating structured data and metadata for AI answer engine visibility.',
-          path: '/products/code-generation',
-        }}
       />
-      <ProductSchema
-        name="Rhemic AI Code Generation"
-        description="Auto-generate valid JSON-LD schema markup, meta tags, and structured data optimized for AI answer engines. Deploy with one click."
-        url="https://rhemicai.com/products/code-generation"
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema),
+        }}
       />
       <FixedNav />
 

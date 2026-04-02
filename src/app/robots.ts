@@ -62,6 +62,18 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "YouBot",
         allow: "/",
       },
+      {
+        userAgent: "MistralBot",
+        allow: "/",
+      },
+      {
+        userAgent: "MetaAI",
+        allow: "/",
+      },
+      {
+        userAgent: "AnthropicBot",
+        allow: "/",
+      },
     ],
     host: absoluteUrl(),
     sitemap: absoluteUrl("/sitemap.xml"),

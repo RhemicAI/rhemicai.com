@@ -4,7 +4,6 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
-import ProductSchema from '@/components/SchemaOrg/ProductSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
@@ -48,6 +47,22 @@ const benefits = [
   'Understand exactly what AI engines see',
 ];
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Rhemic AI Website Auditing',
+  description:
+    'Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business.',
+  url: 'https://rhemicai.com/products/website-auditing',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  provider: {
+    '@type': 'Organization',
+    name: 'Rhemic AI',
+    url: 'https://rhemicai.com',
+  },
+};
+
 export default function WebsiteAuditingPage() {
   return (
     <main className="min-h-screen bg-transparent">
@@ -60,18 +75,12 @@ export default function WebsiteAuditingPage() {
           path: '/products/website-auditing',
           audience: 'Marketing teams, local businesses, and SaaS companies',
         }}
-        softwareApplication={{
-          name: 'Rhemic AI Website Auditing',
-          description:
-            'Software for auditing how AI answer engines understand and recommend a website.',
-          path: '/products/website-auditing',
-          offerDescription: 'Book a demo to review a live AI visibility audit and pricing options.',
-        }}
       />
-      <ProductSchema
-        name="Rhemic AI Website Auditing"
-        description="Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business."
-        url="https://rhemicai.com/products/website-auditing"
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema),
+        }}
       />
       <FixedNav />
 

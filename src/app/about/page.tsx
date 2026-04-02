@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -66,7 +65,7 @@ const values = [
   },
 ];
 
-const professionalServiceSchema = JSON.stringify({
+const professionalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Rhemic AI',
@@ -87,18 +86,17 @@ const professionalServiceSchema = JSON.stringify({
     jobTitle: f.role,
     sameAs: f.linkedin,
   })),
-});
+};
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-transparent">
-      <Script
-        id="professional-service-schema"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {professionalServiceSchema}
-      </Script>
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceSchema),
+        }}
+      />
       <FixedNav />
 
       <PageHero

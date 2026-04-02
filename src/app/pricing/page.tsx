@@ -6,6 +6,7 @@ import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
+import { agencyTiers, smbPlans } from '@/data/pricing';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
 
@@ -16,6 +17,27 @@ export const metadata: Metadata = buildMetadata({
   path: '/pricing',
   keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'AEO pricing', 'AI audit pricing'],
 });
+
+const allPlans = [...smbPlans, ...agencyTiers];
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Rhemic AI Platform',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web-based',
+  url: 'https://rhemicai.com/pricing',
+  provider: {
+    '@type': 'Organization',
+    name: 'Rhemic AI',
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    lowPrice: String(Math.min(...allPlans.map((plan) => plan.monthlyPrice))),
+    highPrice: String(Math.max(...allPlans.map((plan) => plan.monthlyPrice))),
+    priceCurrency: 'USD',
+    offerCount: String(allPlans.length),
+  },
+};
 
 export default function PricingPage() {
   return (
@@ -28,6 +50,12 @@ export default function PricingPage() {
             'Pricing for AI visibility audits, competitor tracking, schema implementation, and answer engine optimization support.',
           path: '/pricing',
           audience: 'Businesses and agencies evaluating AI Engine Optimization software',
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pricingSchema),
         }}
       />
       <FixedNav />
