@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { smbPlans, agencyTiers, type PricingPlan } from '@/data/pricing';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
 import EnterprisePanel from '@/components/Pricing/EnterprisePanel';
+import { agencyTiers, smbPlans, type PricingPlan } from '@/data/pricing';
 
 function CheckIcon() {
   return (
@@ -26,6 +28,16 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
   const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
   const priceSuffix = annual ? '/year' : '/mo';
   const savings = plan.monthlyPrice * 12 - plan.annualPrice;
+  const primaryButtonClass = `block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+    plan.featured
+      ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
+      : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+  }`;
+  const secondaryButtonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+    plan.featured
+      ? 'border-violet-500/30 bg-violet-500/5 text-violet-100 hover:bg-violet-500/10'
+      : 'border-white/10 text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+  }`;
 
   return (
     <div
@@ -70,7 +82,7 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
         {plan.features.map((feature) => (
           <li key={feature} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
             {feature.startsWith('Everything in') ? (
-              <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
+              <span className="w-full text-[var(--text-tertiary)] font-semibold">{feature}</span>
             ) : (
               <>
                 <CheckIcon />
@@ -81,17 +93,20 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
         ))}
       </ul>
 
-      <a
-        href="#"
-        data-cal-link={plan.calLink}
-        className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
-          plan.featured
-            ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
-            : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
-        }`}
-      >
-        Book Your Strategy Call
-      </a>
+      <div className="mt-8 flex flex-col gap-3">
+        {annual ? (
+          <Link href="/contact" className={primaryButtonClass}>
+            Contact for annual billing
+          </Link>
+        ) : (
+          <PlanCheckoutButton plan={plan} className={primaryButtonClass}>
+            Start Now
+          </PlanCheckoutButton>
+        )}
+        <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
+          Book a Demo
+        </CalBookingLink>
+      </div>
     </div>
   );
 }
@@ -101,29 +116,29 @@ export default function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="relative py-20 md:py-28 px-6">
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-violet-400/80 mb-5 font-body">
+    <section id="pricing" className="relative px-6 py-20 md:py-28">
+      <div className="relative z-10 mx-auto max-w-5xl">
+        <div className="mb-10 text-center">
+          <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.2em] text-violet-400/80">
             Pricing
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display mb-4">
+          <h2 className="mb-4 font-display text-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)] sm:text-4xl md:text-5xl">
             Simple, transparent pricing
           </h2>
-          <p className="text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto leading-relaxed opacity-80 font-body">
+          <p className="mx-auto max-w-2xl font-body text-base font-normal leading-relaxed text-[var(--text-primary)] opacity-80 md:text-lg">
             For businesses and agencies of all sizes. No hidden fees, no long-term contracts.
           </p>
         </div>
 
-        {/* Tab toggle */}
-        <div className="flex items-center justify-center mb-8">
-          <div className="inline-flex rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] p-1 gap-1">
+        <div className="mb-8 flex items-center justify-center">
+          <div className="inline-flex gap-1 rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] p-1">
             <button
               type="button"
               onClick={() => setTab('smb')}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                tab === 'smb' ? 'bg-white text-black' : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${
+                tab === 'smb'
+                  ? 'bg-white text-black'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
               }`}
             >
               Small Business
@@ -131,8 +146,10 @@ export default function Pricing() {
             <button
               type="button"
               onClick={() => setTab('agency')}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                tab === 'agency' ? 'bg-white text-black' : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${
+                tab === 'agency'
+                  ? 'bg-white text-black'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
               }`}
             >
               Agency
@@ -140,8 +157,10 @@ export default function Pricing() {
             <button
               type="button"
               onClick={() => setTab('enterprise')}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                tab === 'enterprise' ? 'bg-white text-black' : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${
+                tab === 'enterprise'
+                  ? 'bg-white text-black'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
               }`}
             >
               Enterprise
@@ -149,47 +168,50 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Monthly / Annual toggle - hidden on Enterprise */}
-        <div className={`flex items-center justify-center gap-3 mb-10 ${tab === 'enterprise' ? 'hidden' : ''}`}>
+        <div className={`mb-10 flex items-center justify-center gap-3 ${tab === 'enterprise' ? 'hidden' : ''}`}>
           <span className={`text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
           <button
             type="button"
             onClick={() => setAnnual(!annual)}
-            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${annual ? 'bg-violet-600' : 'bg-white/20'}`}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+              annual ? 'bg-violet-600' : 'bg-white/20'
+            }`}
             aria-label="Toggle annual pricing"
           >
-            <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${annual ? 'translate-x-6' : 'translate-x-1'}`} />
+            <span
+              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                annual ? 'translate-x-6' : 'translate-x-1'
+              }`}
+            />
           </button>
           <span className={`text-sm ${annual ? 'text-white' : 'text-white/50'}`}>
-            Annual <span className="text-violet-400 text-xs">(save 2 months)</span>
+            Annual <span className="text-xs text-violet-400">(save 2 months)</span>
           </span>
         </div>
 
-        {/* Cards */}
         {tab === 'enterprise' ? (
           <div key="enterprise" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
             <EnterprisePanel />
           </div>
         ) : (
-          <div key={tab} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div key={tab} className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {(tab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
               <PlanCard key={plan.name} plan={plan} annual={annual} />
             ))}
           </div>
         )}
 
-        {/* Footer */}
         <div className="mt-10 text-center">
-          <p className="text-xs text-[var(--text-muted)] mb-4">
+          <p className="mb-4 text-xs text-[var(--text-muted)]">
             Save 2 months with annual billing &middot; No long-term contracts &middot; Cancel anytime
           </p>
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400 transition-colors duration-200 hover:text-violet-300"
           >
             See full pricing details
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
         </div>

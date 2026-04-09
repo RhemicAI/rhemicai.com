@@ -1,6 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
 import { smbPlans, agencyTiers, type PricingPlan } from '@/data/pricing';
 import EnterprisePanel from '@/components/Pricing/EnterprisePanel';
 
@@ -25,6 +28,16 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
   const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
   const priceSuffix = annual ? '/year' : '/mo';
   const savings = plan.monthlyPrice * 12 - plan.annualPrice;
+  const primaryButtonClass = `mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+    plan.featured
+      ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
+      : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+  }`;
+  const secondaryButtonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+    plan.featured
+      ? 'border-violet-500/30 bg-violet-500/5 text-violet-100 hover:bg-violet-500/10'
+      : 'border-white/10 text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+  }`;
 
   return (
     <div
@@ -80,17 +93,20 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
         ))}
       </ul>
 
-      <a
-        href="#"
-        data-cal-link={plan.calLink}
-        className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
-          plan.featured
-            ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
-            : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
-        }`}
-      >
-        Book Your Strategy Call
-      </a>
+      <div className="mt-8 flex flex-col gap-3">
+        {annual ? (
+          <Link href="/contact" className={primaryButtonClass}>
+            Contact for annual billing
+          </Link>
+        ) : (
+          <PlanCheckoutButton plan={plan} className={primaryButtonClass}>
+            Start Now
+          </PlanCheckoutButton>
+        )}
+        <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
+          Book a Demo
+        </CalBookingLink>
+      </div>
     </div>
   );
 }

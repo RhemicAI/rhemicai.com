@@ -134,10 +134,10 @@ export default function FixedNav() {
         {/* Right, CTA (desktop) + Hamburger (mobile) */}
         <div className="flex items-center gap-4">
           <a
-            href="#" data-cal-link="rhemic-ai/discovery-call"
+            href="https://app.rhemicai.com/login"
             className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
           >
-            Book a Demo
+            Log In
           </a>
 
           {/* Hamburger button (mobile only) */}
@@ -190,11 +190,11 @@ export default function FixedNav() {
             ))}
             <div className="mt-8">
               <a
-                href="#" data-cal-link="rhemic-ai/discovery-call"
+                href="https://app.rhemicai.com/login"
                 onClick={() => setMenuOpen(false)}
                 className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
               >
-                Book a Demo
+                Log In
               </a>
             </div>
           </div>

@@ -1,6 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
 import { smbPlans } from '@/data/pricing';
 
 function CheckIcon() {
@@ -24,25 +27,18 @@ export default function SmbPricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section className="relative z-10 py-20 md:py-28 px-6">
+    <section className="relative z-10 px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4 font-body">
+        <div className="mb-10 text-center">
+          <p className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]">
             Pricing
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] font-display mb-6">
+          <h2 className="mb-6 font-display text-2xl font-bold text-[var(--text-primary)] sm:text-3xl md:text-4xl">
             Simple pricing for local businesses.
           </h2>
 
-          {/* Annual toggle */}
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <span
-              className={`text-sm font-body ${
-                !annual ? 'text-white' : 'text-white/50'
-              }`}
-            >
-              Monthly
-            </span>
+          <div className="mb-2 flex items-center justify-center gap-3">
+            <span className={`font-body text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
             <button
               type="button"
               onClick={() => setAnnual(!annual)}
@@ -57,13 +53,8 @@ export default function SmbPricing() {
                 }`}
               />
             </button>
-            <span
-              className={`text-sm font-body ${
-                annual ? 'text-white' : 'text-white/50'
-              }`}
-            >
-              Annual{' '}
-              <span className="text-violet-400 text-xs">(save 2 months)</span>
+            <span className={`font-body text-sm ${annual ? 'text-white' : 'text-white/50'}`}>
+              Annual <span className="text-xs text-violet-400">(save 2 months)</span>
             </span>
           </div>
         </div>
@@ -73,6 +64,16 @@ export default function SmbPricing() {
             const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
             const priceSuffix = annual ? '/year' : '/mo';
             const savings = plan.monthlyPrice * 12 - plan.annualPrice;
+            const primaryButtonClass = `block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
+              plan.featured
+                ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
+                : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+            }`;
+            const secondaryButtonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
+              plan.featured
+                ? 'border-violet-500/30 bg-violet-500/5 text-violet-100 hover:bg-violet-500/10'
+                : 'border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
+            }`;
 
             return (
               <div
@@ -91,33 +92,27 @@ export default function SmbPricing() {
                   </div>
                 )}
 
-                <h3 className="text-lg font-bold text-[var(--text-primary)] font-display">
-                  {plan.name}
-                </h3>
-                <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
-                  {plan.bestFor}
-                </p>
+                <h3 className="font-display text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
+                <p className="mt-1 font-body text-sm text-[var(--text-muted)]">{plan.bestFor}</p>
 
                 <div className="mt-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-[var(--text-primary)] font-display">
+                    <span className="font-display text-4xl font-bold text-[var(--text-primary)]">
                       ${displayPrice.toLocaleString()}
                     </span>
-                    <span className="text-sm text-[var(--text-muted)] font-body">
-                      {priceSuffix}
-                    </span>
+                    <span className="font-body text-sm text-[var(--text-muted)]">{priceSuffix}</span>
                   </div>
                   {!annual && (
-                    <p className="mt-1 text-sm text-[var(--text-muted)] line-through font-body">
+                    <p className="mt-1 font-body text-sm text-[var(--text-muted)] line-through">
                       Was ${plan.wasPrice}/mo
                     </p>
                   )}
-                  {annual && (
-                    <p className="mt-1 text-xs text-violet-400 font-body">
-                      Save ${savings}/year
+                  {annual ? (
+                    <p className="mt-1 font-body text-xs text-violet-400">
+                      Save ${savings.toLocaleString()}/year
                     </p>
-                  )}
-                  <p className="mt-2 text-[11px] text-violet-400/80 font-body">
+                  ) : null}
+                  <p className="mt-2 font-body text-[11px] text-violet-400/80">
                     Founding member pricing. Locks in at signup. Price increases after first 100 customers.
                   </p>
                 </div>
@@ -126,10 +121,10 @@ export default function SmbPricing() {
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-2 text-sm text-[var(--text-secondary)] font-body"
+                      className="flex items-start gap-2 font-body text-sm text-[var(--text-secondary)]"
                     >
                       {feature.startsWith('Everything in') ? (
-                        <span className="text-[var(--text-tertiary)] font-semibold w-full">{feature}</span>
+                        <span className="w-full font-semibold text-[var(--text-tertiary)]">{feature}</span>
                       ) : (
                         <>
                           <CheckIcon />
@@ -140,24 +135,27 @@ export default function SmbPricing() {
                   ))}
                 </ul>
 
-                <a
-                  href="#"
-                  data-cal-link={plan.calLink}
-                  className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
-                    plan.featured
-                      ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
-                      : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                  }`}
-                >
-                  Book Your Strategy Call
-                </a>
+                <div className="mt-8 flex flex-col gap-3">
+                  {annual ? (
+                    <Link href="/contact" className={primaryButtonClass}>
+                      Contact for annual billing
+                    </Link>
+                  ) : (
+                    <PlanCheckoutButton plan={plan} className={primaryButtonClass}>
+                      Start Now
+                    </PlanCheckoutButton>
+                  )}
+                  <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
+                    Book a Demo
+                  </CalBookingLink>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <p className="mt-8 text-center text-base text-[var(--text-secondary)] font-body">
-          One missed job costs $5,000–$15,000. This costs less than one service call per month.
+        <p className="mt-8 text-center font-body text-base text-[var(--text-secondary)]">
+          One missed job costs $5,000-$15,000. This costs less than one service call per month.
         </p>
       </div>
     </section>

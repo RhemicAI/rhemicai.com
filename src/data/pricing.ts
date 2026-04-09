@@ -1,5 +1,10 @@
+export type PricingTier = 'starter' | 'growth' | 'scale';
+export type PricingSegment = 'agency' | 'smb';
+
 export interface PricingPlan {
   name: string;
+  tier: PricingTier;
+  segment: PricingSegment;
   monthlyPrice: number;
   annualPrice: number;
   wasPrice: number;
@@ -12,6 +17,8 @@ export interface PricingPlan {
 export const smbPlans: PricingPlan[] = [
   {
     name: 'Local Starter',
+    tier: 'starter',
+    segment: 'smb',
     monthlyPrice: 199,
     annualPrice: 1990,
     wasPrice: 299,
@@ -27,6 +34,8 @@ export const smbPlans: PricingPlan[] = [
   },
   {
     name: 'Local Growth',
+    tier: 'growth',
+    segment: 'smb',
     monthlyPrice: 299,
     annualPrice: 2990,
     wasPrice: 399,
@@ -42,6 +51,8 @@ export const smbPlans: PricingPlan[] = [
   },
   {
     name: 'Local Scale',
+    tier: 'scale',
+    segment: 'smb',
     monthlyPrice: 499,
     annualPrice: 4990,
     wasPrice: 699,
@@ -61,6 +72,8 @@ export const smbPlans: PricingPlan[] = [
 export const agencyTiers: PricingPlan[] = [
   {
     name: 'Starter',
+    tier: 'starter',
+    segment: 'agency',
     monthlyPrice: 599,
     annualPrice: 5990,
     wasPrice: 899,
@@ -77,6 +90,8 @@ export const agencyTiers: PricingPlan[] = [
   },
   {
     name: 'Growth',
+    tier: 'growth',
+    segment: 'agency',
     monthlyPrice: 999,
     annualPrice: 9990,
     wasPrice: 1199,
@@ -94,6 +109,8 @@ export const agencyTiers: PricingPlan[] = [
   },
   {
     name: 'Scale',
+    tier: 'scale',
+    segment: 'agency',
     monthlyPrice: 1499,
     annualPrice: 14990,
     wasPrice: 1999,
