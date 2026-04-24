@@ -1,0 +1,143 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rhemicai.com/#organization",
+      "name": "Rhemic AI",
+      "alternateName": "Rhemic",
+      "legalName": "Rhemic AI",
+      "url": "https://rhemicai.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rhemicai.com/icon.svg",
+        "contentUrl": "https://rhemicai.com/icon.svg"
+      },
+      "image": "https://rhemicai.com/icon.svg",
+      "email": "contact@rhemicai.com",
+      "description": "Rhemic AI is AI Competitive Visibility Intelligence for digital agencies. It scans ChatGPT, Claude, Gemini, and Perplexity for buyer-intent prompts and reports the percentage visibility gap between an agency's client and the client's top competitors.",
+      "slogan": "Show your clients where buyers are asking.",
+      "foundingDate": "2025",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Dallas, Texas, United States"
+      },
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Ittehadul Karim",
+          "jobTitle": "Chief Executive Officer",
+          "worksFor": { "@id": "https://rhemicai.com/#organization" }
+        },
+        {
+          "@type": "Person",
+          "name": "Shifat Santo",
+          "jobTitle": "Chief Technology Officer",
+          "worksFor": { "@id": "https://rhemicai.com/#organization" }
+        },
+        {
+          "@type": "Person",
+          "name": "Raahil Shaik",
+          "jobTitle": "Chief Operating Officer / Chief Financial Officer",
+          "worksFor": { "@id": "https://rhemicai.com/#organization" }
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dallas",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "contact@rhemicai.com",
+          "url": "https://cal.com/rhemic-ai/discovery-call",
+          "availableLanguage": ["English"]
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/rhemic_ai/",
+        "https://x.com/rhemicai",
+        "https://cal.com/rhemic-ai"
+      ],
+      "knowsAbout": [
+        "AI Competitive Visibility Intelligence",
+        "AI visibility tracking for agencies",
+        "LLM visibility monitoring",
+        "AI search visibility",
+        "ChatGPT visibility",
+        "Claude visibility",
+        "Perplexity visibility",
+        "Gemini visibility",
+        "Generative search",
+        "Schema markup for LLMs",
+        "Competitive visibility gap analysis",
+        "White-label AI SEO"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://rhemicai.com/#software",
+      "name": "Rhemic AI",
+      "alternateName": "Rhemic",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Marketing and SEO Software",
+      "operatingSystem": "Web browser",
+      "url": "https://rhemicai.com/",
+      "image": "https://rhemicai.com/icon.svg",
+      "description": "AI Competitive Visibility Intelligence platform for digital agencies. Scans ChatGPT, Claude, Gemini, and Perplexity for buyer-intent prompts and reports the percentage visibility gap between an agency's client and the client's top competitors. Includes on-demand fix asset generation and white-label reporting.",
+      "provider": { "@id": "https://rhemicai.com/#organization" },
+      "creator": { "@id": "https://rhemicai.com/#organization" },
+      "featureList": [
+        "Buyer-intent prompt scanning across ChatGPT, Claude, Gemini, and Perplexity",
+        "Percentage visibility gap scoring between a client and their top competitors",
+        "On-demand fix asset generation",
+        "White-label reporting for digital agencies",
+        "Competitor mapping across large language model answers",
+        "Schema and content recommendations tuned for LLM retrieval"
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Digital agencies",
+        "name": "Digital agencies serving local and mid-market clients"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Agency Starter",
+          "category": "Subscription",
+          "url": "https://rhemicai.com/pricing",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Agency Scale",
+          "category": "Subscription",
+          "url": "https://rhemicai.com/pricing",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rhemicai.com/#website",
+      "name": "Rhemic AI",
+      "url": "https://rhemicai.com/",
+      "description": "AI Competitive Visibility Intelligence for digital agencies.",
+      "publisher": { "@id": "https://rhemicai.com/#organization" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
