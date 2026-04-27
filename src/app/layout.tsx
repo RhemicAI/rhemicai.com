@@ -6,7 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed/CalEmbed";
-import NeuralBackground from "@/components/NeuralBackground/NeuralBackground";
+import CobeGlobeHome from "@/components/CobeGlobe/CobeGlobeHome";
+import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import { siteConfig } from "@/lib/seo";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -84,18 +85,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${ibmPlexMono.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <NeuralBackground />
+        <CobeGlobeHome />
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-[1]"
           style={{
-            background: `
-              radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 28%),
-              radial-gradient(circle at 80% 18%, rgba(59, 130, 246, 0.08), transparent 24%),
-              linear-gradient(180deg, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.68) 55%, rgba(2, 6, 23, 0.92) 100%)
-            `,
+            background: `linear-gradient(180deg, rgba(10, 10, 10, 0.0) 0%, rgba(10, 10, 10, 0.35) 55%, rgba(10, 10, 10, 0.75) 100%)`,
           }}
         />
+        <SmoothScroll />
         <SchemaOrg />
         <Breadcrumbs />
         <CalEmbed />

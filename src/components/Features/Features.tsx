@@ -2,8 +2,8 @@ const features = [
   {
     title: 'AI Visibility Audit',
     description:
-      'Run a full AI visibility audit for your business. We analyze how often you\'re recommended across ChatGPT, Claude, Gemini, and Perplexity, and deliver a Brand Share % score in minutes.',
-    tags: ['Brand Share %', 'AI Monitoring', '5-Min Scan'],
+      'Run a full AI visibility audit across ChatGPT, Claude, Gemini, and Perplexity. You receive a Brand Share % score showing exactly how often your business is recommended versus competitors — and where you\'re absent entirely.',
+    tags: ['Brand Share %', 'AI Monitoring', '4 Platforms'],
     icon: (
       <svg
         width="48"
@@ -24,10 +24,10 @@ const features = [
     ),
   },
   {
-    title: 'Competitive Gap Intelligence',
+    title: 'Search & Competitor Intelligence',
     description:
-      'See exactly which competitors are capturing your AI demand. We run 60–100 buyer prompts and map who\'s winning recommendations, so you can see the gap in hard numbers.',
-    tags: ['Visibility Gap', 'Competitor Tracking', 'Real-Time'],
+      'See who\'s outranking you on Google and capturing your AI demand. We map competitor schema, content depth, Google Business Profile completeness, and AI citation presence — so you know exactly what to fix first.',
+    tags: ['Google + AI Gap', 'Competitor Map', 'Ranked Fixes'],
     icon: (
       <svg
         width="48"
@@ -49,10 +49,10 @@ const features = [
     ),
   },
   {
-    title: 'Structural Visibility Fixes',
+    title: 'SEO + AI Implementation',
     description:
-      'Get ranked, actionable recommendations to close the visibility gap. Structural fixes, schema updates, and content signals, prioritized by impact.',
-    tags: ['Ranked Fixes', 'Actionable Reports', 'One-Click Deploy'],
+      'We deploy the fixes. Schema markup, on-page SEO, Google Business Profile optimization, and structured data — implemented directly on your site by our team on Growth and Scale plans.',
+    tags: ['On-Page SEO', 'Schema Deploy', 'GBP Optimization'],
     icon: (
       <svg
         width="48"
@@ -84,12 +84,11 @@ export default function Features() {
         </p>
         <div className="mb-6">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.1] text-[var(--text-primary)] font-display">
-            AI competitive visibility intelligence for businesses
+            Search and AI visibility — both in one platform
           </h2>
         </div>
         <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] opacity-80 font-body">
-          Rhemic shows you exactly where you&apos;re losing AI demand, and who&apos;s winning
-          instead.
+          Rhemic audits where you&apos;re invisible across Google and AI assistants, shows exactly who&apos;s beating you, and implements the fixes.
         </p>
       </div>
 

@@ -38,7 +38,7 @@ export default function SmbHero() {
 
         <a
           href="#ai-visibility-scan"
-          className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
+          className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
         >
           Run your free scan. No signup, no credit card.
         </a>

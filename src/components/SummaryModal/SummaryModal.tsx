@@ -209,7 +209,7 @@ export default function SummaryModal({
             </p>
             <button
               onClick={() => setIsOpen(false)}
-              className="px-4 py-2 text-sm font-medium rounded-full bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] hover:scale-105 transition-transform"
+              className="px-4 py-2 text-sm font-medium rounded-[5px] bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] hover:scale-105 transition-transform"
             >
               Got it
             </button>
@@ -223,7 +223,7 @@ export default function SummaryModal({
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2.5 px-6 py-3 text-sm font-medium rounded-full bg-white text-black hover:bg-gray-100 transition-colors duration-200"
+        className="inline-flex items-center gap-2.5 px-6 py-3 text-sm font-medium rounded-[5px] bg-white text-black hover:bg-gray-100 transition-colors duration-200"
       >
         <svg
           width="16"

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #030712;
-  --bg-elevated: #0a1020;
+  --bg-base: #0a0a0a;
+  --bg-elevated: #111111;
   --bg-glass: rgba(255, 255, 255, 0.08);
   --bg-glass-hover: rgba(255, 255, 255, 0.14);
 
@@ -94,12 +94,16 @@ h6 {
 /* ── FixedNav scroll classes (DOM-driven, no React re-renders) ── */
 .nav-transparent {
   background-color: transparent;
-  border-bottom: none;
+  box-shadow: none;
+  /* GPU layer prevents sub-pixel seam between fixed nav and scrolling content */
+  transform: translateZ(0);
 }
 
 .nav-scrolled {
   background-color: rgba(10, 10, 10, 0.95);
-  border-bottom: 1px solid var(--border-subtle);
+  /* box-shadow instead of border — renders on the GPU layer, no sub-pixel gap */
+  box-shadow: 0 1px 0 var(--border-subtle), 0 2px 0 rgba(10, 10, 10, 0.95);
+  transform: translateZ(0);
 }
 
 .cta-hidden {

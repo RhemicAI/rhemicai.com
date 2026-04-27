@@ -19,7 +19,7 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-violet-400/80 mb-5 font-body">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mb-5 font-body">
             EARLY SIGNALS
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">

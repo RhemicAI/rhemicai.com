@@ -1,6 +1,6 @@
 'use client';
 
-import type { CheckoutPlan } from '@/lib/pricing';
+import type { PricingPlan as CheckoutPlan } from '@/data/pricing';
 
 const SIGNUP_URL = process.env.NEXT_PUBLIC_PORTAL_URL
   ? `${process.env.NEXT_PUBLIC_PORTAL_URL}/signup`

@@ -56,13 +56,13 @@ function TheShift() {
         {/* Stats */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-xl mx-auto">
           <div className="rounded-xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 text-center">
-            <p className="text-3xl font-bold text-violet-400 font-display">1 in 3</p>
+            <p className="text-3xl font-bold text-white font-display">1 in 3</p>
             <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
               More than 1 in 3 buyers now start their search inside an AI assistant
             </p>
           </div>
           <div className="rounded-xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 text-center">
-            <p className="text-3xl font-bold text-violet-400 font-display">&darr;</p>
+            <p className="text-3xl font-bold text-white font-display">&darr;</p>
             <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
               Search engine volume is projected to decline significantly as AI answers replace traditional results
             </p>
@@ -112,9 +112,9 @@ function HowItWorks() {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-6 hover:border-violet-500/30 transition-colors duration-300"
+              className="rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-6 hover:border-white/20 transition-colors duration-300"
             >
-              <span className="inline-block text-sm font-mono font-bold text-violet-400 mb-3">
+              <span className="inline-block text-sm font-mono font-bold text-white/60 mb-3">
                 {step.number}
               </span>
               <h3 className="text-lg font-bold text-[var(--text-primary)] font-display mb-2">
@@ -234,7 +234,7 @@ function SmbFooterCTA() {
         className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[1200px] h-[800px] pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at top center, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.05) 30%, transparent 60%)',
+            'radial-gradient(ellipse at top center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 30%, transparent 60%)',
         }}
       />
 
@@ -246,7 +246,7 @@ function SmbFooterCTA() {
         <div className="mt-8">
           <a
             href="#ai-visibility-scan"
-            className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body"
+            className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
           >
             Run your free scan
           </a>
@@ -274,7 +274,7 @@ export default function ForLocalBusinesses() {
   }, []);
 
   return (
-    <main className="min-h-screen selection:bg-violet-500/20 selection:text-white">
+    <main className="min-h-screen selection:bg-white/10 selection:text-white">
       <PageSchemas
         id="for-local-businesses-schemas"
         service={{

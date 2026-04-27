@@ -4,15 +4,14 @@ import Link from 'next/link';
 import { useState } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
-import { smbPlans, agencyTiers, type PricingPlan } from '@/data/pricing';
-import EnterprisePanel from '@/components/Pricing/EnterprisePanel';
+import { plans, type PricingPlan } from '@/data/pricing';
 
 function CheckIcon() {
   return (
     <svg
       aria-hidden="true"
       viewBox="0 0 20 20"
-      className="h-4 w-4 shrink-0 text-violet-400"
+      className="h-4 w-4 shrink-0 text-white/60"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -28,14 +27,14 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
   const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
   const priceSuffix = annual ? '/year' : '/mo';
   const savings = plan.monthlyPrice * 12 - plan.annualPrice;
-  const primaryButtonClass = `mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+  const primaryButtonClass = `mt-8 block w-full rounded-[5px] py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
     plan.featured
-      ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
+      ? 'bg-white text-black shadow-lg shadow-white/10 hover:bg-gray-100'
       : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
   }`;
-  const secondaryButtonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+  const secondaryButtonClass = `block w-full rounded-[5px] border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
     plan.featured
-      ? 'border-violet-500/30 bg-violet-500/5 text-violet-100 hover:bg-violet-500/10'
+      ? 'border-white/20 bg-white/[0.03] text-white hover:bg-white/10'
       : 'border-white/10 text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
   }`;
 
@@ -43,13 +42,13 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
     <div
       className={`relative rounded-2xl border p-6 sm:p-8 ${
         plan.featured
-          ? 'border-violet-500/40 bg-violet-500/5 shadow-[0_0_40px_rgba(139,92,246,0.1)]'
+          ? 'border-white/25 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
           : 'border-white/10 bg-[rgba(15,15,15,0.85)]'
       }`}
     >
       {plan.featured && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-block rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+          <span className="inline-block rounded-[5px] bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wider text-black">
             Most Popular
           </span>
         </div>
@@ -71,9 +70,9 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
           </p>
         )}
         {annual && (
-          <p className="mt-1 text-xs text-violet-400">Save ${savings.toLocaleString()}/year</p>
+          <p className="mt-1 text-xs text-white/60">Save ${savings.toLocaleString()}/year</p>
         )}
-        <p className="mt-2 text-[11px] text-violet-400/80">
+        <p className="mt-2 text-[11px] text-white/50">
           Founding member pricing. Locks in at signup.
         </p>
       </div>
@@ -112,58 +111,18 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
 }
 
 export default function PricingSwitch() {
-  const [activeTab, setActiveTab] = useState<'smb' | 'agency' | 'enterprise'>('smb');
   const [annual, setAnnual] = useState(false);
 
   return (
     <section className="mb-16 sm:mb-24">
-      {/* Segmented tab control */}
-      <div className="flex items-center justify-center mb-10">
-        <div className="inline-flex rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] p-1 gap-1">
-          <button
-            type="button"
-            onClick={() => setActiveTab('smb')}
-            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-              activeTab === 'smb'
-                ? 'bg-white text-black'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
-            }`}
-          >
-            Small Business
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('agency')}
-            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-              activeTab === 'agency'
-                ? 'bg-white text-black'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
-            }`}
-          >
-            Agency
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('enterprise')}
-            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-              activeTab === 'enterprise'
-                ? 'bg-white text-black'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
-            }`}
-          >
-            Enterprise
-          </button>
-        </div>
-      </div>
-
-      {/* Monthly/annual toggle - hidden on Enterprise tab */}
-      <div className={`flex items-center justify-center gap-3 mb-8 ${activeTab === 'enterprise' ? 'hidden' : ''}`}>
+      {/* Monthly/annual toggle */}
+      <div className="flex items-center justify-center gap-3 mb-10">
         <span className={`text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
         <button
           type="button"
           onClick={() => setAnnual(!annual)}
           className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-            annual ? 'bg-violet-600' : 'bg-white/20'
+            annual ? 'bg-white' : 'bg-white/20'
           }`}
           aria-label="Toggle annual pricing"
         >
@@ -175,34 +134,32 @@ export default function PricingSwitch() {
         </button>
         <span className={`text-sm ${annual ? 'text-white' : 'text-white/50'}`}>
           Annual{' '}
-          <span className="text-violet-400 text-xs">(save 2 months)</span>
+          <span className="text-white/60 text-xs">(save 2 months)</span>
         </span>
       </div>
 
-      {/* Cards */}
-      {activeTab === 'enterprise' ? (
-        <div key="enterprise" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
-          <EnterprisePanel />
-        </div>
-      ) : (
-        <div key={activeTab} className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ animation: 'aeo-fade-in 0.3s ease forwards' }}>
-          {(activeTab === 'smb' ? smbPlans : agencyTiers).map((plan) => (
-            <PlanCard key={plan.name} plan={plan} annual={annual} />
-          ))}
-        </div>
-      )}
+      {/* Plan cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {plans.map((plan) => (
+          <PlanCard key={plan.name} plan={plan} annual={annual} />
+        ))}
+      </div>
 
-      {activeTab === 'smb' && (
-        <p className="mt-8 text-center text-base text-[var(--text-secondary)]">
-          60% of diners now use AI to find restaurants (Popmenu, 2024). At $47/visit and 4 visits/year, one new regular pays for your entire plan, every month.
-        </p>
-      )}
-
-      {activeTab === 'agency' && (
-        <p className="mt-8 text-center text-base text-[var(--text-secondary)]">
-          Built for agencies serious about dominating AI search. Need white-label or multi-brand support? Check out our Enterprise plans.
-        </p>
-      )}
+      {/* Enterprise row */}
+      <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] px-6 py-5 sm:flex-row">
+        <div>
+          <p className="text-sm font-semibold text-[var(--text-primary)]">Enterprise</p>
+          <p className="mt-0.5 text-sm text-[var(--text-muted)]">
+            White-label reporting, multi-brand management, custom integrations, and a dedicated success team.
+          </p>
+        </div>
+        <Link
+          href="/contact"
+          className="shrink-0 rounded-[5px] border border-white/20 px-6 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-white/40 hover:text-white"
+        >
+          Contact us
+        </Link>
+      </div>
     </section>
   );
 }

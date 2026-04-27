@@ -1,12 +1,11 @@
 export default function CTA() {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
-      {/* Warm radial glow */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[1200px] h-[800px] pointer-events-none"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-full"
         style={{
-          background:
-            'radial-gradient(ellipse at top center, rgba(251,146,60,0.15) 0%, rgba(251,146,60,0.05) 30%, transparent 60%)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%)',
         }}
       />
 
@@ -14,25 +13,25 @@ export default function CTA() {
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
         <div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
-            Your Competitors Are Already in the AI Answers. Are You?
+            Your competitors are already being recommended by AI.
           </h2>
         </div>
 
-        <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto leading-relaxed opacity-80">
-          Run a free scan right now. In 5 minutes you&apos;ll know exactly where you&apos;re invisible to AI and who&apos;s taking your place.
+        <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto leading-relaxed opacity-75 font-body">
+          Find out where you stand. Free scan, results in 60 seconds, no account required.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#ai-visibility-scan"
-            className="px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105"
+            className="px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105"
           >
             Run Free AI Scan
           </a>
 
           <a
             href="#" data-cal-link="rhemic-ai/discovery-call"
-            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300"
+            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-[5px] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
             Book a Demo
           </a>

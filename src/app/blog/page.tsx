@@ -51,11 +51,11 @@ export default function BlogPage() {
                         year: 'numeric',
                       })}
                     </time>
-                    <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
+                    <span className="w-1 h-1 rounded-[5px] bg-[var(--text-muted)]" />
                     <span>{post.readingTime}</span>
                     {index === 0 && (
                       <>
-                        <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
+                        <span className="w-1 h-1 rounded-[5px] bg-[var(--text-muted)]" />
                         <span>Foundational</span>
                       </>
                     )}
@@ -109,11 +109,11 @@ export default function BlogPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="your@email.com"
-                    className="flex-1 px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-full text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
+                    className="flex-1 px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-[5px] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
                   />
                   <button
                     type="submit"
-                    className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 whitespace-nowrap"
+                    className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 whitespace-nowrap"
                   >
                     Notify Me
                   </button>

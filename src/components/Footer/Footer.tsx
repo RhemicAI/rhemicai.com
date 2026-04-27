@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              AI answer engine optimization for your business.
+              Search and AI visibility for businesses that want to be found.
             </p>
             <Image
               src="/rhemic-footer-logo.png"
@@ -77,7 +77,7 @@ export default function Footer() {
           <div className="md:col-span-2 flex md:justify-end items-start">
             <a
               href="#" data-cal-link="rhemic-ai/discovery-call"
-              className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
+              className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
             >
               Book a Demo
             </a>
