@@ -7,11 +7,19 @@ interface CalBookingLinkProps {
 }
 
 export default function CalBookingLink({ calLink, className, children }: CalBookingLinkProps) {
-  if (!calLink) {
-    return <span className={className}>{children}</span>;
-  }
+  const resolvedCalLink = calLink ?? 'rhemic-ai';
+  const href = `https://cal.com/${resolvedCalLink}`;
+
   return (
-    <a href={`https://cal.com/${calLink}`} data-cal-link={calLink} className={className}>
+    <a
+      href={href}
+      data-cal-link={resolvedCalLink}
+      data-cal-namespace=""
+      data-cal-config='{"layout":"month_view"}'
+      className={className}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
     </a>
   );
