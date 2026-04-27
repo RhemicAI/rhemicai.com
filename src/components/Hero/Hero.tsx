@@ -4,26 +4,27 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-16">
-      <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-12 overflow-x-hidden">
+      <div className="relative z-10 text-center max-w-5xl mx-auto w-full">
         {/* Headline */}
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)] font-display mb-6"
+          className="font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] font-display mb-5"
           style={{ textShadow: '0 0 28px rgba(3, 7, 18, 0.52)' }}
         >
-          The new way buyers find businesses is AI search. Rhemic makes sure yours gets found.
+          <span className="block whitespace-nowrap text-[clamp(1.6rem,3.8vw,3.25rem)]">Get AI to recommend your business.</span>
+          <span className="block text-[clamp(1.6rem,3.8vw,3.25rem)]">To millions of customers.</span>
         </h1>
 
         {/* Subtitle */}
         <p
-          className="text-base md:text-lg lg:text-xl text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.65] mb-10 opacity-75 font-body"
+          className="text-sm md:text-base text-[var(--text-primary)] max-w-lg mx-auto font-normal leading-[1.6] mb-8 opacity-70 font-body"
           style={{ textShadow: '0 0 20px rgba(3, 7, 18, 0.4)' }}
         >
-          Buyers now search Google and ask AI assistants. Rhemic covers both: the SEO foundation that ranks you on search, and the AI visibility signals that get you recommended by ChatGPT, Gemini, and more. Free scan in 60 seconds.
+          Rhemic gets your business recommended by ChatGPT, Gemini, and every major AI assistant, while ranking you higher on Google. See where you stand with a free scan.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <a
             href="#ai-visibility-scan"
             className="px-10 py-4 text-base font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
@@ -81,7 +82,7 @@ export default function Hero() {
             </span>
           </div>
           <p className="text-[10px] text-[var(--text-muted)] font-body mt-1">
-            25% drop in traditional search volume projected by 2026 — Gartner
+            25% drop in traditional search volume projected by 2026 (Gartner)
           </p>
         </div>
       </div>

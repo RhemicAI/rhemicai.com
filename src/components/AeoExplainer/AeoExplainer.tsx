@@ -7,21 +7,21 @@ const rows = [
 
 export default function AeoExplainer() {
   return (
-    <section className="relative z-10 py-20 md:py-28 px-6">
+    <section className="relative z-10 py-14 md:py-20 px-6">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40 mb-5 font-body">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40 mb-4 font-body">
             The Discipline
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] mb-8 font-display max-w-3xl">
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-[-0.03em] leading-[1.1] text-[var(--text-primary)] mb-6 font-display max-w-2xl">
             AI search is the new frontier. Your SEO foundation still matters. Rhemic covers both.
           </h2>
-          <div className="max-w-2xl space-y-4">
-            <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.7] font-body">
-              Answer Engine Optimization (AEO) — also called Generative Engine Optimization (GEO) — is the practice of ensuring your business is cited when AI assistants answer buyer questions. It is additive to traditional SEO, not a replacement for it. Many of the signals that help Google understand your site — schema markup, structured data, content authority — are the same ones that help AI assistants cite you accurately.
+          <div className="max-w-2xl space-y-3">
+            <p className="text-sm md:text-base text-[var(--text-secondary)] leading-[1.7] font-body">
+              AEO (also called GEO) is the practice of ensuring your business is cited when AI assistants answer buyer questions. It is additive to traditional SEO, not a replacement. Many of the signals that help Google understand your site (schema markup, structured data, content authority) are the same ones that help AI assistants cite you accurately.
             </p>
-            <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.7] font-body">
-              Where AI search differs is in what you optimize specifically for conversational answers: citation authority, topical consistency, and how clearly your content answers buyer questions. Rhemic audits both dimensions — your Google SEO health and your AI citation signals — and gives you a single prioritized fix list that improves both.
+            <p className="text-sm md:text-base text-[var(--text-secondary)] leading-[1.7] font-body">
+              Rhemic audits both dimensions: your Google SEO health and your AI citation signals. You get a single prioritized fix list that improves both.
             </p>
           </div>
         </div>
