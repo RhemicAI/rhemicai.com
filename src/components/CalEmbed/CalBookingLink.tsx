@@ -1,12 +1,15 @@
 'use client';
 
+import type { MouseEventHandler, ReactNode } from 'react';
+
 interface CalBookingLinkProps {
   calLink?: string;
   className?: string;
-  children: React.ReactNode;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  children: ReactNode;
 }
 
-export default function CalBookingLink({ calLink, className, children }: CalBookingLinkProps) {
+export default function CalBookingLink({ calLink, className, onClick, children }: CalBookingLinkProps) {
   const resolvedCalLink = calLink ?? 'rhemic-ai';
   const href = `https://cal.com/${resolvedCalLink}`;
 
@@ -17,6 +20,7 @@ export default function CalBookingLink({ calLink, className, children }: CalBook
       data-cal-namespace=""
       data-cal-config='{"layout":"month_view"}'
       className={className}
+      onClick={onClick}
       target="_blank"
       rel="noopener noreferrer"
     >
