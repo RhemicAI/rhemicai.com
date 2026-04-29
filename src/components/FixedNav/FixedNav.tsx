@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -17,6 +18,7 @@ export default function FixedNav() {
   const navRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const bookingCalLink = 'rhemic-ai/discovery-call';
 
   // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {
@@ -133,12 +135,12 @@ export default function FixedNav() {
 
         {/* Right, CTA (desktop) + Hamburger (mobile) */}
         <div className="flex items-center gap-4">
-          <a
-            href="https://app.rhemicai.com/login"
+          <CalBookingLink
+            calLink={bookingCalLink}
             className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
           >
-            Log In
-          </a>
+            Book a Call
+          </CalBookingLink>
 
           {/* Hamburger button (mobile only) */}
           <button
@@ -189,13 +191,13 @@ export default function FixedNav() {
               </Link>
             ))}
             <div className="mt-8">
-              <a
-                href="https://app.rhemicai.com/login"
+              <CalBookingLink
+                calLink={bookingCalLink}
                 onClick={() => setMenuOpen(false)}
                 className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
               >
-                Log In
-              </a>
+                Book a Call
+              </CalBookingLink>
             </div>
           </div>
         </div>
@@ -209,12 +211,12 @@ export default function FixedNav() {
         }`}
       >
         <div className="flex justify-center pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)] border-t border-[var(--border-subtle)]">
-          <a
-            href="#" data-cal-link="rhemic-ai/discovery-call"
+          <CalBookingLink
+            calLink={bookingCalLink}
             className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
-            Book a Demo
-          </a>
+            Book a Call
+          </CalBookingLink>
         </div>
       </div>
     </>
