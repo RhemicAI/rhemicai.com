@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import SmbHero from '@/components/SmbHero/SmbHero';
 import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
@@ -11,24 +11,6 @@ import IndustryTrust from '@/components/IndustryTrust/IndustryTrust';
 import Footer from '@/components/Footer/Footer';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
-
-function slowScrollTo(id: string, duration = 2200) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const start = window.scrollY;
-  const end = el.getBoundingClientRect().top + window.scrollY - 80;
-  const startTime = performance.now();
-  function easeInOutCubic(t: number) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
-  function step(now: number) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
 
 /* ── Section 3: The Shift ── */
 function TheShift() {
@@ -262,17 +244,6 @@ function SmbFooterCTA() {
 
 /* ── Page ── */
 export default function ForLocalBusinesses() {
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const anchor = (e.target as Element).closest('a[href="#ai-visibility-scan"]');
-      if (!anchor) return;
-      e.preventDefault();
-      slowScrollTo('ai-visibility-scan');
-    };
-    document.addEventListener('click', handler);
-    return () => document.removeEventListener('click', handler);
-  }, []);
-
   return (
     <main className="min-h-screen selection:bg-white/10 selection:text-white">
       <PageSchemas
