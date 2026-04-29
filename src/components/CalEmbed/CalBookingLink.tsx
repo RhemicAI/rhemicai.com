@@ -1,17 +1,19 @@
 'use client';
 
-type Props = {
+interface CalBookingLinkProps {
   calLink?: string;
-  className: string;
+  className?: string;
   children: React.ReactNode;
-};
+}
 
-export default function CalBookingLink({ calLink, className, children }: Props) {
-  const href = calLink ? `https://cal.com/${calLink}` : 'https://cal.com/rhemic-ai';
+export default function CalBookingLink({ calLink, className, children }: CalBookingLinkProps) {
+  const resolvedCalLink = calLink ?? 'rhemic-ai';
+  const href = `https://cal.com/${resolvedCalLink}`;
+
   return (
     <a
       href={href}
-      data-cal-link={calLink ?? 'rhemic-ai'}
+      data-cal-link={resolvedCalLink}
       data-cal-namespace=""
       data-cal-config='{"layout":"month_view"}'
       className={className}

@@ -231,7 +231,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full px-8 py-4 text-base font-semibold rounded-full transition-all duration-300 ${
+                  className={`w-full px-8 py-4 text-base font-semibold rounded-[5px] transition-all duration-300 ${
                     isSubmitting
                       ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
                       : 'text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] hover:scale-105'
@@ -255,7 +255,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="#" data-cal-link="rhemic-ai/discovery-call"
-                  className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
+                  className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
                 >
                   Book a Demo
                 </a>

@@ -14,10 +14,7 @@ export default function PageHero({ title, subtitle, description, showBackLink = 
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-full"
         style={{
-          background: `
-            radial-gradient(ellipse 60% 42% at 50% 0%, rgba(56, 189, 248, 0.1) 0%, rgba(56, 189, 248, 0.04) 34%, transparent 72%),
-            linear-gradient(180deg, rgba(2, 6, 23, 0.12) 0%, rgba(2, 6, 23, 0) 58%)
-          `,
+          background: `radial-gradient(ellipse 60% 42% at 50% 0%, rgba(255, 255, 255, 0.04) 0%, transparent 72%)`,
         }}
       />
       <div className="mx-auto max-w-5xl px-6 text-center">
@@ -31,7 +28,7 @@ export default function PageHero({ title, subtitle, description, showBackLink = 
         )}
 
         {subtitle && (
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-300/75 mb-5 font-body">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5 font-body">
             {subtitle}
           </p>
         )}

@@ -54,7 +54,7 @@ export default function EnterprisePanel() {
         <a
           href="#"
           data-cal-link="rhemic-ai/rhemic-ai-enterprise-consultation"
-          className="inline-block px-8 py-3 text-sm font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/30 transition-all duration-200 hover:scale-105"
+          className="inline-block px-8 py-3 text-sm font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105"
         >
           Book a Consultation
         </a>

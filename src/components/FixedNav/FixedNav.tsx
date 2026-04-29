@@ -135,7 +135,7 @@ export default function FixedNav() {
         <div className="flex items-center gap-4">
           <a
             href="https://app.rhemicai.com/login"
-            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
+            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
           >
             Log In
           </a>
@@ -192,7 +192,7 @@ export default function FixedNav() {
               <a
                 href="https://app.rhemicai.com/login"
                 onClick={() => setMenuOpen(false)}
-                className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
+                className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
               >
                 Log In
               </a>
@@ -211,7 +211,7 @@ export default function FixedNav() {
         <div className="flex justify-center pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)] border-t border-[var(--border-subtle)]">
           <a
             href="#" data-cal-link="rhemic-ai/discovery-call"
-            className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
+            className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
             Book a Demo
           </a>

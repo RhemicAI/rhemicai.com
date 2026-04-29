@@ -5,7 +5,7 @@ import Footer from '@/components/Footer/Footer';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
 import PageHero from '@/components/shared/PageHero';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import { agencyTiers, smbPlans } from '@/data/pricing';
+import { plans } from '@/data/pricing';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
@@ -18,7 +18,6 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'AEO pricing', 'AI audit pricing'],
 });
 
-const allPlans = [...smbPlans, ...agencyTiers];
 const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -32,10 +31,10 @@ const pricingSchema = {
   },
   offers: {
     '@type': 'AggregateOffer',
-    lowPrice: String(Math.min(...allPlans.map((plan) => plan.monthlyPrice))),
-    highPrice: String(Math.max(...allPlans.map((plan) => plan.monthlyPrice))),
+    lowPrice: String(Math.min(...plans.map((plan) => plan.monthlyPrice))),
+    highPrice: String(Math.max(...plans.map((plan) => plan.monthlyPrice))),
     priceCurrency: 'USD',
-    offerCount: String(allPlans.length),
+    offerCount: String(plans.length),
   },
 };
 
@@ -82,13 +81,13 @@ export default function PricingPage() {
               <a
                 href="#"
                 data-cal-link="rhemic-ai/discovery-call"
-                className="rounded-full bg-[var(--btn-primary-bg)] px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+                className="rounded-[5px] bg-[var(--btn-primary-bg)] px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 Book a Demo
               </a>
               <Link
                 href="/contact"
-                className="rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
+                className="rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
               >
                 Contact Us
               </Link>
@@ -104,7 +103,7 @@ export default function PricingPage() {
               {
                 question: 'How much does Rhemic AI cost?',
                 answer:
-                  'We have three pricing tracks. For small businesses: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. For agencies: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. For enterprise organizations that need white-label reporting, multi-brand management, or custom integrations, we offer tailored pricing. Book a consultation to discuss your needs. All SMB and Agency plans are founding member rates with no contracts. Cancel any time. Save 2 months with annual billing.',
+                  'We offer three plans: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. All are founding member rates — the price locks in when you sign up. Enterprise organizations that need white-label reporting, multi-brand management, or custom integrations get tailored pricing — contact us to discuss. No contracts on any plan. Cancel any time. Save 2 months with annual billing.',
               },
               {
                 question: 'Can I talk to someone before I subscribe?',
@@ -119,7 +118,7 @@ export default function PricingPage() {
               {
                 question: 'What is included in every plan?',
                 answer:
-                  'Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, competitor tracking, schema markup and JSON-LD generation, AEO score reporting, and topic cluster optimization. Higher-tier plans increase the frequency of audits, the number of competitors tracked, the breadth of topic coverage, and the level of dedicated support you receive.',
+                  'Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. Growth adds monthly re-scans, a progress dashboard, and priority support. Scale adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.',
               },
             ]}
           />

@@ -17,7 +17,7 @@ export default function StakesSection() {
   return (
     <section className="relative py-24 md:py-32 px-4 overflow-hidden">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-[#8B5CF6] mb-4 font-body">
+        <span className="inline-block text-xs font-semibold tracking-[0.12em] uppercase text-white/50 mb-4 font-body">
           The Stakes
         </span>
         <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
@@ -48,7 +48,7 @@ export default function StakesSection() {
         <a
           href="#"
           data-cal-link="rhemic-ai/discovery-call"
-          className="inline-block px-8 py-4 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-full shadow-lg shadow-violet-500/50 transition-all duration-200 hover:scale-105 font-body"
+          className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
         >
           Book Your Strategy Call
         </a>

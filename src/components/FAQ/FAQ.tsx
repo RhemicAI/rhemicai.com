@@ -12,7 +12,7 @@ const faqs = [
   {
     question: 'How is AEO different from traditional SEO?',
     answer:
-      'Traditional SEO optimizes for search engine rankings, getting your website to appear in a list of blue links. AEO optimizes for AI-generated answers, ensuring your business is recommended when someone asks an AI assistant for advice. AI engines synthesize information differently than search engines, so the strategies are fundamentally different. Rhemic AI bridges both worlds.',
+      'Traditional SEO optimizes for search engine rankings, getting your website to appear in a list of blue links. AEO optimizes for AI-generated answers, ensuring your business is recommended when someone asks an AI assistant for advice. AI engines synthesize information differently than search engines, so the strategies differ — but the technical foundations overlap significantly. Rhemic covers both: we run the SEO work and the AI visibility optimization in the same workflow, because fixing one often improves the other.',
   },
   {
     question: 'How does Rhemic AI help my business appear in AI answers?',
@@ -25,9 +25,14 @@ const faqs = [
       'We optimize for all major AI answer engines including ChatGPT (OpenAI), Claude (Anthropic), Perplexity, Google Gemini, Microsoft Copilot, and emerging AI search platforms. Our platform continuously monitors your visibility across these platforms and adapts as they evolve.',
   },
   {
+    question: 'Does Rhemic do traditional SEO?',
+    answer:
+      'Yes. Every plan includes an SEO health check alongside the AI visibility scan — covering technical SEO, on-page structure, and Google Business Profile completeness. Growth and Scale plans include active SEO implementation: Rhemic deploys schema, on-page fixes, and GBP optimizations directly on your site. Many of the signals that improve your Google rankings also improve how AI assistants understand and cite your business — structured data and schema work for both.',
+  },
+  {
     question: 'How much does Rhemic AI cost?',
     answer:
-      'We have three pricing tracks. For small businesses: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. For agencies: Starter at $599/mo, Growth at $999/mo, and Scale at $1,499/mo. For enterprise organizations that need white-label reporting, multi-brand management, or custom integrations, we offer tailored pricing. Book a consultation to discuss your needs. All SMB and Agency plans are founding member rates with no contracts. Cancel any time. Save 2 months with annual billing.',
+      'We offer three plans: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. All are founding member rates — the price locks in when you sign up. Enterprise organizations that need white-label reporting, multi-brand management, or custom integrations get tailored pricing — contact us to discuss. No contracts on any plan. Cancel any time. Save 2 months with annual billing.',
   },
   {
     question: 'How quickly will I see results?',

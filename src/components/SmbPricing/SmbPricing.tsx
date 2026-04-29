@@ -11,7 +11,7 @@ function CheckIcon() {
     <svg
       aria-hidden="true"
       viewBox="0 0 20 20"
-      className="h-4 w-4 shrink-0 text-violet-400"
+      className="h-4 w-4 shrink-0 text-white/60"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -43,7 +43,7 @@ export default function SmbPricing() {
               type="button"
               onClick={() => setAnnual(!annual)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                annual ? 'bg-violet-600' : 'bg-white/20'
+                annual ? 'bg-white' : 'bg-white/20'
               }`}
               aria-label="Toggle annual pricing"
             >
@@ -54,7 +54,7 @@ export default function SmbPricing() {
               />
             </button>
             <span className={`font-body text-sm ${annual ? 'text-white' : 'text-white/50'}`}>
-              Annual <span className="text-xs text-violet-400">(save 2 months)</span>
+              Annual <span className="text-xs text-white/60">(save 2 months)</span>
             </span>
           </div>
         </div>
@@ -64,14 +64,14 @@ export default function SmbPricing() {
             const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
             const priceSuffix = annual ? '/year' : '/mo';
             const savings = plan.monthlyPrice * 12 - plan.annualPrice;
-            const primaryButtonClass = `block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
+            const primaryButtonClass = `block w-full rounded-[5px] py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
               plan.featured
-                ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700'
+                ? 'bg-white text-black shadow-lg shadow-white/10 hover:bg-gray-100'
                 : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
             }`;
-            const secondaryButtonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
+            const secondaryButtonClass = `block w-full rounded-[5px] border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
               plan.featured
-                ? 'border-violet-500/30 bg-violet-500/5 text-violet-100 hover:bg-violet-500/10'
+                ? 'border-white/20 bg-white/[0.03] text-white hover:bg-white/10'
                 : 'border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
             }`;
 
@@ -80,13 +80,13 @@ export default function SmbPricing() {
                 key={plan.name}
                 className={`relative rounded-2xl border p-6 sm:p-8 ${
                   plan.featured
-                    ? 'border-violet-500/40 bg-violet-500/5 shadow-[0_0_40px_rgba(139,92,246,0.1)]'
+                    ? 'border-white/25 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
                     : 'border-white/10 bg-[rgba(15,15,15,0.85)]'
                 }`}
               >
                 {plan.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-block rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                    <span className="inline-block rounded-[5px] bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wider text-black">
                       Most Popular
                     </span>
                   </div>
@@ -108,11 +108,11 @@ export default function SmbPricing() {
                     </p>
                   )}
                   {annual ? (
-                    <p className="mt-1 font-body text-xs text-violet-400">
+                    <p className="mt-1 font-body text-xs text-white/60">
                       Save ${savings.toLocaleString()}/year
                     </p>
                   ) : null}
-                  <p className="mt-2 font-body text-[11px] text-violet-400/80">
+                  <p className="mt-2 font-body text-[11px] text-white/50">
                     Founding member pricing. Locks in at signup. Price increases after first 100 customers.
                   </p>
                 </div>
