@@ -1,9 +1,9 @@
 'use client';
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { CAL_EMBED_SCRIPT_INTEGRITY, CAL_EMBED_SCRIPT_SRC } from '@/lib/calEmbed';
 
 const API_BASE_URL = 'https://api.rhemicai.com';
-const CAL_EMBED_SRC = 'https://app.cal.com/embed/embed.js';
 const CAL_BOOKING_LINK = 'rhemic-ai/discovery-call';
 const CAL_BOOKING_URL = 'https://cal.com/rhemic-ai/discovery-call';
 const POLL_INTERVAL_MS = 5000;
@@ -304,7 +304,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
 
   useEffect(() => {
     const existing = document.querySelector<HTMLScriptElement>(
-      `script[src="${CAL_EMBED_SRC}"]`
+      `script[src="${CAL_EMBED_SCRIPT_SRC}"]`
     );
     if (existing) {
       if (!existing.getAttribute('data-rhemic-cal-init-listener')) {
@@ -316,8 +316,10 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
     }
 
     const script = document.createElement('script');
-    script.src = CAL_EMBED_SRC;
+    script.src = CAL_EMBED_SCRIPT_SRC;
     script.async = true;
+    script.integrity = CAL_EMBED_SCRIPT_INTEGRITY;
+    script.crossOrigin = 'anonymous';
     script.onload = () => {
       initCal();
     };

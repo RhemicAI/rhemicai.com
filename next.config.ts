@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { getSecurityHeaders } from "./src/lib/securityHeaders";
 
 const nextConfig: NextConfig = {
   images: {
@@ -7,12 +8,9 @@ const nextConfig: NextConfig = {
   headers: async () => [
     {
       source: "/(.*)",
-      headers: [
-        {
-          key: "X-Robots-Tag",
-          value: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        },
-      ],
+      headers: getSecurityHeaders({
+        isDevelopment: process.env.NODE_ENV === "development",
+      }),
     },
   ],
 };
