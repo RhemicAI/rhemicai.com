@@ -1,9 +1,10 @@
 'use client';
 
 import type { MouseEventHandler, ReactNode } from 'react';
+import type { CalLink } from '@/lib/calEmbed';
 
-interface CalBookingLinkProps {
-  calLink?: string;
+export interface CalBookingLinkProps {
+  calLink?: CalLink;
   className?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   children: ReactNode;

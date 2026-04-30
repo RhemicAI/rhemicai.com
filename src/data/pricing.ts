@@ -1,3 +1,5 @@
+import type { CalLink } from '@/lib/calEmbed';
+
 export type PricingTier = 'starter' | 'growth' | 'scale';
 export type PricingSegment = 'agency' | 'smb';
 
@@ -10,7 +12,7 @@ export interface PricingPlan {
   wasPrice: number;
   bestFor: string;
   featured: boolean;
-  calLink?: string;
+  calLink?: CalLink;
   features: string[];
 }
 
