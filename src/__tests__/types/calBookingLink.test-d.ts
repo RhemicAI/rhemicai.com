@@ -17,8 +17,8 @@ void approvedProps;
 // @ts-expect-error - calLink rejects non-approved literal
 const rejectedCalLink: CalLink = 'javascript:alert(1)';
 
-// @ts-expect-error - calLink rejects non-approved literal
 const rejectedProps: CalBookingLinkProps = {
+  // @ts-expect-error - calLink rejects non-approved literal
   calLink: 'rhemic-ai/unreviewed-booking-path',
   children: null,
 };
