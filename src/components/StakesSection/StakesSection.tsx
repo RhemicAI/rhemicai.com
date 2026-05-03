@@ -1,3 +1,5 @@
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+
 const stakes = [
   {
     stat: '3-5',
@@ -45,13 +47,12 @@ export default function StakesSection() {
       </div>
 
       <div className="max-w-3xl mx-auto text-center space-y-6">
-        <a
-          href="#"
-          data-cal-link="rhemic-ai/discovery-call"
+        <CalBookingLink
+          calLink="rhemic-ai/discovery-call"
           className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
         >
           Book Your Strategy Call
-        </a>
+        </CalBookingLink>
       </div>
     </section>
   );

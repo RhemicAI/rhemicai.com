@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
-import { CAL_EMBED_SCRIPT_INTEGRITY, CAL_EMBED_SCRIPT_SRC } from '@/lib/calEmbed';
+import { CAL_EMBED_SCRIPT_SRC } from '@/lib/calEmbed';
 
 const API_BASE_URL = 'https://api.rhemicai.com';
 const CAL_BOOKING_LINK = 'rhemic-ai/discovery-call';
@@ -318,8 +318,8 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
     const script = document.createElement('script');
     script.src = CAL_EMBED_SCRIPT_SRC;
     script.async = true;
-    script.integrity = CAL_EMBED_SCRIPT_INTEGRITY;
-    script.crossOrigin = 'anonymous';
+    // No integrity= — Cal.com updates embed.js without publishing new SRI hashes.
+    // A stale hash silently blocks the script. CSP allowlist covers app.cal.com.
     script.onload = () => {
       initCal();
     };
