@@ -50,6 +50,46 @@ export const blogPosts: BlogPostSummary[] = [
     publishedAt: "2026-03-31",
     readingTime: "10 min read",
   },
+  {
+    slug: "how-to-improve-chatgpt-visibility",
+    title: "How to Improve Your ChatGPT Visibility: A Practical Guide",
+    description:
+      "The structural and content changes that move the needle on ChatGPT recommendations — entity clarity, schema, FAQ pages, and AI crawler access.",
+    publishedAt: "2026-05-03",
+    readingTime: "9 min read",
+  },
+  {
+    slug: "schema-markup-for-ai-visibility",
+    title: "Schema Markup for AI Visibility: Which Types Matter Most",
+    description:
+      "A practical guide to the schema markup types that most improve AI answer engine visibility — FAQPage, Organization, Service, LocalBusiness, and BreadcrumbList.",
+    publishedAt: "2026-05-03",
+    readingTime: "8 min read",
+  },
+  {
+    slug: "why-your-competitor-shows-up-in-ai-and-you-dont",
+    title: "Why Your Competitor Shows Up in AI Answers and You Do Not",
+    description:
+      "The structural reasons competitors appear in ChatGPT, Perplexity, and Gemini answers when you do not — and the specific fixes for each gap.",
+    publishedAt: "2026-05-03",
+    readingTime: "8 min read",
+  },
+  {
+    slug: "how-perplexity-visibility-works",
+    title: "How Perplexity Visibility Works and How to Improve It",
+    description:
+      "Perplexity cites sources in its answers. Understanding how it retrieves, ranks, and cites content is the key to improving your Perplexity visibility.",
+    publishedAt: "2026-05-03",
+    readingTime: "7 min read",
+  },
+  {
+    slug: "local-business-ai-recommendations",
+    title: "How Local Businesses Get Recommended in AI Answers",
+    description:
+      "A practical guide for local service businesses on the specific signals that drive AI recommendations — entity clarity, local schema, FAQ content, and review signals.",
+    publishedAt: "2026-05-03",
+    readingTime: "8 min read",
+  },
 ];
 
 // New AEO visibility routes (Phase 2-17)
