@@ -114,7 +114,7 @@ export default function AiSearchVisibilityPage() {
               <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
                 <h3 className="mb-3 text-lg font-bold text-[var(--text-primary)]">Buyers start with AI, not Google</h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
-                  A growing share of purchase-intent queries now begin as conversational prompts in ChatGPT, Claude, or Perplexity. When someone asks "what is the best [service] near me," the answer they receive shapes their entire consideration set.
+                  A growing share of purchase-intent queries now begin as conversational prompts in ChatGPT, Claude, or Perplexity. When someone asks &ldquo;what is the best [service] near me,&rdquo; the answer they receive shapes their entire consideration set.
                 </p>
               </div>
               <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">

@@ -43,8 +43,8 @@ export default function WhatIsRhemicAiPage() {
       }
       example={
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-          A local HVAC company asks: "Why does a competitor show up when someone asks ChatGPT for HVAC companies
-          in Dallas?" Rhemic runs a prompt audit, identifies the competitor&apos;s schema coverage and entity
+          A local HVAC company asks: &ldquo;Why does a competitor show up when someone asks ChatGPT for HVAC companies
+          in Dallas?&rdquo; Rhemic runs a prompt audit, identifies the competitor&apos;s schema coverage and entity
           signals, and produces a prioritized fix list. Within 60 days of implementation, the HVAC
           company begins appearing in AI recommendations for its target service area.
         </p>

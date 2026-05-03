@@ -20,7 +20,7 @@ export default function HowLocalBusinessesCanShowUpPage() {
       details={
         <div className="space-y-5">
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            When a buyer asks ChatGPT or Perplexity "best [service] in [city]", the AI engine
+            When a buyer asks ChatGPT or Perplexity &ldquo;best [service] in [city]&rdquo;, the AI engine
             synthesizes an answer from its training data and live web sources. Local businesses
             that appear in those answers have a structural advantage: clear entity signals that
             tell AI systems exactly who they are, where they operate, and what they do.

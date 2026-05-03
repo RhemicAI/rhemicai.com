@@ -75,7 +75,7 @@ export default function RhemicVsScrunchPage() {
           <section className="mb-16">
             <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">When to choose Rhemic AI</h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              If you need to go from "I can see the problem" to "here is how to fix it," Rhemic AI&apos;s
+              If you need to go from &ldquo;I can see the problem&rdquo; to &ldquo;here is how to fix it,&rdquo; Rhemic AI&apos;s
               implementation-first workflow is designed for that. The audit identifies your gaps. The
               recommendations tell you what to change. The re-scans confirm it worked.
             </p>

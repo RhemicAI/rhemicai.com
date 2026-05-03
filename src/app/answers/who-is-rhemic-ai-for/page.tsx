@@ -23,7 +23,7 @@ export default function WhoIsRhemicAiForPage() {
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Restaurants, salons, contractors, medical practices, legal firms, home services, and
             any business that depends on local discovery. AI answer engines are increasingly the
-            starting point for "best [service] near me" queries. Local businesses with strong
+            starting point for &ldquo;best [service] near me&rdquo; queries. Local businesses with strong
             entity clarity, schema, and review signals appear in those answers. Businesses without
             them do not.
           </p>
