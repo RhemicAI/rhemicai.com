@@ -7,6 +7,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
+import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'AI Search Visibility for Small Businesses',
@@ -16,6 +17,9 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['AI search visibility small business', 'AI visibility for SMBs', 'small business AI recommendations'],
 });
 
+const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const starterPrice = `$${starterPlan.monthlyPrice}/month`;
+
 const faqs = [
   {
     question: 'Can a small business improve AI visibility without a developer?',
@@ -23,7 +27,7 @@ const faqs = [
   },
   {
     question: 'How much does AI visibility cost for a small business?',
-    answer: 'Rhemic AI\'s Local Starter plan is $199/month. It includes a full AI visibility audit, competitive gap report, and 5 prioritized fixes. That is the entry point for a structured approach. Some free manual testing is also possible by running prompts yourself.',
+    answer: `Rhemic AI's ${starterPlan.name} plan is ${starterPrice}. It includes a full AI visibility audit, competitive gap report, and 5 prioritized fixes. That is the entry point for a structured approach. Some free manual testing is also possible by running prompts yourself.`,
   },
   {
     question: 'Is AI visibility worth it for a local small business?',
@@ -121,8 +125,8 @@ export default function AiSearchVisibilityForSmallBusinessesPage() {
           <section className="rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
             <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Get a prioritized fix list for your business</h2>
             <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
-              Rhemic AI&apos;s Local Starter plan runs a full visibility audit and delivers 5 prioritized fixes
-              for $199/month. No long-term contract required for the initial audit.
+              Rhemic AI&apos;s {starterPlan.name} plan runs a full visibility audit and delivers 5 prioritized fixes
+              for ${starterPlan.monthlyPrice}/month. No long-term contract required for the initial audit.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
@@ -148,7 +152,7 @@ export default function AiSearchVisibilityForSmallBusinessesPage() {
         links={[
           { title: 'For Local Businesses', description: 'The full local business AI visibility guide.', href: '/for-local-businesses' },
           { title: 'How Local Businesses Can Show Up in AI Answers', description: 'Step-by-step answer page.', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
-          { title: 'Pricing', description: 'Local Starter at $199/mo.', href: '/pricing' },
+          { title: 'Pricing', description: `${starterPlan.name} at $${starterPlan.monthlyPrice}/mo.`, href: '/pricing' },
         ]}
       />
 

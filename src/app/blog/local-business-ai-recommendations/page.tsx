@@ -6,6 +6,7 @@ import ArticleSchema from '@/components/SchemaOrg/ArticleSchema';
 import KeyTakeaways from '@/components/shared/KeyTakeaways';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
+import { plans } from '@/data/pricing';
 
 export default function LocalBusinessAiRecommendationsPage() {
   return (
@@ -137,7 +138,7 @@ export default function LocalBusinessAiRecommendationsPage() {
         links={[
           { title: 'For Local Businesses', description: 'The full Rhemic guide for local businesses.', href: '/for-local-businesses' },
           { title: 'AI Search Visibility for Small Businesses', description: 'Practical steps for small operators.', href: '/ai-search-visibility-for-small-businesses' },
-          { title: 'Pricing', description: 'Local Starter plan at $199/month.', href: '/pricing' },
+          { title: 'Pricing', description: `${plans.find((p) => p.tier === 'starter')!.name} plan at $${plans.find((p) => p.tier === 'starter')!.monthlyPrice}/month.`, href: '/pricing' },
         ]}
       />
 

@@ -7,6 +7,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
+import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI vs Traditional SEO Agency: What Is the Difference?',
@@ -15,6 +16,8 @@ export const metadata: Metadata = buildMetadata({
   path: '/compare/rhemic-ai-vs-traditional-seo-agency',
   keywords: ['Rhemic vs SEO agency', 'AI visibility vs SEO agency', 'AEO vs traditional SEO'],
 });
+
+const starterPlan = plans.find((p) => p.tier === 'starter')!;
 
 const faqs = [
   {
@@ -67,7 +70,7 @@ export default function RhemicVsTraditionalSeoAgencyPage() {
                 { label: 'Backlink building', values: ['No', 'Yes'] },
                 { label: 'Content production', values: ['Recommendations + guidance', 'Often included in retainer'] },
                 { label: 'AI-specific prompt audits', values: ['Yes', 'Rarely'] },
-                { label: 'Monthly pricing', values: ['From $199/mo', 'Typically $1,500+/mo for full service'] },
+                { label: 'Monthly pricing', values: [`From $${starterPlan.monthlyPrice}/mo`, 'Typically $1,500+/mo for full service'] },
               ]}
             />
           </section>

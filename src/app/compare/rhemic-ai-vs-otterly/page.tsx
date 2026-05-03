@@ -7,6 +7,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
+import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI vs Otterly.ai: AI Visibility Platform Comparison',
@@ -15,6 +16,8 @@ export const metadata: Metadata = buildMetadata({
   path: '/compare/rhemic-ai-vs-otterly',
   keywords: ['Rhemic AI vs Otterly', 'Otterly.ai alternative', 'AI visibility monitoring tools'],
 });
+
+const starterPlan = plans.find((p) => p.tier === 'starter')!;
 
 const faqs = [
   {
@@ -68,7 +71,7 @@ export default function RhemicVsOtterlyPage() {
                 { label: 'Implementation guidance', values: ['Yes — schema, content, technical fix plans', 'TBD — monitoring-first platform'] },
                 { label: 'Schema markup support', values: ['Yes', 'TBD'] },
                 { label: 'Agency model', values: ['Yes', 'TBD'] },
-                { label: 'Starter price', values: ['$199/mo', 'TBD — check otterly.ai'] },
+                { label: 'Starter price', values: [`$${starterPlan.monthlyPrice}/mo`, 'TBD — check otterly.ai'] },
               ]}
             />
           </section>

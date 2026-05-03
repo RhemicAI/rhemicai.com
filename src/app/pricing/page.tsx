@@ -18,6 +18,33 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'AEO pricing', 'AI audit pricing'],
 });
 
+const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const growthPlan = plans.find((p) => p.tier === 'growth')!;
+const scalePlan = plans.find((p) => p.tier === 'scale')!;
+
+const pricingFaqs = [
+  {
+    question: 'How much does Rhemic AI cost for small businesses?',
+    answer: `SMB plans: ${starterPlan.name} at $${starterPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${scalePlan.name} at $${scalePlan.monthlyPrice}/mo. These are founding member rates — the price locks in when you sign up. No contracts on any plan. Cancel any time. Save 2 months with annual billing.`,
+  },
+  {
+    question: 'What is agency or partner pricing?',
+    answer: 'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic via the Book Partner Demo to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
+  },
+  {
+    question: 'Can I talk to someone before I subscribe?',
+    answer: 'Yes. You can book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before you start online.',
+  },
+  {
+    question: 'Do I need a long-term contract?',
+    answer: 'No. All SMB plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
+  },
+  {
+    question: 'What is included in every SMB plan?',
+    answer: `Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. ${growthPlan.name} adds monthly re-scans, a progress dashboard, and priority support. ${scalePlan.name} adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.`,
+  },
+];
+
 const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -117,33 +144,7 @@ export default function PricingPage() {
 
           <SubpageFAQ
             heading="Pricing FAQ"
-            faqs={[
-              {
-                question: 'How much does Rhemic AI cost for small businesses?',
-                answer:
-                  'SMB plans: Local Starter at $199/mo, Local Growth at $299/mo, Local Scale at $499/mo. These are founding member rates — the price locks in when you sign up. No contracts on any plan. Cancel any time. Save 2 months with annual billing.',
-              },
-              {
-                question: 'What is agency or partner pricing?',
-                answer:
-                  'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic via the Book Partner Demo to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
-              },
-              {
-                question: 'Can I talk to someone before I subscribe?',
-                answer:
-                  'Yes. You can book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before you start online.',
-              },
-              {
-                question: 'Do I need a long-term contract?',
-                answer:
-                  'No. All SMB plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
-              },
-              {
-                question: 'What is included in every SMB plan?',
-                answer:
-                  'Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. Local Growth adds monthly re-scans, a progress dashboard, and priority support. Local Scale adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.',
-              },
-            ]}
+            faqs={pricingFaqs}
           />
         </div>
       </div>
