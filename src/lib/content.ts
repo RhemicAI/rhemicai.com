@@ -97,6 +97,8 @@ const aeoRoutes = [
   // Core category pages
   "/ai-search-visibility",
   "/answer-engine-optimization",
+  // Answers index
+  "/answers",
   // Answer pages
   "/answers/what-is-rhemic-ai",
   "/answers/who-is-rhemic-ai-for",
@@ -175,7 +177,8 @@ export const staticPagePriorities: Record<string, number> = {
   "/answer-engine-optimization": 0.95,
   "/show-up-in-ai-answers": 0.92,
   "/sample-ai-visibility-report": 0.88,
-  // Answer pages
+  // Answers index + answer pages
+  "/answers": 0.88,
   "/answers/what-is-rhemic-ai": 0.9,
   "/answers/who-is-rhemic-ai-for": 0.88,
   "/answers/how-does-rhemic-ai-work": 0.88,

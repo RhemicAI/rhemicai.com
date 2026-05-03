@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/compare/rhemic-vs-clearscope": "2026-03-15",
     "/case-studies": "2026-03-15",
     "/resources/glossary": "2026-03-01",
+    "/answers": "2026-05-03",
     "/ai-search-visibility": "2026-05-03",
     "/answer-engine-optimization": "2026-05-03",
     "/glossary": "2026-05-03",
