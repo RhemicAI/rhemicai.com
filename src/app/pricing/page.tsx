@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
@@ -133,13 +134,12 @@ export default function PricingPage() {
               The economics are different from SMB plans. Book a partner demo to discuss multi-client
               delivery, reporting, and pricing.
             </p>
-            <a
-              href="#"
-              data-cal-link="rhemic-ai/discovery-call"
+            <CalBookingLink
+              calLink="rhemic-ai/discovery-call"
               className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
             >
               Book Partner Demo
-            </a>
+            </CalBookingLink>
           </section>
 
           <SubpageFAQ
