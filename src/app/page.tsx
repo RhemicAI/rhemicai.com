@@ -1,5 +1,6 @@
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
+import EntityParagraph from '@/components/EntityParagraph/EntityParagraph';
 import StatsStrip from '@/components/StatsStrip/StatsStrip';
 import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import AeoExplainer from '@/components/AeoExplainer/AeoExplainer';
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="min-h-screen">
       <FixedNav />
       <Hero />
+      <EntityParagraph />
       <StatsStrip />
       <AiVisibilityWidget />
       <AeoExplainer />
