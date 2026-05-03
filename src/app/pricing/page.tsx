@@ -97,13 +97,36 @@ export default function PricingPage() {
             </p>
           </section>
 
+          {/* Agency section */}
+          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">For Agencies</p>
+            <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Agency and partner pricing</h2>
+            <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
+              Agencies delivering AI visibility services to multiple clients work on partner pricing.
+              The economics are different from SMB plans. Book a partner demo to discuss multi-client
+              delivery, reporting, and pricing.
+            </p>
+            <a
+              href="#"
+              data-cal-link="rhemic-ai/discovery-call"
+              className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+            >
+              Book Partner Demo
+            </a>
+          </section>
+
           <SubpageFAQ
             heading="Pricing FAQ"
             faqs={[
               {
-                question: 'How much does Rhemic AI cost?',
+                question: 'How much does Rhemic AI cost for small businesses?',
                 answer:
-                  'We offer three plans: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. All are founding member rates — the price locks in when you sign up. Enterprise organizations that need white-label reporting, multi-brand management, or custom integrations get tailored pricing — contact us to discuss. No contracts on any plan. Cancel any time. Save 2 months with annual billing.',
+                  'SMB plans: Local Starter at $199/mo, Local Growth at $299/mo, Local Scale at $499/mo. These are founding member rates — the price locks in when you sign up. No contracts on any plan. Cancel any time. Save 2 months with annual billing.',
+              },
+              {
+                question: 'What is agency or partner pricing?',
+                answer:
+                  'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic via the Book Partner Demo to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
               },
               {
                 question: 'Can I talk to someone before I subscribe?',
@@ -113,12 +136,12 @@ export default function PricingPage() {
               {
                 question: 'Do I need a long-term contract?',
                 answer:
-                  'No. All plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
+                  'No. All SMB plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
               },
               {
-                question: 'What is included in every plan?',
+                question: 'What is included in every SMB plan?',
                 answer:
-                  'Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. Growth adds monthly re-scans, a progress dashboard, and priority support. Scale adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.',
+                  'Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. Local Growth adds monthly re-scans, a progress dashboard, and priority support. Local Scale adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.',
               },
             ]}
           />
