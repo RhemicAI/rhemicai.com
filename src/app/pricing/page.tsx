@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
@@ -17,6 +18,33 @@ export const metadata: Metadata = buildMetadata({
   path: '/pricing',
   keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'AEO pricing', 'AI audit pricing'],
 });
+
+const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const growthPlan = plans.find((p) => p.tier === 'growth')!;
+const scalePlan = plans.find((p) => p.tier === 'scale')!;
+
+const pricingFaqs = [
+  {
+    question: 'How much does Rhemic AI cost for small businesses?',
+    answer: `SMB plans: ${starterPlan.name} at $${starterPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${scalePlan.name} at $${scalePlan.monthlyPrice}/mo. These are founding member rates — the price locks in when you sign up. No contracts on any plan. Cancel any time. Save 2 months with annual billing.`,
+  },
+  {
+    question: 'What is agency or partner pricing?',
+    answer: 'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic via the Book Partner Demo to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
+  },
+  {
+    question: 'Can I talk to someone before I subscribe?',
+    answer: 'Yes. You can book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before you start online.',
+  },
+  {
+    question: 'Do I need a long-term contract?',
+    answer: 'No. All SMB plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
+  },
+  {
+    question: 'What is included in every SMB plan?',
+    answer: `Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. ${growthPlan.name} adds monthly re-scans, a progress dashboard, and priority support. ${scalePlan.name} adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.`,
+  },
+];
 
 const pricingSchema = {
   '@context': 'https://schema.org',
@@ -78,13 +106,12 @@ export default function PricingPage() {
               Start online with the plan that fits today, or book a discovery call if you want help choosing the right setup.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#"
-                data-cal-link="rhemic-ai/discovery-call"
+              <CalBookingLink
+                calLink="rhemic-ai/discovery-call"
                 className="rounded-[5px] bg-[var(--btn-primary-bg)] px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 Book a Demo
-              </a>
+              </CalBookingLink>
               <Link
                 href="/contact"
                 className="rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
@@ -97,30 +124,26 @@ export default function PricingPage() {
             </p>
           </section>
 
+          {/* Agency section */}
+          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">For Agencies</p>
+            <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Agency and partner pricing</h2>
+            <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
+              Agencies delivering AI visibility services to multiple clients work on partner pricing.
+              The economics are different from SMB plans. Book a partner demo to discuss multi-client
+              delivery, reporting, and pricing.
+            </p>
+            <CalBookingLink
+              calLink="rhemic-ai/discovery-call"
+              className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+            >
+              Book Partner Demo
+            </CalBookingLink>
+          </section>
+
           <SubpageFAQ
             heading="Pricing FAQ"
-            faqs={[
-              {
-                question: 'How much does Rhemic AI cost?',
-                answer:
-                  'We offer three plans: Starter at $199/mo, Growth at $299/mo, and Scale at $499/mo. All are founding member rates — the price locks in when you sign up. Enterprise organizations that need white-label reporting, multi-brand management, or custom integrations get tailored pricing — contact us to discuss. No contracts on any plan. Cancel any time. Save 2 months with annual billing.',
-              },
-              {
-                question: 'Can I talk to someone before I subscribe?',
-                answer:
-                  'Yes. You can book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before you start online.',
-              },
-              {
-                question: 'Do I need a long-term contract?',
-                answer:
-                  'No. All plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
-              },
-              {
-                question: 'What is included in every plan?',
-                answer:
-                  'Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. Growth adds monthly re-scans, a progress dashboard, and priority support. Scale adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.',
-              },
-            ]}
+            faqs={pricingFaqs}
           />
         </div>
       </div>

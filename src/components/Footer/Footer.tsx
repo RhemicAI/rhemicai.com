@@ -9,6 +9,15 @@ const linkRoutes: Record<string, string> = {
   'Website Auditing': '/products/website-auditing',
   'Competitor Analysis': '/products/competitor-analysis',
   'Pricing': '/pricing',
+  'AI Search Visibility': '/ai-search-visibility',
+  'Answer Engine Optimization': '/answer-engine-optimization',
+  'For Local Businesses': '/for-local-businesses',
+  'For Agencies': '/for-agencies',
+  // Resources
+  'Glossary': '/glossary',
+  'Sample Report': '/sample-ai-visibility-report',
+  'Free AI Check': '/free-ai-visibility-check',
+  'FAQ': '/faq',
   // Company
   'About': '/about',
   'Blog': '/blog',
@@ -20,8 +29,9 @@ const linkRoutes: Record<string, string> = {
 };
 
 const footerLinks = {
-  Product: ['Website Auditing', 'Competitor Analysis', 'Pricing'],
-  Company: ['About', 'Blog', 'Careers', 'Contact'],
+  Solutions: ['AI Search Visibility', 'Answer Engine Optimization', 'For Local Businesses', 'For Agencies'],
+  Resources: ['Glossary', 'Sample Report', 'Free AI Check', 'FAQ'],
+  Company: ['About', 'Blog', 'Pricing', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };
 
