@@ -29,7 +29,7 @@ export default function SchemaMarkupForAiVisibilityPage() {
         <div className="mx-auto max-w-3xl px-6">
           <p className="text-xs text-[var(--text-muted)] mb-10 font-body">May 3, 2026 · 8 min read</p>
 
-          <KeyTakeaways items={[
+          <KeyTakeaways takeaways={[
             'FAQPage schema is the highest-leverage AEO schema type for most businesses',
             'Organization schema on every page builds entity confidence for AI systems',
             'LocalBusiness schema is critical for service-area businesses',

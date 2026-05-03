@@ -29,7 +29,7 @@ export default function WhyCompetitorShowsUpPage() {
         <div className="mx-auto max-w-3xl px-6">
           <p className="text-xs text-[var(--text-muted)] mb-10 font-body">May 3, 2026 · 8 min read</p>
 
-          <KeyTakeaways items={[
+          <KeyTakeaways takeaways={[
             'AI engines recommend businesses with clearer entity signals — vagueness loses to specificity',
             'Your competitor may have better schema markup, giving AI engines a cleaner model',
             'Content that directly answers buyer questions gets cited more than generic service copy',

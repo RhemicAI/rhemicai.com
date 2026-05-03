@@ -29,7 +29,7 @@ export default function LocalBusinessAiRecommendationsPage() {
         <div className="mx-auto max-w-3xl px-6">
           <p className="text-xs text-[var(--text-muted)] mb-10 font-body">May 3, 2026 · 8 min read</p>
 
-          <KeyTakeaways items={[
+          <KeyTakeaways takeaways={[
             'AI tools are now a primary discovery channel for local service queries',
             'Clear entity signals — name, location, category, services — are the foundation',
             'LocalBusiness schema is the highest-leverage technical fix for local businesses',

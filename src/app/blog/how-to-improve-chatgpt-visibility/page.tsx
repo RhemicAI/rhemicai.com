@@ -29,7 +29,7 @@ export default function HowToImproveChatgptVisibilityPage() {
         <div className="mx-auto max-w-3xl px-6">
           <p className="text-xs text-[var(--text-muted)] mb-10 font-body">May 3, 2026 · 9 min read</p>
 
-          <KeyTakeaways items={[
+          <KeyTakeaways takeaways={[
             'Allow GPTBot in robots.txt — if it is blocked, nothing else matters',
             'Add Organization and FAQPage schema to your key pages',
             'Rewrite service pages to lead with direct answers to buyer questions',

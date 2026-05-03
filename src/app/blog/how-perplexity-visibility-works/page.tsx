@@ -29,7 +29,7 @@ export default function HowPerplexityVisibilityWorksPage() {
         <div className="mx-auto max-w-3xl px-6">
           <p className="text-xs text-[var(--text-muted)] mb-10 font-body">May 3, 2026 · 7 min read</p>
 
-          <KeyTakeaways items={[
+          <KeyTakeaways takeaways={[
             'Perplexity actively cites sources — getting cited is more trackable than ChatGPT citations',
             'Allow PerplexityBot in robots.txt as the first step',
             'Pages that lead with direct answers earn citations more reliably than pages that bury them',
