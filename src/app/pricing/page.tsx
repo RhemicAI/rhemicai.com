@@ -106,13 +106,12 @@ export default function PricingPage() {
               Start online with the plan that fits today, or book a discovery call if you want help choosing the right setup.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#"
-                data-cal-link="rhemic-ai/discovery-call"
+              <CalBookingLink
+                calLink="rhemic-ai/discovery-call"
                 className="rounded-[5px] bg-[var(--btn-primary-bg)] px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 Book a Demo
-              </a>
+              </CalBookingLink>
               <Link
                 href="/contact"
                 className="rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
