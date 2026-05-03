@@ -11,7 +11,7 @@ export default function Hero() {
           className="font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] font-display mb-5"
           style={{ textShadow: '0 0 28px rgba(3, 7, 18, 0.52)' }}
         >
-          <span className="block whitespace-nowrap text-[clamp(1.6rem,3.8vw,3.25rem)]">Get AI to recommend your business.</span>
+          <span className="block text-[clamp(1.6rem,3.8vw,3.25rem)]">Get AI to recommend your business.</span>
           <span className="block text-[clamp(1.6rem,3.8vw,3.25rem)]">To millions of customers.</span>
         </h1>
 

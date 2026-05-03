@@ -1,3 +1,5 @@
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+
 export default function CTA() {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
@@ -29,12 +31,12 @@ export default function CTA() {
             Run Free AI Scan
           </a>
 
-          <a
-            href="#" data-cal-link="rhemic-ai/discovery-call"
+          <CalBookingLink
+            calLink="rhemic-ai/discovery-call"
             className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-[5px] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
             Book a Demo
-          </a>
+          </CalBookingLink>
         </div>
 
         <p className="mt-6 text-sm text-[var(--text-secondary)] tracking-wide">

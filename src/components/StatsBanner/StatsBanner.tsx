@@ -11,8 +11,8 @@ const stats = [
 
 export default function StatsBanner() {
   return (
-    <div className="border-y border-[var(--border-subtle)] py-4 md:py-5 bg-[var(--bg-base)]">
-      <div className="flex items-center justify-between px-8 md:px-16 lg:px-24">
+    <div className="border-y border-[var(--border-subtle)] py-4 md:py-5 bg-[var(--bg-base)] overflow-x-auto">
+      <div className="flex items-center justify-start md:justify-between gap-8 md:gap-4 px-8 md:px-16 lg:px-24 min-w-max md:min-w-0">
         {stats.map((s, i) => (
           <span key={i} className="flex flex-col items-center shrink-0">
             <span className="text-base md:text-lg lg:text-xl font-bold tracking-[-0.02em] text-[var(--text-primary)] font-display whitespace-nowrap">

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const linkRoutes: Record<string, string> = {
   // Product
@@ -75,12 +76,12 @@ export default function Footer() {
 
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
-            <a
-              href="#" data-cal-link="rhemic-ai/discovery-call"
+            <CalBookingLink
+              calLink="rhemic-ai/discovery-call"
               className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
             >
               Book a Demo
-            </a>
+            </CalBookingLink>
           </div>
         </div>
       </div>
