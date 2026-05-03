@@ -52,8 +52,8 @@ const terms: Record<string, {
     definition: 'The percentage of tracked buyer-intent prompts where your brand appears in AI-generated answers, expressed as a proportion of either total prompts tracked or of competitor citation rates.',
     whyItMatters: 'Brand share converts AI visibility into a quantitative metric. It makes the competitive gap concrete: if your brand share is 30% and your main competitor is at 60%, you can measure the gap and track improvement over time.',
     example: 'If you track 100 prompts and your brand appears in 40 of them, your brand share is 40%. If a competitor appears in 70 of those prompts, their brand share is 70% — a 30-point gap you can measure and close.',
-    relatedTerms: ['AI Citation', 'AI Search Visibility', 'Competitive Share'],
-    relatedTermSlugs: ['ai-citation', 'ai-search-visibility', 'ai-search-visibility'],
+    relatedTerms: ['AI Citation', 'AI Search Visibility', 'LLM Visibility'],
+    relatedTermSlugs: ['ai-citation', 'ai-search-visibility', 'llm-visibility'],
   },
   'llm-visibility': {
     term: 'LLM Visibility',
