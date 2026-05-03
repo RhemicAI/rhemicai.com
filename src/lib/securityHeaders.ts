@@ -25,6 +25,7 @@ export function getContentSecurityPolicy({ isDevelopment = false }: SecurityHead
 
   const connectSrc = [
     "'self'",
+    'https://api.rhemicai.com',
     'https://api.cal.com',
     CAL_APP_ORIGIN,
     CAL_ORIGIN,
