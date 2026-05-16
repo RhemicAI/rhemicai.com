@@ -34,7 +34,7 @@ const pricingFaqs = [
   },
   {
     question: 'Can I talk to someone before I subscribe?',
-    answer: 'Yes. You can book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before you start online.',
+    answer: 'Yes. Book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before onboarding.',
   },
   {
     question: 'Do I need a long-term contract?',
@@ -42,7 +42,7 @@ const pricingFaqs = [
   },
   {
     question: 'What is included in every SMB plan?',
-    answer: `Every plan includes AI visibility audits across ChatGPT, Claude, Gemini, and Perplexity, a competitor gap report, and prioritized fix recommendations. ${growthPlan.name} adds monthly re-scans, a progress dashboard, and priority support. ${scalePlan.name} adds weekly audits, unlimited competitors and topics, a free professional website build, and a dedicated account manager.`,
+    answer: `Every SMB plan includes recurring AI citation checks, competitor comparison, gap analysis, prioritized fixes, and SEO recommendations. ${starterPlan.name} is ChatGPT-only. ${growthPlan.name} adds Perplexity, bi-weekly reporting, trend tracking, agentic schema deployment, and one content brief per month. ${scalePlan.name} adds weekly checks across ChatGPT, Claude, Gemini, and Perplexity, 200+ prompts, unlimited competitors, programmatic landing pages, local SEO assets, and three content briefs per month. Dedicated account management, managed outreach, hands-on GBP work, white-label reporting, and manual citation cleanup are Enterprise scope.`,
   },
 ];
 
@@ -103,7 +103,7 @@ export default function PricingPage() {
               Ready to get started?
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
-              Start online with the plan that fits today, or book a discovery call if you want help choosing the right setup.
+              Book a discovery call and we&apos;ll help you choose the right setup for your engine coverage, prompt volume, and implementation needs.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <CalBookingLink

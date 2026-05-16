@@ -2,7 +2,7 @@ const steps = [
   {
     number: '01',
     title: 'Audit',
-    body: 'We submit 200+ buyer-intent questions across ChatGPT, Claude, Gemini, and Perplexity, and audit your Google Business Profile, technical SEO health, and local listing completeness. You receive a Brand Share % score and an SEO baseline in one report.',
+    body: 'We submit buyer-intent questions across the engines covered by your plan: ChatGPT for Starter, ChatGPT + Perplexity for Growth, and ChatGPT, Claude, Gemini, and Perplexity for Scale. You receive a Brand Share % score and an SEO baseline in one report.',
   },
   {
     number: '02',
@@ -12,7 +12,7 @@ const steps = [
   {
     number: '03',
     title: 'Optimize',
-    body: 'Specific recommendations ordered by impact: schema markup code, on-page SEO fixes, Google Business Profile corrections, content briefs, and citation opportunities. Growth and Scale clients have these deployed directly by our team. No developer needed.',
+    body: 'Specific recommendations ordered by impact: schema markup, on-page SEO fixes, content briefs, local SEO assets, and citation opportunities. Growth and Scale clients get agentic deployment for eligible schema and on-page work. Managed outreach and hands-on GBP work move to Enterprise.',
   },
 ];
 

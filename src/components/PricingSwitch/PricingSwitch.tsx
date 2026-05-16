@@ -145,14 +145,14 @@ export default function PricingSwitch() {
         <div>
           <p className="text-sm font-semibold text-[var(--text-primary)]">Enterprise</p>
           <p className="mt-0.5 text-sm text-[var(--text-muted)]">
-            White-label reporting, multi-brand management, custom integrations, and a dedicated success team.
+            Managed outreach, dedicated account management, hands-on GBP, white-label reporting, and custom integrations.
           </p>
         </div>
         <CalBookingLink
           calLink="rhemic-ai/discovery-call"
           className="shrink-0 rounded-[5px] border border-white/20 px-6 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-white/40 hover:text-white"
         >
-          Contact us
+          Talk to us
         </CalBookingLink>
       </div>
     </section>

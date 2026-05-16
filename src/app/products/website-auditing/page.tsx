@@ -244,7 +244,7 @@ export default function WebsiteAuditingPage() {
           },
           {
             title: 'Pricing',
-            description: 'Plans from $199/mo for businesses. $599/mo for agencies.',
+            description: 'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
             href: '/pricing',
           },
         ]}

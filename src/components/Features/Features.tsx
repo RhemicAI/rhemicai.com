@@ -51,8 +51,8 @@ const features = [
   {
     title: 'SEO + AI Implementation',
     description:
-      'We deploy the fixes. Schema markup, on-page SEO, Google Business Profile optimization, and structured data — implemented directly on your site by our team on Growth and Scale plans.',
-    tags: ['On-Page SEO', 'Schema Deploy', 'GBP Optimization'],
+      'We turn recommendations into deployment-ready work. Growth and Scale use the Rhemic agentic pipeline for schema, on-page SEO, structured data, landing pages, and local SEO assets. Hands-on GBP management stays in Enterprise.',
+    tags: ['On-Page SEO', 'Schema Deploy', 'Local SEO Assets'],
     icon: (
       <svg
         width="48"

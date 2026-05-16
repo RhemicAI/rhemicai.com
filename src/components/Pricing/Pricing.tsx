@@ -151,19 +151,19 @@ export default function Pricing() {
         </div>
 
         {/* Enterprise row */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] px-6 py-5 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[var(--bg-elevated)] px-6 py-5 sm:flex-row">
           <div>
             <p className="text-sm font-semibold text-[var(--text-primary)]">Enterprise</p>
             <p className="mt-0.5 text-sm text-[var(--text-muted)]">
-              White-label reporting, multi-brand management, custom integrations, and a dedicated success team.
+              Managed outreach, dedicated account management, hands-on GBP, white-label reporting, and custom integrations.
             </p>
           </div>
-          <Link
-            href="/contact"
+          <CalBookingLink
+            calLink="rhemic-ai/discovery-call"
             className="shrink-0 rounded-[5px] border border-white/20 px-6 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-white/40 hover:text-white"
           >
-            Contact us
-          </Link>
+            Talk to us
+          </CalBookingLink>
         </div>
 
         <div className="mt-8 text-center">
