@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
-import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
 import { plans, type PricingPlan } from '@/data/pricing';
 
 function CheckIcon() {
@@ -42,8 +41,8 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
     <div
       className={`relative flex flex-col rounded-2xl border p-6 sm:p-8 ${
         plan.featured
-          ? 'border-white/25 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
-          : 'border-white/10 bg-[rgba(15,15,15,0.85)]'
+          ? 'border-white/25 bg-[var(--bg-elevated)] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
+          : 'border-white/10 bg-[var(--bg-elevated)]'
       }`}
     >
       {plan.featured && (
@@ -93,14 +92,10 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
       </ul>
 
       <div className="mt-8 flex flex-col gap-3">
-        {annual ? (
+        {annual && (
           <Link href="/contact" className={primaryButtonClass}>
             Contact for annual billing
           </Link>
-        ) : (
-          <PlanCheckoutButton plan={plan} className={primaryButtonClass}>
-            Start Now
-          </PlanCheckoutButton>
         )}
         <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
           Book a Demo
@@ -156,19 +151,19 @@ export default function Pricing() {
         </div>
 
         {/* Enterprise row */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] px-6 py-5 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[var(--bg-elevated)] px-6 py-5 sm:flex-row">
           <div>
             <p className="text-sm font-semibold text-[var(--text-primary)]">Enterprise</p>
             <p className="mt-0.5 text-sm text-[var(--text-muted)]">
-              White-label reporting, multi-brand management, custom integrations, and a dedicated success team.
+              Managed outreach, dedicated account management, hands-on GBP, white-label reporting, and custom integrations.
             </p>
           </div>
-          <Link
-            href="/contact"
+          <CalBookingLink
+            calLink="rhemic-ai/discovery-call"
             className="shrink-0 rounded-[5px] border border-white/20 px-6 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-white/40 hover:text-white"
           >
-            Contact us
-          </Link>
+            Talk to us
+          </CalBookingLink>
         </div>
 
         <div className="mt-8 text-center">

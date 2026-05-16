@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'Does Rhemic do traditional SEO?',
     answer:
-      'Yes. Every plan includes an SEO health check alongside the AI visibility scan — covering technical SEO, on-page structure, and Google Business Profile completeness. Growth and Scale plans include active SEO implementation: Rhemic deploys schema, on-page fixes, and GBP optimizations directly on your site. Many of the signals that improve your Google rankings also improve how AI assistants understand and cite your business — structured data and schema work for both.',
+      'Yes. Every SMB plan includes SEO recommendations alongside AI citation checks. Starter includes an on-page audit for the homepage and priority pages. Growth adds agentic schema and on-page deployment on up to 10 pages. Scale adds unlimited agentic on-page and schema deployment plus local SEO assets such as a GBP optimization plan, NAP audit, local schema, and review response templates. Hands-on GBP management and manual citation cleanup are Enterprise scope.',
   },
   {
     question: 'How much does Rhemic AI cost?',
@@ -87,7 +87,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[rgba(15,15,15,0.85)] hover:border-[var(--border-default)] transition-colors"
+              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[var(--bg-elevated)] hover:border-[var(--border-default)] transition-colors"
             >
               <button
                 onClick={() => toggle(index)}

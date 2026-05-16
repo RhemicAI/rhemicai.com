@@ -60,7 +60,7 @@ export default function WhoIsRhemicAiForPage() {
         },
         {
           question: 'Is Rhemic right for a solo business owner?',
-          answer: 'The Local Starter plan at $199/month is designed for single-location businesses. You get a full AI visibility audit with prioritized fixes you can implement on your own or hand to a developer.',
+          answer: 'The Starter plan at $199/month is designed for single-location businesses. You get a full AI visibility audit with prioritized fixes you can implement on your own or hand to a developer.',
         },
       ]}
     />

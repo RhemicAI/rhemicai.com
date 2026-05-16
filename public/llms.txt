@@ -31,8 +31,8 @@ Rhemic helps businesses understand why they are missing from those shortlists an
 ## Pricing
 # NOTE: Pricing values below are inline because this is a static file and cannot import from src/data/pricing.ts.
 # If you change plan prices or names in src/data/pricing.ts, update the line below to match.
-SMB plans: Local Starter at $199/month, Local Growth at $299/month, Local Scale at $499/month.
-Agency/partner pricing: contact via Book Partner Demo at https://rhemicai.com/for-agencies
+SMB plans: Starter at $199/month with ChatGPT-only citation checks, Growth at $299/month with ChatGPT + Perplexity, Scale at $499/month with ChatGPT, Claude, Gemini, and Perplexity.
+Enterprise and partner pricing: custom, sales-led, contact via Book Partner Demo at https://rhemicai.com/for-agencies
 
 ## Key pages
 

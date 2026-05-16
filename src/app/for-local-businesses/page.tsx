@@ -5,7 +5,6 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import SmbHero from '@/components/SmbHero/SmbHero';
 import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import BeforeAfter from '@/components/BeforeAfter/BeforeAfter';
-import WebsiteOffer from '@/components/WebsiteOffer/WebsiteOffer';
 import SmbPricing from '@/components/SmbPricing/SmbPricing';
 import IndustryTrust from '@/components/IndustryTrust/IndustryTrust';
 import Footer from '@/components/Footer/Footer';
@@ -118,7 +117,7 @@ const smbFaqs = [
   {
     question: 'Will this work if I don\'t have a website?',
     answer:
-      'Yes, and if you don\'t have one, we\'ll build it for you on the Growth plan. Included in the price, no extra charge.',
+      'Yes, but website builds are not bundled into the SMB ladder. Starter and Growth include the audit, recommendations, and deployment guidance. Scale can generate landing pages and deployment packets through the agentic pipeline. Full website builds are handled as Enterprise scope or a separate setup project.',
   },
   {
     question: 'How is this different from SEO?',
@@ -267,15 +266,13 @@ export default function ForLocalBusinesses() {
       <BeforeAfter />
       {/* Section 5: How It Works */}
       <HowItWorks />
-      {/* Section 6: Free Website Offer */}
-      <WebsiteOffer />
-      {/* Section 7: Pricing */}
+      {/* Section 6: Pricing */}
       <SmbPricing />
-      {/* Section 8: Trust Signals */}
+      {/* Section 7: Trust Signals */}
       <IndustryTrust />
-      {/* Section 9: FAQ */}
+      {/* Section 8: FAQ */}
       <SmbFAQ />
-      {/* Section 10: Footer CTA */}
+      {/* Section 9: Footer CTA */}
       <SmbFooterCTA />
       <RelatedLinks
         heading="Keep exploring"
