@@ -7,7 +7,7 @@ const API_BASE_URL = 'https://api.rhemicai.com';
 const CAL_BOOKING_LINK = 'rhemic-ai/discovery-call';
 const CAL_BOOKING_URL = 'https://cal.com/rhemic-ai/discovery-call';
 const POLL_INTERVAL_MS = 5000;
-const POLL_TIMEOUT_MS = 3 * 60 * 1000;
+const POLL_TIMEOUT_MS = 6 * 60 * 1000;
 
 const INDUSTRIES = [
   'Marketing Agency',
@@ -92,7 +92,10 @@ function clampPercent(value: number) {
 function toPercentFromFraction(value: unknown) {
   const num = typeof value === 'number' ? value : Number(value);
   if (!Number.isFinite(num)) return 0;
-  return clampPercent(num * 100);
+  // Backend returns 0–100. Older responses occasionally came as 0–1 fractions —
+  // anything <= 1 still gets scaled, anything > 1 is already a percentage.
+  const scaled = num <= 1 ? num * 100 : num;
+  return clampPercent(scaled);
 }
 
 function toScore(value: unknown) {
@@ -877,11 +880,91 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                   ))}
                 </div>
 
+                {/* In-your-face Cal booking CTA — score-aware, intriguing */}
+                <div
+                  className={`relative overflow-hidden rounded-2xl border border-[#00D4AA]/40 bg-gradient-to-br from-[#00D4AA]/12 via-[#00D4AA]/6 to-transparent p-6 transition-all duration-700 sm:p-8 ${
+                    resultsVisible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+                  }`}
+                  style={{ transitionDelay: '320ms' }}
+                >
+                  <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(0,212,170,0.18)_1px,transparent_1px)] [background-size:22px_22px]" />
+                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#00D4AA]/20 blur-3xl" />
+
+                  <div className="relative grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+                    <div>
+                      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#00D4AA]/40 bg-[#00D4AA]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#00D4AA]">
+                        <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#00D4AA] shadow-[0_0_8px_#00D4AA]" />
+                        {metrics.score <= 40
+                          ? 'Critical — Acting on this fast pays off'
+                          : metrics.score <= 70
+                          ? 'You\'re close — Let\'s push you to the shortlist'
+                          : 'Strong score — Time to defend and extend'}
+                      </div>
+                      <h3 className="text-2xl font-semibold leading-tight text-white sm:text-3xl">
+                        {metrics.score <= 40
+                          ? 'Your competitors are eating your AI traffic.'
+                          : metrics.score <= 70
+                          ? 'AI mentions you sometimes. We can make it always.'
+                          : 'You\'re winning. Let\'s lock it in before competitors catch up.'}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-white/75 sm:text-base">
+                        Book a 20-minute strategy call. We&apos;ll walk through your full visibility report, show you exactly where you&apos;re losing share to competitors in ChatGPT, Claude, Perplexity, and Gemini — and the 3 highest-leverage fixes for{' '}
+                        <span className="font-mono text-white">{activeDomain}</span>.
+                      </p>
+
+                      <ul className="mt-4 space-y-2 text-sm text-white/80">
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5 text-[#00D4AA]"><TinyCheck /></span>
+                          <span>Live walkthrough of your full visibility report</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5 text-[#00D4AA]"><TinyCheck /></span>
+                          <span>Side-by-side competitor map across 4 AI engines</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5 text-[#00D4AA]"><TinyCheck /></span>
+                          <span>3 prioritized fixes to start showing up in AI answers</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="flex flex-col items-stretch gap-3">
+                      <button
+                        type="button"
+                        onClick={openCalModal}
+                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[#00D4AA] px-6 py-4 text-base font-bold text-black shadow-[0_10px_40px_rgba(0,212,170,0.3)] transition duration-300 hover:bg-[#22e7c0] hover:shadow-[0_14px_50px_rgba(0,212,170,0.45)]"
+                      >
+                        <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
+                        <span className="relative flex items-center gap-2">
+                          Book my strategy call
+                          <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 10h10" />
+                            <path d="m11 6 4 4-4 4" />
+                          </svg>
+                        </span>
+                      </button>
+                      <p className="text-center text-[11px] uppercase tracking-[0.16em] text-white/55">
+                        Free · 20 min · No pitch deck
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setErrorMessage(null);
+                          resetToInput();
+                        }}
+                        className="text-center text-xs text-white/50 underline decoration-white/15 underline-offset-4 transition hover:text-white/80"
+                      >
+                        Or scan another domain
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
                 <div
                   className={`relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-700 sm:p-6 ${
                     resultsVisible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                   }`}
-                  style={{ transitionDelay: '360ms' }}
+                  style={{ transitionDelay: '440ms' }}
                 >
                   <div className="mb-4">
                     <h3 className="text-lg text-white sm:text-xl">Full Visibility Breakdown</h3>

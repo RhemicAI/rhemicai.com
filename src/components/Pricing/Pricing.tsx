@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
-import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
 import { plans, type PricingPlan } from '@/data/pricing';
 
 function CheckIcon() {
@@ -93,14 +92,10 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
       </ul>
 
       <div className="mt-8 flex flex-col gap-3">
-        {annual ? (
+        {annual && (
           <Link href="/contact" className={primaryButtonClass}>
             Contact for annual billing
           </Link>
-        ) : (
-          <PlanCheckoutButton plan={plan} className={primaryButtonClass}>
-            Start Now
-          </PlanCheckoutButton>
         )}
         <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
           Book a Demo

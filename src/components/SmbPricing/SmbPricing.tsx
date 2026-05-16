@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
-import PlanCheckoutButton from '@/components/Checkout/PlanCheckoutButton';
 import { smbPlans } from '@/data/pricing';
 
 function CheckIcon() {
@@ -136,14 +135,10 @@ export default function SmbPricing() {
                 </ul>
 
                 <div className="mt-8 flex flex-col gap-3">
-                  {annual ? (
+                  {annual && (
                     <Link href="/contact" className={primaryButtonClass}>
                       Contact for annual billing
                     </Link>
-                  ) : (
-                    <PlanCheckoutButton plan={plan} className={primaryButtonClass}>
-                      Start Now
-                    </PlanCheckoutButton>
                   )}
                   <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
                     Book a Demo
