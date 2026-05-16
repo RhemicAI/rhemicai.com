@@ -18,7 +18,7 @@ export interface PricingPlan {
 
 export const plans: PricingPlan[] = [
   {
-    name: 'Local Starter',
+    name: 'Starter',
     tier: 'starter',
     segment: 'smb',
     monthlyPrice: 199,
@@ -36,7 +36,7 @@ export const plans: PricingPlan[] = [
     ],
   },
   {
-    name: 'Local Growth',
+    name: 'Growth',
     tier: 'growth',
     segment: 'smb',
     monthlyPrice: 299,
@@ -54,7 +54,7 @@ export const plans: PricingPlan[] = [
     ],
   },
   {
-    name: 'Local Scale',
+    name: 'Scale',
     tier: 'scale',
     segment: 'smb',
     monthlyPrice: 499,
