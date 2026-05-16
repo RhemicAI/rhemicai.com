@@ -92,10 +92,8 @@ function clampPercent(value: number) {
 function toPercentFromFraction(value: unknown) {
   const num = typeof value === 'number' ? value : Number(value);
   if (!Number.isFinite(num)) return 0;
-  // Backend returns 0–100. Older responses occasionally came as 0–1 fractions —
-  // anything <= 1 still gets scaled, anything > 1 is already a percentage.
-  const scaled = num <= 1 ? num * 100 : num;
-  return clampPercent(scaled);
+  // Backend canonical shape is 0–100. Just clamp.
+  return clampPercent(num);
 }
 
 function toScore(value: unknown) {
@@ -882,18 +880,18 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
 
                 {/* In-your-face Cal booking CTA — score-aware, intriguing */}
                 <div
-                  className={`relative overflow-hidden rounded-2xl border border-[#00D4AA]/40 bg-gradient-to-br from-[#00D4AA]/12 via-[#00D4AA]/6 to-transparent p-6 transition-all duration-700 sm:p-8 ${
+                  className={`relative overflow-hidden rounded-2xl border border-[rgb(var(--accent-teal-rgb)/0.40)] bg-gradient-to-br from-[rgb(var(--accent-teal-rgb)/0.12)] via-[rgb(var(--accent-teal-rgb)/0.06)] to-transparent p-6 transition-all duration-700 sm:p-8 ${
                     resultsVisible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                   }`}
                   style={{ transitionDelay: '320ms' }}
                 >
-                  <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(0,212,170,0.18)_1px,transparent_1px)] [background-size:22px_22px]" />
-                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#00D4AA]/20 blur-3xl" />
+                  <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgb(var(--accent-teal-rgb)/0.18)_1px,transparent_1px)] [background-size:22px_22px]" />
+                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[rgb(var(--accent-teal-rgb)/0.20)] blur-3xl" />
 
                   <div className="relative grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
                     <div>
-                      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#00D4AA]/40 bg-[#00D4AA]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#00D4AA]">
-                        <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#00D4AA] shadow-[0_0_8px_#00D4AA]" />
+                      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgb(var(--accent-teal-rgb)/0.40)] bg-[rgb(var(--accent-teal-rgb)/0.10)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-teal)]">
+                        <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--accent-teal)] shadow-[0_0_8px_var(--accent-teal)]" />
                         {metrics.score <= 40
                           ? 'Critical — Acting on this fast pays off'
                           : metrics.score <= 70
@@ -914,15 +912,15 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
 
                       <ul className="mt-4 space-y-2 text-sm text-white/80">
                         <li className="flex items-start gap-2">
-                          <span className="mt-0.5 text-[#00D4AA]"><TinyCheck /></span>
+                          <span className="mt-0.5 text-[color:var(--accent-teal)]"><TinyCheck /></span>
                           <span>Live walkthrough of your full visibility report</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="mt-0.5 text-[#00D4AA]"><TinyCheck /></span>
+                          <span className="mt-0.5 text-[color:var(--accent-teal)]"><TinyCheck /></span>
                           <span>Side-by-side competitor map across 4 AI engines</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="mt-0.5 text-[#00D4AA]"><TinyCheck /></span>
+                          <span className="mt-0.5 text-[color:var(--accent-teal)]"><TinyCheck /></span>
                           <span>3 prioritized fixes to start showing up in AI answers</span>
                         </li>
                       </ul>
@@ -932,7 +930,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       <button
                         type="button"
                         onClick={openCalModal}
-                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[#00D4AA] px-6 py-4 text-base font-bold text-black shadow-[0_10px_40px_rgba(0,212,170,0.3)] transition duration-300 hover:bg-[#22e7c0] hover:shadow-[0_14px_50px_rgba(0,212,170,0.45)]"
+                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[var(--accent-teal)] px-6 py-4 text-base font-bold text-black shadow-[0_10px_40px_rgb(var(--accent-teal-rgb)/0.30)] transition duration-300 hover:bg-[var(--accent-teal-hover)] hover:shadow-[0_14px_50px_rgb(var(--accent-teal-rgb)/0.45)]"
                       >
                         <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                         <span className="relative flex items-center gap-2">

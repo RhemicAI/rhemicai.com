@@ -31,6 +31,7 @@ export default function CobeGlobe() {
   const resizeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isBuilding = useRef(false);
   const scrollVelocityRef = useRef(0);
+  const scrollIdleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const buildGlobe = useCallback(() => {
     if (isBuilding.current) return;
@@ -71,7 +72,9 @@ export default function CobeGlobe() {
       onRender: (state) => {
         state.phi = phiRef.current;
         phiRef.current += rotationSpeed + scrollVelocityRef.current;
-        scrollVelocityRef.current *= 0.92;
+        // Stronger per-frame decay so trackpad momentum can't pin velocity
+        // at the clamp ceiling indefinitely.
+        scrollVelocityRef.current *= 0.82;
       },
     });
 
@@ -129,15 +132,25 @@ export default function CobeGlobe() {
     };
   }, [buildGlobe]);
 
-  // Scroll-driven rotation: scroll down = spin right, scroll up = spin left
+  // Scroll-driven rotation: scroll down = spin right, scroll up = spin left.
+  // macOS trackpad momentum dispatches wheel events long after physical scroll
+  // stops, so we (a) keep the per-event contribution small, (b) clamp tight,
+  // and (c) force velocity to zero after a short idle window so the globe
+  // returns to its baseline rotation instead of staying pinned at max speed.
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
-      scrollVelocityRef.current += e.deltaY * 0.0003;
-      // clamp so fast scrolling doesn't overshoot
-      scrollVelocityRef.current = Math.max(-0.04, Math.min(0.04, scrollVelocityRef.current));
+      scrollVelocityRef.current += e.deltaY * 0.0001;
+      scrollVelocityRef.current = Math.max(-0.015, Math.min(0.015, scrollVelocityRef.current));
+      clearTimeout(scrollIdleTimer.current);
+      scrollIdleTimer.current = setTimeout(() => {
+        scrollVelocityRef.current = 0;
+      }, 180);
     };
     window.addEventListener('wheel', onWheel, { passive: true });
-    return () => window.removeEventListener('wheel', onWheel);
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      clearTimeout(scrollIdleTimer.current);
+    };
   }, []);
 
   return (
