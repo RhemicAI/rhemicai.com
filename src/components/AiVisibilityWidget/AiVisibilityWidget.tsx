@@ -880,11 +880,12 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
 
                 {/* In-your-face Cal booking CTA — score-aware, intriguing */}
                 <div
-                  className={`relative overflow-hidden rounded-2xl border border-[rgb(var(--accent-teal-rgb)/0.40)] bg-gradient-to-br from-[rgb(var(--accent-teal-rgb)/0.12)] via-[rgb(var(--accent-teal-rgb)/0.06)] to-transparent p-6 transition-all duration-700 sm:p-8 ${
+                  className={`relative overflow-hidden rounded-2xl border border-[rgb(var(--accent-teal-rgb)/0.40)] bg-[var(--bg-elevated)] p-6 transition-all duration-700 sm:p-8 ${
                     resultsVisible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                   }`}
                   style={{ transitionDelay: '320ms' }}
                 >
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgb(var(--accent-teal-rgb)/0.18)] via-[rgb(var(--accent-teal-rgb)/0.08)] to-transparent" />
                   <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgb(var(--accent-teal-rgb)/0.18)_1px,transparent_1px)] [background-size:22px_22px]" />
                   <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[rgb(var(--accent-teal-rgb)/0.20)] blur-3xl" />
 

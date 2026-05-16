@@ -41,8 +41,8 @@ function PlanCard({ plan, annual }: { plan: PricingPlan; annual: boolean }) {
     <div
       className={`relative rounded-2xl border p-6 sm:p-8 ${
         plan.featured
-          ? 'border-white/25 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
-          : 'border-white/10 bg-[rgba(15,15,15,0.85)]'
+          ? 'border-white/25 bg-[var(--bg-elevated)] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
+          : 'border-white/10 bg-[var(--bg-elevated)]'
       }`}
     >
       {plan.featured && (
@@ -141,7 +141,7 @@ export default function PricingSwitch() {
       </div>
 
       {/* Enterprise row */}
-      <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] px-6 py-5 sm:flex-row">
+      <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[var(--bg-elevated)] px-6 py-5 sm:flex-row">
         <div>
           <p className="text-sm font-semibold text-[var(--text-primary)]">Enterprise</p>
           <p className="mt-0.5 text-sm text-[var(--text-muted)]">

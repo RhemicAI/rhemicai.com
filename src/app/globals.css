@@ -5,8 +5,12 @@
 :root {
   --bg-base: #0a0a0a;
   --bg-elevated: #111111;
-  --bg-glass: rgba(255, 255, 255, 0.08);
-  --bg-glass-hover: rgba(255, 255, 255, 0.14);
+  /* Card surfaces — opaque dark, not translucent white. The site sits over
+     a WebGL globe on the homepage; translucent surfaces let the globe bleed
+     through and read as "transparent." Opaque dark surfaces look like solid
+     cards while still feeling at home on the dark canvas. */
+  --bg-glass: rgba(20, 20, 20, 0.92);
+  --bg-glass-hover: rgba(28, 28, 28, 0.96);
 
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.85);
