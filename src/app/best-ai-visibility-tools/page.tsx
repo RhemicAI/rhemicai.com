@@ -130,15 +130,15 @@ export default function BestAiVisibilityToolsPage() {
           </section>
 
           <section className="rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
-            <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Try Rhemic AI free</h2>
+            <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">See Rhemic AI in action</h2>
             <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
-              Run a free AI visibility check to see where your business stands before committing to any tool.
+              Book a demo to review how Rhemic tracks citations, competitors, and implementation priorities.
             </p>
             <Link
-              href="/free-ai-visibility-check"
+              href="/contact"
               className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
             >
-              Run free AI visibility check
+              Book a Demo
             </Link>
           </section>
         </div>

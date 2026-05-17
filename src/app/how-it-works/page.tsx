@@ -140,10 +140,10 @@ export default function HowItWorksPage() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
-                href="/free-ai-visibility-check"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                Run the visibility check
+                Book a Demo
               </Link>
               <Link
                 href="/faq"

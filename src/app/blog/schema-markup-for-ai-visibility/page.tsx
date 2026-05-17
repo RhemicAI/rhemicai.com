@@ -130,8 +130,8 @@ export default function SchemaMarkupForAiVisibilityPage() {
                 Start with Organization and FAQPage. Those two alone address the majority
                 of the entity clarity and answer-structure gaps that cause businesses to
                 be absent from AI recommendations.{' '}
-                <Link href="/free-ai-visibility-check" className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity">
-                  Check your current schema coverage for free.
+                <Link href="/how-it-works" className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity">
+                  See how Rhemic reviews schema coverage.
                 </Link>
               </p>
             </section>

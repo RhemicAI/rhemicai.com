@@ -46,7 +46,7 @@ export default function HowDoesRhemicAiWorkPage() {
         { title: 'How It Works', href: '/how-it-works' },
         { title: 'Sample Report', href: '/sample-ai-visibility-report' },
         { title: 'Pricing', href: '/pricing' },
-        { title: 'Free AI Visibility Check', href: '/free-ai-visibility-check' },
+        { title: 'Contact', href: '/contact' },
       ]}
       faqs={[
         {

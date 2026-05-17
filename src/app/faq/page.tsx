@@ -158,9 +158,9 @@ export default function FAQPage() {
             href: '/pricing',
           },
           {
-            title: 'Free AI Visibility Check',
-            description: 'Run the public scan flow without inventing a fake tool.',
-            href: '/free-ai-visibility-check',
+            title: 'Contact',
+            description: 'Talk through the right visibility workflow for your business.',
+            href: '/contact',
           },
         ]}
       />

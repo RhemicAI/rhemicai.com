@@ -99,9 +99,9 @@ export default function AuditAiVisibilityPage() {
                 'Usually a thin commercial page. Pricing, product, FAQ, and comparison pages often offer more immediate visibility gains than another broad awareness post.',
             },
             {
-              question: 'Can I use the free check as a first audit pass?',
+              question: 'Can I use a lightweight check as a first audit pass?',
               answer:
-                'Yes. A public scan is a good first baseline. Teams that need competitive detail and implementation guidance usually move into a fuller workflow after that.',
+                'Yes. A lightweight baseline can help, but teams that need competitive detail and implementation guidance usually move into a fuller workflow after that.',
             },
           ]}
         />
@@ -110,9 +110,9 @@ export default function AuditAiVisibilityPage() {
       <RelatedLinks
         links={[
           {
-            title: 'Free AI Visibility Check',
-            description: 'Run the existing public scan flow as the first step.',
-            href: '/free-ai-visibility-check',
+            title: 'How It Works',
+            description: 'See the audit, analysis, and implementation workflow.',
+            href: '/how-it-works',
           },
           {
             title: 'FAQ',

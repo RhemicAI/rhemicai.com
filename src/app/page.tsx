@@ -2,7 +2,6 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
 import EntityParagraph from '@/components/EntityParagraph/EntityParagraph';
 import StatsStrip from '@/components/StatsStrip/StatsStrip';
-import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import AeoExplainer from '@/components/AeoExplainer/AeoExplainer';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Features from '@/components/Features/Features';
@@ -19,7 +18,6 @@ export default function Home() {
       <Hero />
       <EntityParagraph />
       <StatsStrip />
-      <AiVisibilityWidget />
       <AeoExplainer />
       <HowItWorks />
       <Features />

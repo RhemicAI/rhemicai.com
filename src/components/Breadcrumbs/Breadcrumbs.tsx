@@ -26,7 +26,7 @@ const labelMap: Record<string, string> = {
   'for-agencies': 'For Agencies',
   resources: 'Resources',
   glossary: 'Glossary',
-  'free-ai-visibility-check': 'Free AI Visibility Check',
+  'free-ai-visibility-check': 'AI Visibility Check Paused',
   'seo-vs-aeo': 'SEO vs AEO',
   'how-to-audit-your-websites-ai-visibility': 'Audit AI Visibility',
   'how-marketing-agencies-can-get-recommended-by-ai-tools': 'Agencies and AI Recommendations',

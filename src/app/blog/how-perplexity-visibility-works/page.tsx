@@ -135,7 +135,7 @@ export default function HowPerplexityVisibilityWorksPage() {
         links={[
           { title: 'How to Improve Perplexity Visibility (Answer Page)', description: 'Quick-reference steps.', href: '/answers/how-to-improve-perplexity-visibility' },
           { title: 'AI Search Visibility', description: 'The full guide.', href: '/ai-search-visibility' },
-          { title: 'Free AI Visibility Check', description: 'Check your Perplexity visibility.', href: '/free-ai-visibility-check' },
+          { title: 'Pricing', description: 'Compare recurring visibility plans.', href: '/pricing' },
         ]}
       />
 

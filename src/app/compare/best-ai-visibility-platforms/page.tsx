@@ -166,7 +166,7 @@ export default function BestAiVisibilityPlatformsPage() {
         links={[
           { title: 'Best AEO Tools', description: 'The broader AEO tooling landscape.', href: '/best-aeo-tools' },
           { title: 'AI Search Visibility', description: 'What AI visibility means.', href: '/ai-search-visibility' },
-          { title: 'Free AI Visibility Check', description: 'Try a free Rhemic scan.', href: '/free-ai-visibility-check' },
+          { title: 'Pricing', description: 'Compare Rhemic AI plans.', href: '/pricing' },
         ]}
       />
 

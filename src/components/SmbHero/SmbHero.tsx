@@ -1,3 +1,5 @@
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+
 export default function SmbHero() {
   return (
     <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-6 pt-28 pb-12">
@@ -33,15 +35,15 @@ export default function SmbHero() {
           className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] mb-10 opacity-80 font-body"
           style={{ textShadow: '0 0 40px rgba(10, 10, 10, 0.9)' }}
         >
-          More customers now ask AI for recommendations before they search Google. If you&apos;re not in the answer, you&apos;re losing business to competitors who are. Free scan takes 60 seconds.
+          More customers now ask AI for recommendations before they search Google. If you&apos;re not in the answer, you&apos;re losing business to competitors who are.
         </p>
 
-        <a
-          href="#ai-visibility-scan"
+        <CalBookingLink
+          calLink="rhemic-ai/discovery-call"
           className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
         >
-          Run your free scan. No signup, no credit card.
-        </a>
+          Book a Demo
+        </CalBookingLink>
       </div>
     </section>
   );

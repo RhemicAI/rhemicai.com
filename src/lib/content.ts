@@ -159,7 +159,6 @@ export const indexableRoutes = [
   "/case-studies",
   "/for-agencies",
   "/resources/glossary",
-  "/free-ai-visibility-check",
   ...aeoRoutes,
   ...blogPosts.map((post) => `/blog/${post.slug}`),
 ];
@@ -205,7 +204,6 @@ export const staticPagePriorities: Record<string, number> = {
   // Glossary
   "/glossary": 0.82,
   "/blog": 0.84,
-  "/free-ai-visibility-check": 0.84,
   "/about": 0.8,
   "/case-studies": 0.8,
   "/resources/glossary": 0.78,

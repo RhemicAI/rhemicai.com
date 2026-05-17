@@ -137,8 +137,8 @@ export default function HowToImproveChatgptVisibilityPage() {
                 identify which competitors are appearing in your place, and understand which
                 specific prompts you are losing. Without that baseline, you cannot measure
                 whether the changes are working.{' '}
-                <Link href="/free-ai-visibility-check" className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity">
-                  Start with a free AI visibility check.
+                <Link href="/how-it-works" className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity">
+                  See how Rhemic builds that baseline.
                 </Link>
               </p>
             </section>
@@ -164,7 +164,7 @@ export default function HowToImproveChatgptVisibilityPage() {
         links={[
           { title: 'AI Search Visibility', description: 'The full guide to what drives AI recommendations.', href: '/ai-search-visibility' },
           { title: 'Answer Engine Optimization', description: 'The complete AEO discipline.', href: '/answer-engine-optimization' },
-          { title: 'Free AI Visibility Check', description: 'See your baseline before improving.', href: '/free-ai-visibility-check' },
+          { title: 'Pricing', description: 'Compare recurring visibility plans.', href: '/pricing' },
         ]}
       />
 

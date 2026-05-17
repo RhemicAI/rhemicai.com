@@ -16,7 +16,6 @@ const linkRoutes: Record<string, string> = {
   // Resources
   'Glossary': '/glossary',
   'Sample Report': '/sample-ai-visibility-report',
-  'Free AI Check': '/free-ai-visibility-check',
   'FAQ': '/faq',
   // Company
   'About': '/about',
@@ -30,7 +29,7 @@ const linkRoutes: Record<string, string> = {
 
 const footerLinks = {
   Solutions: ['AI Search Visibility', 'Answer Engine Optimization', 'For Local Businesses', 'For Agencies'],
-  Resources: ['Glossary', 'Sample Report', 'Free AI Check', 'FAQ'],
+  Resources: ['Glossary', 'Sample Report', 'FAQ'],
   Company: ['About', 'Blog', 'Pricing', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };

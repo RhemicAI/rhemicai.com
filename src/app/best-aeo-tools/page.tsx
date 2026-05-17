@@ -133,7 +133,7 @@ export default function BestAeoToolsPage() {
         links={[
           { title: 'Answer Engine Optimization', description: 'The full AEO discipline explained.', href: '/answer-engine-optimization' },
           { title: 'Best AI Visibility Tools', description: 'Broader AI visibility tooling landscape.', href: '/best-ai-visibility-tools' },
-          { title: 'Free AI Visibility Check', description: 'Try Rhemic AI free.', href: '/free-ai-visibility-check' },
+          { title: 'Pricing', description: 'Compare Rhemic AI plans.', href: '/pricing' },
         ]}
       />
 
