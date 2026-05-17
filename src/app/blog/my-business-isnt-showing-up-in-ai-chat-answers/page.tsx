@@ -65,7 +65,7 @@ export default function MissingInAiAnswersPage() {
         <section className="mt-16">
           <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">What to do next</h2>
           <p className="text-lg leading-relaxed text-[var(--text-secondary)]">
-            Run a baseline check, compare the current answer set against your competitors, then build a short implementation queue. If you need a starting point, use the <Link href="/free-ai-visibility-check" className="text-[var(--text-primary)] underline underline-offset-4">free visibility check</Link>, read the <Link href="/faq" className="text-[var(--text-primary)] underline underline-offset-4">FAQ</Link>, and review the <Link href="/how-it-works" className="text-[var(--text-primary)] underline underline-offset-4">implementation workflow</Link>.
+            Run a baseline check, compare the current answer set against your competitors, then build a short implementation queue. If you need a starting point, read the <Link href="/faq" className="text-[var(--text-primary)] underline underline-offset-4">FAQ</Link>, review the <Link href="/how-it-works" className="text-[var(--text-primary)] underline underline-offset-4">implementation workflow</Link>, and <Link href="/contact" className="text-[var(--text-primary)] underline underline-offset-4">talk to Rhemic</Link>.
           </p>
         </section>
 
@@ -94,9 +94,9 @@ export default function MissingInAiAnswersPage() {
       <RelatedLinks
         links={[
           {
-            title: 'Free AI Visibility Check',
-            description: 'Get a baseline before deciding what to fix.',
-            href: '/free-ai-visibility-check',
+            title: 'How It Works',
+            description: 'See the audit, analysis, and implementation workflow.',
+            href: '/how-it-works',
           },
           {
             title: 'For Local Businesses',

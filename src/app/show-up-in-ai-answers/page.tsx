@@ -147,7 +147,7 @@ export default function ShowUpInAiAnswersPage() {
         links={[
           { title: 'For Local Businesses', description: 'Local-specific AI visibility guide.', href: '/for-local-businesses' },
           { title: 'AI Search Visibility for Small Businesses', description: 'Practical steps for small operators.', href: '/ai-search-visibility-for-small-businesses' },
-          { title: 'Free AI Visibility Check', description: 'See where you stand today.', href: '/free-ai-visibility-check' },
+          { title: 'Pricing', description: 'See current plan options.', href: '/pricing' },
         ]}
       />
 

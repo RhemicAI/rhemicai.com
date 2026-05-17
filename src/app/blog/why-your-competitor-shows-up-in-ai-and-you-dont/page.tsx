@@ -116,8 +116,8 @@ export default function WhyCompetitorShowsUpPage() {
                 relevant to your category, identify which competitors appear, and understand
                 specifically why they are being cited instead of you. Without that diagnosis,
                 you are guessing at what to fix.{' '}
-                <Link href="/free-ai-visibility-check" className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity">
-                  Start with a free AI visibility check.
+                <Link href="/how-it-works" className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity">
+                  Review the Rhemic workflow.
                 </Link>
               </p>
             </section>
@@ -143,7 +143,7 @@ export default function WhyCompetitorShowsUpPage() {
         links={[
           { title: 'AI Search Visibility', description: 'The full guide to what drives AI recommendations.', href: '/ai-search-visibility' },
           { title: 'Why Your Competitor Shows Up (Answer Page)', description: 'Quick-reference answer format.', href: '/answers/why-your-competitor-shows-up-in-ai-answers' },
-          { title: 'Free AI Visibility Check', description: 'See your baseline vs. competitors.', href: '/free-ai-visibility-check' },
+          { title: 'Pricing', description: 'Compare recurring visibility plans.', href: '/pricing' },
         ]}
       />
 

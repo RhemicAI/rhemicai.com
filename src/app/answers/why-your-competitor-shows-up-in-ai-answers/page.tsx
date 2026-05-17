@@ -52,11 +52,11 @@ export default function WhyCompetitorShowsUpPage() {
       relatedPages={[
         { title: 'AI Search Visibility', href: '/ai-search-visibility' },
         { title: 'Compare Rhemic AI', href: '/compare' },
-        { title: 'Free AI Visibility Check', href: '/free-ai-visibility-check' },
+        { title: 'Pricing', href: '/pricing' },
         { title: 'Pricing', href: '/pricing' },
       ]}
-      ctaLabel="Run a free scan"
-      ctaHref="/free-ai-visibility-check"
+      ctaLabel="Book a Demo"
+      ctaHref="/contact"
       faqs={[
         {
           question: 'Can I close the gap with just content changes?',

@@ -50,7 +50,7 @@ export default function HowToImproveChatgptVisibilityPage() {
       relatedPages={[
         { title: 'AI Search Visibility', href: '/ai-search-visibility' },
         { title: 'Answer Engine Optimization', href: '/answer-engine-optimization' },
-        { title: 'Free AI Visibility Check', href: '/free-ai-visibility-check' },
+        { title: 'Pricing', href: '/pricing' },
         { title: 'Pricing', href: '/pricing' },
       ]}
       faqs={[

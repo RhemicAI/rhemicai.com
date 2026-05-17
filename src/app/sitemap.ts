@@ -47,7 +47,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/compare/rhemic-ai-vs-scrunch": "2026-05-03",
     "/compare/rhemic-ai-vs-otterly": "2026-05-03",
     "/compare/rhemic-ai-vs-traditional-seo-agency": "2026-05-03",
-    "/free-ai-visibility-check": "2026-03-15",
     "/careers": "2026-02-01",
     "/start-free-trial": "2026-03-01",
     "/privacy-policy": "2026-01-15",

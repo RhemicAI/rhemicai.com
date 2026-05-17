@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import SmbHero from '@/components/SmbHero/SmbHero';
-import AiVisibilityWidget from '@/components/AiVisibilityWidget/AiVisibilityWidget';
 import BeforeAfter from '@/components/BeforeAfter/BeforeAfter';
 import SmbPricing from '@/components/SmbPricing/SmbPricing';
 import IndustryTrust from '@/components/IndustryTrust/IndustryTrust';
@@ -127,12 +127,12 @@ const smbFaqs = [
   {
     question: 'How fast does it work?',
     answer:
-      'The scan takes 60 seconds. Visibility improvements depend on how quickly you implement the recommendations. Most businesses see movement within a few weeks.',
+      'Visibility improvements depend on how quickly the right technical and content fixes ship. Most businesses see directional movement within a few weeks of focused implementation.',
   },
   {
     question: 'Do I need any tech skills?',
     answer:
-      'None. You enter your business name, we run the scan, you get a plain-English report telling you exactly what to fix.',
+      'No. Rhemic turns AI visibility findings into plain-English recommendations and implementation-ready work, so you do not need to translate technical SEO or AEO jargon yourself.',
   },
   {
     question: 'What kinds of businesses is this built for?',
@@ -225,16 +225,16 @@ function SmbFooterCTA() {
         </h2>
 
         <div className="mt-8">
-          <a
-            href="#ai-visibility-scan"
+          <CalBookingLink
+            calLink="rhemic-ai/discovery-call"
             className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
           >
-            Run your free scan
-          </a>
+            Book a Demo
+          </CalBookingLink>
         </div>
 
         <p className="mt-4 text-sm text-[var(--text-muted)] font-body">
-          No signup, no credit card. Results in 60 seconds.
+          See how the workflow maps to your local market.
         </p>
       </div>
     </section>
@@ -258,29 +258,27 @@ export default function ForLocalBusinesses() {
       <FixedNav />
       {/* Section 1: Hero */}
       <SmbHero />
-      {/* Section 2: Live Scan Widget */}
-      <AiVisibilityWidget placeholder="Enter your business name" />
-      {/* Section 3: The Shift */}
+      {/* Section 2: The Shift */}
       <TheShift />
-      {/* Section 4: Before / After Mock */}
+      {/* Section 3: Before / After Mock */}
       <BeforeAfter />
-      {/* Section 5: How It Works */}
+      {/* Section 4: How It Works */}
       <HowItWorks />
-      {/* Section 6: Pricing */}
+      {/* Section 5: Pricing */}
       <SmbPricing />
-      {/* Section 7: Trust Signals */}
+      {/* Section 6: Trust Signals */}
       <IndustryTrust />
-      {/* Section 8: FAQ */}
+      {/* Section 7: FAQ */}
       <SmbFAQ />
-      {/* Section 9: Footer CTA */}
+      {/* Section 8: Footer CTA */}
       <SmbFooterCTA />
       <RelatedLinks
         heading="Keep exploring"
         links={[
           {
-            title: 'Free AI Visibility Check',
-            description: 'Run the public scan flow for your business or site.',
-            href: '/free-ai-visibility-check',
+            title: 'Pricing',
+            description: 'Review the plans built for local AI visibility work.',
+            href: '/pricing',
           },
           {
             title: 'FAQ',

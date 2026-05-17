@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 export default function Hero() {
   return (
@@ -20,17 +21,17 @@ export default function Hero() {
           className="text-sm md:text-base text-[var(--text-primary)] max-w-lg mx-auto font-normal leading-[1.6] mb-8 opacity-70 font-body"
           style={{ textShadow: '0 0 20px rgba(3, 7, 18, 0.4)' }}
         >
-          Rhemic gets your business recommended by ChatGPT, Gemini, and every major AI assistant, while ranking you higher on Google. See where you stand with a free scan.
+          Rhemic gets your business recommended by ChatGPT, Gemini, and every major AI assistant, while ranking you higher on Google.
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="#ai-visibility-scan"
+          <CalBookingLink
+            calLink="rhemic-ai/discovery-call"
             className="px-10 py-4 text-base font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
           >
-            Run free AI scan
-          </a>
+            Book a Demo
+          </CalBookingLink>
           <a
             href="#how-it-works"
             className="px-10 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-[5px] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body"
