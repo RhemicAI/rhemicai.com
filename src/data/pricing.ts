@@ -1,7 +1,10 @@
 import type { CalLink } from '@/lib/calEmbed';
 
+// Internal tier slugs kept as starter/growth/scale to avoid breaking
+// compare pages and sub-pages that reference them. Display names are
+// Basic / Mid / Premium per the med spa positioning doc.
 export type PricingTier = 'starter' | 'growth' | 'scale';
-export type PricingSegment = 'agency' | 'smb';
+export type PricingSegment = 'medspa' | 'agency' | 'smb';
 
 export interface PricingPlan {
   name: string;
@@ -10,70 +13,82 @@ export interface PricingPlan {
   monthlyPrice: number;
   annualPrice: number;
   wasPrice: number;
+  headline: string;
   bestFor: string;
   featured: boolean;
   calLink?: CalLink;
   features: string[];
+  // Per-plan Stripe Payment Link. Placeholder URLs for now; swap to real
+  // https://buy.stripe.com/... links from the Stripe dashboard.
+  // Later: read from STRIPE_PAYMENT_LINK_{TIER} env vars inside /api/signup.
+  stripePaymentLink?: string;
 }
 
 export const plans: PricingPlan[] = [
   {
-    name: 'Starter',
+    name: 'Basic',
     tier: 'starter',
-    segment: 'smb',
-    monthlyPrice: 199,
-    annualPrice: 1990,
-    wasPrice: 299,
-    bestFor: 'ChatGPT citation checks for single-location SMBs',
+    segment: 'medspa',
+    monthlyPrice: 1000,
+    annualPrice: 12000,
+    wasPrice: 0,
+    headline: 'Stop losing easy leads',
+    bestFor: 'Single-location med spas getting found on AI and recovering missed calls',
     featured: false,
-    calLink: 'rhemic-ai/smb-starter-onboarding',
+    stripePaymentLink: 'https://buy.stripe.com/PLACEHOLDER_BASIC',
     features: [
-      'Monthly ChatGPT-only citation check',
-      '50 buyer-intent prompts',
-      'Brand Share vs. 3 competitors',
-      'Homepage + 5-page SEO audit',
-      'Top 5 fixes, PDF report, 48hr email support',
+      'Monthly AEO scans across ChatGPT, Claude, Perplexity, and Google AI',
+      '50 buyer-intent prompts tracked',
+      'Google Business Profile cleanup and optimization',
+      'AI receptionist on Vapi with a base call flow',
+      'Missed-call recovery via SMS within 24 hours',
+      'Closed-loop reporting on calls, citations, and bookings',
     ],
   },
   {
-    name: 'Growth',
+    name: 'Mid',
     tier: 'growth',
-    segment: 'smb',
-    monthlyPrice: 299,
-    annualPrice: 2990,
-    wasPrice: 399,
-    bestFor: 'Bi-weekly ChatGPT + Perplexity tracking',
+    segment: 'medspa',
+    monthlyPrice: 2000,
+    annualPrice: 24000,
+    wasPrice: 0,
+    headline: 'Own your metro',
+    bestFor: 'Med spas ready to dominate local AI search and capture every consult',
     featured: true,
-    calLink: 'rhemic-ai/smb-growth-onboarding',
+    stripePaymentLink: 'https://buy.stripe.com/PLACEHOLDER_MID',
     features: [
-      'Bi-weekly ChatGPT + Perplexity checks',
-      '100 buyer-intent prompts',
-      'Brand Share vs. 5 competitors',
-      'Agentic schema + on-page deploys for 10 pages',
-      'Content brief, 6-month dashboard, 24hr email support',
+      'Bi-weekly scans across all 4 AI engines',
+      '150 prompts plus 5 competitor benchmarks',
+      'GBP and local SEO content for treatment-plus-location pages',
+      'AI receptionist with full consult-booking flow',
+      'After-hours capture plus missed-call recovery',
+      'Schema, FAQ, and on-page conversion fixes',
+      'Monthly closed-loop reporting tied to booked consults',
     ],
   },
   {
-    name: 'Scale',
+    name: 'Premium',
     tier: 'scale',
-    segment: 'smb',
-    monthlyPrice: 499,
-    annualPrice: 4990,
-    wasPrice: 699,
-    bestFor: 'Weekly multi-engine coverage and agentic implementation',
+    segment: 'medspa',
+    monthlyPrice: 3500,
+    annualPrice: 42000,
+    wasPrice: 0,
+    headline: 'Dominate your category',
+    bestFor: 'Multi-location and high-volume med spas running the full growth stack',
     featured: false,
-    calLink: 'rhemic-ai/smb-scale-onboarding',
+    stripePaymentLink: 'https://buy.stripe.com/PLACEHOLDER_PREMIUM',
     features: [
-      'Weekly checks across all 4 engines',
-      '200+ prompts and unlimited competitors',
-      'Unlimited agentic on-page + schema deployment',
-      'Programmatic landing pages and local SEO assets',
-      '3 content briefs, 12-month dashboard, same-day chat support',
+      'Weekly scans, unlimited prompts, unlimited competitors',
+      'Up to 2 locations included',
+      'Programmatic landing pages and full local SEO',
+      'Vertical-specific receptionist flows (Botox, IV, weight loss)',
+      'Reactivation campaigns for lapsed patients',
+      'Booking attribution dashboard tied to channel and AI engine',
+      'Dedicated success manager',
     ],
   },
 ];
 
-// Legacy exports — used by SmbPricing and SmbHero
+// Legacy exports kept for SmbPricing and SmbHero consumers
 export const smbPlans: PricingPlan[] = plans;
-
 export const agencyTiers: PricingPlan[] = plans;

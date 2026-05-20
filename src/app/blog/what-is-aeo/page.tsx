@@ -724,10 +724,10 @@ export default function WhatIsAEOPage() {
                 your website - and what to fix first.
               </p>
               <a
-                href="#" data-cal-link="rhemic-ai/discovery-call"
+                href="/signup"
                 className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
               >
-                Book a Demo
+                Sign up
               </a>
             </div>
           </div>

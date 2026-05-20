@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -26,12 +26,12 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <CalBookingLink
-            calLink="rhemic-ai/discovery-call"
+          <Link
+            href="/signup"
             className="px-10 py-4 text-base font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
           >
-            Book a Demo
-          </CalBookingLink>
+            Sign up
+          </Link>
           <a
             href="#how-it-works"
             className="px-10 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-[5px] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 font-body"
