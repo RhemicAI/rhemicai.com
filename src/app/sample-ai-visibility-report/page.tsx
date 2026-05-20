@@ -78,32 +78,34 @@ export default function SampleAiVisibilityReportPage() {
           {/* Section 2: Engine breakdown */}
           <section className="mb-10">
             <h2 className="mb-6 text-2xl font-bold text-[var(--text-primary)]">Section 2: Visibility by engine</h2>
-            <div className="overflow-hidden rounded-xl border border-white/10">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-white/[0.03] border-b border-white/10">
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Engine</th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Prompts tested</th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Citations found</th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body">Citation rate</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ['ChatGPT', '10', '4', '40%'],
-                    ['Perplexity', '10', '3', '30%'],
-                    ['Claude', '10', '4', '40%'],
-                    ['Gemini', '10', '3', '30%'],
-                  ].map(([engine, tested, found, rate], i) => (
-                    <tr key={engine} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 ? 'bg-white/[0.015]' : ''}`}>
-                      <td className="px-5 py-4 text-[var(--text-primary)] font-body font-semibold">{engine}</td>
-                      <td className="px-5 py-4 text-[var(--text-secondary)] font-body">{tested}</td>
-                      <td className="px-5 py-4 text-[var(--text-secondary)] font-body">{found}</td>
-                      <td className="px-5 py-4 text-[var(--text-primary)] font-body">{rate}</td>
+            <div className="-mx-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0">
+              <div className="min-w-[640px] overflow-hidden rounded-xl border border-white/10">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-white/[0.03] border-b border-white/10">
+                      <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Engine</th>
+                      <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Prompts tested</th>
+                      <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Citations found</th>
+                      <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body">Citation rate</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {[
+                      ['ChatGPT', '10', '4', '40%'],
+                      ['Perplexity', '10', '3', '30%'],
+                      ['Claude', '10', '4', '40%'],
+                      ['Gemini', '10', '3', '30%'],
+                    ].map(([engine, tested, found, rate], i) => (
+                      <tr key={engine} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 ? 'bg-white/[0.015]' : ''}`}>
+                        <td className="px-5 py-4 align-top text-[var(--text-primary)] font-body font-semibold">{engine}</td>
+                        <td className="px-5 py-4 align-top text-[var(--text-secondary)] font-body">{tested}</td>
+                        <td className="px-5 py-4 align-top text-[var(--text-secondary)] font-body">{found}</td>
+                        <td className="px-5 py-4 align-top text-[var(--text-primary)] font-body">{rate}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </section>
 

@@ -160,32 +160,34 @@ export default function AnswerEngineOptimizationPage() {
           {/* AEO vs SEO comparison */}
           <section className="mb-16">
             <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">AEO vs SEO at a glance</h2>
-            <div className="overflow-hidden rounded-xl border border-white/10">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-white/[0.03] border-b border-white/10">
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body w-1/3"></th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body w-1/3">Traditional SEO</th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body w-1/3">AEO</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ['Goal', 'Rank in search results', 'Appear in AI-generated answers'],
-                    ['Output measured', 'Rankings, organic traffic', 'Citation rate, brand share in answers'],
-                    ['Key technical lever', 'Backlinks, page speed, crawl health', 'Schema markup, entity clarity, AI crawler access'],
-                    ['Key content lever', 'Keywords, E-E-A-T, content depth', 'Direct answers, FAQ structure, topic coverage'],
-                    ['Competitor analysis', 'Keyword gap, backlink gap', 'Mention gap, AI recommendation share'],
-                    ['Rhemic covers this', 'Yes', 'Yes'],
-                  ].map(([label, seo, aeo], i) => (
-                    <tr key={label} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 ? 'bg-white/[0.015]' : ''}`}>
-                      <td className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] font-body">{label}</td>
-                      <td className="px-5 py-4 text-[var(--text-tertiary)] font-body">{seo}</td>
-                      <td className="px-5 py-4 text-[var(--text-primary)] font-body">{aeo}</td>
+            <div className="-mx-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0">
+              <div className="min-w-[680px] overflow-hidden rounded-xl border border-white/10">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-white/[0.03] border-b border-white/10">
+                      <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body"></th>
+                      <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Traditional SEO</th>
+                      <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body">AEO</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {[
+                      ['Goal', 'Rank in search results', 'Appear in AI-generated answers'],
+                      ['Output measured', 'Rankings, organic traffic', 'Citation rate, brand share in answers'],
+                      ['Key technical lever', 'Backlinks, page speed, crawl health', 'Schema markup, entity clarity, AI crawler access'],
+                      ['Key content lever', 'Keywords, E-E-A-T, content depth', 'Direct answers, FAQ structure, topic coverage'],
+                      ['Competitor analysis', 'Keyword gap, backlink gap', 'Mention gap, AI recommendation share'],
+                      ['Rhemic covers this', 'Yes', 'Yes'],
+                    ].map(([label, seo, aeo], i) => (
+                      <tr key={label} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 ? 'bg-white/[0.015]' : ''}`}>
+                        <td className="px-5 py-4 align-top text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] font-body">{label}</td>
+                        <td className="px-5 py-4 align-top text-[var(--text-tertiary)] font-body">{seo}</td>
+                        <td className="px-5 py-4 align-top text-[var(--text-primary)] font-body">{aeo}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </section>
 

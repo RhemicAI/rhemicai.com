@@ -26,25 +26,27 @@ export default function AeoExplainer() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-white/10">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-white/[0.03] border-b border-white/10">
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body w-1/3"></th>
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body w-1/3">Traditional Search (SEO)</th>
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body w-1/3">AI Answer Engines (GEO)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, i) => (
-                <tr key={i} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 && !row.highlight ? 'bg-white/[0.015]' : ''} ${row.highlight ? 'bg-white/[0.04]' : ''}`}>
-                  <td className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] font-body">{row.label}</td>
-                  <td className={`px-5 py-4 font-body ${row.highlight ? 'text-[var(--text-primary)] font-semibold' : 'text-[var(--text-tertiary)]'}`}>{row.seo}</td>
-                  <td className={`px-5 py-4 font-body ${row.highlight ? 'text-[var(--text-primary)] font-semibold' : 'text-[var(--text-primary)]'}`}>{row.aeo}</td>
+        <div className="-mx-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0">
+          <div className="min-w-[640px] overflow-hidden rounded-xl border border-white/10">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-white/[0.03] border-b border-white/10">
+                  <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body"></th>
+                  <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Traditional Search (SEO)</th>
+                  <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body">AI Answer Engines (GEO)</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {rows.map((row, i) => (
+                  <tr key={i} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 && !row.highlight ? 'bg-white/[0.015]' : ''} ${row.highlight ? 'bg-white/[0.04]' : ''}`}>
+                    <td className="px-5 py-4 align-top text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] font-body">{row.label}</td>
+                    <td className={`px-5 py-4 align-top font-body ${row.highlight ? 'text-[var(--text-primary)] font-semibold' : 'text-[var(--text-tertiary)]'}`}>{row.seo}</td>
+                    <td className={`px-5 py-4 align-top font-body ${row.highlight ? 'text-[var(--text-primary)] font-semibold' : 'text-[var(--text-primary)]'}`}>{row.aeo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
