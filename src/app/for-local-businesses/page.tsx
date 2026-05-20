@@ -229,7 +229,7 @@ function SmbFooterCTA() {
             calLink="rhemic-ai/discovery-call"
             className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body"
           >
-            Book a Demo
+            Sign up
           </CalBookingLink>
         </div>
 

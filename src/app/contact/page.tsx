@@ -244,20 +244,20 @@ export default function ContactPage() {
 
             {/* Contact Info & CTA */}
             <div className="space-y-8">
-              {/* Book a Demo CTA */}
+              {/* Sign up CTA */}
               <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-8">
                 <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                  Ready to see it in action?
+                  Ready to get started?
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
-                  Book a 30-minute demo and see how Rhemic AI can transform your
-                  visibility in AI-generated search results.
+                  Pick a plan, create your account, and get instant dashboard access.
+                  No setup fees, cancel any time.
                 </p>
                 <a
-                  href="#" data-cal-link="rhemic-ai/discovery-call"
+                  href="/signup"
                   className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
                 >
-                  Book a Demo
+                  Sign up
                 </a>
               </div>
 

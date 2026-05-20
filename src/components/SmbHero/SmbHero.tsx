@@ -1,4 +1,4 @@
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import Link from 'next/link';
 
 export default function SmbHero() {
   return (
@@ -38,12 +38,12 @@ export default function SmbHero() {
           More customers now ask AI for recommendations before they search Google. If you&apos;re not in the answer, you&apos;re losing business to competitors who are.
         </p>
 
-        <CalBookingLink
-          calLink="rhemic-ai/discovery-call"
+        <Link
+          href="/signup"
           className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
         >
-          Book a Demo
-        </CalBookingLink>
+          Sign up
+        </Link>
       </div>
     </section>
   );

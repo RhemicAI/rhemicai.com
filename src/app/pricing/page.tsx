@@ -30,7 +30,7 @@ const pricingFaqs = [
   },
   {
     question: 'What is agency or partner pricing?',
-    answer: 'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic via the Book Partner Demo to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
+    answer: 'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
   },
   {
     question: 'Can I talk to someone before I subscribe?',
@@ -103,15 +103,15 @@ export default function PricingPage() {
               Ready to get started?
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
-              Book a discovery call and we&apos;ll help you choose the right setup for your engine coverage, prompt volume, and implementation needs.
+              Pick a plan, create your account, and get instant access to your Rhemic dashboard.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <CalBookingLink
-                calLink="rhemic-ai/discovery-call"
+              <Link
+                href="/signup"
                 className="rounded-[5px] bg-[var(--btn-primary-bg)] px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                Book a Demo
-              </CalBookingLink>
+                Sign up
+              </Link>
               <Link
                 href="/contact"
                 className="rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
@@ -120,7 +120,7 @@ export default function PricingPage() {
               </Link>
             </div>
             <p className="mt-6 text-xs text-[var(--text-muted)]">
-              No hidden fees · No long-term contracts
+              No setup fees · No long-term contracts
             </p>
           </section>
 
@@ -130,14 +130,14 @@ export default function PricingPage() {
             <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Agency and partner pricing</h2>
             <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
               Agencies delivering AI visibility services to multiple clients work on partner pricing.
-              The economics are different from SMB plans. Book a partner demo to discuss multi-client
+              The economics are different from SMB plans. Reach out to discuss multi-client
               delivery, reporting, and pricing.
             </p>
             <CalBookingLink
               calLink="rhemic-ai/discovery-call"
               className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
             >
-              Book Partner Demo
+              Talk to partnerships
             </CalBookingLink>
           </section>
 
@@ -157,9 +157,9 @@ export default function PricingPage() {
             href: '/products',
           },
           {
-            title: 'Book a Demo',
-            description: 'See the platform with us and get help choosing the right setup.',
-            href: '/contact',
+            title: 'Sign up',
+            description: 'Create your account, pick a plan, and start in minutes.',
+            href: '/signup',
           },
           {
             title: 'FAQ',

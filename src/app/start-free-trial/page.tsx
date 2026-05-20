@@ -336,10 +336,10 @@ export default function StartFreeTrialPage() {
             </p>
 
             <a
-              href="#" data-cal-link="rhemic-ai/discovery-call"
+              href="/signup"
               className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
             >
-              Book Discovery Call
+              Sign up
             </a>
 
             <p className="text-xs text-[var(--text-muted)] mt-6">
@@ -507,10 +507,10 @@ export default function StartFreeTrialPage() {
           {/* Bottom CTA */}
           <div className="mt-16 text-center">
             <a
-              href="#" data-cal-link="rhemic-ai/discovery-call"
+              href="/signup"
               className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
             >
-              Book Discovery Call
+              Sign up
             </a>
             <p className="text-sm text-[var(--text-muted)] mt-4">
               Takes 30 minutes · Get results in 48 hours

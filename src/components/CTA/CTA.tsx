@@ -1,4 +1,3 @@
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import Link from 'next/link';
 
 export default function CTA() {
@@ -25,12 +24,12 @@ export default function CTA() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <CalBookingLink
-            calLink="rhemic-ai/discovery-call"
+          <Link
+            href="/signup"
             className="px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105"
           >
-            Book a Demo
-          </CalBookingLink>
+            Sign up
+          </Link>
 
           <Link
             href="/how-it-works"

@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import { smbPlans } from '@/data/pricing';
 
 function CheckIcon() {
@@ -23,8 +21,6 @@ function CheckIcon() {
 }
 
 export default function SmbPricing() {
-  const [annual, setAnnual] = useState(false);
-
   return (
     <section className="relative z-10 px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
@@ -33,45 +29,19 @@ export default function SmbPricing() {
             Pricing
           </p>
           <h2 className="mb-6 font-display text-2xl font-bold text-[var(--text-primary)] sm:text-3xl md:text-4xl">
-            Simple pricing for local businesses.
+            Simple pricing for med spas.
           </h2>
-
-          <div className="mb-2 flex items-center justify-center gap-3">
-            <span className={`font-body text-sm ${!annual ? 'text-white' : 'text-white/50'}`}>Monthly</span>
-            <button
-              type="button"
-              onClick={() => setAnnual(!annual)}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                annual ? 'bg-white' : 'bg-white/20'
-              }`}
-              aria-label="Toggle annual pricing"
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  annual ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-            <span className={`font-body text-sm ${annual ? 'text-white' : 'text-white/50'}`}>
-              Annual <span className="text-xs text-white/60">(save 2 months)</span>
-            </span>
-          </div>
+          <p className="mx-auto max-w-2xl font-body text-base text-[var(--text-secondary)]">
+            No setup fees. No long-term contracts. First 10 customers per tier get 25% off the first three months.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {smbPlans.map((plan) => {
-            const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
-            const priceSuffix = annual ? '/year' : '/mo';
-            const savings = plan.monthlyPrice * 12 - plan.annualPrice;
             const primaryButtonClass = `block w-full rounded-[5px] py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
               plan.featured
                 ? 'bg-white text-black shadow-lg shadow-white/10 hover:bg-gray-100'
                 : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
-            }`;
-            const secondaryButtonClass = `block w-full rounded-[5px] border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
-              plan.featured
-                ? 'border-white/20 bg-white/[0.03] text-white hover:bg-white/10'
-                : 'border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
             }`;
 
             return (
@@ -91,28 +61,21 @@ export default function SmbPricing() {
                   </div>
                 )}
 
-                <h3 className="font-display text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-tertiary)]">
+                  {plan.headline}
+                </p>
+                <h3 className="mt-2 font-display text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
                 <p className="mt-1 font-body text-sm text-[var(--text-muted)]">{plan.bestFor}</p>
 
                 <div className="mt-6">
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-4xl font-bold text-[var(--text-primary)]">
-                      ${displayPrice.toLocaleString()}
+                      ${plan.monthlyPrice.toLocaleString()}
                     </span>
-                    <span className="font-body text-sm text-[var(--text-muted)]">{priceSuffix}</span>
+                    <span className="font-body text-sm text-[var(--text-muted)]">/mo</span>
                   </div>
-                  {!annual && (
-                    <p className="mt-1 font-body text-sm text-[var(--text-muted)] line-through">
-                      Was ${plan.wasPrice}/mo
-                    </p>
-                  )}
-                  {annual ? (
-                    <p className="mt-1 font-body text-xs text-white/60">
-                      Save ${savings.toLocaleString()}/year
-                    </p>
-                  ) : null}
                   <p className="mt-2 font-body text-[11px] text-white/50">
-                    Founding member pricing. Locks in at signup. Price increases after first 100 customers.
+                    No setup fees. Cancel any time.
                   </p>
                 </div>
 
@@ -135,14 +98,9 @@ export default function SmbPricing() {
                 </ul>
 
                 <div className="mt-8 flex flex-col gap-3">
-                  {annual && (
-                    <Link href="/contact" className={primaryButtonClass}>
-                      Contact for annual billing
-                    </Link>
-                  )}
-                  <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
-                    Book a Demo
-                  </CalBookingLink>
+                  <Link href={`/signup?plan=${plan.tier}`} className={primaryButtonClass}>
+                    Sign up
+                  </Link>
                 </div>
               </div>
             );
@@ -150,7 +108,7 @@ export default function SmbPricing() {
         </div>
 
         <p className="mt-8 text-center font-body text-base text-[var(--text-secondary)]">
-          One missed job costs $5,000-$15,000. This costs less than one service call per month.
+          Basic break-even is 3 new patients per month. Your average month is 245 visits.
         </p>
       </div>
     </section>

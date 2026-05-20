@@ -210,7 +210,7 @@ export default function AnswerEngineOptimizationPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
               >
-                Book a Demo
+                Sign up
               </Link>
             </div>
           </section>
