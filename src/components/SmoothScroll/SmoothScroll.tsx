@@ -77,11 +77,11 @@ export default function SmoothScroll() {
       if (lenisRef.current) return;
 
       const lenis = new Lenis({
-        duration: 1.8,
+        duration: 1.15,
         easing: easeExpoOut,
         smoothWheel: true,
-        wheelMultiplier: 0.75,
-        touchMultiplier: 1.4,
+        wheelMultiplier: 0.65,
+        touchMultiplier: 1,
         infinite: false,
         anchors: false,
       });
@@ -99,6 +99,9 @@ export default function SmoothScroll() {
     const syncLenis = () => {
       if (shouldUseLenis()) {
         startLenis();
+        if (typeof lenisRef.current?.resize === 'function') {
+          lenisRef.current.resize();
+        }
       } else {
         stopLenis();
       }
@@ -107,10 +110,12 @@ export default function SmoothScroll() {
     syncLenis();
     reducedMotionQuery.addEventListener('change', syncLenis);
     coarsePointerQuery.addEventListener('change', syncLenis);
+    window.addEventListener('resize', syncLenis);
 
     return () => {
       reducedMotionQuery.removeEventListener('change', syncLenis);
       coarsePointerQuery.removeEventListener('change', syncLenis);
+      window.removeEventListener('resize', syncLenis);
       stopLenis();
     };
   }, []);

@@ -6,8 +6,8 @@ interface ComparisonTableProps {
 
 export default function ComparisonTable({ headers, rows, caption }: ComparisonTableProps) {
   return (
-    <div className="overflow-x-auto my-8">
-      <table className="w-full border border-[var(--border-default)] rounded-xl overflow-hidden text-sm">
+    <div className="-mx-6 my-8 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0">
+      <table className="min-w-[640px] w-full border border-[var(--border-default)] rounded-xl overflow-hidden text-sm">
         {caption && (
           <caption className="text-left text-sm text-[var(--text-muted)] mb-2 px-1">
             {caption}
@@ -18,7 +18,7 @@ export default function ComparisonTable({ headers, rows, caption }: ComparisonTa
             {headers.map((header) => (
               <th
                 key={header}
-                className="px-4 py-3 text-left font-semibold text-[var(--text-primary)] border-b border-[var(--border-default)]"
+                className="px-4 py-3 text-left align-top font-semibold text-[var(--text-primary)] border-b border-[var(--border-default)]"
               >
                 {header}
               </th>
@@ -33,13 +33,13 @@ export default function ComparisonTable({ headers, rows, caption }: ComparisonTa
                 i % 2 === 0 ? 'bg-[var(--bg-glass)]' : 'bg-transparent'
               } hover:bg-[var(--bg-elevated)] transition-colors`}
             >
-              <td className="px-4 py-3 font-medium text-[var(--text-primary)] border-b border-[var(--border-subtle)]">
+              <td className="px-4 py-3 align-top font-medium text-[var(--text-primary)] border-b border-[var(--border-subtle)]">
                 {row.label}
               </td>
               {row.values.map((value, j) => (
                 <td
                   key={j}
-                  className="px-4 py-3 text-[var(--text-secondary)] border-b border-[var(--border-subtle)]"
+                  className="px-4 py-3 align-top text-[var(--text-secondary)] border-b border-[var(--border-subtle)]"
                 >
                   {typeof value === 'boolean' ? (
                     value ? (

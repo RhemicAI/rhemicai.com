@@ -13,6 +13,16 @@ const MARKERS: { location: [number, number]; size: number }[] = [
   { location: [25.2048, 55.2708], size: 0.03 },   // Dubai
 ];
 
+const WHEEL_QUERY = '(pointer: fine)';
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
+function lerp(start: number, end: number, amount: number): number {
+  return start + (end - start) * amount;
+}
+
 function getDpr(): number {
   if (typeof window === 'undefined') return 1;
   // Cap at 1, globe is a subtle background element, no need for retina rendering
@@ -24,13 +34,19 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function supportsWheelMotion(): boolean {
+  if (typeof window === 'undefined' || !window.matchMedia) return false;
+  return window.matchMedia(WHEEL_QUERY).matches && !prefersReducedMotion();
+}
+
 export default function CobeGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null);
   const phiRef = useRef(0);
   const resizeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isBuilding = useRef(false);
-  const scrollVelocityRef = useRef(0);
+  const currentScrollVelocityRef = useRef(0);
+  const targetScrollVelocityRef = useRef(0);
   const scrollIdleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const buildGlobe = useCallback(() => {
@@ -50,8 +66,9 @@ export default function CobeGlobe() {
 
     const w = window.innerWidth;
     const h = window.innerHeight;
-    // Always rotate, globe is a subtle background, not a motion-sickness trigger
-    const rotationSpeed = prefersReducedMotion() ? 0.001 : 0.003;
+    const isMobile = w < 768;
+    const reducedMotion = prefersReducedMotion();
+    const rotationSpeed = reducedMotion ? 0.0008 : isMobile ? 0.0018 : 0.0024;
 
     globeRef.current = createGlobe(canvas, {
       devicePixelRatio: getDpr(),
@@ -61,20 +78,30 @@ export default function CobeGlobe() {
       theta: -0.15,
       dark: 1,
       diffuse: 2.0,
-      mapSamples: 16000,
-      mapBrightness: 12,
+      mapSamples: isMobile ? 9000 : 14000,
+      mapBrightness: isMobile ? 10 : 12,
       baseColor: [0.05, 0.05, 0.05],
       markerColor: [1, 1, 1],
       glowColor: [0.1, 0.1, 0.1],
-      scale: 1.5,
-      offset: [0, h * 0.15],
+      scale: isMobile ? 1.32 : 1.5,
+      offset: [0, isMobile ? h * 0.1 : h * 0.15],
       markers: MARKERS,
       onRender: (state) => {
+        currentScrollVelocityRef.current = lerp(
+          currentScrollVelocityRef.current,
+          targetScrollVelocityRef.current,
+          0.08
+        );
+        targetScrollVelocityRef.current *= 0.9;
+        if (Math.abs(targetScrollVelocityRef.current) < 0.00002) {
+          targetScrollVelocityRef.current = 0;
+        }
+        if (Math.abs(currentScrollVelocityRef.current) < 0.00002) {
+          currentScrollVelocityRef.current = 0;
+        }
+
         state.phi = phiRef.current;
-        phiRef.current += rotationSpeed + scrollVelocityRef.current;
-        // Stronger per-frame decay so trackpad momentum can't pin velocity
-        // at the clamp ceiling indefinitely.
-        scrollVelocityRef.current *= 0.82;
+        phiRef.current += rotationSpeed + currentScrollVelocityRef.current;
       },
     });
 
@@ -122,34 +149,43 @@ export default function CobeGlobe() {
     const onResize = () => {
       clearTimeout(resizeTimer.current);
       resizeTimer.current = setTimeout(() => {
+        currentScrollVelocityRef.current = 0;
+        targetScrollVelocityRef.current = 0;
         buildGlobe();
-      }, 300);
+      }, 250);
     };
     window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onResize);
     return () => {
       window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onResize);
       clearTimeout(resizeTimer.current);
     };
   }, [buildGlobe]);
 
   // Scroll-driven rotation: scroll down = spin right, scroll up = spin left.
-  // macOS trackpad momentum dispatches wheel events long after physical scroll
-  // stops, so we (a) keep the per-event contribution small, (b) clamp tight,
-  // and (c) force velocity to zero after a short idle window so the globe
-  // returns to its baseline rotation instead of staying pinned at max speed.
+  // Trackpads keep dispatching wheel momentum, so this writes to a target
+  // velocity that the render loop eases toward instead of snapping per event.
   useEffect(() => {
+    if (!supportsWheelMotion()) return;
+
     const onWheel = (e: WheelEvent) => {
-      scrollVelocityRef.current += e.deltaY * 0.0001;
-      scrollVelocityRef.current = Math.max(-0.015, Math.min(0.015, scrollVelocityRef.current));
+      targetScrollVelocityRef.current = clamp(
+        targetScrollVelocityRef.current + e.deltaY * 0.000035,
+        -0.006,
+        0.006
+      );
       clearTimeout(scrollIdleTimer.current);
       scrollIdleTimer.current = setTimeout(() => {
-        scrollVelocityRef.current = 0;
-      }, 180);
+        targetScrollVelocityRef.current = 0;
+      }, 220);
     };
     window.addEventListener('wheel', onWheel, { passive: true });
     return () => {
       window.removeEventListener('wheel', onWheel);
       clearTimeout(scrollIdleTimer.current);
+      currentScrollVelocityRef.current = 0;
+      targetScrollVelocityRef.current = 0;
     };
   }, []);
 
@@ -158,7 +194,12 @@ export default function CobeGlobe() {
       ref={canvasRef}
       aria-hidden="true"
       className="fixed inset-0 z-0 w-full h-full"
-      style={{ pointerEvents: 'none', backgroundColor: '#0a0a0a' }}
+      style={{
+        pointerEvents: 'none',
+        backgroundColor: '#0a0a0a',
+        transform: 'translate3d(0, 0, 0)',
+        willChange: 'transform',
+      }}
     />
   );
 }
