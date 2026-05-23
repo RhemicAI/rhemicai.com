@@ -84,14 +84,14 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-enter-title max-w-[720px] font-display text-[clamp(2.65rem,10.8vw,5.45rem)] font-medium leading-[1.02] tracking-normal text-[var(--ink)] sm:text-[clamp(3.05rem,6.25vw,5.45rem)] sm:leading-[0.95]">
-            <span className="block sm:inline">Turn med spa </span>
-            <span className="block sm:inline">searches and </span>
-            <span className="block sm:inline">missed calls into </span>
+            <span className="block sm:inline">Med spa </span>
+            <span className="block sm:inline">growth engine </span>
+            <span className="block sm:inline">for more </span>
             <span className="hero-proof-word block whitespace-nowrap sm:whitespace-normal">booked consults.</span>
           </h1>
 
           <p className="hero-enter-copy mt-7 max-w-[560px] font-body text-base leading-[1.55] text-[var(--mute)] md:text-lg">
-            Rhemic helps your clinic get found on Google and AI answers, recover missed-call opportunities, and route booking requests to your team.
+            Rhemic helps clinics get found on Google and AI search, answer leads faster, recover missed calls, and trace consults back to the source.
           </p>
 
           <div className="hero-enter-copy mt-8 hidden flex-col gap-3 sm:flex sm:flex-row">
