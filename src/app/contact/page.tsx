@@ -84,8 +84,8 @@ export default function ContactPage() {
 
       <PageHero
         subtitle="Contact"
-        title="Book a med-spa growth audit."
-        description="Talk with Rhemic about local visibility, trust signals, missed-call opportunities, and the booking handoff for your clinic."
+        title="Get a visibility and call leak audit."
+        description="Talk with Rhemic about Google visibility, AI search, reviews, treatment pages, missed-call opportunities, and booking request routing for your med spa."
         showBackLink={false}
       />
 
@@ -93,9 +93,9 @@ export default function ContactPage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div>
+            <div className="glass-panel p-6 sm:p-8">
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-                Send us a message
+                Tell us about your clinic
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
@@ -114,7 +114,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
-                    placeholder="John Doe"
+                    placeholder="Jane Smith"
                   />
                 </div>
 
@@ -134,7 +134,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
-                    placeholder="john@company.com"
+                    placeholder="jane@clinic.com"
                   />
                 </div>
 
@@ -144,7 +144,7 @@ export default function ContactPage() {
                     htmlFor="company"
                     className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
                   >
-                    Company *
+                    Clinic *
                   </label>
                   <input
                     type="text"
@@ -154,7 +154,7 @@ export default function ContactPage() {
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
-                    placeholder="Acme Corp"
+                    placeholder="Your med spa"
                   />
                 </div>
 
@@ -175,11 +175,11 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
                   >
                     <option value="">Select your role</option>
-                    <option value="founder">Founder / CEO</option>
-                    <option value="marketing">Marketing Leader</option>
-                    <option value="product">Product Manager</option>
-                    <option value="engineering">Engineering / Technical</option>
-                    <option value="sales">Sales / Business Development</option>
+                    <option value="owner">Owner / Founder</option>
+                    <option value="operator">Clinic Operator</option>
+                    <option value="practice-manager">Practice Manager</option>
+                    <option value="marketing">Marketing Lead</option>
+                    <option value="multi-location">Multi-location Leader</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all resize-none"
-                    placeholder="Tell us about your business and what you're looking to achieve..."
+                    placeholder="Tell us about your locations, main treatments, and where consults are leaking..."
                   />
                 </div>
 
@@ -231,10 +231,10 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full px-8 py-4 text-base font-semibold rounded-[5px] transition-all duration-300 ${
+                  className={`w-full px-8 py-4 text-base font-semibold rounded-full transition-all duration-300 ${
                     isSubmitting
                       ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                      : 'text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] hover:scale-105'
+                      : 'text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] hover:-translate-y-0.5'
                   }`}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -245,29 +245,29 @@ export default function ContactPage() {
             {/* Contact Info & CTA */}
             <div className="space-y-8">
               {/* Book an audit CTA */}
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-8">
+              <div className="glass-panel p-8">
                 <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
                   Ready to find the leaks?
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
-                  Book a 20-minute med-spa growth audit and review where your clinic can improve visibility, trust, call recovery, and consult routing.
+                  Get a visibility and call leak audit to review where your clinic can improve Google visibility, trust, call recovery, and consult routing.
                 </p>
                 <a
                   href="#" data-cal-link="rhemic-ai/discovery-call"
-                  className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                  className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  Book a 20-minute med-spa growth audit
+                  Get a visibility + call leak audit
                 </a>
               </div>
 
               {/* Direct Contact */}
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8">
+              <div className="glass-panel p-8">
                 <h3 className="text-xl font-bold text-[var(--text-primary)] mb-4">
                   Email us directly
                 </h3>
                 <a
                   href="mailto:contact@rhemicai.com"
-                  className="text-lg text-[var(--text-primary)] hover:text-white transition-colors underline underline-offset-4"
+                  className="text-lg text-[var(--text-primary)] hover:text-[var(--pulse-deep)] transition-colors underline underline-offset-4"
                 >
                   contact@rhemicai.com
                 </a>
@@ -277,7 +277,7 @@ export default function ContactPage() {
               </div>
 
               {/* Address */}
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8">
+              <div className="glass-panel p-8">
                 <h3 className="text-xl font-bold text-[var(--text-primary)] mb-4">
                   Headquarters
                 </h3>
@@ -300,23 +300,23 @@ export default function ContactPage() {
             <div className="grid sm:grid-cols-3 gap-6">
               <Link
                 href="/#what-we-optimize"
-                className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
+                className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
-                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">What We Optimize</h3>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">What We Optimize</h3>
                 <p className="text-sm text-[var(--text-secondary)]">GBP, Maps, reviews, treatment pages, AI answers, missed calls, and ads intelligence.</p>
               </Link>
               <Link
                 href="/pricing"
-                className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
+                className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
-                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Pricing</h3>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">Pricing</h3>
                 <p className="text-sm text-[var(--text-secondary)]">Basic, Growth, Premium, and Custom plans for med-spa consult growth.</p>
               </Link>
               <Link
                 href="/about"
-                className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
+                className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
-                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">About Rhemic AI</h3>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">About Rhemic AI</h3>
                 <p className="text-sm text-[var(--text-secondary)]">Meet the Dallas team building patient acquisition infrastructure for med spas.</p>
               </Link>
             </div>
