@@ -143,7 +143,7 @@ export default function HowItWorksPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                Book a Demo
+                Get the audit
               </Link>
               <Link
                 href="/faq"

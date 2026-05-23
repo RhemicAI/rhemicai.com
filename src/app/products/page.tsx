@@ -178,7 +178,7 @@ export default function ProductsPage() {
                   href="#" data-cal-link="rhemic-ai/discovery-call"
                   className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Book a Demo
+                  Get the audit
                 </a>
               </div>
             </div>
@@ -221,7 +221,7 @@ export default function ProductsPage() {
             href: '/pricing',
           },
           {
-            title: 'Start Free Trial',
+            title: 'Get the Audit',
             description: 'Get a personalized trial with website audit and AEO score baseline.',
             href: '/start-free-trial',
           },

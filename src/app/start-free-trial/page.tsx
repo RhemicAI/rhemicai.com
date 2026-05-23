@@ -119,10 +119,10 @@ export default function StartFreeTrialPage() {
             },
             {
               '@type': 'Question',
-              name: 'Is my business a good fit for this?',
+              name: 'Is my med spa a good fit for this?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: "If you have an existing website and want to improve visibility in AI-generated search results, you're likely a good fit. This works especially well for B2B, SaaS, local businesses, and content publishers.",
+                text: "If you run a U.S. med spa and want to improve Google visibility, AI search visibility, missed-call recovery, and booking request routing, you're likely a good fit.",
               },
             },
           ],
@@ -131,9 +131,9 @@ export default function StartFreeTrialPage() {
       <FixedNav />
 
       <PageHero
-        subtitle="Start Free Trial"
-        title="Your business deserves better visibility."
-        description="Get a trial built specifically for your challenges. Book a quick call to get started."
+        subtitle="Get the Audit"
+        title="Find where med spa consults are leaking."
+        description="Start with a visibility and call leak audit across Google, AI search, reviews, treatment pages, missed calls, and booking request routing."
         showBackLink={false}
       />
 
@@ -142,12 +142,10 @@ export default function StartFreeTrialPage() {
         <div className="mx-auto max-w-2xl px-6">
           <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-8 sm:p-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4 text-center">
-              Get early access
+              Request the audit
             </h2>
             <p className="text-lg text-[var(--text-secondary)] mb-10 text-center max-w-xl mx-auto leading-relaxed">
-              We&apos;re onboarding a limited number of businesses for our beta.
-              Tell us about yours, if it&apos;s a fit, you&apos;ll be first in
-              line.
+              Tell us about your med spa, locations, and growth goals. We&apos;ll review whether Rhemic is a fit for the visibility and call-capture gaps you want to fix.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">

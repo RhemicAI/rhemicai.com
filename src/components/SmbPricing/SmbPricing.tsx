@@ -141,7 +141,7 @@ export default function SmbPricing() {
                     </Link>
                   )}
                   <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
-                    Book a Demo
+                    Get the audit
                   </CalBookingLink>
                 </div>
               </div>

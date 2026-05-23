@@ -15,7 +15,7 @@ const labelMap: Record<string, string> = {
   pricing: 'Pricing',
   'privacy-policy': 'Privacy Policy',
   'terms-of-service': 'Terms of Service',
-  'start-free-trial': 'Start Free Trial',
+  'start-free-trial': 'Get the Audit',
   faq: 'FAQ',
   'how-it-works': 'How It Works',
   compare: 'Compare',

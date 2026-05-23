@@ -592,7 +592,7 @@ export default function WhatIsAEOPage() {
                   href="/start-free-trial"
                   className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Start Free Trial
+                  Get the Audit
                 </Link>
                 <Link
                   href="/pricing"
@@ -705,7 +705,7 @@ export default function WhatIsAEOPage() {
               href: '/products/competitor-analysis',
             },
             {
-              title: 'Start Free Trial',
+              title: 'Get the Audit',
               description: 'Get a personalized trial with a website audit and AEO score baseline.',
               href: '/start-free-trial',
             },
@@ -727,7 +727,7 @@ export default function WhatIsAEOPage() {
                 href="#" data-cal-link="rhemic-ai/discovery-call"
                 className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
-                Book a Demo
+                Get the audit
               </a>
             </div>
           </div>
