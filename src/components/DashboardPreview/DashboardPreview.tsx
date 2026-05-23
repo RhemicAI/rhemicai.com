@@ -8,10 +8,10 @@ export default function DashboardPreview() {
         <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-start">
           <div>
             <h2 className="mb-5 font-display text-3xl font-bold leading-[1.1] text-[var(--text-primary)] md:text-4xl">
-              Early Rhemic customers work directly with Karim and Raahil.
+              Early Rhemic customers work directly with the founding team.
             </h2>
             <p className="font-body text-base leading-[1.8] text-[var(--text-secondary)]">
-              Discovery, setup, and growth priorities stay close to the founders. The goal is not to hand med spas another dashboard. It is to identify where consults are leaking and build the infrastructure to capture more of the opportunities already moving through search, reviews, Meta Ads data, calls, and AI answers.
+              Discovery, setup, and growth priorities stay close to the people building the system. The goal is not to hand med spas another dashboard. It is to identify where consults are leaking and build the infrastructure to capture more of the opportunities already moving through search, reviews, Meta Ads data, calls, and AI answers.
             </p>
           </div>
           <div className="rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg-2)] p-6">
