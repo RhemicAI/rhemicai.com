@@ -82,7 +82,6 @@ export function organizationSchema() {
     },
     founders: [
       { "@type": "Person", name: "Ittehadul Karim", jobTitle: "CEO" },
-      { "@type": "Person", name: "Shifat Santo", jobTitle: "CTO" },
       { "@type": "Person", name: "Raahil Shaik", jobTitle: "COO/CFO" },
     ],
     address: {

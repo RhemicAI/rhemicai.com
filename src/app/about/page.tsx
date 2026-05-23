@@ -21,11 +21,6 @@ const founders = [
     linkedin: 'https://www.linkedin.com/in/ittehadul-karim-3302a51a5/',
   },
   {
-    name: 'Shifat Santo',
-    role: 'CTO',
-    linkedin: 'https://www.linkedin.com/in/shifatislam-santo/',
-  },
-  {
     name: 'Raahil Shaik',
     role: 'COO/CFO',
     linkedin: 'https://www.linkedin.com/in/raahil-shaik/',
@@ -186,7 +181,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
               Leadership Team
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {founders.map((founder) => (
                 <div
                   key={founder.name}
@@ -260,7 +255,7 @@ export default function AboutPage() {
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO), Shifat Santo (CTO), and Raahil Shaik (COO/CFO), three engineers at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool businesses needed to respond to it.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO), two builders at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool businesses needed to respond to it.',
               },
               {
                 question: 'Where is Rhemic AI based?',
