@@ -175,8 +175,9 @@ export default function Hero() {
         {stripItems.map(([label, value], index) => (
           <span key={label} className="flex items-center gap-3 text-sm text-[var(--mute)]">
             {index > 0 ? <span className="text-[var(--mute-2)]">·</span> : null}
-            <span>
-              {label} <b className="font-medium text-[var(--ink)]">{value}</b>
+            <span className="inline-flex items-center gap-1.5">
+              <span>{label}</span>
+              <b className="font-medium text-[var(--ink)]">{value}</b>
             </span>
           </span>
         ))}
