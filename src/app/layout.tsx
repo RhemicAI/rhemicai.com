@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Rhemic AI",
   },
   description:
-    "Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas, improving GBP, local SEO, reviews, citations, schema, treatment pages, AI answer visibility, missed-call recovery, and ads intelligence.",
+    "Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas, improving GBP, local SEO, reviews, citations, schema, treatment pages, AI answer visibility, missed-call recovery, and competitor ads intelligence.",
   keywords: [
     "med spa growth",
     "med spa patient acquisition",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Google Business Profile med spa",
     "missed-call recovery",
     "AI answer visibility",
-    "ads intelligence",
+    "competitor ads intelligence",
     "Rhemic AI",
     "Dallas med spa marketing infrastructure",
   ],

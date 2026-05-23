@@ -9,7 +9,7 @@ const groups = [
   },
   {
     title: 'Competitive signal',
-    items: ['Competitor visibility', 'Ads intelligence', 'Offer clarity', 'Market positioning gaps'],
+    items: ['Competitor visibility', 'Competitor ads intelligence', 'Offer clarity', 'Market positioning gaps'],
   },
   {
     title: 'Booking response',

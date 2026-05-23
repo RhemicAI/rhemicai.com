@@ -8,7 +8,7 @@ const linkRoutes: Record<string, string> = {
   // Product
   'Pricing': '/pricing',
   'What We Optimize': '/#what-we-optimize',
-  'The System': '/#how-it-works',
+  'How It Works': '/#how-it-works',
   'Book the Audit': '/contact',
   // Resources
   'Glossary': '/glossary',
@@ -24,7 +24,7 @@ const linkRoutes: Record<string, string> = {
 };
 
 const footerLinks = {
-  Solutions: ['What We Optimize', 'The System', 'Pricing', 'Book the Audit'],
+  Solutions: ['What We Optimize', 'How It Works', 'Pricing', 'Book the Audit'],
   Resources: ['Glossary', 'FAQ'],
   Company: ['About', 'Blog', 'Pricing', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],

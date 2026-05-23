@@ -7,7 +7,7 @@ const system = [
   {
     number: '02',
     title: 'Get Chosen',
-    body: 'Strengthen reviews, offer clarity, before-and-after trust, competitor positioning, and ads intelligence so patients have a clear reason to choose your clinic.',
+    body: 'Strengthen reviews, offer clarity, before-and-after trust, competitor positioning, and competitor ads intelligence so patients have a clear reason to choose your clinic.',
   },
   {
     number: '03',

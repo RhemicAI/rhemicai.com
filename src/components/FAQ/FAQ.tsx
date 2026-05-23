@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'Is this just SEO?',
     answer:
-      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI answer visibility, reviews, missed calls, ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
+      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI answer visibility, reviews, missed calls, competitor ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
   },
   {
     question: 'What is AEO/GEO?',

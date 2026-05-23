@@ -11,7 +11,7 @@ export default function DashboardPreview() {
               Early Rhemic customers work directly with Karim and Raahil.
             </h2>
             <p className="font-body text-base leading-[1.8] text-[var(--text-secondary)]">
-              Discovery, onboarding, and growth strategy stay close to the founders. The goal is not to hand med spas another dashboard. It is to identify where consults are leaking and build the infrastructure to capture more of the opportunities already moving through search, reviews, ads, calls, and AI answer systems.
+              Discovery, onboarding, and growth strategy stay close to the founders. The goal is not to hand med spas another dashboard. It is to identify where consults are leaking and build the infrastructure to capture more of the opportunities already moving through search, reviews, competitor ads, calls, and AI answer systems.
             </p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6">

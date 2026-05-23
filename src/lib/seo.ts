@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
   description:
-    "Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas, helping clinics improve Google Business Profile, local SEO, reviews, citations, schema, treatment pages, AI answer visibility, missed-call recovery, and ads intelligence.",
+    "Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas, helping clinics improve Google Business Profile, local SEO, reviews, citations, schema, treatment pages, AI answer visibility, missed-call recovery, and competitor ads intelligence.",
   social: {
     twitter: "@RhemicAI",
   },
@@ -98,7 +98,7 @@ export function organizationSchema() {
       "Schema markup",
       "Structured data",
       "Competitor analysis",
-      "Ads intelligence",
+      "Competitor ads intelligence",
     ],
     areaServed: "United States",
   };

@@ -7,7 +7,7 @@ const channels = [
   'Google Business Profile',
   'Reviews',
   'Treatment pages',
-  'Ads intelligence',
+  'Competitor ads intelligence',
   'Missed calls',
   'AI answers',
 ];
@@ -17,21 +17,21 @@ export default function Hero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-12 pt-28">
       <div className="relative z-10 mx-auto min-w-0 w-full max-w-4xl text-center">
         <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/75">
-          Patient acquisition infrastructure for U.S. med spas
+          Patient acquisition system for U.S. med spas
         </p>
 
         <h1
           className="mx-auto mb-6 max-w-[calc(100vw-3rem)] font-body text-[2.35rem] font-extrabold leading-[1.05] tracking-normal text-[var(--text-primary)] sm:max-w-4xl sm:text-[clamp(3.25rem,5.1vw,4.9rem)]"
           style={{ textShadow: '0 0 24px rgba(3, 7, 18, 0.55)' }}
         >
-          Med spa growth infrastructure for more booked consults.
+          Turn more med-spa searches, calls, and clicks into booked consults.
         </h1>
 
         <p
           className="mx-auto mb-8 max-w-[calc(100vw-3rem)] font-body text-base font-normal leading-[1.7] text-[var(--text-primary)] opacity-78 sm:max-w-2xl md:text-lg"
           style={{ textShadow: '0 0 20px rgba(3, 7, 18, 0.4)' }}
         >
-          Built by med-spa growth experts, Rhemic helps your clinic get found, trusted, and booked across the channels patients actually use: Google Maps, Google Business Profile, reviews, treatment pages, ads, missed calls, and AI answer engines.
+          Built for med-spa growth, Rhemic helps your clinic get found, trusted, and booked across the channels patients actually use: Google Maps, Google Business Profile, reviews, treatment pages, competitor ads intelligence, missed calls, and AI answer engines.
         </p>
 
         <div className="mb-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

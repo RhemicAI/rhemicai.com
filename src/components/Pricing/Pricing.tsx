@@ -114,7 +114,7 @@ export default function Pricing() {
             Med-spa growth plans built around consult capture.
           </h2>
           <p className="mx-auto max-w-2xl font-body text-base font-normal leading-relaxed text-[var(--text-primary)] opacity-80 md:text-lg">
-            Rhemic helps med spas get found, trusted, and booked across Google, reviews, treatment pages, calls, AI search visibility, and ads intelligence.
+            Rhemic helps med spas get found, trusted, and booked across Google, reviews, treatment pages, calls, AI search visibility, and competitor ads intelligence.
           </p>
         </div>
 

@@ -17,7 +17,7 @@ export default function EntityParagraph() {
         <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.75] font-body max-w-4xl">
           Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas. Rhemic helps
           clinics improve Google Business Profile quality, Google Maps visibility, local SEO, reviews,
-          citations, schema, treatment pages, AI answer visibility, missed-call recovery, ads intelligence,
+          citations, schema, treatment pages, AI answer visibility, missed-call recovery, competitor ads intelligence,
           and lead response workflows so more consult opportunities can be found, trusted, and routed into
           the clinic&apos;s booking process.{' '}
           <Link

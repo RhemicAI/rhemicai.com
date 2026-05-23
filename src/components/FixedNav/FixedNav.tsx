@@ -7,7 +7,7 @@ import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'System', href: '/#how-it-works' },
+  { label: 'How It Works', href: '/#how-it-works' },
   { label: 'What We Optimize', href: '/#what-we-optimize' },
   { label: 'Plans', href: '/#pricing' },
   { label: 'About', href: '/about' },

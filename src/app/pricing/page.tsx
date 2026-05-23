@@ -12,7 +12,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 export const metadata: Metadata = buildMetadata({
   title: 'Med Spa Pricing for Growth, Calls, Reviews, and AI Search',
   description:
-    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need better Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, ads intelligence, and AI receptionist coverage.',
+    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need better Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, competitor ads intelligence, and AI receptionist coverage.',
   path: '/pricing',
   keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist'],
 });
@@ -51,6 +51,8 @@ const snapshotCards = [
   { value: '$0', label: 'Setup fee' },
 ];
 
+const buyerMathItems = ['Botox', 'filler', 'laser', 'body-contouring'];
+
 const recommendationRows = [
   {
     situation: 'You need more patients finding you on Google.',
@@ -65,7 +67,7 @@ const recommendationRows = [
   {
     situation: 'Competitors are highly visible and running ads.',
     bestFit: 'Premium',
-    guidance: 'Premium gives deeper ads intelligence, competitor review, and market-response guidance.',
+    guidance: 'Premium gives deeper competitor ads intelligence, competitor review, and market-response guidance.',
   },
   {
     situation: 'You have two to five locations.',
@@ -107,7 +109,7 @@ export default function PricingPage() {
         service={{
           name: 'Rhemic AI Pricing and Service Plans',
           description:
-            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, and ads intelligence.',
+            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, and competitor ads intelligence.',
           path: '/pricing',
           audience: 'U.S. med spa owners and operators evaluating patient acquisition infrastructure',
         }}
@@ -160,6 +162,25 @@ export default function PricingPage() {
           </section>
 
           <PricingSwitch />
+
+          <section className="mb-12 rounded-3xl border border-cyan-200/15 bg-cyan-200/[0.04] p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/70">Buyer math</p>
+            <div className="mt-4 grid gap-6 md:grid-cols-[1fr_1.3fr] md:items-center">
+              <div className="flex flex-wrap gap-2">
+                {buyerMathItems.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-[5px] border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-[var(--text-secondary)]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <p className="text-base leading-[1.75] text-[var(--text-secondary)]">
+                One missed Botox, filler, laser, or body-contouring consult can be worth hundreds to thousands in lifetime value. Rhemic is built to find and close the leaks before you spend more on ads.
+              </p>
+            </div>
+          </section>
 
           <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6 sm:p-8">
             <h2 className="font-display text-3xl font-bold text-[var(--text-primary)]">
