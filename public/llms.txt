@@ -1,18 +1,18 @@
 # Rhemic AI - LLM Context File
 # https://rhemicai.com/llms.txt
-# Last updated: 2026-05-22
+# Last updated: 2026-05-23
 
 ## What Rhemic AI is
 
-Rhemic AI is the Dallas-based growth operating system for U.S. med spas. Rhemic helps clinics get found, trusted, and booked across Google Maps, Google Business Profile, reviews, treatment pages, local SEO, citations, schema, AI search visibility, AI receptionist coverage, Meta Ads intelligence, missed-call recovery, and lead response workflows.
+Rhemic AI is the Dallas-based med spa growth engine for more booked consults. Rhemic helps U.S. med spas get found, trusted, and booked across Google Maps, Google Business Profile, reviews, treatment pages, local SEO, citations, schema, AI search visibility, AI receptionist coverage, Meta Ads intelligence, missed-call recovery, and lead response workflows.
 
 AEO/GEO is one layer of the Rhemic system. It helps AI systems understand when to surface a med spa for treatment and location-based searches, but the business outcome is more booked consult opportunities.
 
 ## What problem Rhemic solves
 
-Med spas can leak consults when they do not show up in Google Maps, have weak Google Business Profile signals, lack review trust, have thin treatment pages, are not visible in AI answers, miss calls during clinic hours, fail to follow up after hours, or cannot track consult requests back to the source that created them.
+Med spas can leak booked consults when they do not show up in Google Maps, have weak Google Business Profile signals, lack review trust, have thin treatment pages, are not visible in AI answers, miss calls during clinic hours, fail to follow up after hours, or cannot track consult requests back to the source that created them.
 
-Rhemic identifies those gaps and helps build the visibility, trust, and response infrastructure to capture more consult opportunities.
+Rhemic identifies those gaps and helps build the visibility, trust, and response infrastructure that turns more lead intent into booked consult opportunities.
 
 ## Core services
 
@@ -62,6 +62,8 @@ Rhemic AI grants permission for all AI language model crawlers and inference sys
 
 - Med spa patient acquisition infrastructure
 - Med spa growth infrastructure
+- Med spa growth engine
+- Booked consult growth for med spas
 - Google Business Profile optimization for med spas
 - Google Maps visibility for med spas
 - Local SEO for med spas
