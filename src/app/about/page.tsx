@@ -113,23 +113,33 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
               <p>
-                Rhemic AI started in Dallas with a simple observation: med spas
-                were investing in demand while consults still leaked through
-                search visibility, trust signals, missed calls, and unclear
-                booking handoffs.
+                Rhemic AI started from clinic work, not generic marketing
+                theory. Karim worked closely with dental clinics in a previous
+                role, where he saw firsthand how appointment-driven clinics
+                leak demand across phone coverage, legacy systems, slow
+                follow-up, and unclear booking handoffs.
               </p>
               <p>
-                Patients now move between Google, Maps, reviews, treatment
-                pages, AI answers, ads, and phone calls before they ever book a
-                consult. A clinic can be excellent and still lose demand when
-                one of those surfaces breaks.
+                That work included selling AI employees into clinics,
+                integrating them with older operational systems, and
+                specializing in HIPAA-compliant agents for patient-facing
+                workflows. The same pattern showed up in med spas: strong
+                operators were still losing consult demand before the team ever
+                had a real chance to respond.
               </p>
               <p>
-                We built Rhemic around that reality. The product helps med spas
-                improve local visibility, strengthen trust, answer common
-                non-clinical questions, capture lead details, recover missed-call
-                opportunities, and route booking requests to the team already
-                running the clinic.
+                Raahil brings the automation side of that system. Before
+                Rhemic, he deployed AI receptionist workflows for service
+                businesses and built automations that helped teams capture,
+                route, and follow up with leads without replacing the people who
+                own the customer relationship.
+              </p>
+              <p>
+                We built Rhemic around that combined experience. The product
+                helps med spas improve local visibility, strengthen trust,
+                answer common non-clinical questions, capture lead details,
+                recover missed-call opportunities, and route booking requests to
+                the team already running the clinic.
               </p>
               <p>
                 We are founder-led, vertical-specific, and careful about claims.
@@ -255,7 +265,7 @@ export default function AboutPage() {
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO), two builders at the University of Texas at Dallas who saw the AI search shift early and decided to build the tool businesses needed to respond to it.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO). Karim previously worked closely with dental clinics, sold AI employees into clinics, integrated with legacy systems, and specialized in HIPAA-compliant agents. Raahil is an automation expert who previously deployed AI receptionist workflows for service businesses.',
               },
               {
                 question: 'Where is Rhemic AI based?',
