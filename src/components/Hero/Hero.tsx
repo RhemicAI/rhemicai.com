@@ -85,7 +85,7 @@ export default function Hero() {
 
           <h1 className="hero-enter-title max-w-[620px] font-display text-[clamp(2rem,3.6vw,3.25rem)] font-medium leading-[1.08] tracking-normal text-[var(--ink)] sm:text-[clamp(2.4rem,3.6vw,3.25rem)]">
             <span className="block whitespace-nowrap">Medspa Growth Engine</span>
-            <span className="block whitespace-nowrap text-[var(--pulse-deep)]">for More Booked Consults</span>
+            <span className="block whitespace-nowrap text-[#4DD6E0]">for More Booked Consults</span>
           </h1>
 
           <p className="hero-enter-copy mt-7 max-w-[560px] font-body text-base leading-[1.55] text-[var(--mute)] md:text-lg">
