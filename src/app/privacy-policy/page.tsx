@@ -4,13 +4,13 @@ import FixedNav from "@/components/FixedNav/FixedNav";
 import Footer from "@/components/Footer/Footer";
 import SummaryModal from "@/components/SummaryModal/SummaryModal";
 
-const privacySummary = `Rhemic AI LLC collects personal, business, and technical data to deliver AI Engine Optimization (AEO) and digital marketing services.
+const privacySummary = `Rhemic AI LLC collects personal, business, and technical data to deliver med spa visibility, AI receptionist, missed-call recovery, reporting, and growth operating system services.
 
 Key Points:
 - We collect names, emails, company info, billing details, website analytics, and technical data like IP addresses and cookies.
 - We do NOT sell your personal information.
 - Client data is never used to train public AI models. Internal improvements use only anonymized, aggregated data.
-- Data is shared only with necessary service providers (cloud hosting, payment processors, advertising platforms) under appropriate safeguards.
+- Data is shared only with necessary service providers such as cloud hosting, payment processors, analytics, communications, and advertising platforms under appropriate safeguards.
 - International transfers are protected by Standard Contractual Clauses.
 - GDPR (EEA/UK) and CCPA/CPRA (California) rights are fully supported, including access, deletion, correction, and data portability.
 - We do not collect data from individuals under 18.
@@ -22,12 +22,12 @@ Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
 export const metadata: Metadata = {
   title: "Privacy Policy | Rhemic AI",
   description:
-    "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect your information.",
+    "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect information for med spa visibility, AI receptionist, missed-call recovery, and reporting services.",
   alternates: { canonical: "https://rhemicai.com/privacy-policy" },
   openGraph: {
     title: "Privacy Policy | Rhemic AI",
     description:
-      "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect your information.",
+      "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect information for med spa visibility, AI receptionist, missed-call recovery, and reporting services.",
     url: "https://rhemicai.com/privacy-policy",
   },
 };
@@ -44,11 +44,11 @@ export default function PrivacyPolicyPage() {
           &larr; Back to Home
         </Link>
 
-        <header className="mb-16">
+        <header className="glass-panel mb-16 p-6 sm:p-8">
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
             Privacy Policy
           </h1>
-          <p className="text-lg text-[var(--text-tertiary)]">
+          <p className="section-label">
             RHEMIC AI LLC
           </p>
           <p className="text-sm text-[var(--text-muted)] mt-2">
@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
           </div>
         </header>
 
-        <div className="space-y-12 text-[var(--text-secondary)] leading-relaxed">
+        <div className="glass-panel space-y-12 p-6 text-[var(--text-secondary)] leading-relaxed sm:p-8">
           <p>
             RHEMIC AI LLC (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and handling personal data in a transparent and secure manner. This Privacy Policy explains how we collect, use, disclose, process, and protect information when you visit our website, use our services, or otherwise interact with us.
           </p>
@@ -161,9 +161,9 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="mb-4">We use personal data to:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Provide AI Engine Optimization (AEO) services</li>
-              <li>Deliver digital marketing and advertising services</li>
-              <li>Optimize AI search visibility strategies</li>
+              <li>Provide med spa visibility, AI search, and reporting services</li>
+              <li>Support AI receptionist coverage, missed-call recovery, and lead routing</li>
+              <li>Analyze Google Business Profile, local SEO, review, citation, schema, and treatment-page data</li>
               <li>Communicate with clients and prospects</li>
               <li>Process payments and invoices</li>
               <li>Improve services and website functionality</li>
@@ -181,13 +181,14 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
               5. AI and Data Processing Practices
             </h2>
-            <p className="mb-4">In providing AEO and AI-related services:</p>
+            <p className="mb-4">In providing AI search, AI receptionist, and reporting services:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>We may analyze publicly available information for optimization purposes.</li>
               <li>Client-provided data is processed strictly to deliver contracted services.</li>
               <li>We do not use confidential client data to train public AI models.</li>
               <li>Proprietary client data remains the property of the client.</li>
               <li>Any internal model improvements rely on anonymized and aggregated data only.</li>
+              <li>Clinical decisions, diagnosis, treatment recommendations, and medical guidance remain with licensed staff.</li>
             </ul>
           </section>
 
@@ -303,7 +304,7 @@ export default function PrivacyPolicyPage() {
               To exercise rights, email:{" "}
               <a
                 href="mailto:contact@rhemicai.com"
-                className="text-[var(--text-primary)] underline hover:text-white transition-colors"
+                className="text-[var(--text-primary)] underline hover:text-[var(--pulse-deep)] transition-colors"
               >
                 contact@rhemicai.com
               </a>
@@ -402,7 +403,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 <a
                   href="mailto:contact@rhemicai.com"
-                  className="text-[var(--text-primary)] underline hover:text-white transition-colors"
+                  className="text-[var(--text-primary)] underline hover:text-[var(--pulse-deep)] transition-colors"
                 >
                   contact@rhemicai.com
                 </a>
