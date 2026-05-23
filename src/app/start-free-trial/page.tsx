@@ -529,7 +529,7 @@ export default function StartFreeTrialPage() {
           {
             title: 'Pricing',
             description:
-              'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
+              'Med spa plans are Basic, Growth, Premium, and Custom.',
             href: '/pricing',
           },
           {

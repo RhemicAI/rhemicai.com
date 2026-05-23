@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Who Is Rhemic AI For?',
   description:
-    'Rhemic AI is built for local service businesses, marketing agencies, and SMBs that need to show up in AI-generated answers from ChatGPT, Claude, and Perplexity.',
+    'Rhemic AI is built for U.S. med spas that want more booked consults from Google visibility, AI search visibility, reviews, missed-call recovery, AI receptionist coverage, and better lead routing.',
   path: '/answers/who-is-rhemic-ai-for',
-  keywords: ['who is Rhemic AI for', 'Rhemic AI customers', 'AI visibility for businesses'],
+  keywords: ['who is Rhemic AI for', 'med spa growth operating system', 'med spa patient acquisition', 'med spa AI receptionist'],
 });
 
 export default function WhoIsRhemicAiForPage() {
@@ -16,51 +16,59 @@ export default function WhoIsRhemicAiForPage() {
       subtitle="Answers / Who is Rhemic AI for"
       title="Who is Rhemic AI for?"
       path="/answers/who-is-rhemic-ai-for"
-      directAnswer="Rhemic AI is for local service businesses, marketing and SEO agencies, and SMBs in competitive categories where AI-driven discovery is accelerating. If your customers are using ChatGPT, Claude, or Perplexity to find businesses like yours, Rhemic helps you show up in those answers."
+      directAnswer="Rhemic AI is for U.S. med spas that want to turn more searches and missed calls into booked consults. It is built for single-location clinics, owner-led med spas, competitive metro practices, boutique groups with two to five locations, and larger operators through Custom."
       details={
         <div className="space-y-5">
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Local service businesses</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Single-location med spas</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Restaurants, salons, contractors, medical practices, legal firms, home services, and
-            any business that depends on local discovery. AI answer engines are increasingly the
-            starting point for &ldquo;best [service] near me&rdquo; queries. Local businesses with strong
-            entity clarity, schema, and review signals appear in those answers. Businesses without
-            them do not.
+            Basic is designed for one-location med spas that need to clean up the foundation:
+            Google Business Profile, local SEO, reviews, treatment pages, AI search presence,
+            and basic call capture.
           </p>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Marketing and SEO agencies</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Owner-led med spas growing consult volume</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Agencies that want to offer AI visibility as a productized service to their clients.
-            Rhemic gives agencies a repeatable audit and delivery workflow so they can benchmark
-            clients, produce client-ready reports, and convert AEO interest into a recurring
-            service line without building the tooling from scratch.
+            Growth is the main recommendation for med spas that already have demand and want a
+            stronger system for visibility, reviews, treatment-page priorities, missed-call recovery,
+            lead capture, and consult follow-up.
           </p>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">SMBs in competitive categories</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Competitive metro med spas and boutique groups</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Any business in a category where buyers compare options before purchasing. If a
-            competitor is appearing in AI recommendations and you are not, you are losing a
-            meaningful share of buyer attention. Rhemic identifies exactly why and what to fix.
+            Premium fits competitive markets, premium practices, multi-treatment clinics, and
+            two to five location operators. It adds deeper competitor tracking, Meta Ads intelligence
+            through a connected-account dashboard, stronger reporting, and advanced AI receptionist scripts.
+          </p>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Larger med spa operators</h2>
+          <p className="text-[var(--text-secondary)] leading-relaxed">
+            Custom is for six or more locations, chains, dermatology groups, PE-backed operators,
+            and teams with complex routing, reporting, or rollout needs.
           </p>
         </div>
       }
       relatedQuestions={[
         { question: 'What is Rhemic AI?', href: '/answers/what-is-rhemic-ai' },
         { question: 'How does Rhemic AI work?', href: '/answers/how-does-rhemic-ai-work' },
-        { question: 'How can local businesses show up in AI answers?', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
-        { question: 'How can agencies sell AI visibility?', href: '/answers/how-marketing-agencies-can-sell-ai-visibility' },
+        { question: 'What is AI visibility?', href: '/answers/what-is-ai-visibility' },
+        { question: 'How can med spas improve AI search visibility?', href: '/ai-search-visibility' },
       ]}
       relatedPages={[
-        { title: 'For Local Businesses', href: '/for-local-businesses' },
-        { title: 'For Agencies', href: '/for-agencies' },
+        { title: 'How It Works', href: '/how-it-works' },
         { title: 'Pricing', href: '/pricing' },
+        { title: 'FAQ', href: '/faq' },
       ]}
+      ctaLabel="Get the audit"
+      ctaHref="/contact"
       faqs={[
         {
-          question: 'Does Rhemic work for B2B businesses?',
-          answer: 'Yes. B2B buyers increasingly use AI tools for vendor research and comparison. If your category involves buyer-intent queries in AI engines, Rhemic applies.',
+          question: 'Which plan is the main recommendation?',
+          answer: 'Growth is the main recommendation for owner-led med spas that want more consults, better visibility, better call coverage, and clearer demand signals.',
         },
         {
-          question: 'Is Rhemic right for a solo business owner?',
-          answer: 'The Starter plan at $199/month is designed for single-location businesses. You get a full AI visibility audit with prioritized fixes you can implement on your own or hand to a developer.',
+          question: 'Does every plan include the AI receptionist?',
+          answer: 'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting.',
+        },
+        {
+          question: 'Do clinics need to switch software to start?',
+          answer: 'No. Rhemic is being built to work around the systems med spas already use. Direct integrations with major med spa systems are on the roadmap, and current handoff workflows can route booking requests to your team.',
         },
       ]}
     />

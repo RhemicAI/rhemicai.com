@@ -69,7 +69,7 @@ export default function CaseStudiesPage() {
             <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)]">What changed in response</h2>
             <div className="grid gap-4 md:grid-cols-2">
               <p className="text-[var(--text-secondary)] leading-relaxed">
-                The site is adding the exact page types the scan identified as missing: FAQ, how-it-works, comparison pages, glossary definitions, case-study content, and intent-specific landing pages for agencies and local businesses.
+                The site is adding the page types needed for the med spa positioning: FAQ, how-it-works, pricing, product context, glossary definitions, case-study content, and pages that clarify Rhemic AI as a growth operating system for U.S. med spas.
               </p>
               <p className="text-[var(--text-secondary)] leading-relaxed">
                 The sprint also adds structured data, broader sitemap coverage, stronger internal linking, deeper pricing and product context, and a blog cluster aligned to the highest-priority answer-engine queries.

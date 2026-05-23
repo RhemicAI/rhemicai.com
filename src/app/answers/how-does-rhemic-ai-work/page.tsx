@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'Rhemic AI runs visibility audits across ChatGPT, Claude, Perplexity, and Gemini to measure your citation rate, identify competitor gaps, and deliver prioritized AEO recommendations.',
   path: '/answers/how-does-rhemic-ai-work',
   keywords: ['how does Rhemic AI work', 'Rhemic AI audit process', 'AI visibility audit'],
+  noindex: true,
 });
 
 export default function HowDoesRhemicAiWorkPage() {

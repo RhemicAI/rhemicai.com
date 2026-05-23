@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'AI Visibility for Local Businesses: Get Recommended in AI Answers',
+  title: 'Rhemic AI for U.S. Med Spas',
   description:
-    'Help local businesses show up when customers ask AI for nearby providers, with visibility audits, competitor tracking, and implementation guidance built for service-area brands.',
+    'Rhemic AI is now focused on U.S. med spas that need Google visibility, AI search visibility, AI receptionist coverage, missed-call recovery, and booked consult tracking.',
   path: '/for-local-businesses',
-  keywords: ['local business AI visibility', 'local AEO', 'ChatGPT local recommendations'],
+  keywords: ['med spa growth operating system', 'med spa AI receptionist', 'med spa patient acquisition'],
+  noindex: true,
 });
 
 export default function ForLocalBusinessesLayout({ children }: { children: React.ReactNode }) {

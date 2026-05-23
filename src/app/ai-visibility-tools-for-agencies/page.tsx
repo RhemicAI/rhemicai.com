@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'The best AI visibility tools for marketing and SEO agencies that want to productize AI search visibility as a client-facing service.',
   path: '/ai-visibility-tools-for-agencies',
   keywords: ['AI visibility tools for agencies', 'agency AEO tools', 'AI search visibility for marketing agencies'],
+  noindex: true,
 });
 
 const faqs = [

@@ -13,6 +13,7 @@ export const metadata: Metadata = buildMetadata({
     'An illustrative sample of a Rhemic AI visibility audit. See the report structure, metrics, and recommendation format before committing.',
   path: '/sample-ai-visibility-report',
   keywords: ['AI visibility report sample', 'AEO audit example', 'Rhemic AI report'],
+  noindex: true,
 });
 
 const webPageSchema = {
@@ -163,7 +164,8 @@ export default function SampleAiVisibilityReportPage() {
             <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Get a real report for your business</h2>
             <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
               The sample above shows the structure. A real report uses your actual domain, your actual
-              competitors, and your actual buyer-intent prompts. Plans start at $199/month.
+              competitors, and your actual buyer-intent prompts. Current med spa plans are Basic,
+              Growth, Premium, and Custom.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link

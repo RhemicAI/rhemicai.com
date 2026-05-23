@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'A buyer\'s guide to the best AI visibility and AEO platforms: what they measure, who they are for, and what to look for when evaluating them.',
   path: '/compare/best-ai-visibility-platforms',
   keywords: ['best AI visibility platforms', 'AI visibility tools 2026', 'AEO platforms comparison', 'best AEO tools'],
+  noindex: true,
 });
 
 const faqs = [

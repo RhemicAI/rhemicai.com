@@ -9,10 +9,10 @@ describe('Sitemap', () => {
     expect(entries).toHaveLength(indexableRoutes.length);
   });
 
-  it('includes the blog post route', () => {
-    const blogPost = entries.find((e) => e.url.includes('/blog/what-is-aeo'));
-    expect(blogPost).toBeDefined();
-    expect(blogPost!.priority).toBe(0.76);
+  it('includes the med spa entity answer route', () => {
+    const answerPage = entries.find((e) => e.url.includes('/answers/what-is-rhemic-ai'));
+    expect(answerPage).toBeDefined();
+    expect(answerPage!.lastModified).toBe('2026-05-22');
   });
 
   it('all URLs use rhemicai.com base', () => {

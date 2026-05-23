@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and Clearscope when your team needs to decide between editorial optimization software and a platform focused on AI recommendation visibility.',
   path: '/compare/rhemic-vs-clearscope',
   keywords: ['Rhemic vs Clearscope', 'AI visibility comparison'],
+  noindex: true,
 });
 
 export default function RhemicVsClearscopePage() {

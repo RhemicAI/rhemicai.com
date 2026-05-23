@@ -6,63 +6,23 @@ import PageHero from '@/components/shared/PageHero';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Answers — AI Visibility and AEO Questions',
+  title: 'Rhemic AI Answers for Med Spa Operators',
   description:
-    'Direct answers to common questions about AI search visibility, Answer Engine Optimization (AEO), and how to improve how your business appears in AI-generated answers.',
+    'Direct answers about Rhemic AI, med spa growth infrastructure, AI receptionist coverage, AI search visibility, and booked consult tracking.',
   path: '/answers',
-  keywords: ['AEO questions', 'AI visibility answers', 'answer engine optimization FAQ'],
+  keywords: ['Rhemic AI answers', 'med spa growth FAQ', 'med spa AI receptionist'],
 });
 
 const answerPages = [
   {
     href: '/answers/what-is-rhemic-ai',
     title: 'What is Rhemic AI?',
-    description: 'An AI visibility platform that helps businesses track and improve how they appear in AI-generated answers.',
-  },
-  {
-    href: '/answers/what-is-aeo',
-    title: 'What is AEO (Answer Engine Optimization)?',
-    description: 'AEO is the practice of making your website and brand easier for AI answer engines to understand, cite, and recommend.',
-  },
-  {
-    href: '/answers/what-is-ai-visibility',
-    title: 'What is AI visibility?',
-    description: 'How often and how accurately your brand appears in AI-generated answers from tools like ChatGPT, Claude, and Perplexity.',
-  },
-  {
-    href: '/answers/how-does-rhemic-ai-work',
-    title: 'How does Rhemic AI work?',
-    description: 'Rhemic runs visibility audits across AI engines, identifies gaps, and delivers prioritized fixes to improve your recommendation rate.',
+    description: 'A growth operating system for U.S. med spas that helps clinics improve visibility, capture, and booked consult tracking.',
   },
   {
     href: '/answers/who-is-rhemic-ai-for',
     title: 'Who is Rhemic AI for?',
-    description: 'Local businesses, SMBs, and agencies that want to measure and improve how AI engines recommend them.',
-  },
-  {
-    href: '/answers/how-to-improve-chatgpt-visibility',
-    title: 'How do I improve my ChatGPT visibility?',
-    description: 'Entity clarity, schema markup, FAQ content, and AI crawler access are the four levers that move ChatGPT recommendation rates.',
-  },
-  {
-    href: '/answers/how-to-improve-perplexity-visibility',
-    title: 'How do I improve my Perplexity visibility?',
-    description: 'Perplexity cites real sources. Crawlability, authoritative content, and structured data are the key inputs.',
-  },
-  {
-    href: '/answers/how-local-businesses-can-show-up-in-ai-answers',
-    title: 'How can local businesses show up in AI answers?',
-    description: 'Google Business Profile optimization, LocalBusiness schema, and direct-answer content are the highest-leverage starting points.',
-  },
-  {
-    href: '/answers/how-marketing-agencies-can-sell-ai-visibility',
-    title: 'How can marketing agencies sell AI visibility?',
-    description: 'How to position, package, and deliver AI visibility as a productized service to clients.',
-  },
-  {
-    href: '/answers/why-your-competitor-shows-up-in-ai-answers',
-    title: 'Why does my competitor show up in AI answers and I do not?',
-    description: 'Entity clarity, content depth, schema coverage, and competitive mention signals are the usual culprits.',
+    description: 'Rhemic AI is for U.S. med spas, from single-location clinics to boutique groups and larger operators through Custom.',
   },
 ];
 
@@ -73,8 +33,8 @@ export default function AnswersIndexPage() {
 
       <PageHero
         subtitle="Answers"
-        title="AI visibility and AEO questions"
-        description="Direct answers to common questions about AI search visibility and Answer Engine Optimization."
+        title="Answers for med spa operators."
+        description="Direct answers about Rhemic AI, med spa visibility, AI receptionist coverage, missed-call recovery, and booked consult tracking."
         showBackLink={false}
       />
 

@@ -44,7 +44,7 @@ const values = [
       'More ads are not always the next move. Rhemic starts with the leaks across Google, reviews, treatment pages, calls, and booking handoffs.',
   },
   {
-    title: 'Non-clinical automation',
+    title: 'Non-clinical coverage',
     description:
       'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests. Medical decisions stay with licensed staff.',
   },

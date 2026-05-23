@@ -15,6 +15,7 @@ export const metadata: Metadata = buildMetadata({
     'Audit how AI engines read your site, find the structural gaps blocking citations, and get a prioritized plan for improving answer engine visibility.',
   path: '/products/website-auditing',
   keywords: ['AI visibility audit', 'AEO audit', 'website audit for ChatGPT', 'schema audit'],
+  noindex: true,
 });
 
 const features = [
@@ -244,7 +245,7 @@ export default function WebsiteAuditingPage() {
           },
           {
             title: 'Pricing',
-            description: 'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
+            description: 'Med spa plans are Basic, Growth, Premium, and Custom.',
             href: '/pricing',
           },
         ]}

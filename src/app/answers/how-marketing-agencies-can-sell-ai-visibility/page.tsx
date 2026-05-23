@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'How marketing and SEO agencies can productize AI visibility as a repeatable service: audit workflow, client framing, pricing structure, and delivery model.',
   path: '/answers/how-marketing-agencies-can-sell-ai-visibility',
   keywords: ['agencies sell AI visibility', 'AI visibility service for agencies', 'productize AEO'],
+  noindex: true,
 });
 
 export default function HowAgenciesCanSellAiVisibilityPage() {

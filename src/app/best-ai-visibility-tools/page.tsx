@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'The top tools for measuring and improving how your business appears in AI-generated answers from ChatGPT, Claude, Perplexity, and Gemini.',
   path: '/best-ai-visibility-tools',
   keywords: ['best AI visibility tools', 'AI visibility software', 'top AI visibility platforms 2026'],
+  noindex: true,
 });
 
 const faqs = [

@@ -15,6 +15,7 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and Otterly.ai for measuring and improving AI search visibility across ChatGPT, Claude, and Perplexity.',
   path: '/compare/rhemic-ai-vs-otterly',
   keywords: ['Rhemic AI vs Otterly', 'Otterly.ai alternative', 'AI visibility monitoring tools'],
+  noindex: true,
 });
 
 const starterPlan = plans.find((p) => p.tier === 'starter')!;
@@ -71,7 +72,7 @@ export default function RhemicVsOtterlyPage() {
                 { label: 'Implementation guidance', values: ['Yes — schema, content, technical fix plans', 'TBD — monitoring-first platform'] },
                 { label: 'Schema markup support', values: ['Yes', 'TBD'] },
                 { label: 'Agency model', values: ['Yes', 'TBD'] },
-                { label: 'Starter price', values: [`$${starterPlan.monthlyPrice}/mo`, 'TBD — check otterly.ai'] },
+                { label: 'Basic price', values: [`$${starterPlan.monthlyPrice}/mo`, 'TBD. Check otterly.ai'] },
               ]}
             />
           </section>

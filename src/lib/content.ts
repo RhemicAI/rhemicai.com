@@ -95,33 +95,11 @@ export const blogPosts: BlogPostSummary[] = [
 // New AEO visibility routes (Phase 2-17)
 const aeoRoutes = [
   // Core category pages
-  "/ai-search-visibility",
-  "/answer-engine-optimization",
   // Answers index
   "/answers",
   // Answer pages
   "/answers/what-is-rhemic-ai",
   "/answers/who-is-rhemic-ai-for",
-  "/answers/how-does-rhemic-ai-work",
-  "/answers/what-is-ai-visibility",
-  "/answers/what-is-aeo",
-  "/answers/how-to-improve-chatgpt-visibility",
-  "/answers/how-to-improve-perplexity-visibility",
-  "/answers/how-marketing-agencies-can-sell-ai-visibility",
-  "/answers/how-local-businesses-can-show-up-in-ai-answers",
-  "/answers/why-your-competitor-shows-up-in-ai-answers",
-  // Comparison pages (new)
-  "/compare/rhemic-ai-vs-profound",
-  "/compare/rhemic-ai-vs-scrunch",
-  "/compare/rhemic-ai-vs-otterly",
-  "/compare/rhemic-ai-vs-traditional-seo-agency",
-  "/compare/best-ai-visibility-platforms",
-  // Best-X buyer intent pages
-  "/best-ai-visibility-tools",
-  "/best-aeo-tools",
-  "/best-ai-search-optimization-tools",
-  "/ai-visibility-tools-for-agencies",
-  "/ai-search-visibility-for-small-businesses",
   // Glossary
   "/glossary",
   "/glossary/ai-search-visibility",
@@ -132,9 +110,6 @@ const aeoRoutes = [
   "/glossary/llm-visibility",
   "/glossary/schema-markup",
   "/glossary/entity-authority",
-  // Other pages
-  "/sample-ai-visibility-report",
-  "/show-up-in-ai-answers",
 ];
 
 export const indexableRoutes = [
@@ -142,25 +117,13 @@ export const indexableRoutes = [
   "/about",
   "/pricing",
   "/contact",
-  "/blog",
   "/careers",
-  "/start-free-trial",
   "/products",
-  "/products/website-auditing",
-  "/products/competitor-analysis",
-  "/products/code-generation",
-  "/for-local-businesses",
   "/faq",
   "/how-it-works",
-  "/compare",
-  "/compare/rhemic-vs-seo-ai",
-  "/compare/rhemic-vs-surferseo",
-  "/compare/rhemic-vs-clearscope",
   "/case-studies",
-  "/for-agencies",
   "/resources/glossary",
   ...aeoRoutes,
-  ...blogPosts.map((post) => `/blog/${post.slug}`),
 ];
 
 export const staticPagePriorities: Record<string, number> = {

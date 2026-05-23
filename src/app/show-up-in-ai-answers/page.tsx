@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'A practical, non-technical guide to getting your business recommended in ChatGPT, Claude, Perplexity, and Gemini answers — written for business owners, not developers.',
   path: '/show-up-in-ai-answers',
   keywords: ['show up in AI answers', 'get recommended by ChatGPT', 'appear in AI search', 'AI recommendation guide'],
+  noindex: true,
 });
 
 const faqs = [

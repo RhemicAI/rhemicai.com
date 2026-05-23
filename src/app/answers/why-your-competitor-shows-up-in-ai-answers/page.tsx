@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'The most common reasons a competitor appears in ChatGPT, Perplexity, or Gemini answers when you do not — and what to do about each.',
   path: '/answers/why-your-competitor-shows-up-in-ai-answers',
   keywords: ['competitor in AI answers', 'why competitor shows up in ChatGPT', 'AI recommendation gap'],
+  noindex: true,
 });
 
 export default function WhyCompetitorShowsUpPage() {

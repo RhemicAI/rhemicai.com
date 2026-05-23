@@ -1,29 +1,15 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Get the Audit - Rhemic AI',
+export const metadata: Metadata = buildMetadata({
+  title: 'Get a Rhemic AI Audit',
   description:
-    'Get a visibility and call leak audit for your med spa. Rhemic AI reviews Google visibility, AI search visibility, missed-call recovery, and booking request routing.',
-  alternates: { canonical: 'https://rhemicai.com/start-free-trial' },
-  openGraph: {
-    title: 'Get the Audit - Rhemic AI',
-    description:
-      'Get a visibility and call leak audit for your med spa. Rhemic AI reviews Google visibility, AI search visibility, missed-call recovery, and booking request routing.',
-    url: 'https://rhemicai.com/start-free-trial',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Get the Audit - Rhemic AI',
-    description:
-      'Get a visibility and call leak audit for your med spa. Rhemic AI reviews Google visibility, AI search visibility, missed-call recovery, and booking request routing.',
-  },
-};
+    'Start with a visibility and call leak audit for a U.S. med spa.',
+  path: '/start-free-trial',
+  keywords: ['med spa audit', 'Rhemic AI audit'],
+  noindex: true,
+});
 
-export default function StartFreeTrialLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function StartFreeTrialLayout({ children }: { children: React.ReactNode }) {
   return children;
 }

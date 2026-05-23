@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'Steps to improve how your business appears in Perplexity answers: allow PerplexityBot, add schema, write direct content, appear in cited sources.',
   path: '/answers/how-to-improve-perplexity-visibility',
   keywords: ['improve Perplexity visibility', 'get recommended by Perplexity', 'Perplexity business recommendations'],
+  noindex: true,
 });
 
 export default function HowToImprovePerplexityVisibilityPage() {

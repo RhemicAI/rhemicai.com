@@ -144,7 +144,7 @@ export default function CareersPage() {
           },
           {
             title: 'Pricing',
-            description: 'Transparent plans for agencies and businesses of all sizes.',
+            description: 'Transparent Basic, Growth, Premium, and Custom plans for U.S. med spas.',
             href: '/pricing',
           },
           {

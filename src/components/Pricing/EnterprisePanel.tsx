@@ -30,7 +30,7 @@ export default function EnterprisePanel() {
     <div className="rounded-2xl border border-violet-500/40 bg-violet-500/5 shadow-[0_0_40px_rgba(139,92,246,0.1)] p-5 sm:p-6">
       <div className="text-center mb-5">
         <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2">
-          Custom AI Visibility Solutions at Scale
+          Custom AI Visibility Solutions for Larger Operators
         </h3>
         <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
           For large agencies, multi-brand organizations, and enterprise teams that need
@@ -53,13 +53,13 @@ export default function EnterprisePanel() {
       <div className="text-center">
         <a
           href="#"
-          data-cal-link="rhemic-ai/rhemic-ai-enterprise-consultation"
+          data-cal-link="rhemic-ai/medspa-discovery-call"
           className="inline-block px-8 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:scale-105"
         >
-          Book a Consultation
+          Get the audit
         </a>
         <p className="mt-4 text-sm text-[var(--text-muted)]">
-          Every Enterprise engagement starts with a 30-minute consultation to scope your needs. No obligations.
+          Every Custom engagement starts with a visibility and call leak audit to scope your needs.
         </p>
       </div>
     </div>

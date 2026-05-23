@@ -15,6 +15,7 @@ export const metadata: Metadata = buildMetadata({
     'How Rhemic AI compares to hiring a traditional SEO agency when your goal is AI search visibility — not just Google rankings.',
   path: '/compare/rhemic-ai-vs-traditional-seo-agency',
   keywords: ['Rhemic vs SEO agency', 'AI visibility vs SEO agency', 'AEO vs traditional SEO'],
+  noindex: true,
 });
 
 const starterPlan = plans.find((p) => p.tier === 'starter')!;

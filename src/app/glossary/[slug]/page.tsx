@@ -43,7 +43,7 @@ const terms: Record<string, {
     term: 'AI Citation',
     definition: 'When an AI answer engine includes your brand, business, or content as a source or recommendation in a generated answer. A citation can be a named mention, a sourced link, or a recommendation in a shortlist.',
     whyItMatters: 'AI citations drive brand awareness and discovery for buyers who start their research in AI tools. Being cited in a ChatGPT or Perplexity answer is equivalent to an organic third-party recommendation.',
-    example: 'When Perplexity answers "best marketing agencies in Austin" and lists your agency, that is an AI citation. When ChatGPT recommends your restaurant in response to "best Thai food in Dallas," that is also a citation.',
+    example: 'When Perplexity answers "best med spas in Dallas for Botox" and lists your clinic, that is an AI citation. When ChatGPT recommends your med spa in response to a treatment search near the patient, that is also a citation.',
     relatedTerms: ['Brand Share', 'AI Search Visibility', 'LLM Visibility'],
     relatedTermSlugs: ['brand-share', 'ai-search-visibility', 'llm-visibility'],
   },

@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'What Is Rhemic AI?',
   description:
-    'Rhemic AI is an AI visibility platform that helps businesses track and improve how they appear in AI-generated answers from ChatGPT, Claude, Gemini, and Perplexity.',
+    'Rhemic AI is a growth operating system for U.S. med spas that helps clinics improve Google visibility, AI search visibility, reviews, treatment pages, AI receptionist coverage, missed-call recovery, Meta Ads intelligence, and booked consult tracking.',
   path: '/answers/what-is-rhemic-ai',
-  keywords: ['what is Rhemic AI', 'Rhemic AI platform', 'AI visibility platform'],
+  keywords: ['what is Rhemic AI', 'med spa growth operating system', 'med spa AI receptionist', 'med spa missed-call recovery'],
 });
 
 export default function WhatIsRhemicAiPage() {
@@ -16,63 +16,67 @@ export default function WhatIsRhemicAiPage() {
       subtitle="Answers / What is Rhemic AI"
       title="What is Rhemic AI?"
       path="/answers/what-is-rhemic-ai"
-      directAnswer="Rhemic AI is an AI visibility platform that helps businesses measure and improve how they appear in AI-generated answers from ChatGPT, Claude, Gemini, and Perplexity. It runs visibility audits, compares competitor mentions, identifies missing buyer-intent prompts, and provides AEO recommendations to make businesses more recommendable by AI systems."
+      directAnswer="Rhemic AI is a growth operating system for U.S. med spas that helps clinics improve Google visibility, AI search visibility, reviews, treatment pages, AI receptionist coverage, missed-call recovery, Meta Ads intelligence, and booked consult tracking."
       details={
         <div className="space-y-5">
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic AI operates in the category known as Answer Engine Optimization (AEO) or AI Engine Optimization.
-            The core problem it solves: businesses are increasingly discovered through AI answer engines,
-            not just Google. When a buyer asks ChatGPT or Perplexity for recommendations, the businesses
-            that appear in those answers win the attention. Businesses that do not appear are invisible
-            to that buyer, regardless of how well they rank in traditional search.
+            Rhemic AI is built for med spa owners and operators who need more booked consults from the
+            channels patients already use. That includes Google Maps, Google Business Profile, reviews,
+            treatment pages, local SEO, AI answers, missed calls, lead routing, and reporting that connects
+            demand back to source.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic gives businesses a structured way to measure their current AI visibility, understand
-            why competitors are being cited instead, and implement the specific changes that improve
-            recommendation probability. This includes technical recommendations (schema markup,
-            crawlability, structured data), content recommendations (FAQ coverage, entity clarity,
-            direct answer pages), and competitive analysis (which prompts are being lost to competitors
-            and why).
+            The system starts with visibility and trust. Rhemic reviews how a clinic appears across
+            Google, AI search systems such as ChatGPT, Claude, Perplexity, and Google AI, review signals,
+            citations, schema, and treatment-page content. The goal is to identify where patient intent
+            is being lost before it turns into a consult request.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic is headquartered in Dallas, Texas. It was founded in 2025. The platform serves
-            local service businesses, marketing agencies, and SMBs in competitive categories where
-            AI-driven discovery is accelerating.
+            Rhemic also helps with capture. Every plan includes AI receptionist coverage for common
+            non-clinical questions, lead capture, and booking request routing. Medical advice, diagnosis,
+            and treatment decisions stay with licensed staff.
+          </p>
+          <p className="text-[var(--text-secondary)] leading-relaxed">
+            Rhemic AI is based in Dallas, Texas and serves U.S. med spas. Public plans are Basic,
+            Growth, Premium, and Custom. Growth is the main recommendation for owner-led med spas
+            trying to grow consult volume, while Premium adds deeper market visibility, Meta Ads
+            intelligence, and stronger reporting for competitive clinics and boutique multi-location groups.
           </p>
         </div>
       }
       example={
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-          A local HVAC company asks: &ldquo;Why does a competitor show up when someone asks ChatGPT for HVAC companies
-          in Dallas?&rdquo; Rhemic runs a prompt audit, identifies the competitor&apos;s schema coverage and entity
-          signals, and produces a prioritized fix list. Within 60 days of implementation, the HVAC
-          company begins appearing in AI recommendations for its target service area.
+          A Dallas med spa is getting searches for Botox, fillers, laser, facials, and body contouring,
+          but consult requests are leaking through a weak Google Business Profile, thin treatment pages,
+          inconsistent reviews, missed calls, and slow after-hours follow-up. Rhemic audits those leak
+          points, prioritizes fixes, and helps route more buyer intent into the clinic&apos;s booking workflow.
         </p>
       }
       relatedQuestions={[
         { question: 'Who is Rhemic AI for?', href: '/answers/who-is-rhemic-ai-for' },
         { question: 'How does Rhemic AI work?', href: '/answers/how-does-rhemic-ai-work' },
         { question: 'What is AI visibility?', href: '/answers/what-is-ai-visibility' },
-        { question: 'What is AEO?', href: '/answers/what-is-aeo' },
+        { question: 'How can med spas use AI search visibility?', href: '/ai-search-visibility' },
       ]}
       relatedPages={[
-        { title: 'AI Search Visibility', href: '/ai-search-visibility' },
-        { title: 'For Local Businesses', href: '/for-local-businesses' },
+        { title: 'How It Works', href: '/how-it-works' },
         { title: 'Pricing', href: '/pricing' },
-        { title: 'Sample Report', href: '/sample-ai-visibility-report' },
+        { title: 'FAQ', href: '/faq' },
       ]}
+      ctaLabel="Get the audit"
+      ctaHref="/contact"
       faqs={[
         {
-          question: 'Is Rhemic AI a SaaS product or a service?',
-          answer: 'Rhemic AI is a platform-backed service. You receive software-driven audits and reports delivered by the Rhemic team. Depending on your plan, you also receive implementation guidance, recurring re-scans, and dedicated support.',
+          question: 'Is Rhemic AI only for med spas?',
+          answer: 'The current public offer is built for U.S. med spas, including single-location clinics, owner-led med spas, competitive metro practices, boutique groups, and larger operators through Custom.',
         },
         {
-          question: 'What AI engines does Rhemic cover?',
-          answer: 'Rhemic measures visibility across ChatGPT, Claude, Perplexity, and Gemini. These are the primary answer engines where buyer-intent queries are shifting.',
+          question: 'What does the AI receptionist do?',
+          answer: 'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
         },
         {
-          question: 'Does Rhemic help with Google as well?',
-          answer: 'Yes. Many of the improvements that drive AI visibility — schema markup, content structure, entity clarity — also improve Google search performance. Rhemic covers both.',
+          question: 'Does Rhemic help with Google as well as AI search?',
+          answer: 'Yes. Rhemic works across Google Business Profile, Google Maps, local SEO, reviews, treatment pages, schema, AI search visibility, missed-call recovery, lead routing, and reporting.',
         },
       ]}
     />

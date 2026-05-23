@@ -15,6 +15,7 @@ export const metadata: Metadata = buildMetadata({
     'How small businesses can improve their AI search visibility without a large budget: practical steps, affordable tools, and the fixes that move the needle fastest.',
   path: '/ai-search-visibility-for-small-businesses',
   keywords: ['AI search visibility small business', 'AI visibility for SMBs', 'small business AI recommendations'],
+  noindex: true,
 });
 
 const starterPlan = plans.find((p) => p.tier === 'starter')!;

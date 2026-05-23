@@ -16,6 +16,7 @@ export const metadata: Metadata = buildMetadata({
   path: '/blog/how-marketing-agencies-can-get-recommended-by-ai-tools',
   type: 'article',
   keywords: ['agencies recommended by AI', 'agency AEO guide'],
+  noindex: true,
 });
 
 export default function AgenciesRecommendedByAiPage() {
