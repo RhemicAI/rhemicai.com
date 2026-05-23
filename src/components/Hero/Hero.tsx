@@ -17,7 +17,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-12 pt-28">
       <div className="relative z-10 mx-auto min-w-0 w-full max-w-4xl text-center">
         <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/75">
-          Patient acquisition system for U.S. med spas
+          Patient acquisition infrastructure for U.S. med spas
         </p>
 
         <h1
