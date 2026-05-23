@@ -99,7 +99,7 @@ export const plans: PricingPlan[] = [
       'Review, offer clarity, and competitor positioning work',
       'Treatment-page optimization priorities and content briefs',
       'Missed-call recovery workflow and approved response guidance',
-      'Ads and competitor demand intelligence review',
+      'Competitor visibility and demand review',
     ],
   },
   {
