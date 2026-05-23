@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
   description:
-    "Rhemic AI is an AI visibility platform that helps businesses get discovered, cited, and recommended in ChatGPT, Claude, Perplexity, Gemini, and Google AI experiences.",
+    "Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas, helping clinics improve Google Business Profile, local SEO, reviews, citations, schema, treatment pages, AI answer visibility, missed-call recovery, and ads intelligence.",
   social: {
     twitter: "@RhemicAI",
   },
@@ -90,12 +90,17 @@ export function organizationSchema() {
     knowsAbout: [
       "AI Engine Optimization",
       "Answer engine optimization",
-      "AI visibility tracking",
+      "Med spa patient acquisition",
+      "Google Business Profile optimization",
+      "Local SEO for med spas",
+      "AI answer visibility",
+      "Missed-call recovery",
       "Schema markup",
       "Structured data",
       "Competitor analysis",
+      "Ads intelligence",
     ],
-    areaServed: "Worldwide",
+    areaServed: "United States",
   };
 }
 

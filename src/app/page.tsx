@@ -1,6 +1,5 @@
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
-import EntityParagraph from '@/components/EntityParagraph/EntityParagraph';
 import StatsStrip from '@/components/StatsStrip/StatsStrip';
 import AeoExplainer from '@/components/AeoExplainer/AeoExplainer';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
@@ -16,13 +15,12 @@ export default function Home() {
     <main className="min-h-screen">
       <FixedNav />
       <Hero />
-      <EntityParagraph />
-      <StatsStrip />
       <AeoExplainer />
       <HowItWorks />
+      <StatsStrip />
       <Features />
-      <DashboardPreview />
       <Pricing />
+      <DashboardPreview />
       <FAQ />
       <CTA />
       <Footer />

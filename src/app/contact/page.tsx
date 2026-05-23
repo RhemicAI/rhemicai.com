@@ -84,8 +84,8 @@ export default function ContactPage() {
 
       <PageHero
         subtitle="Contact"
-        title="Let's talk about your visibility."
-        description="Book a demo, ask a question, or just say hello. We're here to help."
+        title="Book a med-spa growth audit."
+        description="Talk with Rhemic about local visibility, trust signals, missed-call opportunities, and the booking handoff for your clinic."
         showBackLink={false}
       />
 
@@ -244,20 +244,19 @@ export default function ContactPage() {
 
             {/* Contact Info & CTA */}
             <div className="space-y-8">
-              {/* Book a Demo CTA */}
+              {/* Book an audit CTA */}
               <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-8">
                 <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                  Ready to see it in action?
+                  Ready to find the leaks?
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
-                  Book a 30-minute demo and see how Rhemic AI can transform your
-                  visibility in AI-generated search results.
+                  Book a 20-minute med-spa growth audit and review where your clinic can improve visibility, trust, call recovery, and consult routing.
                 </p>
                 <a
                   href="#" data-cal-link="rhemic-ai/discovery-call"
                   className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
                 >
-                  Book a Demo
+                  Book a 20-minute med-spa growth audit
                 </a>
               </div>
 
@@ -296,29 +295,29 @@ export default function ContactPage() {
           {/* Related Resources */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-              Explore our platform
+              Explore Rhemic
             </h2>
             <div className="grid sm:grid-cols-3 gap-6">
               <Link
-                href="/products"
+                href="/#what-we-optimize"
                 className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
               >
-                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Our Products</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Website auditing, competitor analysis, and code generation tools for AI search.</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">What We Optimize</h3>
+                <p className="text-sm text-[var(--text-secondary)]">GBP, Maps, reviews, treatment pages, AI answers, missed calls, and ads intelligence.</p>
               </Link>
               <Link
                 href="/pricing"
                 className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">Pricing</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Founding member plans from $199/mo. No setup fees, no contracts.</p>
+                <p className="text-sm text-[var(--text-secondary)]">Basic, Growth, Premium, and Custom plans for med-spa consult growth.</p>
               </Link>
               <Link
                 href="/about"
                 className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-all"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-white transition-colors">About Rhemic AI</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Meet the team building AI Engine Optimization infrastructure.</p>
+                <p className="text-sm text-[var(--text-secondary)]">Meet the Dallas team building patient acquisition infrastructure for med spas.</p>
               </Link>
             </div>
           </div>

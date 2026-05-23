@@ -1,55 +1,88 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
-import PageHero from '@/components/shared/PageHero';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import { plans } from '@/data/pricing';
+import { customPlan, plans } from '@/data/pricing';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Pricing for AI Visibility Audits, Tracking, and AEO Implementation',
+  title: 'Med Spa Pricing for Growth, Calls, Reviews, and AI Search',
   description:
-    'Transparent Rhemic AI pricing for businesses and agencies, including audit coverage, competitor tracking, implementation support, and what each plan is built for.',
+    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need better Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, ads intelligence, and AI receptionist coverage.',
   path: '/pricing',
-  keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'AEO pricing', 'AI audit pricing'],
+  keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist'],
 });
 
-const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const basicPlan = plans.find((p) => p.tier === 'starter')!;
 const growthPlan = plans.find((p) => p.tier === 'growth')!;
-const scalePlan = plans.find((p) => p.tier === 'scale')!;
+const premiumPlan = plans.find((p) => p.tier === 'scale')!;
 
 const pricingFaqs = [
   {
-    question: 'How much does Rhemic AI cost for small businesses?',
-    answer: `SMB plans: ${starterPlan.name} at $${starterPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${scalePlan.name} at $${scalePlan.monthlyPrice}/mo. These are founding member rates — the price locks in when you sign up. No contracts on any plan. Cancel any time. Save 2 months with annual billing.`,
+    question: 'How much does Rhemic AI cost for med spas?',
+    answer: `Med-spa plans: ${basicPlan.name} at $${basicPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${premiumPlan.name} at $${premiumPlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. Every plan starts with a call-gated growth audit so scope matches the clinic's locations, visibility gaps, and booking workflow.`,
   },
   {
-    question: 'What is agency or partner pricing?',
-    answer: 'Agencies delivering AI visibility services to multiple clients work on partner pricing — contact Rhemic via the Book Partner Demo to discuss. Agency pricing is not listed publicly and is negotiated based on client volume and delivery model.',
+    question: 'Which plan is the main recommendation?',
+    answer: `${growthPlan.name} is the main recommendation for serious owner-led med spas that want more consults, better visibility, better call coverage, and a simple view of competitor ads.`,
   },
   {
-    question: 'Can I talk to someone before I subscribe?',
-    answer: 'Yes. Book a demo if you want help choosing a plan, understanding the setup, or talking through your use case before onboarding.',
+    question: 'What does AI search visibility mean?',
+    answer: 'AI search visibility helps your med spa show up when patients ask ChatGPT, Claude, Perplexity, or Google AI about treatments near them.',
   },
   {
-    question: 'Do I need a long-term contract?',
-    answer: 'No. All SMB plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time.',
+    question: 'How does the AI receptionist work?',
+    answer: "The AI receptionist helps answer common non-clinical questions, capture lead details, and route booking requests to your clinic's team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.",
   },
   {
-    question: 'What is included in every SMB plan?',
-    answer: `Every SMB plan includes recurring AI citation checks, competitor comparison, gap analysis, prioritized fixes, and SEO recommendations. ${starterPlan.name} is ChatGPT-only. ${growthPlan.name} adds Perplexity, bi-weekly reporting, trend tracking, agentic schema deployment, and one content brief per month. ${scalePlan.name} adds weekly checks across ChatGPT, Claude, Gemini, and Perplexity, 200+ prompts, unlimited competitors, programmatic landing pages, local SEO assets, and three content briefs per month. Dedicated account management, managed outreach, hands-on GBP work, white-label reporting, and manual citation cleanup are Enterprise scope.`,
+    question: 'Do you promise rankings or revenue?',
+    answer: 'No. Rhemic helps identify and improve visibility, trust, and response gaps. It does not promise search placement, revenue, clinical outcomes, or patient volume.',
+  },
+];
+
+const snapshotCards = [
+  { value: '$1K', label: 'Basic / month' },
+  { value: '$2K', label: 'Growth / month' },
+  { value: '$3.5K', label: 'Premium / month' },
+  { value: '$0', label: 'Setup fee' },
+];
+
+const recommendationRows = [
+  {
+    situation: 'You need more patients finding you on Google.',
+    bestFit: 'Basic or Growth',
+    guidance: 'Choose Basic for foundation cleanup. Choose Growth when consult volume is an active priority.',
+  },
+  {
+    situation: 'Calls are missed during the day or after hours.',
+    bestFit: 'Growth',
+    guidance: 'Growth adds stronger AI receptionist coverage, call handling, and follow-up notes.',
+  },
+  {
+    situation: 'Competitors are highly visible and running ads.',
+    bestFit: 'Premium',
+    guidance: 'Premium gives deeper ads intelligence, competitor review, and market-response guidance.',
+  },
+  {
+    situation: 'You have two to five locations.',
+    bestFit: 'Growth or Premium',
+    guidance: 'Growth can fit two locations. Premium is better for competitive markets or broader multi-location needs.',
+  },
+  {
+    situation: 'You have six or more locations or complex reporting needs.',
+    bestFit: 'Custom',
+    guidance: 'Rhemic scopes the market, routing, reporting, and rollout needs before recommending a package.',
   },
 ];
 
 const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Rhemic AI Platform',
+  name: 'Rhemic AI Med Spa Growth Plans',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://rhemicai.com/pricing',
@@ -74,9 +107,9 @@ export default function PricingPage() {
         service={{
           name: 'Rhemic AI Pricing and Service Plans',
           description:
-            'Pricing for AI visibility audits, competitor tracking, schema implementation, and answer engine optimization support.',
+            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, and ads intelligence.',
           path: '/pricing',
-          audience: 'Businesses and agencies evaluating AI Engine Optimization software',
+          audience: 'U.S. med spa owners and operators evaluating patient acquisition infrastructure',
         }}
       />
       <script
@@ -87,58 +120,96 @@ export default function PricingPage() {
       />
       <FixedNav />
 
-      <PageHero
-        subtitle="Pricing"
-        title="Simple, transparent pricing."
-        description="Start by seeing where you stand. Scale up as you start winning. No hidden fees, no long-term contracts."
-        showBackLink={false}
-      />
+      <section className="relative z-10 px-6 pb-14 pt-32 sm:pb-20 sm:pt-40">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/70">
+            Pricing for U.S. med spas
+          </p>
+          <h1 className="mx-auto max-w-4xl font-display text-4xl font-extrabold leading-[1.05] text-[var(--text-primary)] sm:text-5xl md:text-6xl">
+            Three plans. One med spa growth system.
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl font-body text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
+            Basic fixes the foundation. Growth is the main recommendation for owner-led med spas trying to grow consult volume. Premium is for competitive markets, bigger teams, and multi-location operators.
+          </p>
+          <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
+            Rhemic helps med spas get found, trusted, and booked. We improve Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, competitor ads intelligence, and AI receptionist coverage for missed and after-hours calls.
+          </p>
+          <div className="mt-9 flex flex-col items-center justify-center gap-4">
+            <CalBookingLink
+              calLink="rhemic-ai/discovery-call"
+              className="w-full max-w-[340px] rounded-[5px] bg-white px-6 py-4 text-center text-sm font-semibold text-black shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 hover:bg-gray-100 sm:max-w-none sm:px-8 sm:text-base"
+            >
+              Book a 20-minute med-spa growth audit
+            </CalBookingLink>
+            <p className="font-body text-sm text-[var(--text-muted)]">
+              $0 setup fee. Call-gated onboarding. Built for U.S. med spas.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div className="relative z-10 pb-12 sm:pb-24">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
+          <section className="mb-14 grid grid-cols-2 gap-3 md:grid-cols-4">
+            {snapshotCards.map((card) => (
+              <div key={card.label} className="rounded-2xl border border-white/10 bg-[var(--bg-elevated)] p-5 text-center">
+                <p className="font-display text-3xl font-bold text-[var(--text-primary)] md:text-4xl">{card.value}</p>
+                <p className="mt-2 font-body text-sm text-[var(--text-secondary)]">{card.label}</p>
+              </div>
+            ))}
+          </section>
+
           <PricingSwitch />
 
-          <section className="rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] px-4 py-10 text-center sm:rounded-3xl sm:px-6 sm:py-16">
-            <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-              Ready to get started?
+          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6 sm:p-8">
+            <h2 className="font-display text-3xl font-bold text-[var(--text-primary)]">
+              Which plan fits your med spa?
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
-              Book a discovery call and we&apos;ll help you choose the right setup for your engine coverage, prompt volume, and implementation needs.
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <CalBookingLink
-                calLink="rhemic-ai/discovery-call"
-                className="rounded-[5px] bg-[var(--btn-primary-bg)] px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
-              >
-                Book a Demo
-              </CalBookingLink>
-              <Link
-                href="/contact"
-                className="rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
-              >
-                Contact Us
-              </Link>
+            <div className="mt-6 overflow-x-auto">
+              <table className="min-w-[760px] w-full text-left font-body text-sm">
+                <thead>
+                  <tr className="border-b border-white/10 text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">
+                    <th className="py-3 pr-5 font-semibold">Your situation</th>
+                    <th className="py-3 pr-5 font-semibold">Best fit</th>
+                    <th className="py-3 font-semibold">Guidance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recommendationRows.map((row) => (
+                    <tr key={row.situation} className="border-b border-white/[0.06] last:border-0">
+                      <td className="py-4 pr-5 text-[var(--text-secondary)]">{row.situation}</td>
+                      <td className="py-4 pr-5 font-semibold text-[var(--text-primary)]">{row.bestFit}</td>
+                      <td className="py-4 text-[var(--text-secondary)]">{row.guidance}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-            <p className="mt-6 text-xs text-[var(--text-muted)]">
-              No hidden fees · No long-term contracts
+          </section>
+
+          <section className="mb-12 rounded-3xl border border-cyan-200/15 bg-cyan-200/[0.04] p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/70">AI receptionist note</p>
+            <p className="mt-4 max-w-4xl text-base leading-[1.75] text-[var(--text-secondary)]">
+              The AI receptionist helps answer common non-clinical questions, capture lead details, and route booking requests to your clinic&apos;s team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.
             </p>
           </section>
 
-          {/* Agency section */}
-          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">For Agencies</p>
-            <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Agency and partner pricing</h2>
-            <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
-              Agencies delivering AI visibility services to multiple clients work on partner pricing.
-              The economics are different from SMB plans. Book a partner demo to discuss multi-client
-              delivery, reporting, and pricing.
+          <section className="mb-12 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] px-4 py-10 text-center sm:rounded-3xl sm:px-6 sm:py-16">
+            <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
+              Start with the audit.
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
+              We help med spas win more booked consults by fixing how patients find you, how they decide to trust you, and what happens when they call.
             </p>
             <CalBookingLink
               calLink="rhemic-ai/discovery-call"
-              className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+              className="inline-flex w-full max-w-[340px] items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105 sm:max-w-none sm:px-8 sm:text-base"
             >
-              Book Partner Demo
+              Book a 20-minute med-spa growth audit
             </CalBookingLink>
+            <p className="mt-6 text-xs text-[var(--text-muted)]">
+              Call-gated onboarding. No ranking promises or clinical claims.
+            </p>
           </section>
 
           <SubpageFAQ
@@ -152,18 +223,18 @@ export default function PricingPage() {
         heading="Explore more"
         links={[
           {
-            title: 'Our Products',
-            description: 'Website auditing, competitor analysis, and code generation tools.',
-            href: '/products',
+            title: 'What We Optimize',
+            description: 'See the visibility, trust, and response surfaces Rhemic optimizes.',
+            href: '/#what-we-optimize',
           },
           {
-            title: 'Book a Demo',
-            description: 'See the platform with us and get help choosing the right setup.',
+            title: 'Book the Audit',
+            description: 'Start with a 20-minute med-spa growth audit.',
             href: '/contact',
           },
           {
             title: 'FAQ',
-            description: 'Answer the buyer questions that usually come up before choosing a plan.',
+            description: 'Answers about AI search visibility, AI receptionist coverage, and plan fit.',
             href: '/faq',
           },
         ]}

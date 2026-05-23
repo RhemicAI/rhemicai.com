@@ -6,16 +6,12 @@ import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const linkRoutes: Record<string, string> = {
   // Product
-  'Website Auditing': '/products/website-auditing',
-  'Competitor Analysis': '/products/competitor-analysis',
   'Pricing': '/pricing',
-  'AI Search Visibility': '/ai-search-visibility',
-  'Answer Engine Optimization': '/answer-engine-optimization',
-  'For Local Businesses': '/for-local-businesses',
-  'For Agencies': '/for-agencies',
+  'What We Optimize': '/#what-we-optimize',
+  'The System': '/#how-it-works',
+  'Book the Audit': '/contact',
   // Resources
   'Glossary': '/glossary',
-  'Sample Report': '/sample-ai-visibility-report',
   'FAQ': '/faq',
   // Company
   'About': '/about',
@@ -28,8 +24,8 @@ const linkRoutes: Record<string, string> = {
 };
 
 const footerLinks = {
-  Solutions: ['AI Search Visibility', 'Answer Engine Optimization', 'For Local Businesses', 'For Agencies'],
-  Resources: ['Glossary', 'Sample Report', 'FAQ'],
+  Solutions: ['What We Optimize', 'The System', 'Pricing', 'Book the Audit'],
+  Resources: ['Glossary', 'FAQ'],
   Company: ['About', 'Blog', 'Pricing', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };
@@ -42,7 +38,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              Search and AI visibility for businesses that want to be found.
+              Dallas-based patient acquisition infrastructure for U.S. med spas.
             </p>
             <Image
               src="/rhemic-footer-logo.png"
@@ -89,7 +85,7 @@ export default function Footer() {
               calLink="rhemic-ai/discovery-call"
               className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
             >
-              Book a Demo
+              Book the Audit
             </CalBookingLink>
           </div>
         </div>

@@ -1,121 +1,54 @@
-const features = [
+const groups = [
   {
-    title: 'AI Visibility Audit',
-    description:
-      'Run a full AI visibility audit across ChatGPT, Claude, Gemini, and Perplexity. You receive a Brand Share % score showing exactly how often your business is recommended versus competitors — and where you\'re absent entirely.',
-    tags: ['Brand Share %', 'AI Monitoring', '4 Platforms'],
-    icon: (
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="text-[var(--text-secondary)]"
-      >
-        <circle cx="20" cy="20" r="11" stroke="currentColor" strokeWidth="2" />
-        <line x1="28.5" y1="28.5" x2="38" y2="38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M14 18L17 15V25L14 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M26 18L23 15V25L26 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="19" y1="17" x2="21" y2="17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="19" y1="20" x2="21" y2="20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="19" y1="23" x2="21" y2="23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
+    title: 'Local trust',
+    items: ['Google Business Profile', 'Google Maps visibility', 'Reviews and response templates', 'Schema and citations'],
   },
   {
-    title: 'Search & Competitor Intelligence',
-    description:
-      'See who\'s outranking you on Google and capturing your AI demand. We map competitor schema, content depth, Google Business Profile completeness, and AI citation presence — so you know exactly what to fix first.',
-    tags: ['Google + AI Gap', 'Competitor Map', 'Ranked Fixes'],
-    icon: (
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="text-[var(--text-secondary)]"
-      >
-        <rect x="10" y="26" width="6" height="14" rx="1" stroke="currentColor" strokeWidth="2" />
-        <rect x="21" y="14" width="6" height="26" rx="1" stroke="currentColor" strokeWidth="2" />
-        <rect x="32" y="20" width="6" height="20" rx="1" stroke="currentColor" strokeWidth="2" />
-        <circle cx="13" cy="22" r="2" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="24" cy="10" r="2" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="35" cy="16" r="2" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M15 21L22 11.5" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-        <path d="M26 11L33 15" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-      </svg>
-    ),
+    title: 'Treatment demand',
+    items: ['Local SEO', 'Treatment and service pages', 'AEO/GEO visibility', 'AI answer-engine recommendations'],
   },
   {
-    title: 'SEO + AI Implementation',
-    description:
-      'We turn recommendations into deployment-ready work. Growth and Scale use the Rhemic agentic pipeline for schema, on-page SEO, structured data, landing pages, and local SEO assets. Hands-on GBP management stays in Enterprise.',
-    tags: ['On-Page SEO', 'Schema Deploy', 'Local SEO Assets'],
-    icon: (
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="text-[var(--text-secondary)]"
-      >
-        <path d="M16 16L8 24L16 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M32 16L40 24L32 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="27" y1="14" x2="21" y2="34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M36 8L38 6L40 8" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="38" y1="6" x2="38" y2="11" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="42" cy="12" r="1" fill="#8B5CF6" />
-        <circle cx="35" cy="5" r="0.8" fill="#6366F1" />
-      </svg>
-    ),
+    title: 'Competitive signal',
+    items: ['Competitor visibility', 'Ads intelligence', 'Offer clarity', 'Market positioning gaps'],
+  },
+  {
+    title: 'Booking response',
+    items: ['Missed-call recovery', 'After-hours lead response', 'Non-clinical AI receptionist workflows', 'Handoff into your booking flow'],
   },
 ];
 
 export default function Features() {
   return (
-    <section id="solutions" className="relative py-32 md:py-40 px-6">
-      {/* Header */}
-      <div className="max-w-5xl mx-auto text-center mb-20">
-        <p className="text-sm font-medium tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-6 font-body">
-          Solutions
+    <section id="what-we-optimize" className="relative px-6 py-24 md:py-32">
+      <div className="mx-auto mb-14 max-w-5xl text-center">
+        <p className="mb-5 font-body text-sm font-medium uppercase tracking-[0.15em] text-[var(--text-secondary)]">
+          What Rhemic optimizes
         </p>
-        <div className="mb-6">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.1] text-[var(--text-primary)] font-display">
-            Search and AI visibility — both in one platform
-          </h2>
-        </div>
-        <p className="text-base md:text-lg text-[var(--text-primary)] max-w-2xl mx-auto font-normal leading-[1.6] opacity-80 font-body">
-          Rhemic audits where you&apos;re invisible across Google and AI assistants, shows exactly who&apos;s beating you, and implements the fixes.
+        <h2 className="mx-auto mb-5 max-w-4xl font-display text-4xl font-bold leading-[1.1] text-[var(--text-primary)] sm:text-5xl">
+          A complete patient acquisition stack, not a random list of services.
+        </h2>
+        <p className="mx-auto max-w-2xl font-body text-base leading-[1.7] text-[var(--text-primary)] opacity-80 md:text-lg">
+          Rhemic connects the visibility, trust, and response layers that influence whether a med-spa lead turns into a booked consult.
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {features.map((feature) => (
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {groups.map((group) => (
           <div
-            key={feature.title}
-            className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 hover:bg-[var(--bg-glass-hover)] hover:border-[var(--border-strong)] transition-[background-color,border-color] duration-500 flex flex-col"
+            key={group.title}
+            className="flex flex-col rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6 transition-[background-color,border-color] duration-500 hover:border-[var(--border-strong)] hover:bg-[var(--bg-glass-hover)]"
           >
-            <div className="mb-6">{feature.icon}</div>
-            <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">
-              {feature.title}
+            <h3 className="mb-5 font-display text-xl font-semibold text-[var(--text-primary)]">
+              {group.title}
             </h3>
-            <p className="text-sm text-[var(--text-tertiary)] leading-relaxed flex-1 mb-6">
-              {feature.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {feature.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-xs font-medium text-[var(--text-tertiary)] bg-[var(--bg-glass)] rounded-full border border-[var(--border-default)]"
-                >
-                  {tag}
-                </span>
+            <ul className="space-y-3">
+              {group.items.map((item) => (
+                <li key={item} className="flex gap-2 font-body text-sm leading-[1.5] text-[var(--text-tertiary)]">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-200/70" />
+                  <span>{item}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>

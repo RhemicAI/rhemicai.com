@@ -59,6 +59,11 @@ export default function CobeGlobe() {
       return;
     }
 
+    if (!canvas.getContext('webgl') && !canvas.getContext('experimental-webgl')) {
+      isBuilding.current = false;
+      return;
+    }
+
     if (globeRef.current) {
       globeRef.current.destroy();
       globeRef.current = null;

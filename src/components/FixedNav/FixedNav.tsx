@@ -7,8 +7,9 @@ import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'System', href: '/#how-it-works' },
+  { label: 'What We Optimize', href: '/#what-we-optimize' },
+  { label: 'Plans', href: '/#pricing' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -139,7 +140,7 @@ export default function FixedNav() {
             calLink={bookingCalLink}
             className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
           >
-            Book a Call
+            Book the Audit
           </CalBookingLink>
 
           {/* Hamburger button (mobile only) */}
@@ -196,7 +197,7 @@ export default function FixedNav() {
                 onClick={() => setMenuOpen(false)}
                 className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
               >
-                Book a Call
+                Book the Audit
               </CalBookingLink>
             </div>
           </div>
@@ -215,7 +216,7 @@ export default function FixedNav() {
             calLink={bookingCalLink}
             className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
           >
-            Book a Call
+            Book the Audit
           </CalBookingLink>
         </div>
       </div>
