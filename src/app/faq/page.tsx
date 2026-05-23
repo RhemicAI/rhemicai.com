@@ -10,7 +10,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'FAQ: Med Spa Growth, AI Reception, and Rhemic AI',
   description:
-    'Answers for U.S. med spas evaluating Rhemic AI for Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and competitor ads intelligence.',
+    'Answers for U.S. med spas evaluating Rhemic AI for Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and Meta Ads intelligence.',
   path: '/faq',
   keywords: ['med spa growth FAQ', 'med spa AI receptionist', 'med spa missed-call recovery', 'Rhemic AI FAQ'],
 });
@@ -24,7 +24,7 @@ const faqs = [
   {
     question: 'What does Rhemic help a med spa improve?',
     answer:
-      'Rhemic helps improve Google Business Profile, Google Maps visibility, local SEO, reviews, treatment pages, citations, schema, AI search visibility, missed-call recovery, AI receptionist coverage, competitor ads intelligence, and closed-loop reporting.',
+      'Rhemic helps improve Google Business Profile, Google Maps visibility, local SEO, reviews, treatment pages, citations, schema, AI search visibility, missed-call recovery, AI receptionist coverage, Meta Ads intelligence, and closed-loop reporting.',
   },
   {
     question: 'Does every Rhemic plan include the AI receptionist?',
@@ -64,22 +64,22 @@ const faqs = [
   {
     question: 'Is this just SEO?',
     answer:
-      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI search visibility, reviews, missed calls, competitor ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
+      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI search visibility, reviews, missed calls, Meta Ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
   },
   {
     question: 'What is Meta ads intelligence?',
     answer:
-      'Meta ads intelligence helps Rhemic understand what competitors are promoting across Facebook and Instagram, including offers, treatments, creative angles, and market positioning. It helps your med spa see what the market is pushing before deciding what to fix or test.',
+      'Meta ads intelligence is a Premium dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
   },
   {
     question: 'Does Rhemic run our ads?',
     answer:
-      "Not by default. Rhemic's core offer is visibility, capture, and closed-loop reporting. Premium includes deeper competitor ads intelligence. Paid ad management is separate unless explicitly scoped.",
+      'Not by default. Premium includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.',
   },
   {
     question: 'Which plan includes deeper ads intelligence?',
     answer:
-      'Premium includes deeper Meta ads intelligence and competitor tracking. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
+      'Premium includes Meta ads intelligence through the connected-account dashboard and Meta MCP connection. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
   },
   {
     question: 'Do you guarantee rankings, revenue, or booked consults?',
@@ -101,7 +101,7 @@ export default function FAQPage() {
       <PageHero
         subtitle="FAQ"
         title="Questions med spa operators ask before working with Rhemic."
-        description="Clear answers about Google visibility, AI search, AI receptionist coverage, missed calls, competitor ads intelligence, pricing, and clinical boundaries."
+        description="Clear answers about Google visibility, AI search, AI receptionist coverage, missed calls, Meta Ads intelligence, pricing, and clinical boundaries."
         showBackLink={false}
       />
 

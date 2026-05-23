@@ -98,17 +98,17 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'What is Meta ads intelligence?',
     answer:
-      'Meta ads intelligence helps Rhemic understand what competitors are promoting across Facebook and Instagram, including offers, treatments, creative angles, and market positioning. It helps your med spa see what the market is pushing before deciding what to fix or test.',
+      'Meta ads intelligence is a Premium dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
   },
   {
     question: 'Does Rhemic run our Meta ads?',
     answer:
-      "Not by default. Rhemic's core offer is visibility, capture, and closed-loop reporting. Premium includes deeper competitor ads intelligence. Paid ad management is separate unless explicitly scoped.",
+      "Not by default. Premium includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.",
   },
   {
     question: 'What is the Meta MCP used for?',
     answer:
-      "The Meta MCP is used to connect Rhemic's system to Meta-related workflows and intelligence. The goal is to help analyze competitor ad activity, offer patterns, and market signals without turning Rhemic into a traditional ad agency.",
+      "Meta MCP lets a clinic connect its Meta account to Rhemic's platform so the Premium dashboard can show ad KPIs, spend, costs, performance trends, and optimization opportunities.",
   },
   {
     question: 'Will Rhemic change our ad campaigns automatically?',
@@ -116,24 +116,24 @@ const aiReceptionAndAdsFaqs = [
       'No. Rhemic should not automatically change your ad campaigns without approval. Any ad-related recommendation should be reviewed before action is taken.',
   },
   {
-    question: 'What does competitor ads intelligence show us?',
+    question: 'What does Meta ads intelligence show us?',
     answer:
-      'It can help identify which treatments competitors are promoting, what offers they are using, which messages appear repeatedly, and where your clinic may be under-positioned.',
+      'It can show connected-account campaign performance, spend, cost metrics, lead and conversion signals when available, KPI trends, and areas to optimize in running ads.',
   },
   {
     question: 'Which plans include Meta ads intelligence?',
     answer:
-      'Premium includes deeper Meta ads intelligence and competitor tracking. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
+      'Premium includes Meta ads intelligence through the connected-account dashboard and Meta MCP connection. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
   },
   {
     question: 'Is Meta ads intelligence the same as ad management?',
     answer:
-      'No. Ads intelligence means Rhemic studies the market signals. Ad management means someone creates, launches, optimizes, and manages campaigns. Those are different services.',
+      'No. Ads intelligence means Rhemic shows connected-account performance, KPIs, costs, and optimization opportunities. Ad management means someone creates, launches, optimizes, and manages campaigns. Those are different services.',
   },
   {
     question: 'Why does ads intelligence matter if Rhemic is not an agency?',
     answer:
-      'Because visibility alone is not enough. If competitors are pushing strong offers and your clinic is invisible, slow to respond, or unclear, you lose consults. Rhemic helps connect market demand to call capture and booked consults.',
+      'Because visibility alone is not enough. If your ads are spending money but calls, leads, costs, and booked consults are not clear, you cannot tell what to fix. Rhemic helps connect demand to capture and reporting.',
   },
   {
     question: 'Can Rhemic tell which ads drove booked consults?',
@@ -170,7 +170,7 @@ const recommendationRows = [
   {
     situation: 'Competitors are highly visible and running ads.',
     bestFit: 'Premium',
-    guidance: 'Premium gives deeper competitor ads intelligence, competitor review, and market-response guidance.',
+    guidance: 'Premium gives connected-account Meta Ads intelligence, competitor review, and clearer optimization priorities.',
   },
   {
     situation: 'You have two to five locations.',
@@ -212,7 +212,7 @@ export default function PricingPage() {
         service={{
           name: 'Rhemic AI Pricing and Service Plans',
           description:
-            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, and competitor ads intelligence.',
+            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, and Meta Ads intelligence.',
           path: '/pricing',
           audience: 'U.S. med spa owners and operators evaluating patient acquisition infrastructure',
         }}
@@ -237,7 +237,7 @@ export default function PricingPage() {
             Basic fixes the foundation. Growth is the main recommendation for owner-led med spas trying to grow consult volume. Premium is for competitive markets, bigger teams, and multi-location operators.
           </p>
           <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
-            Rhemic helps med spas get found, trusted, and booked. We improve Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, competitor ads intelligence, and AI receptionist coverage for missed and after-hours calls.
+            Rhemic helps med spas get found, trusted, and booked. We improve Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, Meta Ads intelligence, and AI receptionist coverage for missed and after-hours calls.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4">
             <CalBookingLink
@@ -337,7 +337,7 @@ export default function PricingPage() {
           </section>
 
           <SubpageFAQ
-            heading="Questions about AI reception and ads intelligence"
+            heading="Questions about AI reception and Meta Ads intelligence"
             faqs={aiReceptionAndAdsFaqs}
           />
 

@@ -80,7 +80,7 @@ const professionalServiceSchema = {
     'AI search visibility',
     'AI receptionist for med spas',
     'Missed-call recovery',
-    'Competitor ads intelligence',
+    'Meta Ads intelligence',
   ],
   employee: founders.map((f) => ({
     '@type': 'Person',
@@ -175,7 +175,7 @@ export default function AboutPage() {
                   Execution matters more than slogans
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Rhemic is built around concrete surfaces: GBP, Maps, reviews, treatment pages, schema, citations, AI search visibility, missed-call recovery, and competitor ads intelligence.
+                  Rhemic is built around concrete surfaces: GBP, Maps, reviews, treatment pages, schema, citations, AI search visibility, missed-call recovery, and Meta Ads intelligence.
                 </p>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function AboutPage() {
         links={[
           {
             title: 'What We Optimize',
-            description: 'Google, AI search, reviews, treatment pages, calls, and competitor ads intelligence.',
+            description: 'Google, AI search, reviews, treatment pages, calls, and Meta Ads intelligence.',
             href: '/#what-we-optimize',
           },
           {

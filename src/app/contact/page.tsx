@@ -303,7 +303,7 @@ export default function ContactPage() {
                 className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">What We Optimize</h3>
-                <p className="text-sm text-[var(--text-secondary)]">GBP, Maps, reviews, treatment pages, AI answers, missed calls, and ads intelligence.</p>
+                <p className="text-sm text-[var(--text-secondary)]">GBP, Maps, reviews, treatment pages, AI answers, missed calls, and Meta Ads intelligence.</p>
               </Link>
               <Link
                 href="/pricing"

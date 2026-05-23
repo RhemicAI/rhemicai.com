@@ -85,7 +85,7 @@ export const plans: PricingPlan[] = [
       'Monthly growth review',
     ],
     boundaries: [
-      'No Meta MCP competitor ads intelligence',
+      'No Meta Ads dashboard or Meta MCP account connection',
       'No multi-location dashboard beyond two locations',
       'Reddit work is planning only, not posting',
       'Best fit is one or two locations, not larger multi-market groups',
@@ -112,12 +112,12 @@ export const plans: PricingPlan[] = [
     bestFor: 'A competitive metro med spa, premium practice, multi-treatment clinic, or 2-5 location operator.',
     includedLocations: '2-5 locations',
     primaryUseCase: 'Competitive markets, bigger teams, multi-treatment clinics, or boutique multi-location groups.',
-    fixes: 'Competitor tracking, Meta MCP competitor ads intelligence, multi-location reporting, advanced scripts, and reporting cadence.',
+    fixes: 'Competitor tracking, Meta Ads dashboard, Meta MCP account connection, multi-location reporting, advanced scripts, and reporting cadence.',
     promise: 'You get deeper support, better market awareness, and stronger capture of patient demand.',
     whatTheyGet: [
       'Everything in Growth',
       'Competitor tracking',
-      'Meta MCP and competitor ads intelligence',
+      'Meta Ads dashboard for connected account KPIs, costs, and optimization opportunities',
       'Multi-location dashboard',
       'Advanced AI receptionist scripts',
       'Deeper reporting cadence',
@@ -125,7 +125,7 @@ export const plans: PricingPlan[] = [
     ],
     boundaries: [
       'Supports up to five locations, not six or more',
-      'Competitor ads intelligence informs decisions; paid ads management is separate',
+      'Meta Ads intelligence informs decisions; paid ads management is separate unless scoped',
       'Strategy cadence is defined monthly, not open-ended consulting',
     ],
     explanation:

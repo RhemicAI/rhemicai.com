@@ -22,17 +22,17 @@ const faqs = [
   {
     question: 'What is Meta ads intelligence?',
     answer:
-      'Meta ads intelligence helps Rhemic understand what competitors are promoting across Facebook and Instagram, including offers, treatments, creative angles, and market positioning.',
+      'Meta ads intelligence is a Premium dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
   },
   {
     question: 'Does Rhemic run our ads?',
     answer:
-      'Not by default. Rhemic focuses on visibility, capture, and closed-loop reporting. Paid ad management is separate unless explicitly scoped.',
+      'Not by default. Premium includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.',
   },
   {
     question: 'Which plan includes deeper ads intelligence?',
     answer:
-      'Premium includes deeper Meta ads intelligence and competitor tracking. Growth can include lighter competitor visibility review. Basic focuses on foundation work.',
+      'Premium includes Meta ads intelligence through the connected-account dashboard and Meta MCP connection. Growth can include lighter competitor visibility review. Basic focuses on foundation work.',
   },
 ];
 
@@ -72,7 +72,7 @@ export default function FAQ() {
             FAQ
           </p>
           <h2 className="font-display text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-            Questions about AI reception and ads intelligence
+            Questions about AI reception and Meta Ads intelligence
           </h2>
         </div>
 

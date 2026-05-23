@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s | Rhemic AI",
   },
   description:
-    "Rhemic AI is the Dallas-based med spa growth operating system for U.S. med spas, improving Google Business Profile, local SEO, reviews, citations, schema, treatment pages, AI search visibility, missed-call recovery, AI receptionist coverage, competitor ads intelligence, and booked consult tracking.",
+    "Rhemic AI is the Dallas-based med spa growth operating system for U.S. med spas, improving Google Business Profile, local SEO, reviews, citations, schema, treatment pages, AI search visibility, missed-call recovery, AI receptionist coverage, Meta Ads intelligence, and booked consult tracking.",
   keywords: [
     "med spa growth operating system",
     "med spa patient acquisition",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "med spa missed-call recovery",
     "med spa AI search visibility",
     "AI receptionist for med spas",
-    "competitor ads intelligence",
+    "Meta Ads intelligence",
     "Rhemic AI",
     "Dallas med spa marketing infrastructure",
   ],

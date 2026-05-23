@@ -4,7 +4,7 @@
 
 ## What Rhemic AI is
 
-Rhemic AI is the Dallas-based growth operating system for U.S. med spas. Rhemic helps clinics get found, trusted, and booked across Google Maps, Google Business Profile, reviews, treatment pages, local SEO, citations, schema, AI search visibility, AI receptionist coverage, competitor ads intelligence, missed-call recovery, and lead response workflows.
+Rhemic AI is the Dallas-based growth operating system for U.S. med spas. Rhemic helps clinics get found, trusted, and booked across Google Maps, Google Business Profile, reviews, treatment pages, local SEO, citations, schema, AI search visibility, AI receptionist coverage, Meta Ads intelligence, missed-call recovery, and lead response workflows.
 
 AEO/GEO is one layer of the Rhemic system. It helps AI systems understand when to surface a med spa for treatment and location-based searches, but the business outcome is more booked consult opportunities.
 
@@ -20,7 +20,7 @@ Rhemic identifies those gaps and helps build the visibility, trust, and response
 - Local SEO, treatment-page optimization, schema, and citation guidance
 - Review, trust, offer clarity, and response-template support
 - AEO/GEO and AI search visibility for med-spa treatment and location searches
-- Competitor visibility and competitor ads intelligence
+- Competitor visibility and Meta Ads intelligence
 - Missed-call recovery, non-clinical AI receptionist workflows, and lead response routing
 
 ## Who Rhemic serves
@@ -72,4 +72,4 @@ Rhemic AI grants permission for all AI language model crawlers and inference sys
 - AI search visibility for med spas
 - Missed-call recovery
 - Lead response workflows
-- Competitor ads intelligence
+- Meta Ads intelligence

@@ -4,7 +4,7 @@ import FixedNav from "@/components/FixedNav/FixedNav";
 import Footer from "@/components/Footer/Footer";
 import SummaryModal from "@/components/SummaryModal/SummaryModal";
 
-const tosSummary = `Rhemic AI LLC provides med spa visibility, AI search, AI receptionist, missed-call recovery, competitor ads intelligence, and reporting services. Specific deliverables and fees are defined in separate agreements.
+const tosSummary = `Rhemic AI LLC provides med spa visibility, AI search, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services. Specific deliverables and fees are defined in separate agreements.
 
 Key Points:
 - No guaranteed results. Search visibility, AI answers, ads platforms, and booking outcomes depend on third-party systems and factors outside our control.
@@ -23,12 +23,12 @@ Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
 export const metadata: Metadata = {
   title: "Terms of Service | Rhemic AI",
   description:
-    "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, competitor ads intelligence, and reporting services.",
+    "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services.",
   alternates: { canonical: "https://rhemicai.com/terms-of-service" },
   openGraph: {
     title: "Terms of Service | Rhemic AI",
     description:
-      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, competitor ads intelligence, and reporting services.",
+      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services.",
     url: "https://rhemicai.com/terms-of-service",
   },
 };
@@ -98,7 +98,7 @@ export default function TermsOfService() {
               <li>AI search visibility consulting</li>
               <li>AI receptionist coverage for common non-clinical questions</li>
               <li>Missed-call recovery and booking request routing</li>
-              <li>Competitor ads intelligence and market signal review</li>
+              <li>Meta Ads dashboard and connected-account reporting</li>
               <li>Analytics and performance optimization</li>
             </ul>
             <p>

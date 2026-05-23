@@ -37,7 +37,7 @@ export default function BlogPage() {
               The research library is being refocused around med spa acquisition.
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              Rhemic is narrowing public content around how med spas get found, trusted, answered, and booked. Older AI search articles remain available as foundation material, but new writing will connect visibility to patient acquisition, AI receptionist coverage, competitor ads intelligence, and closed-loop reporting.
+              Rhemic is narrowing public content around how med spas get found, trusted, answered, and booked. Older AI search articles remain available as foundation material, but new writing will connect visibility to patient acquisition, AI receptionist coverage, Meta Ads intelligence, and closed-loop reporting.
             </p>
           </section>
 
@@ -105,7 +105,7 @@ export default function BlogPage() {
             </h2>
 
             <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-              We&apos;re preparing deeper notes on Google Business Profile, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and competitor ads intelligence.
+              We&apos;re preparing deeper notes on Google Business Profile, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and Meta Ads intelligence.
             </p>
 
             {!subscribed ? (
@@ -164,14 +164,14 @@ export default function BlogPage() {
               className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
             >
               <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">What We Optimize</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Google, AI search, reviews, treatment pages, calls, and competitor ads intelligence.</p>
+              <p className="text-sm text-[var(--text-secondary)]">Google, AI search, reviews, treatment pages, calls, and Meta Ads intelligence.</p>
             </Link>
             <Link
               href="/faq"
               className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
             >
               <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">FAQ</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Answers about AI receptionist coverage, AI search, ads intelligence, and plan fit.</p>
+              <p className="text-sm text-[var(--text-secondary)]">Answers about AI receptionist coverage, AI search, Meta Ads intelligence, and plan fit.</p>
             </Link>
             <Link
               href="/pricing"
