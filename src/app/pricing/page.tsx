@@ -44,6 +44,109 @@ const pricingFaqs = [
   },
 ];
 
+const aiReceptionAndAdsFaqs = [
+  {
+    question: 'Does every Rhemic plan include the AI receptionist?',
+    answer:
+      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+  },
+  {
+    question: 'What does the AI receptionist actually do?',
+    answer:
+      'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. It helps recover calls that would otherwise go to voicemail or get missed after hours.',
+  },
+  {
+    question: 'Does the AI receptionist replace our front desk?',
+    answer:
+      'No. Rhemic does not replace your front desk. It gives your team backup coverage when calls are missed, after-hours leads come in, or staff are busy with patients.',
+  },
+  {
+    question: 'Can the AI receptionist book appointments directly?',
+    answer:
+      'It depends on your booking flow. In the first phase, Rhemic can capture the patient's information, qualify the request, and route it to your team. Direct booking can be scoped only if your scheduling system supports a safe handoff.',
+  },
+  {
+    question: 'Does the AI receptionist give medical advice?',
+    answer:
+      'No. The AI receptionist does not provide medical advice, diagnosis, treatment recommendations, or clinical intake. It only handles common non-clinical questions, lead capture, and booking request routing.',
+  },
+  {
+    question: 'What happens when a caller asks a clinical question?',
+    answer:
+      'The AI receptionist should route the caller to your licensed team. Clinical decisions, treatment eligibility, diagnosis, and medical guidance stay with licensed staff.',
+  },
+  {
+    question: 'What kind of questions can the AI receptionist answer?',
+    answer:
+      'It can answer approved non-clinical questions like location, hours, services offered, pricing ranges if approved, consultation process, booking steps, cancellation policy, and how to contact the clinic.',
+  },
+  {
+    question: 'What happens after the AI receptionist captures a lead?',
+    answer:
+      'The lead is routed to your team with the caller's details, requested treatment, urgency, source when available, and next-step context. The goal is to make follow-up faster and cleaner.',
+  },
+  {
+    question: 'Can we approve what the AI receptionist says?',
+    answer:
+      'Yes. Rhemic should use approved scripts and clinic-specific guardrails. Your team controls the approved language for services, pricing, policies, escalation rules, and booking handoff.',
+  },
+  {
+    question: 'Is the AI receptionist available after hours?',
+    answer:
+      'Yes. One of the core use cases is after-hours coverage, so missed calls and late-night buyer intent do not sit untouched until the next business day.',
+  },
+  {
+    question: 'What is Meta ads intelligence?',
+    answer:
+      'Meta ads intelligence helps Rhemic understand what competitors are promoting across Facebook and Instagram, including offers, treatments, creative angles, and market positioning. It helps your med spa see what the market is pushing before deciding what to fix or test.',
+  },
+  {
+    question: 'Does Rhemic run our Meta ads?',
+    answer:
+      'Not by default. Rhemic's core offer is visibility, capture, and closed-loop reporting. Premium includes deeper competitor ads intelligence. Paid ad management is separate unless explicitly scoped.',
+  },
+  {
+    question: 'What is the Meta MCP used for?',
+    answer:
+      'The Meta MCP is used to connect Rhemic's system to Meta-related workflows and intelligence. The goal is to help analyze competitor ad activity, offer patterns, and market signals without turning Rhemic into a traditional ad agency.',
+  },
+  {
+    question: 'Will Rhemic change our ad campaigns automatically?',
+    answer:
+      'No. Rhemic should not automatically change your ad campaigns without approval. Any ad-related recommendation should be reviewed before action is taken.',
+  },
+  {
+    question: 'What does competitor ads intelligence show us?',
+    answer:
+      'It can help identify which treatments competitors are promoting, what offers they are using, which messages appear repeatedly, and where your clinic may be under-positioned.',
+  },
+  {
+    question: 'Which plans include Meta ads intelligence?',
+    answer:
+      'Premium includes deeper Meta ads intelligence and competitor tracking. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
+  },
+  {
+    question: 'Is Meta ads intelligence the same as ad management?',
+    answer:
+      'No. Ads intelligence means Rhemic studies the market signals. Ad management means someone creates, launches, optimizes, and manages campaigns. Those are different services.',
+  },
+  {
+    question: 'Why does ads intelligence matter if Rhemic is not an agency?',
+    answer:
+      'Because visibility alone is not enough. If competitors are pushing strong offers and your clinic is invisible, slow to respond, or unclear, you lose consults. Rhemic helps connect market demand to call capture and booked consults.',
+  },
+  {
+    question: 'Can Rhemic tell which ads drove booked consults?',
+    answer:
+      'That is the direction of the closed-loop reporting layer. Rhemic should help trace consults back to the source when tracking and handoff systems are properly connected.',
+  },
+  {
+    question: 'Will Rhemic post ads or content for us?',
+    answer:
+      'No automatic posting by default. For content plans like Reddit or ads-related strategy, Rhemic can recommend and plan. The clinic or approved operator executes unless a separate execution scope is agreed.',
+  },
+];
+
 const snapshotCards = [
   { value: '$1K', label: 'Basic / month' },
   { value: '$2K', label: 'Growth / month' },
@@ -232,6 +335,11 @@ export default function PricingPage() {
               No ranking promises, revenue guarantees, or clinical claims.
             </p>
           </section>
+
+          <SubpageFAQ
+            heading="Questions about AI reception and ads intelligence"
+            faqs={aiReceptionAndAdsFaqs}
+          />
 
           <SubpageFAQ
             heading="Pricing FAQ"

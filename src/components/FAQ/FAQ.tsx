@@ -5,29 +5,34 @@ import Script from 'next/script';
 
 const faqs = [
   {
-    question: 'Is this just SEO?',
+    question: 'Does every plan include the AI receptionist?',
     answer:
-      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI answer visibility, reviews, missed calls, competitor ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
+      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting.',
   },
   {
-    question: 'What is AEO/GEO?',
+    question: 'What does the AI receptionist actually do?',
     answer:
-      'AEO/GEO helps AI systems and answer engines understand when to recommend a med spa for treatment and location-based searches. For Rhemic, it is one part of the larger patient acquisition system, not the whole offer.',
+      'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. It helps recover calls that would otherwise go to voicemail or get missed after hours.',
   },
   {
-    question: 'Do you replace our front desk?',
+    question: 'Does it give medical advice?',
     answer:
-      'No. Rhemic helps recover missed-call opportunities, answer common non-clinical questions, capture lead details, and route booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+      'No. The AI receptionist does not provide medical advice, diagnosis, treatment recommendations, or clinical intake. Clinical decisions stay with licensed staff.',
   },
   {
-    question: 'Do we need to switch CRMs?',
+    question: 'What is Meta ads intelligence?',
     answer:
-      "No. Rhemic should integrate with or route into the clinic's existing booking flow when possible. The audit identifies the cleanest handoff before implementation begins.",
+      'Meta ads intelligence helps Rhemic understand what competitors are promoting across Facebook and Instagram, including offers, treatments, creative angles, and market positioning.',
   },
   {
-    question: 'How fast can we start?',
+    question: 'Does Rhemic run our ads?',
     answer:
-      'Onboarding happens in phases. Rhemic starts with a visibility audit, then local trust cleanup, treatment-page optimization, and later missed-call recovery and reporting. Founding customers should expect a practical phased rollout, not instant full automation.',
+      'Not by default. Rhemic focuses on visibility, capture, and closed-loop reporting. Paid ad management is separate unless explicitly scoped.',
+  },
+  {
+    question: 'Which plan includes deeper ads intelligence?',
+    answer:
+      'Premium includes deeper Meta ads intelligence and competitor tracking. Growth can include lighter competitor visibility review. Basic focuses on foundation work.',
   },
 ];
 
@@ -67,7 +72,7 @@ export default function FAQ() {
             FAQ
           </p>
           <h2 className="font-display text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-            Straight answers for med-spa operators
+            Questions about AI reception and ads intelligence
           </h2>
         </div>
 
