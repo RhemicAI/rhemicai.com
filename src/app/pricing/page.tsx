@@ -63,7 +63,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Can the AI receptionist book appointments directly?',
     answer:
-      'It depends on your booking flow. In the first phase, Rhemic can capture the patient's information, qualify the request, and route it to your team. Direct booking can be scoped only if your scheduling system supports a safe handoff.',
+      'It depends on your booking flow. In the first phase, Rhemic can capture the patient\'s information, qualify the request, and route it to your team. Direct booking can be scoped only if your scheduling system supports a safe handoff.',
   },
   {
     question: 'Does the AI receptionist give medical advice?',
@@ -83,7 +83,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'What happens after the AI receptionist captures a lead?',
     answer:
-      'The lead is routed to your team with the caller's details, requested treatment, urgency, source when available, and next-step context. The goal is to make follow-up faster and cleaner.',
+      'The lead is routed to your team with the caller\'s details, requested treatment, urgency, source when available, and next-step context. The goal is to make follow-up faster and cleaner.',
   },
   {
     question: 'Can we approve what the AI receptionist says?',
@@ -103,12 +103,12 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Does Rhemic run our Meta ads?',
     answer:
-      'Not by default. Rhemic's core offer is visibility, capture, and closed-loop reporting. Premium includes deeper competitor ads intelligence. Paid ad management is separate unless explicitly scoped.',
+      "Not by default. Rhemic's core offer is visibility, capture, and closed-loop reporting. Premium includes deeper competitor ads intelligence. Paid ad management is separate unless explicitly scoped.",
   },
   {
     question: 'What is the Meta MCP used for?',
     answer:
-      'The Meta MCP is used to connect Rhemic's system to Meta-related workflows and intelligence. The goal is to help analyze competitor ad activity, offer patterns, and market signals without turning Rhemic into a traditional ad agency.',
+      "The Meta MCP is used to connect Rhemic's system to Meta-related workflows and intelligence. The goal is to help analyze competitor ad activity, offer patterns, and market signals without turning Rhemic into a traditional ad agency.",
   },
   {
     question: 'Will Rhemic change our ad campaigns automatically?',
