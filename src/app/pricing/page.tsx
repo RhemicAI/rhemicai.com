@@ -241,7 +241,7 @@ export default function PricingPage() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4">
             <CalBookingLink
-              calLink="rhemic-ai/discovery-call"
+              calLink="rhemic-ai/medspa-discovery-call"
             className="w-full max-w-[340px] rounded-full bg-[var(--ink)] px-6 py-4 text-center text-sm font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
           >
               Get a visibility + call leak audit
@@ -326,7 +326,7 @@ export default function PricingPage() {
               We help med spas win more booked consults by fixing how patients find you, how they decide to trust you, and what happens when they call.
             </p>
             <CalBookingLink
-              calLink="rhemic-ai/discovery-call"
+              calLink="rhemic-ai/medspa-discovery-call"
               className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
               Get a visibility + call leak audit

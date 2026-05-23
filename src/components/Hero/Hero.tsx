@@ -96,7 +96,7 @@ export default function Hero() {
 
           <div className="hero-enter-copy mt-8 hidden flex-col gap-3 sm:flex sm:flex-row">
             <CalBookingLink
-              calLink="rhemic-ai/discovery-call"
+              calLink="rhemic-ai/medspa-discovery-call"
               className="inline-flex items-center justify-center rounded-full bg-[var(--ink)] px-5 py-3 font-body text-sm font-semibold text-[var(--bg)] shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_4px_16px_-4px_rgba(238,242,247,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_6px_24px_-4px_var(--pulse-glow)]"
             >
               Get a visibility + call leak audit

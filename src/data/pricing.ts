@@ -54,7 +54,7 @@ export const plans: PricingPlan[] = [
     upgradePath:
       'Growth adds stronger missed-call recovery, backlink intelligence, competitor visibility review, and more support for active consult growth.',
     featured: false,
-    calLink: 'rhemic-ai/discovery-call',
+    calLink: 'rhemic-ai/medspa-discovery-call',
     features: [
       'Google Business Profile and Maps foundation review',
       'Local SEO, schema, citation, and treatment-page priority fixes',
@@ -93,7 +93,7 @@ export const plans: PricingPlan[] = [
     explanation:
       'Growth is the default fit when missed calls, competitor visibility, and consult volume are active concerns.',
     featured: true,
-    calLink: 'rhemic-ai/discovery-call',
+    calLink: 'rhemic-ai/medspa-discovery-call',
     features: [
       'Everything in Basic',
       'Review, offer clarity, and competitor positioning work',
@@ -131,7 +131,7 @@ export const plans: PricingPlan[] = [
     explanation:
       'Premium is for owners who need deeper market visibility and faster decisions on what to fix first.',
     featured: false,
-    calLink: 'rhemic-ai/discovery-call',
+    calLink: 'rhemic-ai/medspa-discovery-call',
     features: [
       'Everything in Growth',
       'Multi-location visibility and treatment-page priority map',
@@ -157,7 +157,7 @@ export const customPlan = {
   ],
   fixes:
     'Complex routing, reporting, multi-market visibility, group-level rollout planning, and deeper competitor intelligence.',
-  calLink: 'rhemic-ai/discovery-call' as CalLink,
+  calLink: 'rhemic-ai/medspa-discovery-call' as CalLink,
 };
 
 // Legacy exports — used by SmbPricing and SmbHero

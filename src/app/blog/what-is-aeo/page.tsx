@@ -724,7 +724,7 @@ export default function WhatIsAEOPage() {
                 your website - and what to fix first.
               </p>
               <a
-                href="#" data-cal-link="rhemic-ai/discovery-call"
+                href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
                 className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
                 Get the audit

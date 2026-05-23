@@ -334,7 +334,7 @@ export default function StartFreeTrialPage() {
             </p>
 
             <a
-              href="#" data-cal-link="rhemic-ai/discovery-call"
+              href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
               className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book Discovery Call
@@ -505,7 +505,7 @@ export default function StartFreeTrialPage() {
           {/* Bottom CTA */}
           <div className="mt-16 text-center">
             <a
-              href="#" data-cal-link="rhemic-ai/discovery-call"
+              href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
               className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book Discovery Call

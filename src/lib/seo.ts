@@ -85,7 +85,7 @@ export function organizationSchema() {
       "@type": "ContactPoint",
       contactType: "sales",
       email: siteConfig.email,
-      url: "https://cal.com/rhemic-ai/discovery-call",
+      url: "https://cal.com/rhemic-ai/medspa-discovery-call",
     },
     knowsAbout: [
       "Med spa patient acquisition",

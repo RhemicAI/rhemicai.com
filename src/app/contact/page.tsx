@@ -253,7 +253,7 @@ export default function ContactPage() {
                   Get a visibility and call leak audit to review where your clinic can improve Google visibility, trust, call recovery, and consult routing.
                 </p>
                 <a
-                  href="#" data-cal-link="rhemic-ai/discovery-call"
+                  href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
                   className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Get a visibility + call leak audit

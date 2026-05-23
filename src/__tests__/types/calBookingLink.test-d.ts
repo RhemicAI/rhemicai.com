@@ -2,7 +2,7 @@ import type { CalLink } from '@/lib/calEmbed';
 import type { CalBookingLinkProps } from '@/components/CalEmbed/CalBookingLink';
 
 const approvedRootLink: CalLink = 'rhemic-ai';
-const approvedDiscoveryLink: CalLink = 'rhemic-ai/discovery-call';
+const approvedDiscoveryLink: CalLink = 'rhemic-ai/medspa-discovery-call';
 const approvedPricingLink: CalLink = 'rhemic-ai/smb-growth-onboarding';
 
 const approvedProps: CalBookingLinkProps = {

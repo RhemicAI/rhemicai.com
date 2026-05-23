@@ -18,7 +18,7 @@ export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
-  const bookingCalLink = 'rhemic-ai/discovery-call';
+  const bookingCalLink = 'rhemic-ai/medspa-discovery-call';
 
   // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {

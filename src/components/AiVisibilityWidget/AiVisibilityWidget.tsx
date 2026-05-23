@@ -4,8 +4,8 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { CAL_EMBED_SCRIPT_SRC } from '@/lib/calEmbed';
 
 const API_BASE_URL = 'https://api.rhemicai.com';
-const CAL_BOOKING_LINK = 'rhemic-ai/discovery-call';
-const CAL_BOOKING_URL = 'https://cal.com/rhemic-ai/discovery-call';
+const CAL_BOOKING_LINK = 'rhemic-ai/medspa-discovery-call';
+const CAL_BOOKING_URL = 'https://cal.com/rhemic-ai/medspa-discovery-call';
 const POLL_INTERVAL_MS = 5000;
 const POLL_TIMEOUT_MS = 6 * 60 * 1000;
 

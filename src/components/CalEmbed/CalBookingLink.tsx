@@ -11,7 +11,7 @@ export interface CalBookingLinkProps {
 }
 
 export default function CalBookingLink({ calLink, className, onClick, children }: CalBookingLinkProps) {
-  const resolvedCalLink = calLink ?? 'rhemic-ai/discovery-call';
+  const resolvedCalLink = calLink ?? 'rhemic-ai/medspa-discovery-call';
   const href = `https://cal.com/${resolvedCalLink}`;
 
   return (

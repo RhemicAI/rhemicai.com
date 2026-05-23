@@ -53,7 +53,7 @@ export default function FreeAiVisibilityCheckPage() {
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <CalBookingLink
-                calLink="rhemic-ai/discovery-call"
+                calLink="rhemic-ai/medspa-discovery-call"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 Get the audit

@@ -83,7 +83,7 @@ export default function PageSchemas({
         availability: "https://schema.org/InStock",
         description:
           softwareApplication.offerDescription ?? "Book a demo for pricing.",
-        url: "https://cal.com/rhemic-ai/discovery-call",
+        url: "https://cal.com/rhemic-ai/medspa-discovery-call",
       },
       provider: {
         "@type": "Organization",

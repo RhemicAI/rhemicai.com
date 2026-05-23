@@ -48,7 +48,7 @@ export default function StakesSection() {
 
       <div className="max-w-3xl mx-auto text-center space-y-6">
         <CalBookingLink
-          calLink="rhemic-ai/discovery-call"
+          calLink="rhemic-ai/medspa-discovery-call"
           className="inline-block px-8 py-4 text-lg font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:scale-105 font-body"
         >
           Book Your Strategy Call

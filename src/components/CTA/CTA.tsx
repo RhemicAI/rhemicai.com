@@ -26,7 +26,7 @@ export default function CTA() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <CalBookingLink
-            calLink="rhemic-ai/discovery-call"
+            calLink="rhemic-ai/medspa-discovery-call"
             className="px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5"
           >
             Get a visibility + call leak audit
