@@ -3,35 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #0a0a0a;
-  --bg-elevated: #111111;
-  /* Card surfaces — opaque dark, not translucent white. The site sits over
-     a WebGL globe on the homepage; translucent surfaces let the globe bleed
-     through and read as "transparent." Opaque dark surfaces look like solid
-     cards while still feeling at home on the dark canvas. */
-  --bg-glass: rgba(20, 20, 20, 0.92);
-  --bg-glass-hover: rgba(28, 28, 28, 0.96);
+  --bg: #07090c;
+  --bg-2: #0b0f14;
+  --bg-3: #11161d;
+  --ink: #eef2f7;
+  --ink-2: #c8d0db;
+  --mute: #8b95a4;
+  --mute-2: #5f6877;
+  --mist: #fafbfc;
+  --ink-light: #101418;
+  --grid: #e6ebf0;
+  --console: #0a1218;
+  --pulse: #4DD6E0;
+  --pulse-deep: #7be4eb;
+  --pulse-soft: rgba(77, 214, 224, 0.18);
+  --pulse-glow: rgba(77, 214, 224, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.025);
+  --glass-bg-2: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+    0 20px 40px -12px rgba(0, 0, 0, 0.5),
+    0 4px 16px -4px rgba(0, 0, 0, 0.3);
 
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.85);
-  --text-tertiary: rgba(255, 255, 255, 0.55);
-  --text-muted: rgba(255, 255, 255, 0.4);
-  --text-faint: rgba(255, 255, 255, 0.25);
-
-  --border-default: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --border-subtle: rgba(255, 255, 255, 0.06);
-
-  --btn-primary-bg: #ffffff;
-  --btn-primary-text: #000000;
-
-  /* Accent — used by the public AI scan widget (input form, scan state,
-     results, post-scan booking CTA). Defined as both solid and space-
-     separated RGB so Tailwind arbitrary values can apply opacity modifiers
-     via `rgb(var(--accent-teal-rgb) / <alpha>)`. */
-  --accent-teal: #00D4AA;
-  --accent-teal-rgb: 0 212 170;
-  --accent-teal-hover: #22e7c0;
+  --bg-base: var(--bg);
+  --bg-elevated: var(--glass-bg-2);
+  --bg-glass: var(--glass-bg);
+  --bg-glass-hover: var(--glass-bg-2);
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-2);
+  --text-tertiary: var(--mute);
+  --text-muted: var(--mute);
+  --text-faint: var(--mute-2);
+  --border-default: var(--glass-border);
+  --border-strong: rgba(238, 242, 247, 0.2);
+  --border-subtle: rgba(238, 242, 247, 0.06);
+  --btn-primary-bg: var(--ink);
+  --btn-primary-text: var(--bg);
+  --accent-teal: var(--pulse);
+  --accent-teal-rgb: 77 214 224;
+  --accent-teal-hover: var(--pulse-deep);
 }
 
 html {
@@ -46,13 +58,20 @@ html {
 
 html,
 body {
-  background: var(--bg-base);
+  background:
+    radial-gradient(ellipse 48% 34% at 88% 0%, rgba(77, 214, 224, 0.1) 0%, transparent 68%),
+    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(77, 214, 224, 0.055) 0%, transparent 62%),
+    linear-gradient(to right, rgba(238, 242, 247, 0.026) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(238, 242, 247, 0.026) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: auto, auto, 56px 56px, 56px 56px, auto;
+  background-attachment: fixed;
   color: var(--text-primary);
   overflow-x: hidden;
   scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -62,14 +81,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-ibm-plex-mono), monospace;
-  letter-spacing: -0.02em;
+  font-family: var(--font-inter-tight), sans-serif;
+  letter-spacing: 0;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.3);
-  color: #fff;
+  background: var(--pulse-soft);
+  color: var(--ink);
 }
 
 ::-webkit-scrollbar {
@@ -87,7 +106,7 @@ h6 {
 
 /* ── Text over globe readability ── */
 .text-over-globe {
-  text-shadow: 0 0 20px rgba(10, 10, 10, 0.95), 0 0 40px rgba(10, 10, 10, 0.8), 0 0 80px rgba(10, 10, 10, 0.4);
+  text-shadow: 0 0 20px rgba(7, 9, 12, 0.95), 0 0 40px rgba(7, 9, 12, 0.8), 0 0 80px rgba(7, 9, 12, 0.4);
 }
 
 /* ── AEO Engine fade-in ── */
@@ -112,9 +131,8 @@ h6 {
 }
 
 .nav-scrolled {
-  background-color: rgba(10, 10, 10, 0.95);
-  /* box-shadow instead of border — renders on the GPU layer, no sub-pixel gap */
-  box-shadow: 0 1px 0 var(--border-subtle), 0 2px 0 rgba(10, 10, 10, 0.95);
+  background-color: rgba(7, 9, 12, 0.9);
+  box-shadow: 0 1px 0 var(--border-subtle), 0 2px 0 rgba(7, 9, 12, 0.9);
   transform: translateZ(0);
 }
 
@@ -131,5 +149,85 @@ h6 {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+  }
+
+  .section-label {
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pulse-deep);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rhemic-grid-bg {
+    background:
+      radial-gradient(ellipse 44% 40% at 88% 8%, rgba(77, 214, 224, 0.14) 0%, transparent 72%),
+      radial-gradient(ellipse 36% 38% at 0% 86%, rgba(77, 214, 224, 0.07) 0%, transparent 62%),
+      linear-gradient(to right, rgba(238, 242, 247, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(238, 242, 247, 0.035) 1px, transparent 1px),
+      var(--bg);
+    background-size: auto, auto, 56px 56px, 56px 56px, auto;
+  }
+
+  .hero-proof-word {
+    font-family: var(--font-fraunces), serif;
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(135deg, var(--pulse-deep) 0%, var(--pulse) 60%, #3aafb8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-enter-eyebrow {
+    animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-enter-title {
+    animation: hero-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+  }
+
+  .hero-enter-copy {
+    animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) 260ms both;
+  }
+
+  .hero-enter-panel {
+    animation: hero-panel-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) 220ms both;
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-panel-enter {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 }

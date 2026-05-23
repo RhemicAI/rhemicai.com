@@ -1,38 +1,43 @@
 const system = [
   {
     number: '01',
-    title: 'Get Found',
-    body: 'Improve the signals that help med spas appear across Google Maps, Google Business Profile, treatment pages, citations, schema, local SEO, and AI answer engines.',
+    title: 'Scan',
+    body: 'Map Google visibility, AI search presence, treatment pages, reviews, competitor visibility, and missed-call patterns.',
   },
   {
     number: '02',
-    title: 'Get Chosen',
-    body: 'Strengthen reviews, offer clarity, before-and-after trust, competitor positioning, and competitor ads intelligence so patients have a clear reason to choose your clinic.',
+    title: 'Fix',
+    body: 'Prioritize Google Business Profile, local SEO, treatment-page, citation, schema, and review-request fixes by consult impact.',
   },
   {
     number: '03',
-    title: 'Get Booked',
-    body: 'Recover missed-call opportunities, answer approved non-clinical questions, capture lead details, and route consult requests into your existing booking flow.',
+    title: 'Capture',
+    body: 'Add AI receptionist coverage for common non-clinical questions, lead capture, missed-call recovery, and booking request routing.',
+  },
+  {
+    number: '04',
+    title: 'Report',
+    body: 'Show what changed, which channels are creating demand, and where the next visibility or response leak needs work.',
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative z-10 px-6 py-16 md:py-24">
-      <div className="mx-auto max-w-5xl">
+    <section id="how-it-works" className="relative z-10 px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
-          <p className="mb-4 font-body text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
-            The system
+          <p className="section-label mb-4">
+            First 30 days
           </p>
-          <h2 className="font-display text-3xl font-extrabold leading-[1.1] text-[var(--text-primary)] md:text-4xl">
-            Found, chosen, booked.
+          <h2 className="font-display text-3xl font-semibold leading-[1.1] text-[var(--text-primary)] md:text-4xl">
+            Scan. Fix. Capture. Report.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-0 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {system.map((step) => (
-            <div key={step.number} className="border-t border-white/[0.08] pt-8 md:pr-10 md:last:pr-0">
-              <p className="mb-6 font-display text-5xl font-extrabold text-white/10">
+            <div key={step.number} className="glass-panel p-6">
+              <p className="mb-6 font-mono text-4xl font-semibold tabular-nums text-[var(--pulse-soft)]">
                 {step.number}
               </p>
               <h3 className="mb-3 font-display text-xl font-bold text-[var(--text-primary)]">

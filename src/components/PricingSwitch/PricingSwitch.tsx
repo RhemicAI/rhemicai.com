@@ -37,9 +37,9 @@ function BoundaryIcon() {
 }
 
 function PlanCard({ plan }: { plan: PricingPlan }) {
-  const ctaClass = `mt-8 block w-full rounded-[5px] py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+  const ctaClass = `mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
     plan.featured
-      ? 'bg-white text-black shadow-lg shadow-white/10 hover:bg-gray-100'
+      ? 'bg-[var(--ink)] text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] hover:bg-[var(--pulse)]'
       : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
   }`;
 
@@ -53,7 +53,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
     >
       {plan.featured && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-block rounded-[5px] bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wider text-black">
+          <span className="inline-block rounded-full bg-[var(--pulse-soft)] px-4 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--pulse-deep)]">
             Main recommendation
           </span>
         </div>
@@ -78,12 +78,12 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       </div>
 
       <div className="mt-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Plain-English promise</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Outcome focus</p>
         <p className="mt-2 text-sm leading-[1.6] text-[var(--text-primary)]">{plan.promise}</p>
       </div>
 
       <div className="mt-6">
-        <p className="text-sm font-semibold text-[var(--text-primary)]">What they get</p>
+        <p className="text-sm font-semibold text-[var(--text-primary)]">Included</p>
         <ul className="mt-3 space-y-3">
           {plan.whatTheyGet.map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm leading-[1.5] text-[var(--text-secondary)]">
@@ -95,7 +95,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       </div>
 
       <div className="mt-6">
-        <p className="text-sm font-semibold text-[var(--text-primary)]">Not included / boundaries</p>
+        <p className="text-sm font-semibold text-[var(--text-primary)]">Plan limits</p>
         <ul className="mt-3 space-y-3">
           {plan.boundaries.map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm leading-[1.5] text-[var(--text-tertiary)]">
@@ -119,7 +119,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       ) : null}
 
       <CalBookingLink calLink={plan.calLink} className={ctaClass}>
-        Book a 20-minute med-spa growth audit
+        Get a visibility + call leak audit
       </CalBookingLink>
     </article>
   );
@@ -140,7 +140,7 @@ function CustomCard() {
           <p className="text-sm font-semibold text-[var(--text-primary)]">Best fit</p>
           <div className="mt-3 grid gap-2 sm:grid-cols-2">
             {customPlan.bestFor.map((item) => (
-              <div key={item} className="rounded-[5px] border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-[var(--text-secondary)]">
+              <div key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-[var(--text-secondary)]">
                 {item}
               </div>
             ))}
@@ -151,9 +151,9 @@ function CustomCard() {
         <div className="lg:text-right">
           <CalBookingLink
             calLink={customPlan.calLink}
-            className="inline-flex w-full items-center justify-center rounded-[5px] border border-white/20 px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-white/40 hover:text-white lg:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--pulse)] hover:text-[var(--pulse-deep)] lg:w-auto"
           >
-            Book a custom med-spa growth audit
+            Get a custom med-spa growth audit
           </CalBookingLink>
         </div>
       </div>

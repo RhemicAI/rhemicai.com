@@ -10,9 +10,9 @@ import { buildMetadata } from '@/lib/seo';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Med Spa Pricing for Growth, Calls, Reviews, and AI Search',
+  title: 'Med Spa Operating System Pricing',
   description:
-    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need better Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, competitor ads intelligence, and AI receptionist coverage.',
+    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need Google Business Profile optimization, AI search visibility, missed-call recovery, AI receptionist coverage, competitor intelligence, and booked consult tracking.',
   path: '/pricing',
   keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist'],
 });
@@ -24,11 +24,11 @@ const premiumPlan = plans.find((p) => p.tier === 'scale')!;
 const pricingFaqs = [
   {
     question: 'How much does Rhemic AI cost for med spas?',
-    answer: `Med-spa plans: ${basicPlan.name} at $${basicPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${premiumPlan.name} at $${premiumPlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. Every plan starts with a call-gated growth audit so scope matches the clinic's locations, visibility gaps, and booking workflow.`,
+    answer: `Med spa plans: ${basicPlan.name} at $${basicPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${premiumPlan.name} at $${premiumPlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. The audit helps match scope to the clinic's locations, visibility gaps, and booking workflow.`,
   },
   {
     question: 'Which plan is the main recommendation?',
-    answer: `${growthPlan.name} is the main recommendation for serious owner-led med spas that want more consults, better visibility, better call coverage, and a simple view of competitor ads.`,
+    answer: `${growthPlan.name} is the main recommendation for owner-led med spas that want more consults, better visibility, better call coverage, and a clearer view of competitor demand.`,
   },
   {
     question: 'What does AI search visibility mean?',
@@ -36,7 +36,7 @@ const pricingFaqs = [
   },
   {
     question: 'How does the AI receptionist work?',
-    answer: "The AI receptionist helps answer common non-clinical questions, capture lead details, and route booking requests to your clinic's team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.",
+    answer: 'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
   },
   {
     question: 'Do you promise rankings or revenue?',
@@ -139,12 +139,12 @@ export default function PricingPage() {
           <div className="mt-9 flex flex-col items-center justify-center gap-4">
             <CalBookingLink
               calLink="rhemic-ai/discovery-call"
-              className="w-full max-w-[340px] rounded-[5px] bg-white px-6 py-4 text-center text-sm font-semibold text-black shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 hover:bg-gray-100 sm:max-w-none sm:px-8 sm:text-base"
-            >
-              Book a 20-minute med-spa growth audit
+            className="w-full max-w-[340px] rounded-full bg-[var(--ink)] px-6 py-4 text-center text-sm font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
+          >
+              Get a visibility + call leak audit
             </CalBookingLink>
             <p className="font-body text-sm text-[var(--text-muted)]">
-              $0 setup fee. Call-gated onboarding. Built for U.S. med spas.
+              $0 setup fee. Starts with a visibility and call leak audit for U.S. med spas.
             </p>
           </div>
         </div>
@@ -163,14 +163,14 @@ export default function PricingPage() {
 
           <PricingSwitch />
 
-          <section className="mb-12 rounded-3xl border border-cyan-200/15 bg-cyan-200/[0.04] p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/70">Buyer math</p>
+          <section className="glass-panel mb-12 p-6 sm:p-8">
+            <p className="section-label">Simple buyer math</p>
             <div className="mt-4 grid gap-6 md:grid-cols-[1fr_1.3fr] md:items-center">
               <div className="flex flex-wrap gap-2">
                 {buyerMathItems.map((item) => (
                   <span
                     key={item}
-                    className="rounded-[5px] border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-[var(--text-secondary)]"
+                    className="rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg-2)] px-3 py-2 text-sm text-[var(--text-secondary)]"
                   >
                     {item}
                   </span>
@@ -182,7 +182,7 @@ export default function PricingPage() {
             </div>
           </section>
 
-          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6 sm:p-8">
+          <section className="glass-panel mb-12 p-6 sm:p-8">
             <h2 className="font-display text-3xl font-bold text-[var(--text-primary)]">
               Which plan fits your med spa?
             </h2>
@@ -208,14 +208,14 @@ export default function PricingPage() {
             </div>
           </section>
 
-          <section className="mb-12 rounded-3xl border border-cyan-200/15 bg-cyan-200/[0.04] p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/70">AI receptionist note</p>
+          <section className="glass-panel mb-12 p-6 sm:p-8">
+            <p className="section-label">AI receptionist</p>
             <p className="mt-4 max-w-4xl text-base leading-[1.75] text-[var(--text-secondary)]">
-              The AI receptionist helps answer common non-clinical questions, capture lead details, and route booking requests to your clinic&apos;s team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.
+              The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.
             </p>
           </section>
 
-          <section className="mb-12 rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] px-4 py-10 text-center sm:rounded-3xl sm:px-6 sm:py-16">
+          <section className="glass-panel mb-12 px-4 py-10 text-center sm:px-6 sm:py-16">
             <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
               Start with the audit.
             </h2>
@@ -224,12 +224,12 @@ export default function PricingPage() {
             </p>
             <CalBookingLink
               calLink="rhemic-ai/discovery-call"
-              className="inline-flex w-full max-w-[340px] items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105 sm:max-w-none sm:px-8 sm:text-base"
+              className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
-              Book a 20-minute med-spa growth audit
+              Get a visibility + call leak audit
             </CalBookingLink>
             <p className="mt-6 text-xs text-[var(--text-muted)]">
-              Call-gated onboarding. No ranking promises or clinical claims.
+              No ranking promises, revenue guarantees, or clinical claims.
             </p>
           </section>
 
@@ -249,8 +249,8 @@ export default function PricingPage() {
             href: '/#what-we-optimize',
           },
           {
-            title: 'Book the Audit',
-            description: 'Start with a 20-minute med-spa growth audit.',
+            title: 'Get the Audit',
+            description: 'Start with a visibility and call leak audit.',
             href: '/contact',
           },
           {

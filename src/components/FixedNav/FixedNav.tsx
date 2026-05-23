@@ -9,8 +9,8 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'What We Optimize', href: '/#what-we-optimize' },
-  { label: 'Plans', href: '/#pricing' },
-  { label: 'About', href: '/about' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -138,9 +138,9 @@ export default function FixedNav() {
         <div className="flex items-center gap-4">
           <CalBookingLink
             calLink={bookingCalLink}
-            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
+            className="hidden rounded-full bg-[var(--btn-primary-bg)] px-5 py-2.5 font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] md:block"
           >
-            Book the Audit
+            Get the audit
           </CalBookingLink>
 
           {/* Hamburger button (mobile only) */}
@@ -195,9 +195,9 @@ export default function FixedNav() {
               <CalBookingLink
                 calLink={bookingCalLink}
                 onClick={() => setMenuOpen(false)}
-                className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
+                className="rounded-full bg-[var(--btn-primary-bg)] px-8 py-3 font-body text-base font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:bg-[var(--pulse)]"
               >
-                Book the Audit
+                Get the audit
               </CalBookingLink>
             </div>
           </div>
@@ -214,9 +214,9 @@ export default function FixedNav() {
         <div className="flex justify-center pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)] border-t border-[var(--border-subtle)]">
           <CalBookingLink
             calLink={bookingCalLink}
-            className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
+            className="rounded-full bg-[var(--btn-primary-bg)] px-5 py-2 font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-200 hover:bg-[var(--pulse)] active:scale-[0.98]"
           >
-            Book the Audit
+            Get the audit
           </CalBookingLink>
         </div>
       </div>

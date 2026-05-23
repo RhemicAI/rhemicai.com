@@ -36,13 +36,13 @@ function TheShift() {
 
         {/* Stats */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-xl mx-auto">
-          <div className="rounded-xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 text-center">
+          <div className="rounded-xl border border-white/10 bg-[var(--glass-bg)] p-5 text-center">
             <p className="text-3xl font-bold text-white font-display">1 in 3</p>
             <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
               More than 1 in 3 buyers now start their search inside an AI assistant
             </p>
           </div>
-          <div className="rounded-xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 text-center">
+          <div className="rounded-xl border border-white/10 bg-[var(--glass-bg)] p-5 text-center">
             <p className="text-3xl font-bold text-white font-display">&darr;</p>
             <p className="mt-1 text-sm text-[var(--text-muted)] font-body">
               Search engine volume is projected to decline significantly as AI answers replace traditional results
@@ -93,7 +93,7 @@ function HowItWorks() {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-6 hover:border-white/20 transition-colors duration-300"
+              className="rounded-2xl border border-white/10 bg-[var(--glass-bg)] p-6 hover:border-white/20 transition-colors duration-300"
             >
               <span className="inline-block text-sm font-mono font-bold text-white/60 mb-3">
                 {step.number}
@@ -160,7 +160,7 @@ function SmbFAQ() {
           {smbFaqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[rgba(15,15,15,0.85)] hover:border-[var(--border-default)] transition-colors"
+              className="border border-[var(--border-subtle)] rounded-xl overflow-hidden bg-[var(--glass-bg)] hover:border-[var(--border-default)] transition-colors"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

@@ -42,7 +42,7 @@ export default function EnterprisePanel() {
         {enterpriseFeatures.map((item) => (
           <div
             key={item.title}
-            className="rounded-lg border border-white/10 bg-[rgba(15,15,15,0.85)] p-4 hover:border-violet-500/30 transition-colors duration-300"
+            className="rounded-lg border border-white/10 bg-[var(--glass-bg)] p-4 hover:border-violet-500/30 transition-colors duration-300"
           >
             <h4 className="text-xs font-bold text-[var(--text-primary)] mb-1">{item.title}</h4>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>

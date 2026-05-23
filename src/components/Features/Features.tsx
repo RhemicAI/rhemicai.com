@@ -1,42 +1,38 @@
 const groups = [
   {
-    title: 'Local trust',
-    items: ['Google Business Profile', 'Google Maps visibility', 'Reviews and response templates', 'Schema and citations'],
+    title: 'Visibility',
+    items: ['Google Business Profile', 'Google Maps visibility', 'AI search visibility', 'Local SEO', 'Schema and citations'],
   },
   {
-    title: 'Treatment demand',
-    items: ['Local SEO', 'Treatment and service pages', 'AEO/GEO visibility', 'AI answer-engine recommendations'],
+    title: 'Capture',
+    items: ['AI receptionist coverage', 'Missed-call recovery', 'After-hours lead response', 'Booking request routing'],
   },
   {
-    title: 'Competitive signal',
-    items: ['Competitor visibility', 'Competitor ads intelligence', 'Offer clarity', 'Market positioning gaps'],
-  },
-  {
-    title: 'Booking response',
-    items: ['Missed-call recovery', 'After-hours lead response', 'Non-clinical AI receptionist workflows', 'Handoff into your booking flow'],
+    title: 'Closed loop',
+    items: ['Treatment-page priorities', 'Review-request automation', 'Competitor visibility review', 'Source-tied reporting'],
   },
 ];
 
 export default function Features() {
   return (
-    <section id="what-we-optimize" className="relative px-6 py-24 md:py-32">
+    <section id="what-we-optimize" className="relative px-6 py-20 md:py-28">
       <div className="mx-auto mb-14 max-w-5xl text-center">
-        <p className="mb-5 font-body text-sm font-medium uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-          What Rhemic optimizes
+        <p className="section-label mb-5">
+          What Rhemic does
         </p>
-        <h2 className="mx-auto mb-5 max-w-4xl font-display text-4xl font-bold leading-[1.1] text-[var(--text-primary)] sm:text-5xl">
-          A complete patient acquisition stack, not a random list of services.
+        <h2 className="mx-auto mb-5 max-w-4xl font-display text-4xl font-semibold leading-[1.1] text-[var(--text-primary)] sm:text-5xl">
+          Visibility, capture, and closed-loop reporting in one med spa operating system.
         </h2>
-        <p className="mx-auto max-w-2xl font-body text-base leading-[1.7] text-[var(--text-primary)] opacity-80 md:text-lg">
-          Rhemic connects the visibility, trust, and response layers that influence whether a med-spa lead turns into a booked consult.
+        <p className="mx-auto max-w-3xl font-body text-base leading-[1.7] text-[var(--text-secondary)] md:text-lg">
+          Rhemic connects the surfaces that decide whether a lead gets found, answered, captured, and traced back to the source that created it.
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
         {groups.map((group) => (
           <div
             key={group.title}
-            className="flex flex-col rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6 transition-[background-color,border-color] duration-500 hover:border-[var(--border-strong)] hover:bg-[var(--bg-glass-hover)]"
+            className="glass-panel flex flex-col p-6 transition-[border-color] duration-500 hover:border-[var(--border-strong)]"
           >
             <h3 className="mb-5 font-display text-xl font-semibold text-[var(--text-primary)]">
               {group.title}
@@ -44,7 +40,7 @@ export default function Features() {
             <ul className="space-y-3">
               {group.items.map((item) => (
                 <li key={item} className="flex gap-2 font-body text-sm leading-[1.5] text-[var(--text-tertiary)]">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-200/70" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pulse)]" />
                   <span>{item}</span>
                 </li>
               ))}

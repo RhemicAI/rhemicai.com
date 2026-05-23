@@ -16,9 +16,9 @@ export default function Home() {
       <FixedNav />
       <Hero />
       <AeoExplainer />
-      <HowItWorks />
       <StatsStrip />
       <Features />
+      <HowItWorks />
       <Pricing />
       <DashboardPreview />
       <FAQ />

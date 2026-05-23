@@ -141,7 +141,7 @@ export default function SummaryModal({
       aria-labelledby="modal-title"
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[var(--bg-2)]/80 backdrop-blur-md" />
 
       {/* Modal */}
       <div

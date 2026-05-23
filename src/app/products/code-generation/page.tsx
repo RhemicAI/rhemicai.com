@@ -129,7 +129,7 @@ export default function CodeGenerationPage() {
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
               Example output
             </h2>
-            <div className="bg-black border border-[var(--border-default)] rounded-2xl p-6 overflow-hidden">
+            <div className="bg-[var(--bg-2)] border border-[var(--border-default)] rounded-2xl p-6 overflow-hidden">
               <div className="flex items-center gap-2 mb-4 border-b border-[var(--border-subtle)] pb-3">
                 <span className="w-3 h-3 rounded-[5px] bg-[#ff5f57]" />
                 <span className="w-3 h-3 rounded-[5px] bg-[#febc2e]" />

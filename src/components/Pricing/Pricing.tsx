@@ -21,9 +21,9 @@ function CheckIcon() {
 }
 
 function PlanCard({ plan }: { plan: PricingPlan }) {
-  const buttonClass = `block w-full rounded-[5px] border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 ${
+  const buttonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
     plan.featured
-      ? 'border-white/20 bg-white text-black shadow-lg shadow-white/10 hover:bg-gray-100'
+      ? 'border-[var(--ink)] bg-[var(--ink)] text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] hover:bg-[var(--pulse)]'
       : 'border-white/10 text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
   }`;
 
@@ -37,8 +37,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
     >
       {plan.featured && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-block rounded-[5px] bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wider text-black">
-            Most focused
+          <span className="inline-block rounded-full bg-[var(--pulse-soft)] px-4 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--pulse-deep)]">
+            Main recommendation
           </span>
         </div>
       )}
@@ -54,7 +54,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           <span className="text-sm text-[var(--text-muted)]">/mo</span>
         </div>
         <p className="mt-2 text-[11px] text-white/50">
-          Call-gated onboarding. No anonymous checkout.
+          Starts with a visibility and call leak audit.
         </p>
       </div>
 
@@ -64,7 +64,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           <p className="mt-1 text-sm text-[var(--text-primary)]">{plan.includedLocations}</p>
         </div>
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Primary use case</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Best use</p>
           <p className="mt-1 text-sm leading-[1.5] text-[var(--text-secondary)]">{plan.primaryUseCase}</p>
         </div>
         <div>
@@ -74,7 +74,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       </div>
 
       <div className="mt-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Promise</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Outcome focus</p>
         <p className="mt-1 text-sm leading-[1.5] text-[var(--text-primary)]">{plan.promise}</p>
       </div>
 
@@ -95,7 +95,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       <div className="mt-8">
         <CalBookingLink calLink={plan.calLink} className={buttonClass}>
-          Book a 20-minute med-spa growth audit
+          Get a visibility + call leak audit
         </CalBookingLink>
       </div>
     </div>
@@ -133,9 +133,9 @@ export default function Pricing() {
           </div>
           <CalBookingLink
             calLink={customPlan.calLink}
-            className="shrink-0 rounded-[5px] border border-white/20 px-6 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-white/40 hover:text-white"
+            className="shrink-0 rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--pulse)] hover:text-[var(--pulse-deep)]"
           >
-            Book the audit
+            Get the audit
           </CalBookingLink>
         </div>
       </div>

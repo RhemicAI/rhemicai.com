@@ -182,7 +182,7 @@ function InputColumn({
           Website Data
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/90'}`}>
+      <div className={`flex-1 border rounded-lg p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-[var(--bg-2)]'}`}>
         {/* Fade overlay at top */}
         <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none rounded-t-lg" />
         <div className="space-y-1">
@@ -289,7 +289,7 @@ function EngineColumn({
           AEO Engine
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg p-4 font-mono text-sm relative overflow-hidden transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/90'}`}>
+      <div className={`flex-1 border rounded-lg p-4 font-mono text-sm relative overflow-hidden transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-[var(--bg-2)]'}`}>
         {/* ASCII border decoration */}
         <div className="text-[var(--text-faint)] text-[10px] mb-3 select-none" aria-hidden="true">
           ╔══════════════════════════╗
@@ -409,7 +409,7 @@ function OutputColumn({
           return (
             <div
               key={card.source}
-              className="border border-[var(--border-default)] rounded-lg bg-black/95 p-3 font-mono text-xs leading-relaxed transition-[opacity,transform] duration-700"
+              className="border border-[var(--border-default)] rounded-lg bg-[var(--bg-2)] p-3 font-mono text-xs leading-relaxed transition-[opacity,transform] duration-700"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateX(0)' : 'translateX(20px)',

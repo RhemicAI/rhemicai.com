@@ -8,7 +8,7 @@ export default function CTA() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-full"
         style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(77,214,224,0.08) 0%, transparent 70%)',
         }}
       />
 
@@ -21,20 +21,20 @@ export default function CTA() {
         </div>
 
         <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto leading-relaxed opacity-75 font-body">
-          Book a 20-minute med-spa growth audit. We&apos;ll review your local visibility, trust signals, treatment pages, missed-call opportunities, and AI answer visibility.
+          Get a visibility and call leak audit. We&apos;ll review local visibility, trust signals, treatment pages, missed-call opportunities, and AI answers.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <CalBookingLink
             calLink="rhemic-ai/discovery-call"
-            className="px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105"
+            className="px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5"
           >
-            Book a 20-minute med-spa growth audit
+            Get a visibility + call leak audit
           </CalBookingLink>
 
           <Link
             href="#what-we-optimize"
-            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-[5px] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300"
+            className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full bg-[var(--glass-bg)] hover:border-[var(--pulse)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
             See what we optimize
           </Link>
