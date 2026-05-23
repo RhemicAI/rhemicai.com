@@ -7,11 +7,11 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About Rhemic AI: The Team Building AI Visibility Infrastructure',
+  title: 'About Rhemic AI: Med Spa Growth Operating System',
   description:
-    'Meet the Rhemic AI founding team and learn why we built an AI Engine Optimization platform for businesses that need to be recommended in answer engines.',
+    'Meet the Dallas team building Rhemic AI, a growth operating system for U.S. med spas that helps turn searches and missed calls into booked consults.',
   path: '/about',
-  keywords: ['about Rhemic AI', 'AI Engine Optimization company', 'AI visibility platform team'],
+  keywords: ['about Rhemic AI', 'med spa growth operating system', 'med spa AI receptionist', 'Dallas med spa software'],
 });
 
 const founders = [
@@ -34,34 +34,34 @@ const founders = [
 
 const values = [
   {
-    title: 'Precision',
+    title: 'Operator clarity',
     description:
-      "We don't do vague. Every score has a methodology. Every recommendation has a reason. Every delta is measurable.",
+      'Med spa owners should be able to see what is broken, what matters first, and what can be fixed without learning a new acronym stack.',
   },
   {
-    title: 'Speed',
+    title: 'Capture before more spend',
     description:
-      'First scan results in under 5 minutes. Recommendations in 24 hours. Measurable improvement in 30 days.',
+      'More ads are not always the next move. Rhemic starts with the leaks across Google, reviews, treatment pages, calls, and booking handoffs.',
   },
   {
-    title: 'Clarity',
+    title: 'Non-clinical automation',
     description:
-      "If you need a dictionary to understand our reports, we've failed. Our dashboards are built for business owners, not engineers.",
+      'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests. Medical decisions stay with licensed staff.',
   },
   {
-    title: 'Measurable Outcomes',
+    title: 'Source-aware growth',
     description:
-      "We track Brand Share %, not vanity metrics. If the number doesn't move, we haven't done our job.",
+      'Consults should connect back to the visibility, trust, and response surfaces that created them.',
   },
   {
-    title: 'Craftsmanship',
+    title: 'Founder-led setup',
     description:
-      "We're engineers who take pride in what we ship. Every feature exists because a business needed it, not because a roadmap said so.",
+      'Early Rhemic customers work directly with the founding team on discovery, setup, and growth priorities.',
   },
   {
-    title: 'Trust',
+    title: 'No false guarantees',
     description:
-      "Founding member pricing is on the website. No hidden fees. No enterprise sales theater. What you see is what you pay.",
+      'Rhemic helps improve visibility, capture, and reporting. It does not promise rankings, revenue, patients, or clinical outcomes.',
   },
 ];
 
@@ -71,14 +71,16 @@ const professionalServiceSchema = {
   name: 'Rhemic AI',
   url: 'https://rhemicai.com',
   description:
-    'AI Engine Optimization platform that makes businesses visible in AI answer engines like ChatGPT, Claude, Perplexity, and Gemini.',
+    'Dallas-based growth operating system for U.S. med spas, improving Google visibility, AI search visibility, missed-call recovery, AI receptionist coverage, and booked consult tracking.',
   foundingDate: '2025',
-  areaServed: 'Worldwide',
+  areaServed: 'United States',
   knowsAbout: [
-    'AI Engine Optimization',
-    'SEO',
-    'Schema Markup',
-    'AI Answer Engines',
+    'Med spa patient acquisition',
+    'Google Business Profile for med spas',
+    'AI search visibility',
+    'AI receptionist for med spas',
+    'Missed-call recovery',
+    'Competitor ads intelligence',
   ],
   employee: founders.map((f) => ({
     '@type': 'Person',
@@ -101,8 +103,8 @@ export default function AboutPage() {
 
       <PageHero
         subtitle="About"
-        title="We saw the AI shift before most businesses did."
-        description="Three engineers at UTD. One question: what happens to local businesses when people stop Googling and start asking AI?"
+        title="The team building the operating system for med spas."
+        description="Rhemic AI is a Dallas-based company helping U.S. med spas turn more searches and missed calls into booked consult opportunities."
         showBackLink={false}
       />
 
@@ -116,40 +118,42 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
               <p>
-                We started Rhemic AI at the University of Texas at
-                Dallas. Not in a garage. In a library, between classes, after
-                noticing something that kept us up at night.
+                Rhemic AI started in Dallas with a simple observation: med spas
+                were investing in demand while consults still leaked through
+                search visibility, trust signals, missed calls, and unclear
+                booking handoffs.
               </p>
               <p>
-                People were asking ChatGPT for recommendations instead of
-                searching Google. Not tech people. Regular people. Our parents.
-                Our friends. Local business owners we knew. And the businesses
-                those people used to find through search? They weren&apos;t showing
-                up in AI answers at all.
+                Patients now move between Google, Maps, reviews, treatment
+                pages, AI answers, ads, and phone calls before they ever book a
+                consult. A clinic can be excellent and still lose demand when
+                one of those surfaces breaks.
               </p>
               <p>
-                We built Rhemic to answer a simple question: if someone asks an
-                AI &quot;what&apos;s the best coffee shop in Brooklyn&quot; or &quot;which
-                marketing agency should I hire,&quot; will your business be in the
-                answer? For most businesses, the answer is no. We built the tool
-                that changes that.
+                We built Rhemic around that reality. The product helps med spas
+                improve local visibility, strengthen trust, answer common
+                non-clinical questions, capture lead details, recover missed-call
+                opportunities, and route booking requests to the team already
+                running the clinic.
               </p>
               <p>
-                We&apos;re not a venture-funded startup pretending to be enterprise.
-                We&apos;re three founders who ship fast, price fairly, and care about
-                whether the numbers actually move for your business.
+                We are founder-led, vertical-specific, and careful about claims.
+                Rhemic does not replace licensed staff or promise rankings. It
+                gives operators a clearer system for finding and fixing the
+                leaks between patient intent and booked consults.
               </p>
             </div>
           </section>
 
           {/* Mission */}
-          <section className="mb-16 sm:mb-24 bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-6 sm:p-12">
+          <section className="glass-panel mb-16 p-6 sm:mb-24 sm:p-12">
             <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
               Our Mission
             </h2>
             <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
-              Make AI visibility measurable, improvable, and affordable for
-              every business.
+              Help med spas get found on Google and AI search, answer leads
+              faster, recover missed-call opportunities, and trace more consult
+              demand back to the source.
             </p>
           </section>
 
@@ -160,10 +164,10 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
                 <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
-                  Discovery is fragmenting
+                  Patient discovery is fragmented
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Businesses can no longer assume discovery happens only through traditional search. Recommendations are becoming conversational, and the brands that are easiest for AI to understand will compound their advantage.
+                  Med spas can no longer assume every patient starts on the same channel. Demand moves through Google, AI answers, reviews, ads, calls, and referrals before it becomes a booked consult.
                 </p>
               </div>
               <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
@@ -171,7 +175,7 @@ export default function AboutPage() {
                   Execution matters more than slogans
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  We are biased toward measurable outputs: audits, recommendations, implementation support, and before-versus-after visibility checks. That is the standard we want our own site to meet too.
+                  Rhemic is built around concrete surfaces: GBP, Maps, reviews, treatment pages, schema, citations, AI search visibility, missed-call recovery, and competitor ads intelligence.
                 </p>
               </div>
             </div>
@@ -186,7 +190,7 @@ export default function AboutPage() {
               {founders.map((founder) => (
                 <div
                   key={founder.name}
-                  className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8 hover:border-[var(--border-default)] transition-colors"
+                  className="glass-panel p-8 transition-colors hover:border-[var(--border-default)]"
                 >
                   <div className="flex flex-col items-center text-center">
                     <div className="w-20 h-20 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-default)] flex items-center justify-center mb-4">
@@ -231,7 +235,7 @@ export default function AboutPage() {
               {values.map((value) => (
                 <div
                   key={value.title}
-                  className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6 hover:border-[var(--border-default)] transition-colors"
+                  className="glass-panel p-6 transition-colors hover:border-[var(--border-default)]"
                 >
                   <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
                     {value.title}
@@ -251,7 +255,7 @@ export default function AboutPage() {
               {
                 question: 'What is Rhemic AI?',
                 answer:
-                  'Rhemic AI is an AI Engine Optimization (AEO) platform that helps businesses become visible in AI-generated search results from ChatGPT, Claude, Perplexity, and Gemini. We provide website auditing, competitor analysis, and automated code generation tools.',
+                  'Rhemic AI is a growth operating system for U.S. med spas. It helps clinics improve Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and booked consult tracking.',
               },
               {
                 question: 'Who founded Rhemic AI?',
@@ -261,12 +265,12 @@ export default function AboutPage() {
               {
                 question: 'Where is Rhemic AI based?',
                 answer:
-                  'Rhemic AI is headquartered in Dallas, Texas, United States. We serve businesses worldwide with our AI Engine Optimization platform.',
+                  'Rhemic AI is headquartered in Dallas, Texas. The public offer is focused on U.S. med spas.',
               },
               {
-                question: 'How is AEO different from traditional SEO?',
+                question: 'Does Rhemic AI replace clinic staff?',
                 answer:
-                  'Traditional SEO optimizes for Google\'s ranking algorithm. AEO optimizes for how AI answer engines like ChatGPT and Claude synthesize and cite information. AI doesn\'t rank pages, it generates answers, so visibility requires structured data, content clarity, and schema markup optimized for AI comprehension.',
+                  'No. The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
               },
             ]}
           />
@@ -277,19 +281,19 @@ export default function AboutPage() {
         heading="Explore more"
         links={[
           {
-            title: 'Our Products',
-            description: 'Website auditing, competitor analysis, and code generation for AI search.',
-            href: '/products',
+            title: 'What We Optimize',
+            description: 'Google, AI search, reviews, treatment pages, calls, and competitor ads intelligence.',
+            href: '/#what-we-optimize',
           },
           {
             title: 'Pricing',
-            description: 'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
+            description: 'Basic, Growth, Premium, and Custom plans for U.S. med spas.',
             href: '/pricing',
           },
           {
-            title: 'Case Studies',
-            description: 'See the dogfooding case study for improving rhemicai.com itself.',
-            href: '/case-studies',
+            title: 'Contact',
+            description: 'Start with a visibility and call leak audit.',
+            href: '/contact',
           },
         ]}
       />
