@@ -12,9 +12,9 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 export const metadata: Metadata = buildMetadata({
   title: 'Med Spa Operating System Pricing',
   description:
-    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need Google Business Profile optimization, AI search visibility, missed-call recovery, AI receptionist coverage, competitor intelligence, and booked consult tracking.',
+    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need Google Business Profile optimization, AI search visibility, missed-call recovery, AI receptionist coverage, software handoffs, competitor intelligence, and booked consult tracking.',
   path: '/pricing',
-  keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist'],
+  keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist', 'med spa software integrations'],
 });
 
 const basicPlan = plans.find((p) => p.tier === 'starter')!;
@@ -37,6 +37,10 @@ const pricingFaqs = [
   {
     question: 'How does the AI receptionist work?',
     answer: 'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+  },
+  {
+    question: 'Do we need to switch from our current med spa software?',
+    answer: 'No. Rhemic is being built to work around the tools med spas already use. You should not need to switch from Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, or another core system just to start using Rhemic.',
   },
   {
     question: 'Do you promise rankings or revenue?',
@@ -63,7 +67,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Can the AI receptionist book appointments directly?',
     answer:
-      'It depends on your booking flow. In the first phase, Rhemic can capture the patient\'s information, qualify the request, and route it to your team. Direct booking can be scoped only if your scheduling system supports a safe handoff.',
+      'Direct booking is planned for supported systems, but it is not something we enable blindly. For now, the AI receptionist captures the caller\'s details, requested treatment, urgency, and booking intent, then routes the request to your team. Direct scheduling will be available later for approved integrations with proper guardrails.',
   },
   {
     question: 'Does the AI receptionist give medical advice?',
@@ -144,6 +148,49 @@ const aiReceptionAndAdsFaqs = [
     question: 'Will Rhemic post ads or content for us?',
     answer:
       'No automatic posting by default. For content plans like Reddit or ads-related strategy, Rhemic can recommend and plan. The clinic or approved operator executes unless a separate execution scope is agreed.',
+  },
+];
+
+const softwareIntegrationFaqs = [
+  {
+    question: 'Does Rhemic integrate with AestheticsPro, Boulevard, Mangomint, Zenoti, or Meevo?',
+    answer:
+      'Not yet as a live self-serve integration. Integrations with major med spa systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can still help with visibility, AI receptionist coverage, missed-call recovery, and lead routing while we scope the right integration path for your clinic.',
+  },
+  {
+    question: 'Which med spa software systems are you planning to support?',
+    answer:
+      'We are prioritizing systems commonly used by U.S. med spas, including AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and other scheduling, CRM, EMR, and practice management tools used in aesthetics. Final rollout depends on API access, compliance review, and customer demand.',
+  },
+  {
+    question: 'Can Rhemic send leads into our booking or CRM system?',
+    answer:
+      'In the current phase, Rhemic can capture lead details and route booking requests to your team through approved handoff workflows. Deeper CRM, scheduling, and practice-management integrations are in progress and will be added where the software supports safe API-based handoff.',
+  },
+  {
+    question: 'Can the AI receptionist book directly into our scheduling system?',
+    answer:
+      'Direct booking is planned for supported systems, but it is not something we enable blindly. For now, the AI receptionist captures the caller\'s details, requested treatment, urgency, and booking intent, then routes the request to your team. Direct scheduling will be available later for approved integrations with proper guardrails.',
+  },
+  {
+    question: 'Will Rhemic integrate with our EMR?',
+    answer:
+      'EMR integrations are on the roadmap, but Rhemic does not need EMR access to start improving visibility, call capture, and lead routing. Any EMR integration will require a separate review for API access, permissions, data scope, and compliance requirements.',
+  },
+  {
+    question: 'Do we need to switch from our current med spa software?',
+    answer:
+      'No. Rhemic is being built to work around the tools med spas already use. You should not need to switch from Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, or another core system just to start using Rhemic.',
+  },
+  {
+    question: 'What happens before the integration is live?',
+    answer:
+      'Before a direct integration is live, Rhemic can use approved workflows to capture lead information, notify your team, support missed-call recovery, and give you reporting around visibility and lead response. The goal is to improve the leak points first, then deepen the connection into your existing stack.',
+  },
+  {
+    question: 'Can we request a specific integration?',
+    answer:
+      'Yes. If your clinic uses a specific booking, CRM, EMR, or practice-management system, mention it during the visibility and call leak audit. We use customer demand to prioritize integration work.',
   },
 ];
 
@@ -339,6 +386,11 @@ export default function PricingPage() {
           <SubpageFAQ
             heading="Questions about AI reception and Meta Ads intelligence"
             faqs={aiReceptionAndAdsFaqs}
+          />
+
+          <SubpageFAQ
+            heading="Software integrations FAQ"
+            faqs={softwareIntegrationFaqs}
           />
 
           <SubpageFAQ

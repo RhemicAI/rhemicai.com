@@ -34,6 +34,21 @@ const faqs = [
     answer:
       'Premium includes Meta ads intelligence through the connected-account dashboard and Meta MCP connection. Growth can include lighter competitor visibility review. Basic focuses on foundation work.',
   },
+  {
+    question: 'Does Rhemic integrate with our med spa software?',
+    answer:
+      'Direct integrations with systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can still capture lead details, support missed-call recovery, and route booking requests through approved handoff workflows.',
+  },
+  {
+    question: 'Can the AI receptionist book appointments directly?',
+    answer:
+      'Direct booking is planned for supported systems, but we do not enable it blindly. In the current phase, the AI receptionist captures caller details, requested treatment, urgency, and booking intent, then routes the request to your team.',
+  },
+  {
+    question: 'Do we need to switch software?',
+    answer:
+      'No. Rhemic is being built to work around the systems med spas already use. You should not need to switch your booking, CRM, EMR, or practice-management platform to start.',
+  },
 ];
 
 const faqSchemaString = JSON.stringify({
@@ -72,7 +87,7 @@ export default function FAQ() {
             FAQ
           </p>
           <h2 className="font-display text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-            Questions about AI reception and Meta Ads intelligence
+            Questions about AI reception, ads, and software
           </h2>
         </div>
 

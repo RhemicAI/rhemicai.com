@@ -10,9 +10,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'FAQ: Med Spa Growth, AI Reception, and Rhemic AI',
   description:
-    'Answers for U.S. med spas evaluating Rhemic AI for Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and Meta Ads intelligence.',
+    'Answers for U.S. med spas evaluating Rhemic AI for Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, software handoffs, and Meta Ads intelligence.',
   path: '/faq',
-  keywords: ['med spa growth FAQ', 'med spa AI receptionist', 'med spa missed-call recovery', 'Rhemic AI FAQ'],
+  keywords: ['med spa growth FAQ', 'med spa AI receptionist', 'med spa missed-call recovery', 'Rhemic AI FAQ', 'med spa software integrations'],
 });
 
 const faqs = [
@@ -54,7 +54,47 @@ const faqs = [
   {
     question: 'Do we need to switch booking systems or CRMs?',
     answer:
-      "No. Rhemic should integrate with or route into the clinic's existing booking flow when possible. The audit identifies the cleanest handoff before implementation begins.",
+      'No. Rhemic is being built to work around the systems med spas already use. You should not need to switch your booking, CRM, EMR, or practice-management platform to start.',
+  },
+  {
+    question: 'Does Rhemic integrate with AestheticsPro, Boulevard, Mangomint, Zenoti, or Meevo?',
+    answer:
+      'Not yet as a live self-serve integration. Integrations with major med spa systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can still help with visibility, AI receptionist coverage, missed-call recovery, and lead routing while we scope the right integration path for your clinic.',
+  },
+  {
+    question: 'Which med spa software systems are you planning to support?',
+    answer:
+      'We are prioritizing systems commonly used by U.S. med spas, including AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and other scheduling, CRM, EMR, and practice management tools used in aesthetics. Final rollout depends on API access, compliance review, and customer demand.',
+  },
+  {
+    question: 'Can Rhemic send leads into our booking or CRM system?',
+    answer:
+      'In the current phase, Rhemic can capture lead details and route booking requests to your team through approved handoff workflows. Deeper CRM, scheduling, and practice-management integrations are in progress and will be added where the software supports safe API-based handoff.',
+  },
+  {
+    question: 'Can the AI receptionist book directly into our scheduling system?',
+    answer:
+      'Direct booking is planned for supported systems, but it is not something we enable blindly. For now, the AI receptionist captures the caller\'s details, requested treatment, urgency, and booking intent, then routes the request to your team. Direct scheduling will be available later for approved integrations with proper guardrails.',
+  },
+  {
+    question: 'Will Rhemic integrate with our EMR?',
+    answer:
+      'EMR integrations are on the roadmap, but Rhemic does not need EMR access to start improving visibility, call capture, and lead routing. Any EMR integration will require a separate review for API access, permissions, data scope, and compliance requirements.',
+  },
+  {
+    question: 'Do we need to switch from our current med spa software?',
+    answer:
+      'No. Rhemic is being built to work around the tools med spas already use. You should not need to switch from Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, or another core system just to start using Rhemic.',
+  },
+  {
+    question: 'What happens before the integration is live?',
+    answer:
+      'Before a direct integration is live, Rhemic can use approved workflows to capture lead information, notify your team, support missed-call recovery, and give you reporting around visibility and lead response. The goal is to improve the leak points first, then deepen the connection into your existing stack.',
+  },
+  {
+    question: 'Can we request a specific integration?',
+    answer:
+      'Yes. If your clinic uses a specific booking, CRM, EMR, or practice-management system, mention it during the visibility and call leak audit. We use customer demand to prioritize integration work.',
   },
   {
     question: 'What is AI search visibility?',
