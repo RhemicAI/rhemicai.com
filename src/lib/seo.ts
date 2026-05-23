@@ -88,9 +88,8 @@ export function organizationSchema() {
       url: "https://cal.com/rhemic-ai/discovery-call",
     },
     knowsAbout: [
-      "AI Engine Optimization",
-      "Answer engine optimization",
       "Med spa patient acquisition",
+      "Med spa growth operating system",
       "Google Business Profile optimization",
       "Local SEO for med spas",
       "AI search visibility",

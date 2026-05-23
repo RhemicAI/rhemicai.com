@@ -8,98 +8,88 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'FAQ: AI Engine Optimization, AI Visibility Audits, and Rhemic AI',
+  title: 'FAQ: Med Spa Growth, AI Reception, and Rhemic AI',
   description:
-    'Answers to the highest-intent questions about AI Engine Optimization, AI visibility audits, pricing, local business discovery, and how Rhemic AI works.',
+    'Answers for U.S. med spas evaluating Rhemic AI for Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and competitor ads intelligence.',
   path: '/faq',
-  keywords: ['AEO FAQ', 'AI visibility FAQ', 'AI Engine Optimization questions', 'Rhemic AI FAQ'],
+  keywords: ['med spa growth FAQ', 'med spa AI receptionist', 'med spa missed-call recovery', 'Rhemic AI FAQ'],
 });
 
 const faqs = [
   {
-    question: 'What is AI Engine Optimization (AEO)?',
+    question: 'Who is Rhemic AI for?',
     answer:
-      'AI Engine Optimization is the practice of making your website easier for AI answer engines to understand, cite, and recommend. It combines entity clarity, strong content structure, schema markup, and measurable visibility tracking across tools like ChatGPT, Claude, Perplexity, and Gemini.',
+      'Rhemic AI is built for U.S. med spas that want to improve how patients find them, trust them, reach them, and turn consult intent into a cleaner booking handoff.',
   },
   {
-    question: 'How is AEO different from traditional SEO?',
+    question: 'What does Rhemic help a med spa improve?',
     answer:
-      'Traditional SEO is built around ranking pages in search results. AEO is built around earning inclusion in generated answers. The overlap is real, but answer engines reward clearer definitions, stronger structured data, better topical coverage, and pages that directly answer buyer questions.',
+      'Rhemic helps improve Google Business Profile, Google Maps visibility, local SEO, reviews, treatment pages, citations, schema, AI search visibility, missed-call recovery, AI receptionist coverage, competitor ads intelligence, and closed-loop reporting.',
   },
   {
-    question: 'What is an AI visibility audit?',
+    question: 'Does every Rhemic plan include the AI receptionist?',
     answer:
-      'An AI visibility audit measures how well your site is understood by answer engines. It reviews crawlability, schema coverage, entity signals, content structure, FAQ coverage, competitor presence, and whether your brand appears in the prompts that matter to your market.',
+      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
   },
   {
-    question: 'Why is my business not showing up in AI answers?',
+    question: 'What does the AI receptionist actually do?',
     answer:
-      'The usual causes are weak entity clarity, thin or generic service pages, missing schema, shallow FAQ coverage, poor competitive coverage, or stronger alternatives that answer the prompt more directly. The fix is rarely one tag. It is usually a focused combination of technical cleanup and better content depth.',
+      'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. It helps recover calls that would otherwise go to voicemail or get missed after hours.',
   },
   {
-    question: 'What does Rhemic AI actually measure?',
+    question: 'Does the AI receptionist replace our front desk?',
     answer:
-      'Rhemic measures the factors that drive recommendation probability: visibility score, topic coverage, mention consistency, competitive share, and brand share across AI answer engines. The goal is not vanity traffic. The goal is whether your brand appears in the answer.',
+      'No. Rhemic does not replace your front desk. It gives your team backup coverage when calls are missed, after-hours leads come in, or staff are busy with patients.',
   },
   {
-    question: 'What does a typical AI visibility report include?',
+    question: 'Does the AI receptionist give medical advice?',
     answer:
-      'A typical report includes your baseline visibility metrics, prompt coverage, competitor benchmarking, structural issues, content gaps, schema opportunities, and a prioritized implementation plan. Good reports do not stop at diagnosis. They tell you what to fix first and why.',
+      'No. The AI receptionist does not provide medical advice, diagnosis, treatment recommendations, or clinical intake. It only handles common non-clinical questions, lead capture, and booking request routing.',
   },
   {
-    question: 'How long does it take to see results from AEO?',
+    question: 'What happens when a caller asks a clinical question?',
     answer:
-      'The diagnostic work happens quickly. Visibility movement depends on how fast the fixes are implemented and how much authority already exists around your brand. Teams that ship structural improvements and deepen key pages usually see directional movement faster than teams that only publish surface-level content.',
+      'The AI receptionist should route the caller to your licensed team. Clinical decisions, treatment eligibility, diagnosis, and medical guidance stay with licensed staff.',
   },
   {
-    question: 'How much does AI Engine Optimization usually cost?',
+    question: 'Do we need to switch booking systems or CRMs?',
     answer:
-      'Cost depends on scope. Some teams need only audits and implementation guidance. Others need recurring tracking, competitor monitoring, and content expansion. Rhemic keeps pricing transparent on the pricing page so buyers can map spend to a defined scope instead of a vague retainer.',
+      "No. Rhemic should integrate with or route into the clinic's existing booking flow when possible. The audit identifies the cleanest handoff before implementation begins.",
   },
   {
-    question: 'What should I look for in an AI visibility platform?',
+    question: 'What is AI search visibility?',
     answer:
-      'Look for prompt-level visibility tracking, competitor analysis, actionable recommendations, schema support, content-gap identification, and implementation outputs your team can actually ship. A dashboard without a playbook is not enough.',
+      'AI search visibility helps your med spa show up when patients ask ChatGPT, Claude, Perplexity, or Google AI about treatments near them. It is one layer of the larger growth system, not the whole offer.',
   },
   {
-    question: 'Can local businesses benefit from AEO?',
+    question: 'Is this just SEO?',
     answer:
-      'Yes. Local service businesses are increasingly discovered through AI recommendations for nearby providers, best-in-city lists, and comparison questions. Local AEO requires especially strong service clarity, geographic signals, trust indicators, and FAQ content.',
+      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI search visibility, reviews, missed calls, competitor ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
   },
   {
-    question: 'Is AI search replacing Google for local recommendations?',
+    question: 'What is Meta ads intelligence?',
     answer:
-      'It is not a full replacement, but buyer behavior is clearly shifting. More searches start as conversational prompts, and many users accept the shortlist they receive. That means local businesses now need visibility in both search engines and answer engines.',
+      'Meta ads intelligence helps Rhemic understand what competitors are promoting across Facebook and Instagram, including offers, treatments, creative angles, and market positioning. It helps your med spa see what the market is pushing before deciding what to fix or test.',
   },
   {
-    question: 'How do I track if my brand is being mentioned by AI?',
+    question: 'Does Rhemic run our ads?',
     answer:
-      'You need recurring prompt testing across the engines that matter, plus a way to compare your mention frequency and answer-share against competitors over time. Rhemic is designed to turn that monitoring into a repeatable operational workflow.',
+      "Not by default. Rhemic's core offer is visibility, capture, and closed-loop reporting. Premium includes deeper competitor ads intelligence. Paid ad management is separate unless explicitly scoped.",
   },
   {
-    question: 'Does schema markup really matter for AI answers?',
+    question: 'Which plan includes deeper ads intelligence?',
     answer:
-      'Yes. Schema will not compensate for weak content, but it gives answer engines cleaner signals about who you are, what you do, how your pages are organized, and which questions a page answers. It is one of the highest-leverage technical improvements for AEO.',
+      'Premium includes deeper Meta ads intelligence and competitor tracking. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
   },
   {
-    question: 'What kinds of pages help the most with AI visibility?',
+    question: 'Do you guarantee rankings, revenue, or booked consults?',
     answer:
-      'The highest-leverage pages are usually product pages, service pages, pricing, comparison pages, FAQ pages, case studies, and glossary-style definitions. These are the pages that make your business legible to both buyers and models.',
+      'No. Rhemic helps identify and improve visibility, trust, and response gaps. It does not promise search placement, revenue, clinical outcomes, patient volume, or booked consult volume.',
   },
   {
-    question: 'Do I need engineers to improve AI visibility?',
+    question: 'How does the audit work?',
     answer:
-      'Not always, but engineering support helps when schema, metadata, page templates, or CMS constraints are involved. The most effective workflow is shared ownership: marketing drives content and positioning while engineering ships the structural improvements cleanly.',
-  },
-  {
-    question: 'How does Rhemic AI help agencies?',
-    answer:
-      'Rhemic gives agencies a way to productize AI visibility work: recurring audits, competitive monitoring, implementation-ready outputs, and a clear narrative for clients who want to know why their brand is absent from AI recommendations.',
-  },
-  {
-    question: 'Can Rhemic generate implementation guidance instead of just reports?',
-    answer:
-      'Yes. Rhemic is built to connect findings to execution. That includes prioritized recommendations and code-oriented outputs that help teams ship schema, metadata, and content structure changes faster.',
+      'Rhemic starts by reviewing visibility, local trust, treatment pages, missed-call opportunities, booking handoff, AI search presence, and competitor signals. From there, the team scopes the highest-priority fixes.',
   },
 ];
 
@@ -110,26 +100,26 @@ export default function FAQPage() {
 
       <PageHero
         subtitle="FAQ"
-        title="Straight answers about AI visibility."
-        description="The operational questions buyers, founders, and agencies ask before they invest in AI Engine Optimization."
+        title="Questions med spa operators ask before working with Rhemic."
+        description="Clear answers about Google visibility, AI search, AI receptionist coverage, missed calls, competitor ads intelligence, pricing, and clinical boundaries."
         showBackLink={false}
       />
 
       <div className="relative z-10 pb-16 sm:pb-24">
         <div className="mx-auto max-w-5xl px-6">
-          <section className="mb-12 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
-              Definition
+          <section className="glass-panel mb-12 p-8 sm:p-12">
+            <p className="section-label mb-4">
+              What Rhemic does
             </p>
             <p className="text-xl text-[var(--text-primary)] leading-relaxed">
-              AI Engine Optimization is the work required to make your business understandable and recommendable inside AI-generated answers, not just visible in search results.
+              Rhemic helps U.S. med spas get found on Google and AI search, answer more leads when staff are busy or after hours, recover missed-call opportunities, and route booking requests to the team.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/pricing"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                Review pricing
+                Review plans
               </Link>
               <Link
                 href="/how-it-works"
@@ -141,7 +131,7 @@ export default function FAQPage() {
           </section>
         </div>
 
-        <SubpageFAQ heading="AI Visibility FAQ" faqs={faqs} />
+        <SubpageFAQ heading="Med spa growth FAQ" faqs={faqs} />
       </div>
 
       <RelatedLinks
@@ -149,17 +139,17 @@ export default function FAQPage() {
         links={[
           {
             title: 'How It Works',
-            description: 'See the audit, analysis, recommendation, and implementation workflow step by step.',
+            description: 'See how Rhemic reviews visibility, capture, and reporting gaps.',
             href: '/how-it-works',
           },
           {
             title: 'Pricing',
-            description: 'Compare the plan structures for businesses and agencies.',
+            description: 'Compare Basic, Growth, Premium, and Custom plans for U.S. med spas.',
             href: '/pricing',
           },
           {
             title: 'Contact',
-            description: 'Talk through the right visibility workflow for your business.',
+            description: 'Start with a visibility and call leak audit.',
             href: '/contact',
           },
         ]}
