@@ -76,18 +76,16 @@ export default function Hero() {
 
   return (
     <section className="rhemic-grid-bg relative min-h-screen overflow-hidden px-[clamp(20px,4vw,64px)] pb-16 pt-28 md:pt-36">
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-[1280px] items-center gap-10 lg:grid-cols-[0.92fr_0.98fr] lg:gap-24 xl:gap-28">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-[1280px] items-center gap-10 lg:grid-cols-[0.9fr_1fr] lg:gap-20 xl:gap-24">
         <div className="min-w-0">
           <div className="hero-enter-eyebrow mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(77,214,224,0.2)] bg-[var(--pulse-soft)] px-4 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--pulse-deep)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--pulse)] shadow-[0_0_8px_var(--pulse-glow)]" />
             For U.S. med spas
           </div>
 
-          <h1 className="hero-enter-title max-w-[720px] font-display text-[clamp(2.65rem,10.8vw,5.45rem)] font-medium leading-[1.02] tracking-normal text-[var(--ink)] sm:text-[clamp(3.05rem,6.25vw,5.45rem)] sm:leading-[0.95]">
-            <span className="block sm:inline">Med spa </span>
-            <span className="block sm:inline">growth engine </span>
-            <span className="block sm:inline">for more </span>
-            <span className="hero-proof-word block whitespace-nowrap sm:whitespace-normal">booked consults.</span>
+          <h1 className="hero-enter-title max-w-[620px] font-display text-[clamp(2rem,3.6vw,3.25rem)] font-medium leading-[1.08] tracking-normal text-[var(--ink)] sm:text-[clamp(2.4rem,3.6vw,3.25rem)]">
+            <span className="block whitespace-nowrap">Medspa Growth Engine</span>
+            <span className="block whitespace-nowrap text-[var(--pulse-deep)]">for More Booked Consults</span>
           </h1>
 
           <p className="hero-enter-copy mt-7 max-w-[560px] font-body text-base leading-[1.55] text-[var(--mute)] md:text-lg">
