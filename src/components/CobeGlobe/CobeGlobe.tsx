@@ -201,7 +201,7 @@ export default function CobeGlobe() {
       className="fixed inset-0 z-0 w-full h-full"
       style={{
         pointerEvents: 'none',
-        backgroundColor: '#0a0a0a',
+        backgroundColor: '#07090c',
         transform: 'translate3d(0, 0, 0)',
         willChange: 'transform',
       }}

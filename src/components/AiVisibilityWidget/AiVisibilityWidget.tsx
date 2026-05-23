@@ -137,7 +137,7 @@ function extractMetrics(payload: StatusResponse): ScanMetrics | null {
 function scoreColor(score: number) {
   if (score <= 40) return '#FF4444';
   if (score <= 70) return '#FFB800';
-  return '#00D4AA';
+  return '#4DD6E0';
 }
 
 function LockIcon() {
@@ -488,7 +488,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
     return 'dim' as const;
   }, [scanStatus]);
 
-  const scoreStroke = metrics ? scoreColor(metrics.score) : '#00D4AA';
+  const scoreStroke = metrics ? scoreColor(metrics.score) : '#4DD6E0';
   const ringRadius = 62;
   const ringCircumference = 2 * Math.PI * ringRadius;
   const ringProgress = (displayScore / 100) * ringCircumference;
@@ -566,7 +566,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
     <section id="ai-visibility-scan" className="relative px-4 pt-8 pb-16 sm:px-8 sm:pt-10 sm:pb-24 lg:px-12">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-8 text-center sm:mb-10">
-          <div className="mb-4 inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--pulse)] shadow-[0_0_20px_rgba(0,212,170,0.08)] sm:px-6 sm:text-sm sm:tracking-[0.22em]">
+          <div className="mb-4 inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--pulse)] shadow-[0_0_20px_rgba(77,214,224,0.08)] sm:px-6 sm:text-sm sm:tracking-[0.22em]">
             PUBLIC AI VISIBILITY INDEX
           </div>
           <p className="mx-auto max-w-2xl text-base font-semibold text-white/80 sm:text-xl">
@@ -581,8 +581,8 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--bg-2)] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_24px_80px_rgba(0,0,0,0.45)]">
           <div className="pointer-events-none absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:18px_18px]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(0,212,170,0.13),transparent_42%),radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.05),transparent_38%),linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_28%)]" />
-          <div className="pointer-events-none absolute inset-y-0 right-[-20%] w-[55%] bg-[radial-gradient(circle_at_center,rgba(0,212,170,0.08),transparent_68%)] blur-3xl" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(77,214,224,0.13),transparent_42%),radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.05),transparent_38%),linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_28%)]" />
+          <div className="pointer-events-none absolute inset-y-0 right-[-20%] w-[55%] bg-[radial-gradient(circle_at_center,rgba(77,214,224,0.08),transparent_68%)] blur-3xl" />
           <div className="relative p-5 sm:p-8 lg:p-10">
             {phase === 'input' && (
               <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -601,7 +601,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       <div
                         className={`group relative rounded-xl p-[1px] transition duration-300 ${
                           domainFocused
-                            ? 'bg-[linear-gradient(120deg,rgba(0,212,170,0.85),rgba(255,255,255,0.22),rgba(0,212,170,0.75))] shadow-[0_0_0_1px_rgba(0,212,170,0.2),0_0_26px_rgba(0,212,170,0.14)] [background-size:220%_220%] animate-[pulse_2.4s_ease-in-out_infinite]'
+                            ? 'bg-[linear-gradient(120deg,rgba(77,214,224,0.85),rgba(255,255,255,0.22),rgba(77,214,224,0.75))] shadow-[0_0_0_1px_rgba(77,214,224,0.2),0_0_26px_rgba(77,214,224,0.14)] [background-size:220%_220%] animate-[pulse_2.4s_ease-in-out_infinite]'
                             : 'bg-white/10'
                         }`}
                       >
@@ -656,7 +656,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
 
                     <button
                       type="submit"
-                      className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[var(--pulse)] px-4 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[var(--pulse-deep)] hover:shadow-[0_10px_35px_rgba(0,212,170,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D4AA]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-2)]"
+                      className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[var(--pulse)] px-4 py-3 text-sm font-semibold text-[var(--bg)] transition duration-300 hover:bg-[var(--pulse-deep)] hover:shadow-[0_10px_35px_rgba(77,214,224,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4DD6E0]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-2)]"
                     >
                       <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                       <span className="relative">Scan My Website</span>
@@ -665,7 +665,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                 </form>
 
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[var(--bg-2)]/25 p-5 sm:p-6">
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#00D4AA]/6 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#4DD6E0]/6 to-transparent" />
                   <div className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-white/55">
                     What you get
                   </div>
@@ -675,15 +675,15 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                         key={item.title}
                         className="group relative flex items-start gap-3 overflow-hidden rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 transition duration-300 hover:border-white/10 hover:bg-white/[0.045]"
                       >
-                        <div className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#00D4AA]/80 to-transparent opacity-70" />
-                        <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#00D4AA]/15 bg-[var(--pulse)]/8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#4DD6E0]/80 to-transparent opacity-70" />
+                        <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#4DD6E0]/15 bg-[var(--pulse)]/8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                           <FeatureIcon kind={item.icon} />
                         </span>
                         <div className="min-w-0 flex-1">
                           <p className="text-sm leading-relaxed text-white/82">{item.title}</p>
                           <div className="mt-2 h-1.5 w-full max-w-[210px] overflow-hidden rounded-full bg-white/5">
                             <div
-                              className="h-full rounded-full bg-gradient-to-r from-[#00D4AA]/55 via-[#00D4AA] to-white/55 transition-all duration-700"
+                              className="h-full rounded-full bg-gradient-to-r from-[#4DD6E0]/55 via-[#4DD6E0] to-white/55 transition-all duration-700"
                               style={{ width: `${68 + index * 12}%` }}
                             />
                           </div>
@@ -704,13 +704,13 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                   {activeDomain}
                 </div>
 
-                <div className="rounded-2xl border border-[#00D4AA]/20 bg-[var(--pulse)]/5 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <div className="rounded-2xl border border-[#4DD6E0]/20 bg-[var(--pulse)]/5 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                   <div className="mb-4 flex items-start gap-4">
                     <div className="relative mt-0.5 h-10 w-10 shrink-0">
-                      <div className="absolute inset-0 rounded-full border border-[#00D4AA]/25" />
-                      <div className="absolute inset-[4px] rounded-full border border-[#00D4AA]/35 animate-[spin_3s_linear_infinite]" />
-                      <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,rgba(0,212,170,0)_0deg,rgba(0,212,170,0.8)_60deg,rgba(0,212,170,0)_125deg)] animate-[spin_1.8s_linear_infinite]" />
-                      <div className="absolute inset-[10px] rounded-full bg-[var(--pulse)]/70 shadow-[0_0_18px_rgba(0,212,170,0.55)]" />
+                      <div className="absolute inset-0 rounded-full border border-[#4DD6E0]/25" />
+                      <div className="absolute inset-[4px] rounded-full border border-[#4DD6E0]/35 animate-[spin_3s_linear_infinite]" />
+                      <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,rgba(77,214,224,0)_0deg,rgba(77,214,224,0.8)_60deg,rgba(77,214,224,0)_125deg)] animate-[spin_1.8s_linear_infinite]" />
+                      <div className="absolute inset-[10px] rounded-full bg-[var(--pulse)]/70 shadow-[0_0_18px_rgba(77,214,224,0.55)]" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <span className="text-xs font-medium uppercase tracking-[0.16em] text-[var(--pulse)]">
@@ -728,7 +728,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                     <div className="relative h-2 overflow-hidden rounded-full border border-white/10 bg-[var(--bg-2)]/30">
                       <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent)] animate-[pulse_2.8s_ease-in-out_infinite]" />
                       <div
-                        className="relative h-full rounded-full bg-gradient-to-r from-[#00D4AA]/70 via-[#00D4AA] to-[#7fffe6] transition-[width] duration-700 ease-out"
+                        className="relative h-full rounded-full bg-gradient-to-r from-[#4DD6E0]/70 via-[#4DD6E0] to-[#7be4eb] transition-[width] duration-700 ease-out"
                         style={{ width: `${Math.max(6, Math.min(100, visualProgress))}%` }}
                       >
                         <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-r from-transparent to-white/30 blur-sm" />
@@ -745,7 +745,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                           key={engine}
                           className={`flex items-center justify-between rounded-lg border px-2.5 py-2 text-[11px] font-medium tracking-[0.08em] transition-all duration-500 ${
                             lit
-                              ? 'border-[#00D4AA]/35 bg-[var(--pulse)]/10 text-[#b8fff1] shadow-[0_0_16px_rgba(0,212,170,0.12)]'
+                              ? 'border-[#4DD6E0]/35 bg-[var(--pulse)]/10 text-[#7be4eb] shadow-[0_0_16px_rgba(77,214,224,0.12)]'
                               : 'border-white/10 bg-white/[0.03] text-white/45'
                           }`}
                         >
@@ -784,7 +784,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       setDomainInput(activeDomain || domainInput);
                       resetToInput();
                     }}
-                    className="inline-flex items-center justify-center rounded-xl bg-[var(--pulse)] px-4 py-3 text-sm font-semibold text-black transition hover:bg-[var(--pulse-deep)]"
+                    className="inline-flex items-center justify-center rounded-xl bg-[var(--pulse)] px-4 py-3 text-sm font-semibold text-[var(--bg)] transition hover:bg-[var(--pulse-deep)]"
                   >
                     Retry Scan
                   </button>
@@ -863,7 +863,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                           {sparklineHeights(Number(value), index).map((barHeight, barIndex) => (
                             <div key={`${label}-${barIndex}`} className="relative flex-1 overflow-hidden rounded-sm bg-white/5">
                               <div
-                                className="absolute inset-x-0 bottom-0 rounded-sm bg-gradient-to-t from-[#00D4AA] to-[#8fffe9] transition-all duration-700"
+                                className="absolute inset-x-0 bottom-0 rounded-sm bg-gradient-to-t from-[#4DD6E0] to-[#7be4eb] transition-all duration-700"
                                 style={{
                                   height: `${barHeight}%`,
                                   transitionDelay: `${180 + index * 80 + barIndex * 30}ms`,
@@ -894,10 +894,10 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgb(var(--accent-teal-rgb)/0.40)] bg-[rgb(var(--accent-teal-rgb)/0.10)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-teal)]">
                         <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--accent-teal)] shadow-[0_0_8px_var(--accent-teal)]" />
                         {metrics.score <= 40
-                          ? 'Critical — Acting on this fast pays off'
+                          ? 'Critical, acting on this fast pays off'
                           : metrics.score <= 70
-                          ? 'You\'re close — Let\'s push you to the shortlist'
-                          : 'Strong score — Time to defend and extend'}
+                          ? 'You\'re close, let\'s push you to the shortlist'
+                          : 'Strong score, time to defend and extend'}
                       </div>
                       <h3 className="text-2xl font-semibold leading-tight text-white sm:text-3xl">
                         {metrics.score <= 40
@@ -907,7 +907,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                           : 'You\'re winning. Let\'s lock it in before competitors catch up.'}
                       </h3>
                       <p className="mt-3 text-sm leading-relaxed text-white/75 sm:text-base">
-                        Book a 20-minute strategy call. We&apos;ll walk through your full visibility report, show you exactly where you&apos;re losing share to competitors in ChatGPT, Claude, Perplexity, and Gemini — and the 3 highest-leverage fixes for{' '}
+                        Get a visibility + call leak audit. We&apos;ll walk through your visibility report, show where competitors are gaining ground in ChatGPT, Claude, Perplexity, and Gemini, and identify the highest-priority fixes for{' '}
                         <span className="font-mono text-white">{activeDomain}</span>.
                       </p>
 
@@ -931,7 +931,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       <button
                         type="button"
                         onClick={openCalModal}
-                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[var(--accent-teal)] px-6 py-4 text-base font-bold text-black shadow-[0_10px_40px_rgb(var(--accent-teal-rgb)/0.30)] transition duration-300 hover:bg-[var(--accent-teal-hover)] hover:shadow-[0_14px_50px_rgb(var(--accent-teal-rgb)/0.45)]"
+                        className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-[var(--accent-teal)] px-6 py-4 text-base font-bold text-[var(--bg)] shadow-[0_10px_40px_rgb(var(--accent-teal-rgb)/0.30)] transition duration-300 hover:bg-[var(--accent-teal-hover)] hover:shadow-[0_14px_50px_rgb(var(--accent-teal-rgb)/0.45)]"
                       >
                         <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                         <span className="relative flex items-center gap-2">
@@ -989,7 +989,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       </div>
                     </div>
 
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#0D1012]/45 via-[#0D1012]/78 to-[#0D1012]/92 px-4 text-center">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#0b0f14]/45 via-[#0b0f14]/78 to-[#0b0f14]/92 px-4 text-center">
                       <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 backdrop-blur-sm">
                         <LockIcon />
                       </div>
@@ -1002,7 +1002,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       <button
                         type="button"
                         onClick={openCalModal}
-                        className="group relative mt-4 inline-flex w-full max-w-xl items-center justify-center overflow-hidden rounded-xl bg-[var(--pulse)] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[var(--pulse-deep)] hover:shadow-[0_8px_30px_rgba(0,212,170,0.25)]"
+                        className="group relative mt-4 inline-flex w-full max-w-xl items-center justify-center overflow-hidden rounded-xl bg-[var(--pulse)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition duration-300 hover:bg-[var(--pulse-deep)] hover:shadow-[0_8px_30px_rgba(77,214,224,0.25)]"
                       >
                         <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                         <span className="relative">Unlock Full Insights</span>

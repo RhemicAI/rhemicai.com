@@ -167,7 +167,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                 <Link
                   key={relatedTerm}
                   href={`/glossary/${term.relatedTermSlugs[i]}`}
-                  className="rounded-[5px] border border-[var(--border-subtle)] bg-[var(--bg-glass)] px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-default)] transition-all duration-200"
+                  className="rounded-full border border-[var(--border-subtle)] bg-[var(--bg-glass)] px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-default)] transition-all duration-200"
                 >
                   {relatedTerm}
                 </Link>

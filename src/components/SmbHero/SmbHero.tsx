@@ -40,7 +40,7 @@ export default function SmbHero() {
 
         <CalBookingLink
           calLink="rhemic-ai/discovery-call"
-          className="inline-block px-8 py-4 text-lg font-semibold text-black bg-white hover:bg-gray-100 rounded-[5px] shadow-lg shadow-white/10 transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
+          className="inline-block px-8 py-4 text-lg font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:scale-105 font-body tracking-[0.01em]"
         >
           Book a Demo
         </CalBookingLink>

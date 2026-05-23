@@ -84,7 +84,7 @@ export default function CareersPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <h3 className="text-lg font-bold text-[var(--text-primary)]">{role.title}</h3>
-                    <span className="text-xs font-semibold uppercase tracking-[0.1em] text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-[5px] px-2.5 py-1">
+                    <span className="text-xs font-semibold uppercase tracking-[0.1em] text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-2.5 py-1">
                       Coming Soon
                     </span>
                   </div>
@@ -92,7 +92,7 @@ export default function CareersPage() {
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">{role.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {role.tags.map((tag) => (
-                      <span key={tag} className="text-xs font-medium text-[var(--text-tertiary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-[5px] px-2.5 py-1">
+                      <span key={tag} className="text-xs font-medium text-[var(--text-tertiary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-full px-2.5 py-1">
                         {tag}
                       </span>
                     ))}
@@ -100,7 +100,7 @@ export default function CareersPage() {
                 </div>
                 <a
                   href="mailto:contact@rhemicai.com"
-                  className="shrink-0 px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-200 self-start"
+                  className="shrink-0 px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-200 self-start"
                 >
                   Express Interest
                 </a>
@@ -119,13 +119,13 @@ export default function CareersPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
                 Get in Touch
               </Link>
               <a
                 href="mailto:contact@rhemicai.com"
-                className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
+                className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
               >
                 contact@rhemicai.com
               </a>

@@ -175,7 +175,7 @@ function InputColumn({
   return (
     <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center gap-2 mb-3">
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-emerald-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-emerald-500 text-[var(--bg)]' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 1
         </span>
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono">
@@ -282,7 +282,7 @@ function EngineColumn({
   return (
     <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-blue-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center justify-center gap-2 mb-3">
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-blue-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-blue-500 text-[var(--bg)]' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 2
         </span>
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-center">
@@ -399,7 +399,7 @@ function OutputColumn({
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-right">
           AI Answers
         </div>
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-violet-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-violet-500 text-[var(--bg)]' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 3
         </span>
       </div>

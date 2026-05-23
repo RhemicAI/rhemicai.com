@@ -85,7 +85,7 @@ export default function BestAiSearchOptimizationToolsPage() {
               </p>
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 See pricing
               </Link>

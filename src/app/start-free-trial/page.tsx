@@ -284,7 +284,7 @@ export default function StartFreeTrialPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full px-8 py-4 text-base font-semibold rounded-[5px] transition-all duration-300 ${
+                className={`w-full px-8 py-4 text-base font-semibold rounded-full transition-all duration-300 ${
                   isSubmitting
                     ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
                     : 'text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] hover:scale-105'
@@ -306,7 +306,7 @@ export default function StartFreeTrialPage() {
           {/* Main CTA Box */}
           <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center mb-16">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-[5px] bg-[var(--bg-elevated)] border border-[var(--border-default)] flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-default)] flex items-center justify-center">
                 <svg
                   width="32"
                   height="32"
@@ -337,7 +337,7 @@ export default function StartFreeTrialPage() {
 
             <a
               href="#" data-cal-link="rhemic-ai/discovery-call"
-              className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+              className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book Discovery Call
             </a>
@@ -508,7 +508,7 @@ export default function StartFreeTrialPage() {
           <div className="mt-16 text-center">
             <a
               href="#" data-cal-link="rhemic-ai/discovery-call"
-              className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+              className="inline-block px-10 py-5 text-lg font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
             >
               Book Discovery Call
             </a>

@@ -63,12 +63,12 @@ export default function SmbPricing() {
             const displayPrice = annual ? plan.annualPrice : plan.monthlyPrice;
             const priceSuffix = annual ? '/year' : '/mo';
             const savings = plan.monthlyPrice * 12 - plan.annualPrice;
-            const primaryButtonClass = `block w-full rounded-[5px] py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
+            const primaryButtonClass = `block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
               plan.featured
-                ? 'bg-white text-black shadow-lg shadow-white/10 hover:bg-gray-100'
+                ? 'bg-[var(--ink)] text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] hover:bg-[var(--pulse)]'
                 : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
             }`;
-            const secondaryButtonClass = `block w-full rounded-[5px] border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
+            const secondaryButtonClass = `block w-full rounded-full border py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-105 font-body ${
               plan.featured
                 ? 'border-white/20 bg-white/[0.03] text-white hover:bg-white/10'
                 : 'border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
@@ -85,7 +85,7 @@ export default function SmbPricing() {
               >
                 {plan.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-block rounded-[5px] bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wider text-black">
+                    <span className="inline-block rounded-full bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--bg)]">
                       Most Popular
                     </span>
                   </div>
