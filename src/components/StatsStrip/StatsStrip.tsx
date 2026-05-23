@@ -1,19 +1,27 @@
 const stats = [
   {
     value: '$504',
-    label: 'Average visit ticket, AmSpa',
+    label: 'Average visit ticket',
+    source: 'AmSpa',
+    sourceUrl: 'https://americanmedspa.org/resources/med-spa-statistics',
   },
   {
     value: '73%',
-    label: 'Repeat patient share, AmSpa',
+    label: 'Repeat patient share',
+    source: 'AmSpa',
+    sourceUrl: 'https://www.americanmedspa.org/news/medical-spas-are-safe-repeat-patients-and-industry-size/',
   },
   {
     value: '245',
-    label: 'Average monthly visits, AmSpa',
+    label: 'Average monthly visits',
+    source: 'AmSpa',
+    sourceUrl: 'https://www.americanmedspa.org/news/2024-medical-spa-state-of-the-industry-executive-report-recap/',
   },
   {
     value: '10,488+',
-    label: 'U.S. med spa locations, AmSpa',
+    label: 'U.S. med spa locations',
+    source: 'AmSpa',
+    sourceUrl: 'https://www.americanmedspa.org/news/2024-medical-spa-state-of-the-industry-executive-report-recap/',
   },
 ];
 
@@ -28,7 +36,16 @@ export default function StatsStrip() {
                 {stat.value}
               </p>
               <p className="mt-2 font-body text-sm leading-snug text-[var(--text-secondary)]">
-                {stat.label}
+                {stat.label},{' '}
+                <a
+                  href={stat.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[var(--text-primary)] underline-offset-4 transition-colors hover:text-[var(--pulse)] hover:underline"
+                  aria-label={`${stat.label} source from ${stat.source}`}
+                >
+                  {stat.source}
+                </a>
               </p>
             </div>
           ))}
