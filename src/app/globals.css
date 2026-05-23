@@ -136,14 +136,10 @@ h6 {
   transform: translateZ(0);
 }
 
-.cta-hidden {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.cta-visible {
-  transform: translateY(0);
-  opacity: 1;
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @layer utilities {

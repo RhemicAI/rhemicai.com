@@ -17,7 +17,6 @@ const navLinks = [
 export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
   const bookingCalLink = 'rhemic-ai/discovery-call';
 
@@ -26,10 +25,6 @@ export default function FixedNav() {
     const navSentinel = document.createElement('div');
     navSentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
     document.body.prepend(navSentinel);
-
-    const ctaSentinel = document.createElement('div');
-    ctaSentinel.style.cssText = 'position:absolute;top:600px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
-    document.body.prepend(ctaSentinel);
 
     const navObs = new IntersectionObserver(([e]) => {
       const nav = navRef.current;
@@ -43,26 +38,11 @@ export default function FixedNav() {
       }
     });
 
-    const ctaObs = new IntersectionObserver(([e]) => {
-      const cta = ctaRef.current;
-      if (!cta) return;
-      if (e.isIntersecting) {
-        cta.classList.remove('cta-visible');
-        cta.classList.add('cta-hidden');
-      } else {
-        cta.classList.add('cta-visible');
-        cta.classList.remove('cta-hidden');
-      }
-    });
-
     navObs.observe(navSentinel);
-    ctaObs.observe(ctaSentinel);
 
     return () => {
       navObs.disconnect();
-      ctaObs.disconnect();
       navSentinel.remove();
-      ctaSentinel.remove();
     };
   }, []);
 
@@ -204,19 +184,18 @@ export default function FixedNav() {
         </div>
       </div>
 
-      {/* Sticky mobile CTA, fixed at bottom, appears after scrolling past hero */}
+      {/* Sticky mobile CTA, fixed at bottom */}
       <div
-        ref={ctaRef}
-        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-[transform,opacity] duration-300 cta-hidden ${
+        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-[transform,opacity] duration-300 ${
           menuOpen ? 'translate-y-full opacity-0' : ''
         }`}
       >
-        <div className="flex justify-center pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)] border-t border-[var(--border-subtle)]">
+        <div className="flex justify-center px-5 pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)]/95 border-t border-[var(--border-subtle)] backdrop-blur-2xl">
           <CalBookingLink
             calLink={bookingCalLink}
-            className="rounded-full bg-[var(--btn-primary-bg)] px-5 py-2 font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-200 hover:bg-[var(--pulse)] active:scale-[0.98]"
+            className="w-full rounded-full bg-[var(--btn-primary-bg)] px-5 py-3 text-center font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:bg-[var(--pulse)] active:scale-[0.98]"
           >
-            Get the audit
+            Get a visibility + call leak audit
           </CalBookingLink>
         </div>
       </div>
