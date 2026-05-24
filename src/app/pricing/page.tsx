@@ -12,7 +12,7 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 export const metadata: Metadata = buildMetadata({
   title: 'Med Spa Operating System Pricing',
   description:
-    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need Google Business Profile optimization, AI search visibility, missed-call recovery, AI receptionist coverage, software handoffs, competitor intelligence, and booked consult tracking.',
+    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need Google visibility, AI search visibility, AI receptionist coverage, Consult Capture Layer support, approved handoff workflows, and source-aware reporting.',
   path: '/pricing',
   keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist', 'med spa software integrations'],
 });
@@ -24,11 +24,11 @@ const premiumPlan = plans.find((p) => p.tier === 'scale')!;
 const pricingFaqs = [
   {
     question: 'How much does Rhemic AI cost for med spas?',
-    answer: `Med spa plans: ${basicPlan.name} at $${basicPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${premiumPlan.name} at $${premiumPlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. The audit helps match scope to the clinic's locations, visibility gaps, and booking workflow.`,
+    answer: `Med spa plans: ${basicPlan.name} at $${basicPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${premiumPlan.name} at $${premiumPlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. The audit helps match scope to the clinic's locations, visibility gaps, and handoff workflow.`,
   },
   {
     question: 'Which plan is the main recommendation?',
-    answer: `${growthPlan.name} is the main recommendation for owner-led med spas that want more consults, better visibility, better call coverage, and a clearer view of competitor demand.`,
+    answer: `${growthPlan.name} is the main recommendation for owner-led med spas that want better visibility, better call coverage, and the Consult Capture Layer for capture, routing, and source context.`,
   },
   {
     question: 'What does AI search visibility mean?',
@@ -39,8 +39,8 @@ const pricingFaqs = [
     answer: 'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
   },
   {
-    question: 'Do we need to switch from our current med spa software?',
-    answer: 'No. Rhemic is being built to work around the tools med spas already use. You should not need to switch from Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, or another core system just to start using Rhemic.',
+    question: 'Do we need to switch booking software?',
+    answer: 'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
   },
   {
     question: 'Do you promise rankings or revenue?',
@@ -65,9 +65,9 @@ const aiReceptionAndAdsFaqs = [
       'No. Rhemic does not replace your front desk. It gives your team backup coverage when calls are missed, after-hours leads come in, or staff are busy with patients.',
   },
   {
-    question: 'Can the AI receptionist book appointments directly?',
+    question: 'Does Rhemic book appointments directly?',
     answer:
-      'Direct booking is planned for supported systems, but it is not something we enable blindly. For now, the AI receptionist captures the caller\'s details, requested treatment, urgency, and booking intent, then routes the request to your team. Direct scheduling will be available later for approved integrations with proper guardrails.',
+      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
   },
   {
     question: 'Does the AI receptionist give medical advice?',
@@ -87,7 +87,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'What happens after the AI receptionist captures a lead?',
     answer:
-      'The lead is routed to your team with the caller\'s details, requested treatment, urgency, source when available, and next-step context. The goal is to make follow-up faster and cleaner.',
+      'The lead is routed into approved handoff workflows with the caller\'s details, requested treatment, urgency, source when available, and next-step context. The goal is to make follow-up faster and cleaner.',
   },
   {
     question: 'Can we approve what the AI receptionist says?',
@@ -127,7 +127,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Which plans include Meta ads intelligence?',
     answer:
-      'Premium includes Meta ads intelligence through the connected-account dashboard and Meta MCP connection. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
+      'Premium includes Meta Ads source view for connected-account reporting and campaign context. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
   },
   {
     question: 'Is Meta ads intelligence the same as ad management?',
@@ -137,12 +137,12 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Why does ads intelligence matter if Rhemic is not an agency?',
     answer:
-      'Because visibility alone is not enough. If your ads are spending money but calls, leads, costs, and booked consults are not clear, you cannot tell what to fix. Rhemic helps connect demand to capture and reporting.',
+      'Because visibility alone is not enough. If your ads are spending money but calls, leads, costs, and source context are not clear, you cannot tell what to fix. Rhemic helps connect demand to capture and reporting.',
   },
   {
     question: 'Can Rhemic tell which ads drove booked consults?',
     answer:
-      'That is the direction of the closed-loop reporting layer. Rhemic should help trace consults back to the source when tracking and handoff systems are properly connected.',
+      'That is the direction of the reporting layer. Rhemic can help show which sources are creating consult opportunities when tracking and handoff systems are properly connected.',
   },
   {
     question: 'Will Rhemic post ads or content for us?',
@@ -163,14 +163,14 @@ const softwareIntegrationFaqs = [
       'We are prioritizing systems commonly used by U.S. med spas, including AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and other scheduling, CRM, EMR, and practice management tools used in aesthetics. Final rollout depends on API access, compliance review, and customer demand.',
   },
   {
-    question: 'Can Rhemic send leads into our booking or CRM system?',
+    question: 'Can Rhemic send leads into our current system?',
     answer:
       'In the current phase, Rhemic can capture lead details and route booking requests to your team through approved handoff workflows. Deeper CRM, scheduling, and practice-management integrations are in progress and will be added where the software supports safe API-based handoff.',
   },
   {
-    question: 'Can the AI receptionist book directly into our scheduling system?',
+    question: 'Does Rhemic book appointments directly?',
     answer:
-      'Direct booking is planned for supported systems, but it is not something we enable blindly. For now, the AI receptionist captures the caller\'s details, requested treatment, urgency, and booking intent, then routes the request to your team. Direct scheduling will be available later for approved integrations with proper guardrails.',
+      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
   },
   {
     question: 'Will Rhemic integrate with our EMR?',
@@ -178,9 +178,9 @@ const softwareIntegrationFaqs = [
       'EMR integrations are on the roadmap, but Rhemic does not need EMR access to start improving visibility, call capture, and lead routing. Any EMR integration will require a separate review for API access, permissions, data scope, and compliance requirements.',
   },
   {
-    question: 'Do we need to switch from our current med spa software?',
+    question: 'Do we need to switch booking software?',
     answer:
-      'No. Rhemic is being built to work around the tools med spas already use. You should not need to switch from Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, or another core system just to start using Rhemic.',
+      'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
   },
   {
     question: 'What happens before the integration is live?',
@@ -217,7 +217,7 @@ const recommendationRows = [
   {
     situation: 'Competitors are highly visible and running ads.',
     bestFit: 'Premium',
-    guidance: 'Premium gives connected-account Meta Ads intelligence, competitor review, and clearer optimization priorities.',
+    guidance: 'Premium gives Meta Ads source view for connected-account reporting, competitor review, and clearer optimization priorities.',
   },
   {
     situation: 'You have two to five locations.',
@@ -259,7 +259,7 @@ export default function PricingPage() {
         service={{
           name: 'Rhemic AI Pricing and Service Plans',
           description:
-            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, and Meta Ads intelligence.',
+            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, Consult Capture Layer support, and Meta Ads source view.',
           path: '/pricing',
           audience: 'U.S. med spa owners and operators evaluating patient acquisition infrastructure',
         }}
@@ -284,7 +284,7 @@ export default function PricingPage() {
             Basic fixes the foundation. Growth is the main recommendation for owner-led med spas trying to grow consult volume. Premium is for competitive markets, bigger teams, and multi-location operators.
           </p>
           <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
-            Rhemic helps med spas get found, trusted, and booked. We improve Google Business Profile, local SEO, reviews, treatment pages, AI search visibility, Meta Ads intelligence, and AI receptionist coverage for missed and after-hours calls.
+            Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4">
             <CalBookingLink
@@ -327,7 +327,7 @@ export default function PricingPage() {
                 ))}
               </div>
               <p className="text-base leading-[1.75] text-[var(--text-secondary)]">
-                One missed Botox, filler, laser, or body-contouring consult can be worth hundreds to thousands in lifetime value. Rhemic is built to find and close the leaks before you spend more on ads.
+                One missed Botox, filler, laser, or body-contouring consult can be worth hundreds to thousands in lifetime value. Rhemic is built to help find the leaks before you spend more on ads.
               </p>
             </div>
           </section>
@@ -370,7 +370,7 @@ export default function PricingPage() {
               Start with the audit.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
-              We help med spas win more booked consults by fixing how patients find you, how they decide to trust you, and what happens when they call.
+              We help med spas improve how patients find you, how they decide to trust you, and what happens when they call.
             </p>
             <CalBookingLink
               calLink="rhemic-ai/medspa-discovery-call"

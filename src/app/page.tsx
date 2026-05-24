@@ -2,6 +2,7 @@ import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
 import OutcomeStrip from '@/components/OutcomeStrip/OutcomeStrip';
 import ProductShowcase from '@/components/ProductShowcase/ProductShowcase';
+import ConsultCaptureLayer from '@/components/ConsultCaptureLayer/ConsultCaptureLayer';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Features from '@/components/Features/Features';
@@ -32,12 +33,17 @@ const homepageFaqs = [
   {
     question: 'Which plan is the main recommendation?',
     answer:
-      'Growth is the main recommendation for owner-led med spas trying to grow consult volume. Basic is for foundation cleanup, Premium is for competitive markets and two to five location operators, and Custom is for larger or more complex groups.',
+      'Growth is the main recommendation for owner-led med spas trying to grow consult volume. It includes the Consult Capture Layer for capture, routing, and source context.',
   },
   {
-    question: 'Does Rhemic integrate with med spa software?',
+    question: 'Do we need to switch booking software?',
     answer:
-      'Direct integrations with systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can capture lead details, support missed-call recovery, and route booking requests through approved handoff workflows.',
+      'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
+  },
+  {
+    question: 'Does Rhemic book appointments directly?',
+    answer:
+      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
   },
 ];
 
@@ -49,7 +55,7 @@ const homepageSchema = [
     '@type': 'Service',
     name: 'Rhemic AI Med Spa Growth System',
     description:
-      'Growth operating system for U.S. med spas that improves Google visibility, AI search visibility, reviews, treatment pages, AI receptionist coverage, missed-call recovery, lead routing, Meta Ads intelligence, and booked consult tracking.',
+      'Growth operating system for U.S. med spas that helps clinics get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.',
     provider: {
       '@type': 'Organization',
       name: 'Rhemic AI',
@@ -68,8 +74,9 @@ const homepageSchema = [
       'Local SEO for med spas',
       'AI receptionist coverage',
       'Missed-call recovery',
+      'Consult Capture Layer',
+      'Source-aware reporting',
       'Meta Ads intelligence',
-      'Booked consult tracking',
     ],
     offers: {
       '@type': 'OfferCatalog',
@@ -114,6 +121,7 @@ export default function Home() {
       <Hero />
       <OutcomeStrip />
       <ProductShowcase />
+      <ConsultCaptureLayer />
       <Testimonials />
       <HowItWorks />
       <Features />

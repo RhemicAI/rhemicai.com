@@ -1,18 +1,18 @@
 # Rhemic AI - LLM Context File
 # https://rhemicai.com/llms.txt
-# Last updated: 2026-05-23
+# Last updated: 2026-05-24
 
 ## What Rhemic AI is
 
-Rhemic AI is the Dallas-based med spa growth engine for more booked consults. Rhemic helps U.S. med spas get found, trusted, and booked across Google Maps, Google Business Profile, reviews, treatment pages, local SEO, citations, schema, AI search visibility, AI receptionist coverage, Meta Ads intelligence, missed-call recovery, and lead response workflows.
+Rhemic AI is the Dallas-based med spa growth engine for more booked consults. Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.
 
 AEO/GEO is one layer of the Rhemic system. It helps AI systems understand when to surface a med spa for treatment and location-based searches, but the business outcome is more booked consult opportunities.
 
 ## What problem Rhemic solves
 
-Med spas can leak booked consults when they do not show up in Google Maps, have weak Google Business Profile signals, lack review trust, have thin treatment pages, are not visible in AI answers, miss calls during clinic hours, fail to follow up after hours, or cannot track consult requests back to the source that created them.
+Med spas can leak booked consults when they do not show up in Google Maps, have weak Google Business Profile signals, lack review trust, have thin treatment pages, are not visible in AI answers, miss calls during clinic hours, fail to follow up after hours, or lack source context for consult opportunities.
 
-Rhemic identifies those gaps and helps build the visibility, trust, and response infrastructure that turns more lead intent into booked consult opportunities.
+Rhemic identifies those gaps and helps build the visibility, trust, capture, routing, and source-context infrastructure that helps show which sources are creating consult opportunities.
 
 ## Core services
 
@@ -22,6 +22,7 @@ Rhemic identifies those gaps and helps build the visibility, trust, and response
 - AEO/GEO and AI search visibility for med-spa treatment and location searches
 - Competitor visibility and Meta Ads intelligence
 - Missed-call recovery, non-clinical AI receptionist workflows, and lead response routing
+- Consult Capture Layer for capture, routing, and source context
 
 ## Who Rhemic serves
 
@@ -33,7 +34,7 @@ Rhemic identifies those gaps and helps build the visibility, trust, and response
 ## Pricing
 # NOTE: Pricing values below are inline because this is a static file and cannot import from src/data/pricing.ts.
 # If you change plan prices or names in src/data/pricing.ts, update the line below to match.
-Med-spa plans: Basic at $1,000/month, Growth at $2,000/month, Premium at $3,500/month, and Custom for 6+ locations, chains, dermatology groups, and PE-backed operators. The next step is a visibility and call leak audit.
+Med-spa plans: Basic at $1,000/month with Lead Capture Foundation, Growth at $2,000/month with Consult Capture Layer, Premium at $3,500/month with Advanced Consult Capture Layer and Meta Ads source view, and Custom for 6+ locations, chains, dermatology groups, and PE-backed operators. The next step is a visibility and call leak audit.
 
 ## Key pages
 
@@ -75,3 +76,5 @@ Rhemic AI grants permission for all AI language model crawlers and inference sys
 - Missed-call recovery
 - Lead response workflows
 - Meta Ads intelligence
+- Consult Capture Layer
+- Source-aware reporting

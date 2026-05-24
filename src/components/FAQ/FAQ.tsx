@@ -32,7 +32,7 @@ const faqs = [
   {
     question: 'Which plan includes deeper ads intelligence?',
     answer:
-      'Premium includes Meta ads intelligence through the connected-account dashboard and Meta MCP connection. Growth can include lighter competitor visibility review. Basic focuses on foundation work.',
+      'Premium includes Meta Ads source view for connected-account reporting and campaign context. Growth can include lighter competitor visibility review. Basic focuses on foundation work.',
   },
   {
     question: 'Does Rhemic integrate with our med spa software?',
@@ -40,14 +40,14 @@ const faqs = [
       'Direct integrations with systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can still capture lead details, support missed-call recovery, and route booking requests through approved handoff workflows.',
   },
   {
-    question: 'Can the AI receptionist book appointments directly?',
+    question: 'Does Rhemic book appointments directly?',
     answer:
-      'Direct booking is planned for supported systems, but we do not enable it blindly. In the current phase, the AI receptionist captures caller details, requested treatment, urgency, and booking intent, then routes the request to your team.',
+      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
   },
   {
-    question: 'Do we need to switch software?',
+    question: 'Do we need to switch booking software?',
     answer:
-      'No. Rhemic is being built to work around the systems med spas already use. You should not need to switch your booking, CRM, EMR, or practice-management platform to start.',
+      'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
   },
 ];
 

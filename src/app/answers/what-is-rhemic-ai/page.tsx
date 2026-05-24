@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'What Is Rhemic AI?',
   description:
-    'Rhemic AI is a growth operating system for U.S. med spas that helps clinics improve Google visibility, AI search visibility, reviews, treatment pages, AI receptionist coverage, missed-call recovery, Meta Ads intelligence, and booked consult tracking.',
+    'Rhemic AI is a growth operating system for U.S. med spas that helps clinics get found, capture booking intent, route requests, and understand which sources are creating consult opportunities.',
   path: '/answers/what-is-rhemic-ai',
   keywords: ['what is Rhemic AI', 'med spa growth operating system', 'med spa AI receptionist', 'med spa missed-call recovery'],
 });
@@ -16,14 +16,14 @@ export default function WhatIsRhemicAiPage() {
       subtitle="Answers / What is Rhemic AI"
       title="What is Rhemic AI?"
       path="/answers/what-is-rhemic-ai"
-      directAnswer="Rhemic AI is a growth operating system for U.S. med spas that helps clinics improve Google visibility, AI search visibility, reviews, treatment pages, AI receptionist coverage, missed-call recovery, Meta Ads intelligence, and booked consult tracking."
+      directAnswer="Rhemic AI is a growth operating system for U.S. med spas. Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities."
       details={
         <div className="space-y-5">
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Rhemic AI is built for med spa owners and operators who need more booked consults from the
             channels patients already use. That includes Google Maps, Google Business Profile, reviews,
             treatment pages, local SEO, AI answers, missed calls, lead routing, and reporting that connects
-            demand back to source.
+            demand back to source context.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
             The system starts with visibility and trust. Rhemic reviews how a clinic appears across
@@ -37,10 +37,15 @@ export default function WhatIsRhemicAiPage() {
             and treatment decisions stay with licensed staff.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
+            Growth and Premium include the Consult Capture Layer, defined as capture, routing, and source
+            context. It helps route booking intent from calls, missed calls, after-hours inquiries, website
+            inquiries where available, and campaign handoffs into approved handoff workflows.
+          </p>
+          <p className="text-[var(--text-secondary)] leading-relaxed">
             Rhemic AI is based in Dallas, Texas and serves U.S. med spas. Public plans are Basic,
             Growth, Premium, and Custom. Growth is the main recommendation for owner-led med spas
-            trying to grow consult volume, while Premium adds deeper market visibility, Meta Ads
-            intelligence, and stronger reporting for competitive clinics and boutique multi-location groups.
+            trying to grow consult volume, while Premium adds deeper market visibility, Meta Ads source
+            view for connected-account reporting and campaign context, and stronger reporting for competitive clinics and boutique multi-location groups.
           </p>
         </div>
       }
@@ -49,7 +54,7 @@ export default function WhatIsRhemicAiPage() {
           A Dallas med spa is getting searches for Botox, fillers, laser, facials, and body contouring,
           but consult requests are leaking through a weak Google Business Profile, thin treatment pages,
           inconsistent reviews, missed calls, and slow after-hours follow-up. Rhemic audits those leak
-          points, prioritizes fixes, and helps route more buyer intent into the clinic&apos;s booking workflow.
+          points, prioritizes fixes, and helps route more buyer intent into approved handoff workflows.
         </p>
       }
       relatedQuestions={[
@@ -76,7 +81,11 @@ export default function WhatIsRhemicAiPage() {
         },
         {
           question: 'Does Rhemic help with Google as well as AI search?',
-          answer: 'Yes. Rhemic works across Google Business Profile, Google Maps, local SEO, reviews, treatment pages, schema, AI search visibility, missed-call recovery, lead routing, and reporting.',
+          answer: 'Yes. Rhemic works across Google Business Profile, Google Maps, local SEO, reviews, treatment pages, schema, AI search visibility, missed-call recovery, approved handoff workflows, and source-aware reporting.',
+        },
+        {
+          question: 'Does Rhemic book appointments directly?',
+          answer: 'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
         },
       ]}
     />
