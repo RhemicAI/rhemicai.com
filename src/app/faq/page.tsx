@@ -44,7 +44,7 @@ const faqs = [
   {
     question: 'Does the AI receptionist give medical advice?',
     answer:
-      'No. The AI receptionist does not provide medical advice, diagnosis, treatment recommendations, or clinical intake. It only handles common non-clinical questions, lead capture, and booking request routing.',
+      'No. The AI receptionist does not provide medical advice, diagnosis, or treatment recommendations. It only handles common non-clinical questions, lead capture, and booking request routing.',
   },
   {
     question: 'What happens when a caller asks a clinical question?',

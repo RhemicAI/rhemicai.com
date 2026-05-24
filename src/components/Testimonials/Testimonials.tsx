@@ -1,46 +1,47 @@
-const signals = [
-  {
-    metricTitle: 'Brand Share % Baseline',
-    body: 'Most businesses discover they appear in less than 15% of relevant AI answers. That\'s the gap. Knowing it exists is step one.',
-  },
-  {
-    metricTitle: 'Competitor Gap Map',
-    body: 'On average, 3–5 competitors are capturing the AI recommendations you\'re missing. We show you exactly who and exactly which topics.',
-  },
-  {
-    metricTitle: '30-Day Delta Tracking',
-    body: 'After implementing Rhemic recommendations, run a second scan to track your improvement. The before-and-after delta shows exactly how far you\'ve come.',
-  },
-];
+import Reveal from '@/components/shared/Reveal';
+import { testimonials, type Testimonial } from '@/data/testimonials';
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  items?: Testimonial[];
+}
+
+export default function Testimonials({ items = testimonials }: TestimonialsProps) {
   return (
-    <section className="relative py-20 md:py-28 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mb-5 font-body">
-            EARLY SIGNALS
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.05] text-[var(--text-primary)] font-display">
-            What Businesses See in Their First 30 Days
+    <section className="relative z-10 px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl">
+        <Reveal className="mb-12 max-w-3xl">
+          <p className="section-label mb-4">Demo testimonials</p>
+          <h2 className="font-display text-3xl font-semibold leading-[1.08] text-[var(--text-primary)] md:text-5xl">
+            Trusted by growth-focused med spa operators
           </h2>
-        </div>
+          <p className="mt-5 text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
+            Early clinics use Rhemic to understand where visibility, calls, and follow-up are leaking.
+          </p>
+        </Reveal>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {signals.map((s, i) => (
-            <div
-              key={i}
-              className="flex flex-col bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-2xl p-8 hover:border-[var(--border-strong)] transition-colors duration-200"
-            >
-              <h3 className="text-lg font-bold text-[var(--text-primary)] font-display mb-4">
-                {s.metricTitle}
-              </h3>
-              <p className="text-sm leading-relaxed text-[var(--text-secondary)] font-body">
-                {s.body}
-              </p>
-            </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {items.map((testimonial, index) => (
+            <Reveal key={`${testimonial.name}-${testimonial.company}`} delay={(index % 3) as 0 | 1 | 2}>
+              <figure className="glass-panel flex h-full flex-col p-6 transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)]">
+                <span className="font-display text-5xl leading-none text-[var(--pulse-deep)]/70">
+                  &ldquo;
+                </span>
+                <blockquote className="mt-3 flex-1 text-base leading-[1.7] text-[var(--text-secondary)]">
+                  {testimonial.quote}
+                </blockquote>
+                <figcaption className="mt-8 border-t border-[var(--glass-border)] pt-5">
+                  <p className="font-body text-sm font-semibold text-[var(--text-primary)]">
+                    {testimonial.name}
+                  </p>
+                  <p className="mt-1 text-sm text-[var(--text-secondary)]">
+                    {testimonial.company}
+                  </p>
+                  <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-muted)]">
+                    {testimonial.role}
+                  </p>
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </div>

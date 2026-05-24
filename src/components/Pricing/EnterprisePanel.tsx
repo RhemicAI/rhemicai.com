@@ -1,27 +1,27 @@
 const enterpriseFeatures = [
   {
-    title: 'White-Label Reporting',
-    desc: 'Present AI visibility reports and audits under your own brand. Your name, your logo, your deliverables.',
+    title: 'Group Reporting',
+    desc: 'Roll up visibility, calls, lead response, and consult opportunities across a larger med spa footprint.',
   },
   {
-    title: 'Multi-Brand Management',
-    desc: 'Manage AI visibility across multiple brands, divisions, or accounts from a single environment.',
+    title: 'Multi-Location Management',
+    desc: 'Track location-level visibility, capture, and reporting needs from one operating layer.',
   },
   {
     title: 'Dedicated Account Team',
-    desc: 'A named account manager and strategist who understand your business and meet with you weekly.',
+    desc: 'A scoped support cadence for larger operators with more complex rollout needs.',
   },
   {
     title: 'Custom Audit Frequency',
-    desc: 'Daily, weekly, or custom scan schedules tailored to your operational rhythm.',
+    desc: 'Scan cadence tailored to your market, locations, and reporting needs.',
   },
   {
     title: 'Custom Integrations',
-    desc: 'API access, custom data exports, and workflow integrations built around how your team operates.',
+    desc: 'Software handoff planning, exports, and workflow paths scoped around your current tools.',
   },
   {
     title: 'Volume-Based Pricing',
-    desc: 'Pricing structured around your scale. No per-seat surprises, no hidden overages.',
+    desc: 'Pricing structured around locations, routing complexity, and reporting scope.',
   },
 ];
 
@@ -33,8 +33,8 @@ export default function EnterprisePanel() {
           Custom AI Visibility Solutions for Larger Operators
         </h3>
         <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
-          For large agencies, multi-brand organizations, and enterprise teams that need
-          tailored AEO infrastructure, white-label capabilities, and dedicated strategic support.
+          For six or more locations, chains, dermatology groups, PE-backed operators, and teams
+          with complex routing or reporting needs.
         </p>
       </div>
 

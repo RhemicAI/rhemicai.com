@@ -4,16 +4,16 @@ import { useEffect, useRef } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const scopeStats = [
-  { label: 'answers', value: 'AI Search' },
-  { label: 'found', value: 'Google' },
-  { label: 'captured', value: 'Calls' },
+  { label: 'SEO', value: 'Search' },
+  { label: 'AEO', value: 'AI answers' },
+  { label: 'capture', value: 'Calls' },
 ];
 
 const stripItems = [
-  ['Visibility', 'Google + AI search'],
-  ['Capture', 'Missed calls'],
-  ['Routing', 'Booking requests'],
-  ['Reporting', 'Source tied'],
+  ['SEO visibility'],
+  ['AEO visibility'],
+  ['AI receptionist'],
+  ['Missed-call recovery'],
 ];
 
 function easePowerInOut(t: number, power: number) {
@@ -33,10 +33,8 @@ export default function Hero() {
     const halo = haloRef.current;
     if (!path || !dot) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const len = path.getTotalLength();
-    let frame = 0;
-    let drawStart: number | null = null;
-    let moveStart: number | null = null;
 
     path.style.strokeDasharray = String(len);
     path.style.strokeDashoffset = String(len);
@@ -50,6 +48,17 @@ export default function Hero() {
         halo.setAttribute('cy', String(point.y));
       }
     };
+
+    if (prefersReducedMotion) {
+      path.style.strokeDasharray = 'none';
+      path.style.strokeDashoffset = '0';
+      setDot(0.7);
+      return;
+    }
+
+    let frame = 0;
+    let drawStart: number | null = null;
+    let moveStart: number | null = null;
 
     const tick = (now: number) => {
       if (drawStart === null) drawStart = now;
@@ -71,25 +80,25 @@ export default function Hero() {
 
     setDot(0);
     frame = requestAnimationFrame(tick);
+
     return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
     <section className="rhemic-grid-bg relative min-h-screen overflow-hidden px-[clamp(20px,4vw,64px)] pb-16 pt-28 md:pt-36">
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-[1280px] items-center gap-10 lg:grid-cols-[0.9fr_1fr] lg:gap-20 xl:gap-24">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-[1280px] items-center gap-10 lg:grid-cols-[1.06fr_0.86fr] lg:gap-12 xl:gap-16">
         <div className="min-w-0">
           <div className="hero-enter-eyebrow mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(77,214,224,0.2)] bg-[var(--pulse-soft)] px-4 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--pulse-deep)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--pulse)] shadow-[0_0_8px_var(--pulse-glow)]" />
             For U.S. med spas
           </div>
 
-          <h1 className="hero-enter-title max-w-[620px] font-display text-[clamp(2rem,3.6vw,3.25rem)] font-medium leading-[1.08] tracking-normal text-[var(--ink)] sm:text-[clamp(2.4rem,3.6vw,3.25rem)]">
-            <span className="block whitespace-nowrap">Medspa Growth Engine</span>
-            <span className="block whitespace-nowrap text-[#4DD6E0]">for More Booked Consults</span>
+          <h1 className="hero-enter-title max-w-[980px] font-display text-[clamp(2.6rem,5vw,4rem)] font-medium leading-[0.98] tracking-normal text-[var(--ink)] lg:max-w-[700px] xl:max-w-[780px]">
+            More booked consults from search, calls, and AI.
           </h1>
 
-          <p className="hero-enter-copy mt-7 max-w-[560px] font-body text-base leading-[1.55] text-[var(--mute)] md:text-lg">
-            Rhemic helps clinics get found on Google and AI search, answer leads faster, recover missed calls, and trace consults back to the source.
+          <p className="hero-enter-copy mt-7 max-w-[620px] font-body text-base leading-[1.6] text-[var(--mute)] md:text-lg">
+            Rhemic helps med spas improve SEO visibility, show up in AI answers, recover missed-call opportunities, and route more patient demand into booked consults.
           </p>
 
           <div className="hero-enter-copy mt-8 hidden flex-col gap-3 sm:flex sm:flex-row">
@@ -159,7 +168,7 @@ export default function Hero() {
                 <span className="block font-mono text-[11px] tracking-[0.08em] text-[var(--mute)]">
                   {stat.label}
                 </span>
-                <span className="mt-1 block font-body text-[clamp(1.4rem,3vw,2rem)] font-medium leading-tight text-[var(--ink)]">
+                <span className="mt-1 block font-body text-[clamp(1.25rem,2.6vw,1.85rem)] font-medium leading-tight text-[var(--ink)]">
                   {stat.value}
                 </span>
               </div>
@@ -172,13 +181,10 @@ export default function Hero() {
         <span className="rounded-full bg-[var(--pulse-soft)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--pulse-deep)]">
           live
         </span>
-        {stripItems.map(([label, value], index) => (
+        {stripItems.map(([label], index) => (
           <span key={label} className="flex items-center gap-3 text-sm text-[var(--mute)]">
             {index > 0 ? <span className="text-[var(--mute-2)]">·</span> : null}
-            <span className="inline-flex items-center gap-1.5">
-              <span>{label}</span>
-              <b className="font-medium text-[var(--ink)]">{value}</b>
-            </span>
+            <span className="font-medium text-[var(--ink)]">{label}</span>
           </span>
         ))}
       </div>

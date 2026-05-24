@@ -1,10 +1,10 @@
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Hero from '@/components/Hero/Hero';
-import StatsStrip from '@/components/StatsStrip/StatsStrip';
-import AeoExplainer from '@/components/AeoExplainer/AeoExplainer';
+import OutcomeStrip from '@/components/OutcomeStrip/OutcomeStrip';
+import ProductShowcase from '@/components/ProductShowcase/ProductShowcase';
+import Testimonials from '@/components/Testimonials/Testimonials';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Features from '@/components/Features/Features';
-import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
 import Pricing from '@/components/Pricing/Pricing';
 import FAQ from '@/components/FAQ/FAQ';
 import CTA from '@/components/CTA/CTA';
@@ -112,12 +112,12 @@ export default function Home() {
       <JsonLd id="homepage-med-spa-schema" data={homepageSchema} />
       <FixedNav />
       <Hero />
-      <AeoExplainer />
-      <StatsStrip />
-      <Features />
+      <OutcomeStrip />
+      <ProductShowcase />
+      <Testimonials />
       <HowItWorks />
+      <Features />
       <Pricing />
-      <DashboardPreview />
       <FAQ />
       <CTA />
       <Footer />

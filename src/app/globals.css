@@ -180,13 +180,7 @@ h6 {
   }
 
   .hero-proof-word {
-    font-family: var(--font-fraunces), serif;
-    font-style: italic;
-    font-weight: 400;
-    background: linear-gradient(135deg, var(--pulse-deep) 0%, var(--pulse) 60%, #3aafb8 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--pulse-deep);
   }
 
   .hero-enter-eyebrow {
@@ -224,6 +218,45 @@ h6 {
     to {
       opacity: 1;
       transform: translateY(0) scale(1);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 300ms ease;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 90ms;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 180ms;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 270ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter-eyebrow,
+    .hero-enter-title,
+    .hero-enter-copy,
+    .hero-enter-panel,
+    .reveal {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 }

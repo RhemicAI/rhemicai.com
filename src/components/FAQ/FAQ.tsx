@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'Does it give medical advice?',
     answer:
-      'No. The AI receptionist does not provide medical advice, diagnosis, treatment recommendations, or clinical intake. Clinical decisions stay with licensed staff.',
+      'No. The AI receptionist does not provide medical advice, diagnosis, or treatment recommendations. Clinical decisions stay with licensed staff.',
   },
   {
     question: 'What is Meta ads intelligence?',
