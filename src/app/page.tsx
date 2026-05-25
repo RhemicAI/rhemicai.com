@@ -33,7 +33,7 @@ const homepageFaqs = [
   {
     question: 'Which plan is the main recommendation?',
     answer:
-      'Growth is the main recommendation for owner-led med spas trying to grow consult volume. It includes the Consult Capture Layer for capture, routing, and source context.',
+      'Growth is the main recommendation for owner-led med spas that need to catch and route more booking intent. It includes the Consult Capture Layer for capture, routing, and source context.',
   },
   {
     question: 'Do we need to switch booking software?',
@@ -43,7 +43,7 @@ const homepageFaqs = [
   {
     question: 'Does Rhemic book appointments directly?',
     answer:
-      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
+      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
   },
 ];
 
@@ -53,9 +53,9 @@ const homepageSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Rhemic AI Med Spa Growth System',
+    name: 'Rhemic AI Med Spa Consult Opportunity System',
     description:
-      'Growth operating system for U.S. med spas that helps clinics get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.',
+      'Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
     provider: {
       '@type': 'Organization',
       name: 'Rhemic AI',

@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI Answers for Med Spa Operators',
   description:
-    'Direct answers about Rhemic AI, med spa growth infrastructure, AI receptionist coverage, AI search visibility, Consult Capture Layer support, and source-aware reporting.',
+    'Direct answers about Rhemic AI, med spa consult opportunity leaks, AI receptionist coverage, AI search visibility, handoffs, and source context.',
   path: '/answers',
   keywords: ['Rhemic AI answers', 'med spa growth FAQ', 'med spa AI receptionist'],
 });
@@ -17,7 +17,7 @@ const answerPages = [
   {
     href: '/answers/what-is-rhemic-ai',
     title: 'What is Rhemic AI?',
-    description: 'A growth operating system for U.S. med spas that helps clinics get found, capture booking intent, route requests, and understand source context.',
+    description: 'A system for U.S. med spas that helps find lost consult opportunities and route booking intent with source context.',
   },
   {
     href: '/answers/who-is-rhemic-ai-for',
@@ -34,7 +34,7 @@ export default function AnswersIndexPage() {
       <PageHero
         subtitle="Answers"
         title="Answers for med spa operators."
-        description="Direct answers about Rhemic AI, med spa visibility, AI receptionist coverage, missed-call recovery, Consult Capture Layer support, and source-aware reporting."
+        description="Direct answers about Rhemic AI, search visibility leaks, AI receptionist coverage, missed-call opportunities, handoffs, and source context."
         showBackLink={false}
       />
 

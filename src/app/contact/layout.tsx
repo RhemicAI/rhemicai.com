@@ -3,12 +3,12 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact Rhemic AI - Get a Med Spa Visibility and Call Leak Audit',
   description:
-    'Get a visibility and call leak audit with Rhemic AI, the Dallas-based growth operating system for U.S. med spas.',
+    'Get a visibility and call leak audit with Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
   alternates: { canonical: 'https://rhemicai.com/contact' },
   openGraph: {
     title: 'Contact Rhemic AI - Get a Med Spa Visibility and Call Leak Audit',
     description:
-      'Get a visibility and call leak audit with Rhemic AI, the Dallas-based growth operating system for U.S. med spas.',
+      'Get a visibility and call leak audit with Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
     url: 'https://rhemicai.com/contact',
     type: 'website',
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact Rhemic AI - Get a Med Spa Visibility and Call Leak Audit',
     description:
-      'Get a visibility and call leak audit with Rhemic AI, the Dallas-based growth operating system for U.S. med spas.',
+      'Get a visibility and call leak audit with Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
   },
 };
 

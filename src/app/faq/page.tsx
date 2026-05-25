@@ -8,9 +8,9 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'FAQ: Med Spa Growth, AI Reception, and Rhemic AI',
+  title: 'FAQ: Med Spa Consult Leaks, AI Reception, and Rhemic AI',
   description:
-    'Answers for U.S. med spas evaluating Rhemic AI for Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, software handoffs, and Meta Ads intelligence.',
+    'Answers for U.S. med spas evaluating Rhemic AI for search visibility leaks, call leaks, handoffs, source context, AI receptionist coverage, and Meta Ads intelligence.',
   path: '/faq',
   keywords: ['med spa growth FAQ', 'med spa AI receptionist', 'med spa missed-call recovery', 'Rhemic AI FAQ', 'med spa software integrations'],
 });
@@ -24,7 +24,12 @@ const faqs = [
   {
     question: 'What does Rhemic help a med spa improve?',
     answer:
-      'Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.',
+      'Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
+  },
+  {
+    question: 'How can Rhemic help us find revenue leaks?',
+    answer:
+      'Rhemic helps med spas look for places patient demand can leak before it becomes a consult opportunity: weak search and AI visibility, missed calls, after-hours intent, slow handoffs, unclear source context, and wasted ad spend signals where applicable. Rhemic does not guarantee revenue, rankings, patients, or booked consults. It helps surface and prioritize the leaks that can keep patient demand from becoming consult opportunities.',
   },
   {
     question: 'Does every Rhemic plan include the AI receptionist?',
@@ -74,7 +79,7 @@ const faqs = [
   {
     question: 'Does Rhemic book appointments directly?',
     answer:
-      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
+      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
   },
   {
     question: 'Will Rhemic integrate with our EMR?',
@@ -99,7 +104,7 @@ const faqs = [
   {
     question: 'Is this just SEO?',
     answer:
-      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI search visibility, reviews, missed calls, Meta Ads intelligence, and lead response so consult opportunities are easier to find, trust, and route.',
+      'No. SEO is one layer. Rhemic works across Google Maps, Google Business Profile, treatment pages, AI search visibility, reviews, missed calls, Meta Ads intelligence, and handoffs so consult opportunities are easier to surface and route.',
   },
   {
     question: 'What is Meta ads intelligence?',
@@ -119,7 +124,7 @@ const faqs = [
   {
     question: 'Do you guarantee rankings, revenue, or booked consults?',
     answer:
-      'No. Rhemic helps identify and improve visibility, trust, and response gaps. It does not promise search placement, revenue, clinical outcomes, patient volume, or booked consult volume.',
+      'No. Rhemic does not guarantee revenue, rankings, patients, or booked consults. It helps surface and prioritize the leaks that can keep patient demand from becoming consult opportunities.',
   },
   {
     question: 'How does the audit work?',
@@ -136,7 +141,7 @@ export default function FAQPage() {
       <PageHero
         subtitle="FAQ"
         title="Questions med spa operators ask before working with Rhemic."
-        description="Clear answers about Google visibility, AI search, AI receptionist coverage, missed calls, Meta Ads intelligence, pricing, and clinical boundaries."
+        description="Clear answers about search visibility leaks, call leaks, handoffs, source context, AI receptionist coverage, Meta Ads intelligence, pricing, and clinical boundaries."
         showBackLink={false}
       />
 
@@ -147,7 +152,7 @@ export default function FAQPage() {
               What Rhemic does
             </p>
             <p className="text-xl text-[var(--text-primary)] leading-relaxed">
-              Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.
+              Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link

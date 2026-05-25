@@ -4,7 +4,7 @@ const captureCards = [
   {
     label: 'calls + missed calls',
     title: 'Route call intent before it gets buried.',
-    body: 'Surface calls, missed calls, and receptionist context so the right person can follow up faster.',
+    body: 'Help surface calls, missed calls, and receptionist context so the right person can respond faster.',
   },
   {
     label: 'after-hours inquiries',
@@ -14,7 +14,7 @@ const captureCards = [
   {
     label: 'website + campaign handoffs',
     title: 'Preserve the request and the source.',
-    body: 'Capture booking intent from website inquiries where available and campaign handoffs with source context attached.',
+    body: 'Help route booking intent from website inquiries where available and campaign handoffs with source context attached.',
   },
   {
     label: 'source context',
@@ -32,13 +32,13 @@ export default function ConsultCaptureLayer() {
             <div>
               <p className="section-label mb-4">Consult Capture Layer</p>
               <h2 className="font-display text-3xl font-semibold leading-[1.08] text-[var(--text-primary)] md:text-5xl">
-                Capture the consult before the lead goes cold.
+                Catch booking intent before it gets buried.
               </h2>
               <p className="mt-6 text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-                Growth and Premium plans include a Consult Capture Layer that helps route booking intent from calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.
+                Growth and Premium plans include a Consult Capture Layer that helps surface calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs, then route booking intent into approved handoff workflows.
               </p>
               <p className="mt-5 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg-2)] p-4 text-sm leading-[1.65] text-[var(--text-tertiary)]">
-                Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.
+                Direct booking is planned for supported systems, where safe and integrated. Rhemic does not guarantee appointments.
               </p>
             </div>
 

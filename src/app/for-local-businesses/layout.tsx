@@ -4,9 +4,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI for U.S. Med Spas',
   description:
-    'Rhemic AI is now focused on U.S. med spas that need Google visibility, AI search visibility, AI receptionist coverage, missed-call recovery, and booked consult tracking.',
+    'Rhemic AI is focused on U.S. med spas that need to find lost consult opportunities across search visibility, AI answers, calls, handoffs, and source context.',
   path: '/for-local-businesses',
-  keywords: ['med spa growth operating system', 'med spa AI receptionist', 'med spa patient acquisition'],
+  keywords: ['med spa consult opportunity system', 'med spa AI receptionist', 'med spa patient acquisition'],
   noindex: true,
 });
 

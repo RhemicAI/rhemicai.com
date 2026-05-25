@@ -10,9 +10,9 @@ import { buildMetadata } from '@/lib/seo';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Med Spa Operating System Pricing',
+  title: 'Med Spa Consult Leak Pricing',
   description:
-    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need Google visibility, AI search visibility, AI receptionist coverage, Consult Capture Layer support, approved handoff workflows, and source-aware reporting.',
+    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent to the right team.',
   path: '/pricing',
   keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist', 'med spa software integrations'],
 });
@@ -43,6 +43,11 @@ const pricingFaqs = [
     answer: 'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
   },
   {
+    question: 'How can Rhemic help us find revenue leaks?',
+    answer:
+      'Rhemic helps med spas look for places patient demand can leak before it becomes a consult opportunity: weak search and AI visibility, missed calls, after-hours intent, slow handoffs, unclear source context, and wasted ad spend signals where applicable. Rhemic does not guarantee revenue, rankings, patients, or booked consults. It helps surface and prioritize the leaks that can keep patient demand from becoming consult opportunities.',
+  },
+  {
     question: 'Do you promise rankings or revenue?',
     answer: 'No. Rhemic helps identify and improve visibility, trust, and response gaps. It does not promise search placement, revenue, clinical outcomes, or patient volume.',
   },
@@ -67,7 +72,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Does Rhemic book appointments directly?',
     answer:
-      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
+      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
   },
   {
     question: 'Does the AI receptionist give medical advice?',
@@ -135,12 +140,12 @@ const aiReceptionAndAdsFaqs = [
       'No. Ads intelligence means Rhemic shows connected-account performance, KPIs, costs, and optimization opportunities. Ad management means someone creates, launches, optimizes, and manages campaigns. Those are different services.',
   },
   {
-    question: 'Why does ads intelligence matter if Rhemic is not an agency?',
+    question: 'Why does ads intelligence matter if Rhemic does not manage ads by default?',
     answer:
       'Because visibility alone is not enough. If your ads are spending money but calls, leads, costs, and source context are not clear, you cannot tell what to fix. Rhemic helps connect demand to capture and reporting.',
   },
   {
-    question: 'Can Rhemic tell which ads drove booked consults?',
+    question: 'Can Rhemic help show which ads create consult opportunities?',
     answer:
       'That is the direction of the reporting layer. Rhemic can help show which sources are creating consult opportunities when tracking and handoff systems are properly connected.',
   },
@@ -170,7 +175,7 @@ const softwareIntegrationFaqs = [
   {
     question: 'Does Rhemic book appointments directly?',
     answer:
-      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
+      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
   },
   {
     question: 'Will Rhemic integrate with our EMR?',
@@ -207,7 +212,7 @@ const recommendationRows = [
   {
     situation: 'You need more patients finding you on Google.',
     bestFit: 'Basic or Growth',
-    guidance: 'Choose Basic for foundation cleanup. Choose Growth when consult volume is an active priority.',
+    guidance: 'Choose Basic for foundation cleanup. Choose Growth when routing more booking intent is an active priority.',
   },
   {
     situation: 'Calls are missed during the day or after hours.',
@@ -259,7 +264,7 @@ export default function PricingPage() {
         service={{
           name: 'Rhemic AI Pricing and Service Plans',
           description:
-            'Pricing for patient acquisition infrastructure for U.S. med spas, including Google Business Profile, local SEO, reviews, calls, treatment pages, AI search visibility, AI receptionist coverage, Consult Capture Layer support, and Meta Ads source view.',
+            'Pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent across search visibility, AI answers, calls, handoffs, and source context.',
           path: '/pricing',
           audience: 'U.S. med spa owners and operators evaluating patient acquisition infrastructure',
         }}
@@ -278,13 +283,13 @@ export default function PricingPage() {
             Pricing for U.S. med spas
           </p>
           <h1 className="mx-auto max-w-4xl font-display text-4xl font-extrabold leading-[1.05] text-[var(--text-primary)] sm:text-5xl md:text-6xl">
-            Three plans. One med spa growth system.
+            Three plans for finding and routing lost opportunity.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl font-body text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-            Basic fixes the foundation. Growth is the main recommendation for owner-led med spas trying to grow consult volume. Premium is for competitive markets, bigger teams, and multi-location operators.
+            Basic finds the leaks. Growth catches and routes more intent. Premium helps competitive markets and multi-location operators scale what is working.
           </p>
           <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
-            Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.
+            Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4">
             <CalBookingLink
@@ -327,7 +332,7 @@ export default function PricingPage() {
                 ))}
               </div>
               <p className="text-base leading-[1.75] text-[var(--text-secondary)]">
-                One missed Botox, filler, laser, or body-contouring consult can be worth hundreds to thousands in lifetime value. Rhemic is built to help find the leaks before you spend more on ads.
+                Missed calls, weak visibility, slow handoffs, and unclear source context can hide real demand. Rhemic is built to help find the leaks before you spend more on ads.
               </p>
             </div>
           </section>
@@ -370,7 +375,7 @@ export default function PricingPage() {
               Start with the audit.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
-              We help med spas improve how patients find you, how they decide to trust you, and what happens when they call.
+              We help med spas identify where patient demand is leaking across visibility, calls, handoffs, and source context.
             </p>
             <CalBookingLink
               calLink="rhemic-ai/medspa-discovery-call"

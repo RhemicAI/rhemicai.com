@@ -33,7 +33,7 @@ export default function SmbPricing() {
             Pricing
           </p>
           <h2 className="mb-6 font-display text-2xl font-bold text-[var(--text-primary)] sm:text-3xl md:text-4xl">
-            Simple pricing for local businesses.
+            Med spa pricing for finding leaks and routing intent.
           </h2>
 
           <div className="mb-2 flex items-center justify-center gap-3">

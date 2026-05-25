@@ -7,11 +7,11 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About Rhemic AI: Med Spa Growth Operating System',
+  title: 'About Rhemic AI: Med Spa Consult Opportunity System',
   description:
-    'Meet the Dallas team building Rhemic AI, a growth operating system for U.S. med spas that helps turn searches and missed calls into booked consults.',
+    'Meet the Dallas team building Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
   path: '/about',
-  keywords: ['about Rhemic AI', 'med spa growth operating system', 'med spa AI receptionist', 'Dallas med spa software'],
+  keywords: ['about Rhemic AI', 'med spa consult opportunity system', 'med spa AI receptionist', 'Dallas med spa software'],
 });
 
 const founders = [
@@ -46,7 +46,7 @@ const values = [
   {
     title: 'Source-aware growth',
     description:
-      'Consults should connect back to the visibility, trust, and response surfaces that created them.',
+      'Teams need source context for the visibility, trust, and response surfaces creating consult opportunities.',
   },
   {
     title: 'Founder-led setup',
@@ -66,7 +66,7 @@ const professionalServiceSchema = {
   name: 'Rhemic AI',
   url: 'https://rhemicai.com',
   description:
-    'Dallas-based growth operating system for U.S. med spas, improving Google visibility, AI search visibility, missed-call recovery, AI receptionist coverage, and booked consult tracking.',
+    'Dallas-based system for U.S. med spas finding lost consult opportunities across Google visibility, AI answers, missed-call opportunities, handoffs, and source context.',
   foundingDate: '2025',
   areaServed: 'United States',
   knowsAbout: [
@@ -98,8 +98,8 @@ export default function AboutPage() {
 
       <PageHero
         subtitle="About"
-        title="The team building the operating system for med spas."
-        description="Rhemic AI is a Dallas-based company helping U.S. med spas turn more searches and missed calls into booked consult opportunities."
+        title="The team helping med spas find lost consult opportunities."
+        description="Rhemic AI is a Dallas-based company helping U.S. med spas surface leaks across search visibility, AI answers, calls, handoffs, and source context."
         showBackLink={false}
       />
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
               <p>
                 That work included selling AI employees into clinics,
                 integrating them with older operational systems, and
-                specializing in HIPAA-compliant agents for patient-facing
+                building guardrailed agents for patient-facing
                 workflows. The same pattern showed up in med spas: strong
                 operators were still losing consult demand before the team ever
                 had a real chance to respond.
@@ -137,15 +137,15 @@ export default function AboutPage() {
               <p>
                 We built Rhemic around that combined experience. The product
                 helps med spas improve local visibility, strengthen trust,
-                answer common non-clinical questions, capture lead details,
-                recover missed-call opportunities, and route booking requests to
-                the team already running the clinic.
+                answer common non-clinical questions, surface missed-call
+                opportunities, and route booking intent to the team already
+                running the clinic.
               </p>
               <p>
                 We are founder-led, vertical-specific, and careful about claims.
                 Rhemic does not replace licensed staff or promise rankings. It
-                gives operators a clearer system for finding and fixing the
-                leaks between patient intent and booked consults.
+                gives operators a clearer system for finding and prioritizing
+                the leaks between patient demand and consult opportunities.
               </p>
             </div>
           </section>
@@ -156,9 +156,9 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
-              Help med spas get found on Google and AI search, answer leads
-              faster, recover missed-call opportunities, and trace more consult
-              demand back to the source.
+              Help med spas surface lost consult opportunities across Google,
+              AI answers, calls, handoffs, and source context so booking intent
+              reaches the right team faster.
             </p>
           </section>
 
@@ -172,7 +172,7 @@ export default function AboutPage() {
                   Patient discovery is fragmented
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Med spas can no longer assume every patient starts on the same channel. Demand moves through Google, AI answers, reviews, ads, calls, and referrals before it becomes a booked consult.
+                  Med spas can no longer assume every patient starts on the same channel. Demand moves through Google, AI answers, reviews, ads, calls, and referrals before it becomes a consult opportunity.
                 </p>
               </div>
               <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
@@ -260,12 +260,12 @@ export default function AboutPage() {
               {
                 question: 'What is Rhemic AI?',
                 answer:
-                  'Rhemic AI is a growth operating system for U.S. med spas. It helps clinics improve Google visibility, AI search visibility, reviews, treatment pages, missed-call recovery, AI receptionist coverage, and booked consult tracking.',
+                  'Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
               },
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO). Karim previously worked closely with dental clinics, sold AI employees into clinics, integrated with legacy systems, and specialized in HIPAA-compliant agents. Raahil is an automation expert who previously deployed AI receptionist workflows for service businesses.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO). Karim previously worked closely with dental clinics, sold AI employees into clinics, and integrated with legacy systems. Raahil is an automation expert who previously deployed AI receptionist workflows for service businesses.',
               },
               {
                 question: 'Where is Rhemic AI based?',

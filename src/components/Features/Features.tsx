@@ -4,11 +4,11 @@ const groups = [
     items: ['Google Business Profile', 'Google Maps visibility', 'AI search visibility', 'Local SEO', 'Schema and citations'],
   },
   {
-    title: 'Capture',
-    items: ['AI receptionist coverage', 'Missed-call recovery', 'After-hours lead response', 'Booking request routing'],
+    title: 'Handoffs',
+    items: ['AI receptionist coverage', 'Missed-call opportunity mapping', 'After-hours intent', 'Booking request routing'],
   },
   {
-    title: 'Closed loop',
+    title: 'Source clarity',
     items: ['Treatment-page priorities', 'Review-request automation', 'Competitor visibility review', 'Source-tied reporting'],
   },
 ];
@@ -21,10 +21,10 @@ export default function Features() {
           What Rhemic does
         </p>
         <h2 className="mx-auto mb-5 max-w-4xl font-display text-4xl font-semibold leading-[1.1] text-[var(--text-primary)] sm:text-5xl">
-          Visibility, capture, and closed-loop reporting in one med spa operating system.
+          Search leaks, call leaks, handoff leaks, and source clarity in one med spa system.
         </h2>
         <p className="mx-auto max-w-3xl font-body text-base leading-[1.7] text-[var(--text-secondary)] md:text-lg">
-          Rhemic connects the surfaces that decide whether a lead gets found, answered, captured, and traced back to the source that created it.
+          Rhemic connects the surfaces that decide whether booking intent gets found, answered, routed, and understood with source context.
         </p>
       </div>
 

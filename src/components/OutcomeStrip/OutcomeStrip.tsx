@@ -2,38 +2,38 @@ import Reveal from '@/components/shared/Reveal';
 
 const outcomes = [
   {
-    label: '+ consult opportunities',
-    title: 'More consult opportunities',
-    body: 'Surface the search, AI answer, and call-response gaps that can keep patient demand from turning into a booking request.',
+    label: 'search / AI visibility leak',
+    title: 'Patients fail to find you.',
+    body: 'Rhemic helps surface visibility gaps across Google, treatment searches, and AI answers before patient demand becomes a missed opportunity.',
   },
   {
-    label: 'missed calls recovered',
-    title: 'More calls recovered',
-    body: 'Identify where calls and after-hours leads slip into voicemail, then route missed-call opportunities back to your team.',
+    label: 'call leak',
+    title: 'Calls slip into voicemail.',
+    body: 'Rhemic helps identify missed-call opportunities and after-hours demand so staff can see which requests need attention.',
   },
   {
-    label: 'SEO + AEO visibility',
-    title: 'More visibility from SEO + AEO',
-    body: 'Track SEO scan issues, treatment-page gaps, and AI answer opportunities across high-intent med spa searches.',
+    label: 'handoff leak',
+    title: 'Intent gets buried.',
+    body: 'Rhemic helps route booking intent from calls, inquiries, and campaign handoffs into approved handoff workflows.',
   },
   {
-    label: 'source-aware reporting',
-    title: 'More source-aware reporting',
-    body: 'Connect visibility, calls, lead capture, and consult opportunities so your team can see which demand sources need attention.',
+    label: 'source clarity leak',
+    title: 'Sources stay unclear.',
+    body: 'Rhemic helps show which sources are creating consult opportunities so teams can prioritize the fixes that matter.',
   },
 ];
 
 export default function OutcomeStrip() {
   return (
-    <section className="relative z-10 px-6 py-16 md:py-20">
+    <section id="consult-leaks" className="relative z-10 px-6 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mb-10 text-center">
-          <p className="section-label mb-4">Example growth model</p>
+          <p className="section-label mb-4">Lost opportunity map</p>
           <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.08] text-[var(--text-primary)] md:text-4xl">
-            What Rhemic helps improve
+            Where med spas lose consult opportunities
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)] md:text-base">
-            Common leak points Rhemic helps surface. Modeled opportunity, not a guarantee.
+            Rhemic helps surface the leaks that can keep patient demand from reaching the right team.
           </p>
         </Reveal>
 

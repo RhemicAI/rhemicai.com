@@ -7,6 +7,14 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
 import { blogPosts } from '@/lib/content';
 
+const displayedPosts = blogPosts.filter(
+  (post) =>
+    ![
+      'how-marketing-agencies-can-get-recommended-by-ai-tools',
+      'local-business-ai-recommendations',
+    ].includes(post.slug)
+);
+
 export default function BlogPage() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -25,7 +33,7 @@ export default function BlogPage() {
       <PageHero
         subtitle="Blog"
         title="Med spa growth notes from the Rhemic team."
-        description="Practical thinking on Google visibility, AI search, reviews, treatment pages, missed calls, and booked consults."
+        description="Practical thinking on Google visibility, AI search, reviews, treatment pages, missed calls, handoffs, and source context."
         showBackLink={false}
       />
 
@@ -37,7 +45,7 @@ export default function BlogPage() {
               The research library is being refocused around med spa acquisition.
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              Rhemic is narrowing public content around how med spas get found, trusted, answered, and booked. Older AI search articles remain available as foundation material, but new writing will connect visibility to patient acquisition, AI receptionist coverage, Meta Ads intelligence, and closed-loop reporting.
+              Rhemic is narrowing public content around how med spas find lost consult opportunities across search visibility, AI answers, calls, handoffs, and source context. Older AI search articles remain available as foundation material.
             </p>
           </section>
 
@@ -47,7 +55,7 @@ export default function BlogPage() {
               Foundation archive
             </h2>
             <div className="grid gap-6">
-              {blogPosts.map((post, index) => (
+              {displayedPosts.map((post, index) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}

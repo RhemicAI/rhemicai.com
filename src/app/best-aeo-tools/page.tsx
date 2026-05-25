@@ -80,7 +80,7 @@ export default function BestAeoToolsPage() {
                 {
                   name: 'Rhemic AI',
                   focus: 'Visibility measurement + AEO implementation guidance',
-                  bestFor: 'U.S. med spas that need visibility, capture, and booked consult tracking',
+                  bestFor: 'U.S. med spas that need to find visibility leaks and route more booking intent',
                   pricing: 'Basic starts at $1,000/mo',
                   href: '/pricing',
                   internal: true,

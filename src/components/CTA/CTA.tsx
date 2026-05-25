@@ -16,12 +16,12 @@ export default function CTA() {
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
         <div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.05] text-[var(--text-primary)] font-display">
-            Find where consults are leaking before you spend more on demand.
+            Find where consult opportunities are leaking before you spend more on demand.
           </h2>
         </div>
 
         <p className="mt-6 text-base md:text-lg text-[var(--text-primary)] font-normal max-w-2xl mx-auto leading-relaxed opacity-75 font-body">
-          Get a visibility and call leak audit. We&apos;ll review local visibility, trust signals, treatment pages, missed-call opportunities, and AI answers.
+          Get a visibility and call leak audit. We&apos;ll review local visibility, AI answers, calls, handoffs, and source context.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -36,7 +36,7 @@ export default function CTA() {
             href="#what-we-optimize"
             className="px-8 py-4 text-base font-medium text-[var(--text-secondary)] border border-[var(--border-strong)] rounded-full bg-[var(--glass-bg)] hover:border-[var(--pulse)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
-            See what we optimize
+            See where consult opportunities leak
           </Link>
         </div>
 

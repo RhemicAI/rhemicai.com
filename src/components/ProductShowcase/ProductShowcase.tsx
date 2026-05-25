@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Reveal from '@/components/shared/Reveal';
 
 const bullets = [
-  'Track SEO scan results and high-impact fixes',
-  'See AEO visibility and citation opportunities',
-  'Monitor deployed optimizations',
-  'Review AI receptionist insights and missed-call recovery',
+  'See where patients fail to find you',
+  'See where calls and inquiries need faster routing',
+  'See which fixes should happen first',
+  'See which sources are creating consult opportunities',
 ];
 
 export default function ProductShowcase() {
@@ -15,10 +15,10 @@ export default function ProductShowcase() {
         <Reveal className="mb-10 max-w-3xl">
           <p className="section-label mb-4">Command center</p>
           <h2 className="font-display text-3xl font-semibold leading-[1.08] text-[var(--text-primary)] md:text-5xl">
-            See the growth command center behind the consults.
+            One command center for the leaks costing your team time and consult opportunities.
           </h2>
           <p className="mt-5 text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-            Rhemic gives med spas one place to monitor SEO scans, AEO visibility, deployed optimizations, and AI receptionist intelligence.
+            Under the hood, Rhemic combines search and AI visibility checks, call and inquiry signals, prioritized fixes, and handoff context so your team can act on the leaks that matter.
           </p>
         </Reveal>
 

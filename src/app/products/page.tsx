@@ -10,11 +10,11 @@ import JsonLd from '@/components/seo/JsonLd';
 import { absoluteUrl, buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Rhemic AI Products for Med Spa Visibility, Capture, and Reporting',
+  title: 'Rhemic AI Products for Med Spa Consult Leaks',
   description:
-    'Rhemic AI helps U.S. med spas improve visibility, AI receptionist coverage, missed-call recovery, Meta Ads intelligence, and closed-loop reporting.',
+    'Rhemic AI helps U.S. med spas find lost consult opportunities across search visibility, AI answers, calls, handoffs, and source context.',
   path: '/products',
-  keywords: ['med spa growth operating system', 'med spa AI receptionist', 'med spa missed-call recovery', 'Meta Ads intelligence for med spas'],
+  keywords: ['med spa consult opportunity system', 'med spa AI receptionist', 'med spa missed-call recovery', 'Meta Ads intelligence for med spas'],
 });
 
 const productLayers = [
@@ -27,14 +27,14 @@ const productLayers = [
   {
     title: 'Capture',
     description:
-      'Recover more consult intent when staff are busy, calls are missed, or after-hours leads come in.',
-    items: ['AI receptionist coverage', 'Missed-call recovery', 'Lead capture', 'Booking request routing'],
+      'Help route booking intent when staff are busy, calls are missed, or after-hours leads come in.',
+    items: ['AI receptionist coverage', 'Missed-call opportunities', 'Lead capture', 'Booking request routing'],
   },
   {
-    title: 'Closed-loop reporting',
+    title: 'Source clarity',
     description:
-      'Trace visibility, calls, leads, and consult opportunities back to the source so your team can see what to fix next.',
-    items: ['Source tracking', 'Lead response reporting', 'Premium Meta Ads intelligence', 'Multi-location reporting'],
+      'Help show which sources are creating consult opportunities so your team can see what to prioritize next.',
+    items: ['Source context', 'Handoff reporting', 'Premium Meta Ads intelligence', 'Multi-location reporting'],
   },
 ];
 
@@ -43,7 +43,7 @@ const productSchema = {
   '@type': 'ItemList',
   name: 'Rhemic AI Med Spa Growth System',
   description:
-    'Visibility, capture, and closed-loop reporting products for U.S. med spas.',
+    'Visibility, handoff, and source-context products for U.S. med spas.',
   itemListElement: productLayers.map((layer, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -69,7 +69,7 @@ const faqs = [
   {
     question: 'What are Rhemic AI products?',
     answer:
-      'Rhemic AI products are organized around visibility, capture, and closed-loop reporting for U.S. med spas. The system helps clinics get found on Google and AI answers, recover missed-call opportunities, and route booking requests to the team.',
+      'Rhemic AI products are organized around visibility, handoffs, and source context for U.S. med spas. The system helps clinics surface lost consult opportunities across Google, AI answers, calls, and approved handoff workflows.',
   },
   {
     question: 'Does every plan include the AI receptionist?',
@@ -92,7 +92,7 @@ export default function ProductsPage() {
         service={{
           name: 'Rhemic AI products for med spas',
           description:
-            'Visibility, capture, and closed-loop reporting for U.S. med spas that need more booked consults.',
+            'Visibility, handoffs, and source context for U.S. med spas finding lost consult opportunities.',
           path: '/products',
           audience: 'U.S. med spa owners and operators',
         }}
@@ -101,8 +101,8 @@ export default function ProductsPage() {
 
       <PageHero
         subtitle="Products"
-        title="Visibility, capture, and reporting for med spas."
-        description="Rhemic helps med spas turn more searches and missed calls into booked consults by improving Google visibility, AI answers, call capture, lead routing, and reporting."
+        title="Visibility, handoffs, and source context for med spas."
+        description="Rhemic helps med spas find lost consult opportunities across search visibility, AI answers, calls, handoffs, and source context."
         showBackLink={false}
       />
 
@@ -140,7 +140,7 @@ export default function ProductsPage() {
               {[
                 ['Get found', 'Google Business Profile, Maps, local SEO, treatment pages, reviews, citations, schema, and AI search visibility.'],
                 ['Get answered', 'AI receptionist coverage for common non-clinical questions, lead capture, missed calls, and after-hours buyer intent.'],
-                ['Get clarity', 'Reporting that helps connect searches, calls, leads, booked consult opportunities, and Premium Meta Ads intelligence.'],
+                ['Get clarity', 'Reporting that helps connect searches, calls, handoffs, consult opportunities, and Premium Meta Ads intelligence.'],
               ].map(([title, body]) => (
                 <div key={title} className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--glass-bg)] p-5">
                   <h2 className="mb-3 text-lg font-bold text-[var(--text-primary)]">{title}</h2>
@@ -157,8 +157,8 @@ export default function ProductsPage() {
               Start with a visibility and call leak audit.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-base leading-[1.75] text-[var(--text-secondary)]">
-              The audit shows where your clinic is losing consult intent across Google, AI answers, reviews,
-              treatment pages, calls, and lead response.
+              The audit helps show where your clinic may be losing consult opportunities across Google,
+              AI answers, reviews, treatment pages, calls, handoffs, and source context.
             </p>
             <CalBookingLink
               calLink="rhemic-ai/medspa-discovery-call"

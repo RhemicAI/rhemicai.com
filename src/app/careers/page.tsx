@@ -8,12 +8,12 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 export const metadata: Metadata = {
   title: 'Careers - Join the Rhemic AI Team',
   description:
-    "Join Rhemic AI and help build the future of AI search optimization. We're looking for engineers, marketers, and researchers who care about measurable outcomes.",
+    "Join Rhemic AI and help U.S. med spas find lost consult opportunities across visibility, calls, handoffs, and source context.",
   alternates: { canonical: 'https://rhemicai.com/careers' },
   openGraph: {
     title: 'Careers - Join the Rhemic AI Team',
     description:
-      "Join Rhemic AI and help build the future of AI search optimization.",
+      "Join Rhemic AI and help U.S. med spas find lost consult opportunities.",
     url: 'https://rhemicai.com/careers',
   },
 };
@@ -23,7 +23,7 @@ const roles = [
     title: 'Growth Marketer',
     type: 'Full-time · Remote',
     description:
-      'Drive agency and SMB acquisition through content, partnerships, and performance channels. You understand AI/SEO audiences and can build pipelines from scratch.',
+      'Drive med spa acquisition through content, partnerships, and performance channels. You understand clinic operators and can build pipelines from scratch.',
     tags: ['Marketing', 'Growth', 'SEO'],
   },
   {
@@ -50,7 +50,7 @@ export default function CareersPage() {
       <PageHero
         subtitle="Careers"
         title="We're Growing."
-        description="A small, fast-moving team building the infrastructure for AI-native search optimization. If you care about craftsmanship and measurable outcomes, we want to hear from you."
+        description="A small, fast-moving team helping med spas find lost consult opportunities and route more booking intent. If you care about craftsmanship and measurable outcomes, we want to hear from you."
         showBackLink={false}
       />
 

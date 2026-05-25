@@ -85,7 +85,7 @@ export default function ContactPage() {
       <PageHero
         subtitle="Contact"
         title="Get a visibility and call leak audit."
-        description="Talk with Rhemic about Google visibility, AI search, reviews, treatment pages, missed-call opportunities, and booking request routing for your med spa."
+        description="Talk with Rhemic about search visibility, AI answers, calls, handoffs, source context, and where consult opportunities may be leaking."
         showBackLink={false}
       />
 
@@ -200,7 +200,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all resize-none"
-                    placeholder="Tell us about your locations, main treatments, and where consults are leaking..."
+                    placeholder="Tell us about your locations, main treatments, and where consult opportunities may be leaking..."
                   />
                 </div>
 
@@ -310,14 +310,14 @@ export default function ContactPage() {
                 className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">Pricing</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Basic, Growth, Premium, and Custom plans for med-spa consult growth.</p>
+                <p className="text-sm text-[var(--text-secondary)]">Basic, Growth, Premium, and Custom plans for finding leaks and routing intent.</p>
               </Link>
               <Link
                 href="/about"
                 className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">About Rhemic AI</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Meet the Dallas team building patient acquisition infrastructure for med spas.</p>
+                <p className="text-sm text-[var(--text-secondary)]">Meet the Dallas team building consult opportunity infrastructure for med spas.</p>
               </Link>
             </div>
           </div>

@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
   description:
-    "Rhemic AI is the Dallas-based growth operating system for U.S. med spas. Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.",
+    "Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
   social: {
     twitter: "@RhemicAI",
   },
@@ -98,13 +98,14 @@ export function organizationSchema() {
     },
     knowsAbout: [
       "Med spa patient acquisition",
-      "Med spa growth operating system",
+      "Med spa consult opportunity leakage",
       "Google Business Profile optimization",
       "Local SEO for med spas",
       "AI search visibility",
       "AI receptionist for med spas",
       "Missed-call recovery",
       "Consult Capture Layer",
+      "Approved handoff workflows",
       "Source-aware reporting",
       "Schema markup",
       "Structured data",

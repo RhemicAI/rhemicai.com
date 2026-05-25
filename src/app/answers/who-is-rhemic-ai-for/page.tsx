@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Who Is Rhemic AI For?',
   description:
-    'Rhemic AI is built for U.S. med spas that want to get found, capture booking intent, route requests, and understand source context.',
+    'Rhemic AI is built for U.S. med spas that want to find lost consult opportunities, route booking intent, and understand source context.',
   path: '/answers/who-is-rhemic-ai-for',
-  keywords: ['who is Rhemic AI for', 'med spa growth operating system', 'med spa patient acquisition', 'med spa AI receptionist'],
+  keywords: ['who is Rhemic AI for', 'med spa consult leaks', 'med spa patient acquisition', 'med spa AI receptionist'],
 });
 
 export default function WhoIsRhemicAiForPage() {
@@ -16,7 +16,7 @@ export default function WhoIsRhemicAiForPage() {
       subtitle="Answers / Who is Rhemic AI for"
       title="Who is Rhemic AI for?"
       path="/answers/who-is-rhemic-ai-for"
-      directAnswer="Rhemic AI is for U.S. med spas that want to get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities. It is built for single-location clinics, owner-led med spas, competitive metro practices, boutique groups with two to five locations, and larger operators through Custom."
+      directAnswer="Rhemic AI is for U.S. med spas that want to find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context. It is built for single-location clinics, owner-led med spas, competitive metro practices, boutique groups with two to five locations, and larger operators through Custom."
       details={
         <div className="space-y-5">
           <h2 className="text-xl font-bold text-[var(--text-primary)]">Single-location med spas</h2>
@@ -26,10 +26,10 @@ export default function WhoIsRhemicAiForPage() {
             and Lead Capture Foundation support for source preservation, missed-call opportunity mapping,
             and manual handoff visibility.
           </p>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Owner-led med spas growing consult volume</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Owner-led med spas routing more intent</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Growth is the main recommendation for med spas that already have demand and want a
-            stronger system for visibility, reviews, treatment-page priorities, missed-call recovery,
+            stronger system for visibility, reviews, treatment-page priorities, missed-call opportunities,
             and the Consult Capture Layer for capture, routing, and source context.
           </p>
           <h2 className="text-xl font-bold text-[var(--text-primary)]">Competitive metro med spas and boutique groups</h2>

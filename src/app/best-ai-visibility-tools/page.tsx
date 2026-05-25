@@ -73,7 +73,7 @@ export default function BestAiVisibilityToolsPage() {
               {[
                 {
                   name: 'Rhemic AI',
-                  description: 'AI visibility audits, competitor mention analysis, schema recommendations, and AEO implementation guidance. Designed for local businesses, SMBs, and agencies.',
+                  description: 'AI visibility audits, competitor mention analysis, schema recommendations, and AEO implementation guidance. Rhemic now focuses its public offer on U.S. med spas.',
                   href: '/pricing',
                   linkLabel: 'See Rhemic AI pricing',
                   internal: true,

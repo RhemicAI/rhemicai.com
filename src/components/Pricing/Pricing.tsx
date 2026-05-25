@@ -53,7 +53,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           </span>
           <span className="text-sm text-[var(--text-muted)]">/mo</span>
         </div>
-        <p className="mt-2 text-[11px] text-white/50">
+          <p className="mt-2 text-[11px] text-white/50">
           Starts with a visibility and call leak audit.
         </p>
       </div>
@@ -111,10 +111,10 @@ export default function Pricing() {
             Plans
           </p>
           <h2 className="mb-4 font-display text-3xl font-extrabold leading-[1.1] text-[var(--text-primary)] sm:text-4xl md:text-5xl">
-            Med-spa growth plans built around consult capture.
+            Plans for finding leaks and routing more intent.
           </h2>
           <p className="mx-auto max-w-2xl font-body text-base font-normal leading-relaxed text-[var(--text-primary)] opacity-80 md:text-lg">
-            Rhemic helps med spas get found, capture booking intent, route requests to the right team, and understand which sources are creating consult opportunities.
+            Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
           </p>
         </div>
 

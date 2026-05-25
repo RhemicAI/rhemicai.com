@@ -4,17 +4,17 @@ import { useEffect, useRef } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const scopeStats = [
-  { label: 'SEO', value: 'Search' },
-  { label: 'AEO', value: 'AI answers' },
-  { label: 'reception', value: 'Calls' },
-  { label: 'booking', value: 'Consults' },
+  { label: 'visibility', value: 'Search + AI' },
+  { label: 'calls', value: 'Missed calls' },
+  { label: 'handoffs', value: 'Routing' },
+  { label: 'source', value: 'Clarity' },
 ];
 
 const stripItems = [
-  ['SEO visibility'],
-  ['AEO visibility'],
-  ['AI receptionist'],
-  ['Missed-call recovery'],
+  ['Search / AI visibility leak'],
+  ['Call leak'],
+  ['Handoff leak'],
+  ['Source clarity leak'],
 ];
 
 function easePowerInOut(t: number, power: number) {
@@ -95,11 +95,11 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-enter-title max-w-[980px] font-display text-[clamp(2.6rem,5vw,4rem)] font-medium leading-[0.98] tracking-normal text-[var(--ink)] lg:max-w-[700px] xl:max-w-[780px]">
-            More booked consults from search, calls, and AI.
+            Find the consult opportunities your med spa is already losing.
           </h1>
 
           <p className="hero-enter-copy mt-7 max-w-[620px] font-body text-base leading-[1.6] text-[var(--mute)] md:text-lg">
-            Rhemic helps med spas improve SEO visibility, show up in AI answers, recover missed-call opportunities, and route more patient demand into booked consults.
+            Rhemic helps med spas spot leaks across search visibility, AI answers, calls, handoffs, and source context so more booking intent reaches the right team.
           </p>
 
           <div className="hero-enter-copy mt-8 hidden flex-col gap-3 sm:flex sm:flex-row">
@@ -110,10 +110,10 @@ export default function Hero() {
               Get a visibility + call leak audit
             </CalBookingLink>
             <a
-              href="#how-it-works"
+              href="#consult-leaks"
               className="inline-flex items-center justify-center rounded-full border border-[var(--glass-border)] bg-[rgba(255,255,255,0.04)] px-5 py-3 font-body text-sm font-medium text-[var(--ink)] backdrop-blur-lg transition-all duration-200 hover:border-[var(--border-strong)] hover:bg-[rgba(255,255,255,0.08)]"
             >
-              See how it works
+              See where consult opportunities leak
             </a>
           </div>
         </div>

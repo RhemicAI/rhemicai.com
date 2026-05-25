@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              Dallas-based operating system for U.S. med spas. Visibility, capture, and closed-loop reporting for more booked consult opportunities.
+              Dallas-based system for U.S. med spas finding lost consult opportunities across visibility, calls, handoffs, and source context.
             </p>
             <Image
               src="/rhemic-footer-logo.png"

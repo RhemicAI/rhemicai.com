@@ -12,7 +12,7 @@ describe('Sitemap', () => {
   it('includes the med spa entity answer route', () => {
     const answerPage = entries.find((e) => e.url.includes('/answers/what-is-rhemic-ai'));
     expect(answerPage).toBeDefined();
-    expect(answerPage!.lastModified).toBe('2026-05-22');
+    expect(answerPage!.lastModified).toBe('2026-05-25');
   });
 
   it('all URLs use rhemicai.com base', () => {

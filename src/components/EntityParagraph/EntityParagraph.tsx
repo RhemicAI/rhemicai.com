@@ -15,18 +15,18 @@ export default function EntityParagraph() {
     >
       <div className="mx-auto max-w-5xl">
         <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.75] font-body max-w-4xl">
-          Rhemic AI is Dallas-based patient acquisition infrastructure for U.S. med spas. Rhemic helps
+          Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to
+          the right team across search visibility, AI answers, calls, handoffs, and source context. It helps
           clinics improve Google Business Profile quality, Google Maps visibility, local SEO, reviews,
-          citations, schema, treatment pages, AI search visibility, missed-call recovery, Meta Ads intelligence,
-          and lead response workflows so more consult opportunities can be found, trusted, and routed into
-          the clinic&apos;s booking process.{' '}
+          citations, schema, treatment pages, AI search visibility, missed-call opportunity mapping, Meta Ads
+          intelligence, and approved handoff workflows.{' '}
           <Link
             href="/answer-engine-optimization"
             className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
             AEO/GEO
           </Link>{' '}
-          is one layer of that med-spa growth system.
+          is one layer of that med-spa consult opportunity system.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           <Link
@@ -45,7 +45,7 @@ export default function EntityParagraph() {
             href="/contact"
             className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
           >
-            Book a growth audit
+            Book an audit
           </Link>
           <Link
             href="/answers/what-is-rhemic-ai"

@@ -35,13 +35,13 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rhemic AI | Operating System for Med Spa Booked Consults",
+    default: "Rhemic AI | Consult Opportunity System for Med Spas",
     template: "%s | Rhemic AI",
   },
   description:
-    "Rhemic AI is the Dallas-based med spa growth operating system for U.S. med spas, improving Google Business Profile, local SEO, reviews, citations, schema, treatment pages, AI search visibility, missed-call recovery, AI receptionist coverage, Meta Ads intelligence, and booked consult tracking.",
+    "Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
   keywords: [
-    "med spa growth operating system",
+    "med spa consult opportunity leakage",
     "med spa patient acquisition",
     "med spa local SEO",
     "Google Business Profile med spa",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "AI receptionist for med spas",
     "Meta Ads intelligence",
     "Rhemic AI",
-    "Dallas med spa marketing infrastructure",
+    "Dallas med spa patient acquisition infrastructure",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Rhemic AI | Operating System for Med Spas",
+    title: "Rhemic AI | Consult Opportunity System for Med Spas",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhemic AI | Operating System for Med Spas",
+    title: "Rhemic AI | Consult Opportunity System for Med Spas",
     description: siteConfig.description,
     creator: siteConfig.social.twitter,
   },

@@ -1,23 +1,23 @@
 const system = [
   {
     number: '01',
-    title: 'Scan',
-    body: 'Map Google visibility, AI search presence, treatment pages, reviews, competitor visibility, and missed-call patterns.',
+    title: 'Find',
+    body: 'Map search visibility, AI answers, treatment pages, reviews, call patterns, handoffs, and source context.',
   },
   {
     number: '02',
-    title: 'Fix',
-    body: 'Prioritize Google Business Profile, local SEO, treatment-page, citation, schema, and review-request fixes by consult impact.',
+    title: 'Prioritize',
+    body: 'Prioritize Google Business Profile, local SEO, treatment-page, citation, schema, and review-request fixes by lost-opportunity risk.',
   },
   {
     number: '03',
-    title: 'Capture',
-    body: 'Add AI receptionist coverage for common non-clinical questions, lead capture, missed-call recovery, and booking request routing.',
+    title: 'Route',
+    body: 'Add AI receptionist coverage for common non-clinical questions, missed-call opportunities, and booking request routing.',
   },
   {
     number: '04',
     title: 'Report',
-    body: 'Show what changed, which channels are creating demand, and where the next visibility or response leak needs work.',
+    body: 'Help show which sources are creating consult opportunities and where the next visibility, call, or handoff leak needs work.',
   },
 ];
 
@@ -30,7 +30,7 @@ export default function HowItWorks() {
             First 30 days
           </p>
           <h2 className="font-display text-3xl font-semibold leading-[1.1] text-[var(--text-primary)] md:text-4xl">
-            Scan. Fix. Capture. Report.
+            Find. Prioritize. Route. Report.
           </h2>
         </div>
 

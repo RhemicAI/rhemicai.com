@@ -5,6 +5,11 @@ import Script from 'next/script';
 
 const faqs = [
   {
+    question: 'How can Rhemic help us find revenue leaks?',
+    answer:
+      'Rhemic helps med spas look for places patient demand can leak before it becomes a consult opportunity: weak search and AI visibility, missed calls, after-hours intent, slow handoffs, unclear source context, and wasted ad spend signals where applicable. Rhemic does not guarantee revenue, rankings, patients, or booked consults. It helps surface and prioritize the leaks that can keep patient demand from becoming consult opportunities.',
+  },
+  {
     question: 'Does every plan include the AI receptionist?',
     answer:
       'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting.',
@@ -42,7 +47,7 @@ const faqs = [
   {
     question: 'Does Rhemic book appointments directly?',
     answer:
-      'Not by default. Rhemic captures booking intent and routes requests to your team. Direct booking is planned for supported systems and enabled only when the workflow can be safely integrated.',
+      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
   },
   {
     question: 'Do we need to switch booking software?',
@@ -87,7 +92,7 @@ export default function FAQ() {
             FAQ
           </p>
           <h2 className="font-display text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-            Questions about AI reception, ads, and software
+            Questions about leaks, reception, ads, and software
           </h2>
         </div>
 
