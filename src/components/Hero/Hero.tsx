@@ -7,7 +7,7 @@ const scopeStats = [
   { label: 'SEO', value: 'Search' },
   { label: 'AEO', value: 'AI answers' },
   { label: 'reception', value: 'Calls' },
-  { label: 'capture', value: 'Consult intent' },
+  { label: 'booking', value: 'Consults' },
 ];
 
 const stripItems = [
