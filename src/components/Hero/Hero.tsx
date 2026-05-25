@@ -6,7 +6,8 @@ import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 const scopeStats = [
   { label: 'SEO', value: 'Search' },
   { label: 'AEO', value: 'AI answers' },
-  { label: 'capture', value: 'Calls' },
+  { label: 'reception', value: 'Calls' },
+  { label: 'capture', value: 'Consult intent' },
 ];
 
 const stripItems = [
@@ -162,13 +163,13 @@ export default function Hero() {
             <circle ref={haloRef} cx="0" cy="100" r="10" fill="none" stroke="#4DD6E0" strokeOpacity="0.4" />
           </svg>
 
-          <div className="grid grid-cols-3 border-t border-[var(--glass-border)]">
+          <div className="grid grid-cols-4 border-t border-[var(--glass-border)]">
             {scopeStats.map((stat) => (
-              <div key={stat.label} className="border-r border-[var(--glass-border)] px-5 py-4 last:border-r-0">
-                <span className="block font-mono text-[11px] tracking-[0.08em] text-[var(--mute)]">
+              <div key={stat.label} className="border-r border-[var(--glass-border)] px-4 py-4 last:border-r-0 sm:px-5">
+                <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--mute)] sm:text-[11px]">
                   {stat.label}
                 </span>
-                <span className="mt-1 block font-body text-[clamp(1.25rem,2.6vw,1.85rem)] font-medium leading-tight text-[var(--ink)]">
+                <span className="mt-1 block font-body text-[clamp(1rem,2.1vw,1.5rem)] font-medium leading-tight text-[var(--ink)]">
                   {stat.value}
                 </span>
               </div>
