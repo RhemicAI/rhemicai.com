@@ -15,9 +15,10 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and Scrunch AI for tracking and improving how your brand appears in AI-generated answers.',
   path: '/compare/rhemic-ai-vs-scrunch',
   keywords: ['Rhemic AI vs Scrunch', 'Scrunch AI alternative', 'AI visibility tools comparison'],
+  noindex: true,
 });
 
-const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const basicPlan = plans.find((p) => p.tier === 'basic')!;
 
 const faqs = [
   {
@@ -70,7 +71,7 @@ export default function RhemicVsScrunchPage() {
                 { label: 'Competitor mention analysis', values: ['Yes', 'TBD — verify at scrunch.ai'] },
                 { label: 'Implementation guidance', values: ['Yes — schema, content, technical fixes', 'TBD'] },
                 { label: 'Agency model', values: ['Yes — partner pricing available', 'TBD'] },
-                { label: 'SMB-friendly pricing', values: [`From $${starterPlan.monthlyPrice}/mo`, 'TBD — check scrunch.ai'] },
+                { label: 'SMB-friendly pricing', values: [`From $${basicPlan.monthlyPrice}/mo`, 'TBD — check scrunch.ai'] },
               ]}
             />
           </section>

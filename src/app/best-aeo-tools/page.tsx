@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'The best tools for Answer Engine Optimization (AEO): platforms that help businesses appear in AI-generated answers from ChatGPT, Claude, Perplexity, and Gemini.',
   path: '/best-aeo-tools',
   keywords: ['best AEO tools', 'answer engine optimization tools', 'AEO software 2026'],
+  noindex: true,
 });
 
 const faqs = [
@@ -79,8 +80,8 @@ export default function BestAeoToolsPage() {
                 {
                   name: 'Rhemic AI',
                   focus: 'Visibility measurement + AEO implementation guidance',
-                  bestFor: 'Local businesses, SMBs, and agencies that need both measurement and actionable fixes',
-                  pricing: 'From $199/mo',
+                  bestFor: 'U.S. med spas that need to find visibility leaks and route more booking intent',
+                  pricing: 'Basic starts at $1,000/mo',
                   href: '/pricing',
                   internal: true,
                 },

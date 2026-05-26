@@ -4,17 +4,18 @@ import FixedNav from "@/components/FixedNav/FixedNav";
 import Footer from "@/components/Footer/Footer";
 import SummaryModal from "@/components/SummaryModal/SummaryModal";
 
-const tosSummary = `Rhemic AI LLC provides AI Engine Optimization (AEO), generative AI search consulting, digital marketing, and analytics services. Specific deliverables and fees are defined in separate agreements.
+const tosSummary = `Rhemic AI LLC provides med spa visibility, AI search, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services. Specific deliverables and fees are defined in separate agreements.
 
 Key Points:
-- No guaranteed results, AI search rankings depend on third-party platforms and algorithms outside our control.
-- Clients must provide accurate information, comply with platform rules, and approve all published materials.
+- No guaranteed results. Search visibility, AI answers, ads platforms, and booking outcomes depend on third-party systems and factors outside our control.
+- Clients must provide accurate information, comply with platform rules, and approve all published materials, scripts, policies, and handoff rules.
 - Rhemic AI retains ownership of all proprietary tools, methodologies, and frameworks. Clients retain ownership of their brand assets and data.
 - Both parties maintain confidentiality of non-public information, surviving termination.
 - Fees are defined in separate agreements. Late payments may result in service suspension. Fees are generally non-refundable.
 - Either party may terminate per the governing agreement. Rhemic AI may terminate immediately for non-payment, fraud, or material breach.
 - Services are provided "as is" with no warranties. Liability is capped at fees paid in the preceding 3 months.
 - Clients indemnify Rhemic AI against claims from client-provided materials, legal violations, or IP infringement.
+- The AI receptionist handles common non-clinical questions, lead capture, and booking request routing. Medical advice, diagnosis, treatment recommendations, and clinical decisions stay with licensed staff.
 - Governed by Texas law. Disputes resolved in Texas courts, with optional binding arbitration.
 
 Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
@@ -22,12 +23,12 @@ Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
 export const metadata: Metadata = {
   title: "Terms of Service | Rhemic AI",
   description:
-    "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of our AI Engine Optimization and digital marketing services.",
+    "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services.",
   alternates: { canonical: "https://rhemicai.com/terms-of-service" },
   openGraph: {
     title: "Terms of Service | Rhemic AI",
     description:
-      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of our AI Engine Optimization and digital marketing services.",
+      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services.",
     url: "https://rhemicai.com/terms-of-service",
   },
 };
@@ -59,11 +60,11 @@ export default function TermsOfService() {
           Back to Home
         </Link>
 
-        <header className="mb-16">
+        <header className="glass-panel mb-16 p-6 sm:p-8">
           <h1 className="mb-4 text-4xl font-bold text-[var(--text-primary)] md:text-5xl">
             Terms of Service
           </h1>
-          <p className="text-lg text-[var(--text-tertiary)]">
+          <p className="section-label">
             RHEMIC AI LLC
           </p>
           <p className="mt-1 text-sm text-[var(--text-muted)]">
@@ -74,7 +75,7 @@ export default function TermsOfService() {
           </div>
         </header>
 
-        <div className="space-y-12 text-[var(--text-secondary)] leading-relaxed">
+        <div className="glass-panel space-y-12 p-6 text-[var(--text-secondary)] leading-relaxed sm:p-8">
           <p>
             These Terms of Service (&ldquo;Terms&rdquo;) govern access to and use of
             services provided by RHEMIC AI LLC (&ldquo;Company,&rdquo;
@@ -89,14 +90,15 @@ export default function TermsOfService() {
               1. Services Overview
             </h2>
             <p className="mb-4">
-              RHEMIC AI LLC provides professional services including, but not
-              limited to:
+              RHEMIC AI LLC provides professional services for med spas
+              including, but not limited to:
             </p>
             <ul className="mb-4 list-disc space-y-2 pl-6">
-              <li>AI Engine Optimization (AEO)</li>
-              <li>Generative AI search visibility consulting</li>
-              <li>Digital marketing and advertising management</li>
-              <li>AI consulting and automation strategy</li>
+              <li>Google Business Profile and local visibility support</li>
+              <li>AI search visibility consulting</li>
+              <li>AI receptionist coverage for common non-clinical questions</li>
+              <li>Missed-call recovery and booking request routing</li>
+              <li>Meta Ads dashboard and connected-account reporting</li>
               <li>Analytics and performance optimization</li>
             </ul>
             <p>
@@ -125,6 +127,10 @@ export default function TermsOfService() {
               </li>
               <li>
                 Algorithm or platform policy changes may impact performance.
+              </li>
+              <li>
+                Medical advice, diagnosis, treatment recommendations, and
+                clinical decisions remain with licensed staff.
               </li>
             </ul>
             <p>
@@ -422,7 +428,7 @@ export default function TermsOfService() {
               <p>
                 <a
                   href="mailto:contact@rhemicai.com"
-                  className="text-[var(--text-primary)] underline underline-offset-4 transition-colors hover:text-white"
+                  className="text-[var(--text-primary)] underline underline-offset-4 transition-colors hover:text-[var(--pulse-deep)]"
                 >
                   contact@rhemicai.com
                 </a>

@@ -175,14 +175,14 @@ function InputColumn({
   return (
     <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center gap-2 mb-3">
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-emerald-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-emerald-500 text-[var(--bg)]' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 1
         </span>
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono">
           Website Data
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-black/90'}`}>
+      <div className={`flex-1 border rounded-lg p-3 overflow-hidden font-mono text-xs leading-relaxed relative transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-emerald-500/50 bg-emerald-950/40 shadow-lg shadow-emerald-500/10' : 'border-[var(--border-default)] bg-[var(--bg-2)]'}`}>
         {/* Fade overlay at top */}
         <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none rounded-t-lg" />
         <div className="space-y-1">
@@ -282,14 +282,14 @@ function EngineColumn({
   return (
     <div className={`flex flex-col h-full transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'ring-2 ring-blue-500/50 ring-offset-2 ring-offset-transparent' : ''}`}>
       <div className="flex items-center justify-center gap-2 mb-3">
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-blue-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-blue-500 text-[var(--bg)]' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 2
         </span>
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-center">
           AEO Engine
         </div>
       </div>
-      <div className={`flex-1 border rounded-lg p-4 font-mono text-sm relative overflow-hidden transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-black/90'}`}>
+      <div className={`flex-1 border rounded-lg p-4 font-mono text-sm relative overflow-hidden transition-[border-color,background-color,box-shadow] duration-700 ${isActive ? 'border-blue-500/50 bg-blue-950/40 shadow-lg shadow-blue-500/10' : 'border-[var(--border-strong)] bg-[var(--bg-2)]'}`}>
         {/* ASCII border decoration */}
         <div className="text-[var(--text-faint)] text-[10px] mb-3 select-none" aria-hidden="true">
           ╔══════════════════════════╗
@@ -399,7 +399,7 @@ function OutputColumn({
         <div className="text-xs tracking-[0.2em] uppercase text-[var(--text-tertiary)] font-mono text-right">
           AI Answers
         </div>
-        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-violet-500 text-black' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
+        <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full transition-colors duration-500 ${isActive ? 'bg-violet-500 text-[var(--bg)]' : 'bg-[var(--bg-glass)] text-[var(--text-tertiary)]'}`}>
           Step 3
         </span>
       </div>
@@ -409,7 +409,7 @@ function OutputColumn({
           return (
             <div
               key={card.source}
-              className="border border-[var(--border-default)] rounded-lg bg-black/95 p-3 font-mono text-xs leading-relaxed transition-[opacity,transform] duration-700"
+              className="border border-[var(--border-default)] rounded-lg bg-[var(--bg-2)] p-3 font-mono text-xs leading-relaxed transition-[opacity,transform] duration-700"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateX(0)' : 'translateX(20px)',

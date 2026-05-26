@@ -15,6 +15,7 @@ export const metadata: Metadata = buildMetadata({
     'Audit how AI engines read your site, find the structural gaps blocking citations, and get a prioritized plan for improving answer engine visibility.',
   path: '/products/website-auditing',
   keywords: ['AI visibility audit', 'AEO audit', 'website audit for ChatGPT', 'schema audit'],
+  noindex: true,
 });
 
 const features = [
@@ -187,14 +188,14 @@ export default function WebsiteAuditingPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="#" data-cal-link="rhemic-ai/discovery-call"
-                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                  href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Book a Demo
+                  Get the audit
                 </a>
                 <Link
                   href="/products"
-                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
+                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
                 >
                   Explore All Products
                 </Link>
@@ -244,7 +245,7 @@ export default function WebsiteAuditingPage() {
           },
           {
             title: 'Pricing',
-            description: 'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
+            description: 'Med spa plans are Basic, Growth, Premium, and Custom.',
             href: '/pricing',
           },
         ]}

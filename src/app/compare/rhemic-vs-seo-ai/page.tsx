@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and SEO.ai if your team is deciding between AI visibility operations and a broader AI-assisted SEO content workflow.',
   path: '/compare/rhemic-vs-seo-ai',
   keywords: ['Rhemic vs SEO.ai', 'AI visibility software comparison'],
+  noindex: true,
 });
 
 export default function RhemicVsSeoAiPage() {

@@ -6,16 +6,12 @@ import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const linkRoutes: Record<string, string> = {
   // Product
-  'Website Auditing': '/products/website-auditing',
-  'Competitor Analysis': '/products/competitor-analysis',
   'Pricing': '/pricing',
-  'AI Search Visibility': '/ai-search-visibility',
-  'Answer Engine Optimization': '/answer-engine-optimization',
-  'For Local Businesses': '/for-local-businesses',
-  'For Agencies': '/for-agencies',
+  'What We Optimize': '/#what-we-optimize',
+  'How It Works': '/#how-it-works',
+  'Book the Audit': '/contact',
   // Resources
   'Glossary': '/glossary',
-  'Sample Report': '/sample-ai-visibility-report',
   'FAQ': '/faq',
   // Company
   'About': '/about',
@@ -28,21 +24,21 @@ const linkRoutes: Record<string, string> = {
 };
 
 const footerLinks = {
-  Solutions: ['AI Search Visibility', 'Answer Engine Optimization', 'For Local Businesses', 'For Agencies'],
-  Resources: ['Glossary', 'Sample Report', 'FAQ'],
+  Solutions: ['What We Optimize', 'How It Works', 'Pricing', 'Book the Audit'],
+  Resources: ['Glossary', 'FAQ'],
   Company: ['About', 'Blog', 'Pricing', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[var(--border-subtle)] bg-[var(--bg-base)]">
+    <footer className="relative border-t border-[var(--border-subtle)] bg-[var(--glass-bg)] backdrop-blur-2xl">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-4">
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              Search and AI visibility for businesses that want to be found.
+              Dallas-based system for U.S. med spas finding lost consult opportunities across visibility, calls, handoffs, and source context.
             </p>
             <Image
               src="/rhemic-footer-logo.png"
@@ -86,10 +82,10 @@ export default function Footer() {
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
             <CalBookingLink
-              calLink="rhemic-ai/discovery-call"
-              className="px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+              calLink="rhemic-ai/medspa-discovery-call"
+              className="px-6 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
             >
-              Book a Demo
+              Get the audit
             </CalBookingLink>
           </div>
         </div>

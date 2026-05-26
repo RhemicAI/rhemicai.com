@@ -7,28 +7,24 @@ import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'What We Optimize', href: '/#what-we-optimize' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'About', href: '/about' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
-  const bookingCalLink = 'rhemic-ai/discovery-call';
+  const bookingCalLink = 'rhemic-ai/medspa-discovery-call';
 
   // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {
     const navSentinel = document.createElement('div');
     navSentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
     document.body.prepend(navSentinel);
-
-    const ctaSentinel = document.createElement('div');
-    ctaSentinel.style.cssText = 'position:absolute;top:600px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
-    document.body.prepend(ctaSentinel);
 
     const navObs = new IntersectionObserver(([e]) => {
       const nav = navRef.current;
@@ -42,26 +38,11 @@ export default function FixedNav() {
       }
     });
 
-    const ctaObs = new IntersectionObserver(([e]) => {
-      const cta = ctaRef.current;
-      if (!cta) return;
-      if (e.isIntersecting) {
-        cta.classList.remove('cta-visible');
-        cta.classList.add('cta-hidden');
-      } else {
-        cta.classList.add('cta-visible');
-        cta.classList.remove('cta-hidden');
-      }
-    });
-
     navObs.observe(navSentinel);
-    ctaObs.observe(ctaSentinel);
 
     return () => {
       navObs.disconnect();
-      ctaObs.disconnect();
       navSentinel.remove();
-      ctaSentinel.remove();
     };
   }, []);
 
@@ -121,7 +102,7 @@ export default function FixedNav() {
         </Link>
 
         {/* Center, Nav Links (desktop) */}
-        <div ref={linksRef} className="hidden md:flex items-center">
+        <div ref={linksRef} className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -137,9 +118,9 @@ export default function FixedNav() {
         <div className="flex items-center gap-4">
           <CalBookingLink
             calLink={bookingCalLink}
-            className="hidden md:block px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
+            className="hidden rounded-full bg-[var(--btn-primary-bg)] px-5 py-2.5 font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] md:block"
           >
-            Book a Call
+            Get the audit
           </CalBookingLink>
 
           {/* Hamburger button (mobile only) */}
@@ -194,28 +175,27 @@ export default function FixedNav() {
               <CalBookingLink
                 calLink={bookingCalLink}
                 onClick={() => setMenuOpen(false)}
-                className="px-8 py-3 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300 font-body tracking-[0.01em]"
+                className="rounded-full bg-[var(--btn-primary-bg)] px-8 py-3 font-body text-base font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:bg-[var(--pulse)]"
               >
-                Book a Call
+                Get the audit
               </CalBookingLink>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Sticky mobile CTA, fixed at bottom, appears after scrolling past hero */}
+      {/* Sticky mobile CTA, fixed at bottom */}
       <div
-        ref={ctaRef}
-        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-[transform,opacity] duration-300 cta-hidden ${
+        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden transition-[transform,opacity] duration-300 ${
           menuOpen ? 'translate-y-full opacity-0' : ''
         }`}
       >
-        <div className="flex justify-center pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)] border-t border-[var(--border-subtle)]">
+        <div className="flex justify-center px-5 pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)]/95 border-t border-[var(--border-subtle)] backdrop-blur-2xl">
           <CalBookingLink
             calLink={bookingCalLink}
-            className="px-5 py-2 text-sm font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 font-body tracking-[0.01em]"
+            className="w-full rounded-full bg-[var(--btn-primary-bg)] px-5 py-3 text-center font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:bg-[var(--pulse)] active:scale-[0.98]"
           >
-            Book a Call
+            Get a visibility + call leak audit
           </CalBookingLink>
         </div>
       </div>

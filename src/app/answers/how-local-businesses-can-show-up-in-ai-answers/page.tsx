@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'Local businesses can improve their AI answer visibility by strengthening entity clarity, service page depth, local schema, FAQ coverage, and review signals.',
   path: '/answers/how-local-businesses-can-show-up-in-ai-answers',
   keywords: ['local business AI answers', 'show up in ChatGPT local', 'AI local business visibility'],
+  noindex: true,
 });
 
 export default function HowLocalBusinessesCanShowUpPage() {

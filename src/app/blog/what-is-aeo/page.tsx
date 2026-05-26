@@ -456,11 +456,11 @@ export default function WhatIsAEOPage() {
               that include frequently asked questions.
             </p>
 
-            <div className="bg-black border border-[var(--border-default)] rounded-2xl p-6 overflow-hidden my-6">
+            <div className="bg-[var(--bg-2)] border border-[var(--border-default)] rounded-2xl p-6 overflow-hidden my-6">
               <div className="flex items-center gap-2 mb-4 border-b border-[var(--border-subtle)] pb-3">
-                <span className="w-3 h-3 rounded-[5px] bg-[#ff5f57]" />
-                <span className="w-3 h-3 rounded-[5px] bg-[#febc2e]" />
-                <span className="w-3 h-3 rounded-[5px] bg-[#28c840]" />
+                <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                <span className="w-3 h-3 rounded-full bg-[#28c840]" />
                 <span className="ml-3 text-xs text-[var(--text-muted)] font-medium">
                   faq-schema.json
                 </span>
@@ -589,14 +589,14 @@ export default function WhatIsAEOPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  href="/start-free-trial"
-                  className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                  href="/contact"
+                  className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Start Free Trial
+                  Get the Audit
                 </Link>
                 <Link
                   href="/pricing"
-                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
+                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
                 >
                   View Pricing
                 </Link>
@@ -705,9 +705,9 @@ export default function WhatIsAEOPage() {
               href: '/products/competitor-analysis',
             },
             {
-              title: 'Start Free Trial',
-              description: 'Get a personalized trial with a website audit and AEO score baseline.',
-              href: '/start-free-trial',
+              title: 'Get the Audit',
+              description: 'Book a visibility and call leak audit with Rhemic.',
+              href: '/contact',
             },
           ]}
         />
@@ -724,10 +724,10 @@ export default function WhatIsAEOPage() {
                 your website - and what to fix first.
               </p>
               <a
-                href="#" data-cal-link="rhemic-ai/discovery-call"
-                className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+                className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
-                Book a Demo
+                Get the audit
               </a>
             </div>
           </div>

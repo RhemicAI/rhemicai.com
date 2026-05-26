@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'How Does Rhemic AI Work?',
   description:
-    'Rhemic AI runs visibility audits across ChatGPT, Claude, Perplexity, and Gemini to measure your citation rate, identify competitor gaps, and deliver prioritized AEO recommendations.',
+    'Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
   path: '/answers/how-does-rhemic-ai-work',
   keywords: ['how does Rhemic AI work', 'Rhemic AI audit process', 'AI visibility audit'],
 });
@@ -16,15 +16,15 @@ export default function HowDoesRhemicAiWorkPage() {
       subtitle="Answers / How does Rhemic AI work"
       title="How does Rhemic AI work?"
       path="/answers/how-does-rhemic-ai-work"
-      directAnswer="Rhemic runs structured prompt audits across ChatGPT, Claude, Perplexity, and Gemini to measure how often your business is cited. It identifies which competitors are being recommended in your place, what content and structural gaps are causing your absence, and delivers a prioritized implementation plan with specific fixes."
+      directAnswer="Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team. It reviews search visibility, AI answers, calls, handoffs, and source context so teams can prioritize the leaks that may be blocking consult opportunities."
       details={
         <div className="space-y-5">
           <div className="space-y-3">
             {[
-              { step: '1', label: 'Audit', text: 'Rhemic maps the buyer-intent prompts relevant to your business and category. It then runs those prompts across ChatGPT, Claude, Perplexity, and Gemini to record whether your business appears, which competitors appear, and what context they appear in.' },
-              { step: '2', label: 'Analysis', text: 'The audit results are analyzed against your site structure, schema coverage, entity signals, and content depth. Rhemic identifies the specific gaps causing your absence and ranks them by impact.' },
-              { step: '3', label: 'Recommendations', text: 'You receive a prioritized implementation plan. This includes technical fixes (schema markup, crawlability, metadata), content improvements (FAQ pages, service page depth, entity clarity), and competitive coverage gaps to close.' },
-              { step: '4', label: 'Implementation', text: 'Depending on your plan, Rhemic provides implementation guidance, code-level outputs for schema, and review of completed changes. Higher-tier plans include recurring re-scans to track visibility movement over time.' },
+              { step: '1', label: 'Find', text: 'Rhemic reviews where patients may fail to find the clinic across Google, AI answers, treatment pages, reviews, and local trust signals.' },
+              { step: '2', label: 'Prioritize', text: 'Rhemic helps prioritize the visibility, call, handoff, and source-context leaks most likely to keep patient demand from becoming a consult opportunity.' },
+              { step: '3', label: 'Route', text: 'Growth and Premium help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.' },
+              { step: '4', label: 'Review', text: 'Rhemic helps show which sources are creating consult opportunities so the clinic can decide what to fix, pause, or expand next.' },
             ].map(({ step, label, text }) => (
               <div key={step} className="flex gap-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-5">
                 <span className="text-xl font-extrabold text-[var(--text-muted)] font-display shrink-0 w-6">{step}</span>
@@ -39,19 +39,18 @@ export default function HowDoesRhemicAiWorkPage() {
       }
       relatedQuestions={[
         { question: 'What is Rhemic AI?', href: '/answers/what-is-rhemic-ai' },
+        { question: 'Who is Rhemic AI for?', href: '/answers/who-is-rhemic-ai-for' },
         { question: 'What is AI visibility?', href: '/answers/what-is-ai-visibility' },
-        { question: 'How do I improve my ChatGPT visibility?', href: '/answers/how-to-improve-chatgpt-visibility' },
       ]}
       relatedPages={[
         { title: 'How It Works', href: '/how-it-works' },
-        { title: 'Sample Report', href: '/sample-ai-visibility-report' },
         { title: 'Pricing', href: '/pricing' },
         { title: 'Contact', href: '/contact' },
       ]}
       faqs={[
         {
           question: 'How long does the initial audit take?',
-          answer: 'Initial audits are typically delivered within a few business days of onboarding. Turnaround depends on the scope of prompts and the number of competitors tracked.',
+          answer: 'Initial audit timing depends on the clinic, locations, and scope. Rhemic starts by reviewing visibility, calls, handoffs, and source context before recommending next steps.',
         },
         {
           question: 'Do I need to give Rhemic access to my website CMS?',

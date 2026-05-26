@@ -44,7 +44,7 @@ export default function AnswerPageLayout({
   relatedPages,
   faqs,
   path,
-  ctaLabel = 'See pricing',
+  ctaLabel = 'Get the audit',
   ctaHref = '/pricing',
 }: AnswerPageLayoutProps) {
   const articleSchema = {
@@ -150,7 +150,7 @@ export default function AnswerPageLayout({
                 <Link
                   key={p.href}
                   href={p.href}
-                  className="inline-flex items-center gap-1 rounded-[5px] border border-[var(--border-subtle)] bg-[var(--bg-glass)] px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-default)] transition-all duration-200"
+                  className="inline-flex items-center gap-1 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-glass)] px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-default)] transition-all duration-200"
                 >
                   {p.title}
                 </Link>
@@ -161,11 +161,11 @@ export default function AnswerPageLayout({
           {/* CTA */}
           <section className="rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="text-base text-[var(--text-secondary)]">
-              Ready to measure your AI visibility?
+              Ready to find the visibility and call leaks in your med spa funnel?
             </p>
             <Link
               href={ctaHref}
-              className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105 shrink-0"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105 shrink-0"
             >
               {ctaLabel}
             </Link>

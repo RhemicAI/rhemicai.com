@@ -5,7 +5,7 @@ const points = [
   },
   {
     statement: 'Every price is on the website.',
-    explanation: 'No "schedule a call to learn pricing." Plans start at $199/mo for local businesses. What you see is what you pay.',
+    explanation: 'Med spa plans are public: Basic, Growth, Premium, and Custom. The audit confirms the right fit before work starts.',
   },
   {
     statement: 'Results in the first scan.',

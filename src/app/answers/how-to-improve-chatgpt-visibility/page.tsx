@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'Practical steps to improve how your business appears in ChatGPT answers: entity clarity, schema markup, FAQ structure, content depth, and AI crawler access.',
   path: '/answers/how-to-improve-chatgpt-visibility',
   keywords: ['improve ChatGPT visibility', 'get recommended by ChatGPT', 'ChatGPT business recommendations'],
+  noindex: true,
 });
 
 export default function HowToImproveChatgptVisibilityPage() {

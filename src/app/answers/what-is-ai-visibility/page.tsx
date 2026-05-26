@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'AI visibility is how often and how accurately your brand appears in AI-generated answers from ChatGPT, Claude, Perplexity, and Gemini. Learn what determines it.',
   path: '/answers/what-is-ai-visibility',
   keywords: ['what is AI visibility', 'AI visibility definition', 'AI brand visibility'],
+  noindex: true,
 });
 
 export default function WhatIsAiVisibilityPage() {

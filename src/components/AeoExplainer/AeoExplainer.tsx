@@ -1,52 +1,40 @@
-const rows = [
-  { label: 'Output', seo: 'Link in results', aeo: 'Cited recommendation', highlight: false },
-  { label: 'Key factors', seo: 'Backlinks, keywords, technical health', aeo: 'Citations, schema, authority, content clarity', highlight: false },
-  { label: 'Measurement', seo: 'Rankings, traffic', aeo: 'Brand Share %, citation rate', highlight: false },
-  { label: 'Rhemic covers this', seo: 'Yes', aeo: 'Yes', highlight: true },
+const leaks = [
+  'Your clinic does not show up where patients compare options in Google Maps.',
+  'Your Google Business Profile is incomplete, stale, or weaker than nearby competitors.',
+  'Reviews, responses, and trust signals are inconsistent across the patient journey.',
+  'Treatment pages do not rank, explain the offer clearly, or convert search intent into consults.',
+  'AI answer engines recommend competitors for local treatment questions.',
+  'Calls are missed during clinic hours and after-hours leads wait too long.',
+  'Consult requests are not tracked back to the channel that created them.',
 ];
 
 export default function AeoExplainer() {
   return (
-    <section className="relative z-10 py-14 md:py-20 px-6">
+    <section className="relative z-10 px-6 py-20 md:py-28">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40 mb-4 font-body">
-            The Discipline
+        <div className="mb-10 max-w-3xl">
+          <p className="section-label mb-4">
+            The problem
           </p>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-[-0.03em] leading-[1.1] text-[var(--text-primary)] mb-6 font-display max-w-2xl">
-            AI search is the new frontier. Your SEO foundation still matters. Rhemic covers both.
+          <h2 className="mb-5 font-display text-3xl font-semibold leading-[1.1] text-[var(--text-primary)] md:text-4xl">
+            Med spas leak consults across visibility, trust, conversion, and unanswered calls.
           </h2>
-          <div className="max-w-2xl space-y-3">
-            <p className="text-sm md:text-base text-[var(--text-secondary)] leading-[1.7] font-body">
-              AEO (also called GEO) is the practice of ensuring your business is cited when AI assistants answer buyer questions. It is additive to traditional SEO, not a replacement. Many of the signals that help Google understand your site (schema markup, structured data, content authority) are the same ones that help AI assistants cite you accurately.
-            </p>
-            <p className="text-sm md:text-base text-[var(--text-secondary)] leading-[1.7] font-body">
-              Rhemic audits both dimensions: your Google SEO health and your AI citation signals. You get a single prioritized fix list that improves both.
-            </p>
-          </div>
+          <p className="font-body text-base leading-[1.7] text-[var(--text-secondary)] md:text-lg">
+            A patient may start on Google, compare reviews, skim a treatment page, ask an AI tool for options, click an ad, or call after hours. Rhemic looks at the full path and identifies where consult opportunities are slipping away.
+          </p>
         </div>
 
-        <div className="-mx-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0">
-          <div className="min-w-[640px] overflow-hidden rounded-xl border border-white/10">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-white/[0.03] border-b border-white/10">
-                  <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body"></th>
-                  <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] font-body">Traditional Search (SEO)</th>
-                  <th className="w-1/3 px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.15em] text-[var(--text-primary)] font-body">AI Answer Engines (GEO)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr key={i} className={`border-b border-white/[0.05] last:border-0 ${i % 2 === 1 && !row.highlight ? 'bg-white/[0.015]' : ''} ${row.highlight ? 'bg-white/[0.04]' : ''}`}>
-                    <td className="px-5 py-4 align-top text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] font-body">{row.label}</td>
-                    <td className={`px-5 py-4 align-top font-body ${row.highlight ? 'text-[var(--text-primary)] font-semibold' : 'text-[var(--text-tertiary)]'}`}>{row.seo}</td>
-                    <td className={`px-5 py-4 align-top font-body ${row.highlight ? 'text-[var(--text-primary)] font-semibold' : 'text-[var(--text-primary)]'}`}>{row.aeo}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="grid gap-3 md:grid-cols-2">
+          {leaks.map((leak) => (
+            <div
+              key={leak}
+              className="glass-panel p-5"
+            >
+              <p className="font-body text-sm leading-[1.6] text-[var(--text-secondary)]">
+                {leak}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

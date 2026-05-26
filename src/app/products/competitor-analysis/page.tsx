@@ -16,6 +16,7 @@ export const metadata: Metadata = buildMetadata({
     'Benchmark which competitors AI engines recommend, where they win, and what structural and content gaps are keeping your brand out of answer results.',
   path: '/products/competitor-analysis',
   keywords: ['AI competitor analysis', 'answer engine benchmarking', 'AI mention tracking'],
+  noindex: true,
 });
 
 const features = [
@@ -183,14 +184,14 @@ export default function CompetitorAnalysisPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="#" data-cal-link="rhemic-ai/discovery-call"
-                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                  href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Book a Demo
+                  Get the audit
                 </a>
                 <Link
                   href="/products"
-                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
+                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
                 >
                   Explore All Products
                 </Link>
@@ -239,9 +240,9 @@ export default function CompetitorAnalysisPage() {
             href: '/products/code-generation',
           },
           {
-            title: 'Start Free Trial',
-            description: 'Get a personalized trial with competitor benchmarking included.',
-            href: '/start-free-trial',
+            title: 'Get the Audit',
+            description: 'Book a visibility and call leak audit with competitor context included.',
+            href: '/contact',
           },
         ]}
       />

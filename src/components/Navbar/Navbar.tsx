@@ -34,7 +34,7 @@ export default function Navbar() {
         <li><a href="#about" className={styles.navLink}>About</a></li>
         <li>
           <button className={styles.ctaButton}>
-            <span className={styles.ctaButtonText}>Book a Demo</span>
+            <span className={styles.ctaButtonText}>Get the audit</span>
           </button>
         </li>
       </ul>

@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'Generate deployment-ready JSON-LD, metadata, and structured content changes that help ChatGPT, Claude, Perplexity, and Google understand your business.',
   path: '/products/code-generation',
   keywords: ['schema generator', 'JSON-LD generator', 'AI metadata generator', 'AEO implementation'],
+  noindex: true,
 });
 
 const features = [
@@ -129,11 +130,11 @@ export default function CodeGenerationPage() {
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
               Example output
             </h2>
-            <div className="bg-black border border-[var(--border-default)] rounded-2xl p-6 overflow-hidden">
+            <div className="bg-[var(--bg-2)] border border-[var(--border-default)] rounded-2xl p-6 overflow-hidden">
               <div className="flex items-center gap-2 mb-4 border-b border-[var(--border-subtle)] pb-3">
-                <span className="w-3 h-3 rounded-[5px] bg-[#ff5f57]" />
-                <span className="w-3 h-3 rounded-[5px] bg-[#febc2e]" />
-                <span className="w-3 h-3 rounded-[5px] bg-[#28c840]" />
+                <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                <span className="w-3 h-3 rounded-full bg-[#28c840]" />
                 <span className="ml-3 text-xs text-[var(--text-muted)] font-medium">
                   schema.json
                 </span>
@@ -221,14 +222,14 @@ export default function CodeGenerationPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="#" data-cal-link="rhemic-ai/discovery-call"
-                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
+                  href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Book a Demo
+                  Get the audit
                 </a>
                 <Link
                   href="/products"
-                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
+                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
                 >
                   Explore All Products
                 </Link>
@@ -275,7 +276,7 @@ export default function CodeGenerationPage() {
           },
           {
             title: 'Pricing',
-            description: 'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
+            description: 'Med spa plans are Basic, Growth, Premium, and Custom.',
             href: '/pricing',
           },
         ]}

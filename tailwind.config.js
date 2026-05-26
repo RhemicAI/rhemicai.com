@@ -9,9 +9,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-ibm-plex-mono)', 'monospace'],
-        body: ['var(--font-inter)', 'sans-serif'],
-        mono: ['var(--font-ibm-plex-mono)', 'monospace'],
+        display: ['var(--font-inter-tight)', 'sans-serif'],
+        body: ['var(--font-inter-tight)', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
       },
     },
   },

@@ -4,8 +4,10 @@ export const siteConfig = {
   name: "Rhemic AI",
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
+  entity:
+    "Rhemic AI is a med-spa consult opportunity leakage and demand capture system.",
   description:
-    "Rhemic AI is an AI visibility platform that helps businesses get discovered, cited, and recommended in ChatGPT, Claude, Perplexity, Gemini, and Google AI experiences.",
+    "Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
   social: {
     twitter: "@RhemicAI",
   },
@@ -17,6 +19,7 @@ type MetadataInput = {
   path?: string;
   keywords?: string[];
   type?: "website" | "article";
+  noindex?: boolean;
 };
 
 export function absoluteUrl(path = "/") {
@@ -29,6 +32,7 @@ export function buildMetadata({
   path = "/",
   keywords,
   type = "website",
+  noindex = false,
 }: MetadataInput): Metadata {
   const url = absoluteUrl(path);
 
@@ -53,6 +57,14 @@ export function buildMetadata({
       description,
       creator: siteConfig.social.twitter,
     },
+    ...(noindex
+      ? {
+          robots: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {}),
   };
 }
 
@@ -64,7 +76,7 @@ export function organizationSchema() {
     url: siteConfig.url,
     logo: absoluteUrl("/icon.svg"),
     email: siteConfig.email,
-    description: siteConfig.description,
+    description: `${siteConfig.entity} ${siteConfig.description}`,
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
@@ -72,7 +84,6 @@ export function organizationSchema() {
     },
     founders: [
       { "@type": "Person", name: "Ittehadul Karim", jobTitle: "CEO" },
-      { "@type": "Person", name: "Shifat Santo", jobTitle: "CTO" },
       { "@type": "Person", name: "Raahil Shaik", jobTitle: "COO/CFO" },
     ],
     address: {
@@ -85,17 +96,28 @@ export function organizationSchema() {
       "@type": "ContactPoint",
       contactType: "sales",
       email: siteConfig.email,
-      url: "https://cal.com/rhemic-ai/discovery-call",
+      url: "https://cal.com/rhemic-ai/medspa-discovery-call",
     },
     knowsAbout: [
-      "AI Engine Optimization",
-      "Answer engine optimization",
-      "AI visibility tracking",
+      "Med spa patient acquisition",
+      "Med spa consult opportunity leakage",
+      "Google Business Profile optimization",
+      "Local SEO for med spas",
+      "AI search visibility",
+      "Non-clinical AI receptionist for med spas",
+      "Missed-call recovery",
+      "Consult Capture Layer",
+      "Approved handoff workflows",
+      "Source-aware reporting",
       "Schema markup",
       "Structured data",
       "Competitor analysis",
+      "Meta Ads intelligence",
     ],
-    areaServed: "Worldwide",
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
   };
 }
 
@@ -105,19 +127,11 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    description: siteConfig.description,
+    description: `${siteConfig.entity} ${siteConfig.description}`,
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/blog?query={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
     },
   };
 }

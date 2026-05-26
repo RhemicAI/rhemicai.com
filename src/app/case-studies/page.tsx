@@ -8,9 +8,9 @@ import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Case Studies: Improving AI Visibility with Rhemic AI',
+  title: 'Case Studies: Rhemic AI Consult Leak Research',
   description:
-    'A truthful case study hub starting with Rhemic AI’s own dogfooding work on rhemicai.com, including baseline metrics and the implementation plan now being shipped.',
+    'A truthful case study hub starting with Rhemic AI’s own work to clarify med spa consult opportunity leaks across visibility, calls, handoffs, and source context.',
   path: '/case-studies',
   keywords: ['AI visibility case study', 'AEO case study', 'Rhemic AI case studies'],
 });
@@ -30,7 +30,7 @@ export default function CaseStudiesPage() {
         service={{
           name: 'Rhemic AI case studies',
           description:
-            'Case studies that document how AI visibility is measured and improved, beginning with Rhemic AI’s own site.',
+            'Case studies that document how med spa consult opportunity leaks are surfaced and prioritized, beginning with Rhemic AI’s own site.',
           path: '/case-studies',
           audience: 'Buyers looking for proof and implementation detail',
         }}
@@ -69,7 +69,7 @@ export default function CaseStudiesPage() {
             <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)]">What changed in response</h2>
             <div className="grid gap-4 md:grid-cols-2">
               <p className="text-[var(--text-secondary)] leading-relaxed">
-                The site is adding the exact page types the scan identified as missing: FAQ, how-it-works, comparison pages, glossary definitions, case-study content, and intent-specific landing pages for agencies and local businesses.
+                The site is adding the page types needed for the med spa positioning: FAQ, how-it-works, pricing, product context, glossary definitions, case-study content, and pages that clarify Rhemic AI as a consult opportunity system for U.S. med spas.
               </p>
               <p className="text-[var(--text-secondary)] leading-relaxed">
                 The sprint also adds structured data, broader sitemap coverage, stronger internal linking, deeper pricing and product context, and a blog cluster aligned to the highest-priority answer-engine queries.
@@ -84,7 +84,7 @@ export default function CaseStudiesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
             >
               Book a visibility review
             </Link>

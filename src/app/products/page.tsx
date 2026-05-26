@@ -1,213 +1,177 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
-import ServiceListSchema from '@/components/SchemaOrg/ServiceListSchema';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
-import { buildMetadata } from '@/lib/seo';
+import PageSchemas from '@/components/seo/PageSchemas';
+import JsonLd from '@/components/seo/JsonLd';
+import { absoluteUrl, buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Products for AI Visibility Auditing, Competitor Analysis, and Schema Deployment',
+  title: 'Rhemic AI Products for Med Spa Consult Leaks',
   description:
-    'Explore Rhemic AI products for auditing AI visibility, benchmarking competitors, and shipping the technical changes needed to get cited by answer engines.',
+    'Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
   path: '/products',
-  keywords: ['AI visibility tools', 'AEO software', 'schema generation', 'competitor analysis for AI'],
+  keywords: ['med spa consult opportunity system', 'med spa AI receptionist', 'med spa missed-call recovery', 'Meta Ads intelligence for med spas'],
 });
 
-const icons = {
-  audit: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      <line x1="11" y1="8" x2="11" y2="14" />
-      <line x1="8" y1="11" x2="14" y2="11" />
-    </svg>
-  ),
-  competitor: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="18" y1="20" x2="18" y2="10" />
-      <line x1="12" y1="20" x2="12" y2="4" />
-      <line x1="6" y1="20" x2="6" y2="14" />
-    </svg>
-  ),
-  code: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
-      <line x1="14" y1="4" x2="10" y2="20" />
-    </svg>
-  ),
+const productLayers = [
+  {
+    title: 'Visibility',
+    description:
+      'Improve how your med spa appears across Google Business Profile, Google Maps, local SEO, treatment pages, reviews, citations, schema, and AI answers.',
+    items: ['Google Business Profile', 'Google Maps', 'Treatment pages', 'AI search visibility'],
+  },
+  {
+    title: 'Capture',
+    description:
+      'Help route booking intent when staff are busy, calls are missed, or after-hours leads come in.',
+    items: ['AI receptionist coverage', 'Missed-call opportunities', 'Lead capture', 'Booking request routing'],
+  },
+  {
+    title: 'Source clarity',
+    description:
+      'Help show which sources are creating consult opportunities so your team can see what to prioritize next.',
+    items: ['Source context', 'Handoff reporting', 'Premium Meta Ads intelligence', 'Multi-location reporting'],
+  },
+];
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Rhemic AI Med Spa Growth System',
+  description:
+    'Visibility, handoff, and source-context products for U.S. med spas.',
+  itemListElement: productLayers.map((layer, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Service',
+      name: `Rhemic AI ${layer.title}`,
+      description: layer.description,
+      url: absoluteUrl('/products'),
+      provider: {
+        '@type': 'Organization',
+        name: 'Rhemic AI',
+        url: absoluteUrl('/'),
+      },
+      audience: {
+        '@type': 'Audience',
+        audienceType: 'U.S. med spa owners and operators',
+      },
+    },
+  })),
 };
 
-const products = [
+const faqs = [
   {
-    title: 'Website Auditing',
-    description:
-      'Find out exactly why AI engines aren\'t recommending your business, and get a prioritized checklist to fix it.',
-    href: '/products/website-auditing',
-    icon: icons.audit,
+    question: 'What are Rhemic AI products?',
+    answer:
+      'Rhemic AI products are organized around visibility, handoffs, and source context for U.S. med spas. The system helps clinics surface lost consult opportunities across Google, AI answers, calls, and approved handoff workflows.',
   },
   {
-    title: 'Competitor Analysis',
-    description:
-      'See every competitor that shows up when customers ask AI about your industry. Know exactly who\'s winning your leads and why.',
-    href: '/products/competitor-analysis',
-    icon: icons.competitor,
+    question: 'Does every plan include the AI receptionist?',
+    answer:
+      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
   },
   {
-    title: 'Code Generation',
-    description:
-      'Get the exact code your website needs so AI engines can understand and recommend your business. Copy, paste, done.',
-    href: '/products/code-generation',
-    icon: icons.code,
+    question: 'Does Rhemic integrate with med spa software?',
+    answer:
+      'Direct integrations with systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can capture lead details, support missed-call recovery, and route booking requests through approved handoff workflows.',
   },
 ];
 
 export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-transparent">
-      <ServiceListSchema />
+      <JsonLd id="products-service-list-schema" data={productSchema} />
+      <PageSchemas
+        id="products-page-schemas"
+        service={{
+          name: 'Rhemic AI products for med spas',
+          description:
+            'Visibility, handoffs, and source context for U.S. med spas finding lost consult opportunities.',
+          path: '/products',
+          audience: 'U.S. med spa owners and operators',
+        }}
+      />
       <FixedNav />
 
       <PageHero
         subtitle="Products"
-        title="Three Tools. One Goal: Get You Recommended by AI."
-        description="Scan your AI presence, map the competitors beating you, and get the exact fixes to overtake them. Results in your first scan."
+        title="Visibility, handoffs, and source context for med spas."
+        description="Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context."
         showBackLink={false}
       />
 
-
       <div className="relative z-10">
-        <section className="pb-12 px-6">
-          <div className="mx-auto max-w-5xl rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
-              Definition
-            </p>
-            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-              Rhemic’s product stack is designed around a practical sequence: measure how answer engines see you, identify who is beating you, then ship the technical and content fixes that close the gap.
-            </p>
+        <section className="px-6 pb-16">
+          <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+            {productLayers.map((layer) => (
+              <article
+                key={layer.title}
+                className="glass-panel p-6 sm:p-8"
+              >
+                <p className="section-label mb-4">{layer.title}</p>
+                <p className="min-h-[120px] text-base leading-[1.7] text-[var(--text-secondary)]">
+                  {layer.description}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {layer.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg-2)] px-3 py-2 text-xs text-[var(--text-secondary)]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        {/* Product Grid */}
-        <section className="pb-16 px-6">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid md:grid-cols-3 gap-6">
-              {products.map((product) => (
-                <Link
-                  key={product.title}
-                  href={product.href}
-                  className="group bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-2xl p-8 hover:border-[var(--border-default)] transition-all duration-300 hover:scale-105"
-                >
-                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-tertiary)] mb-4 group-hover:text-white group-hover:border-[var(--border-default)] transition-colors">
-                    {product.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-white transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-                    {product.description}
-                  </p>
-                  <span className="text-sm text-[var(--text-primary)] group-hover:text-white transition-colors inline-flex items-center gap-2">
-                    Learn more
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="group-hover:translate-x-1 transition-transform"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </span>
-                </Link>
+        <section className="px-6 pb-16">
+          <div className="mx-auto max-w-5xl rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
+            <p className="section-label mb-4">How the layers work together</p>
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                ['Get found', 'Google Business Profile, Maps, local SEO, treatment pages, reviews, citations, schema, and AI search visibility.'],
+                ['Get answered', 'AI receptionist coverage for common non-clinical questions, lead capture, missed calls, and after-hours buyer intent.'],
+                ['Get clarity', 'Reporting that helps connect searches, calls, handoffs, consult opportunities, and Premium Meta Ads intelligence.'],
+              ].map(([title, body]) => (
+                <div key={title} className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--glass-bg)] p-5">
+                  <h2 className="mb-3 text-lg font-bold text-[var(--text-primary)]">{title}</h2>
+                  <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{body}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="pb-16 px-6">
-          <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
-              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Who it is for</h2>
-              <p className="text-[var(--text-secondary)] leading-relaxed">
-                Teams that already know AI discovery is changing buyer behavior and need a measurable way to respond instead of waiting for rankings alone to explain the shift.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
-              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">How the products connect</h2>
-              <p className="text-[var(--text-secondary)] leading-relaxed">
-                Auditing finds the weak signals, competitor analysis shows what alternatives are winning, and code generation helps teams move from ideas to implementation quickly.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
-              <h2 className="mb-3 text-xl font-bold text-[var(--text-primary)]">What success looks like</h2>
-              <p className="text-[var(--text-secondary)] leading-relaxed">
-                Better answer visibility, stronger mention consistency across engines, and fewer blind spots on the pages buyers actually use to make decisions.
-              </p>
-            </div>
+        <section className="px-6 pb-16">
+          <div className="mx-auto max-w-5xl rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 text-center sm:p-12">
+            <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)]">
+              Start with a visibility and call leak audit.
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-[1.75] text-[var(--text-secondary)]">
+              The audit helps show where your clinic may be losing consult opportunities across Google,
+              AI answers, reviews, treatment pages, calls, handoffs, and source context.
+            </p>
+            <CalBookingLink
+              calLink="rhemic-ai/medspa-discovery-call"
+              className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
+            >
+              Get the audit
+            </CalBookingLink>
           </div>
         </section>
 
-        {/* Education Mission */}
-        <section className="pb-16 px-6">
-          <div className="mx-auto max-w-5xl">
-            <div className="bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-3xl p-12 text-center">
-              <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
-                Want to understand why this matters?
-              </h2>
-              <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                The shift from Google to AI search is the biggest change in how customers
-                find businesses since the internet. We break it down on our blog.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/blog"
-                  className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-[5px] hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
-                >
-                  Read Our Blog
-                </Link>
-                <a
-                  href="#" data-cal-link="rhemic-ai/discovery-call"
-                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-[5px] hover:scale-105 transition-transform duration-300"
-                >
-                  Book a Demo
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
         <div className="px-6">
           <div className="mx-auto max-w-5xl">
-            <SubpageFAQ
-              heading="Product FAQ"
-              faqs={[
-                {
-                  question: 'What is AI Engine Optimization (AEO)?',
-                  answer:
-                    'AEO is the practice of optimizing your website so AI answer engines like ChatGPT, Claude, Perplexity, and Gemini can understand, cite, and recommend your business in their responses. It goes beyond traditional SEO by focusing on structured data, content clarity, and schema markup.',
-                },
-                {
-                  question: 'How do Rhemic AI products work together?',
-                  answer:
-                    'Our three tools form a complete AEO workflow. Website Auditing identifies optimization gaps. Competitor Analysis reveals what rivals do differently. Code Generation produces deployment-ready schema markup and metadata to fix those gaps, all in one platform.',
-                },
-                {
-                  question: 'Do I need technical skills to use Rhemic AI?',
-                  answer:
-                    'No. Our platform is designed for marketers, founders, and business owners. The code generation tool produces copy-paste-ready schema markup, and our audits provide plain-language recommendations anyone can follow.',
-                },
-              ]}
-            />
+            <SubpageFAQ heading="Product FAQ" faqs={faqs} />
           </div>
         </div>
       </div>
@@ -217,18 +181,18 @@ export default function ProductsPage() {
         links={[
           {
             title: 'Pricing',
-            description: 'SMB plans from $199/mo. Enterprise and partner pricing are sales-led.',
+            description: 'Compare Basic, Growth, Premium, and Custom for U.S. med spas.',
             href: '/pricing',
           },
           {
-            title: 'Start Free Trial',
-            description: 'Get a personalized trial with website audit and AEO score baseline.',
-            href: '/start-free-trial',
+            title: 'How It Works',
+            description: 'See how Rhemic reviews visibility, capture, and reporting gaps.',
+            href: '/how-it-works',
           },
           {
-            title: 'How It Works',
-            description: 'See how the product stack turns findings into implementation.',
-            href: '/how-it-works',
+            title: 'FAQ',
+            description: 'Read answers about AI reception, Meta Ads intelligence, and software handoffs.',
+            href: '/faq',
           },
         ]}
       />

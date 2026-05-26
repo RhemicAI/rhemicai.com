@@ -20,7 +20,7 @@ export default function ProductSchema({ name, description, url }: ProductSchemaP
       price: '0',
       priceCurrency: 'USD',
       description: 'Contact for pricing',
-      url: 'https://cal.com/rhemic-ai/discovery-call',
+      url: 'https://cal.com/rhemic-ai/medspa-discovery-call',
     },
     provider: {
       '@type': 'Organization',

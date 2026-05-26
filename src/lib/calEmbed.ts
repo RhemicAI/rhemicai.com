@@ -7,7 +7,4 @@ export const CAL_ORIGIN = 'https://cal.com';
 // Add new approved Cal paths here instead of widening component props.
 export type CalLink =
   | 'rhemic-ai'
-  | 'rhemic-ai/discovery-call'
-  | 'rhemic-ai/smb-starter-onboarding'
-  | 'rhemic-ai/smb-growth-onboarding'
-  | 'rhemic-ai/smb-scale-onboarding';
+  | 'rhemic-ai/medspa-discovery-call';

@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'A dedicated Rhemic AI page for agencies that want to productize AI visibility services, benchmark clients against competitors, and ship implementation-ready recommendations faster.',
   path: '/for-agencies',
   keywords: ['AI visibility for agencies', 'agency AEO', 'white-label AI visibility'],
+  noindex: true,
 });
 
 export default function ForAgenciesPage() {
@@ -85,13 +86,13 @@ export default function ForAgenciesPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                Review agency pricing
+                Review pricing
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
               >
                 Talk through the model
               </Link>

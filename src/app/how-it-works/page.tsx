@@ -9,38 +9,38 @@ import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'How Rhemic AI Works: Audits, Competitor Analysis, and AI Visibility Fixes',
+  title: 'How Rhemic AI Works: Find Consult Leaks and Route Intent',
   description:
-    'See how Rhemic AI audits a site, benchmarks competitors, generates recommendations, and turns answer engine findings into implementation-ready changes.',
+    'See how Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
   path: '/how-it-works',
-  keywords: ['how Rhemic AI works', 'AI visibility workflow', 'AEO implementation process'],
+  keywords: ['how Rhemic AI works', 'med spa consult leaks', 'med spa AI receptionist'],
 });
 
 const steps = [
   {
-    title: 'Audit the current state',
+    title: 'Find the leaks',
     description:
-      'Rhemic starts by testing how answer engines currently understand your site, your brand, and your core commercial pages. The goal is to establish a baseline before anyone starts guessing about fixes.',
+      'Rhemic starts by reviewing search visibility, AI answers, calls, handoffs, and source context so your team can see where consult opportunities may be getting lost.',
   },
   {
-    title: 'Benchmark the competitors already winning',
+    title: 'Prioritize what matters',
     description:
-      'The platform maps which competitors appear in the same AI prompts, then compares coverage, content depth, structured data, and answer quality so your team can see what is actually beating you.',
+      'Recommendations focus on the surfaces most likely to block booking intent: Google Business Profile, treatment pages, reviews, citations, schema, and missed-call opportunities.',
   },
   {
-    title: 'Generate a prioritized recommendation set',
+    title: 'Route booking intent',
     description:
-      'Recommendations are ranked by impact and implementation logic: fix entity clarity first, expand weak pages second, add missing schema, close FAQ gaps, and strengthen supporting pages and internal links.',
+      'Growth and Premium help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.',
   },
   {
-    title: 'Ship the technical and content changes',
+    title: 'Add source context',
     description:
-      'Teams use the output to update metadata, schema, content depth, page structure, and cross-linking. The work is designed to be actionable for both marketers and engineers.',
+      'Rhemic helps show which sources are creating consult opportunities so owners can decide what to fix, pause, or scale.',
   },
   {
-    title: 'Re-scan and measure movement',
+    title: 'Review and adjust',
     description:
-      'Once updates ship, Rhemic measures whether your visibility score, brand share, and competitor gap improve. The system is meant for iteration, not one-off reports.',
+      'The system is meant for recurring review, not one-time guesswork. Rhemic does not guarantee rankings, revenue, patients, or booked consults.',
   },
 ];
 
@@ -52,17 +52,17 @@ export default function HowItWorksPage() {
         service={{
           name: 'Rhemic AI workflow',
           description:
-            'An AI visibility workflow that combines auditing, competitor analysis, implementation guidance, and recurring measurement.',
+            'A med spa workflow for finding lost consult opportunities and routing booking intent through approved handoff workflows.',
           path: '/how-it-works',
-          audience: 'Marketing, growth, and engineering teams improving answer engine visibility',
+          audience: 'U.S. med spa owners and operators',
         }}
       />
       <FixedNav />
 
       <PageHero
         subtitle="How It Works"
-        title="From missing in AI answers to operational visibility."
-        description="Rhemic is designed as an execution workflow: measure, compare, fix, and re-check instead of guessing at what answer engines might reward."
+        title="Find the leaks, then route the intent."
+        description="Rhemic helps med spas spot where consult opportunities leak across search visibility, AI answers, calls, handoffs, and source context."
         showBackLink={false}
       />
 
@@ -73,7 +73,7 @@ export default function HowItWorksPage() {
               Definition
             </p>
             <p className="text-xl leading-relaxed text-[var(--text-primary)]">
-              Rhemic AI is an answer engine optimization platform that turns AI visibility problems into a prioritized implementation plan your team can actually ship.
+              Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
             </p>
           </section>
 
@@ -96,39 +96,39 @@ export default function HowItWorksPage() {
           </section>
 
           <section className="mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">What the outputs look like</h2>
+            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">What the outputs help clarify</h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
                 <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Executive view</h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  A baseline visibility score, brand share, and a clear answer to the question leadership actually cares about: are we being recommended or not?
+                  Where consult opportunities may be leaking across search visibility, AI answers, calls, and handoffs.
                 </p>
               </div>
               <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
                 <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Competitive view</h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Prompt-level competitor coverage showing who appears, where they win, and which questions are still open territory for your brand.
+                  Which competitors, treatments, sources, or handoffs deserve closer review before more budget is spent.
                 </p>
               </div>
               <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
                 <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Implementation view</h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Technical and content recommendations that point to the pages, structures, and schema changes most likely to improve answer-engine understanding.
+                  Practical priorities for pages, local trust, calls, and approved handoff workflows.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">How this differs from traditional SEO work</h2>
+            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">How this differs from SEO-only work</h2>
             <ComparisonTable
               headers={['Dimension', 'Traditional SEO workflow', 'Rhemic AI workflow']}
               rows={[
-                { label: 'Primary output', values: ['Ranking and traffic analysis', 'Recommendation and mention analysis'] },
-                { label: 'Key unit of measurement', values: ['SERP position', 'Presence inside generated answers'] },
-                { label: 'Core technical lever', values: ['Indexation and ranking signals', 'Entity clarity, schema, answerable content'] },
-                { label: 'Competitive question', values: ['Who outranks us?', 'Who AI cites instead of us?'] },
-                { label: 'Implementation focus', values: ['Search performance improvements', 'Answer engine comprehension and proof pages'] },
+                { label: 'Primary output', values: ['Ranking and traffic analysis', 'Consult opportunity leak map'] },
+                { label: 'Key question', values: ['Where do we rank?', 'Where is booking intent getting lost?'] },
+                { label: 'Scope', values: ['Search pages and rankings', 'Search, AI answers, calls, handoffs, and source context'] },
+                { label: 'Competitive question', values: ['Who outranks us?', 'Who is capturing patient demand we may be missing?'] },
+                { label: 'Implementation focus', values: ['Search performance improvements', 'Visibility, trust, routing, and source-context fixes'] },
               ]}
             />
           </section>
@@ -136,18 +136,18 @@ export default function HowItWorksPage() {
           <section className="rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
             <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)]">Next step</h2>
             <p className="mb-8 text-lg leading-relaxed text-[var(--text-secondary)]">
-              If your team is already seeing demand shift toward conversational discovery, the right first move is not a giant refactor. It is a clear baseline, a shortlist of high-impact fixes, and faster implementation on the pages that matter most.
+              If your team suspects consult opportunities are leaking, the right first move is a clear audit. Start with visibility, calls, handoffs, and source context before spending more on demand.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                Book a Demo
+                Get the audit
               </Link>
               <Link
                 href="/faq"
-                className="inline-flex items-center justify-center rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
               >
                 Read the FAQ
               </Link>
@@ -161,17 +161,17 @@ export default function HowItWorksPage() {
         links={[
           {
             title: 'FAQ',
-            description: 'Read direct answers to the high-intent buyer questions that answer engines often surface.',
+            description: 'Read direct answers about search leaks, call leaks, handoffs, and clinical boundaries.',
             href: '/faq',
           },
           {
             title: 'Products',
-            description: 'See how the audit, competitor analysis, and code generation pieces fit together.',
+            description: 'See how visibility, handoffs, and source context fit together.',
             href: '/products',
           },
           {
             title: 'Compare Rhemic',
-            description: 'Use the comparison hub when evaluating AI visibility tools against SEO-first alternatives.',
+            description: 'Review fit when comparing Rhemic with SEO-only alternatives.',
             href: '/compare',
           },
         ]}

@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
     'AEO (Answer Engine Optimization) is the practice of making your website easier for AI answer engines like ChatGPT, Claude, and Perplexity to understand and recommend.',
   path: '/answers/what-is-aeo',
   keywords: ['what is AEO', 'answer engine optimization definition', 'AEO explained'],
+  noindex: true,
 });
 
 export default function WhatIsAeoPage() {

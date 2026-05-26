@@ -15,48 +15,43 @@ export default function EntityParagraph() {
     >
       <div className="mx-auto max-w-5xl">
         <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.75] font-body max-w-4xl">
-          Rhemic AI is an AI visibility platform that helps businesses track and improve how they appear
-          in AI-generated answers across ChatGPT, Claude, Gemini, and Perplexity. Rhemic runs visibility
-          audits, compares competitor mentions, identifies missing buyer-intent prompts, and gives
-          businesses practical{' '}
+          Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to
+          the right team across search visibility, AI answers, calls, handoffs, and source context. It helps
+          clinics improve Google Business Profile quality, Google Maps visibility, local SEO, reviews,
+          citations, schema, treatment pages, AI search visibility, missed-call opportunity mapping, Meta Ads
+          intelligence, and approved handoff workflows.{' '}
           <Link
             href="/answer-engine-optimization"
             className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
-            AEO recommendations
+            AEO/GEO
           </Link>{' '}
-          to make them easier for AI systems to understand and recommend.
+          is one layer of that med-spa consult opportunity system.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           <Link
-            href="/ai-search-visibility"
+            href="/pricing"
             className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
           >
-            What is AI search visibility?
+            Med spa plans
           </Link>
           <Link
-            href="/for-local-businesses"
+            href="#what-we-optimize"
             className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
           >
-            For local businesses
+            What Rhemic optimizes
           </Link>
           <Link
-            href="/for-agencies"
+            href="/contact"
             className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
           >
-            For agencies
+            Book an audit
           </Link>
           <Link
             href="/answers/what-is-rhemic-ai"
             className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
           >
             What is Rhemic AI?
-          </Link>
-          <Link
-            href="/sample-ai-visibility-report"
-            className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
-          >
-            See a sample report
           </Link>
         </div>
       </div>

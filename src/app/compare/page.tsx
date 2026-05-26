@@ -13,6 +13,7 @@ export const metadata: Metadata = buildMetadata({
     'A comparison hub for teams evaluating Rhemic AI against SEO.ai, SurferSEO, and Clearscope when answer engine visibility becomes a core buying requirement.',
   path: '/compare',
   keywords: ['Rhemic vs SEO.ai', 'Rhemic vs SurferSEO', 'Rhemic vs Clearscope'],
+  noindex: true,
 });
 
 const comparisons = [

@@ -15,10 +15,11 @@ export const metadata: Metadata = buildMetadata({
     'How small businesses can improve their AI search visibility without a large budget: practical steps, affordable tools, and the fixes that move the needle fastest.',
   path: '/ai-search-visibility-for-small-businesses',
   keywords: ['AI search visibility small business', 'AI visibility for SMBs', 'small business AI recommendations'],
+  noindex: true,
 });
 
-const starterPlan = plans.find((p) => p.tier === 'starter')!;
-const starterPrice = `$${starterPlan.monthlyPrice}/month`;
+const basicPlan = plans.find((p) => p.tier === 'basic')!;
+const basicPrice = `$${basicPlan.monthlyPrice}/month`;
 
 const faqs = [
   {
@@ -27,7 +28,7 @@ const faqs = [
   },
   {
     question: 'How much does AI visibility cost for a small business?',
-    answer: `Rhemic AI's ${starterPlan.name} plan is ${starterPrice}. It includes a full AI visibility audit, competitive gap report, and 5 prioritized fixes. That is the entry point for a structured approach. Some free manual testing is also possible by running prompts yourself.`,
+    answer: `Rhemic AI's ${basicPlan.name} plan is ${basicPrice}. It includes a full AI visibility audit, competitive gap report, and 5 prioritized fixes. That is the entry point for a structured approach. Some free manual testing is also possible by running prompts yourself.`,
   },
   {
     question: 'Is AI visibility worth it for a local small business?',
@@ -125,21 +126,21 @@ export default function AiSearchVisibilityForSmallBusinessesPage() {
           <section className="rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
             <h2 className="mb-4 text-2xl font-bold text-[var(--text-primary)]">Get a prioritized fix list for your business</h2>
             <p className="mb-6 text-lg leading-relaxed text-[var(--text-secondary)]">
-              Rhemic AI&apos;s {starterPlan.name} plan runs a full visibility audit and delivers 5 prioritized fixes
-              for ${starterPlan.monthlyPrice}/month. No long-term contract required for the initial audit.
+              Rhemic AI&apos;s {basicPlan.name} plan runs a full visibility audit and delivers 5 prioritized fixes
+              for ${basicPlan.monthlyPrice}/month. No long-term contract required for the initial audit.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 See pricing
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-[5px] border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
               >
-                Book a Demo
+                Get the audit
               </Link>
             </div>
           </section>
@@ -152,7 +153,7 @@ export default function AiSearchVisibilityForSmallBusinessesPage() {
         links={[
           { title: 'For Local Businesses', description: 'The full local business AI visibility guide.', href: '/for-local-businesses' },
           { title: 'How Local Businesses Can Show Up in AI Answers', description: 'Step-by-step answer page.', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
-          { title: 'Pricing', description: `${starterPlan.name} at $${starterPlan.monthlyPrice}/mo.`, href: '/pricing' },
+          { title: 'Pricing', description: `${basicPlan.name} at $${basicPlan.monthlyPrice}/mo.`, href: '/pricing' },
         ]}
       />
 

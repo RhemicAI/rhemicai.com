@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -10,39 +10,47 @@ import CobeGlobeHome from "@/components/CobeGlobe/CobeGlobeHome";
 import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import { siteConfig } from "@/lib/seo";
 
-const ibmPlexMono = IBM_Plex_Mono({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex-mono",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter-tight",
   display: "swap",
 });
 
-const inter = Inter({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["400"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rhemic AI | AI Visibility Platform for ChatGPT, Claude, and Perplexity",
+    default: "Rhemic AI | Consult Opportunity System for Med Spas",
     template: "%s | Rhemic AI",
   },
   description:
-    "Rhemic AI helps businesses measure, improve, and track how often they are cited and recommended in AI answer engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI experiences.",
+    "Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
   keywords: [
-    "AEO",
-    "AI Engine Optimization",
-    "answer engine optimization",
-    "AI answer engines",
-    "AI search optimization",
-    "AI visibility platform",
-    "AI visibility audit",
+    "med spa consult opportunity leakage",
+    "med spa patient acquisition",
+    "med spa local SEO",
+    "Google Business Profile med spa",
+    "med spa missed-call recovery",
+    "med spa AI search visibility",
+    "AI receptionist for med spas",
+    "Meta Ads intelligence",
     "Rhemic AI",
-    "ChatGPT recommendations",
-    "AI brand mentions",
-    "schema markup",
+    "Dallas med spa patient acquisition infrastructure",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -59,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Rhemic AI | AI Visibility Platform for Answer Engines",
+    title: "Rhemic AI | Consult Opportunity System for Med Spas",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -68,7 +76,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhemic AI | AI Visibility Platform for Answer Engines",
+    title: "Rhemic AI | Consult Opportunity System for Med Spas",
     description: siteConfig.description,
     creator: siteConfig.social.twitter,
   },
@@ -83,14 +91,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ibmPlexMono.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${interTight.variable} ${jetBrainsMono.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <CobeGlobeHome />
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-[1]"
           style={{
-            background: `linear-gradient(180deg, rgba(10, 10, 10, 0.0) 0%, rgba(10, 10, 10, 0.35) 55%, rgba(10, 10, 10, 0.75) 100%)`,
+            background: `radial-gradient(ellipse 42% 34% at 90% 0%, rgba(77, 214, 224, 0.08) 0%, transparent 70%), linear-gradient(180deg, rgba(7, 9, 12, 0.0) 0%, rgba(7, 9, 12, 0.16) 100%)`,
           }}
         />
         <SmoothScroll />

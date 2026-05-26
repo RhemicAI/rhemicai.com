@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and SurferSEO when your team is shifting from search-content optimization toward AI recommendation visibility and answer-engine measurement.',
   path: '/compare/rhemic-vs-surferseo',
   keywords: ['Rhemic vs SurferSEO', 'AI visibility vs SEO content optimization'],
+  noindex: true,
 });
 
 export default function RhemicVsSurferSeoPage() {

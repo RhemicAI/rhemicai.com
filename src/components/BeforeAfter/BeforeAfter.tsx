@@ -80,7 +80,7 @@ export default function BeforeAfter() {
           </h2>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-[rgba(15,15,15,0.85)] p-5 sm:p-8">
+        <div className="rounded-2xl border border-white/10 bg-[var(--glass-bg)] p-5 sm:p-8">
           {/* Engine header */}
           <div className="mb-4 flex items-center justify-end gap-1.5 pr-[3ch] mr-4">
             {engines.map((e) => (

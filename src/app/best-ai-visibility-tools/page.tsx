@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'The top tools for measuring and improving how your business appears in AI-generated answers from ChatGPT, Claude, Perplexity, and Gemini.',
   path: '/best-ai-visibility-tools',
   keywords: ['best AI visibility tools', 'AI visibility software', 'top AI visibility platforms 2026'],
+  noindex: true,
 });
 
 const faqs = [
@@ -72,7 +73,7 @@ export default function BestAiVisibilityToolsPage() {
               {[
                 {
                   name: 'Rhemic AI',
-                  description: 'AI visibility audits, competitor mention analysis, schema recommendations, and AEO implementation guidance. Designed for local businesses, SMBs, and agencies.',
+                  description: 'AI visibility audits, competitor mention analysis, schema recommendations, and AEO implementation guidance. Rhemic now focuses its public offer on U.S. med spas.',
                   href: '/pricing',
                   linkLabel: 'See Rhemic AI pricing',
                   internal: true,
@@ -136,9 +137,9 @@ export default function BestAiVisibilityToolsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
             >
-              Book a Demo
+              Get the audit
             </Link>
           </section>
         </div>

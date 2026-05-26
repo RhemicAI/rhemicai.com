@@ -14,6 +14,7 @@ export const metadata: Metadata = buildMetadata({
     'Tools for optimizing your presence in AI-powered search and answer engines. Covers AEO platforms, schema tools, and visibility monitoring.',
   path: '/best-ai-search-optimization-tools',
   keywords: ['best AI search optimization tools', 'AI search optimization software', 'GEO tools 2026'],
+  noindex: true,
 });
 
 const faqs = [
@@ -80,12 +81,12 @@ export default function BestAiSearchOptimizationToolsPage() {
             <div className="rounded-2xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-6">
               <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
                 Rhemic AI covers all three categories: AI visibility measurement, schema implementation
-                guidance, and content gap analysis. It is designed for local businesses, SMBs, and
-                agencies that need to go from audit to implementation. Plans start at $199/month.
+                guidance, and content gap analysis. Rhemic&apos;s current public offer is focused on
+                U.S. med spas through Basic, Growth, Premium, and Custom plans.
               </p>
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-[5px] bg-[var(--btn-primary-bg)] px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-5 py-2.5 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 See pricing
               </Link>

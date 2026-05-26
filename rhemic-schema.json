@@ -15,8 +15,8 @@
       },
       "image": "https://rhemicai.com/icon.svg",
       "email": "contact@rhemicai.com",
-      "description": "Rhemic AI is AI Competitive Visibility Intelligence for digital agencies. It scans ChatGPT, Claude, Gemini, and Perplexity for buyer-intent prompts and reports the percentage visibility gap between an agency's client and the client's top competitors.",
-      "slogan": "Show your clients where buyers are asking.",
+      "description": "Rhemic AI is a med-spa consult opportunity leakage and demand capture system. Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
+      "slogan": "Find the consult opportunities your med spa is already losing.",
       "foundingDate": "2025",
       "foundingLocation": {
         "@type": "Place",
@@ -27,12 +27,6 @@
           "@type": "Person",
           "name": "Ittehadul Karim",
           "jobTitle": "Chief Executive Officer",
-          "worksFor": { "@id": "https://rhemicai.com/#organization" }
-        },
-        {
-          "@type": "Person",
-          "name": "Shifat Santo",
-          "jobTitle": "Chief Technology Officer",
           "worksFor": { "@id": "https://rhemicai.com/#organization" }
         },
         {
@@ -53,7 +47,7 @@
           "@type": "ContactPoint",
           "contactType": "sales",
           "email": "contact@rhemicai.com",
-          "url": "https://cal.com/rhemic-ai/discovery-call",
+          "url": "https://cal.com/rhemic-ai/medspa-discovery-call",
           "availableLanguage": ["English"]
         }
       ],
@@ -63,22 +57,25 @@
         "https://cal.com/rhemic-ai"
       ],
       "knowsAbout": [
-        "AI Competitive Visibility Intelligence",
-        "AI visibility tracking for agencies",
-        "LLM visibility monitoring",
-        "AI search visibility",
-        "ChatGPT visibility",
-        "Claude visibility",
-        "Perplexity visibility",
-        "Gemini visibility",
-        "Generative search",
-        "Schema markup for LLMs",
-        "Competitive visibility gap analysis",
-        "White-label AI SEO"
+        "Med spa consult opportunity leakage",
+        "Med spa demand capture",
+        "Booking intent routing for med spas",
+        "Missed-call opportunities",
+        "Approved handoff workflows",
+        "Source context for consult opportunities",
+        "Google Business Profile optimization for med spas",
+        "Google Maps visibility for med spas",
+        "Local SEO for med spas",
+        "AI search visibility for med spas",
+        "Non-clinical AI receptionist for med spas",
+        "Consult Capture Layer",
+        "Schema markup",
+        "Structured data",
+        "Meta Ads source context"
       ],
       "areaServed": {
-        "@type": "Place",
-        "name": "Worldwide"
+        "@type": "Country",
+        "name": "United States"
       }
     },
     {
@@ -87,46 +84,62 @@
       "name": "Rhemic AI",
       "alternateName": "Rhemic",
       "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Marketing and SEO Software",
+      "applicationSubCategory": "Med spa consult opportunity leakage and demand capture",
       "operatingSystem": "Web browser",
       "url": "https://rhemicai.com/",
       "image": "https://rhemicai.com/icon.svg",
-      "description": "AI Competitive Visibility Intelligence platform for digital agencies. Scans ChatGPT, Claude, Gemini, and Perplexity for buyer-intent prompts and reports the percentage visibility gap between an agency's client and the client's top competitors. Includes on-demand fix asset generation and white-label reporting.",
+      "description": "Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
       "provider": { "@id": "https://rhemicai.com/#organization" },
       "creator": { "@id": "https://rhemicai.com/#organization" },
       "featureList": [
-        "Buyer-intent prompt scanning across ChatGPT, Claude, Gemini, and Perplexity",
-        "Percentage visibility gap scoring between a client and their top competitors",
-        "On-demand fix asset generation",
-        "White-label reporting for digital agencies",
-        "Competitor mapping across large language model answers",
-        "Schema and content recommendations tuned for LLM retrieval"
+        "Search and AI visibility leak review for med spas",
+        "Google Business Profile, local SEO, schema, and treatment-page priority guidance",
+        "Missed-call opportunity mapping",
+        "Approved handoff workflow support",
+        "Source context for consult opportunities",
+        "Non-clinical AI receptionist coverage",
+        "Consult Capture Layer for routing and source context"
       ],
       "audience": {
         "@type": "BusinessAudience",
-        "audienceType": "Digital agencies",
-        "name": "Digital agencies serving local and mid-market clients"
+        "audienceType": "U.S. med spas",
+        "name": "U.S. med spa owners and operators"
       },
       "offers": [
         {
           "@type": "Offer",
-          "name": "Agency Starter",
+          "name": "Basic",
+          "description": "Find the leaks.",
           "category": "Subscription",
           "url": "https://rhemicai.com/pricing",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "USD"
-          }
+          "price": "1000",
+          "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
-          "name": "Agency Scale",
+          "name": "Growth",
+          "description": "Catch and route more intent. This does not mean direct booking or guaranteed appointments.",
           "category": "Subscription",
           "url": "https://rhemicai.com/pricing",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "USD"
-          }
+          "price": "2000",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium",
+          "description": "Scale what is working.",
+          "category": "Subscription",
+          "url": "https://rhemicai.com/pricing",
+          "price": "3500",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Custom",
+          "description": "Connect complex teams, locations, and reporting.",
+          "category": "Subscription",
+          "url": "https://rhemicai.com/pricing",
+          "priceCurrency": "USD"
         }
       ]
     },
@@ -135,7 +148,7 @@
       "@id": "https://rhemicai.com/#website",
       "name": "Rhemic AI",
       "url": "https://rhemicai.com/",
-      "description": "AI Competitive Visibility Intelligence for digital agencies.",
+      "description": "Rhemic AI is a med-spa consult opportunity leakage and demand capture system for U.S. med spas.",
       "publisher": { "@id": "https://rhemicai.com/#organization" },
       "inLanguage": "en-US"
     }

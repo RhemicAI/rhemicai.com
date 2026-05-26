@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
   path: '/blog/local-business-ai-recommendations',
   type: 'article',
   keywords: ['local business AI recommendations', 'AI local search visibility', 'get recommended ChatGPT local'],
+  noindex: true,
 });
 
 export default function LocalBusinessBlogLayout({ children }: { children: React.ReactNode }) {
