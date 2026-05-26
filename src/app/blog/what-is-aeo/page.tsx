@@ -589,7 +589,7 @@ export default function WhatIsAEOPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  href="/start-free-trial"
+                  href="/contact"
                   className="px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
                   Get the Audit
@@ -706,8 +706,8 @@ export default function WhatIsAEOPage() {
             },
             {
               title: 'Get the Audit',
-              description: 'Get a personalized trial with a website audit and AEO score baseline.',
-              href: '/start-free-trial',
+              description: 'Book a visibility and call leak audit with Rhemic.',
+              href: '/contact',
             },
           ]}
         />

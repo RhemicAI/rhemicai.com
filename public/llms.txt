@@ -1,18 +1,20 @@
 # Rhemic AI - LLM Context File
 # https://rhemicai.com/llms.txt
-# Last updated: 2026-05-24
+# Last updated: 2026-05-26
 
 ## What Rhemic AI is
 
 Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
 
-AEO/GEO is one layer of the Rhemic system. It helps AI systems understand when to surface a med spa for treatment and location-based searches, but the buyer outcome is finding visibility leaks before patient demand is lost.
+Rhemic AI is a med-spa consult opportunity leakage and demand capture system. AEO/GEO is one layer of the Rhemic system. It helps AI systems understand when to surface a med spa for treatment and location-based searches, but the buyer outcome is finding visibility leaks before patient demand is lost.
 
 ## What problem Rhemic solves
 
 Med spas can lose consult opportunities when they do not show up in Google Maps, have weak Google Business Profile signals, lack review trust, have thin treatment pages, are not visible in AI answers, miss calls during clinic hours, have unclear handoffs, or lack source context for consult opportunities.
 
 Rhemic helps identify those gaps and build the visibility, trust, routing, and source-context infrastructure that helps show which sources are creating consult opportunities.
+
+Rhemic does not guarantee revenue, rankings, patients, or booked consults. It helps surface and prioritize the leaks that can keep patient demand from becoming consult opportunities.
 
 ## Core services
 
@@ -42,8 +44,11 @@ Med-spa plans: Basic at $1,000/month to find the leaks, Growth at $2,000/month t
 - Pricing: https://rhemicai.com/pricing
 - Contact: https://rhemicai.com/contact
 - FAQ: https://rhemicai.com/faq
-- Blog: https://rhemicai.com/blog
 - Glossary: https://rhemicai.com/glossary
+- Answers: https://rhemicai.com/answers
+- What is Rhemic AI: https://rhemicai.com/answers/what-is-rhemic-ai
+- Who is Rhemic AI for: https://rhemicai.com/answers/who-is-rhemic-ai-for
+- How does Rhemic AI work: https://rhemicai.com/answers/how-does-rhemic-ai-work
 
 ## Founding and company facts
 

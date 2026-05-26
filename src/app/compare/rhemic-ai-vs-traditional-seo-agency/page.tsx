@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
   noindex: true,
 });
 
-const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const basicPlan = plans.find((p) => p.tier === 'basic')!;
 
 const faqs = [
   {
@@ -71,7 +71,7 @@ export default function RhemicVsTraditionalSeoAgencyPage() {
                 { label: 'Backlink building', values: ['No', 'Yes'] },
                 { label: 'Content production', values: ['Recommendations + guidance', 'Often included in retainer'] },
                 { label: 'AI-specific prompt audits', values: ['Yes', 'Rarely'] },
-                { label: 'Monthly pricing', values: [`From $${starterPlan.monthlyPrice}/mo`, 'Typically $1,500+/mo for full service'] },
+                { label: 'Monthly pricing', values: [`From $${basicPlan.monthlyPrice}/mo`, 'Typically $1,500+/mo for full service'] },
               ]}
             />
           </section>

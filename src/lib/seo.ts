@@ -4,6 +4,8 @@ export const siteConfig = {
   name: "Rhemic AI",
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
+  entity:
+    "Rhemic AI is a med-spa consult opportunity leakage and demand capture system.",
   description:
     "Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
   social: {
@@ -74,7 +76,7 @@ export function organizationSchema() {
     url: siteConfig.url,
     logo: absoluteUrl("/icon.svg"),
     email: siteConfig.email,
-    description: siteConfig.description,
+    description: `${siteConfig.entity} ${siteConfig.description}`,
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
@@ -102,7 +104,7 @@ export function organizationSchema() {
       "Google Business Profile optimization",
       "Local SEO for med spas",
       "AI search visibility",
-      "AI receptionist for med spas",
+      "Non-clinical AI receptionist for med spas",
       "Missed-call recovery",
       "Consult Capture Layer",
       "Approved handoff workflows",
@@ -112,7 +114,10 @@ export function organizationSchema() {
       "Competitor analysis",
       "Meta Ads intelligence",
     ],
-    areaServed: "United States",
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
   };
 }
 
@@ -122,19 +127,11 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    description: siteConfig.description,
+    description: `${siteConfig.entity} ${siteConfig.description}`,
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/blog?query={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
     },
   };
 }

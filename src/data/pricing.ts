@@ -1,7 +1,7 @@
 import type { CalLink } from '@/lib/calEmbed';
 
-export type PricingTier = 'starter' | 'growth' | 'scale';
-export type PricingSegment = 'agency' | 'smb';
+export type PricingTier = 'basic' | 'growth' | 'premium';
+export type PricingSegment = 'medspa';
 
 export interface PricingPlan {
   name: string;
@@ -27,8 +27,8 @@ export interface PricingPlan {
 export const plans: PricingPlan[] = [
   {
     name: 'Basic',
-    tier: 'starter',
-    segment: 'smb',
+    tier: 'basic',
+    segment: 'medspa',
     monthlyPrice: 1000,
     annualPrice: 12000,
     wasPrice: 1000,
@@ -69,7 +69,7 @@ export const plans: PricingPlan[] = [
   {
     name: 'Growth',
     tier: 'growth',
-    segment: 'smb',
+    segment: 'medspa',
     monthlyPrice: 2000,
     annualPrice: 24000,
     wasPrice: 2000,
@@ -111,8 +111,8 @@ export const plans: PricingPlan[] = [
   },
   {
     name: 'Premium',
-    tier: 'scale',
-    segment: 'smb',
+    tier: 'premium',
+    segment: 'medspa',
     monthlyPrice: 3500,
     annualPrice: 42000,
     wasPrice: 3500,
@@ -172,6 +172,7 @@ export const customPlan = {
 };
 
 // Legacy exports — used by SmbPricing and SmbHero
-export const smbPlans: PricingPlan[] = plans;
+export const medSpaPlans: PricingPlan[] = plans;
 
-export const agencyTiers: PricingPlan[] = plans;
+// Legacy export name stays in place for older components, but the data is med-spa specific.
+export const smbPlans: PricingPlan[] = plans;

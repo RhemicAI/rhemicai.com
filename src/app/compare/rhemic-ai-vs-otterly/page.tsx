@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
   noindex: true,
 });
 
-const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const basicPlan = plans.find((p) => p.tier === 'basic')!;
 
 const faqs = [
   {
@@ -72,7 +72,7 @@ export default function RhemicVsOtterlyPage() {
                 { label: 'Implementation guidance', values: ['Yes — schema, content, technical fix plans', 'TBD — monitoring-first platform'] },
                 { label: 'Schema markup support', values: ['Yes', 'TBD'] },
                 { label: 'Agency model', values: ['Yes', 'TBD'] },
-                { label: 'Basic price', values: [`$${starterPlan.monthlyPrice}/mo`, 'TBD. Check otterly.ai'] },
+                { label: 'Basic price', values: [`$${basicPlan.monthlyPrice}/mo`, 'TBD. Check otterly.ai'] },
               ]}
             />
           </section>

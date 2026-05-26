@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
   noindex: true,
 });
 
-const starterPlan = plans.find((p) => p.tier === 'starter')!;
+const basicPlan = plans.find((p) => p.tier === 'basic')!;
 
 const faqs = [
   {
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Which is better for small businesses?',
-    answer: `Rhemic AI's ${starterPlan.name} plan at $${starterPlan.monthlyPrice}/month is designed specifically for small and local businesses. For Profound pricing and SMB fit, check profound.com directly.`,
+    answer: `Rhemic AI's ${basicPlan.name} plan at $${basicPlan.monthlyPrice}/month is designed specifically for small and local businesses. For Profound pricing and SMB fit, check profound.com directly.`,
   },
 ];
 
@@ -77,7 +77,7 @@ export default function RhemicVsProfoundPage() {
                 { label: 'Implementation recommendations', values: ['Yes — schema fixes, content plans, prioritized list', 'TBD — primarily analytics focus per public info'] },
                 { label: 'Schema markup guidance', values: ['Yes', 'TBD'] },
                 { label: 'Agency delivery model', values: ['Yes — partner pricing available', 'TBD'] },
-                { label: 'SMB pricing', values: [`$${starterPlan.monthlyPrice}/mo ${starterPlan.name}`, 'TBD — check profound.com'] },
+                { label: 'SMB pricing', values: [`$${basicPlan.monthlyPrice}/mo ${basicPlan.name}`, 'TBD — check profound.com'] },
               ]}
             />
           </section>

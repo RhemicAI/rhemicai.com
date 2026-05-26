@@ -17,9 +17,9 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist', 'med spa software integrations'],
 });
 
-const basicPlan = plans.find((p) => p.tier === 'starter')!;
+const basicPlan = plans.find((p) => p.tier === 'basic')!;
 const growthPlan = plans.find((p) => p.tier === 'growth')!;
-const premiumPlan = plans.find((p) => p.tier === 'scale')!;
+const premiumPlan = plans.find((p) => p.tier === 'premium')!;
 
 const pricingFaqs = [
   {
@@ -239,10 +239,13 @@ const recommendationRows = [
 const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Rhemic AI Med Spa Growth Plans',
+  name: 'Rhemic AI Med Spa Consult Opportunity Plans',
   applicationCategory: 'BusinessApplication',
+  applicationSubCategory: 'Med spa consult opportunity leakage and demand capture',
   operatingSystem: 'Web-based',
   url: 'https://rhemicai.com/pricing',
+  description:
+    'Pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent to the right team.',
   provider: {
     '@type': 'Organization',
     name: 'Rhemic AI',

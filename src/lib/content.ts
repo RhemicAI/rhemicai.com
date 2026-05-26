@@ -92,14 +92,14 @@ export const blogPosts: BlogPostSummary[] = [
   },
 ];
 
-// New AEO visibility routes (Phase 2-17)
+// Public entity routes kept in the sitemap after the PR #53 med-spa positioning sweep.
 const aeoRoutes = [
-  // Core category pages
   // Answers index
   "/answers",
   // Answer pages
   "/answers/what-is-rhemic-ai",
   "/answers/who-is-rhemic-ai-for",
+  "/answers/how-does-rhemic-ai-work",
   // Glossary
   "/glossary",
   "/glossary/ai-search-visibility",
@@ -132,38 +132,11 @@ export const staticPagePriorities: Record<string, number> = {
   "/products": 0.92,
   "/faq": 0.9,
   "/how-it-works": 0.9,
-  "/for-local-businesses": 0.88,
-  "/for-agencies": 0.88,
-  // New AEO core pages — high priority for entity clarity
-  "/ai-search-visibility": 0.95,
-  "/answer-engine-optimization": 0.95,
-  "/show-up-in-ai-answers": 0.92,
-  "/sample-ai-visibility-report": 0.88,
   // Answers index + answer pages
   "/answers": 0.88,
   "/answers/what-is-rhemic-ai": 0.9,
   "/answers/who-is-rhemic-ai-for": 0.88,
   "/answers/how-does-rhemic-ai-work": 0.88,
-  "/answers/what-is-ai-visibility": 0.88,
-  "/answers/what-is-aeo": 0.88,
-  "/answers/how-to-improve-chatgpt-visibility": 0.85,
-  "/answers/how-to-improve-perplexity-visibility": 0.85,
-  "/answers/why-your-competitor-shows-up-in-ai-answers": 0.85,
-  "/answers/how-marketing-agencies-can-sell-ai-visibility": 0.83,
-  "/answers/how-local-businesses-can-show-up-in-ai-answers": 0.83,
-  // Comparison pages
-  "/compare": 0.85,
-  "/compare/best-ai-visibility-platforms": 0.86,
-  "/compare/rhemic-ai-vs-profound": 0.82,
-  "/compare/rhemic-ai-vs-scrunch": 0.82,
-  "/compare/rhemic-ai-vs-otterly": 0.82,
-  "/compare/rhemic-ai-vs-traditional-seo-agency": 0.82,
-  // Best-X pages
-  "/best-ai-visibility-tools": 0.87,
-  "/best-aeo-tools": 0.87,
-  "/best-ai-search-optimization-tools": 0.85,
-  "/ai-visibility-tools-for-agencies": 0.84,
-  "/ai-search-visibility-for-small-businesses": 0.84,
   // Glossary
   "/glossary": 0.82,
   "/blog": 0.84,

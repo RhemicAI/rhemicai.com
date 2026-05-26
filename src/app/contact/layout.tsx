@@ -1,25 +1,15 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Contact Rhemic AI - Get a Med Spa Visibility and Call Leak Audit',
+export const metadata: Metadata = buildMetadata({
+  title: 'Book a Visibility and Call Leak Audit',
   description:
-    'Get a visibility and call leak audit with Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
-  alternates: { canonical: 'https://rhemicai.com/contact' },
-  openGraph: {
-    title: 'Contact Rhemic AI - Get a Med Spa Visibility and Call Leak Audit',
-    description:
-      'Get a visibility and call leak audit with Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
-    url: 'https://rhemicai.com/contact',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact Rhemic AI - Get a Med Spa Visibility and Call Leak Audit',
-    description:
-      'Get a visibility and call leak audit with Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
-  },
-};
+    'Contact Rhemic AI to review where your U.S. med spa may be losing consult opportunities across search visibility, AI answers, calls, handoffs, and source context.',
+  path: '/contact',
+  keywords: ['med spa visibility audit', 'med spa call leak audit', 'Rhemic AI contact', 'med spa consult opportunity audit'],
+});
 
-export default function ContactLayout({ children }: { children: React.ReactNode }) {
+export default function ContactLayout({ children }: { children: ReactNode }) {
   return children;
 }

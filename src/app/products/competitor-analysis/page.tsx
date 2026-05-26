@@ -241,8 +241,8 @@ export default function CompetitorAnalysisPage() {
           },
           {
             title: 'Get the Audit',
-            description: 'Get a personalized trial with competitor benchmarking included.',
-            href: '/start-free-trial',
+            description: 'Book a visibility and call leak audit with competitor context included.',
+            href: '/contact',
           },
         ]}
       />

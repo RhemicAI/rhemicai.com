@@ -79,10 +79,10 @@ export default function PageSchemas({
       offers: {
         "@type": "Offer",
         priceCurrency: "USD",
-        price: "0",
         availability: "https://schema.org/InStock",
         description:
-          softwareApplication.offerDescription ?? "Book a demo for pricing.",
+          softwareApplication.offerDescription ??
+          "Book a visibility and call leak audit for current med-spa pricing.",
         url: "https://cal.com/rhemic-ai/medspa-discovery-call",
       },
       provider: {

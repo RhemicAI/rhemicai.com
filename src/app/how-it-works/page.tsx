@@ -11,7 +11,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'How Rhemic AI Works: Find Consult Leaks and Route Intent',
   description:
-    'See how Rhemic AI helps U.S. med spas find lost consult opportunities across search visibility, AI answers, calls, handoffs, and source context.',
+    'See how Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
   path: '/how-it-works',
   keywords: ['how Rhemic AI works', 'med spa consult leaks', 'med spa AI receptionist'],
 });
