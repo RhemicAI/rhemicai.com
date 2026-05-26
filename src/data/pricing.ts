@@ -116,9 +116,9 @@ export const plans: PricingPlan[] = [
     monthlyPrice: 3500,
     annualPrice: 42000,
     wasPrice: 3500,
-    bestFor: 'A competitive metro med spa, premium practice, multi-treatment clinic, or 2-5 location operator scaling what is working.',
+    bestFor: 'A competitive metro med spa, premium practice, multi-treatment clinic, or 2-5 location operator expanding what is working.',
     includedLocations: '2-5 locations',
-    primaryUseCase: 'Scale what is working.',
+    primaryUseCase: 'Expand what is working.',
     fixes: 'Advanced Consult Capture Layer with multi-location routing visibility, deeper AI receptionist scripts, source-aware reporting, and Meta Ads source view for connected-account reporting and campaign context.',
     promise: 'Rhemic helps prioritize the leaks, markets, locations, and sources that deserve more attention.',
     whatTheyGet: [

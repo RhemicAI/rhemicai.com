@@ -232,7 +232,7 @@ const recommendationRows = [
   {
     situation: 'You have six or more locations or complex reporting needs.',
     bestFit: 'Custom',
-    guidance: 'Rhemic scopes the market, routing, reporting, and rollout needs before recommending a package.',
+    guidance: 'Rhemic scopes the market, routing, reporting, and rollout needs before recommending a plan.',
   },
 ];
 

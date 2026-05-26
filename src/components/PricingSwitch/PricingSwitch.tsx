@@ -133,7 +133,7 @@ function CustomCard() {
           <h3 className="text-xl font-bold text-[var(--text-primary)]">{customPlan.name}</h3>
           <p className="mt-2 text-sm leading-[1.6] text-[var(--text-muted)]">{customPlan.primaryUseCase}</p>
           <p className="mt-5 text-3xl font-bold text-[var(--text-primary)]">{customPlan.monthlyPriceLabel}</p>
-          <p className="text-xs text-[var(--text-muted)]">No package price quoted publicly</p>
+          <p className="text-xs text-[var(--text-muted)]">No plan price quoted publicly</p>
         </div>
 
         <div>
