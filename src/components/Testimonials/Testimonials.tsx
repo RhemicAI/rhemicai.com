@@ -36,9 +36,9 @@ export default function Testimonials({ items = testimonials }: TestimonialsProps
                       <Image
                         src={testimonial.avatarSrc}
                         alt={`${testimonial.name}, ${testimonial.company}`}
-                        fill
-                        sizes="44px"
-                        className="object-cover"
+                        width={44}
+                        height={44}
+                        className="h-full w-full object-cover"
                       />
                     ) : (
                       <span className="flex h-full w-full items-center justify-center font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--pulse-deep)]">

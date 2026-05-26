@@ -17,6 +17,7 @@ export const testimonials: Testimonial[] = [
     company: 'Luma Aesthetics Studio',
     role: 'Growth plan',
     initials: 'JM',
+    avatarSrc: '/images/testimonials/jessica-m.png',
   },
   {
     quote:
@@ -25,6 +26,7 @@ export const testimonials: Testimonial[] = [
     company: 'Evernorth Med Spa',
     role: 'Basic plan',
     initials: 'EK',
+    avatarSrc: '/images/testimonials/elizabeth-k.png',
   },
   {
     quote:
@@ -33,5 +35,6 @@ export const testimonials: Testimonial[] = [
     company: 'Solara Med Spa',
     role: 'Premium plan',
     initials: 'MR',
+    avatarSrc: '/images/testimonials/maria-r.png',
   },
 ];
