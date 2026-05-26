@@ -12,7 +12,7 @@ import { absoluteUrl, buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI Products for Med Spa Consult Leaks',
   description:
-    'Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
+    'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
   path: '/products',
   keywords: ['med spa consult opportunity system', 'med spa AI receptionist', 'med spa missed-call recovery', 'Meta Ads intelligence for med spas'],
 });

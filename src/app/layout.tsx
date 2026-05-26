@@ -35,11 +35,10 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rhemic AI | Consult Opportunity System for Med Spas",
+    default: "Rhemic AI | Med Spa Growth and Call Capture",
     template: "%s | Rhemic AI",
   },
-  description:
-    "Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
+  description: siteConfig.description,
   keywords: [
     "med spa consult opportunity leakage",
     "med spa patient acquisition",
@@ -67,7 +66,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Rhemic AI | Consult Opportunity System for Med Spas",
+    title: "Rhemic AI | Med Spa Growth and Call Capture",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -76,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhemic AI | Consult Opportunity System for Med Spas",
+    title: "Rhemic AI | Med Spa Growth and Call Capture",
     description: siteConfig.description,
     creator: siteConfig.social.twitter,
   },
