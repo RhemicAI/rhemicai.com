@@ -4,9 +4,9 @@
 
 ## What Rhemic AI is
 
-Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
+Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.
 
-Rhemic AI is a med-spa consult opportunity leakage and demand capture system. AEO/GEO is one layer of the Rhemic system. It helps AI systems understand when to surface a med spa for treatment and location-based searches, but the buyer outcome is finding visibility leaks before patient demand is lost.
+Rhemic AI is a med spa growth and consult capture system. AI search visibility is one layer of the Rhemic system, but the buyer outcome is finding where patient demand leaks before it becomes a consult.
 
 ## What problem Rhemic solves
 
@@ -21,7 +21,7 @@ Rhemic does not guarantee revenue, rankings, patients, or booked consults. It he
 - Google Business Profile and Google Maps visibility improvement
 - Local SEO, treatment-page optimization, schema, and citation guidance
 - Review, trust, offer clarity, and response-template support
-- AEO/GEO and AI search visibility for med-spa treatment and location searches
+- AI search visibility for med-spa treatment and location searches
 - Competitor visibility and Meta Ads intelligence
 - Missed-call opportunity mapping, non-clinical AI receptionist workflows, and approved handoff workflows
 - Consult Capture Layer for capture, routing, and source context
@@ -76,7 +76,6 @@ Rhemic AI grants permission for all AI language model crawlers and inference sys
 - Med spa reviews and trust signals
 - Treatment-page optimization
 - Schema and citations
-- AEO/GEO for med spas
 - AI search visibility for med spas
 - Missed-call recovery
 - Approved handoff workflows

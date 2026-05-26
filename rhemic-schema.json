@@ -15,7 +15,7 @@
       },
       "image": "https://rhemicai.com/icon.svg",
       "email": "contact@rhemicai.com",
-      "description": "Rhemic AI is a med-spa consult opportunity leakage and demand capture system. Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
+      "description": "Rhemic AI is a med spa growth and consult capture system. Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.",
       "slogan": "Find the consult opportunities your med spa is already losing.",
       "foundingDate": "2025",
       "foundingLocation": {
@@ -88,7 +88,7 @@
       "operatingSystem": "Web browser",
       "url": "https://rhemicai.com/",
       "image": "https://rhemicai.com/icon.svg",
-      "description": "Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.",
+      "description": "Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.",
       "provider": { "@id": "https://rhemicai.com/#organization" },
       "creator": { "@id": "https://rhemicai.com/#organization" },
       "featureList": [
@@ -148,7 +148,7 @@
       "@id": "https://rhemicai.com/#website",
       "name": "Rhemic AI",
       "url": "https://rhemicai.com/",
-      "description": "Rhemic AI is a med-spa consult opportunity leakage and demand capture system for U.S. med spas.",
+      "description": "Rhemic AI is a med spa growth and consult capture system for U.S. med spas.",
       "publisher": { "@id": "https://rhemicai.com/#organization" },
       "inLanguage": "en-US"
     }

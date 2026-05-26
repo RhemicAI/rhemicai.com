@@ -15,8 +15,8 @@ export default function EntityParagraph() {
     >
       <div className="mx-auto max-w-5xl">
         <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.75] font-body max-w-4xl">
-          Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to
-          the right team across search visibility, AI answers, calls, handoffs, and source context. It helps
+          Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels
+          create patient demand with AI receptionist coverage. It helps
           clinics improve Google Business Profile quality, Google Maps visibility, local SEO, reviews,
           citations, schema, treatment pages, AI search visibility, missed-call opportunity mapping, Meta Ads
           intelligence, and approved handoff workflows.{' '}
@@ -24,9 +24,9 @@ export default function EntityParagraph() {
             href="/answer-engine-optimization"
             className="text-[var(--text-primary)] underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
-            AEO/GEO
+            AI search visibility
           </Link>{' '}
-          is one layer of that med-spa consult opportunity system.
+          is one layer of that med spa growth and call capture system.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           <Link

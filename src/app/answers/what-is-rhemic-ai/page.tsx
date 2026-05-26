@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'What Is Rhemic AI?',
   description:
-    'Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
+    'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
   path: '/answers/what-is-rhemic-ai',
   keywords: ['what is Rhemic AI', 'med spa consult leaks', 'med spa AI receptionist', 'med spa missed-call recovery'],
 });
@@ -16,7 +16,7 @@ export default function WhatIsRhemicAiPage() {
       subtitle="Answers / What is Rhemic AI"
       title="What is Rhemic AI?"
       path="/answers/what-is-rhemic-ai"
-      directAnswer="Rhemic AI helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context."
+      directAnswer="Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage."
       details={
         <div className="space-y-5">
           <p className="text-[var(--text-secondary)] leading-relaxed">

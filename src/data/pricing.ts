@@ -62,7 +62,7 @@ export const plans: PricingPlan[] = [
     features: [
       'Google Business Profile and Maps foundation review',
       'Local SEO, schema, citation, and treatment-page priority fixes',
-      'AEO/GEO baseline for high-intent med-spa searches',
+      'AI search visibility baseline for high-intent med-spa searches',
       'Lead Capture Foundation and missed-call opportunity map',
     ],
   },

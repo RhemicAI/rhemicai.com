@@ -53,9 +53,9 @@ const homepageSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Rhemic AI Med Spa Consult Opportunity System',
+    name: 'Rhemic AI Med Spa Growth and Call Capture System',
     description:
-      'Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.',
+      'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
     provider: {
       '@type': 'Organization',
       name: 'Rhemic AI',
