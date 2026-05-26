@@ -4,10 +4,10 @@ import { useEffect, useRef } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const scopeStats = [
-  { label: 'consults', value: 'More Consults' },
-  { label: 'follow-up', value: 'Faster Follow-Up' },
-  { label: 'lead capture', value: 'Fewer Lost Leads' },
-  { label: 'revenue', value: 'Booked Revenue' },
+  { value: 'More Consults' },
+  { value: 'Faster Follow-Up' },
+  { value: 'Fewer Lost Leads' },
+  { value: 'Booked Revenue' },
 ];
 
 const stripItems = [
@@ -165,11 +165,8 @@ export default function Hero() {
 
           <div className="grid grid-cols-4 border-t border-[var(--glass-border)]">
             {scopeStats.map((stat) => (
-              <div key={stat.label} className="border-r border-[var(--glass-border)] px-4 py-4 last:border-r-0 sm:px-5">
-                <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--mute)] sm:text-[11px]">
-                  {stat.label}
-                </span>
-                <span className="mt-1 block font-body text-[clamp(1rem,2.1vw,1.5rem)] font-medium leading-tight text-[var(--ink)]">
+              <div key={stat.value} className="flex min-h-[96px] items-center border-r border-[var(--glass-border)] px-4 py-5 last:border-r-0 sm:px-5 lg:px-6">
+                <span className="block max-w-[9rem] text-balance font-body text-[clamp(0.98rem,1.7vw,1.38rem)] font-medium leading-[1.08] text-[var(--ink)]">
                   {stat.value}
                 </span>
               </div>
