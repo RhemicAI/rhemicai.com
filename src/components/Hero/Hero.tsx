@@ -4,10 +4,10 @@ import { useEffect, useRef } from 'react';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const scopeStats = [
-  { label: 'visibility', value: 'Search + AI' },
-  { label: 'calls', value: 'Missed calls' },
-  { label: 'handoffs', value: 'Routing' },
-  { label: 'source', value: 'Clarity' },
+  { label: 'consults', value: 'More Consults' },
+  { label: 'follow-up', value: 'Faster Follow-Up' },
+  { label: 'lead capture', value: 'Fewer Lost Leads' },
+  { label: 'revenue', value: 'Booked Revenue' },
 ];
 
 const stripItems = [
