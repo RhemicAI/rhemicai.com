@@ -1,7 +1,11 @@
 'use client';
 
 import type { MouseEventHandler, ReactNode } from 'react';
-import type { CalLink } from '@/lib/calEmbed';
+import {
+  CAL_BOOKING_EVENT_NAME,
+  getCalBookingUrl,
+  type CalLink,
+} from '@/lib/calEmbed';
 
 export interface CalBookingLinkProps {
   calLink?: CalLink;
@@ -12,16 +16,23 @@ export interface CalBookingLinkProps {
 
 export default function CalBookingLink({ calLink, className, onClick, children }: CalBookingLinkProps) {
   const resolvedCalLink = calLink ?? 'rhemic-ai/medspa-discovery-call';
-  const href = `https://cal.com/${resolvedCalLink}`;
+  const href = getCalBookingUrl(resolvedCalLink);
 
   return (
     <a
       href={href}
-      data-cal-link={resolvedCalLink}
-      data-cal-namespace=""
-      data-cal-config='{"layout":"month_view"}'
       className={className}
-      onClick={onClick}
+      onClick={(event) => {
+        onClick?.(event);
+        if (event.defaultPrevented) return;
+
+        event.preventDefault();
+        window.dispatchEvent(
+          new CustomEvent(CAL_BOOKING_EVENT_NAME, {
+            detail: { calLink: resolvedCalLink },
+          }),
+        );
+      }}
       target="_blank"
       rel="noopener noreferrer"
     >
