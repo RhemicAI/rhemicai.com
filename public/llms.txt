@@ -36,7 +36,7 @@ Rhemic does not guarantee revenue, rankings, patients, or booked consults. It he
 ## Pricing
 # NOTE: Pricing values below are inline because this is a static file and cannot import from src/data/pricing.ts.
 # If you change plan prices or names in src/data/pricing.ts, update the line below to match.
-Med-spa plans: Basic at $1,000/month to find the leaks, Growth at $2,000/month to catch and route more intent, Premium at $3,500/month to scale what is working, and Custom for complex teams, locations, and reporting. The next step is a visibility and call leak audit.
+Med-spa plans: Basic at $1,000/month to find the leaks, Growth at $2,000/month to catch and route more intent, Premium at $3,500/month to expand what is working, and Custom for complex teams, locations, and reporting. The next step is a visibility and call leak audit.
 
 ## Key pages
 

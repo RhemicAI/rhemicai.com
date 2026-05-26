@@ -24,7 +24,7 @@ export default function HowDoesRhemicAiWorkPage() {
               { step: '1', label: 'Find', text: 'Rhemic reviews where patients may fail to find the clinic across Google, AI answers, treatment pages, reviews, and local trust signals.' },
               { step: '2', label: 'Prioritize', text: 'Rhemic helps prioritize the visibility, call, handoff, and source-context leaks most likely to keep patient demand from becoming a consult opportunity.' },
               { step: '3', label: 'Route', text: 'Growth and Premium help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.' },
-              { step: '4', label: 'Review', text: 'Rhemic helps show which sources are creating consult opportunities so the clinic can decide what to fix, pause, or scale next.' },
+              { step: '4', label: 'Review', text: 'Rhemic helps show which sources are creating consult opportunities so the clinic can decide what to fix, pause, or expand next.' },
             ].map(({ step, label, text }) => (
               <div key={step} className="flex gap-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-5">
                 <span className="text-xl font-extrabold text-[var(--text-muted)] font-display shrink-0 w-6">{step}</span>

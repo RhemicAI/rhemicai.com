@@ -289,7 +289,7 @@ export default function PricingPage() {
             Three plans for finding and routing lost opportunity.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl font-body text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-            Basic finds the leaks. Growth catches and routes more intent. Premium helps competitive markets and multi-location operators scale what is working.
+            Basic finds the leaks. Growth catches and routes more intent. Premium helps competitive markets and multi-location operators expand what is working.
           </p>
           <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
             Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.

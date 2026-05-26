@@ -35,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/answers/how-does-rhemic-ai-work": "2026-05-26",
     "/glossary": "2026-05-26",
     "/careers": "2026-02-01",
-    "/start-free-trial": "2026-03-01",
     "/privacy-policy": "2026-01-15",
     "/terms-of-service": "2026-01-15",
     ...blogDates,
