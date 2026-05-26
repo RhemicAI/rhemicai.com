@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Reveal from '@/components/shared/Reveal';
 import { testimonials, type Testimonial } from '@/data/testimonials';
 
@@ -29,16 +30,33 @@ export default function Testimonials({ items = testimonials }: TestimonialsProps
                 <blockquote className="mt-3 flex-1 text-base leading-[1.7] text-[var(--text-secondary)]">
                   {testimonial.quote}
                 </blockquote>
-                <figcaption className="mt-8 border-t border-[var(--glass-border)] pt-5">
-                  <p className="font-body text-sm font-semibold text-[var(--text-primary)]">
-                    {testimonial.name}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--text-secondary)]">
-                    {testimonial.company}
-                  </p>
-                  <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-muted)]">
-                    {testimonial.role}
-                  </p>
+                <figcaption className="mt-8 flex items-center gap-3 border-t border-[var(--glass-border)] pt-5">
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg-2)] shadow-[0_0_20px_rgba(77,214,224,0.12)]">
+                    {testimonial.avatarSrc ? (
+                      <Image
+                        src={testimonial.avatarSrc}
+                        alt={`${testimonial.name}, ${testimonial.company}`}
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="flex h-full w-full items-center justify-center font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--pulse-deep)]">
+                        {testimonial.initials}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <p className="font-body text-sm font-semibold text-[var(--text-primary)]">
+                      {testimonial.name}
+                    </p>
+                    <p className="mt-1 text-sm text-[var(--text-secondary)]">
+                      {testimonial.company}
+                    </p>
+                    <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-muted)]">
+                      {testimonial.role}
+                    </p>
+                  </div>
                 </figcaption>
               </figure>
             </Reveal>
