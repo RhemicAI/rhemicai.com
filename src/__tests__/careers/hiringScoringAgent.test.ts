@@ -173,6 +173,50 @@ describe("hiring scoring agent", () => {
     expect(score.evidence_gaps).toContain("No specific call opener was provided.");
   });
 
+  it("coerces incomplete DeepSeek JSON into a safe normalized score instead of failing scoring", async () => {
+    process.env.HIRING_AI_PROVIDER = "deepseek";
+    process.env.DEEPSEEK_API_KEY = "deepseek-key";
+    const fetchMock = vi.fn(async () =>
+      new Response(
+        JSON.stringify({
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({
+                  recommended_next_step: "hold",
+                  score_summary: "The answers show willingness to learn but little direct execution evidence.",
+                  strengths: ["Candidate is transparent about needing training."],
+                  risks: ["No specific sales process or follow-up method was provided."],
+                  evidence_gaps: ["No concrete call opener was submitted."],
+                  suggested_test_task: "Write a call opener and follow-up email for a med spa lead packet.",
+                }),
+              },
+            },
+          ],
+        }),
+        { status: 200 },
+      ),
+    );
+    globalThis.fetch = fetchMock;
+
+    const score = await scoreApplicationForRole({
+      roleSlug: "sdr-appointment-setter",
+      roleTitle: "SDR / Appointment Setter",
+      candidateName: "Jane Smith",
+      applicationAnswers: {
+        "Write a 4-sentence call opener for a med spa owner who is missing consults from calls and follow-up gaps.":
+          "I do not know yet.",
+      },
+      resumeText: "Resume text was parsed.",
+    });
+
+    expect(score.role_fit_score).toBe(0);
+    expect(score.risk_score).toBe(10);
+    expect(score.recommended_next_step).toBe("hold");
+    expect(score.score_summary).not.toContain("AI scoring did not complete");
+    expect(score.evidence_gaps.some((gap) => gap.includes("Provider returned incomplete score JSON"))).toBe(true);
+  });
+
   it("uses OpenAI Responses API only when the provider is openai", async () => {
     process.env.HIRING_AI_PROVIDER = "openai";
     process.env.OPENAI_API_KEY = "openai-key";
