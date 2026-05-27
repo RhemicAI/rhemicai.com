@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCareerRole } from "@/lib/careers";
+import { getCareerRole, getOpenCareerRole } from "@/lib/careers";
+import {
+  HiringTriageScore,
+  isHiringScoringFailure,
+  scoreApplicationForRole,
+} from "@/lib/careers/hiringScoringAgent";
 import {
   CandidateApplication,
-  HiringScore,
   buildApplicationMarkdown,
-  buildScoringInstructions,
   createVerificationToken,
-  hiringScoreJsonSchema,
-  safeScoreFallback,
 } from "@/lib/hiring";
 
 export const runtime = "nodejs";
@@ -179,145 +180,6 @@ async function addClickUpTag({
   }
 }
 
-function extractOutputText(response: unknown) {
-  if (response && typeof response === "object" && "output_text" in response) {
-    const outputText = (response as { output_text?: unknown }).output_text;
-    if (typeof outputText === "string") return outputText;
-  }
-
-  const output = (response as { output?: Array<{ content?: Array<{ type?: string; text?: string }> }> })?.output;
-  if (!Array.isArray(output)) return "";
-  return output
-    .flatMap((item) => item.content ?? [])
-    .filter((content) => content.type === "output_text" && typeof content.text === "string")
-    .map((content) => content.text)
-    .join("");
-}
-
-function normalizeScore(score: Partial<HiringScore>, fallbackTask: string): HiringScore {
-  const bounded = (value: unknown, fallback: number) => {
-    const numberValue = typeof value === "number" ? value : Number(value);
-    if (!Number.isFinite(numberValue)) return fallback;
-    return Math.max(0, Math.min(10, Math.round(numberValue)));
-  };
-
-  const nextStep = score.recommended_next_step;
-
-  return {
-    role_fit_score: bounded(score.role_fit_score, 0),
-    communication_score: bounded(score.communication_score, 0),
-    execution_clarity_score: bounded(score.execution_clarity_score, 0),
-    systems_thinking_score: bounded(score.systems_thinking_score, 0),
-    AI_tooling_score: bounded(score.AI_tooling_score, 0),
-    domain_fit_score: bounded(score.domain_fit_score, 0),
-    risk_score: bounded(score.risk_score, 10),
-    recommended_next_step:
-      nextStep === "reject" ||
-      nextStep === "hold" ||
-      nextStep === "test_task" ||
-      nextStep === "interview" ||
-      nextStep === "strong_candidate"
-        ? nextStep
-        : "hold",
-    score_summary: score.score_summary || "not enough evidence",
-    strengths: Array.isArray(score.strengths) && score.strengths.length ? score.strengths : ["not enough evidence"],
-    risks: Array.isArray(score.risks) && score.risks.length ? score.risks : ["not enough evidence"],
-    evidence_gaps:
-      Array.isArray(score.evidence_gaps) && score.evidence_gaps.length ? score.evidence_gaps : ["not enough evidence"],
-    suggested_test_task: score.suggested_test_task || fallbackTask,
-  };
-}
-
-async function scoreApplication({
-  candidate,
-  role,
-  resumeBuffer,
-  resumeName,
-}: {
-  candidate: CandidateApplication;
-  role: NonNullable<ReturnType<typeof getCareerRole>>;
-  resumeBuffer: Buffer;
-  resumeName: string;
-}) {
-  const openAiKey = process.env.OPENAI_API_KEY;
-  if (!openAiKey) {
-    return safeScoreFallback(role, "OPENAI_API_KEY is not configured");
-  }
-
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${openAiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: process.env.OPENAI_HIRING_MODEL || "gpt-5",
-      store: false,
-      instructions: buildScoringInstructions(role),
-      input: [
-        {
-          role: "user",
-          content: [
-            {
-              type: "input_file",
-              filename: resumeName,
-              file_data: `data:application/pdf;base64,${resumeBuffer.toString("base64")}`,
-            },
-            {
-              type: "input_text",
-              text: JSON.stringify({
-                candidate: {
-                  name: candidate.name,
-                  email: candidate.email,
-                  role: candidate.roleTitle,
-                  availability: candidate.availability,
-                  links: {
-                    linkedinUrl: candidate.linkedinUrl,
-                    portfolioUrl: candidate.portfolioUrl,
-                  },
-                },
-                role: {
-                  title: role.title,
-                  bottleneck: role.bottleneck,
-                  founderWorkRemoved: role.founderWorkRemoved,
-                  systemPluggedInto: role.systemPluggedInto,
-                  firstThirtyDaysSuccess: role.firstThirtyDaysSuccess,
-                  suggestedTestTask: role.suggestedTestTask,
-                  questions: role.formQuestions,
-                },
-                answers: role.formQuestions.map((question, index) => ({
-                  question,
-                  answer: candidate.answers[index] || "not enough evidence",
-                })),
-              }),
-            },
-          ],
-        },
-      ],
-      text: {
-        format: {
-          type: "json_schema",
-          name: "hiring_application_score",
-          strict: true,
-          schema: hiringScoreJsonSchema,
-        },
-      },
-    }),
-  });
-
-  const text = await response.text();
-  if (!response.ok) {
-    throw new Error(`OpenAI scoring failed: ${response.status} ${text}`);
-  }
-
-  const outputText = extractOutputText(JSON.parse(text));
-  if (!outputText) {
-    throw new Error("OpenAI scoring returned no output text");
-  }
-
-  return normalizeScore(JSON.parse(outputText) as Partial<HiringScore>, role.suggestedTestTask);
-}
-
 async function sendVerificationEmail({
   request,
   candidate,
@@ -364,17 +226,23 @@ async function sendVerificationEmail({
 
 export async function POST(request: NextRequest) {
   try {
+    const formData = await request.formData();
+    const roleSlug = readString(formData, "roleSlug", 80);
+    if (!getCareerRole(roleSlug)) {
+      return NextResponse.json({ success: false, error: "Invalid role selected" }, { status: 400 });
+    }
+    const role = getOpenCareerRole(roleSlug);
+    if (!role) {
+      return NextResponse.json(
+        { success: false, error: "This role is not open for applications yet" },
+        { status: 400 },
+      );
+    }
+
     const clickupToken = requiredEnv("CLICKUP_API_TOKEN");
     const listId = requiredEnv("CLICKUP_APPLICATION_LIST_ID");
     requiredEnv("N8N_HIRING_VERIFY_WEBHOOK_URL");
     requiredEnv("HIRING_VERIFY_SECRET");
-
-    const formData = await request.formData();
-    const roleSlug = readString(formData, "roleSlug", 80);
-    const role = getCareerRole(roleSlug);
-    if (!role) {
-      return NextResponse.json({ success: false, error: "Invalid role selected" }, { status: 400 });
-    }
 
     const candidate: CandidateApplication = {
       name: readString(formData, "name", 100),
@@ -422,22 +290,21 @@ export async function POST(request: NextRequest) {
     });
 
     let resumeAttached = false;
-    const resumeBuffer = Buffer.from(await resume.arrayBuffer());
     await attachResumeToTask({ taskId: task.id, token: clickupToken, resume });
     resumeAttached = true;
 
-    let score: HiringScore;
-    try {
-      score = await scoreApplication({
-        candidate,
-        role,
-        resumeBuffer,
-        resumeName: resume.name || `${candidate.name}-resume.pdf`,
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "unknown scoring error";
-      score = safeScoreFallback(role, message.slice(0, 500));
-    }
+    const applicationAnswers = Object.fromEntries(
+      role.formQuestions.map((question, index) => [question, candidate.answers[index] || ""]),
+    );
+    const resumeText = readString(formData, "resumeText", 20000);
+    const score: HiringTriageScore = await scoreApplicationForRole({
+      roleSlug: role.slug,
+      roleTitle: role.title,
+      candidateName: candidate.name,
+      applicationAnswers,
+      resumeText: resumeText || undefined,
+    });
+    const scoringFailed = isHiringScoringFailure(score);
 
     const finalMarkdown = buildApplicationMarkdown({
       candidate,
@@ -453,7 +320,11 @@ export async function POST(request: NextRequest) {
       token: clickupToken,
       markdown: finalMarkdown,
     });
-    await addClickUpTag({ taskId: task.id, token: clickupToken, tag: "AI Scored" });
+    await addClickUpTag({
+      taskId: task.id,
+      token: clickupToken,
+      tag: scoringFailed ? "AI Scoring Failed" : "AI Scored",
+    });
     await addClickUpTag({ taskId: task.id, token: clickupToken, tag: "Human Review Needed" });
 
     await sendVerificationEmail({
@@ -467,6 +338,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message:
         "Application received. Check your email to verify your address. Human review is required before any next step.",
+      scoringStatus: scoringFailed ? "failed" : "scored",
       taskUrl: task.url,
     });
   } catch (error) {

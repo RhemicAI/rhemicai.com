@@ -26,7 +26,7 @@ export default function CareersPage() {
       <PageHero
         subtitle="Careers"
         title="Build the systems that remove founder bottlenecks."
-        description="Rhemic is hiring operators and builders who can plug into real work: sales follow-up, client onboarding, fulfillment delivery, and internal automation."
+        description="We are currently hiring for SDR / Appointment Setter. Additional operations, fulfillment, and engineering roles are coming soon."
         showBackLink={false}
       />
 

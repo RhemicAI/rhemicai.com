@@ -26,6 +26,7 @@ export type RecommendedNextStep = (typeof recommendedNextSteps)[number];
 export type CareerRole = {
   slug: string;
   title: string;
+  status: "open" | "coming_soon";
   type: string;
   bottleneck: string;
   founderWorkRemoved: string;
@@ -41,6 +42,7 @@ export const careersRoles: CareerRole[] = [
   {
     slug: "sdr-appointment-setter",
     title: "SDR / Appointment Setter",
+    status: "open",
     type: "Contract to full-time · Remote",
     bottleneck: "Lead Generation + Sales follow-up",
     founderWorkRemoved:
@@ -63,6 +65,7 @@ export const careersRoles: CareerRole[] = [
   {
     slug: "client-success-ops-coordinator",
     title: "Client Success / Ops Coordinator",
+    status: "coming_soon",
     type: "Contract to full-time · Remote",
     bottleneck: "Onboarding + client communication",
     founderWorkRemoved:
@@ -85,6 +88,7 @@ export const careersRoles: CareerRole[] = [
   {
     slug: "fulfillment-specialist",
     title: "Fulfillment Specialist",
+    status: "coming_soon",
     type: "Contract · Remote",
     bottleneck: "Fulfillment delivery",
     founderWorkRemoved:
@@ -107,6 +111,7 @@ export const careersRoles: CareerRole[] = [
   {
     slug: "technical-automation-engineer",
     title: "Technical Automation Engineer",
+    status: "coming_soon",
     type: "Contract to full-time · Remote",
     bottleneck: "Internal systems, agents, integrations, dashboards",
     founderWorkRemoved:
@@ -130,4 +135,9 @@ export const careersRoles: CareerRole[] = [
 
 export function getCareerRole(slug: string) {
   return careersRoles.find((role) => role.slug === slug);
+}
+
+export function getOpenCareerRole(slug: string) {
+  const role = getCareerRole(slug);
+  return role?.status === "open" ? role : undefined;
 }

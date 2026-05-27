@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
+import { POST } from "@/app/api/careers/applications/route";
+import {
+  hiringTriageScoreJsonSchema,
+  safeScoreFallback,
+} from "@/lib/careers/hiringScoringAgent";
 import { careersRoles } from "@/lib/careers";
 import {
   CandidateApplication,
   buildApplicationMarkdown,
   createVerificationToken,
-  hiringScoreJsonSchema,
-  safeScoreFallback,
   verifyVerificationToken,
 } from "@/lib/hiring";
 
@@ -26,12 +29,12 @@ const candidate: CandidateApplication = {
 
 describe("hiring helpers", () => {
   it("requires the full score rubric in structured output schema", () => {
-    expect(hiringScoreJsonSchema.required).toEqual([
+    expect(hiringTriageScoreJsonSchema.required).toEqual([
       "role_fit_score",
       "communication_score",
       "execution_clarity_score",
       "systems_thinking_score",
-      "AI_tooling_score",
+      "ai_tooling_score",
       "domain_fit_score",
       "risk_score",
       "recommended_next_step",
@@ -77,5 +80,22 @@ describe("hiring helpers", () => {
     expect(markdown).toContain("AI score is triage only");
     expect(markdown).toContain("Human review is mandatory before any candidate communication or decision");
     expect(markdown).toContain("Suggested Test Task");
+  });
+
+  it("rejects coming-soon role slugs before any ClickUp write", async () => {
+    const formData = new FormData();
+    formData.set("roleSlug", "client-success-ops-coordinator");
+
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: formData,
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const body = (await response.json()) as { success: boolean; error: string };
+
+    expect(response.status).toBe(400);
+    expect(body.success).toBe(false);
+    expect(body.error).toBe("This role is not open for applications yet");
   });
 });
