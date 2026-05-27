@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { getSecurityHeaders } from "./src/lib/securityHeaders";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["@napi-rs/canvas", "pdf-parse", "pdfjs-dist"],
   images: {
     formats: ["image/webp", "image/avif"],
   },
