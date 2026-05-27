@@ -40,6 +40,8 @@ type RoleScoringRubric = {
   riskEvidence: string[];
 };
 
+type HiringAiProvider = "openai" | "deepseek";
+
 export const hiringTriageScoreJsonSchema = {
   type: "object",
   additionalProperties: false,
@@ -148,7 +150,10 @@ export const roleScoringRubrics: Record<string, RoleScoringRubric> = {
   },
 };
 
-const DEFAULT_HIRING_MODEL = "deepseek-v4-pro";
+const DEFAULT_OPENAI_HIRING_MODEL = "gpt-4.1-mini";
+const DEFAULT_DEEPSEEK_BASE_URL = "https://api.deepseek.com";
+const DEFAULT_DEEPSEEK_HIRING_MODEL = "deepseek-v4-pro";
+const AI_SCORING_TIMEOUT_MS = 10_000;
 const SCORING_FAILURE_PREFIX = "AI scoring did not complete.";
 
 function roleFromInput(input: ScoreApplicationForRoleInput): CareerRole {
@@ -226,6 +231,86 @@ function extractOutputText(response: unknown) {
     .join("");
 }
 
+async function fetchWithTimeout(input: RequestInfo | URL, init: RequestInit = {}) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), AI_SCORING_TIMEOUT_MS);
+
+  try {
+    return await fetch(input, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function extractChatCompletionContent(response: unknown) {
+  const choices = (response as { choices?: Array<{ message?: { content?: unknown } }> })?.choices;
+  const content = choices?.[0]?.message?.content;
+  return typeof content === "string" ? content : "";
+}
+
+function parseJsonObject(text: string, source: string) {
+  try {
+    const parsed = JSON.parse(text) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      throw new Error("parsed JSON was not an object");
+    }
+    return parsed;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "invalid JSON";
+    throw new Error(`${source} returned invalid JSON: ${message}`);
+  }
+}
+
+function assertHiringTriageScoreSchema(rawScore: unknown) {
+  if (!rawScore || typeof rawScore !== "object" || Array.isArray(rawScore)) {
+    throw new Error("Hiring score must be an object");
+  }
+
+  const score = rawScore as Record<string, unknown>;
+  const required = hiringTriageScoreJsonSchema.required;
+  for (const key of required) {
+    if (!(key in score)) {
+      throw new Error(`Hiring score missing required field: ${key}`);
+    }
+  }
+
+  const numericFields = [
+    "role_fit_score",
+    "communication_score",
+    "execution_clarity_score",
+    "systems_thinking_score",
+    "ai_tooling_score",
+    "domain_fit_score",
+    "risk_score",
+  ];
+  for (const key of numericFields) {
+    const value = score[key];
+    if (typeof value !== "number" || !Number.isInteger(value) || value < 0 || value > 10) {
+      throw new Error(`Hiring score field ${key} must be an integer from 0 to 10`);
+    }
+  }
+
+  if (!recommendedNextSteps.includes(score.recommended_next_step as RecommendedNextStep)) {
+    throw new Error("Hiring score recommended_next_step is invalid");
+  }
+
+  for (const key of ["score_summary", "suggested_test_task"]) {
+    if (typeof score[key] !== "string") {
+      throw new Error(`Hiring score field ${key} must be a string`);
+    }
+  }
+
+  for (const key of ["strengths", "risks", "evidence_gaps"]) {
+    const value = score[key];
+    if (!Array.isArray(value) || value.some((item) => typeof item !== "string")) {
+      throw new Error(`Hiring score field ${key} must be a string array`);
+    }
+  }
+}
+
 function boundedScore(value: unknown, fallback: number) {
   const numberValue = typeof value === "number" ? value : Number(value);
   if (!Number.isFinite(numberValue)) return fallback;
@@ -297,77 +382,164 @@ export function isHiringScoringFailure(score: HiringTriageScore) {
   return score.score_summary.startsWith(SCORING_FAILURE_PREFIX);
 }
 
+function getHiringAiProvider(): HiringAiProvider | null {
+  const provider = process.env.HIRING_AI_PROVIDER;
+  if (provider === "openai" || provider === "deepseek") {
+    return provider;
+  }
+  return null;
+}
+
+function buildModelInput(input: ScoreApplicationForRoleInput, role: CareerRole) {
+  return {
+    candidate: {
+      name: input.candidateName,
+      role: input.roleTitle,
+    },
+    role: {
+      slug: role.slug,
+      title: role.title,
+      rubric: roleScoringRubrics[role.slug] ?? null,
+    },
+    applicationAnswers: input.applicationAnswers,
+    resumeText: input.resumeText?.trim() || "not enough evidence",
+  };
+}
+
+async function scoreWithOpenAi({
+  input,
+  role,
+  requiredEvidenceGaps,
+}: {
+  input: ScoreApplicationForRoleInput;
+  role: CareerRole;
+  requiredEvidenceGaps: string[];
+}) {
+  const openAiKey = process.env.OPENAI_API_KEY;
+  if (!openAiKey) {
+    throw new Error("OPENAI_API_KEY is not configured for HIRING_AI_PROVIDER=openai");
+  }
+
+  const response = await fetchWithTimeout("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${openAiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: process.env.OPENAI_HIRING_MODEL || DEFAULT_OPENAI_HIRING_MODEL,
+      store: false,
+      instructions: buildScoringInstructions(role),
+      input: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "input_text",
+              text: JSON.stringify(buildModelInput(input, role)),
+            },
+          ],
+        },
+      ],
+      text: {
+        format: {
+          type: "json_schema",
+          name: "hiring_application_score",
+          strict: true,
+          schema: hiringTriageScoreJsonSchema,
+        },
+      },
+    }),
+  });
+
+  const text = await response.text();
+  if (!response.ok) {
+    throw new Error(`OpenAI scoring failed: ${response.status} ${text}`);
+  }
+
+  const outputText = extractOutputText(parseJsonObject(text, "OpenAI scoring"));
+  if (!outputText) {
+    throw new Error("OpenAI scoring returned no output text");
+  }
+
+  const rawScore = parseJsonObject(outputText, "OpenAI scoring output");
+  assertHiringTriageScoreSchema(rawScore);
+  return validateHiringTriageScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
+}
+
+async function scoreWithDeepSeek({
+  input,
+  role,
+  requiredEvidenceGaps,
+}: {
+  input: ScoreApplicationForRoleInput;
+  role: CareerRole;
+  requiredEvidenceGaps: string[];
+}) {
+  const deepSeekKey = process.env.DEEPSEEK_API_KEY;
+  if (!deepSeekKey) {
+    throw new Error("DEEPSEEK_API_KEY is not configured for HIRING_AI_PROVIDER=deepseek");
+  }
+
+  const baseUrl = (process.env.DEEPSEEK_BASE_URL || DEFAULT_DEEPSEEK_BASE_URL).replace(/\/$/, "");
+  const response = await fetchWithTimeout(`${baseUrl}/chat/completions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${deepSeekKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: process.env.DEEPSEEK_HIRING_MODEL || DEFAULT_DEEPSEEK_HIRING_MODEL,
+      messages: [
+        {
+          role: "system",
+          content: buildScoringInstructions(role),
+        },
+        {
+          role: "user",
+          content: JSON.stringify(buildModelInput(input, role)),
+        },
+      ],
+      response_format: { type: "json_object" },
+      temperature: 0,
+    }),
+  });
+
+  const text = await response.text();
+  if (!response.ok) {
+    throw new Error(`DeepSeek scoring failed: ${response.status} ${text}`);
+  }
+
+  const outputText = extractChatCompletionContent(parseJsonObject(text, "DeepSeek scoring"));
+  if (!outputText) {
+    throw new Error("DeepSeek scoring returned no message content");
+  }
+
+  const rawScore = parseJsonObject(outputText, "DeepSeek scoring output");
+  assertHiringTriageScoreSchema(rawScore);
+  return validateHiringTriageScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
+}
+
 export async function scoreApplicationForRole(
   input: ScoreApplicationForRoleInput,
 ): Promise<HiringTriageScore> {
   const role = roleFromInput(input);
   const requiredEvidenceGaps = evidenceGapsFromInput(input);
-  const openAiKey = process.env.OPENAI_API_KEY;
+  const provider = getHiringAiProvider();
 
-  if (!openAiKey) {
+  if (!provider) {
     return validateHiringTriageScore(
-      safeScoreFallback(role, "OPENAI_API_KEY is not configured"),
+      safeScoreFallback(role, "HIRING_AI_PROVIDER must be configured as openai or deepseek"),
       role.suggestedTestTask,
       requiredEvidenceGaps,
     );
   }
 
   try {
-    const response = await fetch("https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${openAiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: process.env.OPENAI_HIRING_MODEL || DEFAULT_HIRING_MODEL,
-        store: false,
-        instructions: buildScoringInstructions(role),
-        input: [
-          {
-            role: "user",
-            content: [
-              {
-                type: "input_text",
-                text: JSON.stringify({
-                  candidate: {
-                    name: input.candidateName,
-                    role: input.roleTitle,
-                  },
-                  role: {
-                    slug: role.slug,
-                    title: role.title,
-                    rubric: roleScoringRubrics[role.slug] ?? null,
-                  },
-                  applicationAnswers: input.applicationAnswers,
-                  resumeText: input.resumeText?.trim() || "not enough evidence",
-                }),
-              },
-            ],
-          },
-        ],
-        text: {
-          format: {
-            type: "json_schema",
-            name: "hiring_application_score",
-            strict: true,
-            schema: hiringTriageScoreJsonSchema,
-          },
-        },
-      }),
-    });
-
-    const text = await response.text();
-    if (!response.ok) {
-      throw new Error(`OpenAI scoring failed: ${response.status} ${text}`);
+    if (provider === "openai") {
+      return await scoreWithOpenAi({ input, role, requiredEvidenceGaps });
     }
-
-    const outputText = extractOutputText(JSON.parse(text));
-    if (!outputText) {
-      throw new Error("OpenAI scoring returned no output text");
-    }
-
-    return validateHiringTriageScore(JSON.parse(outputText), role.suggestedTestTask, requiredEvidenceGaps);
+    return await scoreWithDeepSeek({ input, role, requiredEvidenceGaps });
   } catch (error) {
     const message = error instanceof Error ? error.message : "unknown scoring error";
     return validateHiringTriageScore(

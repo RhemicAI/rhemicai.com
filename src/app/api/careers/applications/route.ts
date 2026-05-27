@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { getCareerRole, getOpenCareerRole } from "@/lib/careers";
 import {
@@ -15,6 +16,15 @@ export const runtime = "nodejs";
 
 const CLICKUP_API = "https://api.clickup.com/api/v2";
 const MAX_RESUME_BYTES = 5 * 1024 * 1024;
+const OUTBOUND_TIMEOUT_MS = 10_000;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
+const RATE_LIMIT_MAX_PER_IP = 10;
+const RATE_LIMIT_MAX_PER_EMAIL = 3;
+const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
+
+export function resetCareerApplicationGuardsForTests() {
+  rateLimitBuckets.clear();
+}
 
 function requiredEnv(name: string) {
   const value = process.env[name];
@@ -28,6 +38,20 @@ function readString(formData: FormData, key: string, maxLength: number) {
   const value = formData.get(key);
   if (typeof value !== "string") return "";
   return value.trim().slice(0, maxLength);
+}
+
+async function fetchWithTimeout(input: RequestInfo | URL, init: RequestInit = {}) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), OUTBOUND_TIMEOUT_MS);
+
+  try {
+    return await fetch(input, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function parseAnswers(raw: FormDataEntryValue | null) {
@@ -45,6 +69,49 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function getClientIp(request: NextRequest) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  if (forwardedFor) return forwardedFor.split(",")[0]?.trim() || "unknown";
+  return request.headers.get("x-real-ip") || request.headers.get("cf-connecting-ip") || "unknown";
+}
+
+function consumeRateLimit(key: string, maxRequests: number, now = Date.now()) {
+  const existing = rateLimitBuckets.get(key);
+  if (!existing || existing.resetAt <= now) {
+    rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, retryAfterSeconds: 0 };
+  }
+
+  if (existing.count >= maxRequests) {
+    return {
+      allowed: false,
+      retryAfterSeconds: Math.max(1, Math.ceil((existing.resetAt - now) / 1000)),
+    };
+  }
+
+  existing.count += 1;
+  return { allowed: true, retryAfterSeconds: 0 };
+}
+
+function enforceRateLimit(request: NextRequest, email: string) {
+  const now = Date.now();
+  for (const [key, bucket] of rateLimitBuckets) {
+    if (bucket.resetAt <= now) rateLimitBuckets.delete(key);
+  }
+
+  const ipLimit = consumeRateLimit(`ip:${getClientIp(request)}`, RATE_LIMIT_MAX_PER_IP, now);
+  if (!ipLimit.allowed) return ipLimit;
+  return consumeRateLimit(`email:${email}`, RATE_LIMIT_MAX_PER_EMAIL, now);
+}
+
+function isPdfMagicBytes(buffer: Buffer) {
+  return buffer.subarray(0, 5).toString("ascii") === "%PDF-";
+}
+
+function signWebhookPayload(body: string, secret: string) {
+  return crypto.createHmac("sha256", secret).update(body).digest("hex");
+}
+
 async function clickupRequest<T>({
   path,
   token,
@@ -56,7 +123,7 @@ async function clickupRequest<T>({
   method?: "GET" | "POST" | "PUT";
   body?: unknown;
 }) {
-  const response = await fetch(`${CLICKUP_API}${path}`, {
+  const response = await fetchWithTimeout(`${CLICKUP_API}${path}`, {
     method,
     headers: {
       Authorization: token,
@@ -72,6 +139,45 @@ async function clickupRequest<T>({
     throw new Error(`ClickUp ${method} ${path} failed: ${response.status} ${text}`);
   }
   return data as T;
+}
+
+async function hasExistingApplicationForEmail({
+  token,
+  listId,
+  email,
+}: {
+  token: string;
+  listId: string;
+  email: string;
+}) {
+  const normalizedEmail = email.toLowerCase();
+
+  for (let page = 0; page < 10; page += 1) {
+    type ClickUpTaskListResponse = {
+      tasks?: Array<{
+        name?: string;
+        description?: string;
+        text_content?: string;
+        markdown_content?: string;
+      }>;
+    };
+
+    const data = await clickupRequest<ClickUpTaskListResponse>({
+      path: `/list/${listId}/task?include_closed=true&page=${page}`,
+      token,
+    });
+    const tasks = data.tasks ?? [];
+    const hasMatch = tasks.some((task) =>
+      [task.name, task.description, task.text_content, task.markdown_content]
+        .filter((value): value is string => typeof value === "string")
+        .some((value) => value.toLowerCase().includes(normalizedEmail)),
+    );
+
+    if (hasMatch) return true;
+    if (tasks.length < 100) return false;
+  }
+
+  return false;
 }
 
 async function createClickUpTask({
@@ -124,7 +230,7 @@ async function attachResumeToTask({
   const body = new FormData();
   body.append("attachment", resume, resume.name);
 
-  const response = await fetch(`${CLICKUP_API}/task/${taskId}/attachment`, {
+  const response = await fetchWithTimeout(`${CLICKUP_API}/task/${taskId}/attachment`, {
     method: "POST",
     headers: {
       Authorization: token,
@@ -165,7 +271,7 @@ async function addClickUpTag({
   token: string;
   tag: string;
 }) {
-  const response = await fetch(`${CLICKUP_API}/task/${taskId}/tag/${encodeURIComponent(tag)}`, {
+  const response = await fetchWithTimeout(`${CLICKUP_API}/task/${taskId}/tag/${encodeURIComponent(tag)}`, {
     method: "POST",
     headers: {
       Authorization: token,
@@ -204,18 +310,22 @@ async function sendVerificationEmail({
   const origin = process.env.NEXT_PUBLIC_SITE_URL || new URL(request.url).origin;
   const verificationUrl = `${origin}/api/careers/verify?token=${encodeURIComponent(token)}`;
 
-  const response = await fetch(webhookUrl, {
+  const webhookBody = JSON.stringify({
+    type: "hiring_email_verification",
+    candidateName: candidate.name,
+    candidateEmail: candidate.email,
+    roleTitle: candidate.roleTitle,
+    taskId,
+    taskUrl,
+    verificationUrl,
+  });
+  const response = await fetchWithTimeout(webhookUrl, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      type: "hiring_email_verification",
-      candidateName: candidate.name,
-      candidateEmail: candidate.email,
-      roleTitle: candidate.roleTitle,
-      taskId,
-      taskUrl,
-      verificationUrl,
-    }),
+    headers: {
+      "Content-Type": "application/json",
+      "X-Rhemic-Signature": `sha256=${signWebhookPayload(webhookBody, secret)}`,
+    },
+    body: webhookBody,
   });
 
   if (!response.ok) {
@@ -260,6 +370,25 @@ export async function POST(request: NextRequest) {
     if (!candidate.name || !candidate.email || !isValidEmail(candidate.email)) {
       return NextResponse.json({ success: false, error: "A valid name and email are required" }, { status: 400 });
     }
+
+    const rateLimit = enforceRateLimit(request, candidate.email);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { success: false, error: "Too many application attempts. Please wait before trying again." },
+        {
+          status: 429,
+          headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+        },
+      );
+    }
+
+    if (await hasExistingApplicationForEmail({ token: clickupToken, listId, email: candidate.email })) {
+      return NextResponse.json(
+        { success: false, error: "Only one application can be submitted per person." },
+        { status: 409 },
+      );
+    }
+
     if (candidate.answers.length !== role.formQuestions.length || candidate.answers.some((answer) => !answer)) {
       return NextResponse.json({ success: false, error: "All role questions are required" }, { status: 400 });
     }
@@ -273,6 +402,10 @@ export async function POST(request: NextRequest) {
     }
     if (resume.type !== "application/pdf" && !resume.name.toLowerCase().endsWith(".pdf")) {
       return NextResponse.json({ success: false, error: "Resume must be a PDF" }, { status: 400 });
+    }
+    const resumeBuffer = Buffer.from(await resume.arrayBuffer());
+    if (!isPdfMagicBytes(resumeBuffer)) {
+      return NextResponse.json({ success: false, error: "Resume must be a valid PDF" }, { status: 400 });
     }
 
     const initialMarkdown = buildApplicationMarkdown({
@@ -296,13 +429,11 @@ export async function POST(request: NextRequest) {
     const applicationAnswers = Object.fromEntries(
       role.formQuestions.map((question, index) => [question, candidate.answers[index] || ""]),
     );
-    const resumeText = readString(formData, "resumeText", 20000);
     const score: HiringTriageScore = await scoreApplicationForRole({
       roleSlug: role.slug,
       roleTitle: role.title,
       candidateName: candidate.name,
       applicationAnswers,
-      resumeText: resumeText || undefined,
     });
     const scoringFailed = isHiringScoringFailure(score);
 

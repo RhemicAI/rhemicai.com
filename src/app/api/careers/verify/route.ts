@@ -4,6 +4,21 @@ import { verifyVerificationToken } from "@/lib/hiring";
 export const runtime = "nodejs";
 
 const CLICKUP_API = "https://api.clickup.com/api/v2";
+const OUTBOUND_TIMEOUT_MS = 10_000;
+
+async function fetchWithTimeout(input: RequestInfo | URL, init: RequestInit = {}) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), OUTBOUND_TIMEOUT_MS);
+
+  try {
+    return await fetch(input, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
 
 async function clickupRequest<T>({
   path,
@@ -16,7 +31,7 @@ async function clickupRequest<T>({
   method?: "GET" | "POST" | "PUT";
   body?: unknown;
 }) {
-  const response = await fetch(`${CLICKUP_API}${path}`, {
+  const response = await fetchWithTimeout(`${CLICKUP_API}${path}`, {
     method,
     headers: {
       Authorization: token,
@@ -41,7 +56,7 @@ async function addClickUpTag({
   token: string;
   tag: string;
 }) {
-  const response = await fetch(`${CLICKUP_API}/task/${taskId}/tag/${encodeURIComponent(tag)}`, {
+  const response = await fetchWithTimeout(`${CLICKUP_API}/task/${taskId}/tag/${encodeURIComponent(tag)}`, {
     method: "POST",
     headers: {
       Authorization: token,
