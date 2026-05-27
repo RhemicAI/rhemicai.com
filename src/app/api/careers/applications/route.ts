@@ -1,4 +1,3 @@
-import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { getCareerRole, getOpenCareerRole } from "@/lib/careers";
 import {
@@ -6,6 +5,7 @@ import {
   isHiringScoringFailure,
   scoreApplicationForRole,
 } from "@/lib/careers/hiringScoringAgent";
+import { sendApplicationThankYouEmail } from "@/lib/careers/sendApplicationEmail";
 import {
   CandidateApplication,
   buildApplicationMarkdown,
@@ -106,10 +106,6 @@ function enforceRateLimit(request: NextRequest, email: string) {
 
 function isPdfMagicBytes(buffer: Buffer) {
   return buffer.subarray(0, 5).toString("ascii") === "%PDF-";
-}
-
-function signWebhookPayload(body: string, secret: string) {
-  return crypto.createHmac("sha256", secret).update(body).digest("hex");
 }
 
 async function clickupRequest<T>({
@@ -286,18 +282,15 @@ async function addClickUpTag({
   }
 }
 
-async function sendVerificationEmail({
+function buildVerificationUrl({
   request,
   candidate,
   taskId,
-  taskUrl,
 }: {
   request: NextRequest;
   candidate: CandidateApplication;
   taskId: string;
-  taskUrl?: string;
 }) {
-  const webhookUrl = requiredEnv("N8N_HIRING_VERIFY_WEBHOOK_URL");
   const secret = requiredEnv("HIRING_VERIFY_SECRET");
   const token = createVerificationToken(
     {
@@ -308,30 +301,11 @@ async function sendVerificationEmail({
     secret,
   );
   const origin = process.env.NEXT_PUBLIC_SITE_URL || new URL(request.url).origin;
-  const verificationUrl = `${origin}/api/careers/verify?token=${encodeURIComponent(token)}`;
+  return `${origin}/api/careers/verify?token=${encodeURIComponent(token)}`;
+}
 
-  const webhookBody = JSON.stringify({
-    type: "hiring_email_verification",
-    candidateName: candidate.name,
-    candidateEmail: candidate.email,
-    roleTitle: candidate.roleTitle,
-    taskId,
-    taskUrl,
-    verificationUrl,
-  });
-  const response = await fetchWithTimeout(webhookUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Rhemic-Signature": `sha256=${signWebhookPayload(webhookBody, secret)}`,
-    },
-    body: webhookBody,
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`N8N verification webhook failed: ${response.status} ${text}`);
-  }
+function truncateForMarkdown(value: string, maxLength = 500) {
+  return value.length > maxLength ? `${value.slice(0, maxLength)}...` : value;
 }
 
 export async function POST(request: NextRequest) {
@@ -351,7 +325,6 @@ export async function POST(request: NextRequest) {
 
     const clickupToken = requiredEnv("CLICKUP_API_TOKEN");
     const listId = requiredEnv("CLICKUP_APPLICATION_LIST_ID");
-    requiredEnv("N8N_HIRING_VERIFY_WEBHOOK_URL");
     requiredEnv("HIRING_VERIFY_SECRET");
 
     const candidate: CandidateApplication = {
@@ -436,6 +409,22 @@ export async function POST(request: NextRequest) {
       applicationAnswers,
     });
     const scoringFailed = isHiringScoringFailure(score);
+    const verificationUrl = buildVerificationUrl({
+      request,
+      candidate,
+      taskId: task.id,
+    });
+    const emailResult = await sendApplicationThankYouEmail({
+      candidateName: candidate.name,
+      candidateEmail: candidate.email,
+      roleTitle: role.title,
+      verificationUrl,
+    });
+    const emailStatus = emailResult.sent ? "sent" : "failed";
+    const emailConfirmationState = emailResult.sent ? "Confirmation Email Sent" : "Confirmation Email Failed";
+    const emailFailureReason = emailResult.sent || !emailResult.error
+      ? undefined
+      : truncateForMarkdown(emailResult.error);
 
     const finalMarkdown = buildApplicationMarkdown({
       candidate,
@@ -445,6 +434,8 @@ export async function POST(request: NextRequest) {
       score,
       humanReviewer: "Unassigned",
       reviewStatus: "Human Review Needed",
+      emailConfirmationState,
+      emailFailureReason,
     });
     await updateClickUpTaskMarkdown({
       taskId: task.id,
@@ -457,20 +448,19 @@ export async function POST(request: NextRequest) {
       tag: scoringFailed ? "AI Scoring Failed" : "AI Scored",
     });
     await addClickUpTag({ taskId: task.id, token: clickupToken, tag: "Human Review Needed" });
-
-    await sendVerificationEmail({
-      request,
-      candidate,
+    await addClickUpTag({
       taskId: task.id,
-      taskUrl: task.url,
+      token: clickupToken,
+      tag: emailConfirmationState,
     });
 
     return NextResponse.json({
       success: true,
-      message:
-        "Application received. Check your email to verify your address. Human review is required before any next step.",
+      message: emailResult.sent
+        ? "Application received. Check your email to verify your address. Human review is required before any next step."
+        : "Application received. Human review is required before any next step.",
       scoringStatus: scoringFailed ? "failed" : "scored",
-      taskUrl: task.url,
+      emailStatus,
     });
   } catch (error) {
     console.error("Career application error:", error);

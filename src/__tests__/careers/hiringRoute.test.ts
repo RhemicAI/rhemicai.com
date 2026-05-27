@@ -4,6 +4,7 @@ import { careersRoles } from "@/lib/careers";
 import { HiringTriageScore } from "@/lib/careers/hiringScoringAgent";
 
 const scoreApplicationForRoleMock = vi.hoisted(() => vi.fn());
+const sendApplicationThankYouEmailMock = vi.hoisted(() => vi.fn());
 
 vi.mock("@/lib/careers/hiringScoringAgent", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/careers/hiringScoringAgent")>();
@@ -13,11 +14,14 @@ vi.mock("@/lib/careers/hiringScoringAgent", async (importOriginal) => {
   };
 });
 
+vi.mock("@/lib/careers/sendApplicationEmail", () => ({
+  sendApplicationThankYouEmail: sendApplicationThankYouEmailMock,
+}));
+
 const originalFetch = globalThis.fetch;
 const originalEnv = {
   CLICKUP_API_TOKEN: process.env.CLICKUP_API_TOKEN,
   CLICKUP_APPLICATION_LIST_ID: process.env.CLICKUP_APPLICATION_LIST_ID,
-  N8N_HIRING_VERIFY_WEBHOOK_URL: process.env.N8N_HIRING_VERIFY_WEBHOOK_URL,
   HIRING_VERIFY_SECRET: process.env.HIRING_VERIFY_SECRET,
 };
 
@@ -84,15 +88,14 @@ beforeEach(() => {
   resetCareerApplicationGuardsForTests();
   process.env.CLICKUP_API_TOKEN = "clickup-token";
   process.env.CLICKUP_APPLICATION_LIST_ID = "list-123";
-  process.env.N8N_HIRING_VERIFY_WEBHOOK_URL = "https://n8n.example.com/hiring";
   process.env.HIRING_VERIFY_SECRET = "test-secret";
   scoreApplicationForRoleMock.mockResolvedValue(scoredApplication);
+  sendApplicationThankYouEmailMock.mockResolvedValue({ sent: true });
 });
 
 afterEach(() => {
   process.env.CLICKUP_API_TOKEN = originalEnv.CLICKUP_API_TOKEN;
   process.env.CLICKUP_APPLICATION_LIST_ID = originalEnv.CLICKUP_APPLICATION_LIST_ID;
-  process.env.N8N_HIRING_VERIFY_WEBHOOK_URL = originalEnv.N8N_HIRING_VERIFY_WEBHOOK_URL;
   process.env.HIRING_VERIFY_SECRET = originalEnv.HIRING_VERIFY_SECRET;
   globalThis.fetch = originalFetch;
   vi.clearAllMocks();
@@ -107,11 +110,22 @@ describe("careers application route scoring", () => {
     });
 
     const response = await POST(request as Parameters<typeof POST>[0]);
-    const body = (await response.json()) as { success: boolean; scoringStatus: string };
+    const body = (await response.json()) as {
+      success: boolean;
+      scoringStatus: string;
+      emailStatus: string;
+      taskUrl?: string;
+    };
+    const updateCall = fetchMock.mock.calls.find(
+      ([input, init]) => String(input).includes("/task/task-123") && init?.method === "PUT",
+    );
+    const updateBody = JSON.parse(String(updateCall?.[1]?.body)) as { markdown_content: string };
 
     expect(response.status).toBe(200);
     expect(body.success).toBe(true);
     expect(body.scoringStatus).toBe("scored");
+    expect(body.emailStatus).toBe("sent");
+    expect(body.taskUrl).toBeUndefined();
     expect(scoreApplicationForRoleMock).toHaveBeenCalledWith({
       roleSlug: sdrRole.slug,
       roleTitle: sdrRole.title,
@@ -123,6 +137,14 @@ describe("careers application route scoring", () => {
       },
       resumeText: undefined,
     });
+    expect(sendApplicationThankYouEmailMock).toHaveBeenCalledWith({
+      candidateName: "Jane Smith",
+      candidateEmail: "jane@example.com",
+      roleTitle: sdrRole.title,
+      verificationUrl: expect.stringContaining("/api/careers/verify?token="),
+    });
+    expect(updateBody.markdown_content).toContain("Confirmation email state: Confirmation Email Sent");
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes("Confirmation%20Email%20Sent"))).toBe(true);
     expect(fetchMock).toHaveBeenCalled();
   });
 
@@ -140,6 +162,7 @@ describe("careers application route scoring", () => {
     expect(body.success).toBe(false);
     expect(body.error).toBe("This role is not open for applications yet");
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
@@ -182,6 +205,34 @@ describe("careers application route scoring", () => {
     expect(fetchMock.mock.calls.some(([input]) => String(input).includes("AI%20Scoring%20Failed"))).toBe(true);
   });
 
+  it("marks ClickUp when confirmation email fails without failing the saved application", async () => {
+    const fetchMock = mockSuccessfulExternalWrites();
+    sendApplicationThankYouEmailMock.mockResolvedValue({
+      sent: false,
+      error: "RESEND_API_KEY is not configured",
+    });
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: applicationFormData({ email: "email-failed@example.com" }),
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const body = (await response.json()) as { success: boolean; emailStatus: string };
+    const methods = fetchMock.mock.calls.map(([, init]) => init?.method);
+    const updateCall = fetchMock.mock.calls.find(
+      ([input, init]) => String(input).includes("/task/task-123") && init?.method === "PUT",
+    );
+    const updateBody = JSON.parse(String(updateCall?.[1]?.body)) as { markdown_content: string };
+
+    expect(response.status).toBe(200);
+    expect(body.success).toBe(true);
+    expect(body.emailStatus).toBe("failed");
+    expect(methods).not.toContain("DELETE");
+    expect(updateBody.markdown_content).toContain("Confirmation email state: Confirmation Email Failed");
+    expect(updateBody.markdown_content).toContain("Confirmation email failure reason: RESEND_API_KEY is not configured");
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes("Confirmation%20Email%20Failed"))).toBe(true);
+  });
+
   it("rejects duplicate applicants before creating another ClickUp task", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);
@@ -206,6 +257,7 @@ describe("careers application route scoring", () => {
     expect(response.status).toBe(409);
     expect(body.error).toBe("Only one application can be submitted per person.");
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
   });
 
@@ -222,6 +274,7 @@ describe("careers application route scoring", () => {
     expect(response.status).toBe(400);
     expect(body.error).toBe("Resume must be a valid PDF");
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
   });
 
@@ -253,17 +306,16 @@ describe("careers application route scoring", () => {
     expect(body.error).toBe("Too many application attempts. Please wait before trying again.");
   });
 
-  it("signs the N8N verification webhook payload", async () => {
-    const fetchMock = mockSuccessfulExternalWrites();
+  it("does not expose ClickUp task URL to the applicant email helper", async () => {
+    mockSuccessfulExternalWrites();
     const request = new Request("http://localhost/api/careers/applications", {
       method: "POST",
-      body: applicationFormData({ email: "signed@example.com" }),
+      body: applicationFormData({ email: "no-clickup@example.com" }),
     });
 
     await POST(request as Parameters<typeof POST>[0]);
 
-    const n8nCall = fetchMock.mock.calls.find(([input]) => String(input) === "https://n8n.example.com/hiring");
-    const headers = n8nCall?.[1]?.headers as Record<string, string>;
-    expect(headers["X-Rhemic-Signature"]).toMatch(/^sha256=[a-f0-9]{64}$/);
+    const payload = sendApplicationThankYouEmailMock.mock.calls[0]?.[0] as Record<string, string>;
+    expect(JSON.stringify(payload)).not.toContain("app.clickup.com");
   });
 });

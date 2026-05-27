@@ -8,8 +8,9 @@ NEXT_PUBLIC_SITE_URL=https://rhemicai.com
 CLICKUP_API_TOKEN=pk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 CLICKUP_APPLICATION_LIST_ID=901714101330
 
-N8N_HIRING_VERIFY_WEBHOOK_URL=https://n8n.example.com/webhook/hiring-verify
-# Shared secret signs verification tokens and the N8N webhook payload header X-Rhemic-Signature.
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+HIRING_EMAIL_FROM="Rhemic AI <contact@rhemicai.com>"
+HIRING_EMAIL_REPLY_TO="contact@rhemicai.com"
 HIRING_VERIFY_SECRET=replace-with-long-random-secret
 
 # Pick exactly one provider.
@@ -25,4 +26,4 @@ OPENAI_HIRING_MODEL=gpt-4.1-mini
 ```
 
 The AI score is triage only. Human review is mandatory before any candidate communication, rejection, advancement, test task, interview, or offer.
-The application route rate-limits public submissions by IP and applicant email, checks for an existing ClickUp application for the same email before creating a task, and rejects resume uploads that do not start with PDF magic bytes.
+The application route rate-limits public submissions by IP and applicant email, checks for an existing ClickUp application for the same email before creating a task, rejects resume uploads that do not start with PDF magic bytes, and sends the applicant thank-you/verification email through Resend from `contact@rhemicai.com`.
