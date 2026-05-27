@@ -11,6 +11,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@napi-rs/canvas": "0.1.80",
     "@next/third-parties": "^16.2.6",
     "@vercel/speed-insights": "^2.0.0",
     "cobe": "^0.6.5",
