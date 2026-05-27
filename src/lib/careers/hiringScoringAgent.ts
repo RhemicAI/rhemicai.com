@@ -41,6 +41,7 @@ type RoleScoringRubric = {
 };
 
 type HiringAiProvider = "openai" | "deepseek";
+type ScoreAlias = keyof HiringTriageScore;
 
 export const hiringTriageScoreJsonSchema = {
   type: "object",
@@ -311,6 +312,73 @@ function assertHiringTriageScoreSchema(rawScore: unknown) {
   }
 }
 
+const scoreFieldAliases: Record<ScoreAlias, string[]> = {
+  role_fit_score: ["role_fit_score", "roleFitScore"],
+  communication_score: ["communication_score", "communicationScore"],
+  execution_clarity_score: ["execution_clarity_score", "executionClarityScore"],
+  systems_thinking_score: ["systems_thinking_score", "systemsThinkingScore"],
+  ai_tooling_score: ["ai_tooling_score", "aiToolingScore", "ai_tools_score", "aiToolsScore"],
+  domain_fit_score: ["domain_fit_score", "domainFitScore"],
+  risk_score: ["risk_score", "riskScore"],
+  recommended_next_step: ["recommended_next_step", "recommendedNextStep"],
+  score_summary: ["score_summary", "scoreSummary", "summary"],
+  strengths: ["strengths"],
+  risks: ["risks"],
+  evidence_gaps: ["evidence_gaps", "evidenceGaps"],
+  suggested_test_task: ["suggested_test_task", "suggestedTestTask"],
+};
+
+const scoreContainerKeys = [
+  "score",
+  "scores",
+  "triage_score",
+  "triageScore",
+  "hiring_triage_score",
+  "hiringTriageScore",
+  "result",
+];
+
+function pickObject(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  return value as Record<string, unknown>;
+}
+
+function normalizeScoreShape(rawScore: unknown) {
+  const candidates = [pickObject(rawScore)];
+  const root = candidates[0];
+  if (root) {
+    for (const key of scoreContainerKeys) {
+      candidates.push(pickObject(root[key]));
+    }
+  }
+
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    const normalized: Record<string, unknown> = {};
+    for (const [targetKey, aliases] of Object.entries(scoreFieldAliases)) {
+      const foundAlias = aliases.find((alias) => alias in candidate);
+      if (foundAlias) normalized[targetKey] = candidate[foundAlias];
+    }
+    if ("role_fit_score" in normalized || "roleFitScore" in candidate) {
+      return normalized;
+    }
+  }
+
+  return rawScore;
+}
+
+function logScoringFailure(provider: HiringAiProvider, error: unknown) {
+  const message = error instanceof Error ? error.message : "unknown scoring error";
+  console.warn("Hiring AI scoring failed", {
+    provider,
+    model:
+      provider === "openai"
+        ? process.env.OPENAI_HIRING_MODEL || DEFAULT_OPENAI_HIRING_MODEL
+        : process.env.DEEPSEEK_HIRING_MODEL || DEFAULT_DEEPSEEK_HIRING_MODEL,
+    reason: message.slice(0, 300),
+  });
+}
+
 function boundedScore(value: unknown, fallback: number) {
   const numberValue = typeof value === "number" ? value : Number(value);
   if (!Number.isFinite(numberValue)) return fallback;
@@ -515,7 +583,7 @@ async function scoreWithDeepSeek({
     throw new Error("DeepSeek scoring returned no message content");
   }
 
-  const rawScore = parseJsonObject(outputText, "DeepSeek scoring output");
+  const rawScore = normalizeScoreShape(parseJsonObject(outputText, "DeepSeek scoring output"));
   assertHiringTriageScoreSchema(rawScore);
   return validateHiringTriageScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
 }
@@ -541,6 +609,7 @@ export async function scoreApplicationForRole(
     }
     return await scoreWithDeepSeek({ input, role, requiredEvidenceGaps });
   } catch (error) {
+    logScoringFailure(provider, error);
     const message = error instanceof Error ? error.message : "unknown scoring error";
     return validateHiringTriageScore(
       safeScoreFallback(role, message.slice(0, 500)),

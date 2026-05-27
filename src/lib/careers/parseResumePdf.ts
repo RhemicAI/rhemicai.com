@@ -3,6 +3,7 @@ type PdfParseModule = typeof import("pdf-parse");
 type PdfGlobal = Record<"DOMMatrix" | "ImageData" | "Path2D", unknown>;
 
 let pdfParseModule: Promise<PdfParseModule> | null = null;
+let pdfWorkerModule: Promise<unknown> | null = null;
 
 async function installCanvasPolyfills() {
   const pdfGlobal = globalThis as unknown as Partial<PdfGlobal>;
@@ -16,6 +17,8 @@ async function installCanvasPolyfills() {
 
 async function loadPdfParse() {
   await installCanvasPolyfills();
+  pdfWorkerModule ??= import("pdfjs-dist/legacy/build/pdf.worker.mjs");
+  await pdfWorkerModule;
   pdfParseModule ??= import("pdf-parse");
   return pdfParseModule;
 }

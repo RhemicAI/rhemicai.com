@@ -122,6 +122,57 @@ describe("hiring scoring agent", () => {
     expect(body.messages[1].role).toBe("user");
   });
 
+  it("normalizes common DeepSeek JSON shape drift before validating", async () => {
+    process.env.HIRING_AI_PROVIDER = "deepseek";
+    process.env.DEEPSEEK_API_KEY = "deepseek-key";
+    const fetchMock = vi.fn(async () =>
+      new Response(
+        JSON.stringify({
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({
+                  scores: {
+                    roleFitScore: 2,
+                    communicationScore: 2,
+                    executionClarityScore: 1,
+                    systemsThinkingScore: 1,
+                    aiToolingScore: 0,
+                    domainFitScore: 1,
+                    riskScore: 8,
+                    recommendedNextStep: "hold",
+                    scoreSummary: "The submitted answers provide very limited evidence.",
+                    strengths: ["Availability is clear."],
+                    risks: ["Answers are too vague to evaluate sales execution."],
+                    evidenceGaps: ["No specific call opener was provided."],
+                    suggestedTestTask: "Write a call opener and follow-up email for a med spa lead packet.",
+                  },
+                }),
+              },
+            },
+          ],
+        }),
+        { status: 200 },
+      ),
+    );
+    globalThis.fetch = fetchMock;
+
+    const score = await scoreApplicationForRole({
+      roleSlug: "sdr-appointment-setter",
+      roleTitle: "SDR / Appointment Setter",
+      candidateName: "Jane Smith",
+      applicationAnswers: {
+        "Write a 4-sentence call opener for a med spa owner who is missing consults from calls and follow-up gaps.":
+          "I do not know yet.",
+      },
+    });
+
+    expect(score.role_fit_score).toBe(2);
+    expect(score.recommended_next_step).toBe("hold");
+    expect(score.score_summary).toContain("limited evidence");
+    expect(score.evidence_gaps).toContain("No specific call opener was provided.");
+  });
+
   it("uses OpenAI Responses API only when the provider is openai", async () => {
     process.env.HIRING_AI_PROVIDER = "openai";
     process.env.OPENAI_API_KEY = "openai-key";
