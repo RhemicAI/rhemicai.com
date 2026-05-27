@@ -75,7 +75,7 @@ describe("hiring scoring agent", () => {
   it("uses DeepSeek v4 Pro for the Responses API call by default", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     delete process.env.OPENAI_HIRING_MODEL;
-    const fetchMock = vi.fn(async () =>
+    const fetchMock = vi.fn(async (_url: string | URL | Request, _init?: RequestInit) =>
       new Response(JSON.stringify({ output_text: JSON.stringify(fixedScore) }), { status: 200 }),
     );
     globalThis.fetch = fetchMock;
@@ -91,7 +91,8 @@ describe("hiring scoring agent", () => {
       resumeText: "Jane ran follow-up for a med spa sales team.",
     });
 
-    const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body)) as { model: string };
+    const [, init] = fetchMock.mock.calls[0] as [string | URL | Request, RequestInit];
+    const body = JSON.parse(String(init.body)) as { model: string };
     expect(body.model).toBe("deepseek-v4-pro");
   });
 
