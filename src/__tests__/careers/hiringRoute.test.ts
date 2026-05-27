@@ -1,10 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { POST, resetCareerApplicationGuardsForTests } from "@/app/api/careers/applications/route";
+import { POST } from "@/app/api/careers/applications/route";
 import { careersRoles } from "@/lib/careers";
 import { HiringTriageScore } from "@/lib/careers/hiringScoringAgent";
 
 const scoreApplicationForRoleMock = vi.hoisted(() => vi.fn());
 const sendApplicationThankYouEmailMock = vi.hoisted(() => vi.fn());
+const parseResumePdfTextMock = vi.hoisted(() => vi.fn());
 
 vi.mock("@/lib/careers/hiringScoringAgent", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/careers/hiringScoringAgent")>();
@@ -16,6 +17,10 @@ vi.mock("@/lib/careers/hiringScoringAgent", async (importOriginal) => {
 
 vi.mock("@/lib/careers/sendApplicationEmail", () => ({
   sendApplicationThankYouEmail: sendApplicationThankYouEmailMock,
+}));
+
+vi.mock("@/lib/careers/parseResumePdf", () => ({
+  parseResumePdfText: parseResumePdfTextMock,
 }));
 
 const originalFetch = globalThis.fetch;
@@ -85,12 +90,12 @@ function mockSuccessfulExternalWrites() {
 }
 
 beforeEach(() => {
-  resetCareerApplicationGuardsForTests();
   process.env.CLICKUP_API_TOKEN = "clickup-token";
   process.env.CLICKUP_APPLICATION_LIST_ID = "list-123";
   process.env.HIRING_VERIFY_SECRET = "test-secret";
   scoreApplicationForRoleMock.mockResolvedValue(scoredApplication);
   sendApplicationThankYouEmailMock.mockResolvedValue({ sent: true });
+  parseResumePdfTextMock.mockResolvedValue("Jane has SDR follow-up and CRM experience.");
 });
 
 afterEach(() => {
@@ -135,8 +140,9 @@ describe("careers application route scoring", () => {
         [sdrRole.formQuestions[1]]: "Answer two",
         [sdrRole.formQuestions[2]]: "Answer three",
       },
-      resumeText: undefined,
+      resumeText: "Jane has SDR follow-up and CRM experience.",
     });
+    expect(parseResumePdfTextMock).toHaveBeenCalled();
     expect(sendApplicationThankYouEmailMock).toHaveBeenCalledWith({
       candidateName: "Jane Smith",
       candidateEmail: "jane@example.com",
@@ -162,6 +168,7 @@ describe("careers application route scoring", () => {
     expect(body.success).toBe(false);
     expect(body.error).toBe("This role is not open for applications yet");
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(parseResumePdfTextMock).not.toHaveBeenCalled();
     expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveBeenCalled();
   });
@@ -257,6 +264,7 @@ describe("careers application route scoring", () => {
     expect(response.status).toBe(409);
     expect(body.error).toBe("Only one application can be submitted per person.");
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(parseResumePdfTextMock).not.toHaveBeenCalled();
     expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
   });
@@ -276,6 +284,35 @@ describe("careers application route scoring", () => {
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
     expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
+  });
+
+  it("does not retry ClickUp task creation without required tags", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/list/") && init?.method !== "POST") {
+        return new Response(JSON.stringify({ tasks: [] }), { status: 200 });
+      }
+      if (url.includes("/list/") && init?.method === "POST") {
+        return new Response(JSON.stringify({ error: "tag create blocked" }), { status: 400 });
+      }
+
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    });
+    globalThis.fetch = fetchMock;
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: applicationFormData({ email: "clickup-create-fails@example.com" }),
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const taskCreateCalls = fetchMock.mock.calls.filter(
+      ([input, init]) => String(input).includes("/list/") && init?.method === "POST",
+    );
+
+    expect(response.status).toBe(500);
+    expect(taskCreateCalls).toHaveLength(1);
+    expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
   });
 
   it("rate limits repeated application attempts before the expensive path", async () => {

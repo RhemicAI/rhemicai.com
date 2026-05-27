@@ -5,6 +5,7 @@ import {
   isHiringScoringFailure,
   scoreApplicationForRole,
 } from "@/lib/careers/hiringScoringAgent";
+import { parseResumePdfText } from "@/lib/careers/parseResumePdf";
 import { sendApplicationThankYouEmail } from "@/lib/careers/sendApplicationEmail";
 import {
   CandidateApplication,
@@ -21,10 +22,6 @@ const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT_MAX_PER_IP = 10;
 const RATE_LIMIT_MAX_PER_EMAIL = 3;
 const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
-
-export function resetCareerApplicationGuardsForTests() {
-  rateLimitBuckets.clear();
-}
 
 function requiredEnv(name: string) {
   const value = process.env[name];
@@ -194,24 +191,12 @@ async function createClickUpTask({
     tags: ["New Application", "Email Unverified", "Human Review Needed"],
   };
 
-  try {
-    return await clickupRequest<ClickUpTask>({
-      path: `/list/${listId}/task`,
-      token,
-      method: "POST",
-      body,
-    });
-  } catch {
-    return clickupRequest<ClickUpTask>({
-      path: `/list/${listId}/task`,
-      token,
-      method: "POST",
-      body: {
-        name: body.name,
-        markdown_content: markdown,
-      },
-    });
-  }
+  return clickupRequest<ClickUpTask>({
+    path: `/list/${listId}/task`,
+    token,
+    method: "POST",
+    body,
+  });
 }
 
 async function attachResumeToTask({
@@ -380,6 +365,12 @@ export async function POST(request: NextRequest) {
     if (!isPdfMagicBytes(resumeBuffer)) {
       return NextResponse.json({ success: false, error: "Resume must be a valid PDF" }, { status: 400 });
     }
+    let resumeText: string | undefined;
+    try {
+      resumeText = await parseResumePdfText(resumeBuffer);
+    } catch (error) {
+      console.warn("Resume PDF parsing failed:", error);
+    }
 
     const initialMarkdown = buildApplicationMarkdown({
       candidate,
@@ -407,6 +398,7 @@ export async function POST(request: NextRequest) {
       roleTitle: role.title,
       candidateName: candidate.name,
       applicationAnswers,
+      resumeText,
     });
     const scoringFailed = isHiringScoringFailure(score);
     const verificationUrl = buildVerificationUrl({
