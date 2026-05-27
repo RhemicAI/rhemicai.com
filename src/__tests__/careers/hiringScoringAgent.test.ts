@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   HiringTriageScore,
   hiringTriageScoreJsonSchema,
+  isHiringScoringFailure,
   scoreApplicationForRole,
   validateHiringTriageScore,
 } from "@/lib/careers/hiringScoringAgent";
@@ -173,26 +174,74 @@ describe("hiring scoring agent", () => {
     expect(score.evidence_gaps).toContain("No specific call opener was provided.");
   });
 
-  it("coerces incomplete DeepSeek JSON into a safe normalized score instead of failing scoring", async () => {
+  it("repairs incomplete DeepSeek JSON before returning a completed score", async () => {
     process.env.HIRING_AI_PROVIDER = "deepseek";
     process.env.DEEPSEEK_API_KEY = "deepseek-key";
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response(
+          JSON.stringify({
+            choices: [
+              {
+                message: {
+                  content: JSON.stringify({
+                    recommended_next_step: "hold",
+                    score_summary: "The answers show strong messaging and process thinking.",
+                    strengths: ["The opener is med spa aware."],
+                    risks: ["Explicit CRM evidence is thin."],
+                    evidence_gaps: ["No explicit CRM tool usage was provided."],
+                    suggested_test_task: "Write a call opener and follow-up email for a med spa lead packet.",
+                  }),
+                },
+              },
+            ],
+          }),
+          { status: 200 },
+        ),
+      )
+      .mockResolvedValueOnce(
+        new Response(
+          JSON.stringify({
+            choices: [{ message: { content: JSON.stringify(fixedScore) } }],
+          }),
+          { status: 200 },
+        ),
+      );
+    globalThis.fetch = fetchMock;
+
+    const score = await scoreApplicationForRole({
+      roleSlug: "sdr-appointment-setter",
+      roleTitle: "SDR / Appointment Setter",
+      candidateName: "Jane Smith",
+      applicationAnswers: {
+        "Write a 4-sentence call opener for a med spa owner who is missing consults from calls and follow-up gaps.":
+          "I do not know yet.",
+      },
+      resumeText: "Resume text was parsed.",
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(score.role_fit_score).toBe(fixedScore.role_fit_score);
+    expect(score.risk_score).toBe(fixedScore.risk_score);
+    expect(score.score_summary).toBe(fixedScore.score_summary);
+  });
+
+  it("returns a consistent failure fallback when DeepSeek repair stays incomplete", async () => {
+    process.env.HIRING_AI_PROVIDER = "deepseek";
+    process.env.DEEPSEEK_API_KEY = "deepseek-key";
+    const incompleteScore = {
+      recommended_next_step: "hold",
+      score_summary: "The answers show strong messaging and process thinking.",
+      strengths: ["The opener is med spa aware."],
+      risks: ["Explicit CRM evidence is thin."],
+      evidence_gaps: ["No explicit CRM tool usage was provided."],
+      suggested_test_task: "Write a call opener and follow-up email for a med spa lead packet.",
+    };
     const fetchMock = vi.fn(async () =>
       new Response(
         JSON.stringify({
-          choices: [
-            {
-              message: {
-                content: JSON.stringify({
-                  recommended_next_step: "hold",
-                  score_summary: "The answers show willingness to learn but little direct execution evidence.",
-                  strengths: ["Candidate is transparent about needing training."],
-                  risks: ["No specific sales process or follow-up method was provided."],
-                  evidence_gaps: ["No concrete call opener was submitted."],
-                  suggested_test_task: "Write a call opener and follow-up email for a med spa lead packet.",
-                }),
-              },
-            },
-          ],
+          choices: [{ message: { content: JSON.stringify(incompleteScore) } }],
         }),
         { status: 200 },
       ),
@@ -210,11 +259,12 @@ describe("hiring scoring agent", () => {
       resumeText: "Resume text was parsed.",
     });
 
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(isHiringScoringFailure(score)).toBe(true);
     expect(score.role_fit_score).toBe(0);
     expect(score.risk_score).toBe(10);
-    expect(score.recommended_next_step).toBe("hold");
-    expect(score.score_summary).not.toContain("AI scoring did not complete");
-    expect(score.evidence_gaps.some((gap) => gap.includes("Provider returned incomplete score JSON"))).toBe(true);
+    expect(score.score_summary).toContain("AI scoring did not complete");
+    expect(score.score_summary).not.toContain("strong messaging");
   });
 
   it("uses OpenAI Responses API only when the provider is openai", async () => {

@@ -42,6 +42,11 @@ type RoleScoringRubric = {
 
 type HiringAiProvider = "openai" | "deepseek";
 type ScoreAlias = keyof HiringTriageScore;
+type DeepSeekRequestContext = {
+  baseUrl: string;
+  apiKey: string;
+  model: string;
+};
 
 export const hiringTriageScoreJsonSchema = {
   type: "object",
@@ -157,6 +162,12 @@ const DEFAULT_DEEPSEEK_HIRING_MODEL = "deepseek-v4-pro";
 const AI_SCORING_TIMEOUT_MS = 10_000;
 const SCORING_FAILURE_PREFIX = "AI scoring did not complete.";
 
+function configuredEnv(name: string) {
+  const value = process.env[name]?.trim();
+  if (!value || value === "undefined" || value === "null") return undefined;
+  return value;
+}
+
 function roleFromInput(input: ScoreApplicationForRoleInput): CareerRole {
   return (
     getCareerRole(input.roleSlug) ?? {
@@ -201,7 +212,9 @@ export function buildScoringInstructions(role: CareerRole) {
     "The model may only evaluate the submitted application answers and parsed resume text. It must not infer, invent, or assume missing work history, credentials, results, school, location, or prior experience. If evidence is missing, it must add that gap to evidence_gaps.",
     "Do not use the candidate's name, email, links, or any external knowledge as evidence of skill or experience.",
     "Keep strengths, risks, and summaries grounded in direct evidence from the submitted text.",
-    "Return JSON that exactly matches the schema.",
+    "Return one JSON object that exactly matches the schema.",
+    `Return these exact top-level keys and no wrapper object: ${hiringTriageScoreJsonSchema.required.join(", ")}.`,
+    "Every numeric score field is required and must be an integer from 0 to 10.",
     "",
     `Role: ${role.title}`,
     `Operating bottleneck: ${role.bottleneck}`,
@@ -393,6 +406,10 @@ function missingScoreFields(rawScore: unknown) {
   return hiringTriageScoreJsonSchema.required.filter((key) => !(key in score));
 }
 
+function getMissingNormalizedScoreFields(rawScore: unknown) {
+  return missingScoreFields(normalizeScoreShape(rawScore));
+}
+
 function normalizeProviderScore(
   rawScore: unknown,
   fallbackTask: string,
@@ -400,15 +417,89 @@ function normalizeProviderScore(
 ) {
   const normalizedScore = normalizeScoreShape(rawScore);
   const missing = missingScoreFields(normalizedScore);
-  const normalizedEvidenceGaps = missing.length
-    ? [
-        ...requiredEvidenceGaps,
-        `Provider returned incomplete score JSON; normalized missing fields to safe defaults: ${missing.join(", ")}`,
-      ]
-    : requiredEvidenceGaps;
+  if (missing.length) {
+    throw new Error(`Provider returned incomplete score JSON; missing fields: ${missing.join(", ")}`);
+  }
+
+  const normalizedEvidenceGaps = requiredEvidenceGaps;
   const score = validateHiringTriageScore(normalizedScore, fallbackTask, normalizedEvidenceGaps);
   assertHiringTriageScoreSchema(score);
   return score;
+}
+
+async function requestDeepSeekJson(
+  context: DeepSeekRequestContext,
+  messages: Array<{ role: "system" | "user"; content: string }>,
+  source: string,
+) {
+  const response = await fetchWithTimeout(`${context.baseUrl}/chat/completions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${context.apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: context.model,
+      messages,
+      response_format: { type: "json_object" },
+      temperature: 0,
+    }),
+  });
+
+  const text = await response.text();
+  if (!response.ok) {
+    throw new Error(`${source} failed: ${response.status} ${text}`);
+  }
+
+  const outputText = extractChatCompletionContent(parseJsonObject(text, source));
+  if (!outputText) {
+    throw new Error(`${source} returned no message content`);
+  }
+
+  return parseJsonObject(outputText, `${source} output`);
+}
+
+async function repairDeepSeekScore({
+  context,
+  role,
+  rawScore,
+  missingFields,
+  requiredEvidenceGaps,
+}: {
+  context: DeepSeekRequestContext;
+  role: CareerRole;
+  rawScore: unknown;
+  missingFields: string[];
+  requiredEvidenceGaps: string[];
+}) {
+  return requestDeepSeekJson(
+    context,
+    [
+      {
+        role: "system",
+        content: [
+          "You repair one hiring triage JSON object.",
+          "Return only one JSON object with the exact required top-level fields.",
+          `Required top-level fields: ${hiringTriageScoreJsonSchema.required.join(", ")}.`,
+          "Every numeric score field must be an integer from 0 to 10.",
+          "Do not add a wrapper object.",
+          "Do not invent evidence. If evidence is missing, keep scores conservative and list the gap in evidence_gaps.",
+          "Human review is mandatory before any candidate decision.",
+        ].join("\n"),
+      },
+      {
+        role: "user",
+        content: JSON.stringify({
+          missingFields,
+          requiredEvidenceGaps,
+          fallbackSuggestedTestTask: role.suggestedTestTask,
+          schema: hiringTriageScoreJsonSchema,
+          partialScore: rawScore,
+        }),
+      },
+    ],
+    "DeepSeek scoring repair",
+  );
 }
 
 function logScoringFailure(provider: HiringAiProvider, error: unknown) {
@@ -417,8 +508,8 @@ function logScoringFailure(provider: HiringAiProvider, error: unknown) {
     provider,
     model:
       provider === "openai"
-        ? process.env.OPENAI_HIRING_MODEL || DEFAULT_OPENAI_HIRING_MODEL
-        : process.env.DEEPSEEK_HIRING_MODEL || DEFAULT_DEEPSEEK_HIRING_MODEL,
+        ? configuredEnv("OPENAI_HIRING_MODEL") || DEFAULT_OPENAI_HIRING_MODEL
+        : configuredEnv("DEEPSEEK_HIRING_MODEL") || DEFAULT_DEEPSEEK_HIRING_MODEL,
     reason: message.slice(0, 300),
   });
 }
@@ -495,7 +586,7 @@ export function isHiringScoringFailure(score: HiringTriageScore) {
 }
 
 function getHiringAiProvider(): HiringAiProvider | null {
-  const provider = process.env.HIRING_AI_PROVIDER;
+  const provider = configuredEnv("HIRING_AI_PROVIDER");
   if (provider === "openai" || provider === "deepseek") {
     return provider;
   }
@@ -527,7 +618,7 @@ async function scoreWithOpenAi({
   role: CareerRole;
   requiredEvidenceGaps: string[];
 }) {
-  const openAiKey = process.env.OPENAI_API_KEY;
+  const openAiKey = configuredEnv("OPENAI_API_KEY");
   if (!openAiKey) {
     throw new Error("OPENAI_API_KEY is not configured for HIRING_AI_PROVIDER=openai");
   }
@@ -539,7 +630,7 @@ async function scoreWithOpenAi({
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: process.env.OPENAI_HIRING_MODEL || DEFAULT_OPENAI_HIRING_MODEL,
+      model: configuredEnv("OPENAI_HIRING_MODEL") || DEFAULT_OPENAI_HIRING_MODEL,
       store: false,
       instructions: buildScoringInstructions(role),
       input: [
@@ -588,47 +679,51 @@ async function scoreWithDeepSeek({
   role: CareerRole;
   requiredEvidenceGaps: string[];
 }) {
-  const deepSeekKey = process.env.DEEPSEEK_API_KEY;
+  const deepSeekKey = configuredEnv("DEEPSEEK_API_KEY");
   if (!deepSeekKey) {
     throw new Error("DEEPSEEK_API_KEY is not configured for HIRING_AI_PROVIDER=deepseek");
   }
 
-  const baseUrl = (process.env.DEEPSEEK_BASE_URL || DEFAULT_DEEPSEEK_BASE_URL).replace(/\/$/, "");
-  const response = await fetchWithTimeout(`${baseUrl}/chat/completions`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${deepSeekKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: process.env.DEEPSEEK_HIRING_MODEL || DEFAULT_DEEPSEEK_HIRING_MODEL,
-      messages: [
-        {
-          role: "system",
-          content: buildScoringInstructions(role),
-        },
-        {
-          role: "user",
-          content: JSON.stringify(buildModelInput(input, role)),
-        },
-      ],
-      response_format: { type: "json_object" },
-      temperature: 0,
-    }),
+  const baseUrl = (configuredEnv("DEEPSEEK_BASE_URL") || DEFAULT_DEEPSEEK_BASE_URL).replace(/\/$/, "");
+  const context = {
+    baseUrl,
+    apiKey: deepSeekKey,
+    model: configuredEnv("DEEPSEEK_HIRING_MODEL") || DEFAULT_DEEPSEEK_HIRING_MODEL,
+  };
+  const rawScore = await requestDeepSeekJson(
+    context,
+    [
+      {
+        role: "system",
+        content: buildScoringInstructions(role),
+      },
+      {
+        role: "user",
+        content: JSON.stringify(buildModelInput(input, role)),
+      },
+    ],
+    "DeepSeek scoring",
+  );
+
+  const missing = getMissingNormalizedScoreFields(rawScore);
+  if (!missing.length) {
+    return normalizeProviderScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
+  }
+
+  console.warn("Hiring AI scoring returned incomplete JSON; attempting repair", {
+    provider: "deepseek",
+    model: context.model,
+    missingFields: missing,
   });
 
-  const text = await response.text();
-  if (!response.ok) {
-    throw new Error(`DeepSeek scoring failed: ${response.status} ${text}`);
-  }
-
-  const outputText = extractChatCompletionContent(parseJsonObject(text, "DeepSeek scoring"));
-  if (!outputText) {
-    throw new Error("DeepSeek scoring returned no message content");
-  }
-
-  const rawScore = parseJsonObject(outputText, "DeepSeek scoring output");
-  return normalizeProviderScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
+  const repairedScore = await repairDeepSeekScore({
+    context,
+    role,
+    rawScore,
+    missingFields: missing,
+    requiredEvidenceGaps,
+  });
+  return normalizeProviderScore(repairedScore, role.suggestedTestTask, requiredEvidenceGaps);
 }
 
 export async function scoreApplicationForRole(
