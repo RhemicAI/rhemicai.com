@@ -95,12 +95,12 @@ export async function GET(request: NextRequest) {
       return htmlPage("Verification failed", "This verification link is invalid or expired.", 400);
     }
 
-    type ClickUpTask = { description?: string; text_content?: string };
+    type ClickUpTask = { markdown_content?: string; description?: string; text_content?: string };
     const task = await clickupRequest<ClickUpTask>({
       path: `/task/${payload.taskId}`,
       token: clickupToken,
     });
-    const description = task.description || task.text_content || "";
+    const description = task.markdown_content || task.description || task.text_content || "";
     const updatedDescription = description.replace(
       /Email verification state: Email Unverified/g,
       "Email verification state: Verified",

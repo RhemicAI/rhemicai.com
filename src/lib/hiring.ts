@@ -64,6 +64,7 @@ export function buildApplicationMarkdown({
   reviewStatus = "Human Review Needed",
   emailConfirmationState = "Pending",
   emailFailureReason,
+  resumeAttachmentFailureReason,
 }: {
   candidate: CandidateApplication;
   role: CareerRole;
@@ -74,7 +75,13 @@ export function buildApplicationMarkdown({
   reviewStatus?: string;
   emailConfirmationState?: "Pending" | "Confirmation Email Sent" | "Confirmation Email Failed";
   emailFailureReason?: string;
+  resumeAttachmentFailureReason?: string;
 }) {
+  const resumeAttachmentState = resumeAttachmentFailureReason
+    ? "Resume Attachment Failed"
+    : resumeAttached
+      ? "Attached"
+      : "Missing";
   const answerLines = role.formQuestions
     .map((question, index) => {
       const answer = candidate.answers[index]?.trim() || "Not answered";
@@ -134,7 +141,8 @@ export function buildApplicationMarkdown({
     `- Email verification state: ${emailVerificationState}`,
     `- Confirmation email state: ${emailConfirmationState}`,
     ...(emailFailureReason ? [`- Confirmation email failure reason: ${emailFailureReason}`] : []),
-    `- Resume attachment state: ${resumeAttached ? "Attached" : "Missing"}`,
+    `- Resume attachment state: ${resumeAttachmentState}`,
+    ...(resumeAttachmentFailureReason ? [`- Resume attachment failure reason: ${resumeAttachmentFailureReason}`] : []),
     `- Human reviewer: ${humanReviewer}`,
     `- Review status: ${reviewStatus}`,
     ``,

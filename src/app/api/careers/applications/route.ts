@@ -3,6 +3,7 @@ import { getCareerRole, getOpenCareerRole } from "@/lib/careers";
 import {
   HiringTriageScore,
   isHiringScoringFailure,
+  safeScoreFallback,
   scoreApplicationForRole,
 } from "@/lib/careers/hiringScoringAgent";
 import { parseResumePdfText } from "@/lib/careers/parseResumePdf";
@@ -267,6 +268,48 @@ async function addClickUpTag({
   }
 }
 
+async function addClickUpComment({
+  taskId,
+  token,
+  comment,
+}: {
+  taskId: string;
+  token: string;
+  comment: string;
+}) {
+  await clickupRequest({
+    path: `/task/${taskId}/comment`,
+    token,
+    method: "POST",
+    body: {
+      comment: [{ text: comment }],
+      notify_all: false,
+    },
+  });
+}
+
+async function recordPostTaskFailure({
+  taskId,
+  token,
+  tag,
+  comment,
+}: {
+  taskId: string;
+  token: string;
+  tag: string;
+  comment: string;
+}) {
+  const results = await Promise.allSettled([
+    addClickUpTag({ taskId, token, tag }),
+    addClickUpComment({ taskId, token, comment }),
+  ]);
+  for (const result of results) {
+    if (result.status === "rejected") {
+      console.warn(`ClickUp failure marker failed for ${tag}:`, result.reason);
+    }
+  }
+}
+
 function buildVerificationUrl({
   request,
   candidate,
@@ -387,19 +430,38 @@ export async function POST(request: NextRequest) {
     });
 
     let resumeAttached = false;
-    await attachResumeToTask({ taskId: task.id, token: clickupToken, resume });
-    resumeAttached = true;
+    let resumeAttachmentFailureReason: string | undefined;
+    try {
+      await attachResumeToTask({ taskId: task.id, token: clickupToken, resume });
+      resumeAttached = true;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "unknown resume attachment error";
+      resumeAttachmentFailureReason = truncateForMarkdown(message);
+      console.error("Resume attachment failed after ClickUp task creation:", error);
+      await recordPostTaskFailure({
+        taskId: task.id,
+        token: clickupToken,
+        tag: "Resume Attachment Failed",
+        comment: `Resume Attachment Failed for ${candidate.email}. Application task was captured, but the PDF attachment did not complete. Reason: ${resumeAttachmentFailureReason}`,
+      });
+    }
 
     const applicationAnswers = Object.fromEntries(
       role.formQuestions.map((question, index) => [question, candidate.answers[index] || ""]),
     );
-    const score: HiringTriageScore = await scoreApplicationForRole({
-      roleSlug: role.slug,
-      roleTitle: role.title,
-      candidateName: candidate.name,
-      applicationAnswers,
-      resumeText,
-    });
+    let score: HiringTriageScore;
+    try {
+      score = await scoreApplicationForRole({
+        roleSlug: role.slug,
+        roleTitle: role.title,
+        candidateName: candidate.name,
+        applicationAnswers,
+        resumeText,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "unknown scoring error";
+      score = safeScoreFallback(role, truncateForMarkdown(message));
+    }
     const scoringFailed = isHiringScoringFailure(score);
     const verificationUrl = buildVerificationUrl({
       request,
@@ -411,7 +473,10 @@ export async function POST(request: NextRequest) {
       candidateEmail: candidate.email,
       roleTitle: role.title,
       verificationUrl,
-    });
+    }).catch((error: unknown) => ({
+      sent: false,
+      error: error instanceof Error ? error.message : "unknown confirmation email error",
+    }));
     const emailStatus = emailResult.sent ? "sent" : "failed";
     const emailConfirmationState = emailResult.sent ? "Confirmation Email Sent" : "Confirmation Email Failed";
     const emailFailureReason = emailResult.sent || !emailResult.error
@@ -428,23 +493,55 @@ export async function POST(request: NextRequest) {
       reviewStatus: "Human Review Needed",
       emailConfirmationState,
       emailFailureReason,
+      resumeAttachmentFailureReason,
     });
-    await updateClickUpTaskMarkdown({
-      taskId: task.id,
-      token: clickupToken,
-      markdown: finalMarkdown,
-    });
-    await addClickUpTag({
-      taskId: task.id,
-      token: clickupToken,
-      tag: scoringFailed ? "AI Scoring Failed" : "AI Scored",
-    });
-    await addClickUpTag({ taskId: task.id, token: clickupToken, tag: "Human Review Needed" });
-    await addClickUpTag({
-      taskId: task.id,
-      token: clickupToken,
-      tag: emailConfirmationState,
-    });
+    let taskUpdateStatus: "updated" | "failed" = "updated";
+    try {
+      await updateClickUpTaskMarkdown({
+        taskId: task.id,
+        token: clickupToken,
+        markdown: finalMarkdown,
+      });
+    } catch (error) {
+      taskUpdateStatus = "failed";
+      const message = error instanceof Error ? error.message : "unknown task update error";
+      console.error("ClickUp task markdown update failed after task creation:", error);
+      await recordPostTaskFailure({
+        taskId: task.id,
+        token: clickupToken,
+        tag: "Application Update Failed",
+        comment: `Application Update Failed for ${candidate.email}. The application task was captured, but the post-processing markdown update did not complete. Reason: ${truncateForMarkdown(message)}`,
+      });
+    }
+    await Promise.allSettled([
+      addClickUpTag({
+        taskId: task.id,
+        token: clickupToken,
+        tag: scoringFailed ? "AI Scoring Failed" : "AI Scored",
+      }),
+      addClickUpTag({ taskId: task.id, token: clickupToken, tag: "Human Review Needed" }),
+      addClickUpTag({
+        taskId: task.id,
+        token: clickupToken,
+        tag: emailConfirmationState,
+      }),
+    ]);
+    if (scoringFailed) {
+      await recordPostTaskFailure({
+        taskId: task.id,
+        token: clickupToken,
+        tag: "AI Scoring Failed",
+        comment: `AI Scoring Failed for ${candidate.email}. Human review is required before any candidate communication or decision.`,
+      });
+    }
+    if (!emailResult.sent) {
+      await recordPostTaskFailure({
+        taskId: task.id,
+        token: clickupToken,
+        tag: "Confirmation Email Failed",
+        comment: `Confirmation Email Failed for ${candidate.email}. Application task was captured, but the applicant thank-you/verification email did not complete. Reason: ${emailFailureReason || "unknown email error"}`,
+      });
+    }
 
     return NextResponse.json({
       success: true,
@@ -453,6 +550,8 @@ export async function POST(request: NextRequest) {
         : "Application received. Human review is required before any next step.",
       scoringStatus: scoringFailed ? "failed" : "scored",
       emailStatus,
+      resumeStatus: resumeAttached ? "attached" : "failed",
+      taskStatus: taskUpdateStatus,
     });
   } catch (error) {
     console.error("Career application error:", error);

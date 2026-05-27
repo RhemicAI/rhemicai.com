@@ -240,6 +240,82 @@ describe("careers application route scoring", () => {
     expect(fetchMock.mock.calls.some(([input]) => String(input).includes("Confirmation%20Email%20Failed"))).toBe(true);
   });
 
+  it("marks the task when resume attachment fails and still returns success", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/list/") && init?.method !== "POST") {
+        return new Response(JSON.stringify({ tasks: [] }), { status: 200 });
+      }
+      if (url.includes("/list/") && init?.method === "POST") {
+        return new Response(JSON.stringify({ id: "task-123", url: "https://app.clickup.com/t/task-123" }), {
+          status: 200,
+        });
+      }
+      if (url.includes("/task/task-123/attachment")) {
+        return new Response(JSON.stringify({ error: "upload failed" }), { status: 500 });
+      }
+
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    });
+    globalThis.fetch = fetchMock;
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: applicationFormData({ email: "resume-attach-failed@example.com" }),
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const body = (await response.json()) as { success: boolean; resumeStatus: string };
+    const updateCall = fetchMock.mock.calls.find(
+      ([input, init]) => String(input).includes("/task/task-123") && init?.method === "PUT",
+    );
+    const updateBody = JSON.parse(String(updateCall?.[1]?.body)) as { markdown_content: string };
+    const commentCalls = fetchMock.mock.calls.filter(
+      ([input, init]) => String(input).includes("/task/task-123/comment") && init?.method === "POST",
+    );
+
+    expect(response.status).toBe(200);
+    expect(body.success).toBe(true);
+    expect(body.resumeStatus).toBe("failed");
+    expect(updateBody.markdown_content).toContain("Resume attachment state: Resume Attachment Failed");
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes("Resume%20Attachment%20Failed"))).toBe(true);
+    expect(JSON.stringify(commentCalls.map(([, init]) => init?.body))).toContain("Resume Attachment Failed");
+    expect(scoreApplicationForRoleMock).toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).toHaveBeenCalled();
+  });
+
+  it("returns success when final ClickUp markdown update fails after task creation", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/list/") && init?.method !== "POST") {
+        return new Response(JSON.stringify({ tasks: [] }), { status: 200 });
+      }
+      if (url.includes("/list/") && init?.method === "POST") {
+        return new Response(JSON.stringify({ id: "task-123", url: "https://app.clickup.com/t/task-123" }), {
+          status: 200,
+        });
+      }
+      if (url.endsWith("/task/task-123") && init?.method === "PUT") {
+        return new Response(JSON.stringify({ error: "markdown update failed" }), { status: 500 });
+      }
+
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    });
+    globalThis.fetch = fetchMock;
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: applicationFormData({ email: "markdown-update-failed@example.com" }),
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const body = (await response.json()) as { success: boolean; taskStatus: string };
+
+    expect(response.status).toBe(200);
+    expect(body.success).toBe(true);
+    expect(body.taskStatus).toBe("failed");
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes("Application%20Update%20Failed"))).toBe(true);
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes("/task/task-123/comment"))).toBe(true);
+  });
+
   it("rejects duplicate applicants before creating another ClickUp task", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);
