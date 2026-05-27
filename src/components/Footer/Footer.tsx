@@ -26,7 +26,7 @@ const linkRoutes: Record<string, string> = {
 const footerLinks = {
   Solutions: ['What We Optimize', 'How It Works', 'Pricing', 'Book the Audit'],
   Resources: ['Glossary', 'FAQ'],
-  Company: ['About', 'Blog', 'Pricing', 'Contact'],
+  Company: ['About', 'Blog', 'Careers', 'Pricing', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };
 
