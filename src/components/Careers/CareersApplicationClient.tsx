@@ -38,18 +38,32 @@ export default function CareersApplicationClient() {
 
   useEffect(() => {
     if (!modalRole) return;
+    const scrollY = window.scrollY;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeModal();
     };
 
     document.addEventListener("keydown", onKeyDown);
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     const previousOverflow = document.body.style.overflow;
+    const previousPosition = document.body.style.position;
+    const previousTop = document.body.style.top;
+    const previousWidth = document.body.style.width;
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
+      document.documentElement.style.overflow = previousHtmlOverflow;
       document.body.style.overflow = previousOverflow;
+      document.body.style.position = previousPosition;
+      document.body.style.top = previousTop;
+      document.body.style.width = previousWidth;
+      window.scrollTo(0, scrollY);
     };
   }, [closeModal, modalRole]);
 
@@ -204,12 +218,18 @@ export default function CareersApplicationClient() {
           aria-labelledby="careers-application-title"
           aria-modal="true"
           role="dialog"
-          className="fixed inset-0 z-[2147483647] flex items-center justify-center overflow-hidden bg-black/80 px-3 py-3 backdrop-blur-md sm:px-6 sm:py-8"
+          className="fixed inset-0 z-[2147483647] flex items-stretch justify-center overflow-hidden bg-black/80 px-3 py-3 backdrop-blur-md sm:px-6 sm:py-8"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) closeModal();
           }}
+          onWheelCapture={(event) => {
+            event.stopPropagation();
+          }}
+          onTouchMoveCapture={(event) => {
+            event.stopPropagation();
+          }}
         >
-          <div className="glass-panel relative flex max-h-[calc(100dvh-1.5rem)] w-full max-w-4xl flex-col overflow-hidden p-0 sm:max-h-[calc(100dvh-4rem)]">
+          <div className="glass-panel relative my-auto flex h-[calc(100dvh-1.5rem)] max-h-[900px] w-full max-w-4xl flex-col overflow-hidden p-0 sm:h-[calc(100dvh-4rem)]">
             <button
               type="button"
               onClick={closeModal}
@@ -219,7 +239,7 @@ export default function CareersApplicationClient() {
               Close
             </button>
 
-            <div className="border-b border-[var(--border-default)] px-4 pb-4 pt-5 pr-20 sm:px-8 sm:pb-6 sm:pt-7">
+            <div className="flex-none border-b border-[var(--border-default)] px-4 pb-4 pt-5 pr-20 sm:px-8 sm:pb-6 sm:pt-7">
               <p className="section-label mb-3">Job application</p>
               <h2
                 id="careers-application-title"
@@ -236,8 +256,11 @@ export default function CareersApplicationClient() {
               </p>
             </div>
 
-            <div className="overflow-y-auto overscroll-contain px-4 py-5 sm:px-8 sm:py-6">
-              <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col">
+              <div
+                data-lenis-prevent
+                className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-8 sm:py-6"
+              >
                 <input type="hidden" name="roleSlug" value={modalRole.slug} readOnly />
 
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
@@ -380,10 +403,12 @@ export default function CareersApplicationClient() {
                   />
                 </label>
 
+              </div>
+              <div className="flex-none border-t border-[var(--border-default)] bg-[rgba(7,9,12,0.92)] px-4 py-4 backdrop-blur-xl sm:px-8 sm:py-5">
                 {submitState.type !== "idle" && (
                   <div
                     role="alert"
-                    className={`mt-6 rounded-lg border p-4 text-sm font-medium ${
+                    className={`mb-4 rounded-lg border p-3 text-sm font-medium ${
                       submitState.type === "success"
                         ? "border-green-500/30 bg-green-900/20 text-green-300"
                         : "border-red-500/30 bg-red-900/20 text-red-300"
@@ -392,16 +417,15 @@ export default function CareersApplicationClient() {
                     {submitState.message}
                   </div>
                 )}
-
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="mt-6 w-full rounded-full bg-[var(--btn-primary-bg)] px-8 py-3.5 text-base font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100 sm:mt-8 sm:py-4"
+                  className="w-full rounded-full bg-[var(--btn-primary-bg)] px-8 py-3.5 text-base font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100 sm:py-4"
                 >
                   {isSubmitting ? "Submitting..." : "Submit application"}
                 </button>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
           ),
