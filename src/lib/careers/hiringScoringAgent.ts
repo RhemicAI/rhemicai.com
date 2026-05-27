@@ -313,15 +313,15 @@ function assertHiringTriageScoreSchema(rawScore: unknown) {
 }
 
 const scoreFieldAliases: Record<ScoreAlias, string[]> = {
-  role_fit_score: ["role_fit_score", "roleFitScore"],
-  communication_score: ["communication_score", "communicationScore"],
-  execution_clarity_score: ["execution_clarity_score", "executionClarityScore"],
-  systems_thinking_score: ["systems_thinking_score", "systemsThinkingScore"],
-  ai_tooling_score: ["ai_tooling_score", "aiToolingScore", "ai_tools_score", "aiToolsScore"],
-  domain_fit_score: ["domain_fit_score", "domainFitScore"],
-  risk_score: ["risk_score", "riskScore"],
+  role_fit_score: ["role_fit_score", "roleFitScore", "role_fit", "roleFit", "role"],
+  communication_score: ["communication_score", "communicationScore", "communication"],
+  execution_clarity_score: ["execution_clarity_score", "executionClarityScore", "execution_clarity", "executionClarity", "execution"],
+  systems_thinking_score: ["systems_thinking_score", "systemsThinkingScore", "systems_thinking", "systemsThinking", "systems"],
+  ai_tooling_score: ["ai_tooling_score", "aiToolingScore", "ai_tools_score", "aiToolsScore", "ai_tooling", "aiTooling"],
+  domain_fit_score: ["domain_fit_score", "domainFitScore", "domain_fit", "domainFit", "domain"],
+  risk_score: ["risk_score", "riskScore", "risk"],
   recommended_next_step: ["recommended_next_step", "recommendedNextStep"],
-  score_summary: ["score_summary", "scoreSummary", "summary"],
+  score_summary: ["score_summary", "scoreSummary", "summary", "overall_summary", "overallSummary", "rationale"],
   strengths: ["strengths"],
   risks: ["risks"],
   evidence_gaps: ["evidence_gaps", "evidenceGaps"],
@@ -343,28 +343,72 @@ function pickObject(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>;
 }
 
-function normalizeScoreShape(rawScore: unknown) {
-  const candidates = [pickObject(rawScore)];
-  const root = candidates[0];
-  if (root) {
-    for (const key of scoreContainerKeys) {
-      candidates.push(pickObject(root[key]));
-    }
+function collectObjects(value: unknown, depth = 0): Array<Record<string, unknown>> {
+  const object = pickObject(value);
+  if (!object || depth > 4) return [];
+
+  return [
+    object,
+    ...Object.values(object).flatMap((item) => collectObjects(item, depth + 1)),
+  ];
+}
+
+function scoreValue(value: unknown) {
+  if (pickObject(value)) {
+    const object = value as Record<string, unknown>;
+    return object.score ?? object.rating ?? object.value;
   }
+
+  return value;
+}
+
+function normalizeScoreShape(rawScore: unknown): Record<string, unknown> {
+  const candidates = collectObjects(rawScore);
 
   for (const candidate of candidates) {
     if (!candidate) continue;
     const normalized: Record<string, unknown> = {};
     for (const [targetKey, aliases] of Object.entries(scoreFieldAliases)) {
       const foundAlias = aliases.find((alias) => alias in candidate);
-      if (foundAlias) normalized[targetKey] = candidate[foundAlias];
+      if (foundAlias) normalized[targetKey] = scoreValue(candidate[foundAlias]);
     }
-    if ("role_fit_score" in normalized || "roleFitScore" in candidate) {
+    if (Object.keys(normalized).length >= 3) {
       return normalized;
     }
   }
 
-  return rawScore;
+  const root = pickObject(rawScore);
+  if (root) {
+    for (const key of scoreContainerKeys) {
+      const nested: Record<string, unknown> = normalizeScoreShape(root[key]);
+      if (nested !== root[key]) return nested;
+    }
+  }
+
+  return pickObject(rawScore) ?? {};
+}
+
+function missingScoreFields(rawScore: unknown) {
+  const score = pickObject(rawScore) ?? {};
+  return hiringTriageScoreJsonSchema.required.filter((key) => !(key in score));
+}
+
+function normalizeProviderScore(
+  rawScore: unknown,
+  fallbackTask: string,
+  requiredEvidenceGaps: string[],
+) {
+  const normalizedScore = normalizeScoreShape(rawScore);
+  const missing = missingScoreFields(normalizedScore);
+  const normalizedEvidenceGaps = missing.length
+    ? [
+        ...requiredEvidenceGaps,
+        `Provider returned incomplete score JSON; normalized missing fields to safe defaults: ${missing.join(", ")}`,
+      ]
+    : requiredEvidenceGaps;
+  const score = validateHiringTriageScore(normalizedScore, fallbackTask, normalizedEvidenceGaps);
+  assertHiringTriageScoreSchema(score);
+  return score;
 }
 
 function logScoringFailure(provider: HiringAiProvider, error: unknown) {
@@ -583,9 +627,8 @@ async function scoreWithDeepSeek({
     throw new Error("DeepSeek scoring returned no message content");
   }
 
-  const rawScore = normalizeScoreShape(parseJsonObject(outputText, "DeepSeek scoring output"));
-  assertHiringTriageScoreSchema(rawScore);
-  return validateHiringTriageScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
+  const rawScore = parseJsonObject(outputText, "DeepSeek scoring output");
+  return normalizeProviderScore(rawScore, role.suggestedTestTask, requiredEvidenceGaps);
 }
 
 export async function scoreApplicationForRole(
