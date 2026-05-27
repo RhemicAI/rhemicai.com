@@ -88,14 +88,16 @@ describe("hiring scoring agent", () => {
     process.env.DEEPSEEK_API_KEY = "deepseek-key";
     delete process.env.DEEPSEEK_BASE_URL;
     delete process.env.DEEPSEEK_HIRING_MODEL;
-    const fetchMock = vi.fn(async () =>
-      new Response(
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      void input;
+      void init;
+      return new Response(
         JSON.stringify({
           choices: [{ message: { content: JSON.stringify(fixedScore) } }],
         }),
         { status: 200 },
-      ),
-    );
+      );
+    });
     globalThis.fetch = fetchMock;
 
     await scoreApplicationForRole({
@@ -124,9 +126,11 @@ describe("hiring scoring agent", () => {
     process.env.HIRING_AI_PROVIDER = "openai";
     process.env.OPENAI_API_KEY = "openai-key";
     delete process.env.OPENAI_HIRING_MODEL;
-    const fetchMock = vi.fn(async () =>
-      new Response(JSON.stringify({ output_text: JSON.stringify(fixedScore) }), { status: 200 }),
-    );
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      void input;
+      void init;
+      return new Response(JSON.stringify({ output_text: JSON.stringify(fixedScore) }), { status: 200 });
+    });
     globalThis.fetch = fetchMock;
 
     await scoreApplicationForRole({
