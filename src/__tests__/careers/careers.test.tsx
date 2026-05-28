@@ -88,6 +88,18 @@ describe("CareersApplicationClient", () => {
     expect(linkedInInput).toBeRequired();
   });
 
+  it("requires phone number with a country-code selector", () => {
+    render(<CareersApplicationClient />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Apply now" }));
+
+    const countryCodeSelect = screen.getByLabelText("Country code");
+    const phoneInput = screen.getByLabelText("Phone number *");
+    expect(countryCodeSelect).toBeRequired();
+    expect(countryCodeSelect).toHaveDisplayValue("US/CA +1");
+    expect(phoneInput).toBeRequired();
+  });
+
   it("replaces the form with a thank-you state after successful submission", async () => {
     globalThis.fetch = vi.fn(async () =>
       new Response(
@@ -103,6 +115,7 @@ describe("CareersApplicationClient", () => {
     fireEvent.click(screen.getByRole("button", { name: "Apply now" }));
     fireEvent.change(screen.getByLabelText("Full name *"), { target: { value: "Jane Smith" } });
     fireEvent.change(screen.getByLabelText("Email *"), { target: { value: "jane@example.com" } });
+    fireEvent.change(screen.getByLabelText("Phone number *"), { target: { value: "5550000000" } });
     fireEvent.change(screen.getByLabelText("LinkedIn *"), {
       target: { value: "https://linkedin.com/in/jane" },
     });

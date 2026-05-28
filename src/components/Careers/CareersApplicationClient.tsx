@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { CareerRole, careersRoles } from "@/lib/careers";
+import { phoneCountryCodes } from "@/lib/careers/phoneCountryCodes";
 
 type SubmitState = {
   type: "idle" | "success" | "error";
@@ -325,17 +326,40 @@ export default function CareersApplicationClient() {
                     />
                   </label>
 
-                  <label className="block">
+                  <fieldset className="block">
                     <span className="mb-2 block text-sm font-semibold text-[var(--text-primary)]">
-                      Phone
+                      Phone *
                     </span>
-                    <input
-                      name="phone"
-                      maxLength={60}
-                      className="w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-3 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] sm:px-4 sm:py-3"
-                      placeholder="+1 555 000 0000"
-                    />
-                  </label>
+                    <div className="grid grid-cols-[minmax(7.5rem,0.7fr)_minmax(0,1.3fr)] gap-2">
+                      <label className="block">
+                        <span className="sr-only">Country code *</span>
+                        <select
+                          name="phoneCountryCode"
+                          required
+                          defaultValue="+1"
+                          aria-label="Country code"
+                          className="h-full w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-3 py-2.5 text-[var(--text-primary)] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] sm:px-4 sm:py-3"
+                        >
+                          {phoneCountryCodes.map((countryCode) => (
+                            <option key={`${countryCode.label}-${countryCode.code}`} value={countryCode.code}>
+                              {countryCode.label} {countryCode.code}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      <label className="block">
+                        <span className="sr-only">Phone number *</span>
+                        <input
+                          name="phone"
+                          type="tel"
+                          required
+                          maxLength={60}
+                          className="w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-3 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] sm:px-4 sm:py-3"
+                          placeholder="555 000 0000"
+                        />
+                      </label>
+                    </div>
+                  </fieldset>
 
                   <label className="block">
                     <span className="mb-2 block text-sm font-semibold text-[var(--text-primary)]">

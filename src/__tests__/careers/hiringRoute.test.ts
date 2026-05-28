@@ -61,6 +61,7 @@ function applicationFormData({
   formData.set("roleSlug", roleSlug);
   formData.set("name", "Jane Smith");
   formData.set("email", email);
+  formData.set("phoneCountryCode", "+1");
   formData.set("phone", "555-0000");
   formData.set("location", "Dallas, TX");
   formData.set("portfolioUrl", "https://example.com");
@@ -131,6 +132,7 @@ describe("careers application route scoring", () => {
     expect(body.scoringStatus).toBe("scored");
     expect(body.emailStatus).toBe("sent");
     expect(body.taskUrl).toBeUndefined();
+    expect(updateBody.markdown_content).toContain("Phone: +1 555-0000");
     expect(scoreApplicationForRoleMock).toHaveBeenCalledWith({
       roleSlug: sdrRole.slug,
       roleTitle: sdrRole.title,
@@ -376,6 +378,25 @@ describe("careers application route scoring", () => {
 
     expect(response.status).toBe(400);
     expect(body.error).toBe("LinkedIn URL is required");
+    expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
+    expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
+  });
+
+  it("rejects applications without a phone number before ClickUp task creation", async () => {
+    const fetchMock = mockSuccessfulExternalWrites();
+    const formData = applicationFormData({ email: "missing-phone@example.com" });
+    formData.set("phone", "");
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: formData,
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const body = (await response.json()) as { success: boolean; error: string };
+
+    expect(response.status).toBe(400);
+    expect(body.error).toBe("A valid phone number and country code are required");
     expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
     expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
