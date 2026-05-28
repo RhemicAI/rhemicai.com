@@ -7,6 +7,7 @@ import {
   scoreApplicationForRole,
 } from "@/lib/careers/hiringScoringAgent";
 import { parseResumePdfText } from "@/lib/careers/parseResumePdf";
+import { isSupportedPhoneCountryCode } from "@/lib/careers/phoneCountryCodes";
 import { sendApplicationThankYouEmail } from "@/lib/careers/sendApplicationEmail";
 import {
   CandidateApplication,
@@ -355,10 +356,12 @@ export async function POST(request: NextRequest) {
     const listId = requiredEnv("CLICKUP_APPLICATION_LIST_ID");
     requiredEnv("HIRING_VERIFY_SECRET");
 
+    const phoneCountryCode = readString(formData, "phoneCountryCode", 10);
+    const phoneNumber = readString(formData, "phone", 60);
     const candidate: CandidateApplication = {
       name: readString(formData, "name", 100),
       email: readString(formData, "email", 120).toLowerCase(),
-      phone: readString(formData, "phone", 60),
+      phone: phoneCountryCode && phoneNumber ? `${phoneCountryCode} ${phoneNumber}` : phoneNumber,
       location: readString(formData, "location", 120),
       portfolioUrl: readString(formData, "portfolioUrl", 250),
       linkedinUrl: readString(formData, "linkedinUrl", 250),
@@ -370,6 +373,9 @@ export async function POST(request: NextRequest) {
 
     if (!candidate.name || !candidate.email || !isValidEmail(candidate.email)) {
       return NextResponse.json({ success: false, error: "A valid name and email are required" }, { status: 400 });
+    }
+    if (!phoneNumber || !phoneCountryCode || !isSupportedPhoneCountryCode(phoneCountryCode)) {
+      return NextResponse.json({ success: false, error: "A valid phone number and country code are required" }, { status: 400 });
     }
     if (!candidate.linkedinUrl) {
       return NextResponse.json({ success: false, error: "LinkedIn URL is required" }, { status: 400 });
