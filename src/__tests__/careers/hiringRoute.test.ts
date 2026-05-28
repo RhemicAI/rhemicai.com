@@ -362,6 +362,25 @@ describe("careers application route scoring", () => {
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
   });
 
+  it("rejects applications without LinkedIn before ClickUp task creation", async () => {
+    const fetchMock = mockSuccessfulExternalWrites();
+    const formData = applicationFormData({ email: "missing-linkedin@example.com" });
+    formData.set("linkedinUrl", "");
+    const request = new Request("http://localhost/api/careers/applications", {
+      method: "POST",
+      body: formData,
+    });
+
+    const response = await POST(request as Parameters<typeof POST>[0]);
+    const body = (await response.json()) as { success: boolean; error: string };
+
+    expect(response.status).toBe(400);
+    expect(body.error).toBe("LinkedIn URL is required");
+    expect(scoreApplicationForRoleMock).not.toHaveBeenCalled();
+    expect(sendApplicationThankYouEmailMock).not.toHaveBeenCalled();
+    expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/list/") && init?.method === "POST")).toBe(false);
+  });
+
   it("does not retry ClickUp task creation without required tags", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);

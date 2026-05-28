@@ -371,6 +371,9 @@ export async function POST(request: NextRequest) {
     if (!candidate.name || !candidate.email || !isValidEmail(candidate.email)) {
       return NextResponse.json({ success: false, error: "A valid name and email are required" }, { status: 400 });
     }
+    if (!candidate.linkedinUrl) {
+      return NextResponse.json({ success: false, error: "LinkedIn URL is required" }, { status: 400 });
+    }
 
     const rateLimit = enforceRateLimit(request, candidate.email);
     if (!rateLimit.allowed) {
