@@ -256,11 +256,45 @@ export default function CareersApplicationClient() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col">
+            {submitState.type === "success" ? (
               <div
                 data-lenis-prevent
-                className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-8 sm:py-6"
+                className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto overscroll-contain px-4 py-10 text-center sm:px-8"
               >
+                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-green-400/30 bg-green-500/15 text-green-300 shadow-[0_0_40px_rgba(34,197,94,0.2)]">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-9 w-9"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--text-primary)]">
+                  Thank you for submitting.
+                </h3>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
+                  {submitState.message}
+                </p>
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="mt-8 rounded-full bg-[var(--btn-primary-bg)] px-8 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:scale-[1.01]"
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col">
+                <div
+                  data-lenis-prevent
+                  className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-8 sm:py-6"
+                >
                 <input type="hidden" name="roleSlug" value={modalRole.slug} readOnly />
 
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
@@ -317,11 +351,12 @@ export default function CareersApplicationClient() {
 
                   <label className="block">
                     <span className="mb-2 block text-sm font-semibold text-[var(--text-primary)]">
-                      LinkedIn
+                      LinkedIn *
                     </span>
                     <input
                       name="linkedinUrl"
                       type="url"
+                      required
                       maxLength={250}
                       className="w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-3 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] sm:px-4 sm:py-3"
                       placeholder="https://linkedin.com/in/..."
@@ -408,11 +443,7 @@ export default function CareersApplicationClient() {
                 {submitState.type !== "idle" && (
                   <div
                     role="alert"
-                    className={`mb-4 rounded-lg border p-3 text-sm font-medium ${
-                      submitState.type === "success"
-                        ? "border-green-500/30 bg-green-900/20 text-green-300"
-                        : "border-red-500/30 bg-red-900/20 text-red-300"
-                    }`}
+                    className="mb-4 rounded-lg border border-red-500/30 bg-red-900/20 p-3 text-sm font-medium text-red-300"
                   >
                     {submitState.message}
                   </div>
@@ -426,6 +457,7 @@ export default function CareersApplicationClient() {
                 </button>
               </div>
             </form>
+            )}
           </div>
         </div>
           ),

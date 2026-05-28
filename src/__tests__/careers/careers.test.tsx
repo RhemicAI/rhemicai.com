@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import CareersApplicationClient from "@/components/Careers/CareersApplicationClient";
 import {
   careersRoles,
@@ -8,6 +8,13 @@ import {
   recommendedNextSteps,
 } from "@/lib/careers";
 import { buildScoringInstructions } from "@/lib/careers/hiringScoringAgent";
+
+const originalFetch = globalThis.fetch;
+
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+  vi.restoreAllMocks();
+});
 
 describe("careers role model", () => {
   it("defines the four approved hiring bottleneck roles", () => {
@@ -70,6 +77,54 @@ describe("CareersApplicationClient", () => {
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Apply for SDR / Appointment Setter" })).toBeInTheDocument();
     expect(screen.getByDisplayValue("SDR / Appointment Setter")).toBeInTheDocument();
+  });
+
+  it("requires LinkedIn in the application modal", () => {
+    render(<CareersApplicationClient />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Apply now" }));
+
+    const linkedInInput = screen.getByLabelText("LinkedIn *");
+    expect(linkedInInput).toBeRequired();
+  });
+
+  it("replaces the form with a thank-you state after successful submission", async () => {
+    globalThis.fetch = vi.fn(async () =>
+      new Response(
+        JSON.stringify({
+          success: true,
+          message: "Application received. Check your email to verify your address.",
+        }),
+        { status: 200 },
+      ),
+    );
+    render(<CareersApplicationClient />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Apply now" }));
+    fireEvent.change(screen.getByLabelText("Full name *"), { target: { value: "Jane Smith" } });
+    fireEvent.change(screen.getByLabelText("Email *"), { target: { value: "jane@example.com" } });
+    fireEvent.change(screen.getByLabelText("LinkedIn *"), {
+      target: { value: "https://linkedin.com/in/jane" },
+    });
+    for (const textbox of screen.getAllByPlaceholderText("Be specific. We score from evidence, not vague claims.")) {
+      fireEvent.change(textbox, { target: { value: "Specific role evidence." } });
+    }
+    fireEvent.change(screen.getByLabelText("Resume PDF *"), {
+      target: {
+        files: [new File(["%PDF-1.4 test"], "resume.pdf", { type: "application/pdf" })],
+      },
+    });
+    const form = screen.getByRole("button", { name: "Submit application" }).closest("form");
+    expect(form).not.toBeNull();
+    fireEvent.submit(form as HTMLFormElement);
+
+    await waitFor(() => {
+      expect(globalThis.fetch).toHaveBeenCalled();
+      expect(screen.getByRole("heading", { name: "Thank you for submitting." })).toBeInTheDocument();
+    });
+    expect(screen.getByText("Application received. Check your email to verify your address.")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Submit application" })).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("Full name *")).not.toBeInTheDocument();
   });
 
   it("keeps coming-soon roles visible but unable to open the modal", () => {
