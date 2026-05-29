@@ -84,7 +84,7 @@ export default function Footer() {
               href="/free-consult-leak-calculator"
               className="px-6 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
             >
-              Get the audit
+              Calculate your leaks for free
             </Link>
           </div>
         </div>

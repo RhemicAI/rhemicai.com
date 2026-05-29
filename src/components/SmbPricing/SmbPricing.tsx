@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import { smbPlans } from '@/data/pricing';
 
 function CheckIcon() {
@@ -139,9 +140,9 @@ export default function SmbPricing() {
                       Contact for annual billing
                     </Link>
                   )}
-                  <Link href="/free-consult-leak-calculator" className={secondaryButtonClass}>
+                  <CalBookingLink calLink={plan.calLink} className={secondaryButtonClass}>
                     Get the audit
-                  </Link>
+                  </CalBookingLink>
                 </div>
               </div>
             );

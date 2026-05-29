@@ -876,7 +876,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                       >
                         <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
                         <span className="relative flex items-center gap-2">
-                          Book my strategy call
+                          Calculate your leaks for free
                           <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 10h10" />
                             <path d="m11 6 4 4-4 4" />
@@ -946,7 +946,7 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
                         className="group relative mt-4 inline-flex w-full max-w-xl items-center justify-center overflow-hidden rounded-xl bg-[var(--pulse)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition duration-300 hover:bg-[var(--pulse-deep)] hover:shadow-[0_8px_30px_rgba(77,214,224,0.25)]"
                       >
                         <span className="pointer-events-none absolute inset-y-0 left-[-45%] w-[40%] -skew-x-12 bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-0 transition-all duration-500 group-hover:left-[115%] group-hover:opacity-100" />
-                        <span className="relative">Unlock Full Insights</span>
+                        <span className="relative">Calculate your leaks for free</span>
                       </button>
                       <button
                         type="button"

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -17,6 +18,7 @@ export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const bookingCalLink = 'rhemic-ai/medspa-discovery-call';
 
   // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {
@@ -114,12 +116,12 @@ export default function FixedNav() {
 
         {/* Right, CTA (desktop) + Hamburger (mobile) */}
         <div className="flex items-center gap-4">
-          <Link
-            href="/free-consult-leak-calculator"
+          <CalBookingLink
+            calLink={bookingCalLink}
             className="hidden rounded-full bg-[var(--btn-primary-bg)] px-5 py-2.5 font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] md:block"
           >
             Get the audit
-          </Link>
+          </CalBookingLink>
 
           {/* Hamburger button (mobile only) */}
           <button
@@ -170,13 +172,13 @@ export default function FixedNav() {
               </Link>
             ))}
             <div className="mt-8">
-              <Link
-                href="/free-consult-leak-calculator"
+              <CalBookingLink
+                calLink={bookingCalLink}
                 onClick={() => setMenuOpen(false)}
                 className="rounded-full bg-[var(--btn-primary-bg)] px-8 py-3 font-body text-base font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:bg-[var(--pulse)]"
               >
                 Get the audit
-              </Link>
+              </CalBookingLink>
             </div>
           </div>
         </div>
@@ -189,12 +191,12 @@ export default function FixedNav() {
         }`}
       >
         <div className="flex justify-center px-5 pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] bg-[var(--bg-base)]/95 border-t border-[var(--border-subtle)] backdrop-blur-2xl">
-          <Link
-            href="/free-consult-leak-calculator"
+          <CalBookingLink
+            calLink={bookingCalLink}
             className="w-full rounded-full bg-[var(--btn-primary-bg)] px-5 py-3 text-center font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:bg-[var(--pulse)] active:scale-[0.98]"
           >
             Get a visibility + call leak audit
-          </Link>
+          </CalBookingLink>
         </div>
       </div>
     </>
