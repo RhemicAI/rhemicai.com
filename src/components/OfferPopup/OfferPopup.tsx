@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 const DISMISS_KEY = 'rhemic_offer_popup_dismissed_at';
 const DISMISS_DAYS = 7;
 const SHOW_DELAY_MS = 3000;
+const EXIT_MS = 260;
 
 function recentlyDismissed(): boolean {
   try {
@@ -23,33 +24,57 @@ function recentlyDismissed(): boolean {
 export default function OfferPopup() {
   const pathname = usePathname();
   const router = useRouter();
-  const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false); // in the DOM (kept during exit anim)
+  const [visible, setVisible] = useState(false); // drives enter/exit transition
 
   // Never show on the calculator page itself (it's the destination).
   const suppressed = pathname?.startsWith('/free-consult-leak-calculator') ?? false;
 
-  const dismiss = useCallback(() => {
+  const persistDismiss = useCallback(() => {
     try {
       window.localStorage.setItem(DISMISS_KEY, String(Date.now()));
     } catch {
       // ignore storage failures
     }
-    setOpen(false);
   }, []);
 
-  const goToCalculator = useCallback(() => {
-    dismiss();
-    router.push('/free-consult-leak-calculator');
-  }, [dismiss, router]);
+  // Animate out, then unmount.
+  const close = useCallback(() => {
+    setVisible(false);
+    window.setTimeout(() => setMounted(false), EXIT_MS);
+  }, []);
 
+  const dismiss = useCallback(() => {
+    persistDismiss();
+    close();
+  }, [persistDismiss, close]);
+
+  const goToCalculator = useCallback(() => {
+    persistDismiss();
+    setVisible(false);
+    window.setTimeout(() => {
+      setMounted(false);
+      router.push('/free-consult-leak-calculator');
+    }, EXIT_MS);
+  }, [persistDismiss, router]);
+
+  // Show after the delay on a fresh visit.
   useEffect(() => {
     if (suppressed || recentlyDismissed()) return;
-    const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
+    const timer = window.setTimeout(() => setMounted(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, [suppressed]);
 
+  // Trigger the enter transition one frame after mount.
   useEffect(() => {
-    if (!open) return;
+    if (!mounted) return;
+    const raf = requestAnimationFrame(() => setVisible(true));
+    return () => cancelAnimationFrame(raf);
+  }, [mounted]);
+
+  // Lock scroll + Esc to close while mounted.
+  useEffect(() => {
+    if (!mounted) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
@@ -60,9 +85,9 @@ export default function OfferPopup() {
       document.body.style.overflow = prev;
       window.removeEventListener('keydown', onKey);
     };
-  }, [open, dismiss]);
+  }, [mounted, dismiss]);
 
-  if (!open) return null;
+  if (!mounted) return null;
 
   return (
     <div
@@ -74,9 +99,17 @@ export default function OfferPopup() {
         if (e.target === e.currentTarget) dismiss();
       }}
     >
-      <div className="absolute inset-0 bg-[#030507]/85 backdrop-blur-xl" />
+      <div
+        className={`absolute inset-0 bg-[#030507]/85 backdrop-blur-xl transition-opacity duration-300 ease-out motion-reduce:transition-none ${
+          visible ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
 
-      <div className="relative z-10 grid w-full max-w-[940px] overflow-hidden rounded-[24px] border border-white/10 bg-[#07090c] shadow-[0_28px_90px_rgba(0,0,0,0.7)] md:grid-cols-2">
+      <div
+        className={`relative z-10 grid max-h-[90svh] w-full max-w-[940px] overflow-y-auto rounded-[24px] border border-white/10 bg-[#07090c] shadow-[0_28px_90px_rgba(0,0,0,0.7)] transition-all duration-300 ease-out will-change-transform motion-reduce:transition-none md:grid-cols-2 ${
+          visible ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-3 scale-[0.97] opacity-0'
+        }`}
+      >
         <button
           type="button"
           onClick={dismiss}
@@ -88,22 +121,22 @@ export default function OfferPopup() {
           </svg>
         </button>
 
-        {/* Image panel */}
-        <div className="relative hidden min-h-[460px] md:block">
+        {/* Image panel — top banner on mobile, left column on desktop */}
+        <div className="relative h-40 w-full sm:h-52 md:h-auto md:min-h-[460px]">
           <Image
             src="/popup-offer.png"
             alt="Modern med spa"
             fill
-            sizes="(min-width: 768px) 470px, 0px"
-            className="object-cover"
+            sizes="(min-width: 768px) 470px, 100vw"
+            className="object-cover object-[50%_30%] md:object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#07090c]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07090c] via-[#07090c]/25 to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#07090c]" />
         </div>
 
         {/* Offer panel */}
-        <div className="relative flex flex-col justify-center gap-5 bg-[radial-gradient(ellipse_at_top_right,rgba(77,214,224,0.16),transparent_55%)] px-7 py-10 sm:px-9 sm:py-12">
-          <h2 className="font-display text-3xl font-semibold leading-[1.05] text-[var(--text-primary)] sm:text-4xl">
+        <div className="relative flex flex-col justify-center gap-5 bg-[radial-gradient(ellipse_at_top_right,rgba(77,214,224,0.16),transparent_55%)] px-7 py-9 sm:px-9 sm:py-12">
+          <h2 className="font-display text-[28px] font-semibold leading-[1.05] text-[var(--text-primary)] sm:text-4xl">
             See where your med spa is leaking money.
           </h2>
 
