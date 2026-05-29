@@ -11,45 +11,10 @@ import FAQ from '@/components/FAQ/FAQ';
 import CTA from '@/components/CTA/CTA';
 import Footer from '@/components/Footer/Footer';
 import JsonLd from '@/components/seo/JsonLd';
-import { absoluteUrl, organizationSchema, websiteSchema } from '@/lib/seo';
+import { absoluteUrl } from '@/lib/seo';
 import { customPlan, plans } from '@/data/pricing';
 
-const homepageFaqs = [
-  {
-    question: 'Does every Rhemic plan include the AI receptionist?',
-    answer:
-      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Capture and Scale add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
-  },
-  {
-    question: 'Does the AI receptionist give medical advice?',
-    answer:
-      'No. The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
-  },
-  {
-    question: 'What is Meta Ads intelligence?',
-    answer:
-      'Meta Ads intelligence is a Scale-tier dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
-  },
-  {
-    question: 'Which plan is the main recommendation?',
-    answer:
-      'Capture is the main recommendation for owner-led med spas that need to catch and route every bit of booking intent. It includes the always-on Consult Capture Layer for capture, routing, and source context.',
-  },
-  {
-    question: 'Do we need to switch booking software?',
-    answer:
-      'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
-  },
-  {
-    question: 'Does Rhemic book appointments directly?',
-    answer:
-      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
-  },
-];
-
 const homepageSchema = [
-  organizationSchema(),
-  websiteSchema(),
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -98,18 +63,6 @@ const homepageSchema = [
         },
       ],
     },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: homepageFaqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
   },
 ];
 
