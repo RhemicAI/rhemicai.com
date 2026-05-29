@@ -7,6 +7,7 @@ import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed/CalEmbed";
 import CalBookingSurface from "@/components/CalEmbed/CalBookingSurface";
+import OfferPopup from "@/components/OfferPopup/OfferPopup";
 import CobeGlobeHome from "@/components/CobeGlobe/CobeGlobeHome";
 import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import { siteConfig } from "@/lib/seo";
@@ -106,6 +107,7 @@ export default function RootLayout({
         <Breadcrumbs />
         <CalEmbed />
         <CalBookingSurface />
+        <OfferPopup />
         <div className="relative z-10">{children}</div>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

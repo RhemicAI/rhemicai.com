@@ -292,7 +292,7 @@ export default function PricingPage() {
               href="/free-consult-leak-calculator"
               className="w-full max-w-[340px] rounded-full bg-[var(--ink)] px-6 py-4 text-center text-sm font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
-              Get a visibility + call leak audit
+              Calculate your leaks for free
             </Link>
             <p className="font-body text-sm text-[var(--text-muted)]">
               $0 setup fee. Starts with a visibility and call leak audit for U.S. med spas.
@@ -368,7 +368,7 @@ export default function PricingPage() {
               href="/free-consult-leak-calculator"
               className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
-              Get a visibility + call leak audit
+              Calculate your leaks for free
             </Link>
             <p className="mt-6 text-xs text-[var(--text-muted)]">
               No ranking promises, revenue guarantees, or clinical claims.

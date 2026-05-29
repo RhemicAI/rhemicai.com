@@ -256,7 +256,7 @@ export default function ContactPage() {
                   href="/free-consult-leak-calculator"
                   className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  Get a visibility + call leak audit
+                  Calculate your leaks for free
                 </Link>
               </div>
 

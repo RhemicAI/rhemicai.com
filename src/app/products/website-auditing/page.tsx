@@ -191,7 +191,7 @@ export default function WebsiteAuditingPage() {
                   href="/free-consult-leak-calculator"
                   className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
-                  Get the audit
+                  Calculate your leaks for free
                 </Link>
                 <Link
                   href="/products"

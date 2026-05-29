@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Reveal from '@/components/shared/Reveal';
 
 const outcomes = [
@@ -54,6 +55,18 @@ export default function OutcomeStrip() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-12 text-center">
+          <p className="mx-auto mb-5 max-w-xl font-display text-lg leading-snug text-[var(--text-primary)] md:text-xl">
+            You can&apos;t plug a leak you can&apos;t see.
+          </p>
+          <Link
+            href="/free-consult-leak-calculator"
+            className="inline-block rounded-full bg-[var(--ink)] px-8 py-4 text-base font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:scale-105 hover:bg-[var(--pulse)] md:text-lg font-body"
+          >
+            Get a free snapshot of where you&apos;re leaking money
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

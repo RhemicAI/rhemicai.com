@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const enterpriseFeatures = [
   {
     title: 'Group Reporting',
@@ -53,12 +51,13 @@ export default function EnterprisePanel() {
       </div>
 
       <div className="text-center">
-        <Link
-          href="/free-consult-leak-calculator"
+        <a
+          href="#"
+          data-cal-link="rhemic-ai/medspa-discovery-call"
           className="inline-block px-8 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:scale-105"
         >
           Get the audit
-        </Link>
+        </a>
         <p className="mt-4 text-sm text-[var(--text-muted)]">
           Every Custom engagement starts with a visibility and call leak audit to scope your needs.
         </p>
