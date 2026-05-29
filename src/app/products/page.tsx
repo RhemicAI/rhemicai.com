@@ -34,7 +34,7 @@ const productLayers = [
     title: 'Source clarity',
     description:
       'Help show which sources are creating consult opportunities so your team can see what to prioritize next.',
-    items: ['Source context', 'Handoff reporting', 'Premium Meta Ads intelligence', 'Multi-location reporting'],
+    items: ['Source context', 'Handoff reporting', 'Scale-tier connected-account ad reporting', 'Multi-location reporting'],
   },
 ];
 
@@ -140,7 +140,7 @@ export default function ProductsPage() {
               {[
                 ['Get found', 'Google Business Profile, Maps, local SEO, treatment pages, reviews, citations, schema, and AI search visibility.'],
                 ['Get answered', 'AI receptionist coverage for common non-clinical questions, lead capture, missed calls, and after-hours buyer intent.'],
-                ['Get clarity', 'Reporting that helps connect searches, calls, handoffs, consult opportunities, and Premium Meta Ads intelligence.'],
+                ['Get clarity', 'Reporting that helps connect searches, calls, handoffs, consult opportunities, and Scale-tier connected-account ad reporting.'],
               ].map(([title, body]) => (
                 <div key={title} className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--glass-bg)] p-5">
                   <h2 className="mb-3 text-lg font-bold text-[var(--text-primary)]">{title}</h2>
@@ -181,7 +181,7 @@ export default function ProductsPage() {
         links={[
           {
             title: 'Pricing',
-            description: 'Compare Basic, Growth, Premium, and Custom for U.S. med spas.',
+            description: 'Compare Diagnose, Capture, Scale, and Custom for U.S. med spas.',
             href: '/pricing',
           },
           {

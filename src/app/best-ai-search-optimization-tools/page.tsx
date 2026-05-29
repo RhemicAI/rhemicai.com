@@ -82,7 +82,7 @@ export default function BestAiSearchOptimizationToolsPage() {
               <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
                 Rhemic AI covers all three categories: AI visibility measurement, schema implementation
                 guidance, and content gap analysis. Rhemic&apos;s current public offer is focused on
-                U.S. med spas through Basic, Growth, Premium, and Custom plans.
+                U.S. med spas through Diagnose, Capture, Scale, and Custom plans.
               </p>
               <Link
                 href="/pricing"

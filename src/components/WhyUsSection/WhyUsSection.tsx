@@ -5,7 +5,7 @@ const points = [
   },
   {
     statement: 'Every price is on the website.',
-    explanation: 'Med spa plans are public: Basic, Growth, Premium, and Custom. The audit confirms the right fit before work starts.',
+    explanation: 'Med spa plans are public: Diagnose, Capture, Scale, and Custom. The audit confirms the right fit before work starts.',
   },
   {
     statement: 'Results in the first scan.',

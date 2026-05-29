@@ -34,7 +34,7 @@ const faqs = [
   {
     question: 'Does every Rhemic plan include the AI receptionist?',
     answer:
-      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Capture and Scale add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
   },
   {
     question: 'What does the AI receptionist actually do?',
@@ -109,17 +109,17 @@ const faqs = [
   {
     question: 'What is Meta ads intelligence?',
     answer:
-      'Meta ads intelligence is a Premium dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
+      'Meta ads intelligence is a Scale-tier dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
   },
   {
     question: 'Does Rhemic run our ads?',
     answer:
-      'Not by default. Premium includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.',
+      'Not by default. Scale includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.',
   },
   {
     question: 'Which plan includes deeper ads intelligence?',
     answer:
-      'Premium includes Meta Ads source view for connected-account reporting and campaign context. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
+      'Scale includes connected-account ad reporting for campaign context. Capture can include lighter competitor visibility review. Diagnose focuses on foundation work: visibility, GBP, reviews, AI search presence, and consult inquiry coverage.',
   },
   {
     question: 'Do you guarantee rankings, revenue, or booked consults?',
@@ -184,7 +184,7 @@ export default function FAQPage() {
           },
           {
             title: 'Pricing',
-            description: 'Compare Basic, Growth, Premium, and Custom plans for U.S. med spas.',
+            description: 'Compare Diagnose, Capture, Scale, and Custom plans for U.S. med spas.',
             href: '/pricing',
           },
           {

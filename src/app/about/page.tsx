@@ -292,7 +292,7 @@ export default function AboutPage() {
           },
           {
             title: 'Pricing',
-            description: 'Basic, Growth, Premium, and Custom plans for U.S. med spas.',
+            description: 'Diagnose, Capture, Scale, and Custom plans for U.S. med spas.',
             href: '/pricing',
           },
           {
