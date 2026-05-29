@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
       }),
     },
   ],
+  redirects: async () => [
+    {
+      source: "/:path*",
+      has: [{ type: "host", value: "www.rhemicai.com" }],
+      destination: "https://rhemicai.com/:path*",
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;
