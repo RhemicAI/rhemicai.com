@@ -164,7 +164,7 @@ export default function ProductsPage() {
               href="/free-consult-leak-calculator"
               className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
-              Get the audit
+              Calculate your leaks for free
             </Link>
           </div>
         </section>
