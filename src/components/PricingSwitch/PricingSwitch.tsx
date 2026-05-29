@@ -78,7 +78,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       </div>
 
       <div className="lg:mt-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Outcome focus</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Focus</p>
         <p className="mt-2 text-sm leading-[1.6] text-[var(--text-primary)]">{plan.promise}</p>
       </div>
 
