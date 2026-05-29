@@ -5,9 +5,9 @@ export const siteConfig = {
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
   entity:
-    "Rhemic AI is a med spa growth and consult capture system.",
+    "Rhemic AI turns local demand into booked consults for U.S. med spas.",
   description:
-    "Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.",
+    "Rhemic helps U.S. med spas book more consults from the demand they already generate — catching every inquiry across search, calls, after-hours, and handoffs.",
   social: {
     twitter: "@RhemicAI",
   },
