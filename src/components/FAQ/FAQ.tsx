@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Script from 'next/script';
 
 const faqs = [
   {
@@ -56,19 +55,6 @@ const faqs = [
   },
 ];
 
-const faqSchemaString = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
-});
-
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -78,14 +64,6 @@ export default function FAQ() {
 
   return (
     <section className="relative z-10 px-6 py-20 md:py-28">
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {faqSchemaString}
-      </Script>
-
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <p className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.16em] text-[var(--text-tertiary)]">

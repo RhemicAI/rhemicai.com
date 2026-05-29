@@ -1,5 +1,3 @@
-import JsonLd from '@/components/seo/JsonLd';
-
 interface FAQItem {
   question: string;
   answer: string;
@@ -11,25 +9,8 @@ interface SubpageFAQProps {
 }
 
 export default function SubpageFAQ({ faqs, heading = 'Frequently asked questions' }: SubpageFAQProps) {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
     <section className="py-16 px-6">
-      <JsonLd
-        id={`faq-schema-${heading.toLowerCase().replace(/\s+/g, '-')}`}
-        data={schema}
-      />
       <div className="mx-auto max-w-3xl">
         <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-8 text-center">
           {heading}
