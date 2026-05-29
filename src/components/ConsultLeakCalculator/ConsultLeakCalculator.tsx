@@ -455,7 +455,7 @@ export default function ConsultLeakCalculator() {
             maxWidth: 520,
           }}
         >
-          Answer 6 quick questions about your clinic. We'll estimate what missed
+          Answer 6 quick questions about your clinic. We’ll estimate what missed
           calls and lost booking intent may be costing you in new-patient revenue
           every month — using your own numbers, not made-up benchmarks.
         </p>
@@ -605,7 +605,7 @@ export default function ConsultLeakCalculator() {
             Calculating your consult leak…
           </p>
           <p style={{ fontSize: 14, color: "#6b7e79", marginTop: 8 }}>
-            Running your numbers against AMSPA's $504 average spend per visit.
+            Running your numbers against AMSPA’s $504 average spend per visit.
           </p>
         </div>
       </Shell>
@@ -632,11 +632,11 @@ export default function ConsultLeakCalculator() {
           <span style={{ fontSize: 26, color: "#7d918c" }}> /mo</span>
         </div>
         <p style={{ fontSize: 16, color: "#9fb3ad", margin: "8px 0 30px", lineHeight: 1.6 }}>
-          That's roughly{" "}
+          That’s roughly{" "}
           <span style={{ color: "#e8efed", fontWeight: 600 }}>
             {fmt(calc.annualLeak)} a year
           </span>{" "}
-          in new-patient revenue that may be slipping away before it's ever booked —
+          in new-patient revenue that may be slipping away before it’s ever booked —
           and this is the conservative, first-visit-only number.
         </p>
         <div
@@ -649,7 +649,7 @@ export default function ConsultLeakCalculator() {
           }}
         >
           <p style={{ fontSize: 18, fontWeight: 600, margin: "0 0 8px", color: "#e8efed" }}>
-            You don't have a lead problem. You have a capture problem.
+            You don’t have a lead problem. You have a capture problem.
           </p>
           <p style={{ fontSize: 15, color: "#9fb3ad", margin: 0, lineHeight: 1.6 }}>
             The patients are already calling. The question is how many reach a booked
@@ -678,8 +678,8 @@ export default function ConsultLeakCalculator() {
           Where should we send your full breakdown?
         </h2>
         <p style={{ fontSize: 15.5, color: "#8ba099", margin: "0 0 26px", lineHeight: 1.6 }}>
-          You'll see the exact math, your biggest leak, and a personalized read on your
-          clinic. We'll also email you a copy you can keep.
+          You’ll see the exact math, your biggest leak, and a personalized read on your
+          clinic. We’ll also email you a copy you can keep.
         </p>
         <input
           type="text"
@@ -727,7 +727,7 @@ export default function ConsultLeakCalculator() {
           Show my full breakdown →
         </button>
         <p style={{ fontSize: 12, color: "#5f726d", marginTop: 14, lineHeight: 1.5 }}>
-          We'll never share your info. One follow-up at most if you don't book.
+          We’ll never share your info. One follow-up at most if you don’t book.
         </p>
       </Shell>
     );
@@ -761,11 +761,11 @@ export default function ConsultLeakCalculator() {
             margin: "0 0 12px",
           }}
         >
-          You're booked{name.trim() ? `, ${name.trim().split(" ")[0]}` : ""}.
+          You’re booked{name.trim() ? `, ${name.trim().split(" ")[0]}` : ""}.
         </h2>
         <p style={{ fontSize: 16, color: "#9fb3ad", lineHeight: 1.6, margin: "0 0 24px" }}>
-          You'll be matched with one of our two founders for a 20-minute Consult Leak
-          Audit. We'll run the real snapshot on your clinic and walk you through your
+          You’ll be matched with one of our two founders for a 20-minute Consult Leak
+          Audit. We’ll run the real snapshot on your clinic and walk you through your
           single biggest leak.
         </p>
         <div
@@ -920,7 +920,7 @@ export default function ConsultLeakCalculator() {
         {/* adjustable missed % */}
         <div style={{ padding: "20px 0 16px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, color: "#8ba099", marginBottom: 10 }}>
-            <span>Don't agree with the missed-call rate? Drag it to match reality.</span>
+            <span>Don’t agree with the missed-call rate? Drag it to match reality.</span>
             <span style={{ color: TEAL, fontWeight: 600 }}>{Math.round(missedPct * 100)}%</span>
           </div>
           <input
@@ -986,12 +986,12 @@ export default function ConsultLeakCalculator() {
         <p style={{ fontSize: 15, color: "#9fb3ad", lineHeight: 1.6, margin: "0 0 20px" }}>
           This is built from a few answers. The full picture lives in your actual call logs,
           booking flow, reviews, and what competitors near you are doing — which we map in
-          the real Consult Leak Snapshot. Book a 20-minute audit and we'll walk you through
+          the real Consult Leak Snapshot. Book a 20-minute audit and we’ll walk you through
           your single biggest leak.
         </p>
         <div style={{ marginBottom: 20 }}>
           <p style={{ fontSize: 12, letterSpacing: "0.12em", color: "#6b7e79", margin: "0 0 12px" }}>
-            ON YOUR 20-MINUTE AUDIT, WE'LL
+            ON YOUR 20-MINUTE AUDIT, WE’LL
           </p>
           {[
             "Run the real snapshot on your clinic — calls, booking, search & competitors",
