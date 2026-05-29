@@ -12,23 +12,23 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 export const metadata: Metadata = buildMetadata({
   title: 'Med Spa Consult Leak Pricing',
   description:
-    'Basic, Growth, Premium, and Custom pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent to the right team.',
+    'Diagnose, Capture, Scale, and Custom pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent to the right team.',
   path: '/pricing',
   keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist', 'med spa software integrations'],
 });
 
-const basicPlan = plans.find((p) => p.tier === 'basic')!;
-const growthPlan = plans.find((p) => p.tier === 'growth')!;
-const premiumPlan = plans.find((p) => p.tier === 'premium')!;
+const diagnosePlan = plans.find((p) => p.tier === 'basic')!;
+const capturePlan = plans.find((p) => p.tier === 'growth')!;
+const scalePlan = plans.find((p) => p.tier === 'premium')!;
 
 const pricingFaqs = [
   {
     question: 'How much does Rhemic AI cost for med spas?',
-    answer: `Med spa plans: ${basicPlan.name} at $${basicPlan.monthlyPrice}/mo, ${growthPlan.name} at $${growthPlan.monthlyPrice}/mo, ${premiumPlan.name} at $${premiumPlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. The audit helps match scope to the clinic's locations, visibility gaps, and handoff workflow.`,
+    answer: `Med spa plans: ${diagnosePlan.name} at $${diagnosePlan.monthlyPrice}/mo, ${capturePlan.name} at $${capturePlan.monthlyPrice}/mo, ${scalePlan.name} at $${scalePlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. The audit helps match scope to the clinic's locations, visibility gaps, and handoff workflow.`,
   },
   {
     question: 'Which plan is the main recommendation?',
-    answer: `${growthPlan.name} is the main recommendation for owner-led med spas that want better visibility, better call coverage, and the Consult Capture Layer for capture, routing, and source context.`,
+    answer: `${capturePlan.name} is the main recommendation for owner-led med spas that want better visibility, better call coverage, and the Consult Capture Layer for capture, routing, and source context.`,
   },
   {
     question: 'What does AI search visibility mean?',
@@ -57,7 +57,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Does every Rhemic plan include the AI receptionist?',
     answer:
-      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Growth and Premium add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Capture and Scale add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
   },
   {
     question: 'What does the AI receptionist actually do?',
@@ -107,17 +107,17 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'What is Meta ads intelligence?',
     answer:
-      'Meta ads intelligence is a Premium dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
+      'Meta ads intelligence is a Scale-tier dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
   },
   {
     question: 'Does Rhemic run our Meta ads?',
     answer:
-      "Not by default. Premium includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.",
+      "Not by default. Scale includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.",
   },
   {
     question: 'What is the Meta MCP used for?',
     answer:
-      "Meta MCP lets a clinic connect its Meta account to Rhemic's platform so the Premium dashboard can show ad KPIs, spend, costs, performance trends, and optimization opportunities.",
+      "Meta MCP lets a clinic connect its Meta account to Rhemic's platform so the Scale dashboard can show ad KPIs, spend, costs, performance trends, and optimization opportunities.",
   },
   {
     question: 'Will Rhemic change our ad campaigns automatically?',
@@ -132,7 +132,7 @@ const aiReceptionAndAdsFaqs = [
   {
     question: 'Which plans include Meta ads intelligence?',
     answer:
-      'Premium includes Meta Ads source view for connected-account reporting and campaign context. Growth can include lighter competitor visibility review. Basic focuses on foundation work: visibility, GBP, reviews, AI search presence, and AI receptionist coverage.',
+      'Scale includes connected-account ad reporting for campaign context. Capture can include lighter competitor visibility review. Diagnose focuses on foundation work: visibility, GBP, reviews, AI search presence, and consult inquiry coverage.',
   },
   {
     question: 'Is Meta ads intelligence the same as ad management?',
@@ -199,35 +199,28 @@ const softwareIntegrationFaqs = [
   },
 ];
 
-const snapshotCards = [
-  { value: '$1K', label: 'Basic / month' },
-  { value: '$2K', label: 'Growth / month' },
-  { value: '$3.5K', label: 'Premium / month' },
-  { value: '$0', label: 'Setup fee' },
-];
-
 const buyerMathItems = ['Botox', 'filler', 'laser', 'body-contouring'];
 
 const recommendationRows = [
   {
     situation: 'You need more patients finding you on Google.',
-    bestFit: 'Basic or Growth',
-    guidance: 'Choose Basic for foundation cleanup. Choose Growth when routing more booking intent is an active priority.',
+    bestFit: 'Diagnose or Capture',
+    guidance: 'Choose Diagnose for foundation cleanup. Choose Capture when routing more booking intent is an active priority.',
   },
   {
     situation: 'Calls are missed during the day or after hours.',
-    bestFit: 'Growth',
-    guidance: 'Growth adds stronger AI receptionist coverage, call handling, and follow-up notes.',
+    bestFit: 'Capture',
+    guidance: 'Capture adds the always-on Consult Capture Layer, missed-call recovery, and routed handoffs.',
   },
   {
     situation: 'Competitors are highly visible and running ads.',
-    bestFit: 'Premium',
-    guidance: 'Premium gives Meta Ads source view for connected-account reporting, competitor review, and clearer optimization priorities.',
+    bestFit: 'Scale',
+    guidance: 'Scale gives connected-account ad reporting, competitor tracking, and clearer optimization priorities.',
   },
   {
     situation: 'You have two to five locations.',
-    bestFit: 'Growth or Premium',
-    guidance: 'Growth can fit two locations. Premium is better for competitive markets or broader multi-location needs.',
+    bestFit: 'Capture or Scale',
+    guidance: 'Capture can fit two locations. Scale is better for competitive markets or broader multi-location needs.',
   },
   {
     situation: 'You have six or more locations or complex reporting needs.',
@@ -289,7 +282,7 @@ export default function PricingPage() {
             Three plans for finding and routing lost opportunity.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl font-body text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-            Basic finds the leaks. Growth catches and routes more intent. Premium helps competitive markets and multi-location operators expand what is working.
+            Diagnose finds the leaks. Capture catches and routes every consult. Scale helps competitive markets and multi-location operators expand what is working.
           </p>
           <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
             Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
@@ -310,15 +303,6 @@ export default function PricingPage() {
 
       <div className="relative z-10 pb-12 sm:pb-24">
         <div className="mx-auto max-w-6xl px-6">
-          <section className="mb-14 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {snapshotCards.map((card) => (
-              <div key={card.label} className="rounded-2xl border border-white/10 bg-[var(--bg-elevated)] p-5 text-center">
-                <p className="font-display text-3xl font-bold text-[var(--text-primary)] md:text-4xl">{card.value}</p>
-                <p className="mt-2 font-body text-sm text-[var(--text-secondary)]">{card.label}</p>
-              </div>
-            ))}
-          </section>
-
           <PricingSwitch />
 
           <section className="glass-panel mb-12 p-6 sm:p-8">

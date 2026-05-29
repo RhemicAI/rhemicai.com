@@ -186,7 +186,7 @@ export default function BlogPage() {
               className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
             >
               <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">Pricing</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Basic, Growth, Premium, and Custom plans for med spas.</p>
+              <p className="text-sm text-[var(--text-secondary)]">Diagnose, Capture, Scale, and Custom plans for med spas.</p>
             </Link>
           </div>
         </div>

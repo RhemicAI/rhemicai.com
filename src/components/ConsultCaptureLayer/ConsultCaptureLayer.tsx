@@ -35,7 +35,7 @@ export default function ConsultCaptureLayer() {
                 Catch booking intent before it gets buried.
               </h2>
               <p className="mt-6 text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-                Growth and Premium plans include a Consult Capture Layer that helps surface calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs, then route booking intent into approved handoff workflows.
+                Capture and Scale plans include a Consult Capture Layer that helps surface calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs, then route booking intent into approved handoff workflows.
               </p>
               <p className="mt-5 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg-2)] p-4 text-sm leading-[1.65] text-[var(--text-tertiary)]">
                 Direct booking is planned for supported systems, where safe and integrated. Rhemic does not guarantee appointments.

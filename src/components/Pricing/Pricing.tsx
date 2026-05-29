@@ -29,7 +29,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border p-6 sm:p-8 ${
+      className={`relative flex flex-col gap-6 rounded-2xl border p-6 sm:p-8 lg:grid lg:gap-0 lg:[grid-template-rows:subgrid] lg:row-span-6 ${
         plan.featured
           ? 'border-white/25 bg-[var(--bg-elevated)] shadow-[0_0_40px_rgba(255,255,255,0.05)]'
           : 'border-white/10 bg-[var(--bg-elevated)]'
@@ -43,29 +43,31 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         </div>
       )}
 
-      <h3 className="text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
-      <p className="mt-1 text-sm text-[var(--text-muted)]">{plan.bestFor}</p>
+      <div>
+        <h3 className="text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
+        <p className="mt-1 text-sm text-[var(--text-muted)]">{plan.primaryUseCase}</p>
+      </div>
 
-      <div className="mt-6">
+      <div className="lg:mt-6">
         <div className="flex items-baseline gap-2">
           <span className="text-4xl font-bold text-[var(--text-primary)]">
             ${plan.monthlyPrice.toLocaleString()}
           </span>
           <span className="text-sm text-[var(--text-muted)]">/mo</span>
         </div>
-          <p className="mt-2 text-[11px] text-white/50">
+        <p className="mt-2 text-[11px] text-white/50">
           Starts with a visibility and call leak audit.
         </p>
       </div>
 
-      <div className="mt-6 space-y-4 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+      <div className="space-y-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 lg:mt-6">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Included locations</p>
           <p className="mt-1 text-sm text-[var(--text-primary)]">{plan.includedLocations}</p>
         </div>
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Best use</p>
-          <p className="mt-1 text-sm leading-[1.5] text-[var(--text-secondary)]">{plan.primaryUseCase}</p>
+          <p className="mt-1 text-sm leading-[1.5] text-[var(--text-secondary)]">{plan.bestFor}</p>
         </div>
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Meant to fix</p>
@@ -73,12 +75,12 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         </div>
       </div>
 
-      <div className="mt-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Outcome focus</p>
+      <div className="lg:mt-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Focus</p>
         <p className="mt-1 text-sm leading-[1.5] text-[var(--text-primary)]">{plan.promise}</p>
       </div>
 
-      <ul className="mt-6 flex-1 space-y-3">
+      <ul className="space-y-3 lg:mt-6">
         {plan.whatTheyGet.slice(0, 5).map((feature) => (
           <li key={feature} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
             {feature.startsWith('Everything in') ? (
@@ -93,7 +95,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         ))}
       </ul>
 
-      <div className="mt-8">
+      <div className="lg:mt-8 lg:self-end">
         <CalBookingLink calLink={plan.calLink} className={buttonClass}>
           Get a visibility + call leak audit
         </CalBookingLink>

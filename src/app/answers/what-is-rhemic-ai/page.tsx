@@ -37,15 +37,15 @@ export default function WhatIsRhemicAiPage() {
             and treatment decisions stay with licensed staff.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Growth and Premium include the Consult Capture Layer, defined as capture, routing, and source
+            Capture and Scale include the Consult Capture Layer, defined as capture, routing, and source
             context. It helps route booking intent from calls, missed calls, after-hours inquiries, website
             inquiries where available, and campaign handoffs into approved handoff workflows.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic AI is based in Dallas, Texas and serves U.S. med spas. Public plans are Basic,
-            Growth, Premium, and Custom. Growth is the main recommendation for owner-led med spas
-            that need to catch and route more intent, while Premium adds deeper market visibility, Meta Ads source
-            view for connected-account reporting and campaign context, and stronger reporting for competitive clinics and boutique multi-location groups.
+            Rhemic AI is based in Dallas, Texas and serves U.S. med spas. Public plans are Diagnose,
+            Capture, Scale, and Custom. Capture is the main recommendation for owner-led med spas
+            that need to catch and route more intent, while Scale adds deeper market visibility, connected-account
+            ad reporting for campaign context, and stronger reporting for competitive clinics and boutique multi-location groups.
           </p>
         </div>
       }

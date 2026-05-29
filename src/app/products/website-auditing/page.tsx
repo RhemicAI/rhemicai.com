@@ -245,7 +245,7 @@ export default function WebsiteAuditingPage() {
           },
           {
             title: 'Pricing',
-            description: 'Med spa plans are Basic, Growth, Premium, and Custom.',
+            description: 'Med spa plans are Diagnose, Capture, Scale, and Custom.',
             href: '/pricing',
           },
         ]}

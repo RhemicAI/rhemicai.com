@@ -42,7 +42,7 @@ export default function CareersPage() {
           },
           {
             title: 'Pricing',
-            description: 'Transparent Basic, Growth, Premium, and Custom plans for U.S. med spas.',
+            description: 'Transparent Diagnose, Capture, Scale, and Custom plans for U.S. med spas.',
             href: '/pricing',
           },
           {

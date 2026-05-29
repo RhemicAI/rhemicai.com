@@ -72,7 +72,7 @@ export default function RhemicVsOtterlyPage() {
                 { label: 'Implementation guidance', values: ['Yes — schema, content, technical fix plans', 'TBD — monitoring-first platform'] },
                 { label: 'Schema markup support', values: ['Yes', 'TBD'] },
                 { label: 'Agency model', values: ['Yes', 'TBD'] },
-                { label: 'Basic price', values: [`$${basicPlan.monthlyPrice}/mo`, 'TBD. Check otterly.ai'] },
+                { label: 'Entry price', values: [`$${basicPlan.monthlyPrice}/mo`, 'TBD. Check otterly.ai'] },
               ]}
             />
           </section>

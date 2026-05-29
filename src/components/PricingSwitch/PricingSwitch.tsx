@@ -37,7 +37,7 @@ function BoundaryIcon() {
 }
 
 function PlanCard({ plan }: { plan: PricingPlan }) {
-  const ctaClass = `mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
+  const ctaClass = `block w-full rounded-full py-3 text-center text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
     plan.featured
       ? 'bg-[var(--ink)] text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] hover:bg-[var(--pulse)]'
       : 'border border-[var(--border-strong)] text-[var(--text-secondary)] hover:border-[var(--text-muted)] hover:text-[var(--text-primary)]'
@@ -45,7 +45,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
   return (
     <article
-      className={`relative flex flex-col rounded-2xl border p-6 sm:p-7 ${
+      className={`relative flex flex-col gap-6 rounded-2xl border p-6 sm:p-7 lg:grid lg:gap-0 lg:[grid-template-rows:subgrid] lg:row-span-6 ${
         plan.featured
           ? 'border-cyan-200/40 bg-[var(--bg-elevated)] shadow-[0_0_44px_rgba(103,232,249,0.08)]'
           : 'border-white/10 bg-[var(--bg-elevated)]'
@@ -72,17 +72,17 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         </div>
       </div>
 
-      <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 lg:mt-6">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Best fit</p>
         <p className="mt-2 text-sm leading-[1.6] text-[var(--text-secondary)]">{plan.bestFor}</p>
       </div>
 
-      <div className="mt-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Outcome focus</p>
+      <div className="lg:mt-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">Focus</p>
         <p className="mt-2 text-sm leading-[1.6] text-[var(--text-primary)]">{plan.promise}</p>
       </div>
 
-      <div className="mt-6">
+      <div className="lg:mt-6">
         <p className="text-sm font-semibold text-[var(--text-primary)]">Included</p>
         <ul className="mt-3 space-y-3">
           {plan.whatTheyGet.map((item) => (
@@ -94,7 +94,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         </ul>
       </div>
 
-      <div className="mt-6">
+      <div className="lg:mt-6">
         <p className="text-sm font-semibold text-[var(--text-primary)]">Plan limits</p>
         <ul className="mt-3 space-y-3">
           {plan.boundaries.map((item) => (
@@ -106,28 +106,30 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         </ul>
       </div>
 
-      {plan.upgradePath ? (
-        <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-[1.6] text-[var(--text-secondary)]">
-          {plan.upgradePath}
-        </p>
-      ) : null}
+      <div className="flex flex-col gap-6 lg:mt-6 lg:justify-end">
+        {plan.upgradePath ? (
+          <p className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-[1.6] text-[var(--text-secondary)]">
+            {plan.upgradePath}
+          </p>
+        ) : null}
 
-      {plan.explanation ? (
-        <p className="mt-6 rounded-xl border border-cyan-200/15 bg-cyan-200/[0.04] p-4 text-sm leading-[1.6] text-[var(--text-secondary)]">
-          {plan.explanation}
-        </p>
-      ) : null}
+        {plan.explanation ? (
+          <p className="rounded-xl border border-cyan-200/15 bg-cyan-200/[0.04] p-4 text-sm leading-[1.6] text-[var(--text-secondary)]">
+            {plan.explanation}
+          </p>
+        ) : null}
 
-      <CalBookingLink calLink={plan.calLink} className={ctaClass}>
-        Get a visibility + call leak audit
-      </CalBookingLink>
+        <CalBookingLink calLink={plan.calLink} className={ctaClass}>
+          Get a visibility + call leak audit
+        </CalBookingLink>
+      </div>
     </article>
   );
 }
 
 function CustomCard() {
   return (
-    <article className="rounded-2xl border border-white/10 bg-[var(--bg-elevated)] p-6 sm:p-7 lg:col-span-3">
+    <article className="rounded-2xl border border-white/10 bg-[var(--bg-elevated)] p-6 sm:p-7">
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.2fr_0.9fr] lg:items-start">
         <div>
           <h3 className="text-xl font-bold text-[var(--text-primary)]">{customPlan.name}</h3>
@@ -163,13 +165,13 @@ function CustomCard() {
 
 export default function PricingSwitch() {
   return (
-    <section className="mb-16 sm:mb-24">
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <section className="mb-16 sm:mb-24 space-y-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:[grid-template-rows:auto_auto_auto_auto_auto_auto] lg:items-stretch">
         {plans.map((plan) => (
           <PlanCard key={plan.name} plan={plan} />
         ))}
-        <CustomCard />
       </div>
+      <CustomCard />
     </section>
   );
 }

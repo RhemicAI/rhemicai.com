@@ -30,7 +30,7 @@ const steps = [
   {
     title: 'Route booking intent',
     description:
-      'Growth and Premium help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.',
+      'Capture and Scale help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.',
   },
   {
     title: 'Add source context',
