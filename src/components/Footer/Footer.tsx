@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 
 const linkRoutes: Record<string, string> = {
   // Product
@@ -81,12 +80,12 @@ export default function Footer() {
 
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
-            <CalBookingLink
-              calLink="rhemic-ai/medspa-discovery-call"
+            <Link
+              href="/free-consult-leak-calculator"
               className="px-6 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
             >
               Get the audit
-            </CalBookingLink>
+            </Link>
           </div>
         </div>
       </div>

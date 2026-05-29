@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
+import { getCalBookingUrl } from '@/lib/calEmbed';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,9 +34,14 @@ export default function Navbar() {
         <li><a href="#solutions" className={styles.navLink}>Solutions</a></li>
         <li><a href="#about" className={styles.navLink}>About</a></li>
         <li>
-          <button className={styles.ctaButton}>
+          <a
+            href={getCalBookingUrl('rhemic-ai/medspa-discovery-call')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaButton}
+          >
             <span className={styles.ctaButtonText}>Get the audit</span>
-          </button>
+          </a>
         </li>
       </ul>
     </nav>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import Link from 'next/link';
 
 const scopeStats = [
   { value: 'Search / AI Visibility' },
@@ -103,12 +103,12 @@ export default function Hero() {
           </p>
 
           <div className="hero-enter-copy mt-8 hidden flex-col gap-3 sm:flex sm:flex-row">
-            <CalBookingLink
-              calLink="rhemic-ai/medspa-discovery-call"
+            <Link
+              href="/free-consult-leak-calculator"
               className="inline-flex items-center justify-center rounded-full bg-[var(--ink)] px-5 py-3 font-body text-sm font-semibold text-[var(--bg)] shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_4px_16px_-4px_rgba(238,242,247,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_6px_24px_-4px_var(--pulse-glow)]"
             >
               Get a visibility + call leak audit
-            </CalBookingLink>
+            </Link>
             <a
               href="#consult-leaks"
               className="inline-flex items-center justify-center rounded-full border border-[var(--glass-border)] bg-[rgba(255,255,255,0.04)] px-5 py-3 font-body text-sm font-medium text-[var(--ink)] backdrop-blur-lg transition-all duration-200 hover:border-[var(--border-strong)] hover:bg-[rgba(255,255,255,0.08)]"

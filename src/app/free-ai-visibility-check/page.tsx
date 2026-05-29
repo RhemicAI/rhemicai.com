@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -52,12 +51,12 @@ export default function FreeAiVisibilityCheckPage() {
               We are making backend scan changes and have removed the public widget while that work is in progress. If you need a visibility baseline now, book a demo and we&apos;ll walk through the right workflow with you.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <CalBookingLink
-                calLink="rhemic-ai/medspa-discovery-call"
+              <Link
+                href="/free-consult-leak-calculator"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
                 Get the audit
-              </CalBookingLink>
+              </Link>
               <Link
                 href="/how-it-works"
                 className="inline-flex items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"

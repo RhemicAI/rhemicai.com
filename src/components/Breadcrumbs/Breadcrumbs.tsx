@@ -37,6 +37,8 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
 
   if (pathname === '/') return null;
+  // Lead-magnet landing page uses a stripped minimal header — no breadcrumb.
+  if (pathname === '/free-consult-leak-calculator') return null;
 
   const segments = pathname.split('/').filter(Boolean);
 

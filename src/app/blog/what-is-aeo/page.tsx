@@ -723,12 +723,12 @@ export default function WhatIsAEOPage() {
                 Book a 30-minute discovery call and we&apos;ll show you exactly how AI engines see
                 your website - and what to fix first.
               </p>
-              <a
-                href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+              <Link
+                href="/free-consult-leak-calculator"
                 className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
               >
                 Get the audit
-              </a>
+              </Link>
             </div>
           </div>
         </section>
