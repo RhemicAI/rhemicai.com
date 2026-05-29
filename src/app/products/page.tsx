@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -160,12 +160,12 @@ export default function ProductsPage() {
               The audit helps show where your clinic may be losing consult opportunities across Google,
               AI answers, reviews, treatment pages, calls, handoffs, and source context.
             </p>
-            <CalBookingLink
-              calLink="rhemic-ai/medspa-discovery-call"
+            <Link
+              href="/free-consult-leak-calculator"
               className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
               Get the audit
-            </CalBookingLink>
+            </Link>
           </div>
         </section>
 

@@ -1,11 +1,9 @@
 'use client';
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
-import { CAL_EMBED_SCRIPT_SRC } from '@/lib/calEmbed';
+import { useRouter } from 'next/navigation';
 
 const API_BASE_URL = 'https://api.rhemicai.com';
-const CAL_BOOKING_LINK = 'rhemic-ai/medspa-discovery-call';
-const CAL_BOOKING_URL = 'https://cal.com/rhemic-ai/medspa-discovery-call';
 const POLL_INTERVAL_MS = 5000;
 const POLL_TIMEOUT_MS = 6 * 60 * 1000;
 
@@ -254,6 +252,7 @@ function sparklineHeights(value: number, index: number) {
 }
 
 export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: { placeholder?: string }) {
+  const router = useRouter();
   const [phase, setPhase] = useState<Phase>('input');
   const [domainInput, setDomainInput] = useState('');
   const [industry, setIndustry] = useState<Industry>('Marketing Agency');
@@ -269,69 +268,11 @@ export default function AiVisibilityWidget({ placeholder = 'yourdomain.com' }: {
 
   const pollIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollStartedAtRef = useRef<number | null>(null);
-  const calInitializedRef = useRef(false);
   const visualProgressRef = useRef(0);
 
-  const initCal = () => {
-    if (typeof window === 'undefined') return false;
-    const maybeCal = (window as unknown as { Cal?: (...args: unknown[]) => void }).Cal;
-    if (!maybeCal) return false;
-    if (!calInitializedRef.current) {
-      maybeCal('init', { origin: 'https://cal.com' });
-      maybeCal('preload', { calLink: CAL_BOOKING_LINK });
-      calInitializedRef.current = true;
-    }
-    return true;
-  };
-
   const openCalModal = () => {
-    if (typeof window === 'undefined') return;
-
-    try {
-      if (!initCal()) {
-        window.open(CAL_BOOKING_URL, '_blank', 'noopener,noreferrer');
-        return;
-      }
-
-      const cal = (window as unknown as { Cal: (...args: unknown[]) => void }).Cal;
-      cal('modal', {
-        calLink: CAL_BOOKING_LINK,
-        config: { layout: 'month_view' },
-      });
-    } catch {
-      window.open(CAL_BOOKING_URL, '_blank', 'noopener,noreferrer');
-    }
+    router.push('/free-consult-leak-calculator');
   };
-
-  useEffect(() => {
-    const existing = document.querySelector<HTMLScriptElement>(
-      `script[src="${CAL_EMBED_SCRIPT_SRC}"]`
-    );
-    if (existing) {
-      if (!existing.getAttribute('data-rhemic-cal-init-listener')) {
-        existing.addEventListener('load', initCal, { once: true });
-        existing.setAttribute('data-rhemic-cal-init-listener', 'true');
-      }
-      initCal();
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = CAL_EMBED_SCRIPT_SRC;
-    script.async = true;
-    // No integrity= — Cal.com updates embed.js without publishing new SRI hashes.
-    // A stale hash silently blocks the script. CSP allowlist covers app.cal.com.
-    script.onload = () => {
-      initCal();
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     if (phase !== 'scanning' || !scanId) {

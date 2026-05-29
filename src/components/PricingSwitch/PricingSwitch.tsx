@@ -1,6 +1,6 @@
 'use client';
 
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import Link from 'next/link';
 import { customPlan, plans, type PricingPlan } from '@/data/pricing';
 
 function CheckIcon() {
@@ -119,9 +119,9 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           </p>
         ) : null}
 
-        <CalBookingLink calLink={plan.calLink} className={ctaClass}>
+        <Link href="/free-consult-leak-calculator" className={ctaClass}>
           Get a visibility + call leak audit
-        </CalBookingLink>
+        </Link>
       </div>
     </article>
   );
@@ -151,12 +151,12 @@ function CustomCard() {
         </div>
 
         <div className="lg:text-right">
-          <CalBookingLink
-            calLink={customPlan.calLink}
+          <Link
+            href="/free-consult-leak-calculator"
             className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--pulse)] hover:text-[var(--pulse-deep)] lg:w-auto"
           >
             Get a custom med-spa growth audit
-          </CalBookingLink>
+          </Link>
         </div>
       </div>
     </article>

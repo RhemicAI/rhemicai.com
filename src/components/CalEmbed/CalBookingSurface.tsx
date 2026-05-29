@@ -5,12 +5,17 @@ import {
   CAL_BOOKING_EVENT_NAME,
   getCalBookingUrl,
   getCalEmbedUrl,
+  type CalBookingDetail,
   type CalLink,
 } from '@/lib/calEmbed';
 
-type BookingEvent = CustomEvent<{ calLink?: CalLink }>;
+type BookingEvent = CustomEvent<CalBookingDetail>;
 
 const DEFAULT_CAL_LINK: CalLink = 'rhemic-ai/medspa-discovery-call';
+const DEFAULT_DURATION_LABEL = '30 minute audit';
+const DEFAULT_TITLE = 'Book the visibility + call leak audit.';
+const DEFAULT_SUBTITLE = 'Select a slot, then complete the med spa qualifier.';
+const DEFAULT_PREP_NOTE = 'Pick a time and answer the short qualifier. We use the details to review your clinic before the audit.';
 
 function isBookingEvent(event: Event): event is BookingEvent {
   return event.type === CAL_BOOKING_EVENT_NAME;
@@ -19,14 +24,24 @@ function isBookingEvent(event: Event): event is BookingEvent {
 export default function CalBookingSurface() {
   const [isOpen, setIsOpen] = useState(false);
   const [calLink, setCalLink] = useState<CalLink>(DEFAULT_CAL_LINK);
+  const [prefill, setPrefill] = useState<Record<string, string> | undefined>(undefined);
+  const [durationLabel, setDurationLabel] = useState<string>(DEFAULT_DURATION_LABEL);
+  const [title, setTitle] = useState<string>(DEFAULT_TITLE);
+  const [subtitle, setSubtitle] = useState<string>(DEFAULT_SUBTITLE);
+  const [prepNote, setPrepNote] = useState<string>(DEFAULT_PREP_NOTE);
 
-  const bookingUrl = useMemo(() => getCalBookingUrl(calLink), [calLink]);
-  const embedUrl = useMemo(() => getCalEmbedUrl(calLink), [calLink]);
+  const bookingUrl = useMemo(() => getCalBookingUrl(calLink, prefill), [calLink, prefill]);
+  const embedUrl = useMemo(() => getCalEmbedUrl(calLink, prefill), [calLink, prefill]);
 
   useEffect(() => {
     const openBooking = (event: Event) => {
       if (!isBookingEvent(event)) return;
       setCalLink(event.detail?.calLink ?? DEFAULT_CAL_LINK);
+      setPrefill(event.detail?.prefill);
+      setDurationLabel(event.detail?.durationLabel ?? DEFAULT_DURATION_LABEL);
+      setTitle(event.detail?.title ?? DEFAULT_TITLE);
+      setSubtitle(event.detail?.subtitle ?? DEFAULT_SUBTITLE);
+      setPrepNote(event.detail?.prepNote ?? DEFAULT_PREP_NOTE);
       setIsOpen(true);
     };
 
@@ -70,13 +85,13 @@ export default function CalBookingSurface() {
           <div className="relative z-10 flex h-full flex-col">
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[rgba(77,214,224,0.22)] bg-[rgba(77,214,224,0.12)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--pulse-deep)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--pulse)] shadow-[0_0_10px_var(--pulse-glow)]" />
-              30 minute audit
+              {durationLabel}
             </div>
 
             <div className="mt-10">
               <p className="section-label mb-4">Rhemic AI</p>
               <h2 id="cal-booking-title" className="max-w-[360px] text-[2.75rem] font-semibold leading-[0.96] tracking-normal text-[var(--ink)]">
-                Book the visibility + call leak audit.
+                {title}
               </h2>
               <p className="mt-5 max-w-[360px] text-base leading-7 text-[var(--mute)]">
                 We review where consult opportunities may be leaking across search, AI answers, calls, handoffs, and source clarity before the call.
@@ -97,23 +112,25 @@ export default function CalBookingSurface() {
               ))}
             </div>
 
-            <div className="mt-auto rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--pulse-deep)]">
-                Before the call
-              </p>
-              <p className="mt-2 text-sm leading-6 text-[var(--mute)]">
-                Pick a time and answer the short qualifier. We use the details to review your clinic before the audit.
-              </p>
-            </div>
+            {prepNote ? (
+              <div className="mt-auto rounded-2xl border border-white/10 bg-black/20 p-4">
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--pulse-deep)]">
+                  Before the call
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[var(--mute)]">
+                  {prepNote}
+                </p>
+              </div>
+            ) : null}
           </div>
         </aside>
 
         <section className="flex h-[94svh] min-h-0 flex-col bg-[#0a0d11] lg:h-auto lg:min-h-[680px]">
           <div className="flex items-start justify-between gap-4 border-b border-white/10 px-4 py-4 sm:px-6">
             <div className="min-w-0 lg:hidden">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--pulse-deep)]">30 minute audit</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--pulse-deep)]">{durationLabel}</p>
               <h2 id="cal-booking-title-mobile" className="mt-1 text-xl font-semibold text-[var(--ink)]">
-                Book the visibility + call leak audit
+                {title}
               </h2>
             </div>
             <div className="hidden min-w-0 lg:block">
@@ -121,7 +138,7 @@ export default function CalBookingSurface() {
                 Choose your audit time
               </p>
               <p className="mt-1 text-sm text-[var(--mute)]">
-                Select a slot, then complete the med spa qualifier.
+                {subtitle}
               </p>
             </div>
             <button

@@ -252,12 +252,12 @@ export default function ContactPage() {
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
                   Get a visibility and call leak audit to review where your clinic can improve Google visibility, trust, call recovery, and consult routing.
                 </p>
-                <a
-                  href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+                <Link
+                  href="/free-consult-leak-calculator"
                   className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Get a visibility + call leak audit
-                </a>
+                </Link>
               </div>
 
               {/* Direct Contact */}

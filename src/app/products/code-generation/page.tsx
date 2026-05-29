@@ -221,12 +221,12 @@ export default function CodeGenerationPage() {
                 See how easy it is to optimize for AI search.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="#" data-cal-link="rhemic-ai/medspa-discovery-call"
+                <Link
+                  href="/free-consult-leak-calculator"
                   className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
                 >
                   Get the audit
-                </a>
+                </Link>
                 <Link
                   href="/products"
                   className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"

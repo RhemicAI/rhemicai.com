@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import Link from 'next/link';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
@@ -288,12 +288,12 @@ export default function PricingPage() {
             Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4">
-            <CalBookingLink
-              calLink="rhemic-ai/medspa-discovery-call"
-            className="w-full max-w-[340px] rounded-full bg-[var(--ink)] px-6 py-4 text-center text-sm font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
-          >
+            <Link
+              href="/free-consult-leak-calculator"
+              className="w-full max-w-[340px] rounded-full bg-[var(--ink)] px-6 py-4 text-center text-sm font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
+            >
               Get a visibility + call leak audit
-            </CalBookingLink>
+            </Link>
             <p className="font-body text-sm text-[var(--text-muted)]">
               $0 setup fee. Starts with a visibility and call leak audit for U.S. med spas.
             </p>
@@ -364,12 +364,12 @@ export default function PricingPage() {
             <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
               We help med spas identify where patient demand is leaking across visibility, calls, handoffs, and source context.
             </p>
-            <CalBookingLink
-              calLink="rhemic-ai/medspa-discovery-call"
+            <Link
+              href="/free-consult-leak-calculator"
               className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
             >
               Get a visibility + call leak audit
-            </CalBookingLink>
+            </Link>
             <p className="mt-6 text-xs text-[var(--text-muted)]">
               No ranking promises, revenue guarantees, or clinical claims.
             </p>
