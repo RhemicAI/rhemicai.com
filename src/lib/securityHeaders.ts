@@ -10,6 +10,16 @@ type SecurityHeaderOptions = {
 };
 
 const CAL_APP_ORIGIN = new URL(CAL_EMBED_SCRIPT_SRC).origin;
+const HUBSPOT_SCRIPT_ORIGINS = [
+  'https://js-na2.hs-scripts.com',
+  'https://js-na2.hscollectedforms.net',
+  'https://js-na2.hs-analytics.net',
+  'https://js-na2.hs-banner.com',
+];
+const HUBSPOT_CONNECT_ORIGINS = [
+  'https://js-na2.hscollectedforms.net',
+  'https://js-na2.hs-banner.com',
+];
 
 export function getContentSecurityPolicy({ isDevelopment = false }: SecurityHeaderOptions = {}) {
   const scriptSrc = [
@@ -21,6 +31,7 @@ export function getContentSecurityPolicy({ isDevelopment = false }: SecurityHead
     'https://www.googletagmanager.com',
     'https://www.google-analytics.com',
     'https://va.vercel-scripts.com',
+    ...HUBSPOT_SCRIPT_ORIGINS,
   ];
 
   const connectSrc = [
@@ -32,6 +43,7 @@ export function getContentSecurityPolicy({ isDevelopment = false }: SecurityHead
     'https://www.google-analytics.com',
     'https://region1.google-analytics.com',
     'https://vitals.vercel-insights.com',
+    ...HUBSPOT_CONNECT_ORIGINS,
     ...(isDevelopment ? ['ws:', 'http://localhost:*', 'http://127.0.0.1:*'] : []),
   ];
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -109,6 +110,11 @@ export default function RootLayout({
         <CalBookingSurface />
         <OfferPopup />
         <div className="relative z-10">{children}</div>
+        <Script
+          id="hs-script-loader"
+          src="https://js-na2.hs-scripts.com/246355934.js"
+          strategy="afterInteractive"
+        />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
