@@ -9,7 +9,9 @@ describe('getLeakTeaser', () => {
     expect(teaser.range).toBe('$10k-$20k /mo range');
     expect(teaserText).not.toContain('$13,750');
     expect(teaserText).not.toContain('$165,000');
-    expect(teaserText).toContain('exact estimate');
+    expect(teaserText).not.toContain('capture gap');
+    expect(teaserText).toContain('estimate');
+    expect(teaserText).toContain('biggest leak point');
   });
 
   it('uses broad severity ranges instead of exact values', () => {

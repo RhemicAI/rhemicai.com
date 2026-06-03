@@ -160,9 +160,9 @@ export function getLeakTeaser(monthlyLeak: number) {
     return {
       range: "Under $10k /mo",
       severity: "Moderate consult leak risk",
-      annualSignal: "a five-figure annual capture gap",
+      reveal: "your exact monthly estimate, annual total, and biggest leak point",
       note:
-        "Your answers point to real money slipping through the booking path. The exact estimate and the leak source need your clinic details so we can send the full breakdown.",
+        "There is probably money slipping through your booking path. The next step shows the actual estimate and where it is most likely happening.",
     };
   }
 
@@ -170,18 +170,18 @@ export function getLeakTeaser(monthlyLeak: number) {
     return {
       range: "$10k-$20k /mo range",
       severity: "High consult leak risk",
-      annualSignal: "a six-figure annual capture gap",
+      reveal: "your exact monthly estimate, annual total, and biggest leak point",
       note:
-        "Your answers point to a meaningful revenue leak from patients you already attracted. The exact estimate and the leak source unlock with your clinic details.",
+        "There is a real number worth seeing here. The next step shows the estimate, the yearly impact, and the part of your booking flow to look at first.",
     };
   }
 
   return {
     range: "$20k+ /mo range",
     severity: "Severe consult leak risk",
-    annualSignal: "a serious six-figure annual capture gap",
+    reveal: "your exact monthly estimate, annual total, and biggest leak point",
     note:
-      "Your answers point to a major capture problem, not a lead problem. The exact estimate and the first leak to fix unlock with your clinic details.",
+      "This looks big enough to check now. The next step shows the estimate, the yearly impact, and the first place consults are likely slipping away.",
   };
 }
 
@@ -667,8 +667,7 @@ export default function ConsultLeakCalculator() {
           <span style={{ color: "#e8efed", fontWeight: 600 }}>
             {leakTeaser.range}
           </span>{" "}
-          and suggest {leakTeaser.annualSignal}. The exact dollar estimate stays in
-          your full breakdown.
+          based on your answers. Get {leakTeaser.reveal} on the next screen.
         </p>
         <div
           style={{
@@ -687,7 +686,7 @@ export default function ConsultLeakCalculator() {
           </p>
         </div>
         <button style={accentBtn} onClick={() => setPhase("gate")}>
-          See your full breakdown + how to plug it →
+          Show me the full breakdown →
         </button>
       </Shell>
     );
