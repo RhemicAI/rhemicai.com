@@ -37,10 +37,10 @@ const tiers: Tier[] = [
     blurb:
       'The entry point. We make your business show up, and get recommended by name, across search and AI answer engines.',
     features: [
-      'AI answer-engine visibility for your category',
-      'Google Business Profile and local search foundation',
-      'Schema, citations, and treatment/service-page priority fixes',
-      'Monthly visibility report showing where you rank and what moved',
+      'Show up when people ask AI who to hire in your area',
+      'Get recommended by name instead of your competitors',
+      'Win the high-intent searches your customers actually use',
+      'See exactly where you moved each month, in plain English',
     ],
   },
   {
@@ -55,9 +55,9 @@ const tiers: Tier[] = [
       'Everything in Visibility, plus the always-on capture layer that turns the demand into booked work. Calls, missed calls, after-hours, and forms.',
     features: [
       'Everything in Visibility',
-      'Always-on capture across calls, missed calls, after-hours, and forms',
-      'Booking intent routed to your team with source context',
-      'Competitor positioning and demand review',
+      'Stop losing jobs to missed calls and after-hours inquiries',
+      'Every lead reaches your team fast, with where it came from',
+      'Turn the people comparing you to competitors into booked work',
     ],
   },
   {
@@ -71,9 +71,9 @@ const tiers: Tier[] = [
       'Everything in Capture, plus multi-location routing, deeper reporting, and ad spend tied to booked-work outcomes by source and campaign.',
     features: [
       'Everything in Capture',
-      'Multi-location routing and dashboard',
-      'Source-aware reporting across markets',
-      'Connected-account ad reporting for campaign context',
+      'Every location handled, not just one',
+      'Know which markets, channels, and dollars actually book work',
+      'We run visibility, capture, and reporting so you run the business',
     ],
   },
 ];
