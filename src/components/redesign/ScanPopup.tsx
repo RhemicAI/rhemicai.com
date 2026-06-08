@@ -10,8 +10,7 @@ import { CAL_BOOKING_EVENT_NAME } from '@/lib/calEmbed';
 // Scrape-only fields: detected_vertical, business_summary, visibility_leak_pct, findings[].
 const API = 'https://api.rhemicai.com';
 const BASE = `${API}/public/lead-scan`;
-const DISMISS_KEY = 'rhemic_scan_popup_dismissed_at';
-const DISMISS_DAYS = 3;
+const SHOWN_KEY = 'rhemic_scan_shown_v2';
 const AUTO_OPEN_MS = 2500;
 const POLL_MS = 3000;
 const POLL_TIMEOUT_MS = 120_000;
@@ -19,14 +18,17 @@ const POLL_TIMEOUT_MS = 120_000;
 type Screen = 'input' | 'scanning' | 'gate' | 'report' | 'error';
 type Finding = { id?: string; title: string; severity?: string; detail?: string };
 
-function recentlyDismissed(): boolean {
+function shownThisSession(): boolean {
   try {
-    const raw = window.localStorage.getItem(DISMISS_KEY);
-    if (!raw) return false;
-    return Date.now() - Number(raw) < DISMISS_DAYS * 864e5;
+    return window.sessionStorage.getItem(SHOWN_KEY) === '1';
   } catch {
     return false;
   }
+}
+function markShown() {
+  try {
+    window.sessionStorage.setItem(SHOWN_KEY, '1');
+  } catch {}
 }
 function cleanUrl(v: string) {
   return v.trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
@@ -64,27 +66,19 @@ export default function ScanPopup() {
   const [findings, setFindings] = useState<Finding[]>([]);
   const [stepIdx, setStepIdx] = useState(0);
 
-  // Pop in their face in the first couple seconds (unless recently dismissed).
+  // Pop in their face on visit — auto-open once per session, ~2.5s after load.
   useEffect(() => {
-    if (recentlyDismissed()) {
-      setShowTab(true);
-      return;
-    }
+    setShowTab(true); // reopen tab always available
+    if (shownThisSession()) return;
     const t = setTimeout(() => {
       setOpen(true);
-      setShowTab(true);
+      markShown();
     }, AUTO_OPEN_MS);
     return () => clearTimeout(t);
   }, []);
 
-  const persistDismiss = () => {
-    try {
-      window.localStorage.setItem(DISMISS_KEY, String(Date.now()));
-    } catch {}
-  };
   const close = useCallback(() => {
     setOpen(false);
-    persistDismiss();
   }, []);
 
   useEffect(() => {
