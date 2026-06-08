@@ -67,16 +67,19 @@ html, body {
   line-height: 1.6;
 }
 
-/* Grain overlay — fixed, multiplies onto the whole page for paper tooth */
+/* Grain overlay — fixed, heavy paper tooth. Dark specks multiplied onto cream. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.92;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.9'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.28' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-size: 200px 200px, 340px 340px;
 }
 
 /* A second, very soft warm vignette so the cream has depth, not flatness */
@@ -134,8 +137,21 @@ h1, h2, h3, h4, h5, h6 {
   .rule-strong { border-top: 1.5px solid var(--ink); }
 
   /* Inverted ink block (cream type on dark ink) */
-  .ink-block { background: var(--paper-ink); color: var(--paper); }
+  .ink-block { position: relative; background: var(--paper-ink); color: var(--paper); isolation: isolate; }
   .ink-block h1, .ink-block h2, .ink-block h3, .ink-block h4 { color: var(--paper); }
+  /* Light-fleck grain so the dark sections read as printed paper too */
+  .ink-block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='ni'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ni)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+  .ink-block > * { position: relative; z-index: 1; }
 
   /* Buttons */
   .btn-primary {
