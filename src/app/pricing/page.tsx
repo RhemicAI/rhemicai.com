@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, siteConfig } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Pricing',
@@ -185,16 +184,18 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
-                <Link
-                  href="/contact"
+                <a
+                  href={siteConfig.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`mt-8 ${
                     t.featured
                       ? 'btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]'
                       : 'btn-ghost'
                   } w-full`}
                 >
-                  {t.placeholder ? 'Talk to us' : 'Book a call'}
-                </Link>
+                  {t.placeholder ? 'Talk to us' : 'Run my audit'}
+                </a>
               </Reveal>
             ))}
           </div>
@@ -207,7 +208,7 @@ export default function PricingPage() {
               Have more than one location or a complex setup? We scope custom. Tier 2 and Tier 3
               pricing is being finalized. Book a call and we’ll walk you through exactly what fits.
             </p>
-            <Link href="/contact" className="btn-primary mt-7">Book a call</Link>
+            <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary mt-7">Run my revenue leak audit</a>
           </div>
         </section>
       </main>

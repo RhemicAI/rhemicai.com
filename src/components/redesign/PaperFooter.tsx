@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import { siteConfig } from '@/lib/seo';
 
 const cols: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: 'Product',
     links: [
       { href: '/#how', label: 'How it works' },
-      { href: '/testimonials', label: 'Work' },
+      { href: '/testimonials', label: 'Results' },
       { href: '/pricing', label: 'Pricing' },
-      { href: '/contact', label: 'Book a call' },
+      { href: siteConfig.bookingUrl, label: 'Get audit' },
     ],
   },
   {
@@ -54,16 +55,24 @@ export default function PaperFooter() {
                 {col.title}
               </h4>
               <ul className="mt-4 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.href + l.label}>
-                    <Link
-                      href={l.href}
-                      className="font-body text-[0.95rem] text-[rgba(244,238,222,0.78)] transition-colors hover:text-[var(--paper)]"
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const cls =
+                    'font-body text-[0.95rem] text-[rgba(244,238,222,0.78)] transition-colors hover:text-[var(--paper)]';
+                  const external = l.href.startsWith('http');
+                  return (
+                    <li key={l.href + l.label}>
+                      {external ? (
+                        <a href={l.href} target="_blank" rel="noopener noreferrer" className={cls}>
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link href={l.href} className={cls}>
+                          {l.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

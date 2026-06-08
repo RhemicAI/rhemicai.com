@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
-import { absoluteUrl } from '@/lib/seo';
+import { absoluteUrl, siteConfig } from '@/lib/seo';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
@@ -14,8 +14,8 @@ const engines = [
 ];
 
 const ribbon = [
-  'Home services', 'Clinics', 'Studios', 'Law firms', 'Contractors', 'Dental',
-  'Restaurants', 'Retail', 'Agencies', 'Auto', 'Wellness', 'Real estate',
+  'Home services', 'HVAC', 'Plumbing', 'Electrical', 'Roofing', 'Auto',
+  'Dental', 'Clinics', 'Med spas', 'Cleaning', 'Landscaping', 'Salons',
 ];
 
 const outcomes = [
@@ -109,10 +109,10 @@ export default function Home() {
             {/* Broadsheet nameplate row */}
             <div className="rise rise-1 mb-10 flex items-center justify-between border-y border-[var(--ink)] py-2">
               <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
-                Visibility for the AI era
+                Visibility + capture
               </span>
               <span className="hidden font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3 sm:block">
-                Any industry
+                Local service businesses
               </span>
               <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">
                 Est. Dallas
@@ -121,58 +121,55 @@ export default function Home() {
 
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
-                <p className="rise rise-1 kicker mb-6">The way customers find you changed</p>
+                <p className="rise rise-1 kicker mb-6">Visibility + capture for local service businesses</p>
                 <h1 className="rise rise-2 font-display text-[clamp(2.6rem,7vw,5.4rem)] font-medium leading-[0.98] text-balance">
                   Be the business{' '}
                   <span className="italic text-spot-deep">AI recommends</span>,
-                  and the one that gets booked.
+                  and the one that answers first.
                 </h1>
                 <p className="rise rise-3 mt-7 max-w-xl font-body text-[1.18rem] leading-relaxed text-ink-2 text-pretty">
-                  Customers don’t scroll ten blue links anymore. They ask once and act on the
-                  answer. Rhemic makes sure your business is that answer. Found in search and AI
-                  engines, recommended by name, with every inquiry caught and turned into work.
+                  Customers now ask Google, ChatGPT, and Siri who to hire. Then they call whoever
+                  looks fastest and most trusted. Rhemic helps local businesses show up in those
+                  answers, recover missed leads, and turn more demand into booked jobs.
                 </p>
                 <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-4">
-                  <Link href="/contact" className="btn-primary">Book a call</Link>
-                  <Link href="/testimonials" className="btn-ghost">See our work</Link>
+                  <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">Run my revenue leak audit</a>
+                  <Link href="/#how" className="btn-ghost">See how it works</Link>
                 </div>
+                <p className="rise rise-4 mt-5 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-ink-3">
+                  AI visibility scan <span className="text-spot">·</span> Google Business audit <span className="text-spot">·</span> Missed-call capture review
+                </p>
               </div>
 
-              {/* Conceptual "be the answer" panel — no client, illustrates the product */}
+              {/* Diagnostic "Lead Leak Report" — shows the leak, then the fix */}
               <div className="rise rise-3 relative">
                 <div className="paper-card relative rotate-[-1.4deg] p-6 sm:p-7">
-                  <div className="flex items-center justify-between border-b border-[var(--line)] pb-3">
-                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink-3">AI answer</span>
-                    <span className="h-2 w-2 rounded-full bg-spot" />
-                  </div>
-                  <p className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-ink-3">
-                    “Best near me, who should I go with?”
-                  </p>
-
-                  {/* the recommended result */}
-                  <div className="mt-4 border-l-2 border-[var(--spot)] bg-[var(--spot-soft)] px-4 py-3">
-                    <div className="flex items-center justify-between">
-                      <span className="font-display text-[1.15rem] font-semibold text-ink">Your business</span>
-                      <span className="font-mono text-[0.56rem] uppercase tracking-[0.16em] text-spot-deep">Recommended</span>
-                    </div>
-                    <p className="mt-1 font-body text-[0.9rem] leading-snug text-ink-2">
-                      Top rated, fast to respond, booking now.
-                    </p>
+                  <div className="flex items-center justify-between border-b border-[var(--ink)] pb-3">
+                    <span className="font-mono text-[0.64rem] uppercase tracking-[0.2em] text-ink">Lead leak report</span>
+                    <span className="bg-[var(--spot-soft)] px-2 py-0.5 font-mono text-[0.56rem] uppercase tracking-[0.14em] text-spot-deep">3 leaks found</span>
                   </div>
 
-                  {/* the also-rans, faded */}
-                  <div className="mt-3 space-y-2 opacity-45">
-                    {['A competitor', 'Another option', 'Someone else'].map((c) => (
-                      <div key={c} className="flex items-center justify-between border-b border-[var(--line-soft)] pb-2">
-                        <span className="font-body text-[0.92rem] text-ink-3">{c}</span>
-                        <span className="font-mono text-[0.56rem] uppercase tracking-[0.14em] text-ink-faint">Not shown</span>
+                  <div className="mt-4 space-y-3.5">
+                    {[
+                      ['AI answers', 'Not recommended in 3 of 4 searches'],
+                      ['Google visibility', 'Competitor outranks you for “near me”'],
+                      ['Call capture', 'After-hours calls go unanswered'],
+                    ].map(([label, status]) => (
+                      <div key={label} className="flex items-start gap-3 border-b border-[var(--line-soft)] pb-3">
+                        <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center bg-[var(--spot)] font-mono text-[0.62rem] font-bold text-[var(--paper)]">!</span>
+                        <div>
+                          <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-ink-3">{label}</p>
+                          <p className="font-body text-[0.94rem] leading-snug text-ink">{status}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-4 flex items-center gap-2 border-t border-[var(--line)] pt-3">
-                    <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-ink-faint">Cited across</span>
-                    <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-ink-2">ChatGPT · Gemini · Perplexity</span>
+                  <div className="mt-4 bg-[var(--ink)] px-4 py-3">
+                    <p className="font-mono text-[0.56rem] uppercase tracking-[0.18em] text-[var(--spot)]">Rhemic fix</p>
+                    <p className="mt-1 font-display text-[1.1rem] font-semibold text-[var(--paper)]">
+                      Visibility + Capture + Booking loop
+                    </p>
                   </div>
                 </div>
                 <div className="absolute -bottom-4 -left-4 -z-10 h-full w-full rounded-[3px] border border-[var(--line)] bg-[var(--paper-3)]" />
@@ -303,7 +300,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div className="max-w-xl">
-                <p className="kicker mb-5">The work</p>
+                <p className="kicker mb-5">Results</p>
                 <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
                   Real sites. Booking and capture wired in.
                 </h2>
@@ -384,12 +381,14 @@ export default function Home() {
               takes to be the name they give.
             </p>
             <div className="mt-9 flex justify-center">
-              <Link
-                href="/contact"
+              <a
+                href={siteConfig.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]"
               >
-                Book a call
-              </Link>
+                Run my revenue leak audit
+              </a>
             </div>
           </Reveal>
         </section>

@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { siteConfig } from '@/lib/seo';
 
 const links = [
   { href: '/#how', label: 'How it works' },
-  { href: '/testimonials', label: 'Work' },
+  { href: '/testimonials', label: 'Results' },
   { href: '/pricing', label: 'Pricing' },
 ];
 
@@ -53,9 +54,9 @@ export default function PaperNav() {
               {l.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary !px-5 !py-3 text-[0.7rem]">
-            Book a call
-          </Link>
+          <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !px-5 !py-3 text-[0.7rem]">
+            Get audit
+          </a>
         </div>
 
         <button
@@ -85,9 +86,9 @@ export default function PaperNav() {
                 {l.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
-              Book a call
-            </Link>
+            <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
+              Get audit
+            </a>
           </div>
         </div>
       )}

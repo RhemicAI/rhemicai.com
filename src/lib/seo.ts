@@ -4,6 +4,7 @@ export const siteConfig = {
   name: "Rhemic AI",
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
+  bookingUrl: "https://cal.com/rhemic-ai/rhemic-ai-audit-walkthrough",
   entity:
     "Rhemic AI makes any business the answer customers find in search and AI engines.",
   description:
