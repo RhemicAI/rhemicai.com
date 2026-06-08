@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig } from '@/lib/seo';
+import AuditButton from './AuditButton';
 
 const cols: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -8,7 +8,7 @@ const cols: { title: string; links: { href: string; label: string }[] }[] = [
       { href: '/#how', label: 'How it works' },
       { href: '/testimonials', label: 'Results' },
       { href: '/pricing', label: 'Pricing' },
-      { href: siteConfig.bookingUrl, label: 'Get audit' },
+      { href: '#audit', label: 'Get audit' },
     ],
   },
   {
@@ -58,13 +58,10 @@ export default function PaperFooter() {
                 {col.links.map((l) => {
                   const cls =
                     'font-body text-[0.95rem] text-[rgba(244,238,222,0.78)] transition-colors hover:text-[var(--paper)]';
-                  const external = l.href.startsWith('http');
                   return (
                     <li key={l.href + l.label}>
-                      {external ? (
-                        <a href={l.href} target="_blank" rel="noopener noreferrer" className={cls}>
-                          {l.label}
-                        </a>
+                      {l.href === '#audit' ? (
+                        <AuditButton className={`${cls} text-left`}>{l.label}</AuditButton>
                       ) : (
                         <Link href={l.href} className={cls}>
                           {l.label}

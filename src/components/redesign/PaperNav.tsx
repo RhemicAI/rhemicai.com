@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { siteConfig } from '@/lib/seo';
+import AuditButton from './AuditButton';
 
 const links = [
   { href: '/#how', label: 'How it works' },
@@ -54,9 +54,9 @@ export default function PaperNav() {
               {l.label}
             </Link>
           ))}
-          <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !px-5 !py-3 text-[0.7rem]">
+          <AuditButton className="btn-primary !px-5 !py-3 text-[0.7rem]">
             Get audit
-          </a>
+          </AuditButton>
         </div>
 
         <button
@@ -86,9 +86,9 @@ export default function PaperNav() {
                 {l.label}
               </Link>
             ))}
-            <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
+            <AuditButton className="btn-primary mt-2 w-full" onActivate={() => setOpen(false)}>
               Get audit
-            </a>
+            </AuditButton>
           </div>
         </div>
       )}

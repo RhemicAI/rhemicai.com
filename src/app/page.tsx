@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
-import { absoluteUrl, siteConfig } from '@/lib/seo';
+import { absoluteUrl } from '@/lib/seo';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
+import AuditButton from '@/components/redesign/AuditButton';
 
 const engines = [
   { src: '/images/engines/chatgpt.svg', label: 'ChatGPT' },
@@ -122,18 +123,18 @@ export default function Home() {
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
                 <p className="rise rise-1 kicker mb-6">Visibility + capture for local service businesses</p>
-                <h1 className="rise rise-2 font-display text-[clamp(2.6rem,7vw,5.4rem)] font-medium leading-[0.98] text-balance">
+                <h1 className="rise rise-2 font-display text-[clamp(2.1rem,5vw,3.9rem)] font-medium leading-[1.0] text-balance">
                   Be the business{' '}
                   <span className="italic text-spot-deep">AI recommends</span>,
                   and the one that answers first.
                 </h1>
-                <p className="rise rise-3 mt-7 max-w-xl font-body text-[1.18rem] leading-relaxed text-ink-2 text-pretty">
-                  Customers now ask Google, ChatGPT, and Siri who to hire. Then they call whoever
-                  looks fastest and most trusted. Rhemic helps local businesses show up in those
-                  answers, recover missed leads, and turn more demand into booked jobs.
+                <p className="rise rise-3 mt-6 max-w-lg font-body text-[1.02rem] leading-relaxed text-ink-2 text-pretty">
+                  Customers now ask Google, ChatGPT, and Perplexity who to hire. Then they call
+                  whoever looks fastest and most trusted. Rhemic helps local businesses show up in
+                  those answers, recover missed leads, and turn more demand into booked jobs.
                 </p>
                 <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-4">
-                  <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">Run my revenue leak audit</a>
+                  <AuditButton className="btn-primary">Run my revenue leak audit</AuditButton>
                   <Link href="/#how" className="btn-ghost">See how it works</Link>
                 </div>
                 <p className="rise rise-4 mt-5 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-ink-3">
@@ -381,14 +382,9 @@ export default function Home() {
               takes to be the name they give.
             </p>
             <div className="mt-9 flex justify-center">
-              <a
-                href={siteConfig.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]"
-              >
+              <AuditButton className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]">
                 Run my revenue leak audit
-              </a>
+              </AuditButton>
             </div>
           </Reveal>
         </section>
