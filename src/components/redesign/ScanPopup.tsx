@@ -283,9 +283,11 @@ export default function ScanPopup() {
               <div>
                 <p className="kicker mb-3">Scan complete</p>
                 <div className="paper-card mb-5 p-5 text-center">
-                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-3">Estimated visibility leak</p>
-                  <p className="mt-1 font-display text-[3.4rem] font-bold leading-none text-spot-deep">{leakPct ?? '—'}%</p>
-                  <p className="mt-1 font-body text-[0.9rem] text-ink-2">of nearby customers may never see you</p>
+                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-3">AI visibility scan</p>
+                  <p className="mt-3 font-display text-[1.9rem] font-bold uppercase leading-[1.12] tracking-tight text-ink">
+                    You only have <span className="text-spot-deep">{leakPct ?? '—'}%</span> visibility
+                  </p>
+                  <p className="mt-2 font-body text-[0.88rem] text-ink-2">Most nearby customers never see you when they search.</p>
                 </div>
                 {vertical && (
                   <p className="mb-2 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-ink-3">
@@ -315,11 +317,11 @@ export default function ScanPopup() {
               <div>
                 <p className="kicker mb-3">Your readiness report</p>
                 <div className="paper-card mb-5 p-5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-3">{cleanUrl(url)}</span>
-                    <span className="font-display text-[2rem] font-bold leading-none text-spot-deep">{leakPct ?? '—'}%</span>
-                  </div>
-                  {summary && <p className="mt-2 font-body text-[0.95rem] leading-snug text-ink-2">{summary}</p>}
+                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-3">{cleanUrl(url)}</p>
+                  <p className="mt-2 font-display text-[1.7rem] font-bold uppercase leading-[1.12] tracking-tight text-ink">
+                    You only have <span className="text-spot-deep">{leakPct ?? '—'}%</span> visibility
+                  </p>
+                  {summary && <p className="mt-3 font-body text-[0.95rem] leading-snug text-ink-2">{summary}</p>}
                 </div>
                 <p className="kicker kicker-ink mb-2">Fix these first</p>
                 <ul className="space-y-3">
