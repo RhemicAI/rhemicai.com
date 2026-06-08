@@ -12,7 +12,7 @@ const API = 'https://api.rhemicai.com';
 const BASE = `${API}/public/lead-scan`;
 const DISMISS_KEY = 'rhemic_scan_popup_dismissed_at';
 const DISMISS_DAYS = 3;
-const NUDGE_DELAY_MS = 9000;
+const AUTO_OPEN_MS = 2500;
 const POLL_MS = 3000;
 const POLL_TIMEOUT_MS = 120_000;
 
@@ -64,9 +64,16 @@ export default function ScanPopup() {
   const [findings, setFindings] = useState<Finding[]>([]);
   const [stepIdx, setStepIdx] = useState(0);
 
+  // Pop in their face in the first couple seconds (unless recently dismissed).
   useEffect(() => {
-    if (recentlyDismissed()) return;
-    const t = setTimeout(() => setShowTab(true), NUDGE_DELAY_MS);
+    if (recentlyDismissed()) {
+      setShowTab(true);
+      return;
+    }
+    const t = setTimeout(() => {
+      setOpen(true);
+      setShowTab(true);
+    }, AUTO_OPEN_MS);
     return () => clearTimeout(t);
   }, []);
 
@@ -210,16 +217,16 @@ export default function ScanPopup() {
         </button>
       )}
 
-      <div className={`fixed inset-0 z-[115] ${open ? '' : 'pointer-events-none'}`} aria-hidden={!open}>
+      <div className={`fixed inset-0 z-[115] flex items-center justify-center p-4 ${open ? '' : 'pointer-events-none'}`} aria-hidden={!open}>
         <div
-          className={`absolute inset-0 bg-[#1b1813]/55 transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-[#1b1813]/65 backdrop-blur-[2px] transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}
           onClick={close}
         />
-        <aside
+        <div
           role="dialog"
           aria-modal="true"
           aria-label="Free AI visibility scan"
-          className={`absolute right-0 top-0 flex h-full w-full max-w-[440px] flex-col border-l-[1.5px] border-[var(--ink)] bg-[var(--paper)] shadow-[-12px_0_40px_rgba(27,24,19,0.2)] transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`relative flex max-h-[90svh] w-full max-w-[470px] flex-col overflow-hidden rounded-[4px] border-[1.5px] border-[var(--ink)] bg-[var(--paper)] shadow-[8px_10px_0_rgba(27,24,19,0.16)] transition-all duration-300 ${open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
         >
           <div className="flex items-center justify-between border-b border-[var(--line)] px-5 py-4">
             <span className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-spot-deep">
@@ -357,7 +364,7 @@ export default function ScanPopup() {
               </div>
             )}
           </div>
-        </aside>
+        </div>
       </div>
     </>
   );
