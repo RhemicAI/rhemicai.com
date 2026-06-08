@@ -131,16 +131,18 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Proof of work: real AI citations */}
-        <section className="border-y border-[var(--line)] bg-[var(--paper-2)] px-5 py-20 sm:px-8 sm:py-24">
+        <section className="px-5 pb-20 sm:px-8 sm:pb-24">
           <div className="mx-auto max-w-6xl">
-            <Reveal className="mb-12 max-w-2xl">
-              <p className="kicker mb-5">Proof of work</p>
-              <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
-                Cited by name inside the AI answers buyers ask.
-              </h2>
-              <p className="mt-5 font-body text-[1.08rem] leading-relaxed text-ink-2">
-                These are live engagements. Open ChatGPT, Claude, Gemini, or Perplexity and paste the
-                queries yourself. No dashboard, no spin.
+            <Reveal className="mb-10 flex flex-col gap-3 border-b border-[var(--line)] pb-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="kicker mb-2">Proof of work</p>
+                <p className="font-display text-[1.5rem] font-semibold leading-tight text-ink">
+                  Cited by name in the AI answers buyers ask.
+                </p>
+              </div>
+              <p className="max-w-sm font-body text-[0.95rem] leading-relaxed text-ink-2">
+                Live engagements. Open ChatGPT, Claude, Gemini, or Perplexity and paste the queries
+                yourself. No dashboard, no spin.
               </p>
             </Reveal>
 
