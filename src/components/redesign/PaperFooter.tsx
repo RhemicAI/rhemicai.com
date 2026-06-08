@@ -4,8 +4,8 @@ const cols: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: 'Product',
     links: [
-      { href: '/#what', label: 'What you get' },
       { href: '/#how', label: 'How it works' },
+      { href: '/testimonials', label: 'Work' },
       { href: '/pricing', label: 'Pricing' },
       { href: '/contact', label: 'Book a call' },
     ],
@@ -33,13 +33,15 @@ export default function PaperFooter() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-baseline gap-2">
+            <div className="flex items-center gap-2.5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/rhemic-logo.svg" alt="Rhemic AI" width={36} height={36} className="h-9 w-9 rounded-[8px]" />
               <span className="font-display text-2xl font-bold text-[var(--paper)]">Rhemic</span>
               <span className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-[var(--spot)]">AI</span>
             </div>
             <p className="mt-4 max-w-xs font-body text-[0.95rem] leading-relaxed text-[rgba(244,238,222,0.62)]">
               Visibility for the AI era. We make sure your business is the answer customers
-              find — and turn that demand into booked work.
+              find, and turn that demand into booked work.
             </p>
             <p className="mt-5 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-[rgba(244,238,222,0.4)]">
               Dallas, Texas

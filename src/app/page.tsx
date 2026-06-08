@@ -5,7 +5,13 @@ import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
 
-const engines = ['ChatGPT', 'Claude', 'Perplexity', 'Gemini', 'Google AI'];
+const engines = [
+  { src: '/images/engines/chatgpt.svg', label: 'ChatGPT' },
+  { src: '/images/engines/claude.svg', label: 'Claude' },
+  { src: '/images/engines/perplexity.svg', label: 'Perplexity' },
+  { src: '/images/engines/gemini.svg', label: 'Gemini' },
+  { src: '/images/engines/google.svg', label: 'Google AI' },
+];
 
 const ribbon = [
   'Home services', 'Clinics', 'Studios', 'Law firms', 'Contractors', 'Dental',
@@ -17,13 +23,13 @@ const outcomes = [
     no: '01',
     title: 'Get found',
     body:
-      'When someone searches for what you do — on Google or inside an AI answer — your business shows up where the decision is actually made.',
+      'When someone searches for what you do, on Google or inside an AI answer, your business shows up where the decision actually gets made.',
   },
   {
     no: '02',
     title: 'Get recommended',
     body:
-      'AI engines answer with a name. We do the structured, technical, and content work that makes that name yours, not your competitor’s.',
+      'AI engines answer with a name. We do the structured, technical, and content work that makes that name yours instead of your competitor’s.',
   },
   {
     no: '03',
@@ -38,7 +44,7 @@ const steps = [
     no: '01',
     title: 'Diagnose',
     body:
-      'We map exactly where you’re invisible and where booking intent leaks — across search, AI answers, your pages, calls, and handoffs.',
+      'We map exactly where you’re invisible and where booking intent leaks. Across search, AI answers, your pages, calls, and handoffs.',
   },
   {
     no: '02',
@@ -50,14 +56,27 @@ const steps = [
     no: '03',
     title: 'Run it daily',
     body:
-      'Not a one-time audit. The system keeps watching for new leaks and capturing demand every day, and tells you what’s working.',
+      'Not a one-time audit. The system keeps watching for new leaks and capturing demand every day, then tells you what’s working.',
   },
 ];
 
-const measures: [string, string][] = [
-  ['Where you rank', 'Your position in AI answers and search for the queries that bring real customers.'],
-  ['What gets caught', 'Calls, missed calls, after-hours, and form inquiries — counted, not guessed.'],
-  ['Where work comes from', 'Source context on every booked job, so you stop paying for channels that don’t convert.'],
+const cases = [
+  {
+    slug: 'kays-groom-room',
+    name: 'Kay’s Groom Room',
+    kind: 'In-home dog grooming · Seagoville, TX',
+    url: 'kaysgroomroom.com',
+    img: '/images/cases/groomroom-hero.jpg',
+    line: 'A booking-first site where every section funnels to one action, with a mobile call-and-book bar so no inquiry slips.',
+  },
+  {
+    slug: 'choose-one-auto',
+    name: 'Choose One Auto Consulting',
+    kind: 'Auto consulting · Michael King',
+    url: 'Site + AI receptionist',
+    img: '/images/cases/chooseone-owner.jpg',
+    line: 'A conversion site wired to an AI receptionist that answers and captures every call, including the ones that used to go to voicemail.',
+  },
 ];
 
 const homepageSchema = {
@@ -100,51 +119,60 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
                 <p className="rise rise-1 kicker mb-6">The way customers find you changed</p>
                 <h1 className="rise rise-2 font-display text-[clamp(2.6rem,7vw,5.4rem)] font-medium leading-[0.98] text-balance">
                   Be the business{' '}
-                  <span className="italic text-spot-deep">AI recommends</span>{' '}
-                  — and the one that gets booked.
+                  <span className="italic text-spot-deep">AI recommends</span>,
+                  and the one that gets booked.
                 </h1>
                 <p className="rise rise-3 mt-7 max-w-xl font-body text-[1.18rem] leading-relaxed text-ink-2 text-pretty">
                   Customers don’t scroll ten blue links anymore. They ask once and act on the
-                  answer. Rhemic makes sure your business is that answer — found in search and AI
+                  answer. Rhemic makes sure your business is that answer. Found in search and AI
                   engines, recommended by name, with every inquiry caught and turned into work.
                 </p>
                 <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-4">
                   <Link href="/contact" className="btn-primary">Book a call</Link>
-                  <Link href="/#how" className="btn-ghost">See how it works</Link>
+                  <Link href="/testimonials" className="btn-ghost">See our work</Link>
                 </div>
               </div>
 
-              {/* Crafted "you are the answer" card — conceptual, agnostic */}
+              {/* Conceptual "be the answer" panel — no client, illustrates the product */}
               <div className="rise rise-3 relative">
-                <div className="paper-card relative rotate-[-1.6deg] p-6 sm:p-7">
+                <div className="paper-card relative rotate-[-1.4deg] p-6 sm:p-7">
                   <div className="flex items-center justify-between border-b border-[var(--line)] pb-3">
-                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink-3">
-                      AI answer
-                    </span>
+                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink-3">AI answer</span>
                     <span className="h-2 w-2 rounded-full bg-spot" />
                   </div>
-                  <p className="mt-4 font-mono text-[0.74rem] uppercase tracking-[0.12em] text-ink-3">
-                    “Who should I hire near me?”
+                  <p className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-ink-3">
+                    “Best near me, who should I go with?”
                   </p>
-                  <p className="mt-3 font-body text-[1.05rem] leading-relaxed text-ink">
-                    Based on reviews, response time, and local signals, the top recommendation is{' '}
-                    <span className="bg-[var(--spot-soft)] px-1 font-medium text-spot-deep">
-                      your business
-                    </span>{' '}
-                    — available now, with a 4.9 rating and immediate booking.
-                  </p>
-                  <div className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4">
-                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink-faint">
-                      Cited by
-                    </span>
-                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink-2">
-                      4 engines
-                    </span>
+
+                  {/* the recommended result */}
+                  <div className="mt-4 border-l-2 border-[var(--spot)] bg-[var(--spot-soft)] px-4 py-3">
+                    <div className="flex items-center justify-between">
+                      <span className="font-display text-[1.15rem] font-semibold text-ink">Your business</span>
+                      <span className="font-mono text-[0.56rem] uppercase tracking-[0.16em] text-spot-deep">Recommended</span>
+                    </div>
+                    <p className="mt-1 font-body text-[0.9rem] leading-snug text-ink-2">
+                      Top rated, fast to respond, booking now.
+                    </p>
+                  </div>
+
+                  {/* the also-rans, faded */}
+                  <div className="mt-3 space-y-2 opacity-45">
+                    {['A competitor', 'Another option', 'Someone else'].map((c) => (
+                      <div key={c} className="flex items-center justify-between border-b border-[var(--line-soft)] pb-2">
+                        <span className="font-body text-[0.92rem] text-ink-3">{c}</span>
+                        <span className="font-mono text-[0.56rem] uppercase tracking-[0.14em] text-ink-faint">Not shown</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-2 border-t border-[var(--line)] pt-3">
+                    <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-ink-faint">Cited across</span>
+                    <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-ink-2">ChatGPT · Gemini · Perplexity</span>
                   </div>
                 </div>
                 <div className="absolute -bottom-4 -left-4 -z-10 h-full w-full rounded-[3px] border border-[var(--line)] bg-[var(--paper-3)]" />
@@ -154,10 +182,25 @@ export default function Home() {
             {/* engines */}
             <div className="rise rise-4 mt-16 flex flex-col gap-3 border-t border-[var(--line)] pt-6 sm:flex-row sm:items-center sm:justify-between">
               <span className="kicker kicker-ink">Optimized for the engines people ask</span>
-              <div className="flex flex-wrap gap-x-7 gap-y-2">
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 {engines.map((e) => (
-                  <span key={e} className="font-mono text-[0.8rem] tracking-tight text-ink-2">
-                    {e}
+                  <span key={e.label} className="flex items-center gap-2">
+                    <span
+                      aria-hidden
+                      className="inline-block h-[19px] w-[19px] shrink-0"
+                      style={{
+                        backgroundColor: 'var(--ink-2)',
+                        WebkitMaskImage: `url(${e.src})`,
+                        maskImage: `url(${e.src})`,
+                        WebkitMaskRepeat: 'no-repeat',
+                        maskRepeat: 'no-repeat',
+                        WebkitMaskSize: 'contain',
+                        maskSize: 'contain',
+                        WebkitMaskPosition: 'center',
+                        maskPosition: 'center',
+                      }}
+                    />
+                    <span className="font-mono text-[0.8rem] tracking-tight text-ink-2">{e.label}</span>
                   </span>
                 ))}
               </div>
@@ -190,8 +233,8 @@ export default function Home() {
             </Reveal>
             <div className="mt-14 grid gap-10 border-t border-[rgba(244,238,222,0.16)] pt-10 sm:grid-cols-3">
               {[
-                ['One answer', 'AI engines return a single, confident recommendation. Position ten is invisible — position one is the only one read.'],
-                ['~25%', 'Gartner projects traditional search volume drops roughly a quarter by 2026 as people shift to AI answers. The demand isn’t gone — it moved.'],
+                ['One answer', 'AI engines return a single, confident recommendation. Position ten is invisible. Position one is the only one read.'],
+                ['~25%', 'Gartner projects traditional search volume drops roughly a quarter by 2026 as people shift to AI answers. The demand isn’t gone. It moved.'],
                 ['Still local', 'Customers still want someone near them, available now. The engine just decides who they hear about first.'],
               ].map(([k, v], i) => (
                 <Reveal key={k} delay={(i + 1) as 1 | 2 | 3}>
@@ -255,33 +298,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ───────────────────── PROOF, NOT PROMISES ───────────────────── */}
+        {/* ───────────────────── THE WORK (real) ───────────────────── */}
         <section className="px-5 py-24 sm:px-8 sm:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-              <Reveal>
-                <p className="kicker mb-5">Proof, not promises</p>
+            <Reveal className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-xl">
+                <p className="kicker mb-5">The work</p>
                 <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
-                  We’re early, and we won’t fake it.
+                  Real sites. Booking and capture wired in.
                 </h2>
-                <p className="mt-6 font-body text-[1.08rem] leading-relaxed text-ink-2 text-pretty">
-                  No stock-photo testimonials, no invented logos. What we put in front of you is what
-                  the system measures — the same numbers we’d want if we were paying for it. When
-                  real customer results are ready to show, they’ll be real.
-                </p>
-                <Link href="/contact" className="link-rule mt-7 inline-block font-mono text-[0.8rem] uppercase tracking-[0.14em] text-ink">
-                  Talk to a founder →
-                </Link>
-              </Reveal>
+              </div>
+              <Link href="/testimonials" className="link-rule font-mono text-[0.78rem] uppercase tracking-[0.14em] text-ink">
+                See the case studies →
+              </Link>
+            </Reveal>
 
-              <Reveal delay={2} className="flex flex-col divide-y divide-[var(--line)] border-y border-[var(--line)]">
-                {measures.map(([k, v]) => (
-                  <div key={k} className="flex flex-col gap-2 py-6 sm:flex-row sm:gap-8">
-                    <span className="font-display text-[1.3rem] font-semibold sm:w-52 sm:shrink-0">{k}</span>
-                    <span className="font-body text-[1rem] leading-relaxed text-ink-2">{v}</span>
+            <div className="grid gap-6 md:grid-cols-2">
+              {cases.map((c, i) => (
+                <Reveal key={c.slug} delay={(i + 1) as 1 | 2} as="article" className="paper-card group flex flex-col overflow-hidden p-0">
+                  <div className="relative overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.img}
+                      alt={`${c.name}, built by Rhemic AI`}
+                      className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <span className="absolute left-4 top-4 bg-[var(--ink)] px-2.5 py-1 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[var(--paper)]">
+                      {c.url}
+                    </span>
                   </div>
-                ))}
-              </Reveal>
+                  <div className="flex flex-1 flex-col p-7">
+                    <span className="font-mono text-[0.64rem] uppercase tracking-[0.18em] text-ink-3">{c.kind}</span>
+                    <h3 className="mt-2 font-display text-[1.7rem] font-semibold">{c.name}</h3>
+                    <p className="mt-3 font-body text-[1.02rem] leading-relaxed text-ink-2">{c.line}</p>
+                    <Link href="/testimonials" className="link-rule mt-5 inline-block w-fit font-mono text-[0.74rem] uppercase tracking-[0.14em] text-spot-deep">
+                      Read the build →
+                    </Link>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
@@ -325,7 +380,7 @@ export default function Home() {
               <span className="italic" style={{ color: 'var(--spot)' }}>doesn’t</span> show up yet.
             </h2>
             <p className="mx-auto mt-7 max-w-xl font-body text-[1.1rem] leading-relaxed text-[rgba(244,238,222,0.72)]">
-              One call. We’ll show you what AI engines say about your category today — and what it
+              One call. We’ll show you what AI engines say about your category today, and what it
               takes to be the name they give.
             </p>
             <div className="mt-9 flex justify-center">

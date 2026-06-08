@@ -33,12 +33,12 @@ const tiers: Tier[] = [
     unit: '/mo',
     best: 'Get found and recommended.',
     blurb:
-      'The entry point. We make your business show up — and get recommended by name — across search and AI answer engines.',
+      'The entry point. We make your business show up, and get recommended by name, across search and AI answer engines.',
     features: [
       'AI answer-engine visibility for your category',
       'Google Business Profile and local search foundation',
       'Schema, citations, and treatment/service-page priority fixes',
-      'Monthly visibility report — where you rank and what moved',
+      'Monthly visibility report showing where you rank and what moved',
     ],
   },
   {
@@ -49,10 +49,10 @@ const tiers: Tier[] = [
     featured: true,
     best: 'Catch and route every inquiry.',
     blurb:
-      'Everything in Visibility, plus the always-on capture layer that turns the demand into booked work — calls, missed calls, after-hours, and forms.',
+      'Everything in Visibility, plus the always-on capture layer that turns the demand into booked work. Calls, missed calls, after-hours, and forms.',
     features: [
       'Everything in Visibility',
-      'Always-on capture — calls, missed calls, after-hours, forms',
+      'Always-on capture across calls, missed calls, after-hours, and forms',
       'Booking intent routed to your team with source context',
       'Competitor positioning and demand review',
     ],
@@ -93,7 +93,7 @@ export default function PricingPage() {
               </h1>
               <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
                 One plan to get found and recommended. Higher tiers add full demand capture and
-                reporting as you grow. No vertical lock-in — it works for any business that needs to
+                reporting as you grow. No vertical lock-in. It works for any business that needs to
                 be found.
               </p>
             </Reveal>
@@ -205,7 +205,7 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-body text-[1.02rem] leading-relaxed text-ink-2">
               Have more than one location or a complex setup? We scope custom. Tier 2 and Tier 3
-              pricing is being finalized — book a call and we’ll walk you through exactly what fits.
+              pricing is being finalized. Book a call and we’ll walk you through exactly what fits.
             </p>
             <Link href="/contact" className="btn-primary mt-7">Book a call</Link>
           </div>

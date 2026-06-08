@@ -44,9 +44,9 @@ const interTight = Inter_Tight({
   display: "swap",
 });
 
-const TITLE = "Rhemic AI — Get found, recommended, and booked in the AI era";
+const TITLE = "Rhemic AI. Get found, recommended, and booked in the AI era";
 const DESCRIPTION =
-  "Customers don't scroll ten links anymore — they ask, and act on one answer. Rhemic makes sure your business is the answer: found in search and AI engines, recommended by name, with every inquiry caught and turned into booked work. Any industry.";
+  "Customers don't scroll ten links anymore. They ask once and act on one answer. Rhemic makes sure your business is the answer: found in search and AI engines, recommended by name, with every inquiry caught and turned into booked work. Any industry.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

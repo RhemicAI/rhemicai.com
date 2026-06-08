@@ -7,7 +7,7 @@ export const siteConfig = {
   entity:
     "Rhemic AI makes any business the answer customers find in search and AI engines.",
   description:
-    "Rhemic helps businesses get found and recommended across search and AI answer engines, then catches the demand that creates — across calls, after-hours, and forms — and turns it into booked work.",
+    "Rhemic helps businesses get found and recommended across search and AI answer engines, then catches the demand that creates across calls, after-hours, and forms, and turns it into booked work.",
   social: {
     twitter: "@RhemicAI",
   },

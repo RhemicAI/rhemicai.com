@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const links = [
   { href: '/#how', label: 'How it works' },
-  { href: '/#what', label: 'What you get' },
+  { href: '/testimonials', label: 'Work' },
   { href: '/pricing', label: 'Pricing' },
 ];
 
@@ -36,7 +36,9 @@ export default function PaperNav() {
       className="nav-top fixed inset-x-0 top-0 z-50 transition-colors duration-300"
     >
       <div className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="flex items-baseline gap-2" aria-label="Rhemic AI home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Rhemic AI home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/rhemic-logo.svg" alt="Rhemic AI" width={34} height={34} className="h-[34px] w-[34px] rounded-[7px] border border-[var(--line)]" />
           <span className="font-display text-[1.35rem] font-bold tracking-tight text-ink">Rhemic</span>
           <span className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-spot-deep">AI</span>
         </Link>
