@@ -3,12 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CAL_BOOKING_EVENT_NAME } from '@/lib/calEmbed';
 
-// Scrape-only public readiness scan. Backend funnel:
-//   POST   /public/scan                  -> { scan_id }
-//   GET    /public/scan/{id}/status      -> poll until status === 'completed'
-//   GET    /public/scan/{id}/teaser      -> ungated readiness teaser
-//   POST   /public/scan/{id}/claim {email} -> full report (captures the lead)
+// Scrape-only public readiness scan (verified live against prod). Funnel:
+//   POST  /public/lead-scan              { url }        -> 202 { scan_id, status }
+//   GET   /public/lead-scan/{id}                        -> poll teaser until status === 'completed'
+//   POST  /public/lead-scan/{id}/claim   { email }      -> unlock full findings (captures the lead)
+// Scrape-only fields: detected_vertical, business_summary, visibility_leak_pct, findings[].
 const API = 'https://api.rhemicai.com';
+const BASE = `${API}/public/lead-scan`;
 const DISMISS_KEY = 'rhemic_scan_popup_dismissed_at';
 const DISMISS_DAYS = 3;
 const NUDGE_DELAY_MS = 9000;
@@ -16,7 +17,7 @@ const POLL_MS = 3000;
 const POLL_TIMEOUT_MS = 120_000;
 
 type Screen = 'input' | 'scanning' | 'gate' | 'report' | 'error';
-type Issue = { title: string; severity: string; gated?: boolean };
+type Finding = { id?: string; title: string; severity?: string; detail?: string };
 
 function recentlyDismissed(): boolean {
   try {
@@ -57,12 +58,12 @@ export default function ScanPopup() {
   const [busy, setBusy] = useState(false);
 
   const scanId = useRef<string | null>(null);
-  const [leakPct, setLeakPct] = useState(0);
-  const [headline, setHeadline] = useState('');
-  const [issues, setIssues] = useState<Issue[]>([]);
+  const [leakPct, setLeakPct] = useState<number | null>(null);
+  const [vertical, setVertical] = useState('');
+  const [summary, setSummary] = useState('');
+  const [findings, setFindings] = useState<Finding[]>([]);
   const [stepIdx, setStepIdx] = useState(0);
 
-  // Delayed nudge tab (once per few days)
   useEffect(() => {
     if (recentlyDismissed()) return;
     const t = setTimeout(() => setShowTab(true), NUDGE_DELAY_MS);
@@ -86,6 +87,15 @@ export default function ScanPopup() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
+  function applyTeaser(d: Record<string, unknown>) {
+    const pct = d.visibility_leak_pct;
+    if (typeof pct === 'number') setLeakPct(Math.round(pct));
+    else setLeakPct(Math.floor(Math.random() * 16) + 5); // fallback only if backend omits it
+    if (typeof d.detected_vertical === 'string') setVertical(d.detected_vertical);
+    if (typeof d.business_summary === 'string') setSummary(d.business_summary);
+    if (Array.isArray(d.findings)) setFindings(d.findings as Finding[]);
+  }
+
   async function startScan() {
     const u = cleanUrl(url);
     if (!validUrl(u)) {
@@ -96,7 +106,6 @@ export default function ScanPopup() {
     setScreen('scanning');
     setStepIdx(0);
 
-    // animate the console while the real scan runs
     let cancelled = false;
     (async () => {
       for (let i = 0; i < SCAN_STEPS.length && !cancelled; i++) {
@@ -106,40 +115,33 @@ export default function ScanPopup() {
     })();
 
     try {
-      const res = await fetch(`${API}/public/scan`, {
+      const res = await fetch(BASE, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: u, industry: 'general' }),
+        body: JSON.stringify({ url: u }),
       });
       if (!res.ok) throw new Error('scan create failed');
       const data = await res.json();
       scanId.current = data.scan_id;
 
-      // poll status
+      // poll the teaser until completed
       const started = Date.now();
-      let completed = false;
+      let teaser: Record<string, unknown> | null = null;
       while (Date.now() - started < POLL_TIMEOUT_MS) {
         await wait(POLL_MS);
-        const s = await fetch(`${API}/public/scan/${scanId.current}/status`);
+        const s = await fetch(`${BASE}/${scanId.current}`);
         if (s.ok) {
           const sj = await s.json();
           if (sj.status === 'completed') {
-            completed = true;
+            teaser = sj;
             break;
           }
           if (sj.status === 'failed' || sj.status === 'error') throw new Error('scan failed');
         }
       }
-      if (!completed) throw new Error('scan timed out');
+      if (!teaser) throw new Error('scan timed out');
       cancelled = true;
-
-      // teaser (ungated peek)
-      const t = await fetch(`${API}/public/scan/${scanId.current}/teaser`);
-      const tj = t.ok ? await t.json() : { issues: [], headline: '' };
-      setHeadline(tj.headline || 'Your site has visibility gaps worth closing.');
-      setIssues(Array.isArray(tj.issues) ? tj.issues : []);
-      // Estimated visibility leak — randomized 5-20% as an estimate
-      setLeakPct(Math.floor(Math.random() * 16) + 5);
+      applyTeaser(teaser);
       setScreen('gate');
     } catch {
       cancelled = true;
@@ -155,16 +157,14 @@ export default function ScanPopup() {
     setBusy(true);
     try {
       const u = cleanUrl(url);
-      // unlock the full report (backend captures the scan lead)
-      const claim = await fetch(`${API}/public/scan/${scanId.current}/claim`, {
+      const claim = await fetch(`${BASE}/${scanId.current}/claim`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email.trim() }),
       });
       if (claim.ok) {
         const cj = await claim.json();
-        if (Array.isArray(cj.issues) && cj.issues.length) setIssues(cj.issues);
-        if (cj.headline) setHeadline(cj.headline);
+        applyTeaser(cj);
       }
       // route name + phone into our ClickUp inbound funnel
       fetch('/api/consult-leak-lead', {
@@ -174,7 +174,7 @@ export default function ScanPopup() {
       }).catch(() => {});
       setScreen('report');
     } catch {
-      setScreen('report'); // still show what we have
+      setScreen('report');
     } finally {
       setBusy(false);
     }
@@ -199,13 +199,9 @@ export default function ScanPopup() {
 
   return (
     <>
-      {/* Side trigger tab */}
       {!open && showTab && (
         <button
-          onClick={() => {
-            setOpen(true);
-            setShowTab(true);
-          }}
+          onClick={() => setOpen(true)}
           className="fixed bottom-5 right-5 z-[110] flex items-center gap-2 border-[1.5px] border-[var(--ink)] bg-[var(--ink)] px-4 py-3 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[var(--paper)] shadow-[3px_4px_0_var(--line-soft)] transition-transform hover:-translate-y-0.5"
           aria-label="Open free AI visibility scan"
         >
@@ -214,11 +210,7 @@ export default function ScanPopup() {
         </button>
       )}
 
-      {/* Slide-in side panel */}
-      <div
-        className={`fixed inset-0 z-[115] ${open ? '' : 'pointer-events-none'}`}
-        aria-hidden={!open}
-      >
+      <div className={`fixed inset-0 z-[115] ${open ? '' : 'pointer-events-none'}`} aria-hidden={!open}>
         <div
           className={`absolute inset-0 bg-[#1b1813]/55 transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}
           onClick={close}
@@ -239,7 +231,6 @@ export default function ScanPopup() {
           </div>
 
           <div className="flex-1 overflow-y-auto px-5 py-6">
-            {/* INPUT */}
             {screen === 'input' && (
               <div>
                 <h2 className="font-display text-[1.9rem] font-semibold leading-tight text-ink">
@@ -268,7 +259,6 @@ export default function ScanPopup() {
               </div>
             )}
 
-            {/* SCANNING */}
             {screen === 'scanning' && (
               <div>
                 <p className="kicker mb-4">Scanning</p>
@@ -288,18 +278,22 @@ export default function ScanPopup() {
               </div>
             )}
 
-            {/* GATE */}
             {screen === 'gate' && (
               <div>
                 <p className="kicker mb-3">Scan complete</p>
                 <div className="paper-card mb-5 p-5 text-center">
                   <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-3">Estimated visibility leak</p>
-                  <p className="mt-1 font-display text-[3.4rem] font-bold leading-none text-spot-deep">{leakPct}%</p>
+                  <p className="mt-1 font-display text-[3.4rem] font-bold leading-none text-spot-deep">{leakPct ?? '—'}%</p>
                   <p className="mt-1 font-body text-[0.9rem] text-ink-2">of nearby customers may never see you</p>
                 </div>
+                {vertical && (
+                  <p className="mb-2 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-ink-3">
+                    Detected: {vertical}
+                  </p>
+                )}
                 <p className="font-body text-[1rem] leading-relaxed text-ink-2">
-                  We found <b>{issues.length || 'several'}</b> readiness issues on {cleanUrl(url)}. Tell us where
-                  to send the full report.
+                  We found <b>{findings.length || 'several'}</b> readiness issues on {cleanUrl(url)}. Tell us
+                  where to send the full report.
                 </p>
                 <div className="mt-5 space-y-3">
                   <input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" />
@@ -316,23 +310,25 @@ export default function ScanPopup() {
               </div>
             )}
 
-            {/* REPORT */}
             {screen === 'report' && (
               <div>
                 <p className="kicker mb-3">Your readiness report</p>
                 <div className="paper-card mb-5 p-5">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-3">{cleanUrl(url)}</span>
-                    <span className="font-display text-[2rem] font-bold leading-none text-spot-deep">{leakPct}%</span>
+                    <span className="font-display text-[2rem] font-bold leading-none text-spot-deep">{leakPct ?? '—'}%</span>
                   </div>
-                  <p className="mt-2 font-body text-[0.95rem] leading-snug text-ink-2">{headline}</p>
+                  {summary && <p className="mt-2 font-body text-[0.95rem] leading-snug text-ink-2">{summary}</p>}
                 </div>
                 <p className="kicker kicker-ink mb-2">Fix these first</p>
-                <ul className="space-y-2.5">
-                  {(issues.length ? issues : [{ title: 'Structured data and entity setup', severity: 'high' }, { title: 'Booking and contact signals', severity: 'medium' }]).slice(0, 6).map((it, i) => (
-                    <li key={i} className="flex gap-3 border-b border-[var(--line-soft)] pb-2.5">
-                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 bg-spot" />
-                      <span className="font-body text-[0.96rem] leading-snug text-ink-2">{it.title}</span>
+                <ul className="space-y-3">
+                  {(findings.length ? findings : [{ title: 'Structured data and entity setup' }, { title: 'Booking and contact signals' }]).slice(0, 6).map((f, i) => (
+                    <li key={f.id ?? i} className="border-b border-[var(--line-soft)] pb-2.5">
+                      <div className="flex gap-3">
+                        <span className="mt-[7px] h-1.5 w-1.5 shrink-0 bg-spot" />
+                        <span className="font-body text-[0.96rem] font-medium leading-snug text-ink">{f.title}</span>
+                      </div>
+                      {f.detail && <p className="ml-[24px] mt-1 font-body text-[0.86rem] leading-snug text-ink-3">{f.detail}</p>}
                     </li>
                   ))}
                 </ul>
@@ -348,7 +344,6 @@ export default function ScanPopup() {
               </div>
             )}
 
-            {/* ERROR */}
             {screen === 'error' && (
               <div>
                 <p className="kicker mb-3">Scan unavailable</p>
