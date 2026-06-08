@@ -355,7 +355,8 @@ export default function Home() {
             <Reveal delay={2} className="paper-card w-full max-w-sm p-7">
               <span className="font-mono text-[0.66rem] uppercase tracking-[0.2em] text-spot-deep">Tier 1 · Visibility</span>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="font-display text-[3.2rem] font-bold leading-none">$300</span>
+                <span className="font-display text-[1.5rem] font-semibold leading-none text-ink-faint line-through decoration-[1.5px] decoration-[var(--spot)]">$300</span>
+                <span className="font-display text-[3.2rem] font-bold leading-none">$200</span>
                 <span className="font-mono text-[0.74rem] text-ink-3">/mo</span>
               </div>
               <p className="mt-3 font-body text-[0.98rem] leading-relaxed text-ink-2">
@@ -363,7 +364,7 @@ export default function Home() {
               </p>
               <Link href="/pricing" className="btn-primary mt-6 w-full">See all tiers</Link>
               <p className="mt-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-faint">
-                Tier 2 &amp; 3 pricing finalizing
+                No website? We build it.
               </p>
             </Reveal>
           </div>

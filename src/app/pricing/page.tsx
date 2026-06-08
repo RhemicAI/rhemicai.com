@@ -17,6 +17,7 @@ type Tier = {
   badge: string;
   name: string;
   price: string;
+  was?: string;
   unit?: string;
   placeholder?: boolean;
   best: string;
@@ -29,7 +30,8 @@ const tiers: Tier[] = [
   {
     badge: 'Tier 1',
     name: 'Visibility',
-    price: '$300',
+    price: '$200',
+    was: '$300',
     unit: '/mo',
     best: 'Get found and recommended.',
     blurb:
@@ -44,8 +46,9 @@ const tiers: Tier[] = [
   {
     badge: 'Tier 2',
     name: 'Capture',
-    price: 'TBD',
-    placeholder: true,
+    price: '$700',
+    was: '$1,000',
+    unit: '/mo',
     featured: true,
     best: 'Catch and route every inquiry.',
     blurb:
@@ -60,8 +63,9 @@ const tiers: Tier[] = [
   {
     badge: 'Tier 3',
     name: 'Scale',
-    price: 'TBD',
-    placeholder: true,
+    price: '$1,400',
+    was: '$2,000',
+    unit: '/mo',
     best: 'Expand what’s working.',
     blurb:
       'Everything in Capture, plus multi-location routing, deeper reporting, and ad spend tied to booked-work outcomes by source and campaign.',
@@ -136,10 +140,19 @@ export default function PricingPage() {
                 </h2>
 
                 <div className="mt-3 flex items-baseline gap-2">
+                  {t.was && (
+                    <span
+                      className={`font-display text-[1.6rem] font-semibold leading-none line-through decoration-[1.5px] ${
+                        t.featured ? 'text-[rgba(244,238,222,0.45)] decoration-[var(--spot)]' : 'text-ink-faint decoration-[var(--spot)]'
+                      }`}
+                    >
+                      {t.was}
+                    </span>
+                  )}
                   <span
                     className={`font-display text-[3.4rem] font-bold leading-none ${
                       t.featured ? 'text-[var(--paper)]' : 'text-ink'
-                    } ${t.placeholder ? 'opacity-70' : ''}`}
+                    }`}
                   >
                     {t.price}
                   </span>
@@ -202,9 +215,13 @@ export default function PricingPage() {
         {/* Footnote */}
         <section className="border-t border-[var(--line)] bg-[var(--paper-2)] px-5 py-16 sm:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="font-body text-[1.02rem] leading-relaxed text-ink-2">
-              Have more than one location or a complex setup? We scope custom. Tier 2 and Tier 3
-              pricing is being finalized. Book a call and we’ll walk you through exactly what fits.
+            <p className="font-display text-[1.4rem] font-semibold leading-snug text-ink">
+              No website yet? We build you one.
+            </p>
+            <p className="mt-3 font-body text-[1.02rem] leading-relaxed text-ink-2">
+              If you do not have a site, a new one is built into getting you visible, no separate web-design
+              bill. Have more than one location or a complex setup? We scope it custom. Book a call and
+              we’ll walk you through exactly what fits.
             </p>
             <AuditButton className="btn-primary mt-7">Run my revenue leak audit</AuditButton>
           </div>
