@@ -62,11 +62,11 @@ const tiers: Tier[] = [
   },
   {
     badge: 'Tier 3',
-    name: 'Scale',
+    name: 'Full done-for-you system',
     price: '$1,400',
     was: '$2,000',
     unit: '/mo',
-    best: 'Expand what’s working.',
+    best: 'We run the whole thing for you.',
     blurb:
       'Everything in Capture, plus multi-location routing, deeper reporting, and ad spend tied to booked-work outcomes by source and campaign.',
     features: [
