@@ -5,9 +5,9 @@ export const siteConfig = {
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
   entity:
-    "Rhemic AI turns local demand into booked consults for U.S. med spas.",
+    "Rhemic AI makes any business the answer customers find in search and AI engines.",
   description:
-    "Rhemic helps U.S. med spas book more consults from the demand they already generate — catching every inquiry across search, calls, after-hours, and handoffs.",
+    "Rhemic helps businesses get found and recommended across search and AI answer engines, then catches the demand that creates — across calls, after-hours, and forms — and turns it into booked work.",
   social: {
     twitter: "@RhemicAI",
   },
@@ -99,20 +99,17 @@ export function organizationSchema() {
       url: "https://cal.com/rhemic-ai/medspa-discovery-call",
     },
     knowsAbout: [
-      "Med spa patient acquisition",
-      "Med spa consult opportunity leakage",
-      "Google Business Profile optimization",
-      "Local SEO for med spas",
       "AI search visibility",
-      "Non-clinical AI receptionist for med spas",
+      "Answer engine optimization",
+      "Getting recommended by AI engines",
+      "Google Business Profile optimization",
+      "Local search visibility",
+      "Lead capture and routing",
       "Missed-call recovery",
-      "Consult Capture Layer",
-      "Approved handoff workflows",
       "Source-aware reporting",
       "Schema markup",
       "Structured data",
       "Competitor analysis",
-      "Meta Ads intelligence",
     ],
     areaServed: {
       "@type": "Country",

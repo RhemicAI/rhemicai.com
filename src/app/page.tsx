@@ -1,87 +1,346 @@
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Hero from '@/components/Hero/Hero';
-import OutcomeStrip from '@/components/OutcomeStrip/OutcomeStrip';
-import ProductShowcase from '@/components/ProductShowcase/ProductShowcase';
-import ConsultCaptureLayer from '@/components/ConsultCaptureLayer/ConsultCaptureLayer';
-import Testimonials from '@/components/Testimonials/Testimonials';
-import HowItWorks from '@/components/HowItWorks/HowItWorks';
-import Features from '@/components/Features/Features';
-import Pricing from '@/components/Pricing/Pricing';
-import FAQ from '@/components/FAQ/FAQ';
-import CTA from '@/components/CTA/CTA';
-import Footer from '@/components/Footer/Footer';
+import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
 import { absoluteUrl } from '@/lib/seo';
-import { customPlan, plans } from '@/data/pricing';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
+import Reveal from '@/components/redesign/Reveal';
 
-const homepageSchema = [
+const engines = ['ChatGPT', 'Claude', 'Perplexity', 'Gemini', 'Google AI'];
+
+const ribbon = [
+  'Home services', 'Clinics', 'Studios', 'Law firms', 'Contractors', 'Dental',
+  'Restaurants', 'Retail', 'Agencies', 'Auto', 'Wellness', 'Real estate',
+];
+
+const outcomes = [
   {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Rhemic AI Med Spa Growth and Call Capture System',
-    description:
-      'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
-    provider: {
-      '@type': 'Organization',
-      name: 'Rhemic AI',
-      url: absoluteUrl('/'),
-    },
-    areaServed: {
-      '@type': 'Country',
-      name: 'United States',
-    },
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'U.S. med spa owners and operators',
-    },
-    serviceType: [
-      'Google Business Profile optimization',
-      'Local SEO for med spas',
-      'AI receptionist coverage',
-      'Missed-call recovery',
-      'Consult Capture Layer',
-      'Source-aware reporting',
-      'Meta Ads intelligence',
-    ],
-    offers: {
-      '@type': 'OfferCatalog',
-      name: 'Rhemic AI med spa plans',
-      itemListElement: [
-        ...plans.map((plan) => ({
-          '@type': 'Offer',
-          name: plan.name,
-          price: plan.monthlyPrice,
-          priceCurrency: 'USD',
-          description: plan.primaryUseCase,
-          url: absoluteUrl('/pricing'),
-        })),
-        {
-          '@type': 'Offer',
-          name: customPlan.name,
-          description: customPlan.primaryUseCase,
-          url: absoluteUrl('/pricing'),
-        },
-      ],
-    },
+    no: '01',
+    title: 'Get found',
+    body:
+      'When someone searches for what you do — on Google or inside an AI answer — your business shows up where the decision is actually made.',
+  },
+  {
+    no: '02',
+    title: 'Get recommended',
+    body:
+      'AI engines answer with a name. We do the structured, technical, and content work that makes that name yours, not your competitor’s.',
+  },
+  {
+    no: '03',
+    title: 'Capture the demand',
+    body:
+      'Every call, form, and after-hours inquiry gets caught and routed to your team with clear source context. Nothing the visibility creates falls through.',
   },
 ];
 
+const steps = [
+  {
+    no: '01',
+    title: 'Diagnose',
+    body:
+      'We map exactly where you’re invisible and where booking intent leaks — across search, AI answers, your pages, calls, and handoffs.',
+  },
+  {
+    no: '02',
+    title: 'Fix & position',
+    body:
+      'Profiles, pages, schema, and answer-engine positioning, done in priority order so the highest-impact gaps close first.',
+  },
+  {
+    no: '03',
+    title: 'Run it daily',
+    body:
+      'Not a one-time audit. The system keeps watching for new leaks and capturing demand every day, and tells you what’s working.',
+  },
+];
+
+const measures: [string, string][] = [
+  ['Where you rank', 'Your position in AI answers and search for the queries that bring real customers.'],
+  ['What gets caught', 'Calls, missed calls, after-hours, and form inquiries — counted, not guessed.'],
+  ['Where work comes from', 'Source context on every booked job, so you stop paying for channels that don’t convert.'],
+];
+
+const homepageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Rhemic AI Visibility System',
+  description:
+    'Rhemic makes any business the answer customers find in search and AI engines, then captures that demand into booked work.',
+  provider: { '@type': 'Organization', name: 'Rhemic AI', url: absoluteUrl('/') },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  serviceType: [
+    'AI search visibility',
+    'Answer engine optimization',
+    'Local search visibility',
+    'Lead capture',
+    'Source-aware reporting',
+  ],
+};
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <JsonLd id="homepage-med-spa-schema" data={homepageSchema} />
-      <FixedNav />
-      <Hero />
-      <OutcomeStrip />
-      <ProductShowcase />
-      <ConsultCaptureLayer />
-      <Testimonials />
-      <HowItWorks />
-      <Features />
-      <Pricing />
-      <FAQ />
-      <CTA />
-      <Footer />
-    </main>
+    <>
+      <JsonLd id="homepage-schema" data={homepageSchema} />
+      <PaperNav />
+
+      <main className="relative">
+        {/* ───────────────────────── HERO ───────────────────────── */}
+        <section className="relative overflow-hidden px-5 pb-20 pt-28 sm:px-8 sm:pt-32">
+          <div className="mx-auto max-w-6xl">
+            {/* Broadsheet nameplate row */}
+            <div className="rise rise-1 mb-10 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
+                Visibility for the AI era
+              </span>
+              <span className="hidden font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3 sm:block">
+                Any industry
+              </span>
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">
+                Est. Dallas
+              </span>
+            </div>
+
+            <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+              <div>
+                <p className="rise rise-1 kicker mb-6">The way customers find you changed</p>
+                <h1 className="rise rise-2 font-display text-[clamp(2.6rem,7vw,5.4rem)] font-medium leading-[0.98] text-balance">
+                  Be the business{' '}
+                  <span className="italic text-spot-deep">AI recommends</span>{' '}
+                  — and the one that gets booked.
+                </h1>
+                <p className="rise rise-3 mt-7 max-w-xl font-body text-[1.18rem] leading-relaxed text-ink-2 text-pretty">
+                  Customers don’t scroll ten blue links anymore. They ask once and act on the
+                  answer. Rhemic makes sure your business is that answer — found in search and AI
+                  engines, recommended by name, with every inquiry caught and turned into work.
+                </p>
+                <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-4">
+                  <Link href="/contact" className="btn-primary">Book a call</Link>
+                  <Link href="/#how" className="btn-ghost">See how it works</Link>
+                </div>
+              </div>
+
+              {/* Crafted "you are the answer" card — conceptual, agnostic */}
+              <div className="rise rise-3 relative">
+                <div className="paper-card relative rotate-[-1.6deg] p-6 sm:p-7">
+                  <div className="flex items-center justify-between border-b border-[var(--line)] pb-3">
+                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink-3">
+                      AI answer
+                    </span>
+                    <span className="h-2 w-2 rounded-full bg-spot" />
+                  </div>
+                  <p className="mt-4 font-mono text-[0.74rem] uppercase tracking-[0.12em] text-ink-3">
+                    “Who should I hire near me?”
+                  </p>
+                  <p className="mt-3 font-body text-[1.05rem] leading-relaxed text-ink">
+                    Based on reviews, response time, and local signals, the top recommendation is{' '}
+                    <span className="bg-[var(--spot-soft)] px-1 font-medium text-spot-deep">
+                      your business
+                    </span>{' '}
+                    — available now, with a 4.9 rating and immediate booking.
+                  </p>
+                  <div className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4">
+                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink-faint">
+                      Cited by
+                    </span>
+                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink-2">
+                      4 engines
+                    </span>
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 -left-4 -z-10 h-full w-full rounded-[3px] border border-[var(--line)] bg-[var(--paper-3)]" />
+              </div>
+            </div>
+
+            {/* engines */}
+            <div className="rise rise-4 mt-16 flex flex-col gap-3 border-t border-[var(--line)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <span className="kicker kicker-ink">Optimized for the engines people ask</span>
+              <div className="flex flex-wrap gap-x-7 gap-y-2">
+                {engines.map((e) => (
+                  <span key={e} className="font-mono text-[0.8rem] tracking-tight text-ink-2">
+                    {e}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── RIBBON ───────────────────── */}
+        <section aria-hidden className="overflow-hidden border-y border-[var(--ink)] bg-[var(--paper-2)] py-3">
+          <div className="marquee-track gap-0">
+            {[...ribbon, ...ribbon].map((r, i) => (
+              <span key={i} className="flex items-center font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink-2">
+                <span className="px-6">{r}</span>
+                <span className="text-spot">✦</span>
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* ───────────────────── THE SHIFT (inverted) ───────────────────── */}
+        <section className="ink-block px-5 py-24 sm:px-8 sm:py-28">
+          <div className="mx-auto max-w-5xl">
+            <Reveal>
+              <p className="kicker mb-7" style={{ color: 'var(--spot)' }}>The shift</p>
+              <h2 className="font-display text-[clamp(2rem,4.6vw,3.4rem)] font-normal leading-[1.05] text-balance">
+                Search didn’t get smaller. It got{' '}
+                <span className="italic" style={{ color: 'var(--spot)' }}>answered.</span>{' '}
+                If you’re not in the answer, you’re not in the running.
+              </h2>
+            </Reveal>
+            <div className="mt-14 grid gap-10 border-t border-[rgba(244,238,222,0.16)] pt-10 sm:grid-cols-3">
+              {[
+                ['One answer', 'AI engines return a single, confident recommendation. Position ten is invisible — position one is the only one read.'],
+                ['~25%', 'Gartner projects traditional search volume drops roughly a quarter by 2026 as people shift to AI answers. The demand isn’t gone — it moved.'],
+                ['Still local', 'Customers still want someone near them, available now. The engine just decides who they hear about first.'],
+              ].map(([k, v], i) => (
+                <Reveal key={k} delay={(i + 1) as 1 | 2 | 3}>
+                  <p className="font-display text-3xl font-medium" style={{ color: 'var(--paper)' }}>{k}</p>
+                  <p className="mt-3 font-body text-[1rem] leading-relaxed text-[rgba(244,238,222,0.7)]">{v}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── WHAT YOU GET ───────────────────── */}
+        <section id="what" className="px-5 py-24 sm:px-8 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="mb-14 max-w-2xl">
+              <p className="kicker mb-5">What you get</p>
+              <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
+                Three things, done every day.
+              </h2>
+            </Reveal>
+            <div className="grid gap-6 md:grid-cols-3">
+              {outcomes.map((o, i) => (
+                <Reveal key={o.no} delay={(i + 1) as 1 | 2 | 3} as="article" className="paper-card flex flex-col p-7">
+                  <span className="font-mono text-[0.7rem] tracking-[0.2em] text-spot-deep">{o.no}</span>
+                  <h3 className="mt-4 font-display text-[1.7rem] font-semibold">{o.title}</h3>
+                  <p className="mt-3 font-body text-[1.02rem] leading-relaxed text-ink-2">{o.body}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── HOW IT WORKS ───────────────────── */}
+        <section id="how" className="border-y border-[var(--line)] bg-[var(--paper-2)] px-5 py-24 sm:px-8 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-xl">
+                <p className="kicker mb-5">How it works</p>
+                <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
+                  Find the leaks. Fix them. Keep them closed.
+                </h2>
+              </div>
+              <p className="max-w-xs font-body text-[1rem] leading-relaxed text-ink-2">
+                No dashboards to babysit. We run the work and report what changed.
+              </p>
+            </Reveal>
+            <div className="grid gap-px overflow-hidden rounded-[3px] border border-[var(--line)] bg-[var(--line)] md:grid-cols-3">
+              {steps.map((s, i) => (
+                <Reveal key={s.no} delay={(i + 1) as 1 | 2 | 3} className="bg-[var(--paper)] p-8">
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-display text-[3.2rem] font-bold leading-none text-spot">{s.no}</span>
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-faint">
+                      Step
+                    </span>
+                  </div>
+                  <h3 className="mt-6 font-display text-[1.5rem] font-semibold">{s.title}</h3>
+                  <p className="mt-3 font-body text-[1rem] leading-relaxed text-ink-2">{s.body}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── PROOF, NOT PROMISES ───────────────────── */}
+        <section className="px-5 py-24 sm:px-8 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+              <Reveal>
+                <p className="kicker mb-5">Proof, not promises</p>
+                <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
+                  We’re early, and we won’t fake it.
+                </h2>
+                <p className="mt-6 font-body text-[1.08rem] leading-relaxed text-ink-2 text-pretty">
+                  No stock-photo testimonials, no invented logos. What we put in front of you is what
+                  the system measures — the same numbers we’d want if we were paying for it. When
+                  real customer results are ready to show, they’ll be real.
+                </p>
+                <Link href="/contact" className="link-rule mt-7 inline-block font-mono text-[0.8rem] uppercase tracking-[0.14em] text-ink">
+                  Talk to a founder →
+                </Link>
+              </Reveal>
+
+              <Reveal delay={2} className="flex flex-col divide-y divide-[var(--line)] border-y border-[var(--line)]">
+                {measures.map(([k, v]) => (
+                  <div key={k} className="flex flex-col gap-2 py-6 sm:flex-row sm:gap-8">
+                    <span className="font-display text-[1.3rem] font-semibold sm:w-52 sm:shrink-0">{k}</span>
+                    <span className="font-body text-[1rem] leading-relaxed text-ink-2">{v}</span>
+                  </div>
+                ))}
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── PRICING TEASER ───────────────────── */}
+        <section className="border-t border-[var(--line)] bg-[var(--paper-2)] px-5 py-24 sm:px-8 sm:py-28">
+          <div className="mx-auto flex max-w-6xl flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
+            <Reveal className="max-w-xl">
+              <p className="kicker mb-5">Pricing</p>
+              <h2 className="font-display text-[clamp(1.9rem,4.4vw,3rem)] font-medium leading-[1.05] text-balance">
+                Start at visibility. Scale into capture.
+              </h2>
+              <p className="mt-5 font-body text-[1.05rem] leading-relaxed text-ink-2">
+                Entry plan gets you found and recommended. Higher tiers add full demand capture and
+                source-aware reporting.
+              </p>
+            </Reveal>
+            <Reveal delay={2} className="paper-card w-full max-w-sm p-7">
+              <span className="font-mono text-[0.66rem] uppercase tracking-[0.2em] text-spot-deep">Tier 1 · Visibility</span>
+              <div className="mt-3 flex items-baseline gap-2">
+                <span className="font-display text-[3.2rem] font-bold leading-none">$300</span>
+                <span className="font-mono text-[0.74rem] text-ink-3">/mo</span>
+              </div>
+              <p className="mt-3 font-body text-[0.98rem] leading-relaxed text-ink-2">
+                Get found and recommended across search and AI answers.
+              </p>
+              <Link href="/pricing" className="btn-primary mt-6 w-full">See all tiers</Link>
+              <p className="mt-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-faint">
+                Tier 2 &amp; 3 pricing finalizing
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ───────────────────── FINAL CTA ───────────────────── */}
+        <section className="ink-block px-5 py-28 sm:px-8 sm:py-32">
+          <Reveal className="mx-auto max-w-4xl text-center">
+            <p className="kicker mb-6" style={{ color: 'var(--spot)' }}>Be the answer</p>
+            <h2 className="font-display text-[clamp(2.2rem,5.5vw,4.4rem)] font-medium leading-[1.0] text-balance">
+              Find out where your business{' '}
+              <span className="italic" style={{ color: 'var(--spot)' }}>doesn’t</span> show up yet.
+            </h2>
+            <p className="mx-auto mt-7 max-w-xl font-body text-[1.1rem] leading-relaxed text-[rgba(244,238,222,0.72)]">
+              One call. We’ll show you what AI engines say about your category today — and what it
+              takes to be the name they give.
+            </p>
+            <div className="mt-9 flex justify-center">
+              <Link
+                href="/contact"
+                className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]"
+              >
+                Book a call
+              </Link>
+            </div>
+          </Reveal>
+        </section>
+      </main>
+
+      <PaperFooter />
+    </>
   );
 }

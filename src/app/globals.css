@@ -2,261 +2,211 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #07090c;
-  --bg-2: #0b0f14;
-  --bg-3: #11161d;
-  --ink: #eef2f7;
-  --ink-2: #c8d0db;
-  --mute: #8b95a4;
-  --mute-2: #5f6877;
-  --mist: #fafbfc;
-  --ink-light: #101418;
-  --grid: #e6ebf0;
-  --console: #0a1218;
-  --pulse: #4DD6E0;
-  --pulse-deep: #7be4eb;
-  --pulse-soft: rgba(77, 214, 224, 0.18);
-  --pulse-glow: rgba(77, 214, 224, 0.5);
-  --glass-bg: rgba(255, 255, 255, 0.025);
-  --glass-bg-2: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.3) inset,
-    0 20px 40px -12px rgba(0, 0, 0, 0.5),
-    0 4px 16px -4px rgba(0, 0, 0, 0.3);
+/*
+  ──────────────────────────────────────────────────────────────
+  Rhemic AI — Cream Paper design system (redesign 2026-06)
+  Warm archival broadsheet. Ink on paper. Grain, not gloss.
+  Agnostic positioning: no vertical imagery, no tech-glass.
+  ──────────────────────────────────────────────────────────────
+*/
 
-  --bg-base: var(--bg);
-  --bg-elevated: var(--glass-bg-2);
-  --bg-glass: var(--glass-bg);
-  --bg-glass-hover: var(--glass-bg-2);
+:root {
+  /* Paper canvas — warm cream, never pure white */
+  --paper:        #f4eede;
+  --paper-2:      #efe7d3;   /* raised cards / panels */
+  --paper-3:      #e8dec7;   /* deepest fill, footer */
+  --paper-ink:    #1b1813;   /* inverted blocks (ink on cream → cream on ink) */
+
+  /* Ink — warm near-black ramp */
+  --ink:          #211d16;
+  --ink-2:        #4b4338;
+  --ink-3:        #6f6657;
+  --ink-faint:    #9a9080;
+
+  /* Hairlines — printed-rule feel */
+  --line:         rgba(33, 29, 22, 0.16);
+  --line-soft:    rgba(33, 29, 22, 0.09);
+  --line-strong:  rgba(33, 29, 22, 0.30);
+
+  /* Spot ink — single accent, like a second print run */
+  --spot:         #a93c2b;   /* oxblood / brick */
+  --spot-deep:    #8d3022;
+  --spot-soft:    rgba(169, 60, 43, 0.12);
+
+  /* Backward-compat aliases so legacy dark components don't shatter on this branch */
+  --bg-base:      var(--paper);
+  --bg-elevated:  var(--paper-2);
+  --bg-glass:     var(--paper-2);
+  --bg-glass-hover: var(--paper-3);
   --text-primary: var(--ink);
   --text-secondary: var(--ink-2);
-  --text-tertiary: var(--mute);
-  --text-muted: var(--mute);
-  --text-faint: var(--mute-2);
-  --border-default: var(--glass-border);
-  --border-strong: rgba(238, 242, 247, 0.2);
-  --border-subtle: rgba(238, 242, 247, 0.06);
+  --text-tertiary: var(--ink-3);
+  --text-muted:   var(--ink-3);
+  --text-faint:   var(--ink-faint);
+  --border-default: var(--line);
+  --border-strong: var(--line-strong);
+  --border-subtle: var(--line-soft);
   --btn-primary-bg: var(--ink);
-  --btn-primary-text: var(--bg);
-  --accent-teal: var(--pulse);
-  --accent-teal-rgb: 77 214 224;
-  --accent-teal-hover: var(--pulse-deep);
+  --btn-primary-text: var(--paper);
+  --accent-teal:  var(--spot);
 }
 
-html {
-  scroll-padding-top: 5rem;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+html { scroll-padding-top: 5.5rem; }
 
-html,
-body {
-  background:
-    radial-gradient(ellipse 48% 34% at 88% 0%, rgba(77, 214, 224, 0.1) 0%, transparent 68%),
-    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(77, 214, 224, 0.055) 0%, transparent 62%),
-    linear-gradient(to right, rgba(238, 242, 247, 0.026) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(238, 242, 247, 0.026) 1px, transparent 1px),
-    var(--bg-base);
-  background-size: auto, auto, 56px 56px, 56px 56px, auto;
-  background-attachment: fixed;
-  color: var(--text-primary);
+html, body {
+  background-color: var(--paper);
+  color: var(--ink);
   overflow-x: hidden;
-  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: var(--font-inter-tight), sans-serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   text-rendering: optimizeLegibility;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-inter-tight), sans-serif;
-  letter-spacing: 0;
-  text-rendering: optimizeLegibility;
+/* Grain overlay — fixed, multiplies onto the whole page for paper tooth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-::selection {
-  background: var(--pulse-soft);
+/* A second, very soft warm vignette so the cream has depth, not flatness */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(255, 252, 244, 0.7) 0%, transparent 55%),
+    radial-gradient(100% 60% at 50% 110%, rgba(150, 132, 96, 0.10) 0%, transparent 60%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fraunces), Georgia, serif;
   color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  font-weight: 500;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
+::selection { background: var(--spot-soft); color: var(--spot-deep); }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-/* ── Text over globe readability ── */
-.text-over-globe {
-  text-shadow: 0 0 20px rgba(7, 9, 12, 0.95), 0 0 40px rgba(7, 9, 12, 0.8), 0 0 80px rgba(7, 9, 12, 0.4);
-}
-
-/* ── AEO Engine fade-in ── */
-@keyframes aeo-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ── FixedNav scroll classes (DOM-driven, no React re-renders) ── */
-.nav-transparent {
-  background-color: transparent;
-  box-shadow: none;
-  /* GPU layer prevents sub-pixel seam between fixed nav and scrolling content */
-  transform: translateZ(0);
-}
-
-.nav-scrolled {
-  background-color: rgba(7, 9, 12, 0.9);
-  box-shadow: 0 1px 0 var(--border-subtle), 0 2px 0 rgba(7, 9, 12, 0.9);
-  transform: translateZ(0);
-}
-
-@media (max-width: 767px) {
-  body {
-    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
-  }
-}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--paper-3); }
+::-webkit-scrollbar-thumb { background: var(--ink-faint); border: 3px solid var(--paper-3); border-radius: 0; }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+  .tabular-nums { font-variant-numeric: tabular-nums; }
 
-  .glass-panel {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(24px) saturate(140%);
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
-  }
-
-  .section-label {
+  /* Mono kicker label — set in the printed-meta style */
+  .kicker {
     font-family: var(--font-jetbrains-mono), monospace;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--pulse-deep);
+    color: var(--spot-deep);
+  }
+  .kicker-ink { color: var(--ink-3); }
+
+  /* Paper card — soft printed panel, hard 2px border, no glass blur */
+  .paper-card {
+    background: var(--paper-2);
+    border: 1.5px solid var(--line);
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 2px 3px 0 var(--line-soft);
   }
 
-  .tabular-nums {
-    font-variant-numeric: tabular-nums;
+  /* Rule — a printed hairline divider */
+  .rule { border-top: 1px solid var(--line); }
+  .rule-strong { border-top: 1.5px solid var(--ink); }
+
+  /* Inverted ink block (cream type on dark ink) */
+  .ink-block { background: var(--paper-ink); color: var(--paper); }
+  .ink-block h1, .ink-block h2, .ink-block h3, .ink-block h4 { color: var(--paper); }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.95rem 1.6rem; border-radius: 2px; border: 1.5px solid var(--ink);
+    transition: transform 180ms cubic-bezier(0.22,1,0.36,1), background 180ms ease;
+  }
+  .btn-primary:hover { background: var(--spot-deep); border-color: var(--spot-deep); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: transparent; color: var(--ink);
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.95rem 1.6rem; border-radius: 2px; border: 1.5px solid var(--ink);
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+  /* Underline link with printed-rule hover */
+  .link-rule {
+    color: var(--ink); text-decoration: none;
+    background-image: linear-gradient(var(--spot), var(--spot));
+    background-size: 0% 1.5px; background-repeat: no-repeat; background-position: 0 100%;
+    transition: background-size 250ms ease;
+  }
+  .link-rule:hover { background-size: 100% 1.5px; }
+
+  /* Nav scroll states (DOM-driven) */
+  .nav-top {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+  }
+  .nav-stuck {
+    background-color: rgba(244, 238, 222, 0.88);
+    backdrop-filter: blur(8px) saturate(110%);
+    -webkit-backdrop-filter: blur(8px) saturate(110%);
+    border-bottom: 1px solid var(--line);
   }
 
-  .rhemic-grid-bg {
-    background:
-      radial-gradient(ellipse 44% 40% at 88% 8%, rgba(77, 214, 224, 0.14) 0%, transparent 72%),
-      radial-gradient(ellipse 36% 38% at 0% 86%, rgba(77, 214, 224, 0.07) 0%, transparent 62%),
-      linear-gradient(to right, rgba(238, 242, 247, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(238, 242, 247, 0.035) 1px, transparent 1px),
-      var(--bg);
-    background-size: auto, auto, 56px 56px, 56px 56px, auto;
-  }
-
-  .hero-proof-word {
-    color: var(--pulse-deep);
-  }
-
-  .hero-enter-eyebrow {
-    animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .hero-enter-title {
-    animation: hero-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
-  }
-
-  .hero-enter-copy {
-    animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) 260ms both;
-  }
-
-  .hero-enter-panel {
-    animation: hero-panel-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) 220ms both;
-  }
-
-  @keyframes hero-enter {
-    from {
-      opacity: 0;
-      transform: translateY(18px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes hero-panel-enter {
-    from {
-      opacity: 0;
-      transform: translateY(24px) scale(0.98);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
+  /* Scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 300ms ease;
+    transform: translateY(22px);
+    transition: opacity 750ms cubic-bezier(0.22,1,0.36,1), transform 750ms cubic-bezier(0.22,1,0.36,1);
   }
+  .reveal-visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 90ms; }
+  .reveal-d2 { transition-delay: 180ms; }
+  .reveal-d3 { transition-delay: 270ms; }
+  .reveal-d4 { transition-delay: 360ms; }
 
-  .reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Staggered hero entrance */
+  @keyframes paper-rise {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
+  .rise   { animation: paper-rise 900ms cubic-bezier(0.22,1,0.36,1) both; }
+  .rise-1 { animation-delay: 80ms; }
+  .rise-2 { animation-delay: 200ms; }
+  .rise-3 { animation-delay: 340ms; }
+  .rise-4 { animation-delay: 480ms; }
 
-  .reveal-delay-1 {
-    transition-delay: 90ms;
-  }
-
-  .reveal-delay-2 {
-    transition-delay: 180ms;
-  }
-
-  .reveal-delay-3 {
-    transition-delay: 270ms;
-  }
+  /* Marquee for the "any business" ribbon */
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-enter-eyebrow,
-    .hero-enter-title,
-    .hero-enter-copy,
-    .hero-enter-panel,
-    .reveal {
-      animation: none;
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
+    .reveal, .rise, .marquee-track { animation: none !important; opacity: 1 !important; transform: none !important; transition: none !important; }
   }
 }
