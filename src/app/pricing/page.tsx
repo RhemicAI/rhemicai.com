@@ -96,8 +96,8 @@ export default function PricingPage() {
                 <span className="italic text-spot-deep">Scale into capture.</span>
               </h1>
               <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
-                One plan to get found and recommended. Higher tiers add full demand capture and
-                reporting as you grow. No vertical lock-in. It works for any business that needs to
+                Start by getting found and recommended. Add full demand capture and reporting
+                whenever you want it. No vertical lock-in. It works for any business that needs to
                 be found.
               </p>
             </Reveal>

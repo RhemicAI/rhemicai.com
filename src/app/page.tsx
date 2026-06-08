@@ -348,8 +348,8 @@ export default function Home() {
                 Start at visibility. Scale into capture.
               </h2>
               <p className="mt-5 font-body text-[1.05rem] leading-relaxed text-ink-2">
-                Entry plan gets you found and recommended. Higher tiers add full demand capture and
-                source-aware reporting.
+                Start by getting found and recommended. Add full demand capture and source-aware
+                reporting whenever you want it.
               </p>
             </Reveal>
             <Reveal delay={2} className="paper-card w-full max-w-sm p-7">

@@ -203,10 +203,11 @@ export default function ScanPopup() {
       {!open && showTab && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-5 right-5 z-[110] flex items-center gap-2 border-[1.5px] border-[var(--ink)] bg-[var(--ink)] px-4 py-3 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[var(--paper)] shadow-[3px_4px_0_var(--line-soft)] transition-transform hover:-translate-y-0.5"
+          style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
+          className="fixed inset-x-3 z-[110] flex items-center justify-center gap-2 border-[1.5px] border-[var(--ink)] bg-[var(--ink)] px-4 py-3.5 font-mono text-[0.74rem] uppercase tracking-[0.12em] text-[var(--paper)] shadow-[3px_4px_0_var(--line-soft)] transition-transform hover:-translate-y-0.5 sm:inset-x-auto sm:right-5 sm:w-auto sm:py-3"
           aria-label="Open free AI visibility scan"
         >
-          <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--spot)]" />
+          <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-[var(--spot)]" />
           Free visibility scan
         </button>
       )}
