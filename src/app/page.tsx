@@ -281,7 +281,7 @@ export default function Home() {
               <div className="max-w-xl">
                 <p className="kicker mb-5">Results</p>
                 <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
-                  Real sites. Booking and capture wired in.
+                  Businesses we got AI to recommend.
                 </h2>
               </div>
               <Link href="/testimonials" className="link-rule font-mono text-[0.78rem] uppercase tracking-[0.14em] text-ink">
