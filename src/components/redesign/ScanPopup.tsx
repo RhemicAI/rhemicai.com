@@ -182,10 +182,25 @@ export default function ScanPopup() {
   }
 
   function bookCall() {
+    // Prefill the Cal form from what THEY typed in the scan gate, not the host's cookies.
+    const u = cleanUrl(url);
+    const prefill: Record<string, string> = {};
+    if (name.trim()) prefill.name = name.trim();
+    if (email.trim()) prefill.email = email.trim();
+    const notes = [
+      u && `Website: ${u}`,
+      phone.trim() && `Phone: ${phone.trim()}`,
+      leakPct != null && `Scan: ${leakPct}% visibility`,
+    ]
+      .filter(Boolean)
+      .join(' · ');
+    if (notes) prefill.notes = notes;
+
     window.dispatchEvent(
       new CustomEvent(CAL_BOOKING_EVENT_NAME, {
         detail: {
           calLink: 'rhemic-ai/rhemic-ai-audit-walkthrough',
+          prefill,
           durationLabel: 'Founding-member audit',
           title: 'Book your audit, lock founding-member pricing.',
           subtitle: 'Pick a time. We map the fixes and show you who is winning your searches.',
