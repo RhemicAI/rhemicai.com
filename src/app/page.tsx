@@ -109,7 +109,6 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
-                <p className="rise rise-1 kicker mb-6">Visibility + capture for local service businesses</p>
                 <h1 className="rise rise-2 font-display text-[clamp(2.1rem,5vw,3.9rem)] font-medium leading-[1.0] text-balance">
                   Be the business{' '}
                   <span className="italic text-spot-deep">AI recommends</span>,
