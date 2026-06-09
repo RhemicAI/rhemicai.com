@@ -63,8 +63,8 @@ const tiers: Tier[] = [
   {
     badge: 'Tier 3',
     name: 'Full done-for-you system',
-    price: '$1,400',
-    was: '$2,000',
+    price: '$2,000',
+    was: '$2,500',
     unit: '/mo',
     best: 'We run the whole thing for you.',
     blurb:
