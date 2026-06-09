@@ -5,7 +5,7 @@ import Link from 'next/link';
 import AuditButton from './AuditButton';
 
 const links = [
-  { href: '/#how', label: 'How it works' },
+  { href: '/how-it-works', label: 'How it works' },
   { href: '/testimonials', label: 'Results' },
   { href: '/pricing', label: 'Pricing' },
 ];

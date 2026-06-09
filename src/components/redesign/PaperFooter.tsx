@@ -5,7 +5,7 @@ const cols: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: 'Product',
     links: [
-      { href: '/#how', label: 'How it works' },
+      { href: '/how-it-works', label: 'How it works' },
       { href: '/testimonials', label: 'Results' },
       { href: '/pricing', label: 'Pricing' },
       { href: '#audit', label: 'Get audit' },
