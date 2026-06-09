@@ -16,24 +16,27 @@ export const metadata: Metadata = buildMetadata({
 const steps = [
   {
     no: '01',
-    title: 'Diagnose',
-    lede: 'We find where you are invisible and where demand leaks out.',
-    body: 'We crawl your site the way an AI engine does, then map where you show up and where you do not, across search, AI answers, your pages, calls, and handoffs. You see the gaps, ranked by what they cost you.',
-    points: ['AI answer-engine and search visibility scan', 'Google Business and local presence check', 'Page, schema, and content readiness', 'Where inquiries leak: calls, after-hours, forms'],
+    tier: 'Tier 1 · Visibility',
+    title: 'We make you the business AI recommends',
+    lede: 'Get found and recommended where customers actually look.',
+    body: 'We crawl your site the way an AI engine does, fix what is holding you back, and position you so that when customers ask Google, ChatGPT, or Perplexity who to go with, your name comes up. This is where everyone starts.',
+    points: ['AI answer-engine and search visibility', 'Google Business and local presence', 'Structured data and pages built for real queries', 'Monthly report in plain English'],
   },
   {
     no: '02',
-    title: 'Fix and position',
-    lede: 'We close the highest-impact gaps first.',
-    body: 'Profiles, pages, structured data, and answer-engine positioning, done in priority order so the changes that move the needle happen first. We deploy through your site, not a dashboard you have to babysit.',
-    points: ['Structured data and entity setup so engines can read you', 'Pages built for the queries your customers actually use', 'Local and profile fixes that win the map', 'Positioning so AI names you, not a competitor'],
+    tier: 'Tier 2 · Capture',
+    title: 'Then we catch every bit of demand it creates',
+    lede: 'A response process built to your business, with its own lead tracker.',
+    body: 'Visibility creates inbound. Capture is the layer that makes sure none of it slips. We build a response process customized to how your business actually runs, and give you your own tracking artifact where every call, missed call, after-hours inquiry, and form lands, so you can see and follow up on every lead in one place.',
+    points: ['A customized inbound response process for your business', 'Every call, missed call, after-hours, and form captured', 'Your own lead-tracking board, with the source of each lead', 'Nothing slips between search and your team'],
   },
   {
     no: '03',
-    title: 'Run it daily',
-    lede: 'Not a one-time audit. A system that keeps working.',
-    body: 'Visibility moves, competitors react, and new inquiries come in every day. Rhemic keeps watching for new leaks, captures the demand the visibility creates, and tells you in plain English what changed and what is working.',
-    points: ['Ongoing visibility monitoring', 'Capture for calls, missed calls, after-hours, and forms', 'Source clarity on where customers come from', 'A plain-English report, not a wall of charts'],
+    tier: 'Tier 3 · Full done-for-you system',
+    title: 'Or we run the whole growth engine for you',
+    lede: 'A complete growth system, customized to your whole business.',
+    body: 'The full done-for-you system. Visibility, capture, and reporting tuned to your entire business and every location, with the data to see which markets, channels, and dollars actually bring customers. We build it, run it, and report on it. You run the business.',
+    points: ['Everything in Visibility and Capture', 'Built and run across all your locations', 'Source-aware reporting on what brings customers', 'A growth system customized end to end to your business'],
   },
 ];
 
@@ -51,13 +54,14 @@ export default function HowItWorksPage() {
             </div>
             <Reveal className="max-w-3xl">
               <h1 className="font-display text-[clamp(2.4rem,6vw,4.4rem)] font-medium leading-[1.0] text-balance">
-                Find the leaks.{' '}
-                <span className="italic text-spot-deep">Fix them.</span>{' '}
-                Keep them closed.
+                Get found.{' '}
+                <span className="italic text-spot-deep">Capture it.</span>{' '}
+                Grow the whole business.
               </h1>
               <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
-                No dashboards to babysit and no jargon. We run the work, deploy it through your own site,
-                and report what changed. Here is exactly what that looks like.
+                Rhemic works in three layers. Start by getting found and recommended, add a capture system
+                built to your business, or have us run the entire growth engine for you. Each layer builds
+                on the one before it.
               </p>
             </Reveal>
           </div>
@@ -70,9 +74,10 @@ export default function HowItWorksPage() {
               <Reveal key={s.no} className="bg-[var(--paper)] p-8 sm:p-10">
                 <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
                   <div>
-                    <span className="font-display text-[3.4rem] font-bold leading-none text-spot">{s.no}</span>
-                    <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-tight">{s.title}</h2>
-                    <p className="mt-2 font-body text-[1.05rem] leading-snug text-ink">{s.lede}</p>
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-spot-deep">{s.tier}</span>
+                    <span className="mt-2 block font-display text-[3.2rem] font-bold leading-none text-spot">{s.no}</span>
+                    <h2 className="mt-3 font-display text-[1.55rem] font-semibold leading-tight">{s.title}</h2>
+                    <p className="mt-2 font-body text-[1.02rem] leading-snug text-ink">{s.lede}</p>
                   </div>
                   <div>
                     <p className="font-body text-[1.05rem] leading-relaxed text-ink-2">{s.body}</p>
