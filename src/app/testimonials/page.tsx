@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Our Work',
   description:
-    'Real sites Rhemic AI built for real businesses, with booking and capture wired in. Case studies from Kay’s Groom Room and Choose One Auto Consulting.',
+    'Proof, not promises: businesses Rhemic got cited inside AI answers, with results you can paste into ChatGPT and verify. Choose One Auto, Kay’s Groom Room, and Wava Grill.',
   path: '/testimonials',
   keywords: ['Rhemic AI case studies', 'Rhemic AI work', 'booking site case study'],
 });
