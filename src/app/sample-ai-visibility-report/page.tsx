@@ -117,7 +117,7 @@ export default function SampleAiVisibilityReportPage() {
             <div className="space-y-4">
               {[
                 { prompt: 'What are the best [service category] companies in [city]?', engine: 'ChatGPT', result: 'Not cited. Competitors A, B, C appeared.', status: 'miss' },
-                { prompt: 'Who should I hire for [service type] near me?', engine: 'Perplexity', result: 'Not cited. Competitor A appeared as top recommendation.', status: 'miss' },
+                { prompt: 'Who should I go with for [service type] near me?', engine: 'Perplexity', result: 'Not cited. Competitor A appeared as top recommendation.', status: 'miss' },
                 { prompt: 'What is the difference between [service A] and [service B]?', engine: 'Claude', result: 'Cited in content context. Brand mentioned as example provider.', status: 'hit' },
                 { prompt: 'How much does [service] cost in [city]?', engine: 'Gemini', result: 'Not cited. Generic pricing guidance provided with no brand mention.', status: 'miss' },
               ].map(({ prompt, engine, result, status }) => (

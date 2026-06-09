@@ -8,6 +8,7 @@ export const CAL_BOOKING_EVENT_NAME = 'rhemic:open-cal-booking';
 // Add new approved Cal paths here instead of widening component props.
 export type CalLink =
   | 'rhemic-ai'
+  | 'rhemic-ai/rhemic-ai-audit-walkthrough'
   | 'rhemic-ai/medspa-discovery-call'
   | 'rhemic-ai/medspa-consult-leak-audit';
 
@@ -24,7 +25,7 @@ export function getCalBookingUrl(calLink: CalLink, prefill?: Record<string, stri
 export function getCalEmbedUrl(calLink: CalLink, prefill?: Record<string, string>): string {
   const url = new URL(getCalBookingUrl(calLink, prefill));
   url.searchParams.set('embed', 'true');
-  url.searchParams.set('theme', 'dark');
+  url.searchParams.set('theme', 'light');
   return url.toString();
 }
 

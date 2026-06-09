@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Newsreader, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -8,51 +8,63 @@ import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed/CalEmbed";
 import CalBookingSurface from "@/components/CalEmbed/CalBookingSurface";
-import OfferPopup from "@/components/OfferPopup/OfferPopup";
-import CobeGlobeHome from "@/components/CobeGlobe/CobeGlobeHome";
-import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
+import ScanPopup from "@/components/redesign/ScanPopup";
 import { siteConfig } from "@/lib/seo";
 
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-inter-tight",
-  display: "swap",
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-});
-
+// Display — high-contrast optical serif, the voice of the new system
 const fraunces = Fraunces({
   subsets: ["latin"],
-  style: ["italic"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal", "italic"],
   variable: "--font-fraunces",
   display: "swap",
 });
 
+// Body — editorial text serif
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+// Technical labels / kickers / UI
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+// Kept as a fallback variable for legacy pages that still reference it inline
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const TITLE = "Rhemic AI. Get found, recommended, and booked in the AI era";
+const DESCRIPTION =
+  "Customers don't scroll ten links anymore. They ask once and act on one answer. Rhemic makes sure your business is the answer: found in search and AI engines, recommended by name, with every inquiry caught and turned into customers. Any industry.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rhemic AI | More Booked Consults for U.S. Med Spas",
+    default: TITLE,
     template: "%s | Rhemic AI",
   },
-  description: siteConfig.description,
+  description: DESCRIPTION,
   keywords: [
-    "book more med spa consults",
-    "med spa consult booking",
-    "med spa patient acquisition",
-    "med spa lead capture",
-    "med spa missed call recovery",
-    "turn local demand into med spa consults",
-    "med spa growth system",
+    "AI search visibility",
+    "answer engine optimization",
+    "get recommended by AI",
+    "ChatGPT visibility",
+    "Perplexity visibility",
+    "business visibility AI era",
+    "turn demand into customers",
     "Rhemic AI",
-    "U.S. med spa booking system",
-    "Dallas med spa patient acquisition",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -69,8 +81,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Rhemic AI | More Booked Consults for U.S. Med Spas",
-    description: siteConfig.description,
+    title: TITLE,
+    description: DESCRIPTION,
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "en_US",
@@ -78,8 +90,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhemic AI | More Booked Consults for U.S. Med Spas",
-    description: siteConfig.description,
+    title: TITLE,
+    description: DESCRIPTION,
     creator: siteConfig.social.twitter,
   },
   alternates: {
@@ -93,22 +105,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${interTight.variable} ${jetBrainsMono.variable} ${fraunces.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${newsreader.variable} ${jetBrainsMono.variable} ${interTight.variable}`}
+      suppressHydrationWarning
+    >
       <body suppressHydrationWarning>
-        <CobeGlobeHome />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-[1]"
-          style={{
-            background: `radial-gradient(ellipse 42% 34% at 90% 0%, rgba(77, 214, 224, 0.08) 0%, transparent 70%), linear-gradient(180deg, rgba(7, 9, 12, 0.0) 0%, rgba(7, 9, 12, 0.16) 100%)`,
-          }}
-        />
-        <SmoothScroll />
         <SchemaOrg />
         <Breadcrumbs />
         <CalEmbed />
         <CalBookingSurface />
-        <OfferPopup />
+        <ScanPopup />
         <div className="relative z-10">{children}</div>
         <Script
           id="hs-script-loader"

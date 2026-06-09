@@ -78,7 +78,7 @@ export default function CompetitorAnalysisPage() {
       <PageHero
         subtitle="Competitor Analysis"
         title="See Exactly Who AI Recommends Instead of You"
-        description="When a customer asks ChatGPT who to hire in your industry, which names come up? We show you name by name, topic by topic, and tell you how to take their spot."
+        description="When a customer asks ChatGPT who to go with in your industry, which names come up? We show you name by name, topic by topic, and tell you how to take their spot."
       />
 
 

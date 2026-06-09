@@ -1,419 +1,233 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Footer from '@/components/Footer/Footer';
-import PricingSwitch from '@/components/PricingSwitch/PricingSwitch';
-import RelatedLinks from '@/components/shared/RelatedLinks';
-import { customPlan, plans } from '@/data/pricing';
-import PageSchemas from '@/components/seo/PageSchemas';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
+import Reveal from '@/components/redesign/Reveal';
+import AuditButton from '@/components/redesign/AuditButton';
 import { buildMetadata } from '@/lib/seo';
-import SubpageFAQ from '@/components/shared/SubpageFAQ';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Med Spa Consult Leak Pricing',
+  title: 'Pricing',
   description:
-    'Diagnose, Capture, Scale, and Custom pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent to the right team.',
+    'Rhemic pricing. Start at Visibility to get found and recommended across search and AI answers, then scale into full demand capture and source-aware reporting. Any industry.',
   path: '/pricing',
-  keywords: ['med spa growth pricing', 'med spa patient acquisition', 'Rhemic AI pricing', 'med spa AI receptionist', 'med spa software integrations'],
+  keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'answer engine optimization pricing'],
 });
 
-const diagnosePlan = plans.find((p) => p.tier === 'basic')!;
-const capturePlan = plans.find((p) => p.tier === 'growth')!;
-const scalePlan = plans.find((p) => p.tier === 'premium')!;
-
-const pricingFaqs = [
-  {
-    question: 'How much does Rhemic AI cost for med spas?',
-    answer: `Med spa plans: ${diagnosePlan.name} at $${diagnosePlan.monthlyPrice}/mo, ${capturePlan.name} at $${capturePlan.monthlyPrice}/mo, ${scalePlan.name} at $${scalePlan.monthlyPrice}/mo, and ${customPlan.name} for larger groups. The audit helps match scope to the clinic's locations, visibility gaps, and handoff workflow.`,
-  },
-  {
-    question: 'Which plan is the main recommendation?',
-    answer: `${capturePlan.name} is the main recommendation for owner-led med spas that want better visibility, better call coverage, and the Consult Capture Layer for capture, routing, and source context.`,
-  },
-  {
-    question: 'What does AI search visibility mean?',
-    answer: 'AI search visibility helps your med spa show up when patients ask ChatGPT, Claude, Perplexity, or Google AI about treatments near them.',
-  },
-  {
-    question: 'How does the AI receptionist work?',
-    answer: 'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
-  },
-  {
-    question: 'Do we need to switch booking software?',
-    answer: 'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
-  },
-  {
-    question: 'How can Rhemic help us find revenue leaks?',
-    answer:
-      'Rhemic helps med spas look for places patient demand can leak before it becomes a consult opportunity: weak search and AI visibility, missed calls, after-hours intent, slow handoffs, unclear source context, and wasted ad spend signals where applicable. Rhemic does not guarantee revenue, rankings, patients, or booked consults. It helps surface and prioritize the leaks that can keep patient demand from becoming consult opportunities.',
-  },
-  {
-    question: 'Do you promise rankings or revenue?',
-    answer: 'No. Rhemic helps identify and improve visibility, trust, and response gaps. It does not promise search placement, revenue, clinical outcomes, or patient volume.',
-  },
-];
-
-const aiReceptionAndAdsFaqs = [
-  {
-    question: 'Does every Rhemic plan include the AI receptionist?',
-    answer:
-      'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Capture and Scale add stronger missed-call recovery, more advanced scripts, and deeper reporting. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
-  },
-  {
-    question: 'What does the AI receptionist actually do?',
-    answer:
-      'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. It helps recover calls that would otherwise go to voicemail or get missed after hours.',
-  },
-  {
-    question: 'Does the AI receptionist replace our front desk?',
-    answer:
-      'No. Rhemic does not replace your front desk. It gives your team backup coverage when calls are missed, after-hours leads come in, or staff are busy with patients.',
-  },
-  {
-    question: 'Does Rhemic book appointments directly?',
-    answer:
-      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
-  },
-  {
-    question: 'Does the AI receptionist give medical advice?',
-    answer:
-      'No. The AI receptionist does not provide medical advice, diagnosis, or treatment recommendations. It only handles common non-clinical questions, lead capture, and booking request routing.',
-  },
-  {
-    question: 'What happens when a caller asks a clinical question?',
-    answer:
-      'The AI receptionist should route the caller to your licensed team. Clinical decisions, treatment eligibility, diagnosis, and medical guidance stay with licensed staff.',
-  },
-  {
-    question: 'What kind of questions can the AI receptionist answer?',
-    answer:
-      'It can answer approved non-clinical questions like location, hours, services offered, pricing ranges if approved, consultation process, booking steps, cancellation policy, and how to contact the clinic.',
-  },
-  {
-    question: 'What happens after the AI receptionist captures a lead?',
-    answer:
-      'The lead is routed into approved handoff workflows with the caller\'s details, requested treatment, urgency, source when available, and next-step context. The goal is to make follow-up faster and cleaner.',
-  },
-  {
-    question: 'Can we approve what the AI receptionist says?',
-    answer:
-      'Yes. Rhemic should use approved scripts and clinic-specific guardrails. Your team controls the approved language for services, pricing, policies, escalation rules, and booking handoff.',
-  },
-  {
-    question: 'Is the AI receptionist available after hours?',
-    answer:
-      'Yes. One of the core use cases is after-hours coverage, so missed calls and late-night buyer intent do not sit untouched until the next business day.',
-  },
-  {
-    question: 'What is Meta ads intelligence?',
-    answer:
-      'Meta ads intelligence is a Scale-tier dashboard for connected Meta Ads accounts. It helps your med spa see ad performance, KPIs, costs, and optimization opportunities inside the Rhemic platform.',
-  },
-  {
-    question: 'Does Rhemic run our Meta ads?',
-    answer:
-      "Not by default. Scale includes Meta Ads intelligence for connected-account reporting and optimization visibility. Paid ad management is separate unless explicitly scoped.",
-  },
-  {
-    question: 'What is the Meta MCP used for?',
-    answer:
-      "Meta MCP lets a clinic connect its Meta account to Rhemic's platform so the Scale dashboard can show ad KPIs, spend, costs, performance trends, and optimization opportunities.",
-  },
-  {
-    question: 'Will Rhemic change our ad campaigns automatically?',
-    answer:
-      'No. Rhemic should not automatically change your ad campaigns without approval. Any ad-related recommendation should be reviewed before action is taken.',
-  },
-  {
-    question: 'What does Meta ads intelligence show us?',
-    answer:
-      'It can show connected-account campaign performance, spend, cost metrics, lead and conversion signals when available, KPI trends, and areas to optimize in running ads.',
-  },
-  {
-    question: 'Which plans include Meta ads intelligence?',
-    answer:
-      'Scale includes connected-account ad reporting for campaign context. Capture can include lighter competitor visibility review. Diagnose focuses on foundation work: visibility, GBP, reviews, AI search presence, and consult inquiry coverage.',
-  },
-  {
-    question: 'Is Meta ads intelligence the same as ad management?',
-    answer:
-      'No. Ads intelligence means Rhemic shows connected-account performance, KPIs, costs, and optimization opportunities. Ad management means someone creates, launches, optimizes, and manages campaigns. Those are different services.',
-  },
-  {
-    question: 'Why does ads intelligence matter if Rhemic does not manage ads by default?',
-    answer:
-      'Because visibility alone is not enough. If your ads are spending money but calls, leads, costs, and source context are not clear, you cannot tell what to fix. Rhemic helps connect demand to capture and reporting.',
-  },
-  {
-    question: 'Can Rhemic help show which ads create consult opportunities?',
-    answer:
-      'That is the direction of the reporting layer. Rhemic can help show which sources are creating consult opportunities when tracking and handoff systems are properly connected.',
-  },
-  {
-    question: 'Will Rhemic post ads or content for us?',
-    answer:
-      'No automatic posting by default. For content plans like Reddit or ads-related strategy, Rhemic can recommend and plan. The clinic or approved operator executes unless a separate execution scope is agreed.',
-  },
-];
-
-const softwareIntegrationFaqs = [
-  {
-    question: 'Does Rhemic integrate with AestheticsPro, Boulevard, Mangomint, Zenoti, or Meevo?',
-    answer:
-      'Not yet as a live self-serve integration. Integrations with major med spa systems like AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and similar platforms are on the roadmap. Today, Rhemic can still help with visibility, AI receptionist coverage, missed-call recovery, and lead routing while we scope the right integration path for your clinic.',
-  },
-  {
-    question: 'Which med spa software systems are you planning to support?',
-    answer:
-      'We are prioritizing systems commonly used by U.S. med spas, including AestheticsPro, Boulevard, Mangomint, Zenoti, Meevo, and other scheduling, CRM, EMR, and practice management tools used in aesthetics. Final rollout depends on API access, compliance review, and customer demand.',
-  },
-  {
-    question: 'Can Rhemic send leads into our current system?',
-    answer:
-      'In the current phase, Rhemic can capture lead details and route booking requests to your team through approved handoff workflows. Deeper CRM, scheduling, and practice-management integrations are in progress and will be added where the software supports safe API-based handoff.',
-  },
-  {
-    question: 'Does Rhemic book appointments directly?',
-    answer:
-      'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
-  },
-  {
-    question: 'Will Rhemic integrate with our EMR?',
-    answer:
-      'EMR integrations are on the roadmap, but Rhemic does not need EMR access to start improving visibility, call capture, and lead routing. Any EMR integration will require a separate review for API access, permissions, data scope, and compliance requirements.',
-  },
-  {
-    question: 'Do we need to switch booking software?',
-    answer:
-      'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
-  },
-  {
-    question: 'What happens before the integration is live?',
-    answer:
-      'Before a direct integration is live, Rhemic can use approved workflows to capture lead information, notify your team, support missed-call recovery, and give you reporting around visibility and lead response. The goal is to improve the leak points first, then deepen the connection into your existing stack.',
-  },
-  {
-    question: 'Can we request a specific integration?',
-    answer:
-      'Yes. If your clinic uses a specific booking, CRM, EMR, or practice-management system, mention it during the visibility and call leak audit. We use customer demand to prioritize integration work.',
-  },
-];
-
-const buyerMathItems = ['Botox', 'filler', 'laser', 'body-contouring'];
-
-const recommendationRows = [
-  {
-    situation: 'You need more patients finding you on Google.',
-    bestFit: 'Diagnose or Capture',
-    guidance: 'Choose Diagnose for foundation cleanup. Choose Capture when routing more booking intent is an active priority.',
-  },
-  {
-    situation: 'Calls are missed during the day or after hours.',
-    bestFit: 'Capture',
-    guidance: 'Capture adds the always-on Consult Capture Layer, missed-call recovery, and routed handoffs.',
-  },
-  {
-    situation: 'Competitors are highly visible and running ads.',
-    bestFit: 'Scale',
-    guidance: 'Scale gives connected-account ad reporting, competitor tracking, and clearer optimization priorities.',
-  },
-  {
-    situation: 'You have two to five locations.',
-    bestFit: 'Capture or Scale',
-    guidance: 'Capture can fit two locations. Scale is better for competitive markets or broader multi-location needs.',
-  },
-  {
-    situation: 'You have six or more locations or complex reporting needs.',
-    bestFit: 'Custom',
-    guidance: 'Rhemic scopes the market, routing, reporting, and rollout needs before recommending a plan.',
-  },
-];
-
-const pricingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Rhemic AI Med Spa Consult Opportunity Plans',
-  applicationCategory: 'BusinessApplication',
-  applicationSubCategory: 'Med spa consult opportunity leakage and demand capture',
-  operatingSystem: 'Web-based',
-  url: 'https://rhemicai.com/pricing',
-  description:
-    'Pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent to the right team.',
-  provider: {
-    '@type': 'Organization',
-    name: 'Rhemic AI',
-  },
-  offers: {
-    '@type': 'AggregateOffer',
-    lowPrice: String(Math.min(...plans.map((plan) => plan.monthlyPrice))),
-    highPrice: String(Math.max(...plans.map((plan) => plan.monthlyPrice))),
-    priceCurrency: 'USD',
-    offerCount: String(plans.length),
-  },
+type Tier = {
+  badge: string;
+  name: string;
+  price: string;
+  was?: string;
+  unit?: string;
+  placeholder?: boolean;
+  best: string;
+  blurb: string;
+  features: string[];
+  featured?: boolean;
 };
+
+const tiers: Tier[] = [
+  {
+    badge: 'Tier 1',
+    name: 'Visibility',
+    price: '$200',
+    was: '$300',
+    unit: '/mo',
+    best: 'Get found and recommended.',
+    blurb:
+      'The entry point. We rank you on Google and get you recommended inside AI answers. Classic SEO, plus GEO and AEO.',
+    features: [
+      'Rank on Google and win the local map (SEO)',
+      'Get cited and recommended inside AI answers (GEO + AEO)',
+      'Win the high-intent searches your customers actually use',
+      'See exactly where you moved each month, in plain English',
+    ],
+  },
+  {
+    badge: 'Tier 2',
+    name: 'Capture',
+    price: '$700',
+    was: '$1,000',
+    unit: '/mo',
+    featured: true,
+    best: 'Catch and route every inquiry.',
+    blurb:
+      'Everything in Visibility, plus the always-on capture layer that turns that demand into booked customers. Calls, missed calls, after-hours, and forms.',
+    features: [
+      'Everything in Visibility',
+      'Stop losing customers to missed calls and after-hours inquiries',
+      'Every lead reaches your team fast, with where it came from',
+      'Turn the people comparing you to competitors into booked customers',
+    ],
+  },
+  {
+    badge: 'Tier 3',
+    name: 'Full done-for-you system',
+    price: '$2,000',
+    was: '$2,500',
+    unit: '/mo',
+    best: 'We run the whole thing for you.',
+    blurb:
+      'Everything in Capture, plus multi-location routing, deeper reporting, and ad spend tied to booked-work outcomes by source and campaign.',
+    features: [
+      'Everything in Capture',
+      'Every location handled, not just one',
+      'Know which markets, channels, and dollars actually book work',
+      'We run visibility, capture, and reporting so you run the business',
+    ],
+  },
+];
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-transparent">
-      <PageSchemas
-        id="pricing-page-schemas"
-        service={{
-          name: 'Rhemic AI Pricing and Service Plans',
-          description:
-            'Pricing for U.S. med spas that need to find lost consult opportunities and route more booking intent across search visibility, AI answers, calls, handoffs, and source context.',
-          path: '/pricing',
-          audience: 'U.S. med spa owners and operators evaluating patient acquisition infrastructure',
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pricingSchema),
-        }}
-      />
-      <FixedNav />
-
-      <section className="relative z-10 px-6 pb-14 pt-32 sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200/70">
-            Pricing for U.S. med spas
-          </p>
-          <h1 className="mx-auto max-w-4xl font-display text-4xl font-extrabold leading-[1.05] text-[var(--text-primary)] sm:text-5xl md:text-6xl">
-            Three plans for finding and routing lost opportunity.
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl font-body text-base leading-[1.75] text-[var(--text-secondary)] md:text-lg">
-            Diagnose finds the leaks. Capture catches and routes every consult. Scale helps competitive markets and multi-location operators expand what is working.
-          </p>
-          <p className="mx-auto mt-5 max-w-3xl font-body text-sm leading-[1.7] text-[var(--text-muted)] md:text-base">
-            Rhemic helps med spas find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context.
-          </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-4">
-            <Link
-              href="/free-consult-leak-calculator"
-              className="w-full max-w-[340px] rounded-full bg-[var(--ink)] px-6 py-4 text-center text-sm font-semibold text-[var(--bg)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
-            >
-              Calculate your leaks for free
-            </Link>
-            <p className="font-body text-sm text-[var(--text-muted)]">
-              $0 setup fee. Starts with a visibility and call leak audit for U.S. med spas.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div className="relative z-10 pb-12 sm:pb-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <PricingSwitch />
-
-          <section className="glass-panel mb-12 p-6 sm:p-8">
-            <p className="section-label">Simple buyer math</p>
-            <div className="mt-4 grid gap-6 md:grid-cols-[1fr_1.3fr] md:items-center">
-              <div className="flex flex-wrap gap-2">
-                {buyerMathItems.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg-2)] px-3 py-2 text-sm text-[var(--text-secondary)]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <p className="text-base leading-[1.75] text-[var(--text-secondary)]">
-                Missed calls, weak visibility, slow handoffs, and unclear source context can hide real demand. Rhemic is built to help find the leaks before you spend more on ads.
+    <>
+      <PaperNav />
+      <main className="relative">
+        {/* Header */}
+        <section className="px-5 pb-12 pt-32 sm:px-8 sm:pt-36">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">Pricing</span>
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">Any industry · U.S.</span>
+            </div>
+            <Reveal className="max-w-3xl">
+              <h1 className="font-display text-[clamp(2.4rem,6vw,4.4rem)] font-medium leading-[1.0] text-balance">
+                Start at visibility.{' '}
+                <span className="italic text-spot-deep">Scale into capture.</span>
+              </h1>
+              <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
+                Start by getting found and recommended. Add full demand capture and reporting
+                whenever you want it. No vertical lock-in. It works for any business that needs to
+                be found.
               </p>
-            </div>
-          </section>
+            </Reveal>
+          </div>
+        </section>
 
-          <section className="glass-panel mb-12 p-6 sm:p-8">
-            <h2 className="font-display text-3xl font-bold text-[var(--text-primary)]">
-              Which plan fits your med spa?
-            </h2>
-            <div className="mt-6 overflow-x-auto">
-              <table className="min-w-[760px] w-full text-left font-body text-sm">
-                <thead>
-                  <tr className="border-b border-white/10 text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">
-                    <th className="py-3 pr-5 font-semibold">Your situation</th>
-                    <th className="py-3 pr-5 font-semibold">Best fit</th>
-                    <th className="py-3 font-semibold">Guidance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {recommendationRows.map((row) => (
-                    <tr key={row.situation} className="border-b border-white/[0.06] last:border-0">
-                      <td className="py-4 pr-5 text-[var(--text-secondary)]">{row.situation}</td>
-                      <td className="py-4 pr-5 font-semibold text-[var(--text-primary)]">{row.bestFit}</td>
-                      <td className="py-4 text-[var(--text-secondary)]">{row.guidance}</td>
-                    </tr>
+        {/* Tiers */}
+        <section className="px-5 pb-24 sm:px-8 sm:pb-28">
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+            {tiers.map((t, i) => (
+              <Reveal
+                key={t.name}
+                delay={(i + 1) as 1 | 2 | 3}
+                as="article"
+                className={`relative flex flex-col p-8 ${
+                  t.featured ? 'ink-block' : 'paper-card'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span
+                    className={`font-mono text-[0.66rem] uppercase tracking-[0.2em] ${
+                      t.featured ? 'text-[var(--spot)]' : 'text-spot-deep'
+                    }`}
+                  >
+                    {t.badge}
+                  </span>
+                  {t.featured && (
+                    <span className="font-mono text-[0.58rem] uppercase tracking-[0.18em] text-[rgba(244,238,222,0.55)]">
+                      Most chosen
+                    </span>
+                  )}
+                </div>
+
+                <h2
+                  className={`mt-4 font-display text-[2rem] font-semibold leading-[1.05] lg:flex lg:min-h-[4.4rem] lg:items-start ${
+                    t.featured ? '!text-[var(--paper)]' : ''
+                  }`}
+                >
+                  {t.name}
+                </h2>
+
+                <div className="mt-3 flex items-baseline gap-2">
+                  {t.was && (
+                    <span
+                      className={`font-display text-[1.6rem] font-semibold leading-none line-through decoration-[1.5px] ${
+                        t.featured ? 'text-[rgba(244,238,222,0.45)] decoration-[var(--spot)]' : 'text-ink-faint decoration-[var(--spot)]'
+                      }`}
+                    >
+                      {t.was}
+                    </span>
+                  )}
+                  <span
+                    className={`font-display text-[3.4rem] font-bold leading-none ${
+                      t.featured ? 'text-[var(--paper)]' : 'text-ink'
+                    }`}
+                  >
+                    {t.price}
+                  </span>
+                  {t.unit && (
+                    <span className={`font-mono text-[0.78rem] ${t.featured ? 'text-[rgba(244,238,222,0.6)]' : 'text-ink-3'}`}>
+                      {t.unit}
+                    </span>
+                  )}
+                </div>
+
+                {t.placeholder && (
+                  <span
+                    className={`mt-2 inline-block w-fit border px-2 py-1 font-mono text-[0.56rem] uppercase tracking-[0.16em] ${
+                      t.featured
+                        ? 'border-[rgba(244,238,222,0.3)] text-[rgba(244,238,222,0.6)]'
+                        : 'border-[var(--line-strong)] text-ink-3'
+                    }`}
+                  >
+                    Pricing finalizing
+                  </span>
+                )}
+
+                <p
+                  className={`mt-4 font-body text-[1rem] leading-relaxed lg:min-h-[7.5rem] ${
+                    t.featured ? 'text-[rgba(244,238,222,0.74)]' : 'text-ink-2'
+                  }`}
+                >
+                  {t.blurb}
+                </p>
+
+                <ul className="mt-6 flex-1 space-y-3">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex gap-3">
+                      <span className={`mt-[7px] h-1.5 w-1.5 shrink-0 ${t.featured ? 'bg-[var(--spot)]' : 'bg-spot'}`} />
+                      <span
+                        className={`font-body text-[0.96rem] leading-snug ${
+                          t.featured ? 'text-[rgba(244,238,222,0.86)]' : 'text-ink-2'
+                        }`}
+                      >
+                        {f}
+                      </span>
+                    </li>
                   ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
+                </ul>
 
-          <section className="glass-panel mb-12 p-6 sm:p-8">
-            <p className="section-label">AI receptionist</p>
-            <p className="mt-4 max-w-4xl text-base leading-[1.75] text-[var(--text-secondary)]">
-              The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.
+                <AuditButton
+                  className={`mt-8 ${
+                    t.featured
+                      ? 'btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]'
+                      : 'btn-ghost'
+                  } w-full`}
+                >
+                  {t.placeholder ? 'Talk to us' : 'Run my audit'}
+                </AuditButton>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Footnote */}
+        <section className="border-t border-[var(--line)] bg-[var(--paper-2)] px-5 py-16 sm:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-display text-[1.4rem] font-semibold leading-snug text-ink">
+              No website yet? We build you one.
             </p>
-          </section>
-
-          <section className="glass-panel mb-12 px-4 py-10 text-center sm:px-6 sm:py-16">
-            <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-              Start with the audit.
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--text-secondary)]">
-              We help med spas identify where patient demand is leaking across visibility, calls, handoffs, and source context.
+            <p className="mt-3 font-body text-[1.02rem] leading-relaxed text-ink-2">
+              If you do not have a site, a new one is built into getting you visible, no separate web-design
+              bill. Have more than one location or a complex setup? We scope it custom. Book a call and
+              we’ll walk you through exactly what fits.
             </p>
-            <Link
-              href="/free-consult-leak-calculator"
-              className="inline-flex w-full max-w-[340px] items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-4 text-sm font-semibold text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] sm:max-w-none sm:px-8 sm:text-base"
-            >
-              Calculate your leaks for free
-            </Link>
-            <p className="mt-6 text-xs text-[var(--text-muted)]">
-              No ranking promises, revenue guarantees, or clinical claims.
-            </p>
-          </section>
-
-          <SubpageFAQ
-            heading="Questions about AI reception and Meta Ads intelligence"
-            faqs={aiReceptionAndAdsFaqs}
-          />
-
-          <SubpageFAQ
-            heading="Software integrations FAQ"
-            faqs={softwareIntegrationFaqs}
-          />
-
-          <SubpageFAQ
-            heading="Pricing FAQ"
-            faqs={pricingFaqs}
-          />
-        </div>
-      </div>
-
-      <RelatedLinks
-        heading="Explore more"
-        links={[
-          {
-            title: 'What We Optimize',
-            description: 'See the visibility, trust, and response surfaces Rhemic optimizes.',
-            href: '/#what-we-optimize',
-          },
-          {
-            title: 'Get the Audit',
-            description: 'Start with a visibility and call leak audit.',
-            href: '/contact',
-          },
-          {
-            title: 'FAQ',
-            description: 'Answers about AI search visibility, AI receptionist coverage, and plan fit.',
-            href: '/faq',
-          },
-        ]}
-      />
-
-      <Footer />
-    </main>
+            <AuditButton className="btn-primary mt-7">Run my revenue leak audit</AuditButton>
+          </div>
+        </section>
+      </main>
+      <PaperFooter />
+    </>
   );
 }

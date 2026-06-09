@@ -4,10 +4,11 @@ export const siteConfig = {
   name: "Rhemic AI",
   url: "https://rhemicai.com",
   email: "contact@rhemicai.com",
+  bookingUrl: "https://cal.com/rhemic-ai/rhemic-ai-audit-walkthrough",
   entity:
-    "Rhemic AI turns local demand into booked consults for U.S. med spas.",
+    "Rhemic AI makes any business the answer customers find in search and AI engines.",
   description:
-    "Rhemic helps U.S. med spas book more consults from the demand they already generate — catching every inquiry across search, calls, after-hours, and handoffs.",
+    "Rhemic helps businesses get found and recommended across search and AI answer engines, then catches the demand that creates across calls, after-hours, and forms, and turns it into customers.",
   social: {
     twitter: "@RhemicAI",
   },
@@ -80,7 +81,7 @@ export function organizationSchema() {
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
-      name: "Dallas, Texas, United States",
+      name: "United States",
     },
     founders: [
       { "@type": "Person", name: "Ittehadul Karim", jobTitle: "CEO" },
@@ -88,31 +89,26 @@ export function organizationSchema() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dallas",
-      addressRegion: "TX",
       addressCountry: "US",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
       email: siteConfig.email,
-      url: "https://cal.com/rhemic-ai/medspa-discovery-call",
+      url: siteConfig.bookingUrl,
     },
     knowsAbout: [
-      "Med spa patient acquisition",
-      "Med spa consult opportunity leakage",
-      "Google Business Profile optimization",
-      "Local SEO for med spas",
       "AI search visibility",
-      "Non-clinical AI receptionist for med spas",
+      "Answer engine optimization",
+      "Getting recommended by AI engines",
+      "Google Business Profile optimization",
+      "Local search visibility",
+      "Lead capture and routing",
       "Missed-call recovery",
-      "Consult Capture Layer",
-      "Approved handoff workflows",
       "Source-aware reporting",
       "Schema markup",
       "Structured data",
       "Competitor analysis",
-      "Meta Ads intelligence",
     ],
     areaServed: {
       "@type": "Country",

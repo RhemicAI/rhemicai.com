@@ -115,7 +115,9 @@ const aeoRoutes = [
 export const indexableRoutes = [
   "/",
   "/about",
+  "/services",
   "/pricing",
+  "/testimonials",
   "/contact",
   "/careers",
   "/products",
@@ -123,12 +125,16 @@ export const indexableRoutes = [
   "/how-it-works",
   "/case-studies",
   "/resources/glossary",
+  "/privacy-policy",
+  "/terms-of-service",
   ...aeoRoutes,
 ];
 
 export const staticPagePriorities: Record<string, number> = {
   "/": 1,
+  "/services": 0.95,
   "/pricing": 0.95,
+  "/testimonials": 0.9,
   "/products": 0.92,
   "/faq": 0.9,
   "/how-it-works": 0.9,

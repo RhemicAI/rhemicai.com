@@ -12,9 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ) as Record<string, string>;
 
   const pageDates: Record<string, string> = {
-    "/": "2026-05-26",
+    "/": "2026-06-08",
     "/about": "2026-05-26",
-    "/pricing": "2026-05-26",
+    "/services": "2026-06-08",
+    "/pricing": "2026-06-08",
+    "/testimonials": "2026-06-08",
     "/contact": "2026-05-26",
     "/products": "2026-05-26",
     "/products/website-auditing": "2026-04-01",

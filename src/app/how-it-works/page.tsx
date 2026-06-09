@@ -1,183 +1,139 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Footer from '@/components/Footer/Footer';
-import PageHero from '@/components/shared/PageHero';
-import ComparisonTable from '@/components/shared/ComparisonTable';
-import RelatedLinks from '@/components/shared/RelatedLinks';
-import PageSchemas from '@/components/seo/PageSchemas';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
+import Reveal from '@/components/redesign/Reveal';
+import AuditButton from '@/components/redesign/AuditButton';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'How Rhemic AI Works: Find Consult Leaks and Route Intent',
+  title: 'How it works',
   description:
-    'See how Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
+    'How Rhemic works: we find where your business is invisible and where demand leaks, fix the highest-impact gaps in priority order, and keep it running every day. Any industry.',
   path: '/how-it-works',
-  keywords: ['how Rhemic AI works', 'med spa consult leaks', 'med spa AI receptionist'],
+  keywords: ['how Rhemic AI works', 'AI visibility process', 'answer engine optimization process'],
 });
 
 const steps = [
   {
-    title: 'Find the leaks',
-    description:
-      'Rhemic starts by reviewing search visibility, AI answers, calls, handoffs, and source context so your team can see where consult opportunities may be getting lost.',
+    no: '01',
+    tier: 'Tier 1 · Visibility',
+    title: 'We get you found everywhere customers look',
+    lede: 'The full stack: SEO, GEO, and AEO. Not just AI.',
+    body: 'Visibility is not only about AI. We do the classic SEO that ranks you on Google and wins the local map, plus GEO and AEO so you also show up and get recommended inside AI answers like ChatGPT, Perplexity, and Google AI Overviews. Wherever your customers look, you are there.',
+    points: ['SEO: rank on Google and win the local map', 'AEO: get cited and recommended in AI answers', 'GEO: show up in Google AI Overviews and generative results', 'Structured data and pages built for real customer searches'],
   },
   {
-    title: 'Prioritize what matters',
-    description:
-      'Recommendations focus on the surfaces most likely to block booking intent: Google Business Profile, treatment pages, reviews, citations, schema, and missed-call opportunities.',
+    no: '02',
+    tier: 'Tier 2 · Capture',
+    title: 'Then we catch every bit of demand it creates',
+    lede: 'A response process built to your business, with its own lead tracker.',
+    body: 'Visibility creates inbound. Capture is the layer that makes sure none of it slips. We build a response process customized to how your business actually runs, and give you your own tracking artifact where every call, missed call, after-hours inquiry, and form lands, so you can see and follow up on every lead in one place.',
+    points: ['A customized inbound response process for your business', 'Every call, missed call, after-hours, and form captured', 'Your own lead-tracking board, with the source of each lead', 'Nothing slips between search and your team'],
   },
   {
-    title: 'Route booking intent',
-    description:
-      'Capture and Scale help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.',
-  },
-  {
-    title: 'Add source context',
-    description:
-      'Rhemic helps show which sources are creating consult opportunities so owners can decide what to fix, pause, or scale.',
-  },
-  {
-    title: 'Review and adjust',
-    description:
-      'The system is meant for recurring review, not one-time guesswork. Rhemic does not guarantee rankings, revenue, patients, or booked consults.',
+    no: '03',
+    tier: 'Tier 3 · Full done-for-you system',
+    title: 'Or we run the whole growth engine for you',
+    lede: 'A complete growth system, customized to your whole business.',
+    body: 'The full done-for-you system. Visibility, capture, and reporting tuned to your entire business and every location, with the data to see which markets, channels, and dollars actually bring customers. We build it, run it, and report on it. You run the business.',
+    points: ['Everything in Visibility and Capture', 'Built and run across all your locations', 'Source-aware reporting on what brings customers', 'A growth system customized end to end to your business'],
   },
 ];
 
 export default function HowItWorksPage() {
   return (
-    <main className="min-h-screen bg-transparent">
-      <PageSchemas
-        id="how-it-works-schemas"
-        service={{
-          name: 'Rhemic AI workflow',
-          description:
-            'A med spa workflow for finding lost consult opportunities and routing booking intent through approved handoff workflows.',
-          path: '/how-it-works',
-          audience: 'U.S. med spa owners and operators',
-        }}
-      />
-      <FixedNav />
+    <>
+      <PaperNav />
+      <main className="relative">
+        {/* Header */}
+        <section className="px-5 pb-10 pt-32 sm:px-8 sm:pt-36">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">How it works</span>
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">Any industry · U.S.</span>
+            </div>
+            <Reveal className="max-w-3xl">
+              <h1 className="font-display text-[clamp(2.4rem,6vw,4.4rem)] font-medium leading-[1.0] text-balance">
+                Get found.{' '}
+                <span className="italic text-spot-deep">Capture it.</span>{' '}
+                Grow the whole business.
+              </h1>
+              <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
+                Rhemic works in three layers. Start by getting found and recommended, add a capture system
+                built to your business, or have us run the entire growth engine for you. Each layer builds
+                on the one before it.
+              </p>
+            </Reveal>
+          </div>
+        </section>
 
-      <PageHero
-        subtitle="How It Works"
-        title="Find the leaks, then route the intent."
-        description="Rhemic helps med spas spot where consult opportunities leak across search visibility, AI answers, calls, handoffs, and source context."
-        showBackLink={false}
-      />
-
-      <div className="relative z-10 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <section className="mb-16 rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-4">
-              Definition
-            </p>
-            <p className="text-xl leading-relaxed text-[var(--text-primary)]">
-              Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.
-            </p>
-          </section>
-
-          <section className="mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">The workflow</h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              {steps.map((step, index) => (
-                <div
-                  key={step.title}
-                  className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6"
-                >
-                  <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]">
-                    Step {index + 1}
-                  </p>
-                  <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">{step.title}</h3>
-                  <p className="text-[var(--text-secondary)] leading-relaxed">{step.description}</p>
+        {/* Steps */}
+        <section className="px-5 pb-8 sm:px-8">
+          <div className="mx-auto max-w-6xl space-y-px overflow-hidden rounded-[3px] border border-[var(--line)] bg-[var(--line)]">
+            {steps.map((s) => (
+              <Reveal key={s.no} className="bg-[var(--paper)] p-8 sm:p-10">
+                <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
+                  <div>
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-spot-deep">{s.tier}</span>
+                    <span className="mt-2 block font-display text-[3.2rem] font-bold leading-none text-spot">{s.no}</span>
+                    <h2 className="mt-3 font-display text-[1.55rem] font-semibold leading-tight">{s.title}</h2>
+                    <p className="mt-2 font-body text-[1.02rem] leading-snug text-ink">{s.lede}</p>
+                  </div>
+                  <div>
+                    <p className="font-body text-[1.05rem] leading-relaxed text-ink-2">{s.body}</p>
+                    <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+                      {s.points.map((p) => (
+                        <li key={p} className="flex gap-2.5">
+                          <span className="mt-[8px] h-1.5 w-1.5 shrink-0 bg-spot" />
+                          <span className="font-body text-[0.96rem] leading-snug text-ink-2">{p}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </section>
+              </Reveal>
+            ))}
+          </div>
+        </section>
 
-          <section className="mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">What the outputs help clarify</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
-                <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Executive view</h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Where consult opportunities may be leaking across search visibility, AI answers, calls, and handoffs.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
-                <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Competitive view</h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Which competitors, treatments, sources, or handoffs deserve closer review before more budget is spent.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-6">
-                <h3 className="mb-3 text-xl font-bold text-[var(--text-primary)]">Implementation view</h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Practical priorities for pages, local trust, calls, and approved handoff workflows.
-                </p>
-              </div>
-            </div>
-          </section>
+        {/* The shift, condensed */}
+        <section className="ink-block mt-8 px-5 py-20 sm:px-8 sm:py-24">
+          <div className="mx-auto max-w-5xl">
+            <Reveal>
+              <p className="kicker mb-6" style={{ color: 'var(--spot)' }}>Why it matters</p>
+              <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] font-normal leading-[1.06] text-balance">
+                Search did not get smaller. It got{' '}
+                <span className="italic" style={{ color: 'var(--spot)' }}>answered.</span>{' '}
+                If you are not in the answer, you are not in the running.
+              </h2>
+            </Reveal>
+          </div>
+        </section>
 
-          <section className="mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-[var(--text-primary)]">How this differs from SEO-only work</h2>
-            <ComparisonTable
-              headers={['Dimension', 'Traditional SEO workflow', 'Rhemic AI workflow']}
-              rows={[
-                { label: 'Primary output', values: ['Ranking and traffic analysis', 'Consult opportunity leak map'] },
-                { label: 'Key question', values: ['Where do we rank?', 'Where is booking intent getting lost?'] },
-                { label: 'Scope', values: ['Search pages and rankings', 'Search, AI answers, calls, handoffs, and source context'] },
-                { label: 'Competitive question', values: ['Who outranks us?', 'Who is capturing patient demand we may be missing?'] },
-                { label: 'Implementation focus', values: ['Search performance improvements', 'Visibility, trust, routing, and source-context fixes'] },
-              ]}
-            />
-          </section>
-
-          <section className="rounded-3xl border border-[var(--border-default)] bg-[var(--bg-glass)] p-8 sm:p-12">
-            <h2 className="mb-4 text-3xl font-bold text-[var(--text-primary)]">Next step</h2>
-            <p className="mb-8 text-lg leading-relaxed text-[var(--text-secondary)]">
-              If your team suspects consult opportunities are leaking, the right first move is a clear audit. Start with visibility, calls, handoffs, and source context before spending more on demand.
+        {/* CTA */}
+        <section className="px-5 py-24 sm:px-8 sm:py-28">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="kicker mb-5">Start with a free scan</p>
+            <h2 className="font-display text-[clamp(2rem,5vw,3.4rem)] font-medium leading-[1.02] text-balance">
+              See where your business doesn’t show up yet.
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl font-body text-[1.08rem] leading-relaxed text-ink-2">
+              Run the free visibility scan, then get a free 20-minute audit with the exact fixes and the
+              competitors taking the customers you are missing.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
-              >
-                Get the audit
-              </Link>
-              <Link
-                href="/faq"
-                className="inline-flex items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
-              >
-                Read the FAQ
-              </Link>
+            <div className="mt-8 flex justify-center">
+              <AuditButton className="btn-primary">Run my free audit</AuditButton>
             </div>
-          </section>
-        </div>
-      </div>
-
-      <RelatedLinks
-        heading="Build the cluster"
-        links={[
-          {
-            title: 'FAQ',
-            description: 'Read direct answers about search leaks, call leaks, handoffs, and clinical boundaries.',
-            href: '/faq',
-          },
-          {
-            title: 'Products',
-            description: 'See how visibility, handoffs, and source context fit together.',
-            href: '/products',
-          },
-          {
-            title: 'Compare Rhemic',
-            description: 'Review fit when comparing Rhemic with SEO-only alternatives.',
-            href: '/compare',
-          },
-        ]}
-      />
-
-      <Footer />
-    </main>
+            <p className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ink-3">
+              <Link href="/services" className="link-rule">See all services</Link>
+              <Link href="/pricing" className="link-rule">See pricing</Link>
+              <Link href="/testimonials" className="link-rule">See results</Link>
+            </p>
+          </Reveal>
+        </section>
+      </main>
+      <PaperFooter />
+    </>
   );
 }

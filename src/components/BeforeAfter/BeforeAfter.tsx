@@ -104,7 +104,7 @@ export default function BeforeAfter() {
         </div>
 
         <p className="mt-6 text-center text-base text-[var(--text-secondary)] font-body leading-relaxed max-w-xl mx-auto">
-          Your competitor shows up every time someone asks AI who to hire. You&apos;re not on the list. Yet.
+          Your competitor shows up every time someone asks AI who to go with. You&apos;re not on the list. Yet.
         </p>
       </div>
     </section>

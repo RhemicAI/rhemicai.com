@@ -1,418 +1,180 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import FixedNav from "@/components/FixedNav/FixedNav";
-import Footer from "@/components/Footer/Footer";
-import SummaryModal from "@/components/SummaryModal/SummaryModal";
+import type { Metadata } from 'next';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
+import { buildMetadata } from '@/lib/seo';
 
-const privacySummary = `Rhemic AI LLC collects personal, business, and technical data to deliver med spa visibility, AI receptionist, missed-call recovery, reporting, and growth operating system services.
-
-Key Points:
-- We collect names, emails, company info, billing details, website analytics, and technical data like IP addresses and cookies.
-- We do NOT sell your personal information.
-- Client data is never used to train public AI models. Internal improvements use only anonymized, aggregated data.
-- Data is shared only with necessary service providers such as cloud hosting, payment processors, analytics, communications, and advertising platforms under appropriate safeguards.
-- International transfers are protected by Standard Contractual Clauses.
-- GDPR (EEA/UK) and CCPA/CPRA (California) rights are fully supported, including access, deletion, correction, and data portability.
-- We do not collect data from individuals under 18.
-- Data is retained only as long as needed for contractual and legal obligations.
-- In a data breach, we notify affected parties and regulators as required by law.
-
-Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
-
-export const metadata: Metadata = {
-  title: "Privacy Policy | Rhemic AI",
+export const metadata: Metadata = buildMetadata({
+  title: 'Privacy Policy',
   description:
-    "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect information for med spa visibility, AI receptionist, missed-call recovery, and reporting services.",
-  alternates: { canonical: "https://rhemicai.com/privacy-policy" },
-  openGraph: {
-    title: "Privacy Policy | Rhemic AI",
-    description:
-      "Privacy Policy for RHEMIC AI LLC. Learn how we collect, use, disclose, process, and protect information for med spa visibility, AI receptionist, missed-call recovery, and reporting services.",
-    url: "https://rhemicai.com/privacy-policy",
-  },
-};
+    'How Rhemic AI collects, uses, shares, and protects personal and business information across our website, visibility scan, and services.',
+  path: '/privacy-policy',
+});
+
+const UPDATED = 'June 8, 2026';
+
+const sections: { id: string; title: string }[] = [
+  { id: 'who-we-are', title: 'Who we are' },
+  { id: 'what-we-collect', title: 'What we collect' },
+  { id: 'how-we-use-it', title: 'How we use it' },
+  { id: 'cookies', title: 'Cookies and analytics' },
+  { id: 'sharing', title: 'How we share it' },
+  { id: 'retention', title: 'Data retention' },
+  { id: 'your-rights', title: 'Your rights' },
+  { id: 'security', title: 'Security' },
+  { id: 'children', title: "Children's privacy" },
+  { id: 'international', title: 'International transfers' },
+  { id: 'changes', title: 'Changes' },
+  { id: 'contact', title: 'Contact' },
+];
+
+function H({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <h2 id={id} className="mt-12 scroll-mt-28 font-display text-[1.6rem] font-semibold leading-tight text-ink">
+      {children}
+    </h2>
+  );
+}
+function P({ children }: { children: React.ReactNode }) {
+  return <p className="mt-4 font-body text-[1.05rem] leading-relaxed text-ink-2">{children}</p>;
+}
+function LI({ children }: { children: React.ReactNode }) {
+  return (
+    <li className="flex gap-3">
+      <span className="mt-[10px] h-1.5 w-1.5 shrink-0 bg-spot" />
+      <span className="font-body text-[1.02rem] leading-relaxed text-ink-2">{children}</span>
+    </li>
+  );
+}
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="relative z-10 min-h-screen bg-transparent">
-      <FixedNav />
-      <div className="mx-auto max-w-4xl px-6 pt-32 pb-24">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors mb-12"
-        >
-          &larr; Back to Home
-        </Link>
+    <>
+      <PaperNav />
+      <main className="relative px-5 pb-24 pt-32 sm:px-8 sm:pt-36">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-8 flex items-center justify-between border-y border-[var(--ink)] py-2">
+            <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">Privacy Policy</span>
+            <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">Updated {UPDATED}</span>
+          </div>
 
-        <header className="glass-panel mb-16 p-6 sm:p-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+          <h1 className="font-display text-[clamp(2.2rem,5vw,3.4rem)] font-medium leading-[1.05] text-balance">
             Privacy Policy
           </h1>
-          <p className="section-label">
-            RHEMIC AI LLC
-          </p>
-          <p className="text-sm text-[var(--text-muted)] mt-2">
-            Effective Date: February 13th, 2026
-          </p>
-          <div className="mt-6">
-            <SummaryModal summary={privacySummary} />
-          </div>
-        </header>
-
-        <div className="glass-panel space-y-12 p-6 text-[var(--text-secondary)] leading-relaxed sm:p-8">
-          <p>
-            RHEMIC AI LLC (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and handling personal data in a transparent and secure manner. This Privacy Policy explains how we collect, use, disclose, process, and protect information when you visit our website, use our services, or otherwise interact with us.
-          </p>
-          <p>
-            By accessing our website or engaging our services, you agree to the terms of this Privacy Policy.
+          <p className="mt-5 font-body text-[1.1rem] leading-relaxed text-ink-2">
+            This policy explains what information Rhemic AI collects, why, how we use and share it, and the
+            choices and rights you have. It covers our website, the free visibility scan, and the services
+            we provide.
           </p>
 
-          {/* Section 1 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              1. Scope of This Policy
-            </h2>
-            <p className="mb-4">This Policy applies to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Visitors to our website</li>
-              <li>Prospective clients</li>
-              <li>Clients and their representatives</li>
-              <li>Contractors and service providers</li>
-              <li>Individuals whose information we process in connection with providing services</li>
-            </ul>
-            <p className="mt-4">
-              This Policy does not apply to third-party platforms or services that we do not control.
-            </p>
-          </section>
+          {/* Contents */}
+          <nav className="mt-8 border-y border-[var(--line)] py-5">
+            <p className="kicker mb-3">Contents</p>
+            <ol className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+              {sections.map((s, i) => (
+                <li key={s.id}>
+                  <a href={`#${s.id}`} className="link-rule font-body text-[0.98rem] text-ink-2">
+                    {String(i + 1).padStart(2, '0')} · {s.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
 
-          {/* Section 2 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              2. Categories of Information We Collect
-            </h2>
+          <H id="who-we-are">1. Who we are</H>
+          <P>
+            Rhemic AI (operated by MyCrescentAI LLC, doing business as Rhemic AI) is the controller of the
+            personal information described in this policy. You can reach us at contact@rhemicai.com.
+          </P>
 
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-6">
-              A. Personal Information
-            </h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Full name</li>
-              <li>Email address</li>
-              <li>Phone number</li>
-              <li>Company name</li>
-              <li>Job title</li>
-              <li>Billing and payment information</li>
-              <li>Mailing address</li>
-              <li>Account login credentials (if applicable)</li>
-            </ul>
+          <H id="what-we-collect">2. What we collect</H>
+          <P>We only collect what we need to run the scan, respond to you, and deliver our services.</P>
+          <ul className="mt-4 space-y-2.5">
+            <LI><b>Information you give us.</b> Your name, email, phone number, and business website when you run the visibility scan, fill out a form, or book a call.</LI>
+            <LI><b>Scan inputs.</b> The website address you submit, and the publicly available content we crawl from that address to produce your readiness report.</LI>
+            <LI><b>Booking information.</b> Details you provide when scheduling a call through our scheduling provider.</LI>
+            <LI><b>Usage and device data.</b> Pages viewed, actions taken, approximate location, IP address, browser and device information, and similar analytics collected automatically through cookies and similar technologies.</LI>
+          </ul>
 
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-6">
-              B. Business and Marketing Data
-            </h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Website URLs</li>
-              <li>Advertising account data</li>
-              <li>Analytics and campaign performance metrics</li>
-              <li>Lead and conversion data</li>
-              <li>Publicly available brand information</li>
-              <li>CRM and pipeline data provided by clients</li>
-            </ul>
+          <H id="how-we-use-it">3. How we use it</H>
+          <ul className="mt-4 space-y-2.5">
+            <LI>Run your visibility scan and generate and deliver your report.</LI>
+            <LI>Respond to you, schedule and hold your audit call, and provide our services.</LI>
+            <LI>Operate, secure, and improve our website and product.</LI>
+            <LI>Send service messages, and marketing communications where you have opted in or as permitted by law. You can opt out at any time.</LI>
+            <LI>Meet legal, tax, and security obligations and enforce our terms.</LI>
+          </ul>
+          <P>
+            We do not sell your personal information, and we do not use client data to train public AI models.
+            Any internal product improvement uses only aggregated or de-identified data.
+          </P>
 
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-6">
-              C. Technical and Usage Data
-            </h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>IP address</li>
-              <li>Device type and operating system</li>
-              <li>Browser type</li>
-              <li>Referring URLs</li>
-              <li>Website interaction data</li>
-              <li>Cookies and tracking technologies</li>
-              <li>Log data and timestamps</li>
-            </ul>
+          <H id="cookies">4. Cookies and analytics</H>
+          <P>
+            We use cookies and similar technologies to run the site and understand how it is used, including
+            Google Analytics, HubSpot, and performance tooling. You can control cookies through your browser
+            settings. Blocking some cookies may affect how the site works.
+          </P>
 
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-6">
-              D. Sensitive Data
-            </h3>
-            <p>
-              We do not intentionally collect sensitive personal data (such as health, biometric, or government identification data) unless explicitly required for lawful business purposes and agreed upon in writing.
-            </p>
-          </section>
+          <H id="sharing">5. How we share it</H>
+          <P>We share information only as needed to run the business, never to sell it:</P>
+          <ul className="mt-4 space-y-2.5">
+            <LI><b>Service providers</b> who help us operate, such as hosting, our scan backend, analytics, scheduling, email delivery, and CRM, under contracts that limit their use of your data.</LI>
+            <LI><b>Legal and safety</b> reasons, where required by law or to protect rights, property, or safety.</LI>
+            <LI><b>Business transfers</b>, if we are involved in a merger, acquisition, or sale of assets, with notice as required.</LI>
+          </ul>
 
-          {/* Section 3 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              3. Legal Bases for Processing (GDPR)
-            </h2>
-            <p className="mb-4">
-              If you are located in the European Economic Area (EEA), United Kingdom, or similar jurisdictions, we process personal data under the following lawful bases:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Performance of a contract</li>
-              <li>Legitimate business interests</li>
-              <li>Compliance with legal obligations</li>
-              <li>Consent (where required)</li>
-            </ul>
-          </section>
+          <H id="retention">6. Data retention</H>
+          <P>
+            We keep personal information only as long as needed for the purposes above, to provide our
+            services, and to meet legal obligations, then delete or de-identify it.
+          </P>
 
-          {/* Section 4 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              4. How We Use Information
-            </h2>
-            <p className="mb-4">We use personal data to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Provide med spa visibility, AI search, and reporting services</li>
-              <li>Support AI receptionist coverage, missed-call recovery, and lead routing</li>
-              <li>Analyze Google Business Profile, local SEO, review, citation, schema, and treatment-page data</li>
-              <li>Communicate with clients and prospects</li>
-              <li>Process payments and invoices</li>
-              <li>Improve services and website functionality</li>
-              <li>Conduct analytics and performance reporting</li>
-              <li>Comply with legal and regulatory obligations</li>
-              <li>Prevent fraud and maintain security</li>
-            </ul>
-            <p className="mt-4 font-semibold text-[var(--text-primary)]">
-              We do not sell personal information.
-            </p>
-          </section>
+          <H id="your-rights">7. Your rights</H>
+          <P>
+            Depending on where you live, you may have the right to access, correct, delete, or port your
+            personal information, to opt out of marketing, and to object to or restrict certain processing.
+            This includes rights under the GDPR (EEA and UK) and the CCPA/CPRA (California). We do not sell or
+            share personal information for cross-context behavioral advertising as those terms are defined by
+            law. To exercise any right, email contact@rhemicai.com and we will respond as required.
+          </P>
 
-          {/* Section 5 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              5. AI and Data Processing Practices
-            </h2>
-            <p className="mb-4">In providing AI search, AI receptionist, and reporting services:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>We may analyze publicly available information for optimization purposes.</li>
-              <li>Client-provided data is processed strictly to deliver contracted services.</li>
-              <li>We do not use confidential client data to train public AI models.</li>
-              <li>Proprietary client data remains the property of the client.</li>
-              <li>Any internal model improvements rely on anonymized and aggregated data only.</li>
-              <li>Clinical decisions, diagnosis, treatment recommendations, and medical guidance remain with licensed staff.</li>
-            </ul>
-          </section>
+          <H id="security">8. Security</H>
+          <P>
+            We use reasonable technical and organizational measures to protect personal information. No method
+            of transmission or storage is perfectly secure, but we work to protect your data and will notify
+            affected parties and regulators of a breach as required by law.
+          </P>
 
-          {/* Section 6 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              6. Data Sharing and Disclosure
-            </h2>
-            <p className="mb-4">We may share data with:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Cloud hosting providers</li>
-              <li>Payment processors</li>
-              <li>Advertising platforms (e.g., Google, Meta)</li>
-              <li>Analytics and CRM providers</li>
-              <li>Professional advisors (legal, accounting)</li>
-              <li>Contractors bound by confidentiality obligations</li>
-            </ul>
-            <p className="mt-4">
-              We only share data as necessary and require service providers to implement appropriate safeguards.
-            </p>
-            <p className="mt-4">
-              We may disclose information if required by law, court order, or regulatory authority.
-            </p>
-          </section>
+          <H id="children">9. Children&apos;s privacy</H>
+          <P>
+            Our website and services are for businesses and are not directed to children. We do not knowingly
+            collect personal information from anyone under 16.
+          </P>
 
-          {/* Section 7 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              7. International Data Transfers
-            </h2>
-            <p className="mb-4">
-              If personal data is transferred outside of your jurisdiction, including outside the EEA or UK, we implement appropriate safeguards such as:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Standard Contractual Clauses (SCCs)</li>
-              <li>Contractual data protection agreements</li>
-              <li>Other lawful transfer mechanisms</li>
-            </ul>
-          </section>
+          <H id="international">10. International transfers</H>
+          <P>
+            We are based in the United States and may process information there and in other countries. Where
+            required, we use appropriate safeguards such as Standard Contractual Clauses for international
+            transfers.
+          </P>
 
-          {/* Section 8 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              8. Data Security
-            </h2>
-            <p className="mb-4">
-              We implement reasonable administrative, technical, and organizational safeguards including:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Encrypted data transmission (HTTPS)</li>
-              <li>Access controls and role-based permissions</li>
-              <li>Secure cloud storage providers</li>
-              <li>Confidentiality agreements</li>
-            </ul>
-            <p className="mt-4">No system can guarantee absolute security.</p>
-          </section>
+          <H id="changes">11. Changes</H>
+          <P>
+            We may update this policy from time to time. When we do, we will revise the date at the top and,
+            for material changes, provide additional notice where appropriate.
+          </P>
 
-          {/* Section 9 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              9. Data Retention
-            </h2>
-            <p className="mb-4">
-              We retain data only as long as necessary to:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Fulfill contractual obligations</li>
-              <li>Comply with legal requirements</li>
-              <li>Resolve disputes</li>
-              <li>Enforce agreements</li>
-            </ul>
-            <p className="mt-4">
-              Retention periods vary based on data type and legal requirements.
-            </p>
-          </section>
+          <H id="contact">12. Contact</H>
+          <P>
+            Questions or requests about this policy or your data: email contact@rhemicai.com.
+          </P>
 
-          {/* Section 10 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              10. Your Privacy Rights
-            </h2>
-
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-6">
-              A. GDPR Rights (EEA/UK Residents)
-            </h3>
-            <p className="mb-4">You may have the right to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Access your personal data</li>
-              <li>Correct inaccurate data</li>
-              <li>Request deletion</li>
-              <li>Restrict processing</li>
-              <li>Object to processing</li>
-              <li>Data portability</li>
-              <li>Withdraw consent</li>
-            </ul>
-            <p className="mt-4">
-              You may lodge a complaint with your local data protection authority.
-            </p>
-
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-6">
-              B. CCPA/CPRA Rights (California Residents)
-            </h3>
-            <p className="mb-4">You may have the right to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Know what personal information we collect</li>
-              <li>Request deletion of personal information</li>
-              <li>Request correction</li>
-              <li>Opt out of sale or sharing (we do not sell data)</li>
-              <li>Non-discrimination for exercising rights</li>
-            </ul>
-
-            <p className="mt-6">
-              To exercise rights, email:{" "}
-              <a
-                href="mailto:contact@rhemicai.com"
-                className="text-[var(--text-primary)] underline hover:text-[var(--pulse-deep)] transition-colors"
-              >
-                contact@rhemicai.com
-              </a>
-            </p>
-            <p className="mt-2">
-              We may verify your identity before processing requests.
-            </p>
-          </section>
-
-          {/* Section 11 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              11. Cookies and Tracking Technologies
-            </h2>
-            <p className="mb-4">
-              We use cookies and similar technologies for:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Website functionality</li>
-              <li>Analytics and performance tracking</li>
-              <li>Advertising measurement</li>
-            </ul>
-            <p className="mt-4">
-              Users may manage cookie preferences through browser settings or consent banners.
-            </p>
-          </section>
-
-          {/* Section 12 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              12. Do Not Track Signals
-            </h2>
-            <p>
-              Our website does not currently respond to &quot;Do Not Track&quot; browser signals.
-            </p>
-          </section>
-
-          {/* Section 13 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              13. Children&apos;s Privacy
-            </h2>
-            <p>
-              Our services are not directed to individuals under 18. We do not knowingly collect personal information from minors.
-            </p>
-          </section>
-
-          {/* Section 14 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              14. Data Processing Addendum (DPA)
-            </h2>
-            <p className="mb-4">
-              Where required, we enter into Data Processing Agreements with clients outlining:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Roles of controller and processor</li>
-              <li>Security measures</li>
-              <li>Subprocessor disclosures</li>
-              <li>Data breach notification procedures</li>
-              <li>Data subject rights assistance</li>
-            </ul>
-            <p className="mt-4">
-              Clients may request a formal DPA for enterprise engagements.
-            </p>
-          </section>
-
-          {/* Section 15 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              15. Data Breach Notification
-            </h2>
-            <p>
-              In the event of a data breach affecting personal information, we will notify affected parties and regulators as required by applicable law.
-            </p>
-          </section>
-
-          {/* Section 16 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              16. Changes to This Policy
-            </h2>
-            <p>
-              We may update this Privacy Policy from time to time. Updates will be posted with a revised Effective Date.
-            </p>
-          </section>
-
-          {/* Section 17 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              17. Contact Information
-            </h2>
-            <address className="not-italic space-y-1">
-              <p className="font-semibold text-[var(--text-primary)]">RHEMIC AI LLC</p>
-              <p>Dallas, Texas</p>
-              <p>
-                <a
-                  href="mailto:contact@rhemicai.com"
-                  className="text-[var(--text-primary)] underline hover:text-[var(--pulse-deep)] transition-colors"
-                >
-                  contact@rhemicai.com
-                </a>
-              </p>
-            </address>
-          </section>
+          <p className="mt-12 border-t border-[var(--line)] pt-6 font-body text-[0.9rem] italic leading-relaxed text-ink-3">
+            This page describes our current practices in plain language. It is not legal advice.
+          </p>
         </div>
-      </div>
-      <Footer />
-    </main>
+      </main>
+      <PaperFooter />
+    </>
   );
 }
