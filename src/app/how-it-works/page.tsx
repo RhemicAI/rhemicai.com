@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
@@ -124,6 +125,11 @@ export default function HowItWorksPage() {
             <div className="mt-8 flex justify-center">
               <AuditButton className="btn-primary">Run my free audit</AuditButton>
             </div>
+            <p className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ink-3">
+              <Link href="/services" className="link-rule">See all services</Link>
+              <Link href="/pricing" className="link-rule">See pricing</Link>
+              <Link href="/testimonials" className="link-rule">See results</Link>
+            </p>
           </Reveal>
         </section>
       </main>

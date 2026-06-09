@@ -6,6 +6,7 @@ const cols: { title: string; links: { href: string; label: string }[] }[] = [
     title: 'Product',
     links: [
       { href: '/how-it-works', label: 'How it works' },
+      { href: '/services', label: 'Services' },
       { href: '/testimonials', label: 'Results' },
       { href: '/pricing', label: 'Pricing' },
       { href: '#audit', label: 'Get audit' },
@@ -40,12 +41,8 @@ export default function PaperFooter() {
               <span className="font-display text-2xl font-bold text-[var(--paper)]">Rhemic</span>
               <span className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-[var(--spot)]">AI</span>
             </div>
-            <p className="mt-4 max-w-xs font-body text-[0.95rem] leading-relaxed text-[rgba(244,238,222,0.62)]">
-              Visibility for the AI era. We make sure your business is the answer customers
-              find, and turn that demand into customers.
-            </p>
-            <p className="mt-5 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-[rgba(244,238,222,0.4)]">
-              Dallas, Texas
+            <p className="mt-4 max-w-xs font-display text-[1.15rem] font-medium leading-snug text-[var(--paper)]">
+              From search to booked revenue. One operating system.
             </p>
           </div>
 

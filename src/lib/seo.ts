@@ -81,7 +81,7 @@ export function organizationSchema() {
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
-      name: "Dallas, Texas, United States",
+      name: "United States",
     },
     founders: [
       { "@type": "Person", name: "Ittehadul Karim", jobTitle: "CEO" },
@@ -89,8 +89,6 @@ export function organizationSchema() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dallas",
-      addressRegion: "TX",
       addressCountry: "US",
     },
     contactPoint: {

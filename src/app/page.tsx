@@ -43,21 +43,21 @@ const outcomes = [
 const steps = [
   {
     no: '01',
-    title: 'Diagnose',
+    title: 'Visibility',
     body:
-      'We map exactly where you’re invisible and where booking intent leaks. Across search, AI answers, your pages, calls, and handoffs.',
+      'Rank on Google and get recommended inside AI answers. SEO, GEO, and AEO, so you show up everywhere customers look.',
   },
   {
     no: '02',
-    title: 'Fix & position',
+    title: 'Capture',
     body:
-      'Profiles, pages, schema, and answer-engine positioning, done in priority order so the highest-impact gaps close first.',
+      'A response system built to your business, with its own lead tracker, so every call, form, and after-hours inquiry is caught and followed up.',
   },
   {
     no: '03',
-    title: 'Run it daily',
+    title: 'Full growth system',
     body:
-      'Not a one-time audit. The system keeps watching for new leaks and capturing demand every day, then tells you what’s working.',
+      'We run visibility, capture, and reporting for your whole business, across every location. You run the business.',
   },
 ];
 
@@ -234,11 +234,16 @@ export default function Home() {
         {/* ───────────────────── WHAT YOU GET ───────────────────── */}
         <section id="what" className="px-5 py-24 sm:px-8 sm:py-28">
           <div className="mx-auto max-w-6xl">
-            <Reveal className="mb-14 max-w-2xl">
-              <p className="kicker mb-5">What you get</p>
-              <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
-                Three things, done every day.
-              </h2>
+            <Reveal className="mb-14 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-2xl">
+                <p className="kicker mb-5">What you get</p>
+                <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
+                  Three things, done every day.
+                </h2>
+              </div>
+              <Link href="/services" className="link-rule font-mono text-[0.78rem] uppercase tracking-[0.14em] text-ink">
+                See all services →
+              </Link>
             </Reveal>
             <div className="grid gap-6 md:grid-cols-3">
               {outcomes.map((o, i) => (
@@ -259,12 +264,12 @@ export default function Home() {
               <div className="max-w-xl">
                 <p className="kicker mb-5">How it works</p>
                 <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
-                  Find the leaks. Fix them. Keep them closed.
+                  Three layers. Get found, capture it, grow.
                 </h2>
               </div>
-              <p className="max-w-xs font-body text-[1rem] leading-relaxed text-ink-2">
-                No dashboards to babysit. We run the work and report what changed.
-              </p>
+              <Link href="/how-it-works" className="link-rule font-mono text-[0.78rem] uppercase tracking-[0.14em] text-ink">
+                See the full breakdown →
+              </Link>
             </Reveal>
             <div className="grid gap-px overflow-hidden rounded-[3px] border border-[var(--line)] bg-[var(--line)] md:grid-cols-3">
               {steps.map((s, i) => (

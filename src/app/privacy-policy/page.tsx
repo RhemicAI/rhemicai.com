@@ -82,9 +82,8 @@ export default function PrivacyPolicyPage() {
 
           <H id="who-we-are">1. Who we are</H>
           <P>
-            Rhemic AI (operated by MyCrescentAI LLC, doing business as Rhemic AI), based in Dallas, Texas, is
-            the controller of the personal information described in this policy. You can reach us at
-            contact@rhemicai.com.
+            Rhemic AI (operated by MyCrescentAI LLC, doing business as Rhemic AI) is the controller of the
+            personal information described in this policy. You can reach us at contact@rhemicai.com.
           </P>
 
           <H id="what-we-collect">2. What we collect</H>
@@ -167,8 +166,7 @@ export default function PrivacyPolicyPage() {
 
           <H id="contact">12. Contact</H>
           <P>
-            Questions or requests about this policy or your data: email contact@rhemicai.com, or write to
-            Rhemic AI, Dallas, Texas.
+            Questions or requests about this policy or your data: email contact@rhemicai.com.
           </P>
 
           <p className="mt-12 border-t border-[var(--line)] pt-6 font-body text-[0.9rem] italic leading-relaxed text-ink-3">
