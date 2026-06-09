@@ -186,10 +186,10 @@ export default function ScanPopup() {
       new CustomEvent(CAL_BOOKING_EVENT_NAME, {
         detail: {
           calLink: 'rhemic-ai/rhemic-ai-audit-walkthrough',
-          durationLabel: 'Free 20-minute audit',
-          title: 'Your free AI visibility audit.',
+          durationLabel: 'Founding-member audit',
+          title: 'Book your audit, lock founding-member pricing.',
           subtitle: 'Pick a time. We map the fixes and show you who is winning your searches.',
-          prepNote: 'We have your scan. On the call you get a plan to fix every gap, plus what your competitors are doing to win the customers you are missing. No pitch.',
+          prepNote: 'We have your scan. On the call you get a plan to fix every gap, plus what your competitors are doing to win the customers you are missing. Book from your scan and your rate stays locked at our founding-member price.',
         },
       })
     );
@@ -256,7 +256,7 @@ export default function ScanPopup() {
                 </div>
                 <button onClick={startScan} className="btn-primary mt-5 w-full">Run my scan</button>
                 <p className="mt-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.1em] text-ink-faint">
-                  Free · about a minute · no card
+                  Free scan, about a minute
                 </p>
               </div>
             )}
@@ -337,15 +337,15 @@ export default function ScanPopup() {
                   ))}
                 </ul>
                 <div className="ink-block mt-6 p-5">
-                  <p className="kicker mb-2" style={{ color: 'var(--spot)' }}>Free 20-minute audit</p>
+                  <p className="kicker mb-2" style={{ color: 'var(--spot)' }}>Founding member offer</p>
                   <p className="font-display text-[1.3rem] font-semibold leading-snug text-[var(--paper)]">
-                    Get the exact fixes, and see who is winning the customers you are missing.
+                    Book from your scan and lock founding-member pricing.
                   </p>
                   <ul className="mt-3 space-y-1.5">
                     {[
-                      'A step-by-step plan to fix every gap above',
-                      'The competitors taking the searches you are invisible for',
-                      'What it would take to be the one AI recommends',
+                      'A plan to fix every gap above, on a free 20-minute call',
+                      'The competitors taking the searches you are missing',
+                      'Your rate locked at our founding-member price, only from here',
                     ].map((b) => (
                       <li key={b} className="flex gap-2.5 font-body text-[0.9rem] leading-snug text-[rgba(244,238,222,0.82)]">
                         <span className="mt-[7px] h-1.5 w-1.5 shrink-0 bg-[var(--spot)]" />
@@ -354,11 +354,8 @@ export default function ScanPopup() {
                     ))}
                   </ul>
                   <button onClick={bookCall} className="btn-primary mt-4 w-full !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]">
-                    Book my free audit
+                    Book and lock my rate
                   </button>
-                  <p className="mt-2 text-center font-mono text-[0.56rem] uppercase tracking-[0.1em] text-[rgba(244,238,222,0.5)]">
-                    Free · no pitch · no obligation
-                  </p>
                 </div>
               </div>
             )}
