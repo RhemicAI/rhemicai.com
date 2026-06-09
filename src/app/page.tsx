@@ -7,11 +7,11 @@ import Reveal from '@/components/redesign/Reveal';
 import AuditButton from '@/components/redesign/AuditButton';
 
 const engines = [
-  { src: '/images/engines/chatgpt.svg', label: 'ChatGPT' },
-  { src: '/images/engines/claude.svg', label: 'Claude' },
-  { src: '/images/engines/perplexity.svg', label: 'Perplexity' },
-  { src: '/images/engines/gemini.svg', label: 'Gemini' },
-  { src: '/images/engines/google.svg', label: 'Google AI' },
+  { src: '/images/engines/chatgpt-color.svg', label: 'ChatGPT' },
+  { src: '/images/engines/claude-color.svg', label: 'Claude' },
+  { src: '/images/engines/perplexity-color.svg', label: 'Perplexity' },
+  { src: '/images/engines/gemini-color.svg', label: 'Gemini' },
+  { src: '/images/engines/google-color.svg', label: 'Google AI' },
 ];
 
 const ribbon = [
@@ -170,21 +170,8 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 {engines.map((e) => (
                   <span key={e.label} className="flex items-center gap-2">
-                    <span
-                      aria-hidden
-                      className="inline-block h-[19px] w-[19px] shrink-0"
-                      style={{
-                        backgroundColor: 'var(--ink-2)',
-                        WebkitMaskImage: `url(${e.src})`,
-                        maskImage: `url(${e.src})`,
-                        WebkitMaskRepeat: 'no-repeat',
-                        maskRepeat: 'no-repeat',
-                        WebkitMaskSize: 'contain',
-                        maskSize: 'contain',
-                        WebkitMaskPosition: 'center',
-                        maskPosition: 'center',
-                      }}
-                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={e.src} alt="" aria-hidden className="h-[20px] w-[20px] shrink-0 object-contain" />
                     <span className="font-mono text-[0.8rem] tracking-tight text-ink-2">{e.label}</span>
                   </span>
                 ))}
