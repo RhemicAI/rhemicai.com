@@ -145,7 +145,7 @@ export default function TestimonialsPage() {
               </p>
             </Reveal>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {citations.map((c, i) => (
                 <Reveal key={c.name} delay={(i + 1) as 1 | 2 | 3} as="article" className="paper-card flex flex-col overflow-hidden p-0">
                   {/* Real ChatGPT screenshot from the visibility report */}
@@ -250,7 +250,7 @@ export default function TestimonialsPage() {
             className={`px-5 py-16 sm:px-8 sm:py-20 ${idx % 2 === 1 ? 'border-y border-[var(--line)] bg-[var(--paper-2)]' : ''}`}
           >
             <div className="mx-auto max-w-6xl">
-              <div className={`grid items-center gap-10 lg:grid-cols-2 ${idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+              <div className={`grid grid-cols-1 items-center gap-10 lg:grid-cols-2 ${idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 {/* Image */}
                 <Reveal className="relative">
                   <div className="paper-card overflow-hidden p-0">

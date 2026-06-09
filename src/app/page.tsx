@@ -107,7 +107,7 @@ export default function Home() {
         {/* ───────────────────────── HERO ───────────────────────── */}
         <section className="relative overflow-hidden px-5 pb-20 pt-28 sm:px-8 sm:pt-32">
           <div className="mx-auto max-w-6xl">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
                 <h1 className="rise rise-2 font-display text-[clamp(2.1rem,5vw,3.9rem)] font-medium leading-[1.0] text-balance">
                   Be the business{' '}
@@ -231,7 +231,7 @@ export default function Home() {
                 See all services →
               </Link>
             </Reveal>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {outcomes.map((o, i) => (
                 <Reveal key={o.no} delay={(i + 1) as 1 | 2 | 3} as="article" className="paper-card flex flex-col p-7">
                   <span className="font-mono text-[0.7rem] tracking-[0.2em] text-spot-deep">{o.no}</span>
@@ -257,7 +257,7 @@ export default function Home() {
                 See the full breakdown →
               </Link>
             </Reveal>
-            <div className="grid gap-px overflow-hidden rounded-[3px] border border-[var(--line)] bg-[var(--line)] md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[3px] border border-[var(--line)] bg-[var(--line)] md:grid-cols-3">
               {steps.map((s, i) => (
                 <Reveal key={s.no} delay={(i + 1) as 1 | 2 | 3} className="bg-[var(--paper)] p-8">
                   <div className="flex items-baseline justify-between">
@@ -289,7 +289,7 @@ export default function Home() {
               </Link>
             </Reveal>
 
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {cases.map((c, i) => (
                 <Reveal key={c.slug} delay={(i + 1) as 1 | 2} as="article" className="paper-card group flex flex-col overflow-hidden p-0">
                   <div className="relative overflow-hidden">

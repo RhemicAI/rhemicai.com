@@ -73,7 +73,7 @@ export default function HowItWorksPage() {
           <div className="mx-auto max-w-6xl space-y-px overflow-hidden rounded-[3px] border border-[var(--line)] bg-[var(--line)]">
             {steps.map((s) => (
               <Reveal key={s.no} className="bg-[var(--paper)] p-8 sm:p-10">
-                <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-[0.9fr_1.1fr]">
                   <div>
                     <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-spot-deep">{s.tier}</span>
                     <span className="mt-2 block font-display text-[3.2rem] font-bold leading-none text-spot">{s.no}</span>
