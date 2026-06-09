@@ -107,19 +107,6 @@ export default function Home() {
         {/* ───────────────────────── HERO ───────────────────────── */}
         <section className="relative overflow-hidden px-5 pb-20 pt-28 sm:px-8 sm:pt-32">
           <div className="mx-auto max-w-6xl">
-            {/* Broadsheet nameplate row */}
-            <div className="rise rise-1 mb-10 flex items-center justify-between border-y border-[var(--ink)] py-2">
-              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
-                Visibility + capture
-              </span>
-              <span className="hidden font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3 sm:block">
-                Local service businesses
-              </span>
-              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">
-                Est. Dallas
-              </span>
-            </div>
-
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
                 <p className="rise rise-1 kicker mb-6">Visibility + capture for local service businesses</p>
