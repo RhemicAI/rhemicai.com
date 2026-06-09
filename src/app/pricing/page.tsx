@@ -37,7 +37,7 @@ const tiers: Tier[] = [
     blurb:
       'The entry point. We make your business show up, and get recommended by name, across search and AI answer engines.',
     features: [
-      'Show up when people ask AI who to hire in your area',
+      'Show up when people ask AI who to go with in your area',
       'Get recommended by name instead of your competitors',
       'Win the high-intent searches your customers actually use',
       'See exactly where you moved each month, in plain English',
@@ -52,12 +52,12 @@ const tiers: Tier[] = [
     featured: true,
     best: 'Catch and route every inquiry.',
     blurb:
-      'Everything in Visibility, plus the always-on capture layer that turns the demand into booked work. Calls, missed calls, after-hours, and forms.',
+      'Everything in Visibility, plus the always-on capture layer that turns that demand into booked customers. Calls, missed calls, after-hours, and forms.',
     features: [
       'Everything in Visibility',
-      'Stop losing jobs to missed calls and after-hours inquiries',
+      'Stop losing customers to missed calls and after-hours inquiries',
       'Every lead reaches your team fast, with where it came from',
-      'Turn the people comparing you to competitors into booked work',
+      'Turn the people comparing you to competitors into booked customers',
     ],
   },
   {

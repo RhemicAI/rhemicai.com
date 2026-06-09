@@ -85,7 +85,7 @@ const homepageSchema = {
   '@type': 'Service',
   name: 'Rhemic AI Visibility System',
   description:
-    'Rhemic makes any business the answer customers find in search and AI engines, then captures that demand into booked work.',
+    'Rhemic makes any business the answer customers find in search and AI engines, then captures that demand into customers.',
   provider: { '@type': 'Organization', name: 'Rhemic AI', url: absoluteUrl('/') },
   areaServed: { '@type': 'Country', name: 'United States' },
   serviceType: [
@@ -116,9 +116,9 @@ export default function Home() {
                   and the one that answers first.
                 </h1>
                 <p className="rise rise-3 mt-6 max-w-lg font-body text-[1.02rem] leading-relaxed text-ink-2 text-pretty">
-                  Customers now ask Google, ChatGPT, and Perplexity who to hire. Then they call
-                  whoever looks fastest and most trusted. Rhemic helps local businesses show up in
-                  those answers, recover missed leads, and turn more demand into booked jobs.
+                  Customers now ask Google, ChatGPT, and Perplexity who to go with, then pick whoever
+                  looks most trusted and answers first. Rhemic gets your business into those answers,
+                  recovers the leads you are missing, and turns more of that demand into customers.
                 </p>
                 <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-4">
                   <AuditButton className="btn-primary">Run my revenue leak audit</AuditButton>
