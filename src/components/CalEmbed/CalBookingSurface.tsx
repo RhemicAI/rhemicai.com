@@ -22,7 +22,7 @@ const CHECKLIST = [
   'Where you show up in AI answers',
   'Google Business and local search presence',
   'Missed-call and after-hours capture',
-  'Where your booked work comes from',
+  'Where your customers come from',
 ];
 
 function isBookingEvent(event: Event): event is BookingEvent {

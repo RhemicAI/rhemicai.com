@@ -47,7 +47,7 @@ const interTight = Inter_Tight({
 
 const TITLE = "Rhemic AI. Get found, recommended, and booked in the AI era";
 const DESCRIPTION =
-  "Customers don't scroll ten links anymore. They ask once and act on one answer. Rhemic makes sure your business is the answer: found in search and AI engines, recommended by name, with every inquiry caught and turned into booked work. Any industry.";
+  "Customers don't scroll ten links anymore. They ask once and act on one answer. Rhemic makes sure your business is the answer: found in search and AI engines, recommended by name, with every inquiry caught and turned into customers. Any industry.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     "ChatGPT visibility",
     "Perplexity visibility",
     "business visibility AI era",
-    "turn demand into booked work",
+    "turn demand into customers",
     "Rhemic AI",
   ],
   authors: [{ name: siteConfig.name }],
