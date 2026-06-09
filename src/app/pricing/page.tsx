@@ -132,7 +132,7 @@ export default function PricingPage() {
                 </div>
 
                 <h2
-                  className={`mt-4 font-display text-[2rem] font-semibold ${
+                  className={`mt-4 font-display text-[2rem] font-semibold leading-[1.05] lg:flex lg:min-h-[4.4rem] lg:items-start ${
                     t.featured ? '!text-[var(--paper)]' : ''
                   }`}
                 >
@@ -176,7 +176,7 @@ export default function PricingPage() {
                 )}
 
                 <p
-                  className={`mt-4 font-body text-[1rem] leading-relaxed ${
+                  className={`mt-4 font-body text-[1rem] leading-relaxed lg:min-h-[7.5rem] ${
                     t.featured ? 'text-[rgba(244,238,222,0.74)]' : 'text-ink-2'
                   }`}
                 >
