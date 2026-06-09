@@ -118,13 +118,12 @@ export default function TestimonialsPage() {
             </div>
             <Reveal className="max-w-3xl">
               <h1 className="font-display text-[clamp(2.4rem,6vw,4.4rem)] font-medium leading-[1.0] text-balance">
-                Real businesses.{' '}
-                <span className="italic text-spot-deep">Real sites.</span>{' '}
-                Booking and capture wired in.
+                Don’t take our word for it.{' '}
+                <span className="italic text-spot-deep">Take the AI’s.</span>
               </h1>
               <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
-                We do not show stock-photo testimonials. We show the work. Here are sites we built and
-                the systems behind them that turn attention into booked, captured demand.
+                No stock-photo testimonials. This is the real work: businesses we got cited inside AI
+                answers, the sites we built, and results you can paste into ChatGPT and check yourself.
               </p>
             </Reveal>
           </div>
