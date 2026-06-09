@@ -7,11 +7,11 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About Rhemic AI: Med Spa Consult Opportunity System',
+  title: 'About Rhemic AI: Get Found by AI and Google',
   description:
-    'Meet the Dallas team building Rhemic AI for U.S. med spas finding lost consult opportunities across search visibility, calls, handoffs, and source context.',
+    'Rhemic AI is the visibility and capture operating system that gets local businesses found on Google and recommended by AI, then turns that demand into customers. Meet the team and the mission.',
   path: '/about',
-  keywords: ['about Rhemic AI', 'med spa consult opportunity system', 'med spa AI receptionist', 'Dallas med spa software'],
+  keywords: ['about Rhemic AI', 'AI visibility company', 'SEO GEO AEO agency', 'get recommended by AI'],
 });
 
 const founders = [

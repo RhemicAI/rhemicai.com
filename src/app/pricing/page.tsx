@@ -6,11 +6,11 @@ import AuditButton from '@/components/redesign/AuditButton';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Pricing',
+  title: 'Pricing: Get Found by AI from $200/mo',
   description:
-    'Rhemic pricing. Start at Visibility to get found and recommended across search and AI answers, then scale into full demand capture and source-aware reporting. Any industry.',
+    'Rhemic plans from $200/mo. SEO, GEO, and AEO to get found and recommended, plus demand capture and a done-for-you growth system. No website? We build one. Any local business.',
   path: '/pricing',
-  keywords: ['Rhemic AI pricing', 'AI visibility pricing', 'answer engine optimization pricing'],
+  keywords: ['AI visibility pricing', 'SEO GEO AEO pricing', 'AI visibility audit cost', 'local business SEO pricing'],
 });
 
 type Tier = {
