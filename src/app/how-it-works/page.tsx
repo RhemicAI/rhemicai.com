@@ -17,10 +17,10 @@ const steps = [
   {
     no: '01',
     tier: 'Tier 1 · Visibility',
-    title: 'We make you the business AI recommends',
-    lede: 'Get found and recommended where customers actually look.',
-    body: 'We crawl your site the way an AI engine does, fix what is holding you back, and position you so that when customers ask Google, ChatGPT, or Perplexity who to go with, your name comes up. This is where everyone starts.',
-    points: ['AI answer-engine and search visibility', 'Google Business and local presence', 'Structured data and pages built for real queries', 'Monthly report in plain English'],
+    title: 'We get you found everywhere customers look',
+    lede: 'The full stack: SEO, GEO, and AEO. Not just AI.',
+    body: 'Visibility is not only about AI. We do the classic SEO that ranks you on Google and wins the local map, plus GEO and AEO so you also show up and get recommended inside AI answers like ChatGPT, Perplexity, and Google AI Overviews. Wherever your customers look, you are there.',
+    points: ['SEO: rank on Google and win the local map', 'AEO: get cited and recommended in AI answers', 'GEO: show up in Google AI Overviews and generative results', 'Structured data and pages built for real customer searches'],
   },
   {
     no: '02',

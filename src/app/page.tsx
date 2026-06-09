@@ -24,7 +24,7 @@ const outcomes = [
     no: '01',
     title: 'Get found',
     body:
-      'When someone searches for what you do, on Google or inside an AI answer, your business shows up where the decision actually gets made.',
+      'On Google search, the local map, and inside AI answers, your business shows up where the decision gets made. Classic SEO plus GEO and AEO, handled together.',
   },
   {
     no: '02',
@@ -166,7 +166,7 @@ export default function Home() {
 
             {/* engines */}
             <div className="rise rise-4 mt-16 flex flex-col gap-3 border-t border-[var(--line)] pt-6 sm:flex-row sm:items-center sm:justify-between">
-              <span className="kicker kicker-ink">Optimized for the engines people ask</span>
+              <span className="kicker kicker-ink">SEO · GEO · AEO across Google and the AI engines</span>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 {engines.map((e) => (
                   <span key={e.label} className="flex items-center gap-2">

@@ -35,10 +35,10 @@ const tiers: Tier[] = [
     unit: '/mo',
     best: 'Get found and recommended.',
     blurb:
-      'The entry point. We make your business show up, and get recommended by name, across search and AI answer engines.',
+      'The entry point. We rank you on Google and get you recommended inside AI answers. Classic SEO, plus GEO and AEO.',
     features: [
-      'Show up when people ask AI who to go with in your area',
-      'Get recommended by name instead of your competitors',
+      'Rank on Google and win the local map (SEO)',
+      'Get cited and recommended inside AI answers (GEO + AEO)',
       'Win the high-intent searches your customers actually use',
       'See exactly where you moved each month, in plain English',
     ],
