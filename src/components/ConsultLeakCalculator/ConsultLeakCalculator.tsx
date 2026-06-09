@@ -155,6 +155,36 @@ const STEPS: Step[] = [
 const fmt = (n: number): string =>
   "$" + Math.round(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
 
+export function getLeakTeaser(monthlyLeak: number) {
+  if (monthlyLeak < 10000) {
+    return {
+      range: "Under $10k /mo",
+      severity: "Moderate consult leak risk",
+      reveal: "your exact monthly estimate, annual total, and biggest leak point",
+      note:
+        "There is probably money slipping through your booking path. The next step shows the actual estimate and where it is most likely happening.",
+    };
+  }
+
+  if (monthlyLeak < 20000) {
+    return {
+      range: "$10k-$20k /mo range",
+      severity: "High consult leak risk",
+      reveal: "your exact monthly estimate, annual total, and biggest leak point",
+      note:
+        "There is a real number worth seeing here. The next step shows the estimate, the yearly impact, and the part of your booking flow to look at first.",
+    };
+  }
+
+  return {
+    range: "$20k+ /mo range",
+    severity: "Severe consult leak risk",
+    reveal: "your exact monthly estimate, annual total, and biggest leak point",
+    note:
+      "This looks big enough to check now. The next step shows the estimate, the yearly impact, and the first place consults are likely slipping away.",
+  };
+}
+
 // ── shared shell ──
 function Shell({ children }: { children: ReactNode }) {
   return (
@@ -329,6 +359,8 @@ export default function ConsultLeakCalculator() {
 
     return { primary, band, hard: leak >= 20000 };
   }, [answers, calc.monthlyLeak]);
+
+  const leakTeaser = useMemo(() => getLeakTeaser(calc.monthlyLeak), [calc.monthlyLeak]);
 
   function openBooking() {
     const detail: CalBookingDetail = {
@@ -616,28 +648,26 @@ export default function ConsultLeakCalculator() {
     return (
       <Shell>
         <p style={{ fontSize: 14, color: TEAL, letterSpacing: "0.1em", marginBottom: 14 }}>
-          YOUR ESTIMATED CONSULT LEAK
+          YOUR CONSULT LEAK SIGNAL
         </p>
         <div
           style={{
             fontFamily: "'Fraunces', serif",
             fontWeight: 500,
-            fontSize: 72,
-            lineHeight: 1,
-            letterSpacing: "-0.02em",
-            margin: "0 0 6px",
+            fontSize: 56,
+            lineHeight: 1.04,
+            letterSpacing: 0,
+            margin: "0 0 10px",
           }}
         >
-          {fmt(calc.monthlyLeak)}
-          <span style={{ fontSize: 26, color: "#7d918c" }}> /mo</span>
+          {leakTeaser.severity}
         </div>
         <p style={{ fontSize: 16, color: "#9fb3ad", margin: "8px 0 30px", lineHeight: 1.6 }}>
-          That’s roughly{" "}
+          Your answers put the leak in the{" "}
           <span style={{ color: "#e8efed", fontWeight: 600 }}>
-            {fmt(calc.annualLeak)} a year
+            {leakTeaser.range}
           </span>{" "}
-          in new-patient revenue that may be slipping away before it’s ever booked —
-          and this is the conservative, first-visit-only number.
+          based on your answers. Get {leakTeaser.reveal} on the next screen.
         </p>
         <div
           style={{
@@ -652,12 +682,11 @@ export default function ConsultLeakCalculator() {
             You don’t have a lead problem. You have a capture problem.
           </p>
           <p style={{ fontSize: 15, color: "#9fb3ad", margin: 0, lineHeight: 1.6 }}>
-            The patients are already calling. The question is how many reach a booked
-            consult — and how many call the next clinic instead.
+            {leakTeaser.note}
           </p>
         </div>
         <button style={accentBtn} onClick={() => setPhase("gate")}>
-          See your full breakdown + how to plug it →
+          Show me the full breakdown →
         </button>
       </Shell>
     );
