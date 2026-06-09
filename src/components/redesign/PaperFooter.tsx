@@ -42,7 +42,7 @@ export default function PaperFooter() {
             </div>
             <p className="mt-4 max-w-xs font-body text-[0.95rem] leading-relaxed text-[rgba(244,238,222,0.62)]">
               Visibility for the AI era. We make sure your business is the answer customers
-              find, and turn that demand into booked work.
+              find, and turn that demand into customers.
             </p>
             <p className="mt-5 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-[rgba(244,238,222,0.4)]">
               Dallas, Texas
