@@ -77,7 +77,7 @@ export default function ServicesPage() {
         </section>
 
         <section className="px-5 pb-24 sm:px-8 sm:pb-28">
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={((i % 3) + 1) as 1 | 2 | 3} as="article" className="paper-card flex flex-col p-7">
                 <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-spot-deep">{s.tag}</span>

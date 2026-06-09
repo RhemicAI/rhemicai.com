@@ -106,7 +106,7 @@ export default function PricingPage() {
 
         {/* Tiers */}
         <section className="px-5 pb-24 sm:px-8 sm:pb-28">
-          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-3">
             {tiers.map((t, i) => (
               <Reveal
                 key={t.name}
@@ -139,10 +139,10 @@ export default function PricingPage() {
                   {t.name}
                 </h2>
 
-                <div className="mt-3 flex items-baseline gap-2">
+                <div className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1">
                   {t.was && (
                     <span
-                      className={`font-display text-[1.6rem] font-semibold leading-none line-through decoration-[1.5px] ${
+                      className={`font-display text-[1.3rem] font-semibold leading-none line-through decoration-[1.5px] sm:text-[1.6rem] ${
                         t.featured ? 'text-[rgba(244,238,222,0.45)] decoration-[var(--spot)]' : 'text-ink-faint decoration-[var(--spot)]'
                       }`}
                     >
@@ -150,7 +150,7 @@ export default function PricingPage() {
                     </span>
                   )}
                   <span
-                    className={`font-display text-[3.4rem] font-bold leading-none ${
+                    className={`font-display text-[2.7rem] font-bold leading-none sm:text-[3.4rem] ${
                       t.featured ? 'text-[var(--paper)]' : 'text-ink'
                     }`}
                   >
