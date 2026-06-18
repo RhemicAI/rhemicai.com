@@ -2,12 +2,16 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Blog: AI Engine Optimization Guides, Research, and Playbooks',
+  title: 'Blog: AI Visibility and Local Business Growth',
   description:
-    'Operator-grade guides on AI Engine Optimization, answer engine visibility audits, schema strategy, local AI discovery, and competitive monitoring.',
+    'Operator-grade field notes on getting local service businesses found, recommended, and booked across search and AI answer engines.',
   path: '/blog',
-  keywords: ['AI Engine Optimization blog', 'AEO guides', 'AI visibility research'],
-  noindex: true,
+  keywords: [
+    'AI visibility for local businesses',
+    'home services AI recommendations',
+    'get recommended by AI',
+    'local business SEO AEO',
+  ],
 });
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
