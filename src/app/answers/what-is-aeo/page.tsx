@@ -42,13 +42,13 @@ export default function WhatIsAeoPage() {
       }
       relatedQuestions={[
         { question: 'What is AI visibility?', href: '/answers/what-is-ai-visibility' },
-        { question: 'How is AEO different from SEO?', href: '/blog/seo-vs-aeo' },
+        { question: 'How is AEO different from SEO?', href: '/answers/what-is-rhemic-ai' },
         { question: 'How do I improve my ChatGPT visibility?', href: '/answers/how-to-improve-chatgpt-visibility' },
       ]}
       relatedPages={[
         { title: 'Answer Engine Optimization', href: '/answer-engine-optimization' },
         { title: 'AI Search Visibility', href: '/ai-search-visibility' },
-        { title: 'AEO Guide (Blog)', href: '/blog/what-is-aeo' },
+        { title: 'Blog', href: '/blog' },
         { title: 'Pricing', href: '/pricing' },
       ]}
       faqs={[

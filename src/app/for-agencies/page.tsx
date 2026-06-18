@@ -104,9 +104,9 @@ export default function ForAgenciesPage() {
       <RelatedLinks
         links={[
           {
-            title: 'How Agencies Can Get Recommended by AI Tools',
-            description: 'Read the supporting blog post for agency-specific AEO positioning.',
-            href: '/blog/how-marketing-agencies-can-get-recommended-by-ai-tools',
+            title: 'Blog',
+            description: 'Field notes on AI visibility and local business growth.',
+            href: '/blog',
           },
           {
             title: 'Compare Rhemic',

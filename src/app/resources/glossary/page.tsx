@@ -81,9 +81,9 @@ export default function GlossaryPage() {
             href: '/faq',
           },
           {
-            title: 'What Is AEO?',
-            description: 'Read the long-form guide behind the glossary definitions.',
-            href: '/blog/what-is-aeo',
+            title: 'Blog',
+            description: 'Field notes on AI visibility and local business growth.',
+            href: '/blog',
           },
           {
             title: 'How It Works',

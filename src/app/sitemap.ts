@@ -1,18 +1,16 @@
 import type { MetadataRoute } from "next";
 import {
-  blogPosts,
+  getAllPosts,
   indexableRoutes,
   staticPagePriorities,
   routeUrl,
 } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const blogDates = Object.fromEntries(
-    blogPosts.map((post) => [`/blog/${post.slug}`, post.publishedAt])
-  ) as Record<string, string>;
+  const posts = getAllPosts();
 
   const pageDates: Record<string, string> = {
-    "/": "2026-06-08",
+    "/": "2026-06-17",
     "/about": "2026-05-26",
     "/services": "2026-06-08",
     "/pricing": "2026-06-08",
@@ -22,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products/website-auditing": "2026-04-01",
     "/products/code-generation": "2026-04-01",
     "/products/competitor-analysis": "2026-03-15",
-    "/blog": "2026-03-31",
     "/faq": "2026-05-26",
     "/how-it-works": "2026-05-26",
     "/compare": "2026-03-15",
@@ -39,17 +36,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/careers": "2026-02-01",
     "/privacy-policy": "2026-01-15",
     "/terms-of-service": "2026-01-15",
-    ...blogDates,
   };
 
-  return indexableRoutes.map((path) => ({
-    url: routeUrl(path),
-    lastModified: pageDates[path] ?? "2026-04-01",
-    changeFrequency:
-      path === "/" || path === "/blog" || path.startsWith("/blog/")
-        ? "weekly"
-        : "monthly",
-    priority:
-      staticPagePriorities[path] ?? (path.startsWith("/blog/") ? 0.76 : 0.72),
+  // Blog index page — date of the newest post, or today if no posts.
+  const newestPostDate = posts[0]?.publishedAt ?? "2026-06-17";
+
+  const staticEntries: MetadataRoute.Sitemap = [
+    // Blog index
+    {
+      url: routeUrl("/blog"),
+      lastModified: newestPostDate,
+      changeFrequency: "weekly",
+      priority: 0.84,
+    },
+    // All other static pages
+    ...indexableRoutes.map((path) => ({
+      url: routeUrl(path),
+      lastModified: pageDates[path] ?? "2026-04-01",
+      changeFrequency: (path === "/" ? "weekly" : "monthly") as
+        | "weekly"
+        | "monthly",
+      priority: staticPagePriorities[path] ?? 0.72,
+    })),
+  ];
+
+  // Individual blog post entries derived from MDX frontmatter.
+  const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: routeUrl(`/blog/${post.slug}`),
+    lastModified: post.updatedAt ?? post.publishedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.76,
   }));
+
+  return [...staticEntries, ...blogEntries];
 }
