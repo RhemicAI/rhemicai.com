@@ -12,6 +12,8 @@ import { absoluteUrl, buildMetadata } from '@/lib/seo';
 // Static params — derived from MDX files in src/content/blog/
 // ---------------------------------------------------------------------------
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
@@ -57,6 +59,7 @@ export default async function BlogPostPage({
     'en-US',
     { month: 'long', day: 'numeric', year: 'numeric' }
   );
+  const wordCount = post.content.split(/\s+/).filter(Boolean).length;
 
   return (
     <main style={{ backgroundColor: 'var(--paper)', color: 'var(--ink)', minHeight: '100vh' }}>
@@ -66,6 +69,7 @@ export default async function BlogPostPage({
         url={postUrl}
         datePublished={post.publishedAt}
         dateModified={post.updatedAt ?? post.publishedAt}
+        wordCount={wordCount}
       />
 
       <PaperNav />
