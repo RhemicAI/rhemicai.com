@@ -7,6 +7,7 @@ import AuditButton from './AuditButton';
 const links = [
   { href: '/how-it-works', label: 'How it works' },
   { href: '/services', label: 'Services' },
+  { href: '/blog', label: 'Blog' },
   { href: '/testimonials', label: 'Results' },
   { href: '/pricing', label: 'Pricing' },
 ];

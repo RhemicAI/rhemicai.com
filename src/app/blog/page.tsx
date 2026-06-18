@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
+import AuditButton from '@/components/redesign/AuditButton';
 import { getAllPosts } from '@/lib/content';
 
 export const dynamic = 'force-static';
@@ -201,8 +202,7 @@ export default function BlogPage() {
           >
             Find out where AI ranks your business today.
           </p>
-          <Link
-            href="/contact"
+          <AuditButton
             style={{
               display: 'inline-block',
               backgroundColor: 'var(--spot)',
@@ -215,11 +215,10 @@ export default function BlogPage() {
               padding: '0.9rem 2rem',
               border: 'none',
               cursor: 'pointer',
-              textDecoration: 'none',
             }}
           >
             Get a free audit
-          </Link>
+          </AuditButton>
         </div>
       </section>
 
