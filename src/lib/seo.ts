@@ -21,6 +21,11 @@ type MetadataInput = {
   keywords?: string[];
   type?: "website" | "article";
   noindex?: boolean;
+  /** Frontmatter canonical override (syndicated/cross-posted content).
+   *  Default: self-referential apex https://rhemicai.com<path> */
+  canonicalOverride?: string;
+  /** OG/Twitter card image — absolute URL. Default: site logo. */
+  ogImage?: string;
 };
 
 export function absoluteUrl(path = "/") {
@@ -34,15 +39,20 @@ export function buildMetadata({
   keywords,
   type = "website",
   noindex = false,
+  canonicalOverride,
+  ogImage,
 }: MetadataInput): Metadata {
   const url = absoluteUrl(path);
+  // Apex canonical: use override only for syndicated posts; default is self-referential.
+  const canonical = canonicalOverride ?? url;
+  const imageUrl = ogImage ?? absoluteUrl("/rhemic-logo.svg");
 
   return {
     title,
     description,
     keywords,
     alternates: {
-      canonical: url,
+      canonical,
     },
     openGraph: {
       title,
@@ -51,12 +61,14 @@ export function buildMetadata({
       siteName: siteConfig.name,
       type,
       locale: "en_US",
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
       creator: siteConfig.social.twitter,
+      images: [imageUrl],
     },
     ...(noindex
       ? {
