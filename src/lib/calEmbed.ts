@@ -29,6 +29,17 @@ export function getCalEmbedUrl(calLink: CalLink, prefill?: Record<string, string
   return url.toString();
 }
 
+// Shared audit-booking payload. Single source of truth so the header "Get audit"
+// button, the blog CTAs, and inline blog links all open the exact same Cal flow.
+export const AUDIT_BOOKING_DETAIL = {
+  calLink: 'rhemic-ai/rhemic-ai-audit-walkthrough' as const,
+  durationLabel: '20 minute audit',
+  title: 'Run your revenue leak audit.',
+  subtitle: 'Pick a time. We will show you exactly where leads leak.',
+  prepNote:
+    'We scan your AI visibility, Google presence, and call capture before the call, so it is specific to your business.',
+};
+
 // Detail payload for the CAL_BOOKING_EVENT_NAME custom event. Lets callers open the
 // in-page booking surface with a specific event, prefilled fields, and matching copy.
 export type CalBookingDetail = {

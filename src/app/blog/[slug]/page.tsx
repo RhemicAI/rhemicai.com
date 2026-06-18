@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
+import AuditButton from '@/components/redesign/AuditButton';
+import MdxLink from '@/components/blog/MdxLink';
 import ArticleSchema from '@/components/SchemaOrg/ArticleSchema';
 import FAQPageSchema from '@/components/SchemaOrg/FAQPageSchema';
 import RelatedPosts from '@/components/blog/RelatedPosts';
@@ -224,7 +226,7 @@ export default async function BlogPostPage({
             style={{ gridColumn: 2, padding: '3.5rem 0 2rem' }}
             className="mdx-prose"
           >
-            <MDXRemote source={post.content} />
+            <MDXRemote source={post.content} components={{ a: MdxLink }} />
 
             {/* Internal-linking mesh: Related + pillar hub links */}
             <RelatedPosts
@@ -263,8 +265,7 @@ export default async function BlogPostPage({
           >
             &larr; All posts
           </Link>
-          <Link
-            href="/contact"
+          <AuditButton
             style={{
               display: 'inline-block',
               backgroundColor: 'var(--ink)',
@@ -275,11 +276,12 @@ export default async function BlogPostPage({
               letterSpacing: '0.16em',
               fontWeight: 700,
               padding: '0.85rem 1.75rem',
-              textDecoration: 'none',
+              border: 'none',
+              cursor: 'pointer',
             }}
           >
             Get a free visibility audit
-          </Link>
+          </AuditButton>
         </div>
       </section>
 
