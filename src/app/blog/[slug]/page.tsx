@@ -1,11 +1,14 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import ArticleSchema from '@/components/SchemaOrg/ArticleSchema';
-import { getAllPosts, getPostBySlug } from '@/lib/content';
+import FAQPageSchema from '@/components/SchemaOrg/FAQPageSchema';
+import RelatedPosts from '@/components/blog/RelatedPosts';
+import { getAllPosts, getPostBySlug, getPostsByPillar } from '@/lib/content';
 import { absoluteUrl, buildMetadata } from '@/lib/seo';
 
 // ---------------------------------------------------------------------------
@@ -32,11 +35,19 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  // heroImage becomes OG image if present; otherwise falls back to site logo in buildMetadata.
+  const ogImage = post.heroImage
+    ? absoluteUrl(post.heroImage)
+    : undefined;
+
   return buildMetadata({
     title: post.title,
     description: post.description,
     path: `/blog/${slug}`,
     type: 'article',
+    // Wire frontmatter canonical override (syndicated posts); default = self-referential apex.
+    canonicalOverride: post.canonical,
+    ogImage,
   });
 }
 
@@ -61,6 +72,14 @@ export default async function BlogPostPage({
   );
   const wordCount = post.content.split(/\s+/).filter(Boolean).length;
 
+  // Hero image absolute URL for ArticleSchema
+  const heroImageUrl = post.heroImage
+    ? absoluteUrl(post.heroImage)
+    : 'https://rhemicai.com/rhemic-logo.svg';
+
+  // Pillar posts for "More in this pillar" block
+  const pillarPosts = post.pillar ? getPostsByPillar(post.pillar) : [];
+
   return (
     <main style={{ backgroundColor: 'var(--paper)', color: 'var(--ink)', minHeight: '100vh' }}>
       <ArticleSchema
@@ -70,7 +89,13 @@ export default async function BlogPostPage({
         datePublished={post.publishedAt}
         dateModified={post.updatedAt ?? post.publishedAt}
         wordCount={wordCount}
+        image={heroImageUrl}
       />
+
+      {/* FAQ schema — rendered only when frontmatter `faq` array is present */}
+      {post.faq && post.faq.length > 0 && (
+        <FAQPageSchema items={post.faq} id={slug} />
+      )}
 
       <PaperNav />
 
@@ -163,14 +188,51 @@ export default async function BlogPostPage({
         </div>
       </header>
 
+      {/* Hero image — renders only when frontmatter heroImage is set */}
+      {post.heroImage && (
+        <div
+          style={{
+            maxWidth: '72rem',
+            margin: '0 auto',
+            padding: '2.5rem 1.5rem 0',
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              aspectRatio: '16/7',
+              border: '1.5px solid var(--line)',
+              overflow: 'hidden',
+            }}
+          >
+            <Image
+              src={post.heroImage}
+              alt={post.title}
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+          </div>
+        </div>
+      )}
+
       {/* Article body */}
       <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '0 1.5rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr min(64ch, 100%) 1fr' }}>
           <article
-            style={{ gridColumn: 2, padding: '3.5rem 0 5rem' }}
+            style={{ gridColumn: 2, padding: '3.5rem 0 2rem' }}
             className="mdx-prose"
           >
             <MDXRemote source={post.content} />
+
+            {/* Internal-linking mesh: Related + pillar hub links */}
+            <RelatedPosts
+              relatedSlugs={post.relatedPosts}
+              pillarPosts={pillarPosts}
+              currentSlug={slug}
+              pillar={post.pillar}
+            />
           </article>
         </div>
       </div>

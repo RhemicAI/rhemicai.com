@@ -3,6 +3,21 @@ import path from "path";
 import matter from "gray-matter";
 import { absoluteUrl } from "@/lib/seo";
 
+// ---------------------------------------------------------------------------
+// Pillar taxonomy — used for hub-and-spoke internal linking
+// ---------------------------------------------------------------------------
+
+export type Pillar =
+  | "visibility"
+  | "capture"
+  | "attribution"
+  | "lead-economics"
+  | "trade"
+  | "agency";
+
+// FAQ item used in FAQPage schema
+export type FaqItem = { q: string; a: string };
+
 export type BlogPostSummary = {
   slug: string;
   title: string;
@@ -11,7 +26,21 @@ export type BlogPostSummary = {
   updatedAt?: string;
   readingTime: string;
   category?: string;
+  // New fields (all optional — existing post builds safely with no values)
+  pillar?: Pillar;
+  cluster?: string;
+  relatedPosts?: string[];
+  canonical?: string;
+  heroImage?: string;
+  faq?: FaqItem[];
 };
+
+// Guard: return undefined for any string that would produce Invalid Date.
+export function safeIsoDate(raw: unknown): string | undefined {
+  if (!raw || typeof raw !== "string") return undefined;
+  const d = new Date(raw);
+  return isNaN(d.getTime()) ? undefined : raw;
+}
 
 // ---------------------------------------------------------------------------
 // MDX-backed blog helpers
@@ -36,14 +65,22 @@ export function getAllPosts(): BlogPostSummary[] {
       slug,
       title: (data.title as string) ?? slug,
       description: (data.description as string) ?? "",
-      publishedAt: (data.publishedAt as string) ?? "2026-01-01",
-      updatedAt: data.updatedAt as string | undefined,
+      publishedAt: safeIsoDate(data.publishedAt) ?? "2026-01-01",
+      updatedAt: safeIsoDate(data.updatedAt),
       readingTime: (data.readingTime as string) ?? "5 min read",
       category: data.category as string | undefined,
+      pillar: data.pillar as Pillar | undefined,
+      cluster: data.cluster as string | undefined,
+      relatedPosts: Array.isArray(data.relatedPosts)
+        ? (data.relatedPosts as string[])
+        : undefined,
+      canonical: data.canonical as string | undefined,
+      heroImage: data.heroImage as string | undefined,
+      faq: Array.isArray(data.faq) ? (data.faq as FaqItem[]) : undefined,
     } satisfies BlogPostSummary;
   });
 
-  // Newest first.
+  // Newest first. safeIsoDate guarantees both values are valid ISO strings.
   return posts.sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
@@ -66,12 +103,28 @@ export function getPostBySlug(
     slug,
     title: (data.title as string) ?? slug,
     description: (data.description as string) ?? "",
-    publishedAt: (data.publishedAt as string) ?? "2026-01-01",
-    updatedAt: data.updatedAt as string | undefined,
+    publishedAt: safeIsoDate(data.publishedAt) ?? "2026-01-01",
+    updatedAt: safeIsoDate(data.updatedAt),
     readingTime: (data.readingTime as string) ?? "5 min read",
     category: data.category as string | undefined,
+    pillar: data.pillar as Pillar | undefined,
+    cluster: data.cluster as string | undefined,
+    relatedPosts: Array.isArray(data.relatedPosts)
+      ? (data.relatedPosts as string[])
+      : undefined,
+    canonical: data.canonical as string | undefined,
+    heroImage: data.heroImage as string | undefined,
+    faq: Array.isArray(data.faq) ? (data.faq as FaqItem[]) : undefined,
     content,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Pillar hub helper — returns all posts for a given pillar, newest first.
+// ---------------------------------------------------------------------------
+
+export function getPostsByPillar(pillar: Pillar): BlogPostSummary[] {
+  return getAllPosts().filter((p) => p.pillar === pillar);
 }
 
 // ---------------------------------------------------------------------------
