@@ -31,22 +31,22 @@ const values = [
   {
     title: 'Operator clarity',
     description:
-      'Med spa owners should be able to see what is broken, what matters first, and what can be fixed without learning a new acronym stack.',
+      'A local business owner should be able to see what is broken, what matters first, and what can be fixed without learning a new acronym stack.',
   },
   {
     title: 'Capture before more spend',
     description:
-      'More ads are not always the next move. Rhemic starts with the leaks across Google, reviews, treatment pages, calls, and booking handoffs.',
+      'More ads are not always the next move. Rhemic starts with the leaks across Google, reviews, service pages, calls, and booking handoffs.',
   },
   {
-    title: 'Non-clinical coverage',
+    title: 'Capture without replacing people',
     description:
-      'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests. Medical decisions stay with licensed staff.',
+      'Instant response answers common questions, captures lead details, and routes the booking. The people who run the business keep the customer relationship.',
   },
   {
     title: 'Source-aware growth',
     description:
-      'Teams need source context for the visibility, trust, and response surfaces creating consult opportunities.',
+      'Teams need source context for the visibility, trust, and response surfaces that turn demand into new leads.',
   },
   {
     title: 'Founder-led setup',
@@ -56,7 +56,7 @@ const values = [
   {
     title: 'No false guarantees',
     description:
-      'Rhemic helps improve visibility, capture, and reporting. It does not promise rankings, revenue, patients, or clinical outcomes.',
+      'Rhemic helps improve visibility, capture, and reporting. It does not promise rankings, revenue, or guaranteed outcomes.',
   },
 ];
 
@@ -66,14 +66,14 @@ const professionalServiceSchema = {
   name: 'Rhemic AI',
   url: 'https://rhemicai.com',
   description:
-    'Dallas-based system for U.S. med spas finding lost consult opportunities across Google visibility, AI answers, missed-call opportunities, handoffs, and source context.',
+    'Dallas-based visibility and capture system that gets local businesses found on Google and recommended by AI, then captures and books the leads that come in.',
   foundingDate: '2025',
   areaServed: 'United States',
   knowsAbout: [
-    'Med spa patient acquisition',
-    'Google Business Profile for med spas',
-    'AI search visibility',
-    'AI receptionist for med spas',
+    'Local business visibility',
+    'Google Business Profile optimization',
+    'AI search visibility (GEO and AEO)',
+    'AI receptionist and instant lead response',
     'Missed-call recovery',
     'Meta Ads intelligence',
   ],
@@ -98,8 +98,8 @@ export default function AboutPage() {
 
       <PageHero
         subtitle="About"
-        title="The team helping med spas find lost consult opportunities."
-        description="Rhemic AI is a Dallas-based company helping U.S. med spas surface leaks across search visibility, AI answers, calls, handoffs, and source context."
+        title="The team helping local businesses get found by AI and capture every lead."
+        description="Rhemic AI is a Dallas-based company helping local businesses get found and recommended across Google and AI answers, then capture and book the leads that come in."
         showBackLink={false}
       />
 
@@ -159,9 +159,9 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
-              Help med spas surface lost consult opportunities across Google,
-              AI answers, calls, handoffs, and source context so booking intent
-              reaches the right team faster.
+              Help local businesses get found and recommended across Google and
+              AI answers, then capture every inbound lead so demand turns into
+              booked work.
             </p>
           </section>
 
@@ -172,10 +172,10 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
                 <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
-                  Patient discovery is fragmented
+                  Customer discovery is fragmented
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Med spas can no longer assume every patient starts on the same channel. Demand moves through Google, AI answers, reviews, ads, calls, and referrals before it becomes a consult opportunity.
+                  A local business can no longer assume every customer starts on the same channel. Demand moves through Google, AI answers, reviews, ads, calls, and referrals before it becomes a booked job.
                 </p>
               </div>
               <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
@@ -183,7 +183,7 @@ export default function AboutPage() {
                   Execution matters more than slogans
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Rhemic is built around concrete surfaces: GBP, Maps, reviews, treatment pages, schema, citations, AI search visibility, missed-call recovery, and Meta Ads intelligence.
+                  Rhemic is built around concrete surfaces: GBP, Maps, reviews, service pages, schema, citations, AI search visibility, missed-call recovery, and Meta Ads intelligence.
                 </p>
               </div>
             </div>
@@ -263,22 +263,22 @@ export default function AboutPage() {
               {
                 question: 'What is Rhemic AI?',
                 answer:
-                  'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
+                  'Rhemic helps local businesses get found and recommended across Google and AI answers, recover missed calls, capture and route inbound leads, and see which channels create demand.',
               },
               {
                 question: 'Who founded Rhemic AI?',
                 answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO). Karim previously worked closely with dental clinics, sold AI employees into clinics, and integrated with legacy systems. Raahil is an automation expert who previously deployed AI receptionist workflows for service businesses.',
+                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO). Karim previously worked with local service businesses, sold AI employees into them, and integrated with legacy systems. Raahil is an automation expert who previously deployed instant-response and follow-up workflows for service businesses.',
               },
               {
                 question: 'Where is Rhemic AI based?',
                 answer:
-                  'Rhemic AI is headquartered in Dallas, Texas. The public offer is focused on U.S. med spas.',
+                  'Rhemic AI is headquartered in Dallas, Texas. It serves local businesses across the U.S., leading with home services.',
               },
               {
-                question: 'Does Rhemic AI replace clinic staff?',
+                question: 'Does Rhemic AI replace my team?',
                 answer:
-                  'No. The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+                  'No. The instant-response layer answers common questions, captures lead details, and routes the booking to your team. The people who run the business keep the customer relationship.',
               },
             ]}
           />
@@ -290,12 +290,12 @@ export default function AboutPage() {
         links={[
           {
             title: 'What We Optimize',
-            description: 'Google, AI search, reviews, treatment pages, calls, and Meta Ads intelligence.',
+            description: 'Google, AI search, reviews, service pages, calls, and Meta Ads intelligence.',
             href: '/#what-we-optimize',
           },
           {
             title: 'Pricing',
-            description: 'Diagnose, Capture, Scale, and Custom plans for U.S. med spas.',
+            description: 'Visibility, Capture, and full growth plans for local businesses.',
             href: '/pricing',
           },
           {
