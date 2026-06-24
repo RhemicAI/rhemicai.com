@@ -113,39 +113,42 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
               <p>
-                Rhemic AI started from clinic work, not generic marketing
-                theory. Karim worked closely with dental clinics in a previous
-                role, where he saw firsthand how appointment-driven clinics
-                leak demand across phone coverage, legacy systems, slow
-                follow-up, and unclear booking handoffs.
+                Rhemic started from real operator work, not marketing theory.
+                Karim spent a previous role inside local service businesses,
+                watching how much demand they lose before anyone on the team
+                ever gets a chance to respond. The pattern was the same
+                everywhere: the business was good at the actual work and losing
+                money in the gap between a customer looking and a customer
+                booked.
               </p>
               <p>
-                That work included selling AI employees into clinics,
-                integrating them with older operational systems, and
-                building guardrailed agents for patient-facing
-                workflows. The same pattern showed up in med spas: strong
-                operators were still losing consult demand before the team ever
-                had a real chance to respond.
+                That gap is now open in three places at once. AI assistants
+                answer the customer&apos;s question without naming the business.
+                Google buries it under whoever set their profile up better. And
+                the calls that do come in go to voicemail. Most owners feel the
+                slow season. They never see the leak that caused it.
               </p>
               <p>
-                Raahil brings the automation side of that system. Before
-                Rhemic, he deployed AI receptionist workflows for service
-                businesses and built automations that helped teams capture,
-                route, and follow up with leads without replacing the people who
-                own the customer relationship.
+                Raahil brings the capture side. Before Rhemic he built and
+                deployed instant-response and follow-up automations for service
+                businesses, the systems that catch a lead the moment it lands
+                and route it to the team without replacing the people who own
+                the customer relationship.
               </p>
               <p>
-                We built Rhemic around that combined experience. The product
-                helps med spas improve local visibility, strengthen trust,
-                answer common non-clinical questions, surface missed-call
-                opportunities, and route booking intent to the team already
-                running the clinic.
+                We built Rhemic around that combined experience. It is one
+                system for a local business to get found and recommended across
+                Google and AI answers, capture every inbound lead, and turn that
+                into booked work. We lead with home services and run the same
+                playbook across any local vertical where speed and visibility
+                decide who wins the job.
               </p>
               <p>
-                We are founder-led, vertical-specific, and careful about claims.
-                Rhemic does not replace licensed staff or promise rankings. It
-                gives operators a clearer system for finding and prioritizing
-                the leaks between patient demand and consult opportunities.
+                We are founder-led, conversion-first, and careful about claims.
+                Rhemic does not promise rankings or replace the people who run
+                the business. It gives operators a clearer system for finding
+                and closing the leaks between customer demand and booked
+                revenue.
               </p>
             </div>
           </section>
