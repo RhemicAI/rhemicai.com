@@ -1,7 +1,7 @@
 import type { CalLink } from '@/lib/calEmbed';
 
 export type PricingTier = 'basic' | 'growth' | 'premium';
-export type PricingSegment = 'medspa';
+export type PricingSegment = 'local';
 
 export interface PricingPlan {
   name: string;
@@ -24,123 +24,132 @@ export interface PricingPlan {
   features: string[];
 }
 
+/**
+ * Single source of truth for the published price ladder.
+ *
+ * Positioning doc rule (rhemic/gtm/rhemic-positioning-2026-07-30.md §6):
+ * every published price comes from this file. Never hardcode a price in page
+ * copy, and never publish a number that is not here. Public pricing is a
+ * visibility mechanism as well as a conversion one — a page stating a plain
+ * number contains an extractable fact that an answer engine can quote.
+ */
+
 const RECURRING_VALUE_LINE =
-  'Runs every day — not a one-time audit. The system keeps watching for leaks as they happen.';
+  'Runs every day. It keeps watching as search and AI answers move, rather than handing you a one-time audit.';
+
+const AUDIT_CALL: CalLink = 'rhemic-ai/rhemic-ai-audit-walkthrough';
 
 export const plans: PricingPlan[] = [
   {
-    name: 'Diagnose',
+    name: 'Visibility',
     tier: 'basic',
-    segment: 'medspa',
-    monthlyPrice: 1000,
-    annualPrice: 12000,
-    wasPrice: 1000,
-    bestFor: 'Find the leaks.',
+    segment: 'local',
+    monthlyPrice: 200,
+    annualPrice: 2400,
+    wasPrice: 300,
+    bestFor: 'Get found and recommended.',
     includedLocations: '1 location',
     primaryUseCase:
-      'For a single-location med spa that needs to see exactly where booked consults are leaking.',
+      'For a local service business that customers cannot find on Google and that AI answers never name.',
     fixes:
-      'Lead Capture Foundation: see where consult opportunities are lost across search, pages, missed calls, and manual handoffs — before you spend more driving demand.',
+      'The technical visibility stack: answer engine optimization (AEO), generative engine optimization (GEO), classic and technical SEO, and Google Business Profile optimization, run together.',
     promise:
-      'Rhemic finds where patients slip away — in search, on your pages, in missed calls, and in handoffs — so you fix the highest-impact gaps first.',
+      'Rhemic makes your business findable and quotable across Google and the AI answer engines, so the customer asking who to call hears your name.',
     whatTheyGet: [
-      'Every consult inquiry answered and captured — including after hours',
-      'See where patients searching for your treatments are choosing competitors instead',
-      'Google Business Profile positioned to win local consults',
-      'Reviews turned into booked consults automatically',
-      'Treatment pages and local presence fixed in priority order',
+      'Named inside AI answers when a customer asks who to call (AEO)',
+      'Represented in the sources those engines read before they answer (GEO)',
+      'Ranked on Google and competitive in the local map (SEO)',
+      'Google Business Profile built out properly: categories, services, photos, posts, reviews',
+      'Search Console and Bing Webmaster Tools set up, verified and monitored',
     ],
     boundaries: [
       'Single location',
+      'No capture layer or lead tracker',
       'No multi-location routing or dashboard',
       'No connected-account ad reporting',
-      'No deep competitor tracking',
     ],
     upgradePath: RECURRING_VALUE_LINE,
     featured: false,
-    calLink: 'rhemic-ai/medspa-discovery-call',
+    calLink: AUDIT_CALL,
     features: [
-      'Google Business Profile and Maps foundation review',
-      'Local SEO, schema, citation, and treatment-page priority fixes',
-      'AI search visibility baseline for high-intent med-spa searches',
-      'Lead Capture Foundation and missed-call opportunity map',
+      'Rank on Google and win the local map (SEO)',
+      'Get cited and recommended inside AI answers (GEO + AEO)',
+      'Google Business Profile optimization: categories, services, photos, reviews',
+      'Schema, sitemaps, IndexNow and crawl access wired to the engines',
+      'Citation share reported against the competitors you name',
     ],
   },
   {
     name: 'Capture',
     tier: 'growth',
-    segment: 'medspa',
-    monthlyPrice: 2000,
-    annualPrice: 24000,
-    wasPrice: 2000,
-    bestFor: 'Catch and route every consult.',
-    includedLocations: '1–2 locations',
+    segment: 'local',
+    monthlyPrice: 700,
+    annualPrice: 8400,
+    wasPrice: 1000,
+    bestFor: 'Catch and route every inquiry.',
+    includedLocations: '1 to 2 locations',
     primaryUseCase:
-      'For an owner-led med spa ready to catch and route every bit of booking intent into the right hands.',
+      'For a business already getting found that is losing the demand to missed calls, after-hours inquiries and forms nobody follows up.',
     fixes:
-      'The always-on Consult Capture Layer: calls, missed calls, after-hours inquiries, and website inquiries (where available) are caught and routed into approved handoff workflows with clear source context.',
+      'Everything in Visibility, plus the always-on capture layer that turns the demand into booked customers.',
     promise:
-      "Rhemic doesn't just find the leaks — it runs the system that catches consult intent every day and routes it to your team with clear source context.",
+      'Every call, missed call, after-hours inquiry and form reaches your team fast, with the source attached.',
     whatTheyGet: [
-      'Everything in Diagnose',
-      'Always-on Consult Capture Layer — calls, missed calls, after-hours, and website inquiries caught and routed',
-      'Missed calls turned back into booked consults automatically',
-      'Booking intent routed to your team with source context, so nothing falls through',
-      'Stronger front-desk coverage so no inquiry goes unanswered',
+      'Everything in Visibility',
+      'Missed calls and after-hours inquiries caught and followed up',
+      'Every lead routed to your team quickly, with where it came from',
+      'A lead tracker built to how the business actually works',
+      'Reporting that ties visibility work to booked jobs',
     ],
     boundaries: [
       'Up to two locations',
-      'No multi-location dashboard beyond two locations',
-      'No connected-account ad reporting',
-      'Rhemic routes and captures consult intent; it does not guarantee appointments.',
+      'No multi-location routing across a larger group',
+      'No connected-account ad spend reporting',
     ],
     upgradePath: RECURRING_VALUE_LINE,
     featured: true,
-    calLink: 'rhemic-ai/medspa-discovery-call',
+    calLink: AUDIT_CALL,
     features: [
-      'Everything in Diagnose',
-      'Review, offer clarity, and competitor positioning work',
-      'Treatment-page optimization priorities and content briefs',
-      'Consult Capture Layer and approved handoff workflows',
-      'Competitor visibility and demand review',
+      'Everything in Visibility',
+      'Stop losing customers to missed calls and after-hours inquiries',
+      'Every lead reaches your team fast, with where it came from',
+      'Turn the people comparing you to competitors into booked customers',
     ],
   },
   {
-    name: 'Scale',
+    name: 'Full done-for-you system',
     tier: 'premium',
-    segment: 'medspa',
-    monthlyPrice: 3500,
-    annualPrice: 42000,
-    wasPrice: 3500,
-    bestFor: 'Expand what is working.',
-    includedLocations: '2–5 locations',
+    segment: 'local',
+    monthlyPrice: 2000,
+    annualPrice: 24000,
+    wasPrice: 2500,
+    bestFor: 'We run the whole thing for you.',
+    includedLocations: '3 or more locations',
     primaryUseCase:
-      'For a competitive metro practice, premium clinic, or 2–5 location operator expanding what already works.',
+      'For a multi-location operator who wants visibility, capture and reporting run as one system.',
     fixes:
-      'Advanced Consult Capture Layer with multi-location routing, deeper handoff scripts, source-aware reporting, and connected-account ad reporting for campaign context.',
+      'Everything in Capture, plus multi-location routing, deeper reporting, and spend tied to booked-work outcomes by source and campaign.',
     promise:
-      'Rhemic shows you which leaks, markets, locations, and sources deserve more investment — so you double down on what is converting.',
+      'You see which markets, channels and dollars actually book work, across every location.',
     whatTheyGet: [
       'Everything in Capture',
-      'Advanced Consult Capture Layer with multi-location routing',
-      'Competitor tracking — see who is winning consults near each location',
-      'Ad spend tied to booked-consult outcomes, by source and campaign',
-      'Multi-location dashboard',
+      'Every location handled, rather than one',
+      'Routing and reporting across the whole group',
+      'Which markets, channels and dollars book work, by source and campaign',
+      'We run visibility, capture and reporting so you run the business',
     ],
     boundaries: [
-      'Supports up to five locations, not six or more',
-      'Connected-account ad reporting informs decisions; paid ad management is separate unless scoped',
-      'No automatic ad-to-consult attribution promise',
+      'Scoped per location count at onboarding',
+      'Ad spend is billed separately from the retainer',
     ],
     upgradePath: RECURRING_VALUE_LINE,
     featured: false,
-    calLink: 'rhemic-ai/medspa-discovery-call',
+    calLink: AUDIT_CALL,
     features: [
       'Everything in Capture',
-      'Multi-location visibility and treatment-page priority map',
-      'Connected-account ad reporting and deeper AI answer-engine scanning',
-      'Location-level GBP, citations, schema, and review-response guidance',
-      'Advanced Consult Capture Layer and reporting cadence',
+      'Every location handled, rather than one',
+      'Know which markets, channels, and dollars actually book work',
+      'We run visibility, capture, and reporting so you run the business',
     ],
   },
 ];
@@ -149,22 +158,55 @@ export const customPlan = {
   name: 'Custom',
   monthlyPriceLabel: 'Custom',
   includedLocations: '6+ locations',
-  primaryUseCase: 'Connect complex teams, locations, and reporting.',
+  primaryUseCase: 'Larger groups, multi-market operators, and unusual internal setups.',
   bestFor: [
     '6+ locations',
     'Multi-market groups',
-    'Chains',
-    'Dermatology groups',
-    'PE-backed operators',
+    'Franchise and chain operators',
+    'Businesses with an in-house marketing team',
     'Complex routing or reporting needs',
   ],
   fixes:
-    'Custom Routing and Integration Layer for complex routing, permissions, audit logs, supported integrations, and custom reporting.',
-  calLink: 'rhemic-ai/medspa-discovery-call' as CalLink,
+    'The full stack scoped to your location count and your internal team, with routing, permissions and reporting shaped to how you already run the business.',
+  calLink: AUDIT_CALL as CalLink,
 };
 
-// Legacy exports — used by SmbPricing and SmbHero
-export const medSpaPlans: PricingPlan[] = plans;
-
-// Legacy export name stays in place for older components, but the data is med-spa specific.
+/** Back-compatible alias. Same ladder; kept so existing imports keep working. */
 export const smbPlans: PricingPlan[] = plans;
+
+/**
+ * Presentation shape used by the /pricing page cards.
+ * Derived from `plans` so the page can never drift from the data.
+ */
+export type PricingCard = {
+  badge: string;
+  placeholder?: boolean;
+  name: string;
+  price: string;
+  was?: string;
+  unit?: string;
+  best: string;
+  blurb: string;
+  features: string[];
+  featured?: boolean;
+};
+
+const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
+
+export const pricingCards: PricingCard[] = plans.map((plan, i) => ({
+  badge: `Tier ${i + 1}`,
+  name: plan.name,
+  price: usd(plan.monthlyPrice),
+  was: plan.wasPrice > plan.monthlyPrice ? usd(plan.wasPrice) : undefined,
+  unit: '/mo',
+  best: plan.bestFor,
+  blurb: plan.fixes,
+  features: plan.features,
+  featured: plan.featured,
+}));
+
+/** Plain-text ladder for prose and schema, so extraction gets real numbers. */
+export const priceLadderSentence = plans
+  .map((p) => `${p.name} at ${usd(p.monthlyPrice)} a month`)
+  .join(', ')
+  .replace(/, ([^,]*)$/, ', and $1');

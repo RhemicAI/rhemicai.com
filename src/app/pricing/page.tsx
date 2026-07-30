@@ -4,6 +4,7 @@ import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
 import AuditButton from '@/components/redesign/AuditButton';
 import { buildMetadata } from '@/lib/seo';
+import { pricingCards, type PricingCard } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Pricing: Get Found by AI from $200/mo',
@@ -13,70 +14,7 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['AI visibility pricing', 'SEO GEO AEO pricing', 'AI visibility audit cost', 'local business SEO pricing'],
 });
 
-type Tier = {
-  badge: string;
-  name: string;
-  price: string;
-  was?: string;
-  unit?: string;
-  placeholder?: boolean;
-  best: string;
-  blurb: string;
-  features: string[];
-  featured?: boolean;
-};
-
-const tiers: Tier[] = [
-  {
-    badge: 'Tier 1',
-    name: 'Visibility',
-    price: '$200',
-    was: '$300',
-    unit: '/mo',
-    best: 'Get found and recommended.',
-    blurb:
-      'The entry point. We rank you on Google and get you recommended inside AI answers. Classic SEO, plus GEO and AEO.',
-    features: [
-      'Rank on Google and win the local map (SEO)',
-      'Get cited and recommended inside AI answers (GEO + AEO)',
-      'Win the high-intent searches your customers actually use',
-      'See exactly where you moved each month, in plain English',
-    ],
-  },
-  {
-    badge: 'Tier 2',
-    name: 'Capture',
-    price: '$700',
-    was: '$1,000',
-    unit: '/mo',
-    featured: true,
-    best: 'Catch and route every inquiry.',
-    blurb:
-      'Everything in Visibility, plus the always-on capture layer that turns that demand into booked customers. Calls, missed calls, after-hours, and forms.',
-    features: [
-      'Everything in Visibility',
-      'Stop losing customers to missed calls and after-hours inquiries',
-      'Every lead reaches your team fast, with where it came from',
-      'Turn the people comparing you to competitors into booked customers',
-    ],
-  },
-  {
-    badge: 'Tier 3',
-    name: 'Full done-for-you system',
-    price: '$2,000',
-    was: '$2,500',
-    unit: '/mo',
-    best: 'We run the whole thing for you.',
-    blurb:
-      'Everything in Capture, plus multi-location routing, deeper reporting, and ad spend tied to booked-work outcomes by source and campaign.',
-    features: [
-      'Everything in Capture',
-      'Every location handled, not just one',
-      'Know which markets, channels, and dollars actually book work',
-      'We run visibility, capture, and reporting so you run the business',
-    ],
-  },
-];
+const tiers: PricingCard[] = pricingCards;
 
 export default function PricingPage() {
   return (

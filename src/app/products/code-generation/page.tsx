@@ -14,7 +14,6 @@ export const metadata: Metadata = buildMetadata({
     'Generate deployment-ready JSON-LD, metadata, and structured content changes that help ChatGPT, Claude, Perplexity, and Google understand your business.',
   path: '/products/code-generation',
   keywords: ['schema generator', 'JSON-LD generator', 'AI metadata generator', 'AEO implementation'],
-  noindex: true,
 });
 
 const features = [

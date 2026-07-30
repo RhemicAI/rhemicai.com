@@ -15,7 +15,6 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and Scrunch AI for tracking and improving how your brand appears in AI-generated answers.',
   path: '/compare/rhemic-ai-vs-scrunch',
   keywords: ['Rhemic AI vs Scrunch', 'Scrunch AI alternative', 'AI visibility tools comparison'],
-  noindex: true,
 });
 
 const basicPlan = plans.find((p) => p.tier === 'basic')!;

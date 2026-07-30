@@ -16,7 +16,6 @@ export const metadata: Metadata = buildMetadata({
     'Benchmark which competitors AI engines recommend, where they win, and what structural and content gaps are keeping your brand out of answer results.',
   path: '/products/competitor-analysis',
   keywords: ['AI competitor analysis', 'answer engine benchmarking', 'AI mention tracking'],
-  noindex: true,
 });
 
 const features = [
