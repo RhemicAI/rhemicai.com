@@ -79,16 +79,6 @@ export default function ServicePageLayout({
     },
   };
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: absoluteUrl('/services') },
-      { '@type': 'ListItem', position: 3, name: schemaServiceName, item: absoluteUrl(path) },
-    ],
-  };
-
   return (
     <>
       <script
@@ -98,10 +88,6 @@ export default function ServicePageLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <PaperNav />

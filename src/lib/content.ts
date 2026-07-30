@@ -155,6 +155,53 @@ const aeoRoutes = [
   "/glossary/llm-visibility",
   "/glossary/schema-markup",
   "/glossary/entity-authority",
+  // Answer pages unblocked on 2026-07-30. These carry live AI citations;
+  // /answers/why-your-competitor-shows-up-in-ai-answers holds ~54% citation
+  // share on its grounding query.
+  "/answers/what-is-aeo",
+  "/answers/what-is-ai-visibility",
+  "/answers/why-your-competitor-shows-up-in-ai-answers",
+  "/answers/how-local-businesses-can-show-up-in-ai-answers",
+  "/answers/how-to-improve-chatgpt-visibility",
+  "/answers/how-to-improve-perplexity-visibility",
+  "/answers/how-marketing-agencies-can-sell-ai-visibility",
+];
+
+/** Service stack pages. Positioning doc 2026-07-30, sections 3 and 8. */
+const serviceRoutes = [
+  "/services/aeo",
+  "/services/geo",
+  "/services/seo",
+  "/services/google-business-profile",
+];
+
+/** Product pages. /products/website-auditing is our largest AI citation earner. */
+const productRoutes = [
+  "/products/website-auditing",
+  "/products/competitor-analysis",
+  "/products/code-generation",
+];
+
+/** Comparison cluster. Generative engines lean on comparison content. */
+const compareRoutes = [
+  "/compare",
+  "/compare/best-ai-visibility-platforms",
+  "/compare/rhemic-ai-vs-otterly",
+  "/compare/rhemic-ai-vs-profound",
+  "/compare/rhemic-ai-vs-scrunch",
+  "/compare/rhemic-ai-vs-traditional-seo-agency",
+  "/compare/rhemic-vs-clearscope",
+  "/compare/rhemic-vs-seo-ai",
+  "/compare/rhemic-vs-surferseo",
+];
+
+/** Category landing pages in the buyer's own language. */
+const categoryRoutes = [
+  "/answer-engine-optimization",
+  "/ai-search-visibility",
+  "/ai-search-visibility-for-small-businesses",
+  "/for-local-businesses",
+  "/show-up-in-ai-answers",
 ];
 
 export const indexableRoutes = [
@@ -173,6 +220,10 @@ export const indexableRoutes = [
   "/privacy-policy",
   "/terms-of-service",
   ...aeoRoutes,
+  ...serviceRoutes,
+  ...productRoutes,
+  ...compareRoutes,
+  ...categoryRoutes,
 ];
 
 export const staticPagePriorities: Record<string, number> = {
@@ -193,6 +244,21 @@ export const staticPagePriorities: Record<string, number> = {
   "/about": 0.8,
   "/case-studies": 0.8,
   "/resources/glossary": 0.78,
+  // Service stack — the pages an answer engine grounds on for what we sell.
+  "/services/aeo": 0.94,
+  "/services/geo": 0.92,
+  "/services/seo": 0.92,
+  "/services/google-business-profile": 0.92,
+  // Citation earners.
+  "/products/website-auditing": 0.9,
+  "/answers/why-your-competitor-shows-up-in-ai-answers": 0.9,
+  "/answers/what-is-aeo": 0.86,
+  "/answers/what-is-ai-visibility": 0.86,
+  // Category language.
+  "/answer-engine-optimization": 0.86,
+  "/ai-search-visibility": 0.84,
+  "/for-local-businesses": 0.84,
+  "/compare": 0.8,
 };
 
 export function routeUrl(path: string) {

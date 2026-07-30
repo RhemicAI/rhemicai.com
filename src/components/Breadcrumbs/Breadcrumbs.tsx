@@ -4,6 +4,43 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const labelMap: Record<string, string> = {
+  // Service stack. Acronyms must not be title-cased from the slug.
+  services: 'Services',
+  aeo: 'AEO',
+  geo: 'GEO',
+  seo: 'SEO',
+  'google-business-profile': 'Google Business Profile',
+  // Answers
+  answers: 'Answers',
+  'what-is-aeo': 'What Is AEO',
+  'what-is-ai-visibility': 'What Is AI Visibility',
+  'why-your-competitor-shows-up-in-ai-answers': 'Why Your Competitor Shows Up',
+  'how-local-businesses-can-show-up-in-ai-answers': 'Local Businesses in AI Answers',
+  'how-to-improve-chatgpt-visibility': 'Improve ChatGPT Visibility',
+  'how-to-improve-perplexity-visibility': 'Improve Perplexity Visibility',
+  'how-marketing-agencies-can-sell-ai-visibility': 'Agencies Selling AI Visibility',
+  'what-is-rhemic-ai': 'What Is Rhemic AI',
+  'who-is-rhemic-ai-for': 'Who Rhemic AI Is For',
+  'how-does-rhemic-ai-work': 'How Rhemic AI Works',
+  // Compare
+  'best-ai-visibility-platforms': 'Best AI Visibility Platforms',
+  'rhemic-ai-vs-otterly': 'Rhemic vs Otterly',
+  'rhemic-ai-vs-profound': 'Rhemic vs Profound',
+  'rhemic-ai-vs-scrunch': 'Rhemic vs Scrunch',
+  'rhemic-ai-vs-traditional-seo-agency': 'Rhemic vs a Traditional SEO Agency',
+  // Category pages
+  'answer-engine-optimization': 'Answer Engine Optimization',
+  'ai-search-visibility': 'AI Search Visibility',
+  'ai-search-visibility-for-small-businesses': 'AI Search Visibility for Small Businesses',
+  'for-local-businesses': 'For Local Businesses',
+  'show-up-in-ai-answers': 'Show Up in AI Answers',
+  // Glossary terms
+  'generative-engine-optimization': 'Generative Engine Optimization',
+  'ai-citation': 'AI Citation',
+  'llm-visibility': 'LLM Visibility',
+  'schema-markup': 'Schema Markup',
+  'entity-authority': 'Entity Authority',
+  'brand-share': 'Brand Share',
   products: 'Products',
   'website-auditing': 'Website Auditing',
   'competitor-analysis': 'Competitor Analysis',

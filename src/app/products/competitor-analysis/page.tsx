@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Footer from '@/components/Footer/Footer';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
 import PageHero from '@/components/shared/PageHero';
 import AEOEngine from '@/components/AEOEngine/AEOEngine';
 import ProductSchema from '@/components/SchemaOrg/ProductSchema';
@@ -72,7 +72,7 @@ export default function CompetitorAnalysisPage() {
         description="Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals in AI-generated answers."
         url="https://rhemicai.com/products/competitor-analysis"
       />
-      <FixedNav />
+      <PaperNav />
 
       <PageHero
         subtitle="Competitor Analysis"
@@ -246,7 +246,7 @@ export default function CompetitorAnalysisPage() {
         ]}
       />
 
-      <Footer />
+      <PaperFooter />
     </main>
   );
 }

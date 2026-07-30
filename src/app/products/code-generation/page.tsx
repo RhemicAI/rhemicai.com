@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Footer from '@/components/Footer/Footer';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
 import PageHero from '@/components/shared/PageHero';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
@@ -101,7 +101,7 @@ export default function CodeGenerationPage() {
           __html: JSON.stringify(softwareApplicationSchema),
         }}
       />
-      <FixedNav />
+      <PaperNav />
 
       <PageHero
         subtitle="Code Generation"
@@ -281,7 +281,7 @@ export default function CodeGenerationPage() {
         ]}
       />
 
-      <Footer />
+      <PaperFooter />
     </main>
   );
 }

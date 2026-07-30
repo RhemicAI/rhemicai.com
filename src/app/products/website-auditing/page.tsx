@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Footer from '@/components/Footer/Footer';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
 import PageHero from '@/components/shared/PageHero';
 import DashboardPreview from '@/components/DashboardPreview/DashboardPreview';
 import SubpageFAQ from '@/components/shared/SubpageFAQ';
@@ -82,7 +82,7 @@ export default function WebsiteAuditingPage() {
           __html: JSON.stringify(softwareApplicationSchema),
         }}
       />
-      <FixedNav />
+      <PaperNav />
 
       <PageHero
         subtitle="Website Auditing"
@@ -250,7 +250,7 @@ export default function WebsiteAuditingPage() {
         ]}
       />
 
-      <Footer />
+      <PaperFooter />
     </main>
   );
 }
