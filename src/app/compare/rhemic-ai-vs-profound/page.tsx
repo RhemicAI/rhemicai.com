@@ -15,7 +15,6 @@ export const metadata: Metadata = buildMetadata({
     'Compare Rhemic AI and Profound for measuring and improving AI search visibility. Key differences in focus, audience, and service model.',
   path: '/compare/rhemic-ai-vs-profound',
   keywords: ['Rhemic AI vs Profound', 'Profound alternative', 'AI visibility platform comparison'],
-  noindex: true,
 });
 
 const basicPlan = plans.find((p) => p.tier === 'basic')!;

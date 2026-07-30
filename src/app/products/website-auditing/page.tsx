@@ -15,7 +15,6 @@ export const metadata: Metadata = buildMetadata({
     'Audit how AI engines read your site, find the structural gaps blocking citations, and get a prioritized plan for improving answer engine visibility.',
   path: '/products/website-auditing',
   keywords: ['AI visibility audit', 'AEO audit', 'website audit for ChatGPT', 'schema audit'],
-  noindex: true,
 });
 
 const features = [

@@ -22,7 +22,6 @@ export const metadata: Metadata = buildMetadata({
     'answer engine visibility',
     'AI recommendation tracking',
   ],
-  noindex: true,
 });
 
 const faqs = [

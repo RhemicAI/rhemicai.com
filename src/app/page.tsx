@@ -114,6 +114,13 @@ export default function Home() {
                   <span className="italic text-spot-deep">AI recommends</span>,
                   and the one that answers first.
                 </h1>
+                <p className="rise rise-3 mt-5 max-w-xl font-body text-[1.06rem] leading-relaxed text-ink text-pretty">
+                  <span className="font-medium text-spot-deep">
+                    Answer engine optimization (AEO), generative engine optimization (GEO), SEO and
+                    Google Business Profile optimization
+                  </span>{' '}
+                  for local service businesses, run as one technical stack.
+                </p>
                 <p className="rise rise-3 mt-6 max-w-lg font-body text-[1.02rem] leading-relaxed text-ink-2 text-pretty">
                   Customers now ask Google, ChatGPT, and Perplexity who to go with, then pick whoever
                   looks most trusted and answers first. Rhemic gets your business into those answers,

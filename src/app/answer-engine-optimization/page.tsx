@@ -24,7 +24,6 @@ export const metadata: Metadata = buildMetadata({
     'optimize for ChatGPT',
     'generative engine optimization',
   ],
-  noindex: true,
 });
 
 const faqs = [
