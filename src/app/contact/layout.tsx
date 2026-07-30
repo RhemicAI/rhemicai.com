@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Book a Visibility and Call Leak Audit',
   description:
-    'Contact Rhemic AI to review where your U.S. med spa may be losing consult opportunities across search visibility, AI answers, calls, handoffs, and source context.',
+    'Contact Rhemic AI to review where your business is losing customers across Google, AI answers, the local map, and the calls and forms that go unanswered.',
   path: '/contact',
-  keywords: ['med spa visibility audit', 'med spa call leak audit', 'Rhemic AI contact', 'med spa consult opportunity audit'],
+  keywords: ['AI visibility audit', 'local business visibility audit', 'Rhemic AI contact', 'answer engine optimization audit'],
 });
 
 export default function ContactLayout({ children }: { children: ReactNode }) {

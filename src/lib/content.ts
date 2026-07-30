@@ -178,8 +178,6 @@ const serviceRoutes = [
 /** Product pages. /products/website-auditing is our largest AI citation earner. */
 const productRoutes = [
   "/products/website-auditing",
-  "/products/competitor-analysis",
-  "/products/code-generation",
 ];
 
 /** Comparison cluster. Generative engines lean on comparison content. */
