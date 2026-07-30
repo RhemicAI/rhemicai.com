@@ -39,8 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact": "2026-05-26",
     "/products": "2026-05-26",
     "/products/website-auditing": "2026-04-01",
-    "/products/code-generation": "2026-04-01",
-    "/products/competitor-analysis": "2026-03-15",
     "/faq": "2026-05-26",
     "/how-it-works": "2026-05-26",
     "/compare": "2026-03-15",

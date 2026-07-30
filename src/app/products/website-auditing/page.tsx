@@ -47,21 +47,6 @@ const benefits = [
   'Understand exactly what AI engines see',
 ];
 
-const softwareApplicationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Rhemic AI Website Auditing',
-  description:
-    'Comprehensive audits for AI discovery. Analyze schema markup, content structure, and technical SEO signals to ensure AI answer engines recommend your business.',
-  url: 'https://rhemicai.com/products/website-auditing',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
-  provider: {
-    '@type': 'Organization',
-    name: 'Rhemic AI',
-    url: 'https://rhemicai.com',
-  },
-};
 
 export default function WebsiteAuditingPage() {
   return (
@@ -74,12 +59,6 @@ export default function WebsiteAuditingPage() {
             'Website audits that evaluate schema, technical signals, entity clarity, and content structure for answer engine visibility.',
           path: '/products/website-auditing',
           audience: 'Marketing teams, local businesses, and SaaS companies',
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareApplicationSchema),
         }}
       />
       <PaperNav />

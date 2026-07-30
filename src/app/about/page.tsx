@@ -1,312 +1,268 @@
 import type { Metadata } from 'next';
-import FixedNav from '@/components/FixedNav/FixedNav';
-import Footer from '@/components/Footer/Footer';
-import PageHero from '@/components/shared/PageHero';
-import SubpageFAQ from '@/components/shared/SubpageFAQ';
-import RelatedLinks from '@/components/shared/RelatedLinks';
-import { buildMetadata } from '@/lib/seo';
+import Link from 'next/link';
+import PaperNav from '@/components/redesign/PaperNav';
+import PaperFooter from '@/components/redesign/PaperFooter';
+import Reveal from '@/components/redesign/Reveal';
+import AuditButton from '@/components/redesign/AuditButton';
+import { buildMetadata, organizationSchema, absoluteUrl } from '@/lib/seo';
+import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About Rhemic AI: Get Found by AI and Google',
+  title: 'About Rhemic AI: Who We Are and Who We Serve',
   description:
-    'Rhemic AI is the visibility and capture operating system that gets local businesses found on Google and recommended by AI, then turns that demand into customers. Meet the team and the mission.',
+    'Rhemic AI is a search and answer-engine visibility firm for local service businesses in the U.S. Founded 2025 by Ittehadul Karim and Raahil Shaik. AEO, GEO, SEO and Google Business Profile, run as one stack. Plans from $200/mo.',
   path: '/about',
-  keywords: ['about Rhemic AI', 'AI visibility company', 'SEO GEO AEO agency', 'get recommended by AI'],
+  keywords: [
+    'about Rhemic AI',
+    'Rhemic AI founders',
+    'AI visibility agency',
+    'answer engine optimization firm',
+    'is Rhemic AI legit',
+  ],
 });
 
-const founders = [
+const faqs = [
   {
-    name: 'Ittehadul Karim',
-    role: 'CEO',
-    linkedin: 'https://www.linkedin.com/in/ittehadul-karim-3302a51a5/',
+    question: 'Who founded Rhemic AI?',
+    answer:
+      'Ittehadul Karim is CEO and Raahil Shaik is COO and CFO. The company was founded in 2025 and operates in the United States.',
   },
   {
-    name: 'Raahil Shaik',
-    role: 'COO/CFO',
-    linkedin: 'https://www.linkedin.com/in/raahil-shaik/',
-  },
-];
-
-const values = [
-  {
-    title: 'Operator clarity',
-    description:
-      'A local business owner should be able to see what is broken, what matters first, and what can be fixed without learning a new acronym stack.',
+    question: 'What exactly does Rhemic do?',
+    answer:
+      'We help a business show up everywhere its customers look: Google search, the local map, and AI answer engines including ChatGPT, Claude, Perplexity, Gemini and Copilot. We run answer engine optimization (AEO), generative engine optimization (GEO), technical and local SEO, and Google Business Profile optimization as one stack.',
   },
   {
-    title: 'Capture before more spend',
-    description:
-      'More ads are not always the next move. Rhemic starts with the leaks across Google, reviews, service pages, calls, and booking handoffs.',
+    question: 'Is Rhemic a software product or an agency?',
+    answer:
+      'A done-for-you service firm. There is no self-serve product, no free trial, and no white-label platform for agencies. We do the work and report the result.',
   },
   {
-    title: 'Capture without replacing people',
-    description:
-      'Instant response answers common questions, captures lead details, and routes the booking. The people who run the business keep the customer relationship.',
+    question: 'Who do you work with?',
+    answer:
+      'Owner-led local service businesses in the U.S., roughly $500k to $5M in revenue, from a single location up to about five. Home services lead: HVAC, plumbing, electrical, roofing and auto repair. We also work with clinics, dental, restaurants, salons and similar local categories.',
   },
   {
-    title: 'Source-aware growth',
-    description:
-      'Teams need source context for the visibility, trust, and response surfaces that turn demand into new leads.',
+    question: 'What does it cost?',
+    answer:
+      'Plans start at $200 a month for Visibility, $700 for Capture, and $2,000 for the full done-for-you system. Every price is published on the pricing page. You will not have to sit through a call to learn a number.',
   },
   {
-    title: 'Founder-led setup',
-    description:
-      'Early Rhemic customers work directly with the founding team on discovery, setup, and growth priorities.',
-  },
-  {
-    title: 'No false guarantees',
-    description:
-      'Rhemic helps improve visibility, capture, and reporting. It does not promise rankings, revenue, or guaranteed outcomes.',
+    question: 'Do you guarantee rankings or AI mentions?',
+    answer:
+      'No. These are third-party systems that change without notice, and anyone guaranteeing a ranking is guessing. What we control is whether your business is legible, consistent and quotable to those systems, and whether you can see the result. We report citation share either way.',
   },
 ];
-
-const professionalServiceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Rhemic AI',
-  url: 'https://rhemicai.com',
-  description:
-    'Dallas-based visibility and capture system that gets local businesses found on Google and recommended by AI, then captures and books the leads that come in.',
-  foundingDate: '2025',
-  areaServed: 'United States',
-  knowsAbout: [
-    'Local business visibility',
-    'Google Business Profile optimization',
-    'AI search visibility (GEO and AEO)',
-    'AI receptionist and instant lead response',
-    'Missed-call recovery',
-    'Meta Ads intelligence',
-  ],
-  employee: founders.map((f) => ({
-    '@type': 'Person',
-    name: f.name,
-    jobTitle: f.role,
-    sameAs: f.linkedin,
-  })),
-};
 
 export default function AboutPage() {
+  const entry = plans[0];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  };
+
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    url: absoluteUrl('/about'),
+    name: 'About Rhemic AI',
+    mainEntity: organizationSchema(),
+  };
+
   return (
-    <main className="min-h-screen bg-transparent">
+    <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(professionalServiceSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
       />
-      <FixedNav />
-
-      <PageHero
-        subtitle="About"
-        title="The team helping local businesses get found by AI and capture every lead."
-        description="Rhemic AI is a Dallas-based company helping local businesses get found and recommended across Google and AI answers, then capture and book the leads that come in."
-        showBackLink={false}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
+      <PaperNav />
 
-      <div className="relative z-10 py-12 sm:py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          {/* Founding Story */}
-          <section className="mb-16 sm:mb-24">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              Our Story
-            </h2>
-            <div className="space-y-4 text-lg text-[var(--text-secondary)] leading-relaxed">
-              <p>
-                Rhemic started from real operator work, not marketing theory.
-                Karim spent a previous role inside local service businesses,
-                watching how much demand they lose before anyone on the team
-                ever gets a chance to respond. The pattern was the same
-                everywhere: the business was good at the actual work and losing
-                money in the gap between a customer looking and a customer
-                booked.
-              </p>
-              <p>
-                That gap is now open in three places at once. AI assistants
-                answer the customer&apos;s question without naming the business.
-                Google buries it under whoever set their profile up better. And
-                the calls that do come in go to voicemail. Most owners feel the
-                slow season. They never see the leak that caused it.
-              </p>
-              <p>
-                Raahil brings the capture side. Before Rhemic he built and
-                deployed instant-response and follow-up automations for service
-                businesses, the systems that catch a lead the moment it lands
-                and route it to the team without replacing the people who own
-                the customer relationship.
-              </p>
-              <p>
-                We built Rhemic around that combined experience. It is one
-                system for a local business to get found and recommended across
-                Google and AI answers, capture every inbound lead, and turn that
-                into booked work. We lead with home services and run the same
-                playbook across any local vertical where speed and visibility
-                decide who wins the job.
-              </p>
-              <p>
-                We are founder-led, conversion-first, and careful about claims.
-                Rhemic does not promise rankings or replace the people who run
-                the business. It gives operators a clearer system for finding
-                and closing the leaks between customer demand and booked
-                revenue.
-              </p>
+      <main className="relative">
+        {/* Answer the three questions in the first screen */}
+        <section className="px-5 pb-10 pt-32 sm:px-8 sm:pt-36">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
+                About
+              </span>
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-3">
+                Founded 2025 · United States
+              </span>
             </div>
-          </section>
 
-          {/* Mission */}
-          <section className="glass-panel mb-16 p-6 sm:mb-24 sm:p-12">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-              Our Mission
-            </h2>
-            <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
-              Help local businesses get found and recommended across Google and
-              AI answers, then capture every inbound lead so demand turns into
-              booked work.
-            </p>
-          </section>
+            <Reveal className="max-w-3xl">
+              <h1 className="font-display text-[clamp(2.2rem,5.4vw,4rem)] font-medium leading-[1.02] text-balance">
+                We help a business{' '}
+                <span className="italic text-spot-deep">show up everywhere</span> its customers
+                look.
+              </h1>
 
-          <section className="mb-16 sm:mb-24">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              What we believe about this market
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
-                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
-                  Customer discovery is fragmented
-                </h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  A local business can no longer assume every customer starts on the same channel. Demand moves through Google, AI answers, reviews, ads, calls, and referrals before it becomes a booked job.
+              <p className="mt-6 max-w-2xl font-body text-[1.12rem] leading-relaxed text-ink text-pretty">
+                Google search, the local map, and the AI answer engines: ChatGPT, Claude, Perplexity,
+                Gemini and Copilot. That is the whole job.
+              </p>
+
+              <p className="mt-4 max-w-2xl font-body text-[1.02rem] leading-relaxed text-ink-2 text-pretty">
+                Rhemic AI is a search and answer-engine visibility firm for local service businesses
+                in the United States. We run answer engine optimization (AEO), generative engine
+                optimization (GEO), technical and local SEO, and Google Business Profile
+                optimization as one stack, because a customer choosing who to call is influenced by
+                all four at once.
+              </p>
+
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <AuditButton className="btn-primary">Run my visibility audit</AuditButton>
+                <Link href="/pricing" className="btn-ghost">
+                  See pricing
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* The facts a buyer checks */}
+        <section className="px-5 py-12 sm:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-8 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
+                The facts
+              </span>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="paper-card p-6">
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-3">
+                  Founders
+                </p>
+                <p className="mt-3 font-body text-[1rem] leading-relaxed text-ink-2">
+                  <strong>Ittehadul Karim</strong>, CEO.
+                  <br />
+                  <strong>Raahil Shaik</strong>, COO and CFO.
                 </p>
               </div>
-              <div className="bg-[var(--bg-glass)] border border-[var(--border-subtle)] rounded-xl p-6">
-                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
-                  Execution matters more than slogans
-                </h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  Rhemic is built around concrete surfaces: GBP, Maps, reviews, service pages, schema, citations, AI search visibility, missed-call recovery, and Meta Ads intelligence.
+              <div className="paper-card p-6">
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-3">
+                  Founded
+                </p>
+                <p className="mt-3 font-body text-[1rem] leading-relaxed text-ink-2">
+                  2025, United States. We work with businesses across the U.S.
+                </p>
+              </div>
+              <div className="paper-card p-6">
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-3">
+                  Starting price
+                </p>
+                <p className="mt-3 font-body text-[1rem] leading-relaxed text-ink-2">
+                  ${entry.monthlyPrice} a month. Every tier is published, so you can size it before
+                  you talk to us.
                 </p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Team */}
-          <section className="mb-16 sm:mb-24">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              Leadership Team
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {founders.map((founder) => (
-                <div
-                  key={founder.name}
-                  className="glass-panel p-8 transition-colors hover:border-[var(--border-default)]"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-20 h-20 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-default)] flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-[var(--text-primary)]">
-                        {founder.name.split(' ').map((n) => n[0]).join('')}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-[var(--text-primary)] mb-1">
-                      {founder.name}
-                    </h3>
-                    <p className="text-sm text-[var(--text-tertiary)] mb-4">
-                      {founder.role}
+        {/* What we believe */}
+        <section className="px-5 py-12 sm:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-8 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
+                How we work
+              </span>
+            </div>
+            <div className="max-w-3xl space-y-6">
+              <p className="font-body text-[1.05rem] leading-relaxed text-ink-2 text-pretty">
+                <strong className="text-ink">We publish our prices.</strong> Most firms in this
+                category make you book a call to learn a number. An owner-operator running a
+                business does not have time for that, and a page that states a real number is also
+                the only kind an AI engine can quote back to someone asking what this costs.
+              </p>
+              <p className="font-body text-[1.05rem] leading-relaxed text-ink-2 text-pretty">
+                <strong className="text-ink">We show the audit before the invoice.</strong> The
+                first thing we do is show you where you are losing customers today, with the figures
+                pulled from your own accounts rather than from a template.
+              </p>
+              <p className="font-body text-[1.05rem] leading-relaxed text-ink-2 text-pretty">
+                <strong className="text-ink">We report what we cannot control.</strong> Search and
+                AI engines change without notice. We tell you what moved, what did not, and what we
+                could not verify. A report that only contains good news is not a report.
+              </p>
+              <p className="font-body text-[1.05rem] leading-relaxed text-ink-2 text-pretty">
+                <strong className="text-ink">We run the technical layer ourselves.</strong> Search
+                Console, Bing Webmaster Tools, IndexNow, structured data, sitemaps, crawl access and
+                entity consistency. It is unglamorous, it is where most visibility problems actually
+                start, and most competitors skip it.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="px-5 py-12 sm:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-8 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
+                Questions people actually ask
+              </span>
+            </div>
+            <div className="max-w-3xl space-y-7">
+              {faqs.map((f) => (
+                <Reveal key={f.question}>
+                  <div className="border-b border-[var(--rule)] pb-6">
+                    <h2 className="font-display text-[1.25rem] font-medium leading-snug">
+                      {f.question}
+                    </h2>
+                    <p className="mt-3 font-body text-[1rem] leading-relaxed text-ink-2 text-pretty">
+                      {f.answer}
                     </p>
-                    <a
-                      href={founder.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                      </svg>
-                      LinkedIn
-                    </a>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Values */}
-          <section>
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
-              Our Values
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {values.map((value) => (
-                <div
-                  key={value.title}
-                  className="glass-panel p-6 transition-colors hover:border-[var(--border-default)]"
+        {/* Related */}
+        <section className="px-5 pb-20 pt-4 sm:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-6 flex items-center justify-between border-y border-[var(--ink)] py-2">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-ink-2">
+                Related
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { title: 'AEO', href: '/services/aeo' },
+                { title: 'GEO', href: '/services/geo' },
+                { title: 'SEO', href: '/services/seo' },
+                { title: 'Google Business Profile', href: '/services/google-business-profile' },
+                { title: 'Pricing', href: '/pricing' },
+                { title: 'Results', href: '/testimonials' },
+                { title: 'Contact', href: '/contact' },
+              ].map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="border border-[var(--ink)] px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:text-spot-deep"
                 >
-                  <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-[var(--text-secondary)] leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
+                  {r.title}
+                </Link>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
+      </main>
 
-          {/* FAQ */}
-          <SubpageFAQ
-            heading="About Rhemic AI, FAQ"
-            faqs={[
-              {
-                question: 'What is Rhemic AI?',
-                answer:
-                  'Rhemic helps local businesses get found and recommended across Google and AI answers, recover missed calls, capture and route inbound leads, and see which channels create demand.',
-              },
-              {
-                question: 'Who founded Rhemic AI?',
-                answer:
-                  'Rhemic AI was founded by Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO). Karim previously worked with local service businesses, sold AI employees into them, and integrated with legacy systems. Raahil is an automation expert who previously deployed instant-response and follow-up workflows for service businesses.',
-              },
-              {
-                question: 'Where is Rhemic AI based?',
-                answer:
-                  'Rhemic AI is headquartered in Dallas, Texas. It serves local businesses across the U.S., leading with home services.',
-              },
-              {
-                question: 'Does Rhemic AI replace my team?',
-                answer:
-                  'No. The instant-response layer answers common questions, captures lead details, and routes the booking to your team. The people who run the business keep the customer relationship.',
-              },
-            ]}
-          />
-        </div>
-      </div>
-
-      <RelatedLinks
-        heading="Explore more"
-        links={[
-          {
-            title: 'What We Optimize',
-            description: 'Google, AI search, reviews, service pages, calls, and Meta Ads intelligence.',
-            href: '/#what-we-optimize',
-          },
-          {
-            title: 'Pricing',
-            description: 'Visibility, Capture, and full growth plans for local businesses.',
-            href: '/pricing',
-          },
-          {
-            title: 'Contact',
-            description: 'Start with a visibility and call leak audit.',
-            href: '/contact',
-          },
-        ]}
-      />
-
-      <Footer />
-    </main>
+      <PaperFooter />
+    </>
   );
 }

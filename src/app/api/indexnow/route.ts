@@ -2,15 +2,15 @@ import { NextResponse } from 'next/server';
 
 const HOST = 'rhemicai.com';
 
-export async function POST(request: Request) {
-  const key = process.env.INDEXNOW_KEY;
+/**
+ * IndexNow key. Published at https://rhemicai.com/ae7a82447267bd671e3b766281ba73e5.txt, so it is public
+ * by design rather than a secret. Held in code so the endpoint cannot silently
+ * no-op again when an env var is missing. INDEXNOW_KEY still overrides.
+ */
+const DEFAULT_KEY = 'ae7a82447267bd671e3b766281ba73e5';
 
-  if (!key) {
-    return NextResponse.json(
-      { error: 'IndexNow key not configured' },
-      { status: 503 }
-    );
-  }
+export async function POST(request: Request) {
+  const key = process.env.INDEXNOW_KEY ?? DEFAULT_KEY;
 
   try {
     const { urls } = await request.json();

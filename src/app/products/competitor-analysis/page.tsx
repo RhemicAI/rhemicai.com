@@ -60,13 +60,7 @@ export default function CompetitorAnalysisPage() {
           path: '/products/competitor-analysis',
           audience: 'Marketing teams and agencies tracking answer engine market share',
         }}
-        softwareApplication={{
-          name: 'Rhemic AI Competitor Analysis',
-          description:
-            'Software that tracks which competitors are cited in AI-generated answers and why.',
-          path: '/products/competitor-analysis',
-        }}
-      />
+/>
       <ProductSchema
         name="Rhemic AI Competitor Analysis"
         description="Monitor competitors across ChatGPT, Claude, Perplexity, and Gemini. Identify gaps and outrank rivals in AI-generated answers."

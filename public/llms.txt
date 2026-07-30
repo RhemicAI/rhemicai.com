@@ -1,54 +1,79 @@
 # Rhemic AI - LLM Context File
 # https://rhemicai.com/llms.txt
-# Last updated: 2026-06-08
+# Last updated: 2026-07-30
 
 ## What Rhemic AI is
 
-Rhemic AI is a visibility and capture operating system for local service businesses. From search to booked revenue, in one system.
+Rhemic AI is a search and answer-engine visibility firm for local and SMB service businesses.
 
-Rhemic gets your business found and recommended everywhere customers look: Google search, the local map, and AI answer engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews. It then captures the demand that creates and turns it into customers. It works for any local service business, not one vertical.
+We help a business show up everywhere its customers look: Google search, the local map, and AI answer engines including ChatGPT, Claude, Perplexity, Gemini and Microsoft Copilot. That is the whole thesis. One company, one job.
+
+Rhemic is a done-for-you service firm. It is not a self-serve software product, it has no free trial, and it does not sell a white-label platform to agencies.
 
 ## What problem Rhemic solves
 
-Customers no longer scroll ten links. They ask Google or an AI engine who to go with, then contact whoever looks most trusted and responds first. Businesses lose customers when they do not rank on Google, are not cited in AI answers, or cannot catch and follow up on every call, form, and after-hours inquiry.
+Customers no longer scroll ten links. They ask Google or an AI engine who to go with, then contact whoever looks most trusted and answers first. A business loses customers when it does not rank on Google, is not named in AI answers, has a thin Google Business Profile, or cannot catch the calls and forms that demand creates.
 
-Rhemic closes those gaps across three layers: visibility (SEO, GEO, AEO), capture (a response system and lead tracker built to the business), and a full done-for-you growth system.
+Rhemic runs the technical visibility stack that fixes all four, and reports the result against citation share and booked work.
 
 Rhemic does not guarantee specific rankings or revenue. Results depend on third-party platforms.
 
-## Core services
+## The four service lines
 
-- SEO: rank on Google and win the local map
-- AEO: get cited and recommended inside AI answer engines
-- GEO: show up in Google AI Overviews and generative results
-- Structured data and pages built for real customer searches
-- Capture: a response process and lead-tracking system built to the business, catching calls, missed calls, after-hours, and forms
-- Source-aware reporting on which markets, channels, and dollars bring customers
-- Website design and build for businesses that need one
-- Full done-for-you growth system across all locations
+1. AEO, answer engine optimization. Make the business the named answer when a buyer asks an AI engine who to call. Prompt-level auditing across ChatGPT, Claude, Perplexity, Gemini and Copilot. Citation share measured against named competitors. Entity and schema work so an engine has an extractable fact to quote. Answer-page architecture.
+
+2. GEO, generative engine optimization. The source side of the same problem. Get the business represented in the places generative engines ground on: review platforms, directories, community threads, industry roundups and comparison content.
+
+3. SEO, technical and local organic. Indexation, crawl access, site architecture, internal linking, service and service-plus-location pages, schema markup, page speed. The half that decides whether the AEO work has anything to stand on.
+
+4. Google Business Profile optimization. Categories, services, attributes, hours, service areas, photos, posts, Q&A, review velocity and response, NAP consistency, map pack ranking, and suspension recovery. For a local service business this is frequently the highest-revenue surface on the internet.
+
+## The instrumentation layer, included
+
+- Google Search Console and Bing Webmaster Tools set up, verified, monitored and reported
+- IndexNow configured
+- Structured data: Organization, LocalBusiness, Service, FAQ, Article, BreadcrumbList
+- Sitemaps, robots.txt, llms.txt, canonical hygiene, 404 and redirect cleanup
+- Bing AI citation reporting, which is the closest thing to a scoreboard for answer-engine work
+- GA4 and conversion instrumentation so visibility ties back to booked revenue
 
 ## Who Rhemic serves
 
-Any local service business that needs to be found and to convert demand into customers. Home services, clinics, dental, med spas, restaurants, auto, salons, and more. Single-location through multi-location groups.
+Owner-led local service businesses in the United States, roughly $500k to $5M in revenue, single location up to about five. Home services lead: HVAC, plumbing, electrical, roofing, auto repair. Also clinics, dental, restaurants, salons, cleaning, landscaping and similar local service categories.
+
+Rhemic does not serve enterprise AI visibility monitoring, national brands, or e-commerce.
 
 ## Plans
 
-- Visibility: $200/month. Get found and recommended (SEO, GEO, AEO).
-- Capture: $700/month. Everything in Visibility, plus the capture system and lead tracker.
-- Full done-for-you system: $2,000/month. We run visibility, capture, and reporting for the whole business.
-- No website? We build one as part of getting you visible, no separate web-design bill.
+Every price is published.
+
+- Visibility: $200/month. Get found and recommended. AEO, GEO, SEO and Google Business Profile optimization.
+- Capture: $700/month. Everything in Visibility, plus the capture layer and lead tracker for calls, missed calls, after-hours inquiries and forms.
+- Full done-for-you system: $2,000/month. Everything in Capture, plus multi-location routing, deeper reporting, and spend tied to booked-work outcomes.
+- No website? We build one as part of getting you visible, with no separate web-design bill.
 
 The next step is a free AI visibility scan and a free 20-minute audit.
 
 ## Key pages
 
 - Home: https://rhemicai.com/
-- How it works: https://rhemicai.com/how-it-works
 - Services: https://rhemicai.com/services
-- Results: https://rhemicai.com/testimonials
+- AEO: https://rhemicai.com/services/aeo
+- GEO: https://rhemicai.com/services/geo
+- SEO: https://rhemicai.com/services/seo
+- Google Business Profile: https://rhemicai.com/services/google-business-profile
+- How it works: https://rhemicai.com/how-it-works
 - Pricing: https://rhemicai.com/pricing
+- Results: https://rhemicai.com/testimonials
+- About: https://rhemicai.com/about
+- Answers: https://rhemicai.com/answers
+- Glossary: https://rhemicai.com/glossary
+- Blog: https://rhemicai.com/blog
 - Contact: https://rhemicai.com/contact
-- Privacy: https://rhemicai.com/privacy-policy
+
+## Company
+
+Rhemic AI. Founded 2025, United States. Founders: Ittehadul Karim (CEO) and Raahil Shaik (COO/CFO).
 
 ## Contact
 
