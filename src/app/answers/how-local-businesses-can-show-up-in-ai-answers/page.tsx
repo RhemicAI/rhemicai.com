@@ -54,7 +54,7 @@ export default function HowLocalBusinessesCanShowUpPage() {
         { question: 'Why does your competitor show up in AI answers?', href: '/answers/why-your-competitor-shows-up-in-ai-answers' },
       ]}
       relatedPages={[
-        { title: 'For Local Businesses', href: '/for-local-businesses' },
+        { title: 'Answer Engine Optimization', href: '/services/aeo' },
         { title: 'AI Search Visibility for Small Businesses', href: '/ai-search-visibility-for-small-businesses' },
         { title: 'Pricing', href: '/pricing' },
       ]}
