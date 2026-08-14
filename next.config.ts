@@ -40,6 +40,10 @@ const nextConfig: NextConfig = {
     // Retired lead magnets. One announced itself as paused, the other is
     // med-spa-era language.
     { source: "/free-ai-visibility-check", destination: "/pricing", permanent: true },
+    // Retired page that previously redirected from inside the route handler.
+    // A server-component redirect() emits 307 Temporary, so Google kept the URL
+    // in the index instead of consolidating it. Declared here so it emits 308.
+    { source: "/for-local-businesses", destination: "/", permanent: true },
     { source: "/free-consult-leak-calculator", destination: "/", permanent: true },
   ],
 };

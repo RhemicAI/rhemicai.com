@@ -32,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/answer-engine-optimization": "2026-07-30",
     "/ai-search-visibility": "2026-07-30",
     "/ai-search-visibility-for-small-businesses": "2026-07-30",
-    "/for-local-businesses": "2026-07-30",
     "/show-up-in-ai-answers": "2026-07-30",
     "/pricing": "2026-06-08",
     "/testimonials": "2026-06-08",
