@@ -12,6 +12,12 @@ export const siteConfig = {
   social: {
     twitter: "@RhemicAI",
   },
+  /** Verified live 2026-08-14. Every entry returned HTTP 200. */
+  profiles: [
+    "https://www.linkedin.com/company/rhemic-ai",
+    "https://github.com/RhemicAI",
+    "https://x.com/RhemicAI",
+  ],
 };
 
 type MetadataInput = {
@@ -90,6 +96,16 @@ export function organizationSchema() {
     logo: absoluteUrl("/icon.svg"),
     email: siteConfig.email,
     description: `${siteConfig.entity} ${siteConfig.description}`,
+    /**
+     * sameAs is how search and answer engines resolve "Rhemic AI" to one
+     * entity across the web. Google already counts external links from
+     * linkedin.com and github.com; declaring them here lets those links
+     * consolidate onto the entity instead of reading as unrelated mentions.
+     *
+     * Only add a profile after confirming it returns 200. A sameAs entry
+     * pointing at a dead URL weakens entity resolution rather than helping it.
+     */
+    sameAs: siteConfig.profiles,
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
