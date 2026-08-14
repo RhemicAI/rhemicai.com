@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CalBookingLink from '@/components/CalEmbed/CalBookingLink';
+import type { CalLink } from '@/lib/calEmbed';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -18,7 +19,10 @@ export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
-  const bookingCalLink = 'rhemic-ai/medspa-discovery-call';
+  // Canonical audit booking event. The med-spa discovery call this used to
+  // point at is a retired single-vertical event, and it was still the live CTA
+  // on all 23 pages that render this nav, including every /answers page.
+  const bookingCalLink: CalLink = 'rhemic-ai/rhemic-ai-audit-walkthrough';
 
   // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {
