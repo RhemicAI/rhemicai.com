@@ -150,7 +150,7 @@ export default function AiSearchVisibilityForSmallBusinessesPage() {
 
       <RelatedLinks
         links={[
-          { title: 'For Local Businesses', description: 'The full local business AI visibility guide.', href: '/for-local-businesses' },
+          { title: 'How local businesses show up in AI answers', description: 'The full local business AI visibility guide.', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
           { title: 'How Local Businesses Can Show Up in AI Answers', description: 'Step-by-step answer page.', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
           { title: 'Pricing', description: `${basicPlan.name} at $${basicPlan.monthlyPrice}/mo.`, href: '/pricing' },
         ]}

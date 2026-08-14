@@ -145,7 +145,7 @@ export default function ShowUpInAiAnswersPage() {
 
       <RelatedLinks
         links={[
-          { title: 'For Local Businesses', description: 'Local-specific AI visibility guide.', href: '/for-local-businesses' },
+          { title: 'How local businesses show up in AI answers', description: 'Local-specific AI visibility guide.', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
           { title: 'AI Search Visibility for Small Businesses', description: 'Practical steps for small operators.', href: '/ai-search-visibility-for-small-businesses' },
           { title: 'Pricing', description: 'See current plan options.', href: '/pricing' },
         ]}

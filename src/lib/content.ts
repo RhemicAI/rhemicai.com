@@ -165,6 +165,10 @@ const aeoRoutes = [
   "/answers/how-to-improve-chatgpt-visibility",
   "/answers/how-to-improve-perplexity-visibility",
   "/answers/how-marketing-agencies-can-sell-ai-visibility",
+  // Added 2026-08-14 from the GSC cluster analysis. The audit-pricing cluster
+  // drew ~30 impressions across 11 queries with no page to land on.
+  "/answers/ai-visibility-audit-cost",
+  "/answers/which-sources-ai-engines-cite",
 ];
 
 /** Service stack pages. Positioning doc 2026-07-30, sections 3 and 8. */
@@ -198,7 +202,6 @@ const categoryRoutes = [
   "/answer-engine-optimization",
   "/ai-search-visibility",
   "/ai-search-visibility-for-small-businesses",
-  "/for-local-businesses",
   "/show-up-in-ai-answers",
 ];
 
@@ -252,10 +255,12 @@ export const staticPagePriorities: Record<string, number> = {
   "/answers/why-your-competitor-shows-up-in-ai-answers": 0.9,
   "/answers/what-is-aeo": 0.86,
   "/answers/what-is-ai-visibility": 0.86,
+  // Highest-intent cluster: people pricing an audit and comparing vendors.
+  "/answers/ai-visibility-audit-cost": 0.9,
+  "/answers/which-sources-ai-engines-cite": 0.88,
   // Category language.
   "/answer-engine-optimization": 0.86,
   "/ai-search-visibility": 0.84,
-  "/for-local-businesses": 0.84,
   "/compare": 0.8,
 };
 

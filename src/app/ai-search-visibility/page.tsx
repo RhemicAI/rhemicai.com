@@ -208,7 +208,7 @@ export default function AiSearchVisibilityPage() {
           {
             title: 'For Local Businesses',
             description: 'How local service businesses can show up in AI recommendations for their area.',
-            href: '/for-local-businesses',
+            href: '/answers/how-local-businesses-can-show-up-in-ai-answers',
           },
           {
             title: 'Sample AI Visibility Report',
