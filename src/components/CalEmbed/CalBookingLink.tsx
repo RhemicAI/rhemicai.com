@@ -15,7 +15,9 @@ export interface CalBookingLinkProps {
 }
 
 export default function CalBookingLink({ calLink, className, onClick, children }: CalBookingLinkProps) {
-  const resolvedCalLink = calLink ?? 'rhemic-ai/medspa-discovery-call';
+  // Default to the canonical audit event. The med-spa discovery call is a
+  // retired single-vertical event.
+  const resolvedCalLink = calLink ?? 'rhemic-ai/rhemic-ai-audit-walkthrough';
   const href = getCalBookingUrl(resolvedCalLink);
 
   return (

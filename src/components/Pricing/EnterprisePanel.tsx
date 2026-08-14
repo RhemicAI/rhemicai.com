@@ -53,7 +53,7 @@ export default function EnterprisePanel() {
       <div className="text-center">
         <a
           href="#"
-          data-cal-link="rhemic-ai/medspa-discovery-call"
+          data-cal-link="rhemic-ai/rhemic-ai-audit-walkthrough"
           className="inline-block px-8 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--pulse)] rounded-full shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:scale-105"
         >
           Get the audit
