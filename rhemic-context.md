@@ -163,7 +163,7 @@ Key corrections to earlier assumptions:
 - **Comparison pages exist but are thin.** `/compare/rhemic-vs-surferseo`, `vs-clearscope`, `vs-seo-ai` are all 234–350 words. Bottom-funnel SEO gold but need expansion to 800–1200 words each.
 - **Two strong pages:** `/for-local-businesses` (988 words, natural hook query) and `/blog/what-is-aeo` (3,007 words). Keep structure, only refactor AEO language.
 - **Pricing tier structure:** Small Business / Agency / Enterprise audience tabs. Small Business has "Local Starter" at $199/mo founding price. Agency tier has Starter / Growth / Scale plans. Actual prices for Agency tiers not yet captured.
-- **Founders (from Organization schema):** Ittehadul Karim (CEO) = the user Karim, Shifat Santo (CTO), Raahil Shaik (COO/CFO).
+- **Current principals:** Ittehadul Karim (CEO), Jawad Bin Rashid (CTO), and Raahil Shaik (COO/CFO). Remove former-team schema entries from every live surface.
 - **Raahil Shaik anomaly:** LinkedIn search reveals he lists "CEO @ MyCrescentAI" in addition to COO @ Rhemic AI. May be a separate venture; may be stale. Worth user verification.
 
 ## Deliverables produced this session
