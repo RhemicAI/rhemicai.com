@@ -169,6 +169,10 @@ const aeoRoutes = [
   // drew ~30 impressions across 11 queries with no page to land on.
   "/answers/ai-visibility-audit-cost",
   "/answers/which-sources-ai-engines-cite",
+  // C1 cluster, ~110 impressions and the largest non-brand cluster. The
+  // Capture plan sells the outcome these searchers are shopping for:
+  // missed calls and after-hours inquiries caught, followed up and routed.
+  "/answers/ai-receptionist-cost",
 ];
 
 /** Service stack pages. Positioning doc 2026-07-30, sections 3 and 8. */
@@ -258,6 +262,7 @@ export const staticPagePriorities: Record<string, number> = {
   // Highest-intent cluster: people pricing an audit and comparing vendors.
   "/answers/ai-visibility-audit-cost": 0.9,
   "/answers/which-sources-ai-engines-cite": 0.88,
+  "/answers/ai-receptionist-cost": 0.9,
   // Category language.
   "/answer-engine-optimization": 0.86,
   "/ai-search-visibility": 0.84,

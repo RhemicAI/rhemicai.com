@@ -13,6 +13,19 @@ const cols: { title: string; links: { href: string; label: string }[] }[] = [
     ],
   },
   {
+    // Crawl path for the answer and glossary clusters. Both carry live AI
+    // citations and neither was reachable from the nav or the footer before
+    // 2026-08-15, which kept them out of the Bing index.
+    title: 'Answers',
+    links: [
+      { href: '/answers', label: 'All answers' },
+      { href: '/answers/why-your-competitor-shows-up-in-ai-answers', label: 'Competitors in AI answers' },
+      { href: '/answers/ai-visibility-audit-cost', label: 'Audit cost' },
+      { href: '/answers/ai-receptionist-cost', label: 'AI receptionist cost' },
+      { href: '/glossary', label: 'Glossary' },
+    ],
+  },
+  {
     title: 'Company',
     links: [
       { href: '/about', label: 'About' },
