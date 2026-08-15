@@ -97,6 +97,19 @@ const clusters: AnswerCluster[] = [
     ],
   },
   {
+    heading: 'Catching the calls you already earn',
+    blurb:
+      'What the capture side costs, and how to compare options on booked jobs.',
+    pages: [
+      {
+        href: '/answers/ai-receptionist-cost',
+        title: 'How much does an AI receptionist cost?',
+        description:
+          'The four pricing models, the fees vendors hide, how it compares against a salary, and the number that actually ranks the options.',
+      },
+    ],
+  },
+  {
     heading: 'About Rhemic',
     blurb: 'What the company does and who it serves.',
     pages: [

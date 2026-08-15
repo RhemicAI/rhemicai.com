@@ -4,9 +4,18 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import AuditButton from './AuditButton';
 
+/**
+ * Bing indexes roughly the set of pages reachable from this nav and the
+ * footer. Before /answers was listed here it had no crawl path from either,
+ * which is the most likely reason Bing holds 18 URLs out of 103 and why
+ * Microsoft Copilot citations to the answer pages stopped on 27 June 2026.
+ * Copilot and ChatGPT search both ground on the Bing index, so a page with
+ * no nav path is a page those engines cannot cite. Keep /answers listed.
+ */
 const links = [
   { href: '/how-it-works', label: 'How it works' },
   { href: '/services', label: 'Services' },
+  { href: '/answers', label: 'Answers' },
   { href: '/blog', label: 'Blog' },
   { href: '/testimonials', label: 'Results' },
   { href: '/pricing', label: 'Pricing' },

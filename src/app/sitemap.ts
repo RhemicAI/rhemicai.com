@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/geo": "2026-07-30",
     "/services/seo": "2026-07-30",
     "/services/google-business-profile": "2026-07-30",
+    "/answers/ai-receptionist-cost": "2026-08-15",
     "/answers/ai-visibility-audit-cost": "2026-08-14",
     "/answers/which-sources-ai-engines-cite": "2026-08-14",
     "/answers/what-is-aeo": "2026-07-30",
