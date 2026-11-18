@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Technical and Local SEO for Service Businesses',
   description:
-    'Technical and local SEO: indexation, crawl access, site architecture, service and location pages, schema, internal linking and page speed. The half that decides whether AI visibility work has anything to stand on. From $200/mo.',
+    'Technical and local SEO: indexation, crawl access, site architecture, service and location pages, schema, internal linking and page speed. The half that decides whether AI visibility work has anything to stand on. Quoted per business.',
   path: '/services/seo',
   keywords: [
     'local SEO for service businesses',
@@ -60,7 +60,7 @@ export default function SeoServicePage() {
         {
           question: 'What does SEO cost?',
           answer:
-            'SEO is included from the Visibility plan at $200 a month, alongside AEO, GEO and Google Business Profile optimization. Every price is published on the pricing page.',
+            'SEO is part of the same engagement, alongside AEO, GEO and Google Business Profile optimization. We quote every business on its own needs after a discovery call.',
         },
       ]}
       related={[

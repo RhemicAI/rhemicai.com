@@ -9,7 +9,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'How it works',
   description:
-    'How Rhemic works: we find where your business is invisible and where demand leaks, fix the highest-impact gaps in priority order, and keep it running every day. Any industry.',
+    'How Rhemic works: a 30-minute discovery call, then we claim and build out your ChatGPT business profile, Google Business Profile and website, and run them every month.',
   path: '/how-it-works',
   keywords: ['how Rhemic AI works', 'AI visibility process', 'answer engine optimization process'],
 });
@@ -17,27 +17,27 @@ export const metadata: Metadata = buildMetadata({
 const steps = [
   {
     no: '01',
-    tier: 'Tier 1 · Visibility',
-    title: 'We get you found everywhere customers look',
-    lede: 'The full stack: SEO, GEO, and AEO. Not just AI.',
-    body: 'Visibility is not only about AI. We do the classic SEO that ranks you on Google and wins the local map, plus GEO and AEO so you also show up and get recommended inside AI answers like ChatGPT, Perplexity, and Google AI Overviews. Wherever your customers look, you are there.',
-    points: ['SEO: rank on Google and win the local map', 'AEO: get cited and recommended in AI answers', 'GEO: show up in Google AI Overviews and generative results', 'Structured data and pages built for real customer searches'],
+    tier: 'Step 1 · Discovery call',
+    title: 'We learn your business',
+    lede: 'One 30-minute call with the owner.',
+    body: 'Before the call we look at what ChatGPT and Google say about your business today, and who they name instead of you. On the call we learn your services, your locations and the customers you want. Then we quote the work your business needs.',
+    points: ['Your ChatGPT answers checked before the call', 'Your Google Business Profile and website reviewed', 'The competitors AI names in your place', 'One quote, built around your business'],
   },
   {
     no: '02',
-    tier: 'Tier 2 · Capture',
-    title: 'Then we catch every bit of demand it creates',
-    lede: 'A response process built to your business, with its own lead tracker.',
-    body: 'Visibility creates inbound. Capture is the layer that makes sure none of it slips. We build a response process customized to how your business actually runs, and give you your own tracking artifact where every call, missed call, after-hours inquiry, and form lands, so you can see and follow up on every lead in one place.',
-    points: ['A customized inbound response process for your business', 'Every call, missed call, after-hours, and form captured', 'Your own lead-tracking board, with the source of each lead', 'Nothing slips between search and your team'],
+    tier: 'Step 2 · Claim and build',
+    title: 'We claim, verify and build out your profiles',
+    lede: 'Everything ChatGPT and Google read about you, set up right.',
+    body: 'We claim and verify your ChatGPT business profile with you on a short call, because the owner passes the identity check. Then we complete your Google Business Profile, fix the website and service pages AI engines read, and add the structured data that lets them quote you.',
+    points: ['ChatGPT business profile claimed and verified', 'Google Business Profile completed and corrected', 'Website and service pages built for AI answers', 'Structured data and crawler access fixed'],
   },
   {
     no: '03',
-    tier: 'Tier 3 · Full done-for-you system',
-    title: 'Or we run the whole growth engine for you',
-    lede: 'A complete growth system, customized to your whole business.',
-    body: 'The full done-for-you system. Visibility, capture, and reporting tuned to your entire business and every location, with the data to see which markets, channels, and dollars actually bring customers. We build it, run it, and report on it. You run the business.',
-    points: ['Everything in Visibility and Capture', 'Built and run across all your locations', 'Source-aware reporting on what brings customers', 'A growth system customized end to end to your business'],
+    tier: 'Step 3 · Run it every month',
+    title: 'We keep you the name AI gives',
+    lede: 'AI answers change every week. We stay on them.',
+    body: 'Every month we keep your profiles current, grow your reviews and citations, and publish answer pages for the questions your customers ask. You get a monthly report with your ChatGPT and Google numbers side by side.',
+    points: ['Profiles kept current and complete', 'Reviews and citations grown every month', 'New answer pages for real customer questions', 'A monthly report with ChatGPT and Google numbers'],
   },
 ];
 
@@ -55,14 +55,12 @@ export default function HowItWorksPage() {
             </div>
             <Reveal className="max-w-3xl">
               <h1 className="font-display text-[clamp(2.4rem,6vw,4.4rem)] font-medium leading-[1.0] text-balance">
-                Get found.{' '}
-                <span className="italic text-spot-deep">Capture it.</span>{' '}
-                Grow the whole business.
+                One call.{' '}
+                <span className="italic text-spot-deep">Then we do the work.</span>
               </h1>
               <p className="mt-6 max-w-xl font-body text-[1.15rem] leading-relaxed text-ink-2 text-pretty">
-                Rhemic works in three layers. Start by getting found and recommended, add a capture system
-                built to your business, or have us run the entire growth engine for you. Each layer builds
-                on the one before it.
+                Rhemic works in three steps. We learn your business on a discovery call, claim and build
+                out everything ChatGPT and Google read about you, then run it every month.
               </p>
             </Reveal>
           </div>
@@ -114,20 +112,19 @@ export default function HowItWorksPage() {
         {/* CTA */}
         <section className="px-5 py-24 sm:px-8 sm:py-28">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="kicker mb-5">Start with a free scan</p>
+            <p className="kicker mb-5">Start with a call</p>
             <h2 className="font-display text-[clamp(2rem,5vw,3.4rem)] font-medium leading-[1.02] text-balance">
               See where your business doesn’t show up yet.
             </h2>
             <p className="mx-auto mt-6 max-w-xl font-body text-[1.08rem] leading-relaxed text-ink-2">
-              Run the free visibility scan, then get a free 20-minute audit with the exact fixes and the
-              competitors taking the customers you are missing.
+              Book a 30-minute discovery call. We show you what ChatGPT and Google say about your business,
+              then quote the work it needs.
             </p>
             <div className="mt-8 flex justify-center">
-              <AuditButton className="btn-primary">Run my free audit</AuditButton>
+              <AuditButton className="btn-primary">Book a discovery call</AuditButton>
             </div>
             <p className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ink-3">
               <Link href="/services" className="link-rule">See all services</Link>
-              <Link href="/pricing" className="link-rule">See pricing</Link>
               <Link href="/testimonials" className="link-rule">See results</Link>
             </p>
           </Reveal>

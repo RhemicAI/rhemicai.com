@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Answer Engine Optimization (AEO) for Local Service Businesses',
   description:
-    'Answer engine optimization (AEO) gets your business named when a customer asks ChatGPT, Claude, Perplexity, Gemini or Copilot who to call. Prompt-level auditing, citation share, entity and schema work. From $200/mo.',
+    'Answer engine optimization (AEO) gets your business named when a customer asks ChatGPT, Claude, Perplexity, Gemini or Copilot who to call. Prompt-level auditing, citation share, entity and schema work. Quoted per business.',
   path: '/services/aeo',
   keywords: [
     'answer engine optimization',
@@ -64,7 +64,7 @@ export default function AeoServicePage() {
         {
           question: 'What does AEO cost?',
           answer:
-            'AEO is included from the Visibility plan at $200 a month, alongside GEO, SEO and Google Business Profile optimization. Every price is published on the pricing page.',
+            'AEO is part of the same engagement, alongside GEO, SEO and Google Business Profile optimization. We quote every business on its own needs after a discovery call.',
         },
       ]}
       related={[

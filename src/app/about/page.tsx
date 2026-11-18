@@ -5,12 +5,11 @@ import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
 import AuditButton from '@/components/redesign/AuditButton';
 import { buildMetadata, organizationSchema, absoluteUrl } from '@/lib/seo';
-import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'About Rhemic AI: Who We Are and Who We Serve',
   description:
-    'Rhemic AI is a search and answer-engine visibility firm for local service businesses in the U.S. Founded 2025 by Ittehadul Karim and Raahil Shaik. AEO, GEO, SEO and Google Business Profile, run as one stack. Plans from $200/mo.',
+    'Rhemic AI is a search and answer-engine visibility firm for local service businesses in the U.S. Founded 2025 by Ittehadul Karim and Raahil Shaik. AEO, GEO, SEO and Google Business Profile, run as one stack. Every engagement is quoted per business.',
   path: '/about',
   keywords: [
     'about Rhemic AI',
@@ -45,7 +44,7 @@ const faqs = [
   {
     question: 'What does it cost?',
     answer:
-      'Plans start at $200 a month for Visibility, $700 for Capture, and $2,000 for the full done-for-you system. Every price is published on the pricing page. You will not have to sit through a call to learn a number.',
+      'We quote every business on its own needs: the number of locations, the market and the work involved. You get the price on a 30-minute discovery call.',
   },
   {
     question: 'Do you guarantee rankings or AI mentions?',
@@ -55,7 +54,6 @@ const faqs = [
 ];
 
 export default function AboutPage() {
-  const entry = plans[0];
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -122,10 +120,7 @@ export default function AboutPage() {
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <AuditButton className="btn-primary">Run my visibility audit</AuditButton>
-                <Link href="/pricing" className="btn-ghost">
-                  See pricing
-                </Link>
+                <AuditButton className="btn-primary">Book a discovery call</AuditButton>
               </div>
             </Reveal>
           </div>
@@ -160,11 +155,10 @@ export default function AboutPage() {
               </div>
               <div className="paper-card p-6">
                 <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-3">
-                  Starting price
+                  Pricing
                 </p>
                 <p className="mt-3 font-body text-[1rem] leading-relaxed text-ink-2">
-                  ${entry.monthlyPrice} a month. Every tier is published, so you can size it before
-                  you talk to us.
+                  We quote every business on its own needs after a 30-minute discovery call.
                 </p>
               </div>
             </div>

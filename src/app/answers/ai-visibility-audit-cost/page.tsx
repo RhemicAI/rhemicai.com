@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import AnswerPageLayout from '@/components/shared/AnswerPageLayout';
 import { buildMetadata } from '@/lib/seo';
-import { plans, priceLadderSentence } from '@/data/pricing';
-
-const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
-const entry = plans[0];
 
 export const metadata: Metadata = buildMetadata({
   title: 'How Much Does an AI Visibility Audit Cost?',
-  description: `An AI visibility audit is priced as an ongoing engagement rather than a one-off report. Rhemic starts at ${usd(entry.monthlyPrice)} a month. Here is what changes the number.`,
+  description: `An AI visibility audit is priced as an ongoing engagement rather than a one-off report. Rhemic quotes every business on its own needs. Here is what changes the number.`,
   path: '/answers/ai-visibility-audit-cost',
   keywords: [
     'ai visibility audit cost',
@@ -25,7 +21,7 @@ export default function AiVisibilityAuditCostPage() {
       subtitle="Answers / AI visibility audit cost"
       title="How much does an AI visibility audit cost?"
       path="/answers/ai-visibility-audit-cost"
-      directAnswer={`An AI visibility audit is priced as an ongoing engagement rather than a one-off report, because AI answers change week to week. Rhemic runs three published plans: ${priceLadderSentence}. The entry plan covers one location and includes the audit plus the work to fix what the audit finds.`}
+      directAnswer={`An AI visibility audit is priced as an ongoing engagement rather than a one-off report, because AI answers change week to week. Rhemic quotes every business on its own needs after a 30-minute discovery call. Every engagement includes the audit plus the work to fix what the audit finds.`}
       details={
         <div className="space-y-5">
           <p className="text-[var(--text-secondary)] leading-relaxed">
@@ -37,15 +33,10 @@ export default function AiVisibilityAuditCostPage() {
           </p>
 
           <h2 className="text-xl font-bold text-[var(--text-primary)]">What Rhemic charges</h2>
-          <ul className="space-y-2 text-[var(--text-secondary)] text-sm leading-relaxed list-disc list-inside">
-            {plans.map((p) => (
-              <li key={p.tier}>
-                <strong className="text-[var(--text-primary)]">{p.name}</strong> at{' '}
-                {usd(p.monthlyPrice)} a month, or {usd(p.annualPrice)} a year. {p.bestFor}{' '}
-                {p.includedLocations}.
-              </li>
-            ))}
-          </ul>
+          <p className="text-[var(--text-secondary)] leading-relaxed">
+            Rhemic quotes every business on its own needs. The quote comes after a 30-minute
+            discovery call and depends on the factors below.
+          </p>
 
           <h2 className="text-xl font-bold text-[var(--text-primary)]">
             What moves the price
@@ -90,7 +81,7 @@ export default function AiVisibilityAuditCostPage() {
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Treat any quoted figure that promises a ranking, a citation rate, or a revenue number as
             a warning sign. Results depend on third-party platforms that no vendor controls. Rhemic
-            publishes its prices and declines to guarantee a placement.
+            declines to guarantee a placement.
           </p>
         </div>
       }
@@ -109,7 +100,7 @@ export default function AiVisibilityAuditCostPage() {
       faqs={[
         {
           question: 'How much does an AI visibility audit cost?',
-          answer: `Rhemic publishes three plans: ${priceLadderSentence}. Each includes the audit and the work to act on it. A standalone one-time audit report from other vendors typically costs less and delivers findings rather than change.`,
+          answer: `Rhemic quotes every business on its own needs after a discovery call. Each engagement includes the audit and the work to act on it. A standalone one-time audit report from other vendors typically costs less and delivers findings rather than change.`,
         },
         {
           question: 'Is there a free AI visibility audit?',
@@ -124,7 +115,7 @@ export default function AiVisibilityAuditCostPage() {
           answer: 'Engines re-crawl and re-ground on their own schedules, so movement typically appears across weeks rather than days. This is why Rhemic prices the work as an ongoing engagement and re-measures the same prompt set rather than delivering a single report.',
         },
       ]}
-      ctaLabel="See pricing"
+      ctaLabel="Book a discovery call"
       ctaHref="/pricing"
     />
   );

@@ -57,7 +57,7 @@ export default function WhoIsRhemicAiForPage() {
         { title: 'Pricing', href: '/pricing' },
         { title: 'FAQ', href: '/faq' },
       ]}
-      ctaLabel="Get the audit"
+      ctaLabel="Book a discovery call"
       ctaHref="/contact"
       faqs={[
         {

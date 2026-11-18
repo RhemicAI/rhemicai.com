@@ -98,17 +98,17 @@ export default function ServicesPage() {
 
         <section className="ink-block px-5 py-24 sm:px-8 sm:py-28">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="kicker mb-5" style={{ color: 'var(--spot)' }}>Start with a free scan</p>
+            <p className="kicker mb-5" style={{ color: 'var(--spot)' }}>Start with a call</p>
             <h2 className="font-display text-[clamp(2rem,5vw,3.4rem)] font-medium leading-[1.02] text-balance">
               Not sure which layer you need?
             </h2>
             <p className="mx-auto mt-6 max-w-xl font-body text-[1.08rem] leading-relaxed text-[rgba(244,238,222,0.72)]">
-              Run the free visibility scan. We will show you exactly where you stand and which of these moves
-              the needle first for your business.
+              Book a discovery call. We look at where you stand, tell you which of these matters first for
+              your business, and quote the work.
             </p>
             <div className="mt-8 flex justify-center">
               <AuditButton className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]">
-                Run my free audit
+                Book a discovery call
               </AuditButton>
             </div>
           </Reveal>

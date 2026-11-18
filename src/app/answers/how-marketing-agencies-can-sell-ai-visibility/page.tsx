@@ -51,7 +51,7 @@ export default function HowAgenciesCanSellAiVisibilityPage() {
         { title: 'AI Visibility Tools for Agencies', href: '/ai-visibility-tools-for-agencies' },
         { title: 'Pricing', href: '/pricing' },
       ]}
-      ctaLabel="View partner pricing"
+      ctaLabel="Book a discovery call"
       ctaHref="/for-agencies"
       faqs={[
         {

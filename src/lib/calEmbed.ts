@@ -9,6 +9,7 @@ export const CAL_BOOKING_EVENT_NAME = 'rhemic:open-cal-booking';
 export type CalLink =
   | 'rhemic-ai'
   | 'rhemic-ai/rhemic-ai-audit-walkthrough'
+  | 'rhemic-ai/discovery-call'
   | 'rhemic-ai/medspa-discovery-call'
   | 'rhemic-ai/medspa-consult-leak-audit';
 
@@ -29,15 +30,15 @@ export function getCalEmbedUrl(calLink: CalLink, prefill?: Record<string, string
   return url.toString();
 }
 
-// Shared audit-booking payload. Single source of truth so the header "Get audit"
+// Shared audit-booking payload. Single source of truth so the header "Book a call"
 // button, the blog CTAs, and inline blog links all open the exact same Cal flow.
 export const AUDIT_BOOKING_DETAIL = {
-  calLink: 'rhemic-ai/rhemic-ai-audit-walkthrough' as const,
-  durationLabel: '20 minute audit',
-  title: 'Run your revenue leak audit.',
-  subtitle: 'Pick a time. We will show you exactly where leads leak.',
+  calLink: 'rhemic-ai/discovery-call' as const,
+  durationLabel: '30 minute discovery call',
+  title: 'Book a discovery call.',
+  subtitle: 'Pick a time. We learn your business and quote the work it needs.',
   prepNote:
-    'We scan your AI visibility, Google presence, and call capture before the call, so it is specific to your business.',
+    'We look at your ChatGPT business profile, Google Business Profile and website before the call, so it is specific to your business.',
 };
 
 // Detail payload for the CAL_BOOKING_EVENT_NAME custom event. Lets callers open the

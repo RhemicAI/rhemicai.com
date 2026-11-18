@@ -142,7 +142,7 @@ export default function WhichSourcesAiEnginesCitePage() {
           answer: 'Monthly is enough for most local categories. Answers drift continuously, so a single audit ages quickly, and a dated baseline you can compare against matters more than any one run.',
         },
       ]}
-      ctaLabel="Get the audit"
+      ctaLabel="Book a discovery call"
       ctaHref="/pricing"
     />
   );

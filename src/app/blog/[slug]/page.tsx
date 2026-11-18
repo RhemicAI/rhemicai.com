@@ -280,7 +280,7 @@ export default async function BlogPostPage({
               cursor: 'pointer',
             }}
           >
-            Get a free visibility audit
+            Book a discovery call
           </AuditButton>
         </div>
       </section>

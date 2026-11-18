@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Our Work',
   description:
-    'Proof, not promises: businesses Rhemic got cited inside AI answers, with results you can paste into ChatGPT and verify. Choose One Auto, Kay’s Groom Room, and Wava Grill.',
+    'Proof, not promises: businesses Rhemic got cited inside AI answers, with results you can paste into ChatGPT and verify. Kay’s Groom Room, Wava Halal Grill and Rockwall Services.',
   path: '/testimonials',
   keywords: ['Rhemic AI case studies', 'Rhemic AI work', 'booking site case study'],
 });
@@ -51,37 +51,47 @@ const studies: CaseStudy[] = [
   },
   {
     no: '02',
-    name: 'Choose One Auto Consulting',
-    kind: 'Auto consulting · Michael King',
-    location: 'Irving, TX',
-    url: 'https://chooseoneautoconsulting.com',
-    urlLabel: 'chooseoneautoconsulting.com',
-    hero: '/images/cases/chooseone-owner.jpg',
-    logo: '/images/cases/chooseone-logo.jpg',
+    name: 'Wava Halal Grill',
+    kind: 'Halal street food restaurant',
+    location: 'Dallas, TX',
+    url: 'https://wavagrill.com',
+    urlLabel: 'wavagrill.com',
+    hero: '/images/cases/wava-food.jpg',
+    logo: '/images/cases/wava-logo.png',
     brief:
-      'A founder-led consulting business losing real money to missed calls. The work was not just a site, it was making sure no inbound call went unanswered.',
+      'A multi-location halal restaurant that needed one site to carry the menu, every location, catering and franchise interest, and to show up when people ask AI where to eat.',
     built: [
-      'A conversion-focused site built around the consulting offer',
-      'An AI receptionist that answers and captures every call',
-      'After-hours and overflow calls caught instead of going to voicemail',
-      'Every call logged and routed so the team can follow up fast',
+      'A full restaurant site with a live menu by category',
+      'A locations page with an interactive map of every Texas store',
+      'Catering packages and a franchise application flow',
+      'An online ordering flow from menu to checkout',
+      'Local schema and answer-page work so AI engines can name the dish and the location',
     ],
     result:
-      'A site and a capture system working together, so demand turns into conversations instead of missed voicemails.',
+      'ChatGPT ranks Wava first for halal chicken over rice in Richardson and calls the dish out by name.',
+  },
+  {
+    no: '03',
+    name: 'Rockwall Services',
+    kind: 'Logistics brokerage',
+    location: 'Texas',
+    url: 'https://rockwallservices.net',
+    urlLabel: 'rockwallservices.net',
+    hero: '/images/cases/rockwall-site.jpg',
+    logo: '/images/cases/rockwall-logo.png',
+    brief:
+      'A logistics brokerage running since 2009 whose website Google was ignoring. Customers searching for the company could not find it.',
+    built: [
+      'Found and fixed a setting that had Google ignoring the entire site, then got it fully indexed',
+      'Built a new, SEO-structured Customers page, now live on the site',
+      'Verified the Google Business Profile to open up local map optimization',
+    ],
+    result:
+      'The site went from invisible to fully indexed by Google and now ranks first for its own brand search.',
   },
 ];
 
 const citations = [
-  {
-    name: 'Choose One Auto Consulting',
-    vertical: 'Auto · Irving, TX',
-    rank: 'Recommended',
-    site: 'chooseoneautoconsulting.com',
-    url: 'https://chooseoneautoconsulting.com',
-    img: '/images/proof/chooseone-chatgpt.png',
-    cited: 'ChatGPT names it the local DFW car-buying concierge to use, cited by name in the answer.',
-    queries: ['Best car buying concierge service in DFW', 'Recommend a car buying consultant in Irving, Texas'],
-  },
   {
     name: 'Kay’s Groom Room',
     vertical: 'Pet services · Seagoville, TX',
@@ -145,7 +155,7 @@ export default function TestimonialsPage() {
               </p>
             </Reveal>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {citations.map((c, i) => (
                 <Reveal key={c.name} delay={(i + 1) as 1 | 2 | 3} as="article" className="paper-card flex flex-col overflow-hidden p-0">
                   {/* Real ChatGPT screenshot from the visibility report */}
@@ -189,57 +199,6 @@ export default function TestimonialsPage() {
               third-party platforms outside our control. Paste the queries to see current answers.
             </p>
 
-            {/* Proof of work — what we did, factual, no client quote */}
-            <Reveal delay={2} className="paper-card mt-12 p-8 sm:p-10">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <p className="kicker mb-3">In progress</p>
-                  <h3 className="font-display text-[1.8rem] font-semibold leading-tight">Rockwall Services</h3>
-                  <p className="font-mono text-[0.64rem] uppercase tracking-[0.16em] text-ink-3">Logistics brokerage · Texas</p>
-                </div>
-                <a
-                  href="https://rockwallservices.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-rule w-fit font-mono text-[0.72rem] uppercase tracking-[0.14em] text-spot-deep"
-                >
-                  rockwallservices.net →
-                </a>
-              </div>
-
-              <div className="mt-7 grid gap-7 border-t border-[var(--line)] pt-6 sm:grid-cols-2">
-                <div>
-                  <p className="kicker kicker-ink mb-3">What we did</p>
-                  <ul className="space-y-2.5">
-                    {[
-                      'Found and fixed a setting that had Google ignoring the entire site, then got it fully indexed',
-                      'Built a new, SEO-structured Customers page, now live on the site',
-                      'Verified the Google Business Profile to open up local map optimization',
-                    ].map((b) => (
-                      <li key={b} className="flex gap-3">
-                        <span className="mt-[9px] h-1.5 w-1.5 shrink-0 bg-spot" />
-                        <span className="font-body text-[0.98rem] leading-snug text-ink-2">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="kicker kicker-ink mb-3">The result</p>
-                  <ul className="space-y-2.5">
-                    {[
-                      'Site went from invisible to fully indexed by Google',
-                      'Now ranks first for its own brand search',
-                      'Local map and AEO optimization underway as the next phase',
-                    ].map((b) => (
-                      <li key={b} className="flex gap-3">
-                        <span className="mt-[9px] h-1.5 w-1.5 shrink-0 bg-spot" />
-                        <span className="font-body text-[0.98rem] leading-snug text-ink-2">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
           </div>
         </section>
 
@@ -321,7 +280,7 @@ export default function TestimonialsPage() {
             </p>
             <div className="mt-8 flex justify-center">
               <AuditButton className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]">
-                Run my revenue leak audit
+                Book a discovery call
               </AuditButton>
             </div>
           </Reveal>
