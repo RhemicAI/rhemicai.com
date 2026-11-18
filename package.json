@@ -26,7 +26,8 @@
   },
   "overrides": {
     "minimatch": "^10.2.1",
-    "postcss": "^8.5.26"
+    "postcss": "^8.5.26",
+    "eslint-plugin-react-hooks": "7.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
