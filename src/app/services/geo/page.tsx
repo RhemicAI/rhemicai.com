@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Generative Engine Optimization (GEO) for Local Service Businesses',
   description:
-    'Generative engine optimization (GEO) fixes what AI engines read about you before they answer: reviews, directories, roundups, comparison content and community threads. From $200/mo.',
+    'Generative engine optimization (GEO) fixes what AI engines read about you before they answer: reviews, directories, roundups, comparison content and community threads. Quoted per business.',
   path: '/services/geo',
   keywords: [
     'generative engine optimization',
@@ -58,7 +58,7 @@ export default function GeoServicePage() {
         {
           question: 'What does GEO cost?',
           answer:
-            'GEO is included from the Visibility plan at $200 a month, alongside AEO, SEO and Google Business Profile optimization. Every price is published on the pricing page.',
+            'GEO is part of the same engagement, alongside AEO, SEO and Google Business Profile optimization. We quote every business on its own needs after a discovery call.',
         },
       ]}
       related={[

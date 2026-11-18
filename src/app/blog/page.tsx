@@ -217,7 +217,7 @@ export default function BlogPage() {
               cursor: 'pointer',
             }}
           >
-            Get a free audit
+            Book a discovery call
           </AuditButton>
         </div>
       </section>

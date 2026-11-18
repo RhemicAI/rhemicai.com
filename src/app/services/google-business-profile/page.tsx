@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Google Business Profile Optimization for Local Service Businesses',
   description:
-    'Google Business Profile optimization: categories, services, attributes, hours, photos, posts, Q&A, review velocity and response, NAP consistency, map pack ranking and suspension recovery. From $200/mo.',
+    'Google Business Profile optimization: categories, services, attributes, hours, photos, posts, Q&A, review velocity and response, NAP consistency, map pack ranking and suspension recovery. Quoted per business.',
   path: '/services/google-business-profile',
   keywords: [
     'Google Business Profile optimization',
@@ -66,7 +66,7 @@ export default function GbpServicePage() {
         {
           question: 'What does this cost?',
           answer:
-            'Google Business Profile optimization is included from the Visibility plan at $200 a month, alongside AEO, GEO and SEO. Every price is published on the pricing page.',
+            'Google Business Profile optimization is part of the same engagement, alongside AEO, GEO and SEO. We quote every business on its own needs after a discovery call.',
         },
       ]}
       related={[

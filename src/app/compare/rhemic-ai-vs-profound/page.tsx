@@ -7,7 +7,6 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
-import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI vs Profound: AI Visibility Platform Comparison',
@@ -17,7 +16,6 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['Rhemic AI vs Profound', 'Profound alternative', 'AI visibility platform comparison'],
 });
 
-const basicPlan = plans.find((p) => p.tier === 'basic')!;
 
 const faqs = [
   {
@@ -30,7 +28,7 @@ const faqs = [
   },
   {
     question: 'Which is better for small businesses?',
-    answer: `Rhemic AI's ${basicPlan.name} plan at $${basicPlan.monthlyPrice}/month is designed specifically for small and local businesses. For Profound pricing and SMB fit, check profound.com directly.`,
+    answer: 'Rhemic AI works with small and local businesses and quotes each one on its own needs after a discovery call. For Profound pricing and SMB fit, check profound.com directly.',
   },
 ];
 
@@ -76,7 +74,7 @@ export default function RhemicVsProfoundPage() {
                 { label: 'Implementation recommendations', values: ['Yes — schema fixes, content plans, prioritized list', 'TBD — primarily analytics focus per public info'] },
                 { label: 'Schema markup guidance', values: ['Yes', 'TBD'] },
                 { label: 'Agency delivery model', values: ['Yes — partner pricing available', 'TBD'] },
-                { label: 'SMB pricing', values: [`$${basicPlan.monthlyPrice}/mo ${basicPlan.name}`, 'TBD — check profound.com'] },
+                { label: 'SMB pricing', values: ['Quoted per business', 'TBD — check profound.com'] },
               ]}
             />
           </section>

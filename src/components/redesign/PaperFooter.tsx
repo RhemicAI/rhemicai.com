@@ -8,8 +8,7 @@ const cols: { title: string; links: { href: string; label: string }[] }[] = [
       { href: '/how-it-works', label: 'How it works' },
       { href: '/services', label: 'Services' },
       { href: '/testimonials', label: 'Results' },
-      { href: '/pricing', label: 'Pricing' },
-      { href: '#audit', label: 'Get audit' },
+      { href: '#audit', label: 'Book a call' },
     ],
   },
   {
@@ -55,7 +54,7 @@ export default function PaperFooter() {
               <span className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-[var(--spot)]">AI</span>
             </div>
             <p className="mt-4 max-w-xs font-display text-[1.15rem] font-medium leading-snug text-[var(--paper)]">
-              From search to booked revenue. One operating system.
+              Be the business AI recommends, and the one that answers first.
             </p>
           </div>
 

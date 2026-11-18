@@ -154,7 +154,7 @@ export default function AiReceptionistCostPage() {
           answer: `Rhemic sells the outcome rather than a standalone receptionist product. The ${capture.name} plan at ${usd(capture.monthlyPrice)} a month catches missed calls and after-hours inquiries, follows up, routes each lead to your team with its source attached, and includes the visibility work that changes how many calls arrive in the first place.`,
         },
       ]}
-      ctaLabel="See pricing"
+      ctaLabel="Book a discovery call"
       ctaHref="/pricing"
     />
   );

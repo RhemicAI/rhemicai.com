@@ -34,30 +34,30 @@ const outcomes = [
   },
   {
     no: '03',
-    title: 'Capture the demand',
+    title: 'Stay the answer',
     body:
-      'Every call, form, and after-hours inquiry gets caught and routed to your team with clear source context. Nothing the visibility creates falls through.',
+      'AI answers change every week. Every month we keep your profiles current, grow your reviews and answer pages, and report your ChatGPT and Google numbers.',
   },
 ];
 
 const steps = [
   {
     no: '01',
-    title: 'Visibility',
+    title: 'Discovery call',
     body:
-      'Rank on Google and get recommended inside AI answers. SEO, GEO, and AEO, so you show up everywhere customers look.',
+      'One 30-minute call. We look at what ChatGPT and Google say about you, learn your business, and quote the work it needs.',
   },
   {
     no: '02',
-    title: 'Capture',
+    title: 'Claim and build',
     body:
-      'A response system built to your business, with its own lead tracker, so every call, form, and after-hours inquiry is caught and followed up.',
+      'We claim and verify your ChatGPT business profile, complete your Google Business Profile, and fix the website pages AI engines read.',
   },
   {
     no: '03',
-    title: 'Full growth system',
+    title: 'Run it every month',
     body:
-      'We run visibility, capture, and reporting for your whole business, across every location. You run the business.',
+      'We keep your profiles current, grow reviews and answer pages, and send a monthly report with your ChatGPT and Google numbers.',
   },
 ];
 
@@ -71,12 +71,20 @@ const cases = [
     line: 'A booking-first site where every section funnels to one action, with a mobile call-and-book bar so no inquiry slips.',
   },
   {
-    slug: 'choose-one-auto',
-    name: 'Choose One Auto Consulting',
-    kind: 'Auto consulting · Michael King',
-    url: 'Site + AI receptionist',
-    img: '/images/cases/chooseone-owner.jpg',
-    line: 'A conversion site wired to an AI receptionist that answers and captures every call, including the ones that used to go to voicemail.',
+    slug: 'wava-halal-grill',
+    name: 'Wava Halal Grill',
+    kind: 'Halal restaurant · Dallas, TX',
+    url: 'wavagrill.com',
+    img: '/images/cases/wava-food.jpg',
+    line: 'ChatGPT ranks it first for halal chicken over rice in Richardson and calls the dish out by name.',
+  },
+  {
+    slug: 'rockwall-services',
+    name: 'Rockwall Services',
+    kind: 'Logistics brokerage · Texas',
+    url: 'rockwallservices.net',
+    img: '/images/cases/rockwall-site.jpg',
+    line: 'We found the setting that had Google ignoring the whole site, fixed it, and got every page indexed.',
   },
 ];
 
@@ -85,14 +93,14 @@ const homepageSchema = {
   '@type': 'Service',
   name: 'Rhemic AI Visibility System',
   description:
-    'Rhemic makes any business the answer customers find in search and AI engines, then captures that demand into customers.',
+    'Rhemic is a visibility agency for local businesses. We set up and run the ChatGPT business profile, Google Business Profile, website and reviews, so AI engines and Google recommend the business. Every engagement is quoted per business.',
   provider: { '@type': 'Organization', name: 'Rhemic AI', url: absoluteUrl('/') },
   areaServed: { '@type': 'Country', name: 'United States' },
   serviceType: [
     'AI search visibility',
+    'ChatGPT business profile setup and management',
     'Answer engine optimization',
     'Local search visibility',
-    'Lead capture',
     'Source-aware reporting',
   ],
 };
@@ -115,39 +123,39 @@ export default function Home() {
                   and the one that answers first.
                 </h1>
                 <p className="rise rise-3 mt-5 max-w-xl font-body text-[1.06rem] leading-relaxed text-ink text-pretty">
+                  Rhemic is a visibility agency for local businesses. We set up and run your{' '}
                   <span className="font-medium text-spot-deep">
-                    Answer engine optimization (AEO), generative engine optimization (GEO), SEO and
-                    Google Business Profile optimization
-                  </span>{' '}
-                  for local service businesses, run as one technical stack.
+                    ChatGPT business profile, Google Business Profile, website and reviews
+                  </span>
+                  , so the AI engines and Google name you when a customer asks who to call.
                 </p>
                 <p className="rise rise-3 mt-6 max-w-lg font-body text-[1.02rem] leading-relaxed text-ink-2 text-pretty">
-                  Customers now ask Google, ChatGPT, and Perplexity who to go with, then pick whoever
-                  looks most trusted and answers first. Rhemic gets your business into those answers,
-                  recovers the leads you are missing, and turns more of that demand into customers.
+                  Customers now ask ChatGPT and Google who to go with, then pick whoever looks most
+                  trusted. ChatGPT now lists businesses by profile. We claim and verify yours, keep it
+                  complete, and run everything it reads. We quote every business on its own needs after a 30-minute discovery call.
                 </p>
                 <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-4">
-                  <AuditButton className="btn-primary">Run my revenue leak audit</AuditButton>
+                  <AuditButton className="btn-primary">Book a discovery call</AuditButton>
                   <Link href="/#how" className="btn-ghost">See how it works</Link>
                 </div>
                 <p className="rise rise-4 mt-5 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-ink-3">
-                  AI visibility scan <span className="text-spot">·</span> Google Business audit <span className="text-spot">·</span> Missed-call capture review
+                  ChatGPT business profile <span className="text-spot">·</span> Google Business Profile <span className="text-spot">·</span> Website and reviews
                 </p>
               </div>
 
-              {/* Diagnostic "Lead Leak Report" — shows the leak, then the fix */}
+              {/* Visibility check card: shows the gaps, then the fix */}
               <div className="rise rise-3 relative">
                 <div className="paper-card relative rotate-[-1.4deg] p-6 sm:p-7">
                   <div className="flex items-center justify-between border-b border-[var(--ink)] pb-3">
-                    <span className="font-mono text-[0.64rem] uppercase tracking-[0.2em] text-ink">Lead leak report</span>
-                    <span className="bg-[var(--spot-soft)] px-2 py-0.5 font-mono text-[0.56rem] uppercase tracking-[0.14em] text-spot-deep">3 leaks found</span>
+                    <span className="font-mono text-[0.64rem] uppercase tracking-[0.2em] text-ink">Visibility check</span>
+                    <span className="bg-[var(--spot-soft)] px-2 py-0.5 font-mono text-[0.56rem] uppercase tracking-[0.14em] text-spot-deep">3 gaps found</span>
                   </div>
 
                   <div className="mt-4 space-y-3.5">
                     {[
-                      ['AI answers', 'Not recommended in 3 of 4 searches'],
-                      ['Google visibility', 'Competitor outranks you for “near me”'],
-                      ['Call capture', 'After-hours calls go unanswered'],
+                      ['ChatGPT business profile', 'Unclaimed and unverified'],
+                      ['AI answers', 'ChatGPT names a competitor instead of you'],
+                      ['Google Business Profile', 'Missing services, hours and photos'],
                     ].map(([label, status]) => (
                       <div key={label} className="flex items-start gap-3 border-b border-[var(--line-soft)] pb-3">
                         <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center bg-[var(--spot)] font-mono text-[0.62rem] font-bold text-[var(--paper)]">!</span>
@@ -162,7 +170,7 @@ export default function Home() {
                   <div className="mt-4 bg-[var(--ink)] px-4 py-3">
                     <p className="font-mono text-[0.56rem] uppercase tracking-[0.18em] text-[var(--spot)]">Rhemic fix</p>
                     <p className="mt-1 font-display text-[1.1rem] font-semibold text-[var(--paper)]">
-                      Visibility + Capture + Booking loop
+                      Claim + Build + Run it every month
                     </p>
                   </div>
                 </div>
@@ -257,7 +265,7 @@ export default function Home() {
               <div className="max-w-xl">
                 <p className="kicker mb-5">How it works</p>
                 <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-balance">
-                  Three layers. Get found, capture it, grow.
+                  One call. Then we do the work.
                 </h2>
               </div>
               <Link href="/how-it-works" className="link-rule font-mono text-[0.78rem] uppercase tracking-[0.14em] text-ink">
@@ -296,9 +304,9 @@ export default function Home() {
               </Link>
             </Reveal>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {cases.map((c, i) => (
-                <Reveal key={c.slug} delay={(i + 1) as 1 | 2} as="article" className="paper-card group flex flex-col overflow-hidden p-0">
+                <Reveal key={c.slug} delay={(i + 1) as 1 | 2 | 3} as="article" className="paper-card group flex flex-col overflow-hidden p-0">
                   <div className="relative overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -324,36 +332,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ───────────────────── PRICING TEASER ───────────────────── */}
-        <section className="border-t border-[var(--line)] bg-[var(--paper-2)] px-5 py-24 sm:px-8 sm:py-28">
-          <div className="mx-auto flex max-w-6xl flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
-            <Reveal className="max-w-xl">
-              <p className="kicker mb-5">Pricing</p>
-              <h2 className="font-display text-[clamp(1.9rem,4.4vw,3rem)] font-medium leading-[1.05] text-balance">
-                Start at visibility. Scale into capture.
-              </h2>
-              <p className="mt-5 font-body text-[1.05rem] leading-relaxed text-ink-2">
-                Start by getting found and recommended. Add full demand capture and source-aware
-                reporting whenever you want it.
-              </p>
-            </Reveal>
-            <Reveal delay={2} className="paper-card w-full max-w-sm p-7">
-              <span className="font-mono text-[0.66rem] uppercase tracking-[0.2em] text-spot-deep">Tier 1 · Visibility</span>
-              <div className="mt-3 flex items-baseline gap-2">
-                <span className="font-display text-[1.5rem] font-semibold leading-none text-ink-faint line-through decoration-[1.5px] decoration-[var(--spot)]">$300</span>
-                <span className="font-display text-[3.2rem] font-bold leading-none">$200</span>
-                <span className="font-mono text-[0.74rem] text-ink-3">/mo</span>
-              </div>
-              <p className="mt-3 font-body text-[0.98rem] leading-relaxed text-ink-2">
-                Get found and recommended across search and AI answers.
-              </p>
-              <Link href="/pricing" className="btn-primary mt-6 w-full">See all tiers</Link>
-              <p className="mt-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-faint">
-                No website? We build it.
-              </p>
-            </Reveal>
-          </div>
-        </section>
 
         {/* ───────────────────── FINAL CTA ───────────────────── */}
         <section className="ink-block px-5 py-28 sm:px-8 sm:py-32">
@@ -364,12 +342,12 @@ export default function Home() {
               <span className="italic" style={{ color: 'var(--spot)' }}>doesn’t</span> show up yet.
             </h2>
             <p className="mx-auto mt-7 max-w-xl font-body text-[1.1rem] leading-relaxed text-[rgba(244,238,222,0.72)]">
-              One call. We’ll show you what AI engines say about your category today, and what it
-              takes to be the name they give.
+              One 30-minute call. We show you what ChatGPT and Google say about your business, then
+              quote the work your business needs.
             </p>
             <div className="mt-9 flex justify-center">
               <AuditButton className="btn-primary !border-[var(--paper)] !bg-[var(--paper)] !text-[var(--ink)] hover:!border-[var(--spot)] hover:!bg-[var(--spot)] hover:!text-[var(--paper)]">
-                Run my revenue leak audit
+                Book a discovery call
               </AuditButton>
             </div>
           </Reveal>

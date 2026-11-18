@@ -18,7 +18,6 @@ const links = [
   { href: '/answers', label: 'Answers' },
   { href: '/blog', label: 'Blog' },
   { href: '/testimonials', label: 'Results' },
-  { href: '/pricing', label: 'Pricing' },
 ];
 
 export default function PaperNav() {
@@ -66,7 +65,7 @@ export default function PaperNav() {
             </Link>
           ))}
           <AuditButton className="btn-primary !px-5 !py-3 text-[0.7rem]">
-            Get audit
+            Book a call
           </AuditButton>
         </div>
 
@@ -98,7 +97,7 @@ export default function PaperNav() {
               </Link>
             ))}
             <AuditButton className="btn-primary mt-2 w-full" onActivate={() => setOpen(false)}>
-              Get audit
+              Book a call
             </AuditButton>
           </div>
         </div>

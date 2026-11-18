@@ -7,7 +7,6 @@ import SubpageFAQ from '@/components/shared/SubpageFAQ';
 import RelatedLinks from '@/components/shared/RelatedLinks';
 import PageSchemas from '@/components/seo/PageSchemas';
 import { buildMetadata } from '@/lib/seo';
-import { plans } from '@/data/pricing';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Rhemic AI vs Scrunch AI: AI Visibility Platform Comparison',
@@ -17,7 +16,6 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['Rhemic AI vs Scrunch', 'Scrunch AI alternative', 'AI visibility tools comparison'],
 });
 
-const basicPlan = plans.find((p) => p.tier === 'basic')!;
 
 const faqs = [
   {
@@ -70,7 +68,7 @@ export default function RhemicVsScrunchPage() {
                 { label: 'Competitor mention analysis', values: ['Yes', 'TBD — verify at scrunch.ai'] },
                 { label: 'Implementation guidance', values: ['Yes — schema, content, technical fixes', 'TBD'] },
                 { label: 'Agency model', values: ['Yes — partner pricing available', 'TBD'] },
-                { label: 'SMB-friendly pricing', values: [`From $${basicPlan.monthlyPrice}/mo`, 'TBD — check scrunch.ai'] },
+                { label: 'SMB-friendly pricing', values: ['Quoted per business', 'TBD — check scrunch.ai'] },
               ]}
             />
           </section>

@@ -8,7 +8,6 @@ import SchemaOrg from "@/components/SchemaOrg/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed/CalEmbed";
 import CalBookingSurface from "@/components/CalEmbed/CalBookingSurface";
-import ScanPopup from "@/components/redesign/ScanPopup";
 import { siteConfig } from "@/lib/seo";
 
 // Display — high-contrast optical serif, the voice of the new system
@@ -115,7 +114,6 @@ export default function RootLayout({
         <Breadcrumbs />
         <CalEmbed />
         <CalBookingSurface />
-        <ScanPopup />
         <div className="relative z-10">{children}</div>
         <Script
           id="hs-script-loader"

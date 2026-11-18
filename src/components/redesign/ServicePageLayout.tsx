@@ -4,7 +4,6 @@ import PaperFooter from '@/components/redesign/PaperFooter';
 import Reveal from '@/components/redesign/Reveal';
 import AuditButton from '@/components/redesign/AuditButton';
 import { absoluteUrl, siteConfig } from '@/lib/seo';
-import { plans } from '@/data/pricing';
 
 export type ServiceFaq = { question: string; answer: string };
 export type ServiceLink = { title: string; href: string };
@@ -45,7 +44,6 @@ export default function ServicePageLayout({
   faqs,
   related = [],
 }: ServicePageProps) {
-  const entry = plans[0];
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -70,13 +68,6 @@ export default function ServicePageLayout({
       url: siteConfig.url,
     },
     areaServed: { '@type': 'Country', name: 'United States' },
-    offers: {
-      '@type': 'Offer',
-      price: entry.monthlyPrice,
-      priceCurrency: 'USD',
-      url: absoluteUrl('/pricing'),
-      description: `Included from the ${entry.name} plan at $${entry.monthlyPrice} a month.`,
-    },
   };
 
   return (
@@ -124,10 +115,7 @@ export default function ServicePageLayout({
                 {whatItIs}
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <AuditButton className="btn-primary">Run my visibility audit</AuditButton>
-                <Link href="/pricing" className="btn-ghost">
-                  See pricing
-                </Link>
+                <AuditButton className="btn-primary">Book a discovery call</AuditButton>
               </div>
             </Reveal>
           </div>
@@ -181,13 +169,11 @@ export default function ServicePageLayout({
                   What it costs
                 </p>
                 <p className="mt-3 font-body text-[1.05rem] leading-relaxed text-ink-2">
-                  This is included from the {entry.name} plan at ${entry.monthlyPrice} a month. We
-                  publish every price on the pricing page, so you can size it before you talk to us.
+                  We quote every business on its own needs. Book a 30-minute discovery call and we
+                  scope the work and the price for your business.
                 </p>
               </div>
-              <Link href="/pricing" className="btn-primary">
-                See the full ladder
-              </Link>
+              <AuditButton className="btn-primary">Book a discovery call</AuditButton>
             </div>
           </div>
         </section>

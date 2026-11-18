@@ -55,7 +55,7 @@ export default function WhyCompetitorShowsUpPage() {
         { title: 'Pricing', href: '/pricing' },
         { title: 'Pricing', href: '/pricing' },
       ]}
-      ctaLabel="Get the audit"
+      ctaLabel="Book a discovery call"
       ctaHref="/contact"
       faqs={[
         {
