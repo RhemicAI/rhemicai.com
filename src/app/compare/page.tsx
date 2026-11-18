@@ -99,9 +99,9 @@ export default function CompareHubPage() {
             href: '/pricing',
           },
           {
-            title: 'Case Studies',
-            description: 'Review the dogfooding case study based on improving rhemicai.com itself.',
-            href: '/case-studies',
+            title: 'Results',
+            description: 'The businesses we got ChatGPT and Google to name.',
+            href: '/testimonials',
           },
         ]}
       />

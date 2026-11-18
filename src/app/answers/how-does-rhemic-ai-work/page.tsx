@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'How Does Rhemic AI Work?',
   description:
-    'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
+    'How Rhemic AI works: a 30-minute discovery call, then we claim and build out your ChatGPT business profile, Google Business Profile and website, and run them every month.',
   path: '/answers/how-does-rhemic-ai-work',
-  keywords: ['how does Rhemic AI work', 'Rhemic AI audit process', 'AI visibility audit'],
+  keywords: ['how does Rhemic AI work', 'Rhemic AI process', 'ChatGPT business profile setup'],
 });
 
 export default function HowDoesRhemicAiWorkPage() {
@@ -16,15 +16,15 @@ export default function HowDoesRhemicAiWorkPage() {
       subtitle="Answers / How does Rhemic AI work"
       title="How does Rhemic AI work?"
       path="/answers/how-does-rhemic-ai-work"
-      directAnswer="Rhemic helps U.S. med spas find lost consult opportunities and route more booking intent to the right team. It reviews search visibility, AI answers, calls, handoffs, and source context so teams can prioritize the leaks that may be blocking consult opportunities."
+      directAnswer="Rhemic works in three steps. A 30-minute discovery call, where we check what ChatGPT and Google say about your business and quote the work. Claim and build, where we claim and verify your ChatGPT business profile, complete your Google Business Profile and fix your website pages. Then we run it every month and report your ChatGPT and Google numbers."
       details={
         <div className="space-y-5">
           <div className="space-y-3">
             {[
-              { step: '1', label: 'Find', text: 'Rhemic reviews where patients may fail to find the clinic across Google, AI answers, treatment pages, reviews, and local trust signals.' },
-              { step: '2', label: 'Prioritize', text: 'Rhemic helps prioritize the visibility, call, handoff, and source-context leaks most likely to keep patient demand from becoming a consult opportunity.' },
-              { step: '3', label: 'Route', text: 'Capture and Scale help route calls, missed calls, after-hours inquiries, website inquiries where available, and campaign handoffs into approved handoff workflows.' },
-              { step: '4', label: 'Review', text: 'Rhemic helps show which sources are creating consult opportunities so the clinic can decide what to fix, pause, or expand next.' },
+              { step: '1', label: 'Discovery call', text: 'We check what ChatGPT and Google say about your business and who they name instead of you. On the call we learn your business and quote the work.' },
+              { step: '2', label: 'Claim and build', text: 'We claim and verify your ChatGPT business profile with you, complete your Google Business Profile, and fix the website pages and structured data AI engines read.' },
+              { step: '3', label: 'Run it every month', text: 'We keep your profiles current, grow reviews and citations, and publish answer pages for the questions your customers ask.' },
+              { step: '4', label: 'Report', text: 'Every month you get a report with your ChatGPT and Google numbers side by side, so you see where you show up.' },
             ].map(({ step, label, text }) => (
               <div key={step} className="flex gap-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-glass)] p-5">
                 <span className="text-xl font-extrabold text-[var(--text-muted)] font-display shrink-0 w-6">{step}</span>
@@ -44,17 +44,17 @@ export default function HowDoesRhemicAiWorkPage() {
       ]}
       relatedPages={[
         { title: 'How It Works', href: '/how-it-works' },
-        { title: 'Pricing', href: '/pricing' },
+        { title: 'Results', href: '/testimonials' },
         { title: 'Contact', href: '/contact' },
       ]}
       faqs={[
         {
-          question: 'How long does the initial audit take?',
-          answer: 'Initial audit timing depends on the clinic, locations, and scope. Rhemic starts by reviewing visibility, calls, handoffs, and source context before recommending next steps.',
+          question: 'How long does setup take?',
+          answer: 'The profile claim and the first fixes go live in the first weeks. The timing depends on the number of locations and the state of the website.',
         },
         {
           question: 'Do I need to give Rhemic access to my website CMS?',
-          answer: 'No. Rhemic audits your publicly accessible content and runs prompt tests externally. You do not need to grant CMS access for the audit.',
+          answer: 'For the discovery call, no. We review your public pages and test ChatGPT and Google from the outside. To fix your pages we work with whoever runs your website, or we get access with your approval.',
         },
       ]}
     />

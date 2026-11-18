@@ -48,19 +48,19 @@ export const careersRoles: CareerRole[] = [
     founderWorkRemoved:
       "Daily prospect follow-up, call openers, lead qualification, and booked-call chasing.",
     systemPluggedInto:
-      "Med spa lead packets, CRM follow-up, founder-led sales scripts, and ClickUp pipeline updates.",
+      "Local business lead lists, CRM follow-up, founder-led sales scripts, and ClickUp pipeline updates.",
     firstThirtyDaysSuccess:
-      "Consistently books qualified med spa conversations, writes clean follow-ups, and updates every lead without Karim re-explaining the process.",
+      "Consistently books qualified discovery calls with business owners, writes clean follow-ups, and updates every lead without Karim re-explaining the process.",
     description:
-      "Own the first mile of demand. You turn med spa lead packets into booked conversations with sharp calls, fast follow-up, and clean CRM discipline.",
-    tags: ["Sales", "Follow-up", "Med spa GTM"],
+      "Own the first mile of demand. You turn local business lead lists into booked discovery calls with sharp calls, fast follow-up, and clean CRM discipline.",
+    tags: ["Sales", "Follow-up", "Local business GTM"],
     formQuestions: [
-      "Write a 4-sentence call opener for a med spa owner who is missing consults from calls and follow-up gaps.",
+      "Write a 4-sentence call opener for a plumbing company owner whose ChatGPT business profile is unclaimed.",
       "Describe how you would follow up with a lead who replied once, then went quiet.",
       "What sales process or CRM habit have you used that made you more reliable than other reps?",
     ],
     suggestedTestTask:
-      "Write a call opener and follow-up email for a med spa lead packet.",
+      "Write a call opener and follow-up email for a local business owner on our lead list.",
   },
   {
     slug: "client-success-ops-coordinator",
@@ -92,21 +92,21 @@ export const careersRoles: CareerRole[] = [
     type: "Contract · Remote",
     bottleneck: "Fulfillment delivery",
     founderWorkRemoved:
-      "Manual website review, consult-leak detection, delivery prep, and implementation QA notes.",
+      "Manual website review, ChatGPT and Google profile checks, delivery prep, and implementation QA notes.",
     systemPluggedInto:
-      "Med spa website audits, visibility reports, fulfillment SOPs, and client delivery tasks.",
+      "Local business website reviews, visibility reports, fulfillment SOPs, and client delivery tasks.",
     firstThirtyDaysSuccess:
-      "Can inspect a med spa site, find consult-leak opportunities, document fixes, and ship QA-ready work without vague handoff.",
+      "Can inspect a local business site, find what keeps ChatGPT and Google from naming it, document fixes, and ship QA-ready work without vague handoff.",
     description:
       "Help ship the work clients actually paid for. You inspect sites, find leaks, document fixes, and keep delivery moving.",
     tags: ["Fulfillment", "Audits", "QA"],
     formQuestions: [
-      "What would you check first on a med spa website to find missed consult opportunities?",
+      "What would you check first on a local business website to see why ChatGPT names a competitor?",
       "Describe a time you turned a vague task into a finished deliverable.",
-      "List the information you would need before reviewing a med spa website for conversion and visibility issues.",
+      "List the information you would need before reviewing a local business website for visibility issues.",
     ],
     suggestedTestTask:
-      "Review a med spa website and identify 5 consult-leak opportunities.",
+      "Review a local business website and identify 5 fixes that would help ChatGPT and Google name it.",
   },
   {
     slug: "technical-automation-engineer",

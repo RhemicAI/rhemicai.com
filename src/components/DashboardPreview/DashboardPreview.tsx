@@ -11,7 +11,7 @@ export default function DashboardPreview() {
               Early Rhemic customers work directly with the founding team.
             </h2>
             <p className="font-body text-base leading-[1.8] text-[var(--text-secondary)]">
-              Discovery, setup, and growth priorities stay close to the people building the system. The goal is not to hand med spas another dashboard. It is to identify where consults are leaking and build the infrastructure to capture more of the opportunities already moving through search, reviews, Meta Ads data, calls, and AI answers.
+              Discovery, setup, and growth priorities stay close to the people building the system. We claim and build your ChatGPT and Google profiles, fix the pages AI engines read, and grow your reviews and answer pages every month.
             </p>
           </div>
           <div className="rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg-2)] p-6">

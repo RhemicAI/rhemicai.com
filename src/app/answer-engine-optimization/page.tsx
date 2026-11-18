@@ -204,13 +204,13 @@ export default function AnswerEngineOptimizationPage() {
                 href="/pricing"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--btn-primary-bg)] px-6 py-3 text-sm font-semibold text-[var(--btn-primary-text)] transition-transform duration-300 hover:scale-105"
               >
-                See pricing
+                Pricing
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-glass)] px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:bg-[var(--bg-glass-hover)]"
               >
-                Get the audit
+                Book a discovery call
               </Link>
             </div>
           </section>

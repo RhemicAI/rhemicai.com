@@ -10,7 +10,6 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'What We Optimize', href: '/#what-we-optimize' },
-  { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -19,10 +18,9 @@ export default function FixedNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
-  // Canonical audit booking event. The med-spa discovery call this used to
-  // point at is a retired single-vertical event, and it was still the live CTA
-  // on all 23 pages that render this nav, including every /answers page.
-  const bookingCalLink: CalLink = 'rhemic-ai/rhemic-ai-audit-walkthrough';
+  // Canonical booking event: the 30-minute discovery call, the same event the
+  // redesign pages open through AuditButton.
+  const bookingCalLink: CalLink = 'rhemic-ai/discovery-call';
 
   // IntersectionObserver for bg/border toggle (binary, no JS on scroll)
   useEffect(() => {
@@ -124,7 +122,7 @@ export default function FixedNav() {
             calLink={bookingCalLink}
             className="hidden rounded-full bg-[var(--btn-primary-bg)] px-5 py-2.5 font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pulse)] md:block"
           >
-            Get the audit
+            Book a call
           </CalBookingLink>
 
           {/* Hamburger button (mobile only) */}
@@ -181,7 +179,7 @@ export default function FixedNav() {
                 onClick={() => setMenuOpen(false)}
                 className="rounded-full bg-[var(--btn-primary-bg)] px-8 py-3 font-body text-base font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] transition-all duration-300 hover:bg-[var(--pulse)]"
               >
-                Get the audit
+                Book a call
               </CalBookingLink>
             </div>
           </div>
@@ -199,7 +197,7 @@ export default function FixedNav() {
             calLink={bookingCalLink}
             className="w-full rounded-full bg-[var(--btn-primary-bg)] px-5 py-3 text-center font-body text-sm font-semibold tracking-[0.01em] text-[var(--btn-primary-text)] shadow-lg shadow-[var(--pulse-soft)] transition-all duration-200 hover:bg-[var(--pulse)] active:scale-[0.98]"
           >
-            Get a visibility + call leak audit
+            Book a discovery call
           </CalBookingLink>
         </div>
       </div>

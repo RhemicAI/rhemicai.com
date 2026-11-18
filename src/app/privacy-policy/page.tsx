@@ -6,7 +6,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Privacy Policy',
   description:
-    'How Rhemic AI collects, uses, shares, and protects personal and business information across our website, visibility scan, and services.',
+    'How Rhemic AI collects, uses, shares, and protects personal and business information across our website and services.',
   path: '/privacy-policy',
 });
 
@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
           </h1>
           <p className="mt-5 font-body text-[1.1rem] leading-relaxed text-ink-2">
             This policy explains what information Rhemic AI collects, why, how we use and share it, and the
-            choices and rights you have. It covers our website, the free visibility scan, and the services
+            choices and rights you have. It covers our website, our discovery calls, and the services
             we provide.
           </p>
 
@@ -87,17 +87,17 @@ export default function PrivacyPolicyPage() {
           </P>
 
           <H id="what-we-collect">2. What we collect</H>
-          <P>We only collect what we need to run the scan, respond to you, and deliver our services.</P>
+          <P>We only collect what we need to respond to you, prepare for your call, and deliver our services.</P>
           <ul className="mt-4 space-y-2.5">
-            <LI><b>Information you give us.</b> Your name, email, phone number, and business website when you run the visibility scan, fill out a form, or book a call.</LI>
-            <LI><b>Scan inputs.</b> The website address you submit, and the publicly available content we crawl from that address to produce your readiness report.</LI>
+            <LI><b>Information you give us.</b> Your name, email, phone number, and business website when you fill out a form or book a call.</LI>
+            <LI><b>Business details.</b> The website address you give us, and the publicly available information about your business that we review before a discovery call and during our work.</LI>
             <LI><b>Booking information.</b> Details you provide when scheduling a call through our scheduling provider.</LI>
             <LI><b>Usage and device data.</b> Pages viewed, actions taken, approximate location, IP address, browser and device information, and similar analytics collected automatically through cookies and similar technologies.</LI>
           </ul>
 
           <H id="how-we-use-it">3. How we use it</H>
           <ul className="mt-4 space-y-2.5">
-            <LI>Run your visibility scan and generate and deliver your report.</LI>
+            <LI>Review your business&apos;s public presence and prepare for your discovery call.</LI>
             <LI>Respond to you, schedule and hold your audit call, and provide our services.</LI>
             <LI>Operate, secure, and improve our website and product.</LI>
             <LI>Send service messages, and marketing communications where you have opted in or as permitted by law. You can opt out at any time.</LI>
@@ -118,7 +118,7 @@ export default function PrivacyPolicyPage() {
           <H id="sharing">5. How we share it</H>
           <P>We share information only as needed to run the business, never to sell it:</P>
           <ul className="mt-4 space-y-2.5">
-            <LI><b>Service providers</b> who help us operate, such as hosting, our scan backend, analytics, scheduling, email delivery, and CRM, under contracts that limit their use of your data.</LI>
+            <LI><b>Service providers</b> who help us operate, such as hosting, our backend, analytics, scheduling, email delivery, and CRM, under contracts that limit their use of your data.</LI>
             <LI><b>Legal and safety</b> reasons, where required by law or to protect rights, property, or safety.</LI>
             <LI><b>Business transfers</b>, if we are involved in a merger, acquisition, or sale of assets, with notice as required.</LI>
           </ul>

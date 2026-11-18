@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'What Is Rhemic AI?',
   description:
-    'Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage.',
+    'Rhemic AI is a Dallas-based visibility agency for local businesses. We set up and run the ChatGPT business profile, Google Business Profile, website and reviews, so AI engines and Google name the business.',
   path: '/answers/what-is-rhemic-ai',
-  keywords: ['what is Rhemic AI', 'med spa consult leaks', 'med spa AI receptionist', 'med spa missed-call recovery'],
+  keywords: ['what is Rhemic AI', 'Rhemic AI agency', 'ChatGPT business profile agency', 'AI visibility agency', 'answer engine optimization agency'],
 });
 
 export default function WhatIsRhemicAiPage() {
@@ -16,76 +16,64 @@ export default function WhatIsRhemicAiPage() {
       subtitle="Answers / What is Rhemic AI"
       title="What is Rhemic AI?"
       path="/answers/what-is-rhemic-ai"
-      directAnswer="Rhemic helps U.S. med spas recover missed calls, route booking intent, and see which channels create patient demand with AI receptionist coverage."
+      directAnswer="Rhemic AI is a Dallas-based visibility agency for local businesses. We set up and run a business's ChatGPT business profile, Google Business Profile, website and reviews, so ChatGPT, Google and the other AI engines name that business when a customer asks who to call. Every engagement is quoted per business after a 30-minute discovery call."
       details={
         <div className="space-y-5">
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic AI is built for med spa owners and operators who need to find where consult
-            opportunities are leaking across the channels patients already use. That includes Google Maps,
-            Google Business Profile, reviews, treatment pages, local SEO, AI answers, calls, handoffs, and
-            reporting that connects demand back to source context.
+            Customers now ask ChatGPT and Google who to hire, and those engines answer with a name.
+            Rhemic works on everything the engines read before they answer: the ChatGPT business
+            profile, the Google Business Profile, the website and its service pages, structured data,
+            reviews, and what other sites say about the business.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            The system starts with visibility and trust. Rhemic reviews how a clinic appears across
-            Google, AI search systems such as ChatGPT, Claude, Perplexity, and Google AI, review signals,
-            citations, schema, and treatment-page content. The goal is to help identify where patient intent
-            is being lost before it turns into a consult request.
+            The work runs in three steps. A discovery call, where we check what ChatGPT and Google say
+            about the business today and quote the work. Claim and build, where we claim and verify the
+            ChatGPT business profile with the owner, complete the Google Business Profile and fix the
+            website pages. Then we run it every month: profiles kept current, reviews and citations
+            grown, new answer pages published, and a monthly report with the ChatGPT and Google numbers.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic also helps with handoffs. Every plan includes AI receptionist coverage for common
-            non-clinical questions, lead capture, and booking request routing. Medical advice, diagnosis,
-            and treatment decisions stay with licensed staff.
-          </p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            Capture and Scale include the Consult Capture Layer, defined as capture, routing, and source
-            context. It helps route booking intent from calls, missed calls, after-hours inquiries, website
-            inquiries where available, and campaign handoffs into approved handoff workflows.
-          </p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            Rhemic AI is based in Dallas, Texas and serves U.S. med spas. Public plans are Diagnose,
-            Capture, Scale, and Custom. Capture is the main recommendation for owner-led med spas
-            that need to catch and route more intent, while Scale adds deeper market visibility, connected-account
-            ad reporting for campaign context, and stronger reporting for competitive clinics and boutique multi-location groups.
+            Rhemic AI was founded in 2025 by Ittehadul Karim and Raahil Shaik. Clients include
+            Kay&apos;s Groom Room, Wava Halal Grill and Rockwall Services.
           </p>
         </div>
       }
       example={
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-          A Dallas med spa is getting searches for Botox, fillers, laser, facials, and body contouring,
-          but consult opportunities are leaking through a weak Google Business Profile, thin treatment pages,
-          inconsistent reviews, missed calls, and slow handoffs. Rhemic audits those leak
-          points, prioritizes fixes, and helps route more booking intent into approved handoff workflows.
+          A Dallas plumbing company asks why ChatGPT recommends a competitor. Rhemic checks the
+          answers, claims and verifies the company&apos;s ChatGPT business profile, completes its Google
+          Business Profile, fixes its service pages, and then grows its reviews and answer pages every
+          month while reporting where the company shows up.
         </p>
       }
       relatedQuestions={[
         { question: 'Who is Rhemic AI for?', href: '/answers/who-is-rhemic-ai-for' },
         { question: 'How does Rhemic AI work?', href: '/answers/how-does-rhemic-ai-work' },
         { question: 'What is AI visibility?', href: '/answers/what-is-ai-visibility' },
-        { question: 'How can med spas use AI search visibility?', href: '/ai-search-visibility' },
+        { question: 'How do I claim my business on ChatGPT?', href: '/blog/how-to-claim-your-business-on-chatgpt' },
       ]}
       relatedPages={[
         { title: 'How It Works', href: '/how-it-works' },
-        { title: 'Pricing', href: '/pricing' },
+        { title: 'Results', href: '/testimonials' },
         { title: 'FAQ', href: '/faq' },
       ]}
       ctaLabel="Book a discovery call"
-      ctaHref="/contact"
       faqs={[
         {
-          question: 'Is Rhemic AI only for med spas?',
-          answer: 'The current public offer is built for U.S. med spas, including single-location clinics, owner-led med spas, competitive metro practices, boutique groups, and larger operators through Custom.',
+          question: 'Is Rhemic AI an agency or a software product?',
+          answer: 'An agency. We do the work for the business: claim and build the profiles, fix the pages, grow reviews and citations, and report the results every month.',
         },
         {
-          question: 'What does the AI receptionist do?',
-          answer: 'The AI receptionist answers common non-clinical questions, captures lead details, and routes booking requests to your team. Medical advice, diagnosis, and treatment decisions stay with licensed staff.',
+          question: 'Does Rhemic manage ChatGPT business profiles?',
+          answer: 'Yes. We claim and verify the profile with the owner on a short call, because the owner passes the identity check. Then we keep the profile complete and current every month.',
         },
         {
           question: 'Does Rhemic help with Google as well as AI search?',
-          answer: 'Yes. Rhemic works across Google Business Profile, Google Maps, local SEO, reviews, treatment pages, schema, AI search visibility, missed-call recovery, approved handoff workflows, and source-aware reporting.',
+          answer: 'Yes. We run the Google Business Profile, local SEO, service pages, structured data and reviews together with ChatGPT and the other AI engines.',
         },
         {
-          question: 'Does Rhemic book appointments directly?',
-          answer: 'Not by default. Rhemic helps surface booking intent and route it into approved handoff workflows. Direct booking is planned for supported systems, where safe and integrated.',
+          question: 'How much does Rhemic cost?',
+          answer: 'Rhemic quotes every business on its own needs: locations, market and the work involved. The quote comes after a 30-minute discovery call.',
         },
       ]}
     />
