@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import AuditButton from '@/components/redesign/AuditButton';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -84,8 +85,8 @@ export default function ContactPage() {
 
       <PageHero
         subtitle="Contact"
-        title="Get a visibility and call leak audit."
-        description="Talk with Rhemic about search visibility, AI answers, calls, handoffs, source context, and where consult opportunities may be leaking."
+        title="Talk to Rhemic."
+        description="Tell us about your business, or book a 30-minute discovery call. We check what ChatGPT and Google say about you and quote the work your business needs."
         showBackLink={false}
       />
 
@@ -95,7 +96,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="glass-panel p-6 sm:p-8">
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-                Tell us about your clinic
+                Tell us about your business
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
@@ -134,7 +135,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
-                    placeholder="jane@clinic.com"
+                    placeholder="jane@yourbusiness.com"
                   />
                 </div>
 
@@ -144,7 +145,7 @@ export default function ContactPage() {
                     htmlFor="company"
                     className="block text-sm font-semibold text-[var(--text-primary)] mb-2"
                   >
-                    Clinic *
+                    Business *
                   </label>
                   <input
                     type="text"
@@ -154,7 +155,7 @@ export default function ContactPage() {
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all"
-                    placeholder="Your med spa"
+                    placeholder="Your business name"
                   />
                 </div>
 
@@ -176,8 +177,8 @@ export default function ContactPage() {
                   >
                     <option value="">Select your role</option>
                     <option value="owner">Owner / Founder</option>
-                    <option value="operator">Clinic Operator</option>
-                    <option value="practice-manager">Practice Manager</option>
+                    <option value="operator">Operations Lead</option>
+                    <option value="practice-manager">Office Manager</option>
                     <option value="marketing">Marketing Lead</option>
                     <option value="multi-location">Multi-location Leader</option>
                     <option value="other">Other</option>
@@ -200,7 +201,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-[var(--bg-elevated)] border border-[var(--border-default)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--btn-primary-bg)] transition-all resize-none"
-                    placeholder="Tell us about your locations, main treatments, and where consult opportunities may be leaking..."
+                    placeholder="Tell us about your business, your locations and what customers search for..."
                   />
                 </div>
 
@@ -244,20 +245,17 @@ export default function ContactPage() {
 
             {/* Contact Info & CTA */}
             <div className="space-y-8">
-              {/* Book an audit CTA */}
+              {/* Discovery call CTA */}
               <div className="glass-panel p-8">
                 <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                  Ready to find the leaks?
+                  Book a discovery call
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
-                  Get a visibility and call leak audit to review where your clinic can improve Google visibility, trust, call recovery, and consult routing.
+                  One 30-minute call. We show you what ChatGPT and Google say about your business, then quote the work it needs.
                 </p>
-                <Link
-                  href="/free-consult-leak-calculator"
-                  className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  Calculate your leaks for free
-                </Link>
+                <AuditButton className="w-full block text-center px-8 py-4 text-base font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300">
+                  Book a discovery call
+                </AuditButton>
               </div>
 
               {/* Direct Contact */}
@@ -303,21 +301,21 @@ export default function ContactPage() {
                 className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">What We Optimize</h3>
-                <p className="text-sm text-[var(--text-secondary)]">GBP, Maps, reviews, treatment pages, AI answers, missed calls, and Meta Ads intelligence.</p>
+                <p className="text-sm text-[var(--text-secondary)]">ChatGPT business profile, Google Business Profile, website, reviews and answer pages.</p>
               </Link>
               <Link
-                href="/pricing"
+                href="/testimonials"
                 className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
-                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">Pricing</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Diagnose, Capture, Scale, and Custom plans for finding leaks and routing intent.</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">Results</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Kay&apos;s Groom Room, Wava Halal Grill and Rockwall Services.</p>
               </Link>
               <Link
                 href="/about"
                 className="glass-panel group p-6 transition-all hover:border-[var(--border-default)]"
               >
                 <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--pulse-deep)] transition-colors">About Rhemic AI</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Meet the Dallas team building consult opportunity infrastructure for med spas.</p>
+                <p className="text-sm text-[var(--text-secondary)]">Meet the Dallas team behind Rhemic AI.</p>
               </Link>
             </div>
           </div>

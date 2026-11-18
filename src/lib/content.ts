@@ -217,10 +217,8 @@ export const indexableRoutes = [
   "/testimonials",
   "/contact",
   "/careers",
-  "/products",
   "/faq",
   "/how-it-works",
-  "/case-studies",
   "/resources/glossary",
   "/privacy-policy",
   "/terms-of-service",
@@ -236,7 +234,6 @@ export const staticPagePriorities: Record<string, number> = {
   "/services": 0.95,
   "/pricing": 0.95,
   "/testimonials": 0.9,
-  "/products": 0.92,
   "/faq": 0.9,
   "/how-it-works": 0.9,
   // Answers index + answer pages
@@ -247,7 +244,6 @@ export const staticPagePriorities: Record<string, number> = {
   // Glossary
   "/glossary": 0.82,
   "/about": 0.8,
-  "/case-studies": 0.8,
   "/resources/glossary": 0.78,
   // Service stack — the pages an answer engine grounds on for what we sell.
   "/services/aeo": 0.94,

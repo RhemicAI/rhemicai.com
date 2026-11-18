@@ -2,13 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import AuditButton from '@/components/redesign/AuditButton';
 
 const linkRoutes: Record<string, string> = {
   // Product
-  'Pricing': '/pricing',
   'What We Optimize': '/#what-we-optimize',
   'How It Works': '/#how-it-works',
-  'Book the Audit': '/contact',
+  'Book a Call': '/contact',
   // Resources
   'Glossary': '/glossary',
   'FAQ': '/faq',
@@ -23,9 +23,9 @@ const linkRoutes: Record<string, string> = {
 };
 
 const footerLinks = {
-  Solutions: ['What We Optimize', 'How It Works', 'Pricing', 'Book the Audit'],
+  Solutions: ['What We Optimize', 'How It Works', 'Book a Call'],
   Resources: ['Glossary', 'FAQ'],
-  Company: ['About', 'Blog', 'Careers', 'Pricing', 'Contact'],
+  Company: ['About', 'Blog', 'Careers', 'Contact'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 };
 
@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <p className="mt-3 text-sm text-[var(--text-muted)] font-normal leading-[1.6] max-w-xs font-body">
-              Dallas-based system for U.S. med spas finding lost consult opportunities across visibility, calls, handoffs, and source context.
+              Dallas-based visibility agency. We set up and run your ChatGPT business profile, Google Business Profile, website and reviews.
             </p>
             <Image
               src="/rhemic-footer-logo.png"
@@ -80,12 +80,9 @@ export default function Footer() {
 
           {/* CTA column */}
           <div className="md:col-span-2 flex md:justify-end items-start">
-            <Link
-              href="/free-consult-leak-calculator"
-              className="px-6 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Calculate your leaks for free
-            </Link>
+            <AuditButton className="px-6 py-3 text-sm font-semibold text-[var(--bg)] bg-[var(--ink)] rounded-full hover:bg-[var(--pulse)] hover:-translate-y-0.5 transition-all duration-300">
+              Book a discovery call
+            </AuditButton>
           </div>
         </div>
       </div>

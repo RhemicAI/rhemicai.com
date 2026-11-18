@@ -5,9 +5,9 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Who Is Rhemic AI For?',
   description:
-    'Rhemic AI is built for U.S. med spas that want to find lost consult opportunities, route booking intent, and understand source context.',
+    'Rhemic AI works with owner-led local service businesses in the U.S. that want ChatGPT and Google to name them when customers ask who to call.',
   path: '/answers/who-is-rhemic-ai-for',
-  keywords: ['who is Rhemic AI for', 'med spa consult leaks', 'med spa patient acquisition', 'med spa AI receptionist'],
+  keywords: ['who is Rhemic AI for', 'AI visibility for local businesses', 'ChatGPT business profile for home services', 'local business AI search'],
 });
 
 export default function WhoIsRhemicAiForPage() {
@@ -16,61 +16,57 @@ export default function WhoIsRhemicAiForPage() {
       subtitle="Answers / Who is Rhemic AI for"
       title="Who is Rhemic AI for?"
       path="/answers/who-is-rhemic-ai-for"
-      directAnswer="Rhemic AI is for U.S. med spas that want to find lost consult opportunities and route more booking intent to the right team across search visibility, AI answers, calls, handoffs, and source context. It is built for single-location clinics, owner-led med spas, competitive metro practices, boutique groups with two to five locations, and larger operators through Custom."
+      directAnswer="Rhemic AI is for owner-led local service businesses in the United States that want ChatGPT and Google to name them when a customer asks who to call. Home services lead: HVAC, plumbing, electrical, roofing and remodeling. We also work with restaurants, groomers, logistics firms, clinics and similar local businesses, from one location up to several."
       details={
         <div className="space-y-5">
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Single-location med spas</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Home service businesses</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Diagnose is designed for one-location med spas that need to clean up the foundation:
-            Google Business Profile, local SEO, reviews, treatment pages, AI search presence,
-            and Lead Capture Foundation support for source preservation, missed-call opportunity mapping,
-            and manual handoff visibility.
+            HVAC, plumbing, electrical, roofing and remodeling companies win work when a homeowner asks
+            who to call. We make sure ChatGPT and Google have the right facts, the right service pages
+            and enough reviews to name them.
           </p>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Owner-led med spas routing more intent</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Restaurants and local shops</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Capture is the main recommendation for med spas that already have demand and want a
-            stronger system for visibility, reviews, treatment-page priorities, missed-call opportunities,
-            and the Consult Capture Layer for capture, routing, and source context.
+            People ask ChatGPT where to eat and who to book. Wava Halal Grill ranks first in ChatGPT
+            for halal chicken over rice in Richardson, and Kay&apos;s Groom Room comes up as the top
+            pet groomer in Seagoville.
           </p>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Competitive metro med spas and boutique groups</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Service firms with a site Google cannot see</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Scale fits competitive markets, premium practices, multi-treatment clinics, and
-            two to five location operators. It adds the Advanced Consult Capture Layer, Meta Ads source
-            view for connected-account reporting and campaign context, stronger reporting, and advanced AI receptionist scripts.
+            Rockwall Services, a logistics brokerage, had a setting that kept Google from indexing its
+            site. We fixed it, got every page indexed, and the company now ranks first for its own name.
           </p>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Larger med spa operators</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Multi-location businesses</h2>
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Custom is for six or more locations, chains, dermatology groups, PE-backed operators,
-            and teams with a Custom Routing and Integration Layer for complex routing, permissions,
-            audit logs, supported integrations, and custom reporting.
+            Each location gets its own profile, its own local answers and its own competitors. We quote
+            the work by location count and market size.
           </p>
         </div>
       }
       relatedQuestions={[
         { question: 'What is Rhemic AI?', href: '/answers/what-is-rhemic-ai' },
         { question: 'How does Rhemic AI work?', href: '/answers/how-does-rhemic-ai-work' },
-        { question: 'What is AI visibility?', href: '/answers/what-is-ai-visibility' },
-        { question: 'How can med spas improve AI search visibility?', href: '/ai-search-visibility' },
+        { question: 'How can local businesses show up in AI answers?', href: '/answers/how-local-businesses-can-show-up-in-ai-answers' },
+        { question: 'How do I claim my business on ChatGPT?', href: '/blog/how-to-claim-your-business-on-chatgpt' },
       ]}
       relatedPages={[
         { title: 'How It Works', href: '/how-it-works' },
-        { title: 'Pricing', href: '/pricing' },
+        { title: 'Results', href: '/testimonials' },
         { title: 'FAQ', href: '/faq' },
       ]}
       ctaLabel="Book a discovery call"
-      ctaHref="/contact"
       faqs={[
         {
-          question: 'Which plan is the main recommendation?',
-          answer: 'Capture is the main recommendation for owner-led med spas that want better visibility, better call coverage, and the Consult Capture Layer for capture, routing, and source context.',
+          question: 'Do you work with businesses outside Texas?',
+          answer: 'Yes. Rhemic is based in Dallas and works with local businesses across the United States.',
         },
         {
-          question: 'Does every plan include the AI receptionist?',
-          answer: 'Yes. Every Rhemic plan includes AI receptionist coverage for common non-clinical questions, lead capture, and booking request routing. Capture and Scale add stronger missed-call recovery, more advanced scripts, and deeper reporting.',
+          question: 'Do I need a website to work with Rhemic?',
+          answer: 'A website helps ChatGPT and Google understand your business. If you need one, we build it as part of the engagement.',
         },
         {
-          question: 'Do we need to switch booking software?',
-          answer: 'No. Rhemic routes booking intent into approved handoff workflows around the tools your clinic already uses. Direct integrations with systems like Boulevard, Mangomint, Zenoti, AestheticsPro, Meevo, and similar platforms are on the roadmap.',
+          question: 'How is the price set?',
+          answer: 'We quote every business on its own needs: the number of locations, the market and the work involved. The quote comes after a 30-minute discovery call.',
         },
       ]}
     />

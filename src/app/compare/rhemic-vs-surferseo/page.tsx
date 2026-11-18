@@ -92,9 +92,9 @@ export default function RhemicVsSurferSeoPage() {
             href: '/compare/rhemic-vs-clearscope',
           },
           {
-            title: 'Products',
-            description: 'Review the product stack behind the comparison.',
-            href: '/products',
+            title: 'Services',
+            description: 'AEO, GEO, SEO and Google Business Profile, run as one engagement.',
+            href: '/services',
           },
         ]}
       />

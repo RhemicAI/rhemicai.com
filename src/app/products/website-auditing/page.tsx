@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import AuditButton from '@/components/redesign/AuditButton';
 import PaperNav from '@/components/redesign/PaperNav';
 import PaperFooter from '@/components/redesign/PaperFooter';
 import PageHero from '@/components/shared/PageHero';
@@ -161,21 +162,18 @@ export default function WebsiteAuditingPage() {
                 Ready to see how AI engines view your site?
               </h2>
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a demo and we&apos;ll run a live audit on your website. See exactly
-                what needs fixing and how much visibility you&apos;re leaving on the table.
+                Book a 30-minute discovery call. We show you what ChatGPT and Google read on your
+                site, what needs fixing, and quote the work.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <AuditButton className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300">
+                  Book a discovery call
+                </AuditButton>
                 <Link
-                  href="/free-consult-leak-calculator"
-                  className="inline-block px-8 py-4 text-base font-semibold text-[var(--btn-primary-text)] bg-[var(--btn-primary-bg)] rounded-full hover:scale-105 transition-transform duration-300"
-                >
-                  Calculate your leaks for free
-                </Link>
-                <Link
-                  href="/products"
+                  href="/services"
                   className="px-8 py-4 text-base font-semibold text-[var(--text-primary)] bg-[var(--bg-glass)] border border-[var(--border-default)] rounded-full hover:bg-[var(--bg-glass-hover)] transition-colors duration-300"
                 >
-                  Explore All Products
+                  See all services
                 </Link>
               </div>
             </div>
@@ -223,7 +221,7 @@ export default function WebsiteAuditingPage() {
           },
           {
             title: 'Pricing',
-            description: 'Med spa plans are Diagnose, Capture, Scale, and Custom.',
+            description: 'Quoted per business after a discovery call.',
             href: '/pricing',
           },
         ]}

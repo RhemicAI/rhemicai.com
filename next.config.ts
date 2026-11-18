@@ -51,6 +51,9 @@ const nextConfig: NextConfig = {
     { source: "/terms-of-serviceTerms", destination: "/terms-of-service", permanent: true },
     { source: "/privacy-policyPrivacy", destination: "/privacy-policy", permanent: true },
     { source: "/mo", destination: "/", permanent: true },
+    // Retired 2026-11-18: med spa era pages. Their content moved to /services and /testimonials.
+    { source: "/products", destination: "/services", permanent: true },
+    { source: "/case-studies", destination: "/testimonials", permanent: true },
   ],
 };
 

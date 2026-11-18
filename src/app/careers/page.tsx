@@ -8,12 +8,12 @@ import RelatedLinks from '@/components/shared/RelatedLinks';
 export const metadata: Metadata = {
   title: 'Careers - Join the Rhemic AI Team',
   description:
-    "Join Rhemic AI and help U.S. med spas find lost consult opportunities across visibility, calls, handoffs, and source context.",
+    "Join Rhemic AI and help local businesses get named by ChatGPT and Google when customers ask who to call.",
   alternates: { canonical: 'https://rhemicai.com/careers' },
   openGraph: {
     title: 'Careers - Join the Rhemic AI Team',
     description:
-      "Join Rhemic AI and help U.S. med spas find lost consult opportunities.",
+      "Join Rhemic AI and help local businesses get named by ChatGPT and Google.",
     url: 'https://rhemicai.com/careers',
   },
 };
@@ -41,9 +41,9 @@ export default function CareersPage() {
             href: '/about',
           },
           {
-            title: 'Pricing',
-            description: 'Transparent Diagnose, Capture, Scale, and Custom plans for U.S. med spas.',
-            href: '/pricing',
+            title: 'Results',
+            description: 'The businesses we got ChatGPT and Google to name.',
+            href: '/testimonials',
           },
           {
             title: 'Contact Us',

@@ -16,7 +16,7 @@ const engines = [
 
 const ribbon = [
   'Home services', 'HVAC', 'Plumbing', 'Electrical', 'Roofing', 'Auto',
-  'Dental', 'Clinics', 'Med spas', 'Cleaning', 'Landscaping', 'Salons',
+  'Dental', 'Restaurants', 'Groomers', 'Cleaning', 'Landscaping', 'Salons',
 ];
 
 const outcomes = [
