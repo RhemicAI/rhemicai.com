@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
     // in the index instead of consolidating it. Declared here so it emits 308.
     { source: "/for-local-businesses", destination: "/", permanent: true },
     { source: "/free-consult-leak-calculator", destination: "/", permanent: true },
+    // Mangled URLs Google found with link text glued to the path (GSC 404 report, 2026-11-18).
+    { source: "/testimonialsResults", destination: "/testimonials", permanent: true },
+    { source: "/aboutAbout", destination: "/about", permanent: true },
+    { source: "/terms-of-serviceTerms", destination: "/terms-of-service", permanent: true },
+    { source: "/privacy-policyPrivacy", destination: "/privacy-policy", permanent: true },
+    { source: "/mo", destination: "/", permanent: true },
   ],
 };
 
