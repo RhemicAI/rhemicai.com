@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import CareersApplicationClient from '@/components/Careers/CareersApplicationClient';
 import FixedNav from '@/components/FixedNav/FixedNav';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/shared/PageHero';
@@ -25,12 +24,10 @@ export default function CareersPage() {
 
       <PageHero
         subtitle="Careers"
-        title="Build the systems that remove founder bottlenecks."
-        description="We are currently hiring for SDR / Appointment Setter. Additional operations, fulfillment, and engineering roles are coming soon."
+        title="Careers coming soon."
+        description="Open roles go up on this page. Until then, email contact@rhemicai.com to introduce yourself."
         showBackLink={false}
       />
-
-      <CareersApplicationClient />
 
       <RelatedLinks
         heading="Learn more about Rhemic AI"
