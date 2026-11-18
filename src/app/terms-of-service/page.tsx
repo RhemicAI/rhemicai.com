@@ -4,18 +4,17 @@ import FixedNav from "@/components/FixedNav/FixedNav";
 import Footer from "@/components/Footer/Footer";
 import SummaryModal from "@/components/SummaryModal/SummaryModal";
 
-const tosSummary = `Rhemic AI LLC provides med spa visibility, AI search, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services. Specific deliverables and fees are defined in separate agreements.
+const tosSummary = `Rhemic AI LLC provides local business visibility services: ChatGPT business profile and Google Business Profile management, website work, answer engine optimization, SEO, reviews, and reporting. Specific deliverables and fees are defined in separate agreements.
 
 Key Points:
-- No guaranteed results. Search visibility, AI answers, ads platforms, and booking outcomes depend on third-party systems and factors outside our control.
-- Clients must provide accurate information, comply with platform rules, and approve all published materials, scripts, policies, and handoff rules.
+- No guaranteed results. Search visibility, AI answers, business profile platforms, and customer outcomes depend on third-party systems and factors outside our control.
+- Clients must provide accurate information, comply with platform rules, complete any identity verification a platform requires, and approve all published materials.
 - Rhemic AI retains ownership of all proprietary tools, methodologies, and frameworks. Clients retain ownership of their brand assets and data.
 - Both parties maintain confidentiality of non-public information, surviving termination.
 - Fees are defined in separate agreements. Late payments may result in service suspension. Fees are generally non-refundable.
 - Either party may terminate per the governing agreement. Rhemic AI may terminate immediately for non-payment, fraud, or material breach.
 - Services are provided "as is" with no warranties. Liability is capped at fees paid in the preceding 3 months.
 - Clients indemnify Rhemic AI against claims from client-provided materials, legal violations, or IP infringement.
-- The AI receptionist handles common non-clinical questions, lead capture, and booking request routing. Medical advice, diagnosis, treatment recommendations, and clinical decisions stay with licensed staff.
 - Governed by Texas law. Disputes resolved in Texas courts, with optional binding arbitration.
 
 Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
@@ -23,12 +22,12 @@ Contact: contact@rhemicai.com | RHEMIC AI LLC, Dallas, Texas`;
 export const metadata: Metadata = {
   title: "Terms of Service | Rhemic AI",
   description:
-    "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services.",
+    "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of local business visibility services, including ChatGPT business profile and Google Business Profile management, website work, answer engine optimization, SEO, reviews, and reporting.",
   alternates: { canonical: "https://rhemicai.com/terms-of-service" },
   openGraph: {
     title: "Terms of Service | Rhemic AI",
     description:
-      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of med spa visibility, AI receptionist, missed-call recovery, Meta Ads intelligence, and reporting services.",
+      "Terms of Service for RHEMIC AI LLC. Read our terms governing access to and use of local business visibility services, including ChatGPT business profile and Google Business Profile management, website work, answer engine optimization, SEO, reviews, and reporting.",
     url: "https://rhemicai.com/terms-of-service",
   },
 };
@@ -68,7 +67,7 @@ export default function TermsOfService() {
             RHEMIC AI LLC
           </p>
           <p className="mt-1 text-sm text-[var(--text-muted)]">
-            Effective Date: February 13th, 2026
+            Effective Date: February 13th, 2026 · Last updated: November 18th, 2026
           </p>
           <div className="mt-6">
             <SummaryModal summary={tosSummary} />
@@ -90,16 +89,16 @@ export default function TermsOfService() {
               1. Services Overview
             </h2>
             <p className="mb-4">
-              RHEMIC AI LLC provides professional services for med spas
+              RHEMIC AI LLC provides professional services for local businesses
               including, but not limited to:
             </p>
             <ul className="mb-4 list-disc space-y-2 pl-6">
+              <li>ChatGPT business profile setup and management</li>
               <li>Google Business Profile and local visibility support</li>
-              <li>AI search visibility consulting</li>
-              <li>AI receptionist coverage for common non-clinical questions</li>
-              <li>Missed-call recovery and booking request routing</li>
-              <li>Meta Ads dashboard and connected-account reporting</li>
-              <li>Analytics and performance optimization</li>
+              <li>AI search visibility (AEO and GEO) and SEO</li>
+              <li>Website design, development, and optimization</li>
+              <li>Review and citation growth</li>
+              <li>Analytics, reporting, and performance optimization</li>
             </ul>
             <p>
               Specific services, deliverables, fees, and timelines will be
@@ -115,7 +114,7 @@ export default function TermsOfService() {
             </h2>
             <p className="mb-4">
               Due to the evolving and third-party-controlled nature of AI
-              systems, search engines, and digital advertising platforms:
+              systems, search engines, and business profile platforms:
             </p>
             <ul className="mb-4 list-disc space-y-2 pl-6">
               <li>
@@ -127,10 +126,6 @@ export default function TermsOfService() {
               </li>
               <li>
                 Algorithm or platform policy changes may impact performance.
-              </li>
-              <li>
-                Medical advice, diagnosis, treatment recommendations, and
-                clinical decisions remain with licensed staff.
               </li>
             </ul>
             <p>
